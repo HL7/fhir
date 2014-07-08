@@ -21,6 +21,7 @@
   <WindowTopX>19305</WindowTopX>
   <WindowTopY>75</WindowTopY>
   <TabRatio>651</TabRatio>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1043,7 +1044,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1453,12 +1453,12 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="58.5"/>
+   <Column ss:Width="94.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="186"/>
-   <Column ss:AutoFitWidth="0" ss:Width="68.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="122.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:Width="180"/>
    <Column ss:AutoFitWidth="0" ss:Width="63.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">Name</Data></Cell>
@@ -1498,6 +1498,41 @@
     <Cell><Data ss:Type="String">tool</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SDC DE Manager</Data></Cell>
+    <Cell><Data ss:Type="String">SDC Repository for Data Elements</Data></Cell>
+    <Cell><Data ss:Type="String">sdc-demanager</Data></Cell>
+    <Cell><Data ss:Type="String">conformance-sdc-de-manager.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SDC Form Designer</Data></Cell>
+    <Cell><Data ss:Type="String">SDC Form authoring system</Data></Cell>
+    <Cell><Data ss:Type="String">sdc-formdesigner</Data></Cell>
+    <Cell><Data ss:Type="String">conformance-sdc-form-designer.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SDC Form Filler</Data></Cell>
+    <Cell><Data ss:Type="String">SDC System for completing forms</Data></Cell>
+    <Cell><Data ss:Type="String">sdc-formfiller</Data></Cell>
+    <Cell><Data ss:Type="String">conformance-sdc-form-filler.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SDC Form Manager</Data></Cell>
+    <Cell><Data ss:Type="String">SDC Repository for forms</Data></Cell>
+    <Cell><Data ss:Type="String">sdc-formmanager</Data></Cell>
+    <Cell><Data ss:Type="String">conformance-sdc-form-manager.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SDC Form Receiver</Data></Cell>
+    <Cell><Data ss:Type="String">SDC Repository for completed forms</Data></Cell>
+    <Cell><Data ss:Type="String">sdc-formreceiver</Data></Cell>
+    <Cell><Data ss:Type="String">conformance-sdc-form-receiver.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1506,11 +1541,26 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

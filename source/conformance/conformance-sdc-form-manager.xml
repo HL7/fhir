@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir C:\Users\office\Documents\Projects\HL7Generator\FHIR2\build\publish\conformance.xsd">
+  <name value="SDC Form Manager"/>
+  <publisher value="U.S. Office of the National Coordinator (ONC)"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+  </telecom>
+  <description value="This profile defines the expected capabilities of the SDC Form Manager role when conforming to the ONC's Structured Data Capture FHIR implementation guide.  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data."/>
+  <status value="draft"/>
+  <date value="2014-07-06"/>
+  <fhirVersion value="0.2"/>
+  <acceptUnknown value="false"/>
+  <format value="xml"/>
+  <format value="json"/>
+  <rest>
+    <mode value="server"/>
+    <documentation value="The primary focus of the repository is the definition of Questionnaires.  However, ValueSets must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing Questionnaire.)"/>
+    <security>
+      <description value="Implementations must meet the general security requirements documented in the SDC implementation guide."/>
+    </security>
+    <resource>
+      <type value="Questionnaire"/>
+      <profile>
+        <reference value="http://hl7.org/fhir/Profile/questionnaire-sdc"/>
+      </profile>
+      <operation>
+        <code value="search-type"/>
+        <documentation value="SHALL.  Allows a user to search for existing forms"/>
+      </operation>
+      <operation>
+        <code value="read"/>
+        <documentation value="SHALL.  Allows retrieval of a specific known form"/>
+      </operation>
+      <operation>
+        <code value="vread"/>
+        <documentation value="SHALL. Allows retrieval of a specific version of a form"/>
+      </operation>
+      <operation>
+        <code value="history-instance"/>
+        <documentation value="SHALL. Allows review of changes to a form over time"/>
+      </operation>
+      <operation>
+        <code value="create"/>
+        <documentation value="SHALL. Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'."/>
+      </operation>
+      <operation>
+        <code value="update"/>
+        <documentation value="SHALL. Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms."/>
+      </operation>
+      <operation>
+        <code value="validate"/>
+        <documentation value="SHOULD. Allows a client to verify whether a particular new form or revision of an existing form would be accepted based on validation and other business rules.  Useful for some workflows"/>
+      </operation>
+      <operation>
+        <code value="delete"/>
+        <documentation value="MAY. Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc."/>
+      </operation>
+      <searchInclude value="Questionnaire.group.question.options"/>
+      <searchParam>        <name value="code"/>
+        <definition value="http://hl7.org/fhir/Profile/questionnaire#code"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="date"/>
+        <definition value="http://hl7.org/fhir/Profile/questionnaire#date"/>
+        <type value="date"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/Profile/questionnaire#identifier"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="publisher"/>
+        <definition value="http://hl7.org/fhir/Profile/questionnaire#publisher"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/Profile/questionnaire#status"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="title"/>
+        <definition value="http://hl7.org/fhir/Profile/questionnaire#title"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/Profile/questionnaire#version"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="deReference"/>
+        <definition value="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+    </resource>
+    <resource>
+      <type value="ValueSet"/>
+      <profile>
+        <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
+      </profile>
+      <operation>
+        <code value="search-type"/>
+        <documentation value="SHALL. Allows discovery of existing value sets for use in authoring questionnaires"/>
+      </operation>
+      <operation>
+        <code value="read"/>
+        <documentation value="SHALL. Allows retrieval of a specific value set referenced within a questionnaire"/>
+      </operation>
+      <operation>
+        <code value="vread"/>
+        <documentation value="SHALL. Allows retrieval of a historical version of a value set as referenced within a questionnaire"/>
+      </operation>
+      <operation>
+        <code value="history-instance"/>
+        <documentation value="SHALL. Allows review of changes to a value set over time"/>
+      </operation>
+      <operation>
+        <code value="create"/>
+        <documentation value="SHALL. Allows definition of a new value set used by one or more questionnaires"/>
+      </operation>
+      <operation>
+        <code value="update"/>
+        <documentation value="SHALL. Allows existing value sets referenced by one or more questionnaires to be maintained"/>
+      </operation>
+      <operation>
+        <code value="validate"/>
+        <documentation value="SHOULD. Allows verification that a value set is valid prior to submission - useful for some workflows."/>
+      </operation>
+      <operation>
+        <code value="delete"/>
+        <documentation value="MAY. Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
+        <!-- Should we include this in the conformance statement at all? -->
+      </operation>
+      <searchInclude value="ValueSet.compose.import"/>
+      <searchParam>
+        <name value="code"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#code"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="date"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#date"/>
+        <type value="date"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="description"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#description"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#identifier"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#name"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="publisher"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#publisher"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="reference"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#reference"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#status"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="system"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#system"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#version"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <!-- Any custom search parameters for value set? -->
+    </resource>
+    <!-- TODO: Include reference to pre-population service -->
+  </rest>
+</Conformance>

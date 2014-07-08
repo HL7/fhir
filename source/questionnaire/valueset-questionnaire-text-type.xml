@@ -14,7 +14,7 @@
     <concept>
       <code value="instruction"/>
       <display value="instruction"/>
-      <definition value="The text provides instructions intended to be rendered with the element explaining how the content of the element is to be completed"/>
+      <definition value="The text provides instructions intended to be rendered with the element explaining how the content of the element is to be completed.  This should be rendered in-line before the question or group."/>
     </concept>
     <concept>
       <code value="security"/>
@@ -27,7 +27,7 @@
       <definition value="The content is intended for display if a user selects an icon or performs some other action seeking help about the element"/>
     </concept>
     <concept>
-      <code value="tool-tip"/>
+      <code value="tooltip"/>
       <display value="tool tip"/>
       <definition value="The content is intended for use in a fly-over or similar display mechanism - primarily intended for online form entry"/>
     </concept>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir C:\Users\office\Documents\Projects\HL7Generator\FHIR2\build\publish\conformance.xsd">
+  <name value="SDC Form Designer"/>
+  <publisher value="U.S. Office of the National Coordinator (ONC)"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+  </telecom>
+  <description value="This profile defines the expected capabilities of the SDC Form Designer role when conforming to the ONC's Structured Data Capture FHIR implementation guide.  This role is responsible for defining forms (Questionnaire resource instances) that include references to DataElement resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms."/>
+  <status value="draft"/>
+  <date value="2014-07-06"/>
+  <fhirVersion value="0.2"/>
+  <acceptUnknown value="false"/>
+  <format value="xml"/>
+  <format value="json"/>
+  <rest>
+    <mode value="client"/>
+    <documentation value="The Questionnaire resource is used to create and maintain SDC-compliant forms.  The DataElement resource is used to look-up existing data elements that can be referenced in forms.  Optionally, DataElements can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The ValueSet resource is used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets will be handled as 'contained' resources, meaning the value set exists only in the context of the Questionnaire and cannot be referenced or maintained without also updating the form.  However, systems should support value set re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing Questionnaire.)"/>
+    <security>
+      <description value="Implementations must meet the general security requirements documented in the SDC implementation guide."/>
+    </security>
+    <resource>
+      <type value="Questionnaire"/>
+      <profile>
+        <reference value="http://hl7.org/fhir/Profile/questionnaire-sdc"/>
+      </profile>
+      <operation>
+        <code value="search-type"/>
+        <documentation value="SHALL. Allows discovery of existing questionnaires for editing"/>
+      </operation>
+      <operation>
+        <code value="read"/>
+        <documentation value="SHALL. Allows retrieval of a specific questionnaire by id"/>
+      </operation>
+      <operation>
+        <code value="create"/>
+        <documentation value="SHALL. Allows submission of a new form design"/>
+      </operation>
+      <operation>
+        <code value="update"/>
+        <documentation value="SHALL. Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one."/>
+      </operation>
+      <operation>
+        <code value="history-instance"/>
+        <documentation value="SHOULD. Allows review of changes to questionnaire over time"/>
+      </operation>
+      <operation>
+        <code value="vread"/>
+        <documentation value="SHOULD. Allows retrieval of a historical version of a questionnaire"/>
+      </operation>
+      <operation>
+        <code value="delete"/>
+        <documentation value="MAY. Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner."/>
+        <!-- Should we include this in the conformance statement at all? -->
+      </operation>
+      <operation>
+        <code value="validate"/>
+        <documentation value="MAY. Allows verification that form is valid prior to submission - useful for some workflows."/>
+      </operation>
+      <!-- Do we want to define what search criteria must be supported? -->
+    </resource>
+    <resource>
+      <type value="ValueSet"/>
+      <profile>
+        <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
+      </profile>
+      <operation>
+        <code value="search-type"/>
+        <documentation value="SHALL. Allows discovery of existing value sets for use by questions in a form"/>
+      </operation>
+      <operation>
+        <code value="read"/>
+        <documentation value="SHALL. Allows retrieval of a specific value set by id"/>
+      </operation>
+      <operation>
+        <code value="create"/>
+        <documentation value="SHALL. Allows definition of a new value set used by one or more questions"/>
+      </operation>
+      <operation>
+        <code value="update"/>
+        <documentation value="SHALL. Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one."/>
+      </operation>
+      <operation>
+        <code value="history-instance"/>
+        <documentation value="SHOULD. Allows review of changes to a value set over time"/>
+      </operation>
+      <operation>
+        <code value="vread"/>
+        <documentation value="SHOULD. Allows retrieval of a historical version of a value set"/>
+      </operation>
+      <operation>
+        <code value="delete"/>
+        <documentation value="MAY. Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
+        <!-- Should we include this in the conformance statement at all? -->
+      </operation>
+      <operation>
+        <code value="validate"/>
+        <documentation value="MAY. Allows verification that a value set is valid prior to submission - useful for some workflows."/>
+      </operation>
+      <!-- Do we want to define what search criteria must be supported? -->
+    </resource>
+    <resource>
+      <type value="DataElement"/>
+      <profile>
+        <reference value="http://hl7.org/fhir/Profile/dataelement-sdc"/>
+      </profile>
+      <operation>
+        <code value="search-type"/>
+        <documentation value="SHALL.  Allows a user to search for existing data elements for re-use in a form design"/>
+      </operation>
+      <operation>
+        <code value="read"/>
+        <documentation value="SHALL.  Allows retrieval of data elements referenced in an existing form design"/>
+      </operation>
+      <operation>
+        <code value="vread"/>
+        <documentation value="SHOULD. Allows viewing of specific versions of a data element if the form references a specific version"/>
+        <!-- Do we need this to be SHALL too? -->
+      </operation>
+      <operation>
+        <code value="history-instance"/>
+        <documentation value="SHOULD. Allows review of changes to a data element over time"/>
+      </operation>
+      <operation>
+        <code value="create"/>
+        <documentation value="MAY. Allows defining new data elements for subsequent re-use while creating and editing forms"/>
+      </operation>
+      <operation>
+        <code value="update"/>
+        <documentation value="MAY. Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one."/>
+      </operation>
+      <operation>
+        <code value="delete"/>
+        <documentation value="MAY. Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements."/>
+      </operation>
+      <operation>
+        <code value="validate"/>
+        <documentation value="MAY. Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission"/>
+      </operation>
+      <!-- Do we want to define what search criteria must be supported? -->
+    </resource>
+  </rest>
+</Conformance>

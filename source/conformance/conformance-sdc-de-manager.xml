@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir C:\Users\office\Documents\Projects\HL7Generator\FHIR2\build\publish\conformance.xsd">
+  <name value="SDC Data Element Manager"/>
+  <publisher value="U.S. Office of the National Coordinator (ONC)"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+  </telecom>
+  <description value="This profile defines the expected capabilities of the SDC Data Element Manager role when conforming to the ONC's Structured Data Capture FHIR implementation guide.  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support
+  of SDC use-cases, including the pre-population and auto-population of forms."/>
+  <status value="draft"/>
+  <date value="2014-07-06"/>
+  <fhirVersion value="0.2"/>
+  <acceptUnknown value="false"/>
+  <format value="xml"/>
+  <format value="json"/>
+  <rest>
+    <mode value="server"/>
+    <documentation value="The primary focus of the repository is the definition of DataElements.  However, ValueSets must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing Questionnaire.)"/>
+    <security>
+      <description value="Implementations must meet the general security requirements documented in the SDC implementation guide."/>
+    </security>
+    <resource>
+      <type value="DataElement"/>
+      <profile>
+        <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
+      </profile>
+      <operation>
+        <code value="search-type"/>
+        <documentation value="SHALL.  Allows a user to search for existing data elements"/>
+      </operation>
+      <operation>
+        <code value="read"/>
+        <documentation value="SHALL.  Allows retrieval of a specific known data element"/>
+      </operation>
+      <operation>
+        <code value="vread"/>
+        <documentation value="SHALL. Allows retrieval of a specific version of a data element"/>
+      </operation>
+      <operation>
+        <code value="history-instance"/>
+        <documentation value="SHALL. Allows review of changes to a data element over time"/>
+      </operation>
+      <operation>
+        <code value="create"/>
+        <documentation value="SHALL. Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'."/>
+      </operation>
+      <operation>
+        <code value="update"/>
+        <documentation value="SHALL. Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements."/>
+      </operation>
+      <operation>
+        <code value="validate"/>
+        <documentation value="SHOULD. Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows"/>
+      </operation>
+      <operation>
+        <code value="delete"/>
+        <documentation value="MAY. Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
+      </operation>
+      <searchInclude value="DataElement.binding.valueSet"/>
+      <searchParam>
+        <name value="category"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#category"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="code"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#code"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="date"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#date"/>
+        <type value="date"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="description"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#description"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#identifier"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#name"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="publisher"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#publisher"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#status"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#version"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="meaning"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement-11179#meaning"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="objectClass"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement-11179#objectClass"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="property"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement-11179#property"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+    </resource>
+    <resource>
+      <type value="ValueSet"/>
+      <profile>
+        <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
+      </profile>
+      <operation>
+        <code value="search-type"/>
+        <documentation value="SHALL. Allows discovery of existing value sets for use in authoring data elements"/>
+      </operation>
+      <operation>
+        <code value="read"/>
+        <documentation value="SHALL. Allows retrieval of a specific value set referenced within a data element"/>
+      </operation>
+      <operation>
+        <code value="vread"/>
+        <documentation value="SHALL. Allows retrieval of a historical version of a value set as referenced within a data element"/>
+      </operation>
+      <operation>
+        <code value="history-instance"/>
+        <documentation value="SHALL. Allows review of changes to a value set over time"/>
+      </operation>
+      <operation>
+        <code value="create"/>
+        <documentation value="SHALL. Allows definition of a new value set used by one or more data elements"/>
+      </operation>
+      <operation>
+        <code value="update"/>
+        <documentation value="SHALL. Allows existing value sets referenced by one or more data elements to be maintained"/>
+      </operation>
+      <operation>
+        <code value="validate"/>
+        <documentation value="SHOULD. Allows verification that a value set is valid prior to submission - useful for some workflows."/>
+      </operation>
+      <operation>
+        <code value="delete"/>
+        <documentation value="MAY. Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
+        <!-- Should we include this in the conformance statement at all? -->
+      </operation>
+      <searchInclude value="ValueSet.compose.import"/>
+      <searchParam>
+        <name value="code"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#code"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="date"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#date"/>
+        <type value="date"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="description"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#description"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#identifier"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#name"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="publisher"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#publisher"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="reference"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#reference"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#status"/>
+        <type value="token"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="system"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#system"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <searchParam>
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#version"/>
+        <type value="string"/>
+        <documentation value="SHALL"/>
+      </searchParam>
+      <!-- Any custom search parameters for value set? -->
+    </resource>
+  </rest>
+</Conformance>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+      
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<p>
+Some of the SDC transactions make use of patient-specific information.  Even those that merely retrieve empty forms could
+be abused by malicious actors to corrupt the form - resulting in the potential subsequent exposure of patient data.  For this
+reason, all SDC transactions must be appropriately secured with access to limited to authorized individuals, data protected
+while in transit and appropriate audit measure taken.
+</p>
+<p>
+Implementers should be aware of the <a href="security.html">security considerations</a> associated with FHIR transactions,
+particularly those related to:
+</p>
+<ul>
+  <li><a href="security.html#http">Communications</a></li>
+  <li><a href="security.html#authentication">Authentication</a></li>
+  <li><a href="security.html#binding">Authorization/Access Control</a></li>
+  <li><a href="security.html#audit">Audit Logging</a></li>
+  <li><a href="security.html#signatures">Digital Signatures</a></li>
+</ul>
+<p>
+For the purposes of SDC, security conformance rules are as follows:
+</p>
+<ul>
+  <li>Systems SHALL use TLS version 1.0 or higher with bi-directional certificate validation for all transmissions not 
+  taking place over a secure network connection.<br/>
+  (Using TLS even within a secured network environment is still encouraged to provide defense in depth.)</li>
+  <li>Systems SHALL use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level)</li>
+  <li>Systems SHALL use either IHE's ATNA standard for audit logging or an equivalent using the <a href="securityevent.html">SecurityEvent</a>
+  resource</li>
+  <li>Where workflow requires digital signatures on forms or on answer submissions, implementers SHALL make use of the
+  <a href="provenance.html">Provenance</a> resource to record such signatures.</li>
+</ul>
+
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>

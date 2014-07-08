@@ -108,6 +108,9 @@
   <Style ss:ID="s77">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s78">
+   <Alignment ss:Vertical="Top"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="14" x:FullColumns="1"
@@ -243,7 +246,7 @@
   <Names>
    <NamedRange ss:Name="_Toc253739461" ss:RefersTo="=Extensions!R12C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="30" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="31" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="112.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="102.75"/>
@@ -255,7 +258,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="155.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="171"/>
    <Column ss:Index="11" ss:AutoFitWidth="0" ss:Width="187.5"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Context Type</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Context</Data></Cell>
@@ -272,27 +275,27 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">To Do</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">ordinalValue</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include.code;ValueSet.define.concept;ValueSet.expansion.contains</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Comparison value for ordinal codes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">conceptOrder</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include.code;ValueSet.define.concept;ValueSet.expansion.contains</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Appearance order for user selection</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s75"><Data ss:Type="String">display</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
@@ -302,7 +305,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Display value for the code</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s75"><Data ss:Type="String">systemName</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
@@ -311,7 +314,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Code system name</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s75"><Data ss:Type="String">systemRef</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
@@ -320,7 +323,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Where to find code system</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">otherName</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
@@ -330,7 +333,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Alternative names</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Human readable names for the valueset</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="90">
     <Cell ss:StyleID="s75"><Data ss:Type="String">otherName.name</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -341,7 +344,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">This name is intended to be human readable, short and as specific as possible and to convey the purpose of the value set.  It is considered to be the name of the value set</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s74"><Data ss:Type="String">This need not be unique. However some use cases require uniqueness within a namespace and therefore best practice would be to make the name unique</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">otherName.language</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -351,7 +354,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">IETF language tag (BCP-13)</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">This indicates the language system (e.g. US English) in which the name is expressed</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">otherName.preferred</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -362,7 +365,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Flag that this Name in this Name Language is the preferred human-readable signifier in this language</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">There may be multiple human readable names in a given language, and this flag indicates which of them is preferred for the given language</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="105">
     <Cell ss:StyleID="s75"><Data ss:Type="String">sourceReference</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
@@ -373,7 +376,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">: This text is intended to act as a citation to work done elsewhere that is not part of the current stewarding process where the referenced source is in some way a basis of the current value set definition</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s74"><Data ss:Type="String">This is not intended to be a direct link to another value set. It is only intended to support a link or textual description that indicates related material for the value set</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="60">
     <Cell ss:StyleID="s75"><Data ss:Type="String">keyWord</Data><NamedCell
       ss:Name="_Toc253739461"/></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
@@ -384,7 +387,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">can be used to help find the value set</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Word or words used in an information retrieval system to indicate the content of the value set</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="150">
     <Cell ss:StyleID="s75"><Data ss:Type="String">usage</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
@@ -395,7 +398,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">The optional and repeating Use set of elements hold information about consumers of the value set and the implementations, projects or standards that the author has utilized the value set in.  Value sets that share the same Use information can be grouped together by that information for implementation purposes</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s74"><Data ss:Type="String">This is likely to be a “point in time” view and should not be considered an authoritative listing of all uses of the value set</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="75">
     <Cell ss:StyleID="s75"><Data ss:Type="String">usage.user</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -405,7 +408,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">A consumer of or client for the value set</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">This is most likely to be an organization but can be an individual. It would not be a program, that information should be recorded in the Usage.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">usage.use</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -415,7 +418,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Implementation or project or standard that uses the value set</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">A descriptive name of the project or standard in which the value set is used</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="210">
     <Cell ss:StyleID="s75"><Data ss:Type="String">workflowStatus</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
@@ -426,7 +429,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Workflow Status is used to represent details of the value set development process while the value set has an Activity Status of Preliminary. The development of a value set often follows a formal workflow process from initiation to completion, and this element carries the state variable for this state machine. The assumption is that when first created a value set would have a workflow state of Draft. Additional workflow states may be used</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s74"><Data ss:Type="String">The values that this element may assume include phrases that capture various stages in review and approval. In addition to the minimum of “Draft”,  these include “Proposed”, “Approved”, “Ready to Publish”.  There may be additional states defined by different developers. This is an optional element because the use of Activity Status “Preliminary” may be sufficient for some implementations</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="105">
     <Cell ss:StyleID="s75"><Data ss:Type="String">effectiveDate</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
@@ -436,7 +439,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">When the value set version becomes Active and is available for use</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">This is the first date-time when the value set version becomes active, so this value is present on Inactive value set versions as well. The start Date_time is expected to be as of 0001 UTC of the Effective Date</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="165">
     <Cell ss:StyleID="s75"><Data ss:Type="String">expirationDate</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
@@ -447,7 +450,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The date when the value set version is no longer expected to be used to create new content. This is the first date-time when the value set version becomes Inactive, so this value MUST present on all Inactive value set versions. The start Date_time is expected to be as of 0001 UTC of the Expiration Date&#10;</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Upon reaching the Expiration Date, the value set Activity Status should be consdiered as inactive. An Inactive value set version may no longer be used to create new content, but it may be used to evaluate content created prior to the Expiration Date</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">author</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
@@ -456,7 +459,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">User or Org actually involved in creating the value set content</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="60">
     <Cell ss:StyleID="s75"><Data ss:Type="String">comment</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
@@ -466,7 +469,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Human-specified notes and other documentation</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Each comment is a time-stamped entry of arbitrary length that is not editable except by anyone in the author group</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s75"><Data ss:Type="String">comment.content</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -475,7 +478,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Remarks or other text</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">comment.timestamp</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -484,7 +487,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">When the comment was created</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">trusted-expansion</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
@@ -493,7 +496,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Reference to a trusted expansion</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="60">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
@@ -502,7 +505,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Information on changes made to the Value Set Definition over time, and also has a contained audit trail of all such changes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.name</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -512,7 +515,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">The name of this set of history entries</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Typically, a value set will have a set of history entries for each maor publication milestone</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -521,7 +524,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Audit of all changes for a history entry</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.date</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -530,7 +533,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Date the change was made</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.id</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -539,7 +542,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Version marker after the change was made</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.author</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -548,7 +551,7 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Who made the change</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.notes</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
@@ -557,6 +560,13 @@
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Information about the change</Data></Cell>
    </Row>
+   <Row ss:Height="45">
+    <Cell ss:StyleID="s75"><Data ss:Type="String">label</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include.code;ValueSet.define.concept;ValueSet.expansion.contains</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -564,7 +574,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -575,7 +584,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>30</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -588,11 +597,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

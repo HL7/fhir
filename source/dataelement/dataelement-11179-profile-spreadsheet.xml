@@ -20,7 +20,7 @@
   <WindowWidth>15570</WindowWidth>
   <WindowTopX>6225</WindowTopX>
   <WindowTopY>1485</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -105,6 +105,26 @@
   <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s132">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s134">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s135">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s136">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -478,7 +498,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -498,6 +517,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2C1:R4C1</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -506,5 +527,87 @@
   <AutoFilter x:Range="R1C1:R16C16"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
+ </Worksheet>
+ <Worksheet ss:Name="Search">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="13" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="487.5" ss:DefaultRowHeight="15">
+   <Column ss:Width="57.75"/>
+   <Column ss:Width="387.75"/>
+   <Column ss:Width="32.25"/>
+   <Column ss:Width="117"/>
+   <Row>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Path</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">meaning</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The identifier of the data element</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">#meaning</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">objectClass</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The version identifier of the data element</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">#objectClass</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Property</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Name of the data element</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">#property</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s136"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="4" ss:StyleID="s135"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
  </Worksheet>
 </Workbook>

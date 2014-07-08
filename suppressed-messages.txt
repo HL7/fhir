@@ -5,6 +5,7 @@ information @ MedicationDispense.dispense: Name of child (dispense) overlaps wit
 information @ SecurityEvent.event: Name of child (event) overlaps with name of parent (SecurityEvent) (src = ResourceValidator)
 warning @ Conformance: RIM Mapping is required (src = ResourceValidator)
 warning @ Medication: All resources should have an identifier (src = ResourceValidator)
+warning @ Namespace: All resources should have an identifier (src = ResourceValidator)
 warning @ Profile: RIM Mapping is required (src = ResourceValidator)
 warning @ Provenance: All resources should have an identifier (src = ResourceValidator)
 warning @ SecurityEvent: All resources should have an identifier (src = ResourceValidator)
