@@ -12,6 +12,7 @@
    italian: origama
    chinese: niehongchao (at com dot foxmail)
    polish : radomski (at iehr in eu)
+   french : Frederic (dot) Laurent (at gmail dot com)
    
 
    MSG_UNKNOWN_COMPARTMENT
@@ -24,6 +25,7 @@ optional so legal codes are for example:
   de     :  German
   en-US  :  US American English
   en     :  English
+  fr     :  French
 
 NOTE: while translations on Resources are possible they should be used for rendering purposes
       only, and not in the URI, as XML node name, or JSON label.
@@ -33,367 +35,441 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="en">AdverseReaction</translation>
     <translation lang="zh">不良反应</translation>
     <translation lang="es">ReacciónAdversa</translation>
+    <translation lang="fr">RéactionAdverse</translation>
   </item>
   <item id="Alert">
     <translation lang="en">Alert</translation>
     <translation lang="zh">警报</translation>
     <translation lang="es">Alerta</translation>
+    <translation lang="fr">Alerte</translation>
   </item>
   <item id="AllergyIntolerance">
     <translation lang="en">AllergyIntolerance</translation>
     <translation lang="es">AllergiaIntolerancia</translation>
+    <translation lang="fr">IntoléranceAllergique</translation>    
   </item>
   <item id="Appointment">
     <translation lang="en">Appointment</translation>
     <translation lang="zh">过敏反应</translation>
     <translation lang="es">Cita</translation>
+    <translation lang="fr">RendezVous</translation>
   </item>
   <item id="AppointmentResponse">
     <translation lang="en">AppointmentResponse</translation>
     <translation lang="zh">预约响应</translation>
     <translation lang="es">CitaRespuesta</translation>
+    <translation lang="fr">RéponseRendezVous</translation>
   </item>
   <item id="Availability">
     <translation lang="en">Availability</translation>
     <translation lang="zh">可用</translation>
     <translation lang="es">Disponibilidad</translation>
+    <translation lang="fr">Disponibilité</translation>
   </item>
   <item id="Binary">
     <translation lang="en">Binary</translation>
     <translation lang="zh">二进制</translation>
     <translation lang="es">Binario</translation>
+    <translation lang="fr">Binaire</translation>
   </item>
   <item id="CarePlan">
     <translation lang="en">CarePlan</translation>
     <translation lang="zh">护理计划</translation>
     <translation lang="es">PlanCuidado</translation>
+    <translation lang="fr">PlanDeSoins</translation>
   </item>
   <item id="Claim">
     <translation lang="en">Claim</translation>
     <translation lang="zh">声称</translation>
     <translation lang="es">Reclamación</translation>
+    <translation lang="fr">Réclamation</translation>
   </item>
   <item id="Composition">
     <translation lang="en">Composition</translation>
     <translation lang="zh">组合</translation>
     <translation lang="es">Composición</translation>
+    <translation lang="fr">Composition</translation>
   </item>
   <item id="ConceptMap">
     <translation lang="en">ConceptMap</translation>
     <translation lang="zh">概念地图</translation>
     <translation lang="es">MapaConceptos</translation>
+    <translation lang="fr">CarteDeConcepts</translation>
   </item>
   <item id="Condition">
     <translation lang="en">Condition</translation>
     <translation lang="zh">条件</translation>
     <translation lang="es">Condición</translation>
+    <translation lang="fr">Condition</translation>
   </item>
   <item id="Conformance">
     <translation lang="en">Conformance</translation>
     <translation lang="zh">遵从</translation>
     <translation lang="es">Conformidad</translation>
+    <translation lang="fr">Conformité</translation>
   </item>
   <item id="Coverage">
     <translation lang="en">Coverage</translation>
     <translation lang="zh">覆盖范围</translation>
     <translation lang="es">Cobertura</translation>
+    <translation lang="fr">Couverture</translation>
   </item>
   <item id="DataElement">
     <translation lang="en">DataElement</translation>
     <translation lang="zh">公共数据元素</translation>
     <translation lang="es">ElementoDatos</translation>
+    <translation lang="fr">ElementDonnées</translation>
   </item>
   <item id="Device">
     <translation lang="en">Device</translation>
     <translation lang="zh">设备</translation>
     <translation lang="es">Dispositivo</translation>
+    <translation lang="fr">Dispositif</translation>
   </item>
   <item id="DeviceObservationReport">
     <translation lang="en">DeviceObservationReport</translation>
     <translation lang="zh">设备观测报告</translation>
     <translation lang="es">InformeObservaciónDispositivo</translation>
+    <translation lang="fr">DispositifRapportObservation</translation>
   </item>
   <item id="DiagnosticOrder">
     <translation lang="en">DiagnosticOrder</translation>
     <translation lang="zh">诊断医嘱</translation>
     <translation lang="es">OrdenDiagnostica</translation>
+    <translation lang="fr">OrdreDiagnostique</translation>
   </item>
   <item id="DiagnosticReport">
     <translation lang="en">DiagnosticReport</translation>
     <translation lang="zh">诊断报告</translation>
     <translation lang="es">InformenDiagnostico</translation>
+    <translation lang="fr">RapportDiagnostique</translation>
   </item>
   <item id="DocumentManifest">
     <translation lang="en">DocumentManifest</translation>
     <translation lang="zh">文档清单</translation>
     <translation lang="es">ManifestoDocumento</translation>
+    <translation lang="fr">Manifeste</translation>
   </item>
   <item id="DocumentReference">
     <translation lang="en">DocumentReference</translation>
     <translation lang="zh">文档引用</translation>
     <translation lang="es">ReferenciaDocumento</translation>
+    <translation lang="fr">RéférenceDocument</translation>
   </item>
   <item id="Encounter">
     <translation lang="en">Encounter</translation>
     <translation lang="zh">就诊</translation>
     <translation lang="es">Encuentro</translation>
+    <translation lang="fr">Venue</translation>
   </item>
   <item id="FamilyHistory">
     <translation lang="en">FamilyHistory</translation>
     <translation lang="zh">家族病史</translation>
     <translation lang="es">AntecedentesFamiliares</translation>
+    <translation lang="fr">AntécédentsFamiliaux</translation>    
   </item>
   <item id="Subscription">
     <translation lang="en">Subscription</translation>
     <translation lang="zh">订阅</translation>
     <translation lang="es">Suscripción</translation>
+    <translation lang="fr">Souscription</translation>
   </item>
   <item id="GeneExpression">
     <translation lang="en">GeneExpression</translation>
     <translation lang="zh">基因表达</translation>
     <translation lang="es">ExpresionGenica</translation>
+    <translation lang="fr">ExpressionGene</translation>
   </item>
   <item id="GeneticAnalysis">
     <translation lang="en">GeneticAnalysis</translation>
     <translation lang="zh">基因分析</translation>
     <translation lang="es">AnalisisGenetico</translation>
+    <translation lang="fr">AnalyseGénétique</translation>
   </item>
   <item id="Group">
     <translation lang="en">Group</translation>
     <translation lang="zh">组</translation>
     <translation lang="es">Grupo</translation>
+    <translation lang="fr">Groupe</translation>
   </item>
   <item id="GVFMeta">
     <translation lang="en">GVFMeta</translation>
     <translation lang="zh">GVF元</translation>
     <translation lang="es">GVFMeta</translation>
+    <translation lang="fr">GVFMeta</translation>
   </item>
   <item id="GVFVariant">
     <translation lang="en">GVFVariant</translation>
     <translation lang="zh">GVF变体</translation>
     <translation lang="es">GVFVariante</translation>
+    <translation lang="fr">GVFVariante</translation>
   </item>
   <item id="ImagingStudy">
     <translation lang="en">ImagingStudy</translation>
     <translation lang="zh">影像检查</translation>
     <translation lang="es">EstudioImagen</translation>
+    <translation lang="fr">EtudeImagerie</translation>    
   </item>
   <item id="Immunization">
     <translation lang="en">Immunization</translation>
     <translation lang="zh">免疫</translation>
     <translation lang="es">Inmunización</translation>
+    <translation lang="fr">Immunisation</translation>
   </item>
   <item id="ImmunizationRecommendation">
     <translation lang="en">ImmunizationRecommendation</translation>
     <translation lang="zh">免疫推荐</translation>
     <translation lang="es">RecomendaciónInmunización</translation>
+    <translation lang="fr">RecommendationImmunisation</translation>
   </item>
   <item id="List">
     <translation lang="en">List</translation>
     <translation lang="zh">列表</translation>
     <translation lang="es">Lista</translation>
+    <translation lang="fr">Liste</translation>
   </item>
   <item id="Location">
     <translation lang="en">Location</translation>
     <translation lang="zh">位置</translation>
+    <translation lang="fr">Localisation</translation>
   </item>
   <item id="Media">
     <translation lang="en">Media</translation>
     <translation lang="zh">媒体</translation>
     <translation lang="es">Medio</translation>
+    <translation lang="fr">Média</translation>
   </item>
   <item id="Medication">
     <translation lang="en">Medication</translation>
     <translation lang="zh">用药</translation>
     <translation lang="es">Medicación</translation>
+    <translation lang="fr">Médication</translation>
   </item>
   <item id="MedicationAdministration">
     <translation lang="en">MedicationAdministration</translation>
     <translation lang="zh">用药管理</translation>
     <translation lang="es">AdministraciónMedicación</translation>
+    <translation lang="fr">AdministrationMédicaments</translation>
   </item>
   <item id="MedicationDispense">
     <translation lang="en">MedicationDispense</translation>
     <translation lang="zh">发药</translation>
     <translation lang="es">DispensaciónMedicación</translation>
+    <translation lang="fr">DispensationMédicaments</translation>
   </item>
   <item id="MedicationPrescription">
     <translation lang="en">MedicationPrescription</translation>
     <translation lang="zh">药方</translation>
     <translation lang="es">PrescripciónMedicación</translation>
+    <translation lang="fr">PrescriptionMédicamenteuse</translation>
   </item>
   <item id="MedicationStatement">
     <translation lang="en">MedicationStatement</translation>
     <translation lang="zh">用药声明</translation>
     <translation lang="es">ResumenMedicación</translation>
+    <translation lang="fr">ÉtatMédication</translation>
   </item>
   <item id="MessageHeader">
     <translation lang="en">MessageHeader</translation>
     <translation lang="zh">消息头</translation>
     <translation lang="es">CabeceraMensaje</translation>
+    <translation lang="fr">EntêteMessage</translation>
   </item>
   <item id="Microarray">
     <translation lang="en">Microarray</translation>
     <translation lang="zh">微阵列</translation>
     <translation lang="es">Microarray</translation>
+    <translation lang="fr">Microarray</translation>
   </item>
   <item id="Namespace">
     <translation lang="en">Namespace</translation>
     <translation lang="zh">命名空间</translation>
     <translation lang="es">Namespace</translation>
+    <translation lang="fr">EspaceDeNoms</translation>
   </item>
   <item id="Observation">
     <translation lang="en">Observation</translation>
     <translation lang="zh">观测</translation>
     <translation lang="es">Observación</translation>
+    <translation lang="fr">Observation</translation>
   </item>
   <item id="OperationOutcome">
     <translation lang="en">OperationOutcome</translation>
     <translation lang="zh">手术成果</translation>
     <translation lang="es">ResultadoOperación</translation>
+    <translation lang="fr">RésultatOpération</translation>
   </item>
   <item id="Order">
     <translation lang="en">Order</translation>
     <translation lang="zh">医嘱</translation>
     <translation lang="es">Orden</translation>
+    <translation lang="fr">Ordre</translation>
   </item>
   <item id="OrderResponse">
     <translation lang="en">OrderResponse</translation>
     <translation lang="zh">医嘱响应</translation>
     <translation lang="es">RespuestaOrden</translation>
+    <translation lang="fr">RéponseOrdre</translation>
   </item>
   <item id="Organization">
     <translation lang="en">Organization</translation>
     <translation lang="zh">机构</translation>
     <translation lang="es">Organización</translation>
+    <translation lang="fr">Organisation</translation>
   </item>
   <item id="Other">
     <translation lang="en">Other</translation>
     <translation lang="zh">其他</translation>
     <translation lang="es">Otro</translation>
+    <translation lang="fr">Autre</translation>
   </item>
   <item id="Patient">
     <translation lang="en">Patient</translation>
     <translation lang="zh">病人</translation>
     <translation lang="es">Paciente</translation>
+    <translation lang="fr">Patient</translation>
   </item>
   <item id="Picture">
     <translation lang="en">Picture</translation>
     <translation lang="zh">图片</translation>
     <translation lang="es">Imagen</translation>
+    <translation lang="fr">Image</translation>
   </item>
   <item id="Practitioner">
     <translation lang="en">Practitioner</translation>
     <translation lang="zh">从业者</translation>
     <translation lang="es">Practicante</translation>
+    <translation lang="fr">Praticien</translation>
   </item>
   <item id="Procedure">
     <translation lang="en">Procedure</translation>
     <translation lang="zh">步骤</translation>
     <translation lang="es">Procedimiento</translation>
+    <translation lang="fr">Procédure</translation>
   </item>
   <item id="Profile">
     <translation lang="en">Profile</translation>
     <translation lang="zh">规范</translation>
     <translation lang="es">Perfil</translation>
+    <translation lang="fr">Profil</translation>
   </item>
   <item id="Protocol">
     <translation lang="en">Protocol</translation>
     <translation lang="zh">协议</translation>
     <translation lang="es">Protocolo</translation>
+    <translation lang="fr">Protocol</translation>
   </item>
   <item id="Provenance">
     <translation lang="en">Provenance</translation>
     <translation lang="zh">起源</translation>
     <translation lang="es">Procedencia</translation>
+    <translation lang="fr">Provenance</translation>
   </item>
   <item id="Query">
     <translation lang="en">Query</translation>
     <translation lang="zh">查询</translation>
     <translation lang="es">Consulta</translation>
+    <translation lang="fr">Demande</translation>
   </item>
   <item id="Questionnaire">
     <translation lang="en">Questionnaire</translation>
     <translation lang="zh">问卷</translation>
     <translation lang="es">Cuestionario</translation>
+    <translation lang="fr">Questionnaire</translation>
   </item>
   <item id="QuestionnaireAnswers">
     <translation lang="en">QuestionnaireAnswers</translation>
+    <translation lang="fr">RéponseQuestionnaire</translation>
   </item>
   <item id="RelatedPerson">
     <translation lang="en">RelatedPerson</translation>
     <translation lang="zh">相关人员</translation>
     <translation lang="es">PersonaRelacionada</translation>
+    <translation lang="fr">PersonneEnRelation</translation>
   </item>
   <item id="Remittance">
     <translation lang="en">Remittance</translation>
     <translation lang="zh">汇款</translation>
     <translation lang="es">Remesa</translation>
+    <translation lang="fr">Remise</translation>
   </item>
   <item id="SecurityEvent">
     <translation lang="en">SecurityEvent</translation>
     <translation lang="zh">安全事件</translation>
     <translation lang="es">EventoSeguridad</translation>
+    <translation lang="fr">ÉvènementSécurité</translation>
   </item>
   <item id="Sequence">
     <translation lang="en">Sequence</translation>
     <translation lang="zh">序列</translation>
     <translation lang="es">Secuencia</translation>
+    <translation lang="fr">Séquence</translation>
   </item>
   <item id="SequencingAnalysis">
-    <translation lang="en">SeuencingAnalysis</translation>
+    <translation lang="en">SequencingAnalysis</translation>
     <translation lang="zh">序列分析</translation>
     <translation lang="es">AnalisisSecuencial</translation>
+    <translation lang="fr">AnalyseSéquencage</translation>
   </item>
   <item id="SequencingLab">
-    <translation lang="en">SeuencingLab</translation>
+    <translation lang="en">SequencingLab</translation>
     <translation lang="zh">测序实验室</translation>
     <translation lang="es">LaboratorioSecuenciación</translation>
+    <translation lang="fr">LaboratoireSéquencage</translation>
   </item>
   <item id="Slot">
     <translation lang="en">Slot</translation>
     <translation lang="zh">狭孔</translation>
     <translation lang="es">Hueco</translation>
+    <translation lang="fr">Slot</translation>
   </item>
   <item id="Specimen">
     <translation lang="en">Specimen</translation>
     <translation lang="zh">样本</translation>
     <translation lang="es">Especimen</translation>
+    <translation lang="fr">Spécimen</translation>
   </item>
   <item id="Study">
     <translation lang="en">Study</translation>
     <translation lang="zh">检查</translation>
     <translation lang="es">Estudio</translation>
+    <translation lang="fr">Étude</translation>
   </item>
   <item id="Substance">
     <translation lang="en">Substance</translation>
     <translation lang="zh">物质</translation>
     <translation lang="es">Sustancia</translation>
+    <translation lang="fr">Substance</translation>
   </item>
   <item id="Supply">
     <translation lang="en">Supply</translation>
     <translation lang="zh">供应</translation>
     <translation lang="es">Suministro</translation>
+    <translation lang="fr">Approvisionnement</translation>
   </item>
   <item id="User">
     <translation lang="en">User</translation>
     <translation lang="zh">用户</translation>
     <translation lang="es">Usuario</translation>
+    <translation lang="fr">Utilsateur</translation>
   </item>
   <item id="ValueSet">
     <translation lang="en">ValueSet</translation>
     <translation lang="zh">取值集合</translation>
     <translation lang="es">ConuntoValores</translation>
+    <translation lang="fr">EnsembleValeurs</translation>
   </item>
   <item id="VCFMeta">
     <translation lang="en">VCFMeta</translation>
     <translation lang="zh">VCF元</translation>
     <translation lang="es">VCFMeta</translation>
+    <translation lang="fr">VCFMeta</translation>
   </item>
   <item id="VCFVariant">
     <translation lang="en">VCFVariant</translation>
     <translation lang="zh">VCF变体</translation>
     <translation lang="es">VCFVariante</translation>
+    <translation lang="fr">VCFVariante</translation>
   </item>
   <!-- Messages -->
   <item id="MSG_AUTH_REQUIRED">
@@ -402,6 +478,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">使用此服务前需认证</translation>
     <translation lang="pl">Wymagana autentykacja przed użyciem tego serwisu</translation>
     <translation lang="es">Debe autenticarse antes de poder usar este servicio</translation>
+    <translation lang="fr">Vous devez être authentifié avant de pouvoir utiliser ce service</translation>
   </item>
   <item id="MSG_BACK_HOME">
     <translation lang="en">Back to Home</translation>
@@ -410,6 +487,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">返回主页</translation>
     <translation lang="pl">Powrót do strony głównej</translation>
     <translation lang="es">Volver al inicio</translation>
+    <translation lang="fr">Retour à l'accueil</translation>
   </item>
   <item id="MSG_BAD_FORMAT">
     <translation lang="en">Bad Syntax: "%s" must be a %s'</translation>
@@ -418,6 +496,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">句法错误: "%s" 必须是一个 %s'</translation>
     <translation lang="pl">Błąd składni: "%s" powinno być %s'</translation>
     <translation lang="es">Sintaxis Incorrecta: "%s" debe de ser un %s'</translation>
+    <translation lang="fr">Erreur de Syntaxe : "%s" doit être un %s</translation>
   </item>
   <item id="MSG_BAD_SYNTAX">
     <translation lang="en">Bad Syntax in %s</translation>
@@ -426,6 +505,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">%s 中句法错误</translation>
     <translation lang="pl">Błąd składni w %s</translation>
     <translation lang="es">Sintaxis Incorrecta en %s</translation>
+    <translation lang="fr">Erreur de Syntaxe dans %s</translation>
   </item>
   <item id="MSG_CANT_PARSE_CONTENT">
     <translation lang="en">Unable to parse feed (entry content type = "%s")</translation>
@@ -434,6 +514,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">无法解析feed (条目的内容类型 = "%s")</translation>
     <translation lang="pl">Błąd parsowania (typ zawartości wejściowej = "%s")</translation>
     <translation lang="es">No se pudo parsear el feed (el tipo de contenido de la entry = "%s")</translation>
+    <translation lang="fr">Impossible d'analyser le flux (type de contenu de l'entrée = "%s")</translation>
   </item>
   <item id="MSG_CANT_PARSE_ROOT">
     <translation lang="en">Unable to parse feed (root element name = "%s")</translation>
@@ -442,6 +523,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">无法解析feed (根元素名 = "%s")</translation>
     <translation lang="pl">Błąd parsowania (nazwa elementu root = "%s")</translation>
     <translation lang="ee">No se pudo parsear el feed (nombre del elemento raiz = "%s")</translation>
+    <translation lang="fr">Impossible d'analyser le flux (nom de l'élément racine = "%s")</translation>
   </item>
   <item id="MSG_CONTENT_MESSAGE">
     <translation lang="en">Content can be a resource, an atom feed, or a zip file collection of resources and atom feeds (xml or json)</translation>
@@ -450,6 +532,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">内容可以是一个资源、一个原子feed、或一个包含资源和原子feed的压缩文件 (xml 或 json)</translation>
     <translation lang="pl">Zawartością może być zasób, treść w formacie atom (atom feed) lub plik zip zasobów i treści w formacie atom (xml lub json)</translation>
     <translation lang="es">El contenido puede ser un recurso, una fuente web (feed) o una colección de recursos y feeds (xml o json)</translation>
+    <translation lang="fr">Le contenu peut être une ressource, un flux atom, ou une archive zip d'un ensemble de ressources et de flux atom (xml ou json)</translation>
   </item>
   <item id="MSG_CONTENT_UPLOAD">
     <translation lang="en">Content to upload</translation>
@@ -458,6 +541,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">待上传内容</translation>
     <translation lang="pl">Treść do załadowania</translation>
     <translation lang="es">Contenido a subir</translation>
+    <translation lang="fr">Contenu à transmettre</translation>    
   </item>
   <item id="MSG_CONTENT_VALIDATE">
     <translation lang="en">Content to validate</translation>
@@ -466,6 +550,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">待验证内容</translation>
     <translation lang="pl">Treść do walidacji</translation>
     <translation lang="es">Contenido a validar</translation>
+    <translation lang="fr">Contenu à valider</translation>
   </item>
   <item id="MSG_CREATED">
     <translation lang="en">existing resource created</translation>
@@ -474,6 +559,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">存在的资源已创建</translation>
     <translation lang="pl">utworzono istniejący zasób</translation>
     <translation lang="es">recurso existente creado</translation>
+    <translation lang="fr">ressource existante créée</translation>    
   </item>
   <item id="MSG_DATE_FORMAT">
     <translation lang="en">The Date value %s is not in the correct format (Xml Date Format required)</translation>
@@ -482,6 +568,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">日期的值 %s 格式不正确 (要求是Xml Date格式)</translation>
     <translation lang="pl">Niepoprawny format wartości daty %s (wymagany format XML)</translation>
     <translation lang="es">El valor de la fecha %s no está en el formato correcto (se requiere un formato de fecha Xml)</translation>
+    <translation lang="fr">Le format de la date %s est incorrect (format Date Xml attendu)</translation>
   </item>
   <item id="MSG_DELETED">
     <translation lang="en">This resource has been deleted</translation>
@@ -489,6 +576,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">该资源已删除</translation>
     <translation lang="pl">Ten zasób został usunięty</translation>
     <translation lang="es">Este recurso ha sido borrado</translation>
+    <translation lang="fr">La ressource a été supprimée</translation>
   </item>
   <item id="MSG_DELETED_DONE">
     <translation lang="en">Resource deleted</translation>
@@ -497,6 +585,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">资源已删除</translation>
     <translation lang="pl">Zasób usunięto</translation>
     <translation lang="es">Recurso borrado</translation>
+    <translation lang="fr">Ressource supprimée</translation>
   </item>
   <item id="MSG_DELETED_ID">
     <translation lang="en">The resource "%s" has been deleted</translation>
@@ -507,6 +596,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">资源 "%s" 已被删除</translation>
     <translation lang="pl">Zasób "%s" został usunięty</translation>
     <translation lang="es">El recurso "%s" ha sido borrado</translation>
+    <translation lang="fr">La ressource "%s" a été supprimée</translation>
   </item>
   <item id="MSG_DUPLICATE_ID">
     <translation lang="en">Duplicate Id %s for resource type %s</translation>
@@ -515,6 +605,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">ID %s 重复（资源类型 %s）</translation>
     <translation lang="pl">Zdublowany identyfikator %s dla zasobu typu %s</translation>
     <translation lang="es">Id %s duplicada para el recurso de tipo %s</translation>
+    <translation lang="fr">Id %s en double pour le type de ressource %s</translation> 
   </item>
   <item id="MSG_ERROR_PARSING">
     <translation lang="en">Error parsing resource Xml (%s)</translation>
@@ -523,6 +614,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">解析资源Xml时出错 (%s)</translation>
     <translation lang="pl">Błąd w trakcie parsowania zasobu XML (%s)</translation>
     <translation lang="es">Error parseando el recurso Xml (%s)</translation>
+    <translation lang="fr">Erreur d'analyse de la ressource Xml (%s)</translation>    
   </item>
   <item id="MSG_GENERAL_VALIDATION">
     <translation lang="en">General Validation</translation>
@@ -531,6 +623,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">通用验证</translation>
     <translation lang="pl">Walidacja podstawowa</translation>
     <translation lang="es">Validación General</translation>
+    <translation lang="fr">Validation Générale</translation>
   </item>
   <item id="MSG_HISTORY">
     <translation lang="en">History for %s</translation>
@@ -539,6 +632,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">%s 的历史</translation>
     <translation lang="pl">Historia dla %s</translation>
     <translation lang="es">Historia de %s</translation>
+    <translation lang="fr">Historique de %s</translation>
   </item>
   <item id="MSG_HOME_PAGE_1">
     <translation lang="en">This is an implementation of the RESTful FHIR specification found at %s.</translation>
@@ -547,6 +641,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">这是一个RESTful FHIR规格说明的实现，可于 %s 找到.</translation>
     <translation lang="pl">To jest implementacja specyfikacji RESTful FHIR pochodzącej z %s.</translation>
     <translation lang="es">Esta es una implementación de la especificación RESTful de FHIR que se encuentra disponible en %s.</translation>
+    <translation lang="fr">Implémentation de la spécification RESTful FHIR trouvée à %s.</translation>
   </item>
   <item id="MSG_HOME_PAGE_2">
     <translation lang="en">This server has a baseURL (see the FHIR specification) of "%s".</translation>
@@ -555,6 +650,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">该服务器有一个 baseURL (见FHIR规格说明): "%s".</translation>
     <translation lang="pl">Ten serwer posiada bazowy URL (baseURL - patrz specyfikacja FHIR): "%s".</translation>
     <translation lang="es">Este servidor tiene una baseURL (ver especificación de FHIR) de "%s".</translation>
+    <translation lang="fr">Ce serveur possède une baseURL (voir les spécification FHIR) de "%s".</translation>
   </item>
   <item id="MSG_HOME_PAGE_3">
     <translation lang="en">This server hosts the following resource types:</translation>
@@ -563,6 +659,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">该服务器托管如下资源类型:</translation>
     <translation lang="pl">Ten serwer udostępnia następujące typy zasobów:</translation>
     <translation lang="es">Este servidor incluye los siguientes tipos de recursos:</translation>
+    <translation lang="fr">Ce serveur héberge les ressources des types suivants :</translation>
   </item>
   <item id="MSG_HOME_PAGE_TITLE">
     <translation lang="en">Fast Healthcare Interoperability Resources - Home Page</translation>
@@ -571,6 +668,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">Fast Healthcare Interoperability Resources - 主页</translation>
     <translation lang="pl">Fast Healthcare Interoperability Resources - Strona główna</translation>
     <translation lang="es">Fast Healthcare Interoperability Resources - Página de Inicio</translation>
+    <translation lang="fr">Fast Healthcare Interoperability Resources - Accueil</translation>
   </item>
   <item id="MSG_ID_INVALID">
     <translation lang="en">Id "%s" has an invalid character "%s"</translation>
@@ -579,6 +677,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">ID "%s" 带有非法字符: "%s"</translation>
     <translation lang="pl">Identyfikator "%s" zawiera niepoprawny znak "%s"</translation>
     <translation lang="es">El Id "%s" contiene el caracter inválido "%s"</translation>
+    <translation lang="fr">Id "%s" possède un caractère invalide "%s"</translation>
   </item>
   <item id="MSG_ID_TOO_LONG">
     <translation lang="en">Id "%s" too long (length limit 36)</translation>
@@ -587,6 +686,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">Id "%s" 过长 (长度限制: 36)</translation>
     <translation lang="pl">Identyfikator "%s" jest zbyt długi (limit długości 36)</translation>
     <translation lang="es">El Id "%s" es demasiado largo (limite de longitud: 36)</translation>
+    <translation lang="fr">Id "%s" trop long (la longueur limite est 36)</translation>
   </item>
   <item id="MSG_INVALID_ID">
     <translation lang="en">Id not accepted</translation>
@@ -595,6 +695,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">Id不被接受</translation>
     <translation lang="pl">Identyfikator nie zaakceptowany</translation>
     <translation lang="es">Id no aceptada</translation>
+    <translation lang="fr">Id non accepté</translation>
   </item>
   <item id="MSG_JSON_OBJECT">
     <translation lang="en">Json Source for a resource should start with an object</translation>
@@ -603,6 +704,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">资源的Json源应以一个object开始</translation>
     <translation lang="pl">Źródło json dla zasobu powinno rozpoczynać się od obiektu</translation>
     <translation lang="es">La fuente Json para un recurso debería empezar con un objeto</translation>
+    <translation lang="fr">La source Json pour une ressource doit commencer par un objet</translation>
   </item>
   <item id="MSG_LOCAL_FAIL">
     <translation lang="en">Unable to resolve local reference to resource %s</translation>
@@ -611,6 +713,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">无法解析对资源 %s 的本地引用</translation>
     <translation lang="pl">Zasób wskazywany przez loklaną referencję %s nie został odnaleziony</translation>
     <translation lang="es">Imposible resolver la referencia al recurso %s</translation>
+    <translation lang="fr">Impossible de résourdre la référence locale à la ressource %s</translation>
   </item>
   <item id="MSG_NO_EXIST">
     <translation lang="en">Resource Id "%s" does not exist</translation>
@@ -619,6 +722,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">资源Id "%s"不存在</translation>
     <translation lang="pl">Zasób o identyfikatorze "%s" nie istnieje</translation>
     <translation lang="es">El recurso con Id "%s" no existe</translation>
+    <translation lang="fr">La ressource avec l'Id "%s" n'existe pas</translation>
   </item>
   <item id="MSG_NO_MODULE">
     <translation lang="en">No module could be found to handle the request "%s"</translation>
@@ -627,6 +731,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">无法找到处理请求"%s"的模块</translation>
     <translation lang="pl">Nie można odnaleźć modułu, aby obsłużyć żądanie "%s"</translation>
     <translation lang="es">No se encontró un modulo que gestione la petición "%s"</translation>
+    <translation lang="fr">Aucun module disponible pour traiter la requête "%s"</translation>
   </item>
   <item id="MSG_NO_SUMMARY">
     <translation lang="en">No Summary for this resource</translation>
@@ -635,6 +740,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">该资源无summary</translation>
     <translation lang="pl">Brak podsumowania (Summary) dla tego zasobu</translation>
     <translation lang="es">No existe un resumen para este recurso</translation>
+    <translation lang="fr">Aucun résumé disponible pour cette ressource</translation>
   </item>
   <item id="MSG_OP_NOT_ALLOWED">
     <translation lang="en">Operation %s not allowed for resource %s (due to local configuration)</translation>
@@ -643,6 +749,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">操作 %s 不允许，对于资源 %s (由于本地配置)</translation>
     <translation lang="pl">Niedozwolona operacja %s dla zasobu %s (ze względu na lokalną konfigurację)</translation>
     <translation lang="es">Operación %s no permitida para el recurso %s (debido a la configuración local)</translation>
+    <translation lang="fr">L'opération %s n'est pas permise pour la ressource %s (à cause de la configuration locale)</translation>
   </item>
   <item id="MSG_PARAM_CHAINED">
     <translation lang="en">Unknown chained parameter name "%s"</translation>
@@ -651,6 +758,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">未知的链式参数名: "%s"</translation>
     <translation lang="pl">Nieznana nazwa parametru powiązanego "%s"</translation>
     <translation lang="es">Nombre de parametro encadenado desconocido: "%s"</translation>
+    <translation lang="fr">Nom du paramètre chainé inconnu : "%s"</translation>
   </item>
   <item id="MSG_PARAM_NO_REPEAT">
     <translation lang="en">Parameter "%s" is not allowed to repeat</translation>
@@ -659,6 +767,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">参数"%s"不可重复</translation>
     <translation lang="pl">Parametr "%s" nie może zostać powtórzony</translation>
     <translation lang="es">No se permite la repetición del parámetro "%s"</translation>
+    <translation lang="fr">Le paramètre "%s" ne peut pas être répété</translation>
   </item>
   <item id="MSG_PARAM_UNK_REPEAT">
     <translation lang="en">unable to determine repeat behaviour for parameter "%s"</translation>
@@ -667,6 +776,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">无法确定参数"%s"的重复行为</translation>
     <translation lang="pl">nie można określić zachowania dla powtórzeń parametru "%s"</translation>
     <translation lang="es">no se pudo determinar el comportamiento de repetición para el parámetro "%s"</translation>
+    <translation lang="fr">impossible de déterminer le comportement pour la répétition du paramètre "%s"</translation>
   </item>
   <item id="MSG_PARAM_UNKNOWN">
     <translation lang="en">Parameter "%s" not understood</translation>
@@ -675,6 +785,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">无法理解参数"%s"</translation>
     <translation lang="pl">Niezrozumiały parametr "%s"</translation>
     <translation lang="es">Parámetro "%s" no reconocido</translation>
+    <translation lang="fr">Paramètre "%s" non reconnu</translation>
   </item>
   <item id="MSG_RESOURCE_EXAMPLE_PROTECTED">
     <translation lang="en">Resources with identity "example" cannot be deleted (for testing/training purposes)</translation>
@@ -682,6 +793,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">以"example" 为ID的资源不能被删除 (用于测试/培训)</translation>
     <translation lang="pl">Zasoby oznaczone jako "example" nie mogą zostać usunięte (dla celów testów/szkoleń)</translation>
     <translation lang="es">Recursos con la identidad "example" no pueden ser borrados (son usados para pruebas/entrenamiento)</translation>
+    <translation lang="fr">Les ressources ayant l'identité "example" ne peuvent pas être supprimées (utilisées pour les tests/formations)</translation>
   </item>
   <item id="MSG_RESOURCE_ID_FAIL">
     <translation lang="en">unable to allocate resource id</translation>
@@ -690,6 +802,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">无法分配资源ID</translation>
     <translation lang="pl">nie można nadać identyfikatora zasobu</translation>
     <translation lang="es">imposible encontrar el id del recurso</translation>
+    <translation lang="fr">impossible d'allouer l'id de la ressource</translation>
   </item>
   <item id="MSG_RESOURCE_NOT_ALLOWED">
     <translation lang="en">Not allowed to submit a resource for this operation</translation>
@@ -698,6 +811,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">该操作不允许提交资源</translation>
     <translation lang="pl">Nie można zgłosić zasobu dla tej operacji</translation>
     <translation lang="es">No se permite el envío de un recurso para esta operación</translation>
+    <translation lang="fr">Non autorisé à soumettre une ressource pour cette opération</translation>
   </item>
   <item id="MSG_RESOURCE_REQUIRED">
     <translation lang="en">A resource is required</translation>
@@ -706,6 +820,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">必须提供一个资源</translation>
     <translation lang="pl">Zasób jest wymagany</translation>
     <translation lang="es">Se requiere un recurso</translation>
+    <translation lang="fr">Une ressource est requise</translation>
   </item>
   <item id="MSG_RESOURCE_TYPE_MISMATCH">
     <translation lang="en">Resource Type Mismatch</translation>
@@ -714,6 +829,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">资源类型不匹配</translation>
     <translation lang="pl">Niepoprawny typ zasobu</translation>
     <translation lang="es">Los Tipos de los recursos no coinciden</translation>
+    <translation lang="fr">Type de ressource incorrect</translation>
   </item>
   <item id="MSG_SEARCH_RESULTS">
     <translation lang="en">Search results for resource type %s</translation>
@@ -722,6 +838,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">对资源类型%s的搜索结果</translation>
     <translation lang="pl">Wyniki wyszukiwania dla zasobu typu %s</translation>
     <translation lang="es">Resultados de la búsqueda para recursos de tipo %s</translation>
+    <translation lang="fr">Résultats de la recherche pour le type de ressource %s</translation>
   </item>
   <item id="MSG_SEARCH_RESULTS_ALL">
     <translation lang="en">Search results for all resources</translation>
@@ -729,6 +846,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">对所有资源的搜索结果</translation>
     <translation lang="pl">Wyniki wyszukiwania dla wszystkich zasobów</translation>
     <translation lang="es">Resultados de busqueda para todos los recursos</translation>
+    <translation lang="fr">Résultats de la recherche pour toutes les ressources</translation>
   </item>
   <item id="MSG_SORT_UNKNOWN">
     <translation lang="en">Unknown sort parameter name "%s"</translation>
@@ -737,6 +855,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">未知的排序参数名称"%s"</translation>
     <translation lang="pl">Nieznany parametr sortowania "%s"</translation>
     <translation lang="es">Nombre del parámetro de ordenación "%s" desconocido</translation>
+    <translation lang="fr">Nom du paramètre de tri inconnu "%s"</translation>
   </item>
   <item id="MSG_TRANSACTION_DUPLICATE_ID">
     <translation lang="en">Duplicate Identifier in transaction: %s</translation>
@@ -745,6 +864,7 @@ NOTE: while translations on Resources are possible they should be used for rende
      <translation lang="zh">事务中存在重复Id: %s</translation>
      <translation lang="pl">Zdublowany identyfikator w transakcji: %s</translation>
      <translation lang="es">Identificador duplicado en la transacción: %s</translation>
+    <translation lang="fr">Identifiant en double dans la transaction : %s</translation>
   </item>
   <item id="MSG_TRANSACTION_MISSING_ID">
     <translation lang="en">Missing Identifier in transaction - an entry.id must be provided</translation>
@@ -753,6 +873,7 @@ NOTE: while translations on Resources are possible they should be used for rende
      <translation lang="zh">事务中缺少Id - 必须提供一个entry.id</translation>
      <translation lang="pl">Brak identyfikatora w transakcji - należy podać entry.id</translation>
      <translation lang="es">Identificador de la transacción no encontrado - se debe proporcionar un entry.id</translation>
+    <translation lang="fr">Identifiant manquant dans la transaction - un élément entry.id doit être fourni</translation>
   </item>
   <item id="MSG_TRANSACTION_PROCESSED">
     <translation lang="en">%d resources processed</translation>
@@ -761,6 +882,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">%d个资源被处理</translation>
     <translation lang="pl">Przetworzono %d zasobów</translation>
     <translation lang="es">%d recursos procesados</translation>
+    <translation lang="fr">%d ressources traitées</translation>
   </item>
   <item id="MSG_UNHANDLED_NODE_TYPE">
     <translation lang="en">Unhandled xml node type "%s"</translation>
@@ -769,6 +891,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">未处理的XML节点类型"%s"</translation>
     <translation lang="pl">Nieobsługiwany typ węzła XML "%s"</translation>
     <translation lang="es">Tipo de nodo Xml no soportado "%s"</translation>
+    <translation lang="fr">Type de noeud xml "%s" non traité</translation>
   </item>
   <item id="MSG_UNKNOWN_CONTENT">
     <translation lang="en">Unknown Content (%s) at %s</translation>
@@ -777,6 +900,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">未知内容 (%s) 位于 %s</translation>
     <translation lang="pl">Nieznana zawartość (%s) dla %s</translation>
     <translation lang="es">Contenido desconocido (%s) en %s</translation>
+    <translation lang="fr">Contenu inconnu (%s) à %s</translation>
   </item>
   <item id="MSG_UNKNOWN_OPERATION">
     <translation lang="en">unknown FHIR http operation</translation>
@@ -785,6 +909,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">未知的FHIR HTTP操作</translation>
     <translation lang="pl">nieznana operacja FHIR http</translation>
     <translation lang="es">Operación http FHIR desconocida</translation>
+    <translation lang="fr">operation http FHIR inconnue</translation>
   </item>
   <item id="MSG_UNKNOWN_TYPE">
     <translation lang="en">Resource Type "%s" not recognised</translation>
@@ -793,6 +918,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">资源类型"%s"未识别</translation>
     <translation lang="pl">Nie rozpoznany typ zasobu: "%s"</translation>
     <translation lang="es">Tipo de Recurso "%s" no reconocido</translation>
+    <translation lang="fr">Type de ressource "%s" non reconnu</translation>
   </item>
   <item id="MSG_UPDATED">
     <translation lang="en">existing resource updated</translation>
@@ -801,6 +927,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">已有资源被更新</translation>
     <translation lang="pl">uaktualniono istniejący zasób</translation>
     <translation lang="es">Recurso existente actualizado</translation>
+    <translation lang="fr">ressource existante mise à jour</translation>
   </item>
   <item id="MSG_VERSION_AWARE">
     <translation lang="en">Version aware updates are required for this resource</translation>
@@ -809,6 +936,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">该资源的更新必须针对版本</translation>
     <translation lang="pl">Uaktualnienia zakładające wersjonowanie są wymagane dla tego zasobu</translation>
     <translation lang="es">Este recurso requiere actualizaciones en base a versiones</translation>
+    <translation lang="fr">Des mises à jour en relation avec la version sont requises pour cette ressource</translation>
   </item>
   <item id="MSG_VERSION_AWARE_CONFLICT">
     <translation lang="en">Update Conflict (server current version = "%s", client version referenced = "%s")</translation>
@@ -817,6 +945,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">更新冲突 (服务器当前版本 = "%s", 客户端引用的版本 = "%s")</translation>
     <translation lang="pl">Konflikt podczas uaktualnienia (obecna wersja na serwerze = "%s", wersja wskazana przez klienta = "%s")</translation>
     <translation lang="es">Conflicto de actualizaciones (versión actual del servidor = "%s", versión del cliente referenciada = "%s")</translation>
+    <translation lang="fr">Conflit de mise à jour (version courante du serveur = "%s", version référencée du client = "%s")</translation>
   </item>
   <item id="MSG_VERSION_AWARE_URL">
     <translation lang="en">Version specific URL not recognised</translation>
@@ -825,6 +954,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">未识别特定版本的URL</translation>
     <translation lang="pl">Nie rozpoznany URL specyficzny dla wersji</translation>
     <translation lang="es">URL especifica de la versión no reconocida</translation>
+    <translation lang="fr">URL spécifique à une version non reconnue</translation>
   </item>
   <item id="MSG_WRONG_NS">
     <translation lang="en">This does not appear to be a FHIR element, resource or atom feed (wrong namespace "%s")</translation>
@@ -833,6 +963,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">这貌似不是一个FHIR元素、资源、或原子feed(错误的命名空间: "%s")</translation>
     <translation lang="pl">Prawdopodobnie nie jest to element FHIR, zasób, ani treść w formacie atom (niepoprawna przestrzeń nazw "%s")</translation>
     <translation lang="es">Esto no parece ser un elemento FHIR, recurso o atom feed (namespace incorrecto "%s")</translation>
+    <translation lang="fr">Cet élement ne semble pas être ni un élément FHIR, ni une ressource ni un flux atom (espace de noms "%s" incorrect)</translation>
   </item>
   <item id="NAME_BINARY">
     <translation lang="en">Binary Content</translation>
@@ -841,6 +972,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">二进制内容</translation>
     <translation lang="pl">Treść binarna</translation>
     <translation lang="es">Contenido Binario</translation>
+    <translation lang="fr">Contenu binaire</translation>
   </item>
   <item id="NAME_DELETED">
     <translation lang="en">deleted</translation>
@@ -849,6 +981,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">已删除</translation>
     <translation lang="pl">usunięto</translation>
     <translation lang="es">borrado</translation>
+    <translation lang="fr">supprimé</translation>
   </item>
   <item id="NAME_ERROR">
     <translation lang="en">Error</translation>
@@ -856,6 +989,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">错误</translation>
     <translation lang="pl">Błąd</translation>
     <translation lang="es">Error</translation>
+    <translation lang="fr">Erreur</translation>
   </item>
   <item id="NAME_FIRST">
     <translation lang="en">First</translation>
@@ -864,6 +998,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">第一个</translation>
     <translation lang="pl">Pierwszy/a/e</translation>
     <translation lang="es">Primero</translation>
+    <translation lang="fr">Premier</translation>
   </item>
   <item id="NAME_HISTORY">
     <translation lang="en">the full version history</translation>
@@ -872,6 +1007,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">完整的版本历史</translation>
     <translation lang="pl">kompletna historia wersji</translation>
     <translation lang="es">el historial completo de versiones</translation>
+    <translation lang="fr">historique complet de la version</translation>
   </item>
   <item id="NAME_IMPLEMENTATION">
     <translation lang="en">Implementation</translation>
@@ -880,6 +1016,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">实现</translation>
     <translation lang="pl">Implementacja</translation>
     <translation lang="es">Implementación</translation>
+    <translation lang="fr">Implémentation</translation>
   </item>
   <item id="NAME_LAST">
     <translation lang="en">Last</translation>
@@ -888,6 +1025,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">最后一个</translation>
     <translation lang="pl">Ostatni/a/e</translation>
     <translation lang="es">Último</translation>
+    <translation lang="fr">Dernier</translation>
   </item>
   <item id="NAME_LINKS">
     <translation lang="en">Links</translation>
@@ -895,6 +1033,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">链接君们</translation>
     <translation lang="pl">Odnośniki</translation>
     <translation lang="es">Enlaces</translation>
+    <translation lang="fr">Liens</translation>
   </item>
   <item id="NAME_MANUAL_UPLOAD">
     <translation lang="en">Manual Upload</translation>
@@ -903,6 +1042,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">手工上传</translation>
     <translation lang="pl">Upload ręczny</translation>
     <translation lang="es">Subida Manual</translation>
+    <translation lang="fr">Chargement manuel</translation>
   </item>
   <item id="NAME_NEXT">
     <translation lang="en">Next</translation>
@@ -911,6 +1051,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">下一个</translation>
     <translation lang="pl">Następny/a/e</translation>
     <translation lang="es">Siguiente</translation>
+    <translation lang="fr">Suivant</translation>
   </item>
   <item id="NAME_NO_SEARCH">
     <translation lang="en">No Search</translation>
@@ -919,6 +1060,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">无搜索</translation>
     <translation lang="pl">Bez wyszukiwania</translation>
     <translation lang="es">Ninguna Búsqueda</translation>
+    <translation lang="fr">Aucune recherche</translation>
   </item>
   <item id="NAME_OPERATIONS">
     <translation lang="en">Operations</translation>
@@ -927,6 +1069,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">操作君们</translation>
     <translation lang="pl">Operacje</translation>
     <translation lang="es">Operaciones</translation>
+    <translation lang="fr">Opérations</translation>
   </item>
   <item id="NAME_PREVIOUS">
     <translation lang="en">Previous</translation>
@@ -935,6 +1078,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">前一个</translation>
     <translation lang="pl">Poprzedni/a/e</translation>
     <translation lang="es">Previo</translation>
+    <translation lang="fr">Précédent</translation>
   </item>
   <item id="NAME_PROFILE">
     <translation lang="en">Profile</translation>
@@ -943,6 +1087,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">规范</translation>
     <translation lang="pl">Profil</translation>
     <translation lang="es">Perfil</translation>
+    <translation lang="fr">Profil</translation>
   </item>
   <item id="NAME_REPRESENTATION">
     <!-- (i.e. 'xml' representation -->
@@ -952,6 +1097,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">表达形式</translation>
     <translation lang="pl">reprezentacja</translation>
     <translation lang="es">representación</translation>
+    <translation lang="fr">représentation</translation>
   </item>
   <item id="NAME_RESOURCE">
     <translation lang="en">Resource</translation>
@@ -960,6 +1106,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">资源</translation>
     <translation lang="pl">Zasób</translation>
     <translation lang="es">Recurso</translation>
+    <translation lang="fr">Ressource</translation>
   </item>
   <item id="NAME_RESULT">
     <translation lang="en">Result</translation>
@@ -967,6 +1114,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">结果</translation>
     <translation lang="pl">Wynik</translation>
     <translation lang="es">Resultado</translation>
+    <translation lang="fr">Résultat</translation>
   </item>
   <item id="NAME_SEARCH">
     <translation lang="en">Search</translation>
@@ -975,6 +1123,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">搜索</translation>
     <translation lang="pl">Wyszukiwanie</translation>
     <translation lang="es">Buscar</translation>
+    <translation lang="fr">Recherche</translation>
   </item>
   <item id="NAME_SERVER">
     <translation lang="en">FHIR Server</translation>
@@ -983,6 +1132,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">FHIR服务器</translation>
     <translation lang="pl">Serwer FHIR</translation>
     <translation lang="es">Servidor FHIR</translation>
+    <translation lang="fr">Serveur FHIR</translation>
   </item>
   <item id="NAME_STORED">
     <translation lang="en"># stored</translation>
@@ -991,6 +1141,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh"># 已存储</translation>
     <translation lang="pl"># zapisanych</translation>
     <translation lang="es"># guardado</translation>
+    <translation lang="fr"># enregistré</translation>
   </item>
   <item id="NAME_SYSTEM">
     <!-- as in, history for the whole system -->
@@ -1000,6 +1151,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">全系统</translation>
     <translation lang="pl">całego systemu</translation>
     <translation lang="es">el sistema completo</translation>
+    <translation lang="fr">le système entier</translation>
   </item>
   <item id="NAME_TAGS">
     <translation lang="en">Tags</translation>
@@ -1007,6 +1159,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">标签</translation>
     <translation lang="pl">Znaczniki</translation>
     <translation lang="es">Etiquetas</translation>
+    <translation lang="fr">Labels</translation>
   </item>
   <item id="NAME_TYPE">
     <translation lang="en">Type</translation>
@@ -1015,6 +1168,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">类型</translation>
     <translation lang="pl">Typ</translation>
     <translation lang="es">Tipo</translation>
+    <translation lang="fr">Type</translation>
   </item>
   <item id="NAME_UPDATES">
     <translation lang="en">Updates</translation>
@@ -1023,6 +1177,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">更新</translation>
     <translation lang="pl">Uaktualnienia</translation>
     <translation lang="es">Actualizaciones</translation>
+    <translation lang="fr">Mises à jour</translation>
   </item>
   <item id="NAME_UPLOAD">
     <translation lang="en">Upload</translation>
@@ -1031,6 +1186,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">上传</translation>
     <translation lang="pl">Upload</translation>
     <translation lang="es">Subida</translation>
+    <translation lang="fr">Upload</translation>
   </item>
   <item id="NAME_UPLOAD_SERVICES">
     <translation lang="en">Upload Services</translation>
@@ -1038,6 +1194,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">上传服务</translation>
     <translation lang="pl">Usługi upload'u</translation>
     <translation lang="es">Servicios de subida</translation>
+    <translation lang="fr">Services d'upload</translation>
   </item>
   <item id="NAME_VALIDATE">
     <translation lang="en">Validate</translation>
@@ -1046,6 +1203,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">验证</translation>
     <translation lang="pl">Waliduj</translation>
     <translation lang="es">Validar</translation>
+    <translation lang="fr">Validateur</translation>
   </item>
   <item id="NAME_VERSION">
     <translation lang="en">Version</translation>
@@ -1054,6 +1212,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">版本</translation>
     <translation lang="pl">Wersja</translation>
     <translation lang="es">Versión</translation>
+    <translation lang="fr">Version</translation>
   </item>
   <item id="NAME_VERSION_LONG">
     <translation lang="en">FHIR Version</translation>
@@ -1062,6 +1221,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">FHIR版本</translation>
     <translation lang="pl">Wersja FHIR</translation>
     <translation lang="es">Versión de FHIR</translation>
+    <translation lang="fr">Version de FHIR</translation>
   </item>
   <item id="RESOURCE_TAGS">
     <translation lang="en">Tags defined on this System for the resource type %s ID %s</translation>
@@ -1069,6 +1229,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">该系统中资源类型 %s id %s的标签已定义</translation>
     <translation lang="pl">Znaczniki zdefiniowane w tym systemie dla zasobu typu %s o identyfikatorze %s</translation>
     <translation lang="es">Etiquetas definidas en este sistema para el tipo de recurso %s ID %s</translation>
+    <translation lang="fr">Labels définis sur ce système pour le type de ressource %s ID %s</translation>
   </item>
   <item id="RESOURCE_TYPE_TAGS">
     <translation lang="en">Tags defined on this System for the resource type %s</translation>
@@ -1076,6 +1237,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">该系统中资源类型 %s的标签已定义</translation>
     <translation lang="pl">Znaczniki zdefiniowane w tym systemie dla zasobu typu %s</translation>
     <translation lang="es">Etiquetas definidas en este sistema para el tipo de recurso %s</translation>
+    <translation lang="fr">Labels définis sur ce système pour le type de ressource %s</translation>
   </item>
   <item id="RESOURCE_VER_TAGS">
     <translation lang="en">Tags defined on this System for the resource type %s ID %s version %s</translation>
@@ -1083,6 +1245,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">该系统中资源类型 %s、id %s、版本%s的标签已定义</translation>
     <translation lang="pl">Znaczniki zdefiniowane w tym systemie dla zasobu typu %s o identyfikatorze %s w wersji %s</translation>
     <translation lang="es">Etiquetas definidas en este sistema para el tipo de recurso %s ID %s version %s</translation>
+    <translation lang="fr">Labels définis sur ce système pour le type de ressource %s ID %s version %s</translation>
   </item>
   <item id="SEARCH_MULTIPLE">
     <translation lang="en">Error: Multiple matches exist for %s search parameters "%s"</translation>
@@ -1091,14 +1254,17 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">错误: 对于 %s 搜索的参数 "%s"存在多个匹配</translation>
     <translation lang="pl">Błąd: Istnieją wielokrotne dopasowania dla %s parametrów wyszukiwania "%s"</translation>
     <translation lang="es">Error: Multiples ocurrencias existen para %s parametros de búsqueda "%s"</translation>
+    <translation lang="fr">Erreur : Plusieurs correspondances existent pour ce paramètre de recherche %s</translation>
   </item>
   <item id="SEARCH_NONE">
-    <translation lang="en">Error: no processible search found for %s search parameters "%s"</translation>
+    <translation lang="en">Error: no processable search found for %s search parameters "%s"</translation>
     <translation lang="it">Errore: non � stato trovato alcun parametro di ricerca processabile per %s parametri di ricerca "%s"</translation>
     <translation lang="nl">Fout: geen verwerkbare zoekactie gevonden voor %s zoekparameters "%s"</translation>
     <translation lang="zh">错误: 对%s搜索参数"%s"未找到可处理的搜索</translation>
     <translation lang="pl">Błąd: Niewykonalne wyszukiwanie dla %s parametrów wyszukiwania "%s"</translation>
     <translation lang="es">Error: no se encontro una búsqueda apropiada para %s parametros de búsqueda "%s"</translation>
+    <translation lang="fr">Erreur : aucune recherche trouvée pour les paramètres %s "%s"</translation>
+    
   </item>
   <item id="SEARCH_REC_COUNT">
     <translation lang="en"># Records to return</translation>
@@ -1107,6 +1273,8 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh"># 待返回记录</translation>
     <translation lang="pl"># wyszukanych rekordów</translation>
     <translation lang="es"># Registros a devolver</translation>
+    <translation lang="fr"># Enregistrements à retourner</translation>
+    
   </item>
   <item id="SEARCH_REC_COUNT_COMMENT">
     <translation lang="en">(default value, which is also max allowed, is %d. Values of &lt;2 not allowed)</translation>
@@ -1115,6 +1283,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">(默认值（最大允许值）为%d. 取值为 &lt;2 是要闹哪样？)</translation>
     <translation lang="pl">(wartość domyślna, która jest także wartością maksymalną, wynosi %d. Wartości &lt;2 nie są dozwolone)</translation>
     <translation lang="es">(valor por defecto, que tambien tiene un máximo permitido, es %d. Valores &lt;2 no permitidos)</translation>
+    <translation lang="fr">(valeur par défaut, qui est aussi le maximum autorisé, est %d. Valeurs &lt;2 non permises)</translation>
   </item>
   <item id="SEARCH_REC_TEXT">
     <translation lang="en">Text</translation>
@@ -1122,6 +1291,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">文本</translation>
     <translation lang="pl">Tekst</translation>
     <translation lang="es">Texto</translation>
+    <translation lang="fr">Texte</translation>    
   </item>
   <item id="SEARCH_REC_TEXT_COMMENT">
     <translation lang="en">Search for these words in the narrative. See [[http://technet.microsoft.com/en-us/library/ms142571.aspx]] for details</translation>
@@ -1129,6 +1299,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">在文本中搜索如下字. 详见 [[http://technet.microsoft.com/nl-nl/library/ms142571.aspx]]</translation>
     <translation lang="pl">Szukaj tych słów w opisie. Szczegóły na [[http://technet.microsoft.com/en-us/library/ms142571.aspx]]</translation>
     <translation lang="es">Busca estas palabras en la parte narrativa. Visita [[http://technet.microsoft.com/en-us/library/ms142571.aspx]] para obtener mas detalles</translation>
+    <translation lang="fr">Recherche de ces mots dans le texte. Pour plus de détails, voir [[http://technet.microsoft.com/en-us/library/ms142571.aspx]]</translation>
   </item>
   <item id="SEARCH_REC_OFFSET">
     <translation lang="en">First Record</translation>
@@ -1137,6 +1308,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">第一条记录</translation>
     <translation lang="pl">Pierwszy rekord</translation>
     <translation lang="es">Primer Registro</translation>
+    <translation lang="fr">Premier Enregistrement</translation>    
   </item>
   <item id="SEARCH_REC_OFFSET_COMMENT">
     <translation lang="en">(empty = start at the start)</translation>
@@ -1145,6 +1317,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">(在起始时 empty = start)</translation>
     <translation lang="pl">(brak wyników = zacznij od początku)</translation>
     <translation lang="es">(vacío = comienza por el principio)</translation>
+    <translation lang="fr">(vide = commencez par le début)</translation>
   </item>
   <item id="SEARCH_SORT_BY">
     <translation lang="en">Sort By</translation>
@@ -1153,6 +1326,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">排序依据</translation>
     <translation lang="pl">Sortuj wg</translation>
     <translation lang="es">Ordenar Por</translation>
+    <translation lang="fr">Trié par</translation>
   </item>
   <item id="SEARCH_SUMMARY">
     <translation lang="en">Summary: </translation>
@@ -1160,6 +1334,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">小结:</translation>
     <translation lang="pl">Podsumowanie:</translation>
     <translation lang="es">Resumen:</translation>
+    <translation lang="fr">Résumé : </translation>
   </item>
   <item id="SEARCH_SUMMARY_COMMENT">
     <translation lang="en">Return just a summary for each resource (if applicable)</translation>
@@ -1167,6 +1342,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">为每个响应只返回一个小结 (如果适用)</translation>
     <translation lang="pl">Zwróć tylko podsumowanie dla każdego zasobu (jeśli dotyczy)</translation>
     <translation lang="es">Devuelve solamente un resumen para cada recurso (si aplica)</translation>
+    <translation lang="fr">Retourne juste un résumé pour chaque ressource (si applicable)</translation>
   </item>
   <item id="SEARCH_TITLE">
     <translation lang="en">FHIR Repository Search</translation>
@@ -1175,6 +1351,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">FHIR库搜索</translation>
     <translation lang="pl">Wyszukiwanie w repozytorium FHIR</translation>
     <translation lang="es">Buscar en el Repositorio FHIR</translation>
+    <translation lang="fr">Recherche dans le Repository FHIR</translation>
   </item>
   <item id="SYSTEM_TAGS">
     <translation lang="en">Tags defined on this System</translation>
@@ -1182,6 +1359,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">该系统定义的标签</translation>
     <translation lang="pl">Znaczniki zdefiniowane w tym systemie</translation>
     <translation lang="es">Etiquetas definidas en este sistema</translation>
+    <translation lang="fr">Labels définis dans ce système</translation>
   </item>
   <item id="UPLOAD">
     <translation lang="en">FHIR RESTful Server - Upload for %s</translation>
@@ -1190,6 +1368,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">FHIR RESTful服务器 - 上传 %s</translation>
     <translation lang="pl">Serwer FHIR RESTful - Upload %s</translation>
     <translation lang="es">FHIR RESTful Server - Subiendo %s</translation>
+    <translation lang="fr">Serveur RESTful FHIR - Upload de %s</translation>
   </item>
   <item id="UPLOAD_DONE">
     <translation lang="en">FHIR RESTful Server - Upload for %s done</translation>
@@ -1198,5 +1377,6 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">FHIR RESTful服务器 - 上传%s已完成</translation>
     <translation lang="pl">Serwer FHIR RESTful - Upload %s ukończono</translation>
     <translation lang="es">FHIR RESTful Server - Subida de %s completada</translation>
+    <translation lang="fr">Serveur RESTful FHIR - Upload de %s terminé</translation>
   </item>
 </translations>
