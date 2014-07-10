@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-06-26T19:14:20Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-07-10T20:21:32Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,8 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>90</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -215,6 +214,9 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s99">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -1080,7 +1082,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1097,7 +1099,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -1288,11 +1290,11 @@
     <Cell><Data ss:Type="String">Observation.value[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">name-value-[x]</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Both name and one of the value parameters</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">composite</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">name &amp; value-[x]</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">[#3045]</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">name-value-[x]</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Both name and one of the value parameters</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">composite</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">name &amp; value-[x]</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">[#3045]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
@@ -1457,8 +1459,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1655,7 +1657,7 @@
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="170.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="237"/>
-   <Column ss:AutoFitWidth="0" ss:Width="179.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="246"/>
    <Column ss:AutoFitWidth="0" ss:Width="99"/>
    <Column ss:AutoFitWidth="0" ss:Width="258.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -1695,12 +1697,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1749,8 +1749,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Excess</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient - excess</Data></Cell>
+    <Cell><Data ss:Type="String">Base Excess</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient -base excess</Data></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">f002</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">observation-example-f002-excess.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
@@ -1763,8 +1763,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Erytrocyte Hemoglobin </Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient - erytrocyte</Data></Cell>
+    <Cell><Data ss:Type="String">Erythrocyte Hemoglobin </Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - erythrocyte</Data></Cell>
     <Cell><Data ss:Type="String">f004</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">observation-example-f004-erythrocyte.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
@@ -1805,8 +1805,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">eGFR</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient - egfr</Data></Cell>
+    <Cell><Data ss:Type="String">Estimated GFR</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - estimated gfr</Data></Cell>
     <Cell><Data ss:Type="String">f205</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">observation-example-f205-egfr.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
@@ -1826,13 +1826,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>1</ActiveCol>
-    </Pane>
-   </Panes>
+   <Selected/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
