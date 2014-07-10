@@ -14,20 +14,18 @@ import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ElementSlicingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
-import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.String_;
-import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Cell;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Piece;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
-import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 /**
  * This class provides a set of utility operations for working with Profiles. 
@@ -72,53 +70,97 @@ public class ProfileUtilities {
     ExtensionDefinition getExtensionDefinition(Profile profile, String profileReference);
   }
 
-  public static Map<String, ElementComponent> getChildMap(ProfileStructureComponent structure, ElementComponent element) {
-  	return getChildMap(structure, element.getPathSimple());
-  }
-  
+
+/**
+ * Given a Structure, navigate to the element given by the path and return the direct children of that element
+ *   
+ * @param structure The structure to navigate into
+ * @param path The path of the element within the structure to get the children for
+ * @return A Map containing the name of the element child (not the path) and the child itself (an Element)
+ */
   public static Map<String, ElementComponent> getChildMap(ProfileStructureComponent structure, String path) {
     HashMap<String, ElementComponent> res = new HashMap<String, Profile.ElementComponent>(); 
-    for (ElementComponent e : structure.getSnapshot().getElement()) {
+    
+    for (ElementComponent e : structure.getSnapshot().getElement()) 
+    {
       String p = e.getPathSimple();
-      if (!Utilities.noString(e.getDefinition().getNameReferenceSimple()) && path.startsWith(p)) {
+      
+      if (e.getDefinition() != null && !Utilities.noString(e.getDefinition().getNameReferenceSimple()) && path.startsWith(p)) 
+      {
+    	/* The path we are navigating to is on or below this element, but the element defers its definition to another named part of the
+    	 * structure.
+    	 */
         if (path.length() > p.length())
+        {
+          // The path navigates further into the referenced element, so go ahead along the path over there
           return getChildMap(structure, e.getDefinition().getNameReferenceSimple()+"."+path.substring(p.length()+1));
+        }
         else
+        {
+          // The path we are looking for is actually this element, but since it defers it definition, go get the referenced element
           return getChildMap(structure, e.getDefinition().getNameReferenceSimple());
-      } else if (p.startsWith(path+".") && !p.equals(path)) {
+        }
+      } 
+      else if (p.startsWith(path+".")) 
+      {
+    	  // The path of the element is a child of the path we're looking for (i.e. the parent),
+    	  // so add this element to the result.
           String tail = p.substring(path.length()+1);
+          
+          // Only add direct children, not any deeper paths
           if (!tail.contains(".")) {
             res.put(tail, e);
-          }
-        }
-
+         }
       }
+    }
+    
     return res;
   }
 
-  public static List<ElementComponent> getChildList(ProfileStructureComponent structure, ElementComponent element) {
-  	return getChildList(structure, element.getPathSimple());
-  }
   
+  public static Map<String, ElementComponent> getChildMap(ProfileStructureComponent structure, ElementComponent element) {
+	  	return getChildMap(structure, element.getPathSimple());
+	  }
+
+
+  /**
+   * Given a Structure, navigate to the element given by the path and return the direct children of that element
+   *   
+   * @param structure The structure to navigate into
+   * @param path The path of the element within the structure to get the children for
+   * @return A List containing the element children (all of them are Elements)
+   */
   public static List<ElementComponent> getChildList(ProfileStructureComponent structure, String path) {
     List<ElementComponent> res = new ArrayList<Profile.ElementComponent>(); 
-    for (ElementComponent e : structure.getSnapshot().getElement()) {
+    
+    for (ElementComponent e : structure.getSnapshot().getElement()) 
+    {
       String p = e.getPathSimple();
-      if (!Utilities.noString(e.getDefinition().getNameReferenceSimple()) && path.startsWith(p)) {
+    
+      if (!Utilities.noString(e.getDefinition().getNameReferenceSimple()) && path.startsWith(p)) 
+      {
         if (path.length() > p.length())
           return getChildList(structure, e.getDefinition().getNameReferenceSimple()+"."+path.substring(p.length()+1));
         else
           return getChildList(structure, e.getDefinition().getNameReferenceSimple());
-      } else if (p.startsWith(path+".") && !p.equals(path)) {
+      }
+      else if (p.startsWith(path+".") && !p.equals(path)) 
+      {
           String tail = p.substring(path.length()+1);
           if (!tail.contains(".")) {
             res.add(e);
           }
-        }
-
       }
+
+    }
+    
     return res;
   }
+
+  
+  public static List<ElementComponent> getChildList(ProfileStructureComponent structure, ElementComponent element) {
+	  	return getChildList(structure, element.getPathSimple());
+	  }
 
 
   /**
@@ -177,7 +219,8 @@ public class ProfileUtilities {
           result.getElement().add(outcome);
           baseCursor++;
           diffCursor = differential.getElement().indexOf(diffMatches.get(0))+1;
-        } else {
+        } else 
+        {
           // ok, the differential slices the item. Let's check our pre-conditions to ensure that this is correct
           if (!unbounded(currentBase.getDefinition()) && !isSlicedToOneOnly(diffMatches.get(0))) 
             // you can only slice an element that doesn't repeat if the sum total of your slices is limited to 1
@@ -302,6 +345,13 @@ public class ProfileUtilities {
     }      
   }
 
+  
+  /**
+   * Finds internal references in an Element's Binding and Profile references (in TypeRef) and bases them on the given url
+   * @param url - the base url to use to turn internal references into absolute references 
+   * @param element - the Element to update
+   * @return - the updated Element
+   */
   private ElementComponent updateURLs(String url, ElementComponent element) {
     if (element.getDefinition() != null) {
       ElementDefinitionComponent defn = element.getDefinition();
