@@ -92,6 +92,9 @@ to compute the relationship, which might not be possible for a profile tool</li>
 <p>
 How filters are used with various code systems:
 </p>
+<ul>
+ <li>LOINC: See <a href="loinc.html">Using LOINC with FHIR</a></li>
+</ul>
 <table class="grid">
  <tr>
    <th>System</th>    
@@ -130,29 +133,6 @@ How filters are used with various code systems:
    <td colspan="4"><hr/></td>
  </tr>
  
- <tr>
-   <td>LOINC</td> 
-   <td>[property]</td>
-   <td>= / regex</td>       
-   <td>[value]</td>    
-   <td>Includes all codes where the named property has the given value. Valid Property Names are all the names listed in the 
-     "Field Name" column in LOINC Database Structure (Appendix A of the LOINC manual). 
-     Of these, the 6 properties COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, and METHOD_TYP are most likely to be useful. 
-     In addition, the following 5 property names are defined in the Document Ontology: Document.Kind, Document.TypeOfService, Document.Setting, Document.Role, and Document.SubjectMatterDomain.
-   </td> 
-   <td><a href="valueset-doc-codes.html">Document Codes</a></td>
- </tr>
- <tr>
-   <td></td>      
-   <td>Type</td>        
-   <td>=</td>       
-   <td>Method</td>       
-   <td>All the LOINC codes for particular methods defined in LOINC</td> 
-   <td><a href="valueset-observation-methods.html">Observation Methods</a></td>
- </tr>
- <tr>
-   <td colspan="4"><hr/></td>
- </tr>
  
  <tr>
    <td>V3 Code systems</td> 

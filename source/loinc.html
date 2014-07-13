@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Using LOINC with FHIR%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<%txheader%>
+
+<h2>Using LOINC with FHIR</h2>
+
+<h3>Summary</h3>
+
+<table class="grid">
+ <tr><td>Source</td><td>LOINC is made available at <a href="http://loinc.org">http://loinc.org</a></td></tr>
+ <tr><td>System</td><td>The URI <a href="http://loinc.org">http://loinc.org</a> identifies LOINC codes</td></tr>
+ <tr><td>Version</td><td>Where a version is used, it should be the standard LOINC version e.g. 2.48</td></tr>
+ <tr><td>Code</td><td>The LOINC Code Identifier e.g. 21176-3. LOINC codes are not case sensitive</td></tr>
+ <tr><td>Display</td><td>Use either the SHORTNAME or LONG_COMMON_NAME field for the display</td></tr>
+ <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
+</table>
+
+<h3>Copyright Issues</h3>
+
+<p>
+The terms of use for LOINC require that a <a href="license.html#loinc">notice</a> be included with any use of LOINC codes.
+This notice must appear in the <i>copyright</i> element of any value set that includes LOINC codes (either in the code or filter elements, or in an expansion):
+</p>
+<pre>
+&lt;copyright value=&quot;This material contains content from LOINC® (&lt;a href=&quot;http://loinc.org&quot;&gt;http://loinc.org&lt;/a&gt;). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright © 1995-2014, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at http://loinc.org/terms-of-use&quot;/&gt;
+</pre>
+<p>
+<i>TODO: Dan V to propose a shorter notice for this specific usage</i>.
+</p>
+<p>
+Additional copyright statements may also be found in the <i>copyright</i> element. Some LOINC codes have
+3rd party copyright statements. When these codes are included in a value set, they must carry their own 
+copyright statement, using the extension <a href="tools-extensions.html">http://hl7.org/fhir/tools/Profile/extensions#copyright</a>.
+</p>
+
+
+<h3>Use of LOINC PARTS</h3>
+<p>
+As described in the <a href="http://loinc.org/downloads/files/LOINCManual.pdf">LOINC Manual</a> section 10.2,
+LOINC Parts are a coded representation of a value for a dimension used to specify a LOINC Term
+which are assigned a non-semantic identifier with a “LP” prefix and a mod-10 check digit. Following
+the LOINC license, these part codes may be used in the following ways:
+</p>
+<ul>
+ <li>In filter properties, as described below</li>
+ <li>In <a href="profile-definitions.html#Profile.code">Profile.code</a>, where the profile describes the use of a set of LOINC codes</li>
+ <li>In a <a href="conceptmap.html">ConceptMap</a> resource, where mappings between LOINC codes and other codes are being defined</li>
+</ul>
+<p>
+Part codes are the same LOINC URI (http://loinc.org), and SHALL be represented in uppercase (e.g. LP31755-9).
+</p>
+
+<h3>LOINC Filter Properties</h3>
+
+<h4>LOINC Property filter</h4>
+
+<table class="grid">
+ <tr><td>Description</td><td>Allows the selection of a set of LOINC codes with a common property value</td></tr>
+ <tr><td>Property Name</td><td>The names listed in the "Field Name" column in LOINC Database Structure (Appendix A of the LOINC manual)</td></tr>
+ <tr><td>Operations Allowed</td><td>= / regex</td></tr>
+ <tr><td>Values Allowed</td><td>[string value]</td></tr>
+ <tr><td>Comments</td><td>The 6 properties COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, and METHOD_TYP are most likely to be useful.</td></tr>
+</table>
+
+<h4>3rd Party Copyright</h4>
+
+<table class="grid">
+ <tr><td>Description</td><td>Allows for the inclusion or exclusion of LOINC codes that include 3rd party copyright notices</td></tr>
+ <tr><td>Property Name</td><td>copyright</td></tr>
+ <tr><td>Operations Allowed</td><td>=</td></tr>
+ <tr><td>Values Allowed</td><td>LOINC | 3rdParty | All</td></tr>
+ <tr><td>Comments</td><td>LOINC = only codes copyrighted by LOINC. 3rdParty = only codes copyrighted by 3rd parties</td></tr>
+</table>
+
+<h4>Multi-Axial Heirarchy</h4>
+
+<table class="grid">
+ <tr><td>Description</td><td>Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial heirarchy </td></tr>
+ <tr><td>Property Name</td><td>parent | ancestor</td></tr>
+ <tr><td>Operations Allowed</td><td>= / in</td></tr>
+ <tr><td>Values Allowed</td><td>Part Code (or, for "in", multiple part codes separated by commas)</td></tr>
+ <tr><td>Comments</td><td>"parent" selects immediate parents only. For example, the code "44022-2" has the parent "LP52960-9". Ancestor includes parents transitively, e.g. "LP52960-9" eventually has a parent "LP31755-9", so the code "44022-2" is in the set of codes that have ancestor=LP31755-9</td></tr>
+</table>
+
+<p><i>TODO: Document Ontology</i></p>
+<!--
+Document.Kind, Document.TypeOfService, Document.Setting, Document.Role, and Document.SubjectMatterDomain
+-->
+
+
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>

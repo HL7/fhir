@@ -46,7 +46,9 @@ todo: compartments
       <page title="Mappings" filename="datatypes-mappings.html"/>
     </page>
     <page title="Using Codes" filename="terminologies.html">
-      <page title="Systems" filename="terminologies-systems.html"/>
+      <page title="Systems" filename="terminologies-systems.html">
+        <page title="LOINC" filename="loinc.html"/>
+      </page>
       <page title="Value Sets" filename="terminologies-valuesets.html">
         <pages type="valueset" filename="template-valueset.html"/>
         <pages type="codesystem" filename="template-codesystem.html"/>
