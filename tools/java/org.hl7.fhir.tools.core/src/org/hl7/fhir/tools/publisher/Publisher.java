@@ -1140,7 +1140,7 @@ public class Publisher {
       if (!gen.isECoreGenerator())
         gen.generate(page.getDefinitions(), destDir, implDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
       else
-        gen.generate(eCoreDefs, destDir, implDir, page, page.getSvnRevision());
+        gen.generate(eCoreDefs, destDir, implDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
     }
     for (PlatformGenerator gen : page.getReferenceImplementations()) {
       if (gen.doesCompile()) {

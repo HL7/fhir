@@ -199,15 +199,26 @@ public class CSharpModelGenerator extends GenBlock
 			if( composite.getLocalCompositeTypes().size() > 0)
 				nestedLocalTypes( composite.getLocalCompositeTypes() ); 			
 	
+			String className = GeneratorUtils.generateCSharpTypeName(composite.getName());
+			
 			// Generate extra members if this type contains a primitive Value member
 			if( hasPrimitiveValueElement(composite) )
 			{
 				PrimitiveDefn prim = definitions.findPrimitive(composite.getName());
-				generateExtraPrimitiveMembers(prim, GeneratorUtils.generateCSharpTypeName(composite.getName()));
+				generateExtraPrimitiveMembers(prim, className);
 			}
 			
 			generateMembers(composite);
 			
+			generateCopyTo(composite);
+			
+			// Generate the DeepCopy() function for non-abstract classes
+			if(!composite.isAbstract())
+			{
+        generateDeepCopy(className);
+        ln();
+			}
+		
 			// Generate Validate() routine			
 			//generateValidationMethod(composite);
 
@@ -250,7 +261,6 @@ public class CSharpModelGenerator extends GenBlock
     
     Collections.sort(sortedElements, new Comparator<ElementDefn>()
       {
-        @Override
         public int compare(ElementDefn e1, ElementDefn e2)
         {
           if(e1.getXmlFormatHint() == XmlFormatHint.ATTRIBUTE) 
@@ -268,6 +278,48 @@ public class CSharpModelGenerator extends GenBlock
     }
   }
 
+  
+  private void generateCopyTo(CompositeTypeDefn composite) throws Exception
+  {
+    String className = GeneratorUtils.generateCSharpTypeName(composite.getName());
+    Boolean isBase = className.equals("Resource") || className.equals("Element");
+    String override = isBase ? "virtual" : "override";
+        
+    ln("public " + override + " IDeepCopyable CopyTo(IDeepCopyable other)");
+    bs("{");      
+      ln("var dest = other as " + className + ";");
+      ln();
+      ln("if (dest != null)");
+      bs("{");
+        if(!isBase) ln("base.CopyTo(dest);");
+        
+        for( ElementDefn member : composite.getElement() )
+        {
+          String memberName = member.getGeneratorAnnotations().get(CLASSGEN_MEMBER_NAME);
+          String memberType = member.getGeneratorAnnotations().get(CLASSGEN_MEMBER_CSTYPE);
+    
+          ln("if(" + memberName + " != null) ");
+          if(member.isPrimitiveContents())
+            nl("dest." + memberName + " = " + memberName + ";");            
+          else
+          {
+            String rhs = memberName + ".DeepCopy()";
+            if( member.getMaxCardinality() == -1 )
+              rhs = "new " + memberType + "(" + rhs + ")";
+            else
+              rhs = "(" + memberType + ")" + rhs;
+            
+            nl("dest." + memberName + " = " + rhs + ";");
+          }
+        }
+        
+        ln("return dest;");
+      es("}");    
+      ln("else");
+        ln("\tthrow new ArgumentException(\"Can only copy to an object of the same type\", \"other\");");
+    es("}");
+    ln();
+  }
 
 	private boolean hasPrimitiveValueElement( CompositeTypeDefn composite )
 	{
@@ -715,7 +767,7 @@ public class CSharpModelGenerator extends GenBlock
         	nl("(" + csharpPrimitive + ")"); // Avoid ambiguous this() calls by specifying type of null
         	nl("null) {}");
         ln();
-        
+      
         // Generate the cast from a C# primitive to the Fhir primitive
 //        ln("public static implicit operator ");
 //        	nl(className);
@@ -762,6 +814,14 @@ public class CSharpModelGenerator extends GenBlock
        
         return end();
 	}
+
+
+  private void generateDeepCopy(String className) {
+    ln("public override IDeepCopyable DeepCopy()");
+    bs("{");
+      ln("return CopyTo(new " + className + "());");
+    es("}");
+  }
 
 
 }

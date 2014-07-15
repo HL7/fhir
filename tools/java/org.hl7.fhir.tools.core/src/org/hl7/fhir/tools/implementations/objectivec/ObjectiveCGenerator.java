@@ -80,7 +80,7 @@ public class ObjectiveCGenerator extends BaseGenerator implements PlatformGenera
   }
 
   @Override
-  public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, Logger logger, String svnRevision) throws Exception {
+  public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
 
     char sl = File.separatorChar;
     String modelDir = "Model" + sl;

@@ -241,7 +241,8 @@ public class CompositeTypeConverter {
 		else
 			result.setMaxCardinality(-1); // Adapt eCore convention for '*'
 
-		if (element.getTypes() != null) {
+		if (element.getTypes() != null) 
+		{
 			result.getType().addAll(
 					TypeRefConverter.buildTypeRefsFromFhirModel(element
 							.getTypes()));
@@ -250,11 +251,16 @@ public class CompositeTypeConverter {
 	    // (which, in Xml, is rendered as a xhtml <div> node), there is no id, nor extensions
 			 if( result.getType().size() == 1 && result.getType().get(0).getName().equals("xhtml") )
 			 {
-		      result.setPrimitiveContents(true);
 		      result.setXmlFormatHint(XmlFormatHint.XHTML_ELEMENT);	      
 			 }
 		}
-  
+
+		// If the element is not rendered as an Xml Element, its contents must be primitive
+		if(result.getXmlFormatHint() != XmlFormatHint.ELEMENT)
+		{
+		  result.setPrimitiveContents(true);
+		}
+		
 		// If this element is actually a nested type definition, these nested
 		// elements
 		// will have been put into a separately defined type, so we'll just

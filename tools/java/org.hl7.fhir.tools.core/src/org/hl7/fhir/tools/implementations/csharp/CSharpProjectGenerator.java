@@ -36,26 +36,26 @@ import org.hl7.fhir.utilities.TextFile;
 
 public class CSharpProjectGenerator 
 {	
-	public static void build( String destDir, List<String> cSharpProjectFiles ) throws IOException
+	public static void buildProjectFile( String destDir, List<String> cSharpProjectFiles ) throws IOException
 	{
 		if( !destDir.endsWith(File.separator) )
 			destDir += File.separator;
 
-		// Generate "normal" VS2012 .NET project
-		List<String> templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.csproj.template"); 	
+		// Generate "legacy" .NET 4.0 project
+		List<String> templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.Model.csproj.template"); 	
 		List<String> itemGroup = buildItemGroupContents(cSharpProjectFiles);
 		List<String> outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
-		TextFile.writeAllLines(destDir + "Hl7.Fhir.csproj", outputLines);
+		TextFile.writeAllLines(destDir + "Hl7.Fhir.Model.csproj", outputLines);
 		
-		// Generate Portable40 project (profile 147)
-		templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.Portable40.csproj.template"); 	
+		// Generate "up-to-date" .NET 4.5 project
+		templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.Model.Net45.csproj.template"); 	
 		outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
-		TextFile.writeAllLines(destDir + "Hl7.Fhir.Portable40.csproj", outputLines);
+		TextFile.writeAllLines(destDir + "Hl7.Fhir.Model.Net45.csproj", outputLines);
 		
-		// Generate Portable45 project (profile 78)
-		templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.Portable45.csproj.template"); 	
+		// Generate Portable45 project (profile 259)
+		templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.Model.Portable45.csproj.template"); 	
 		outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
-		TextFile.writeAllLines(destDir + "Hl7.Fhir.Portable45.csproj", outputLines);
+		TextFile.writeAllLines(destDir + "Hl7.Fhir.Model.Portable45.csproj", outputLines);
 	}
 	
 	
@@ -64,9 +64,9 @@ public class CSharpProjectGenerator
 	  if( !destDir.endsWith(File.separator) )
       destDir += File.separator;
 	  
-	  String filename = destDir + "Properties" + File.separator + "AssemblyInfo.cs";
+	  String filename = destDir + "AssemblyInfo.cs";
 	  List<String> assemblyInfoContents = TextFile.readAllLines(filename + ".template");  
-    List<String> outputLines = replaceAssemblyVersion( assemblyInfoContents, version, svnRevision);
+    List<String> outputLines = replaceAssemblyVersion(assemblyInfoContents, version, svnRevision);
     TextFile.writeAllLines(filename, outputLines);
 	}
 

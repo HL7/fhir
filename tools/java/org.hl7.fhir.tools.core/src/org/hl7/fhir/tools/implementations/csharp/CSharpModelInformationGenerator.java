@@ -30,6 +30,7 @@ package org.hl7.fhir.tools.implementations.csharp;
 */
 
 import org.hl7.fhir.definitions.ecore.fhir.Definitions;
+import org.hl7.fhir.definitions.ecore.fhir.PrimitiveDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
 import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
 import org.hl7.fhir.definitions.ecore.fhir.SearchType;

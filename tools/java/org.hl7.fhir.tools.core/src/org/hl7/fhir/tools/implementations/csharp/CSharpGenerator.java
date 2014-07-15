@@ -36,6 +36,7 @@ import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.instance.utils.Version;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.tools.publisher.DotNetFramework;
@@ -71,13 +72,13 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 
 	@Override
 	public String getTitle() {
-		return ".NET (C#)";
+		return "csharp";
 	}
 
 	
 	@Override
   public String getVersion() {
-    return "0.9.5";
+    return Version.VERSION;
   }
 
   @Override
@@ -85,6 +86,10 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
     return "http://www.nuget.org/packages/Hl7.Fhir";
   }
 
+  public String getZipFilename(String version) {
+    return super.getReference(version);
+  }
+ 
   @Override
 	public boolean isECoreGenerator() {
 		return true;
@@ -92,36 +97,37 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 
   private Logger logger = null;
   
+  
 	@Override
-	public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir,
-			String implDir, Logger logger, String svnRevision) throws Exception {
+	public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
 
 	  this.logger = logger;
-
+  
 		char sl = File.separatorChar;
-		String modelDir = "Model" + sl;
+		
+		String modelProjectDir = "Hl7.Fhir.Model" + sl;
+		String projectDir = implDir + modelProjectDir + sl;
+		String generationDir = "Generated" + sl;
 		String introspectionDir = "Introspection" + sl;
+    String propertiesDir = "Properties" + sl;
 		String validationDir = "Validation" + sl;
-		String modelSupportDir = "Model.Support" + sl;
-		 
-		File f = new CSFile(implDir + modelDir);	if( !f.exists() ) f.mkdir();
-		File i = new CSFile(implDir + introspectionDir);	if( !i.exists() ) i.mkdir();
-		File v = new CSFile(implDir + validationDir);	if( !v.exists() ) v.mkdir();
-		File s = new CSFile(implDir + modelSupportDir); if( !s.exists() ) s.mkdir();
+
+		File f = new CSFile(projectDir);	if( !f.exists() ) f.mkdir();
+		f = new CSFile(projectDir + generationDir);  if( !f.exists() ) f.mkdir();
 		
 		List<String> generatedFilenames = new ArrayList<String>();
 
 		{
-			String enumsFilename = modelDir + "Bindings.cs";
+			String enumsFilename = generationDir + "Bindings.cs";
 		
 			new CSharpModelGenerator(definitions)
-				.generateGlobalEnums(definitions.getBinding()).toFile(implDir+enumsFilename);						 
+				.generateGlobalEnums(definitions.getBinding()).toFile(projectDir+enumsFilename);						 
 			generatedFilenames.add(enumsFilename);
 		}
 
 		{
-			String filename = modelDir + "ModelInfo.cs";
-			 new CSharpModelInformationGenerator(definitions).generateInformation().toFile(implDir+filename);						 
+			String filename = generationDir + "ModelInfo.cs";
+			 new CSharpModelInformationGenerator(definitions).generateInformation().toFile(projectDir+filename);						 
 			generatedFilenames.add(filename);
 		}
 			
@@ -134,105 +140,50 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		for( CompositeTypeDefn composite : allComplexTypes )
 		{		  
 		  // Generate model for all other classes
-			String compositeFilename = modelDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + ".cs";	
+			String compositeFilename = generationDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + ".cs";	
 			new CSharpModelGenerator(definitions)
-				.generateComposite(composite).toFile(implDir + compositeFilename);		
+				.generateComposite(composite).toFile(projectDir + compositeFilename);		
 			generatedFilenames.add(compositeFilename);
 		}
-
-//		for( CompositeTypeDefn composite : allComplexTypes )
-//		{		
-//			// Don't generate parsers/serializers for abstract stuff (for now)
-//			if( composite.isAbstract() ) continue;
-//      
-//      // Generate parsers/serializers for all other classes
-//			String xmlParserFilename = parsersDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + "Parser.cs";			
-//			new CSharpParserGenerator(definitions)
-//					.generateCompositeParser(composite, definitions).toFile(implDir+xmlParserFilename);			
-//			generatedFilenames.add(xmlParserFilename);
-//	
-//			String serializerFilename = serializersDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + "Serializer.cs";			
-//			new CSharpSerializerGenerator(definitions)
-//				.generateCompositeSerializer(composite).toFile(implDir+serializerFilename);			
-//			generatedFilenames.add(serializerFilename);
-//		}
-		
+	
 		for( ConstrainedTypeDefn constrained : definitions.getLocalConstrainedTypes() )
 		{
 			// Build C# class for constrained type
-			String constrainedFilename = modelDir + constrained.getName() + ".cs";
+			String constrainedFilename = generationDir + constrained.getName() + ".cs";
 			new CSharpModelGenerator(definitions)
-				.generateConstrained(constrained).toFile(implDir+constrainedFilename);						 
-			generatedFilenames.add(constrainedFilename);
-			
-//			// Build Xml parser for constrained type
-//			String parserFilename = parsersDir + constrained.getName() + "Parser.cs";
-//			new CSharpParserGenerator(definitions)
-//				.generateConstrainedParser(constrained).toFile(implDir+parserFilename);						 
-//			generatedFilenames.add(parserFilename);
+				.generateConstrained(constrained).toFile(projectDir+constrainedFilename);						 
+			generatedFilenames.add(constrainedFilename);			
 		}
-
-		// Collect all bindings to generate the EnumHelper class
-//		List<BindingDefn> allBindings = new ArrayList<BindingDefn>();
-//		allBindings.addAll(definitions.getBinding());
-//		for( NameScope ns : definitions.getLocalCompositeTypes() )
-//			allBindings.addAll(ns.getBinding());
-//		for( NameScope ns : definitions.getResources() )
-//			allBindings.addAll(ns.getBinding());
-//		{
-//			String enumHelperFilename = modelDir + "EnumHelper.cs";
-//			
-//			new CSharpEnumHelperGenerator(definitions)
-//				.generateEnumHelper(definitions, allBindings).toFile(implDir+enumHelperFilename);						 
-//			generatedFilenames.add(enumHelperFilename);			
-//		}
 		
-		// Generate resource parser entrypoint
-//		{
-//			String filename = parsersDir + "FhirParser.cs";
-//			
-//			new CSharpFhirParserGenerator(definitions)
-//				.generateResourceParser(definitions).toFile(implDir+filename);						 
-//			generatedFilenames.add(filename);			
-//		}
-//		
-//		// Generate resource serializer entrypoint
-//		{
-//			String filename = serializersDir + "FhirSerializer.cs";
-//			
-//			new CSharpSerializerGenerator(definitions)
-//				.generateResourceSerializer().toFile(implDir+filename);						 
-//			generatedFilenames.add(filename);			
-//		}
-		
-	    // Generate C# project file & update assembly version
-	    CSharpProjectGenerator.build(implDir, generatedFilenames);
-	    CSharpProjectGenerator.setAssemblyVersionInProperties(implDir, definitions.getVersion(), svnRevision);
-	    
-	
-		ZipGenerator zip = new ZipGenerator(destDir + CSHARP_FILENAME);
-    zip.addFolder(implDir+modelDir, modelDir, false);
-		zip.addFolder(implDir+modelSupportDir, modelSupportDir, false);
-		zip.addFolder(implDir+introspectionDir, introspectionDir, false);
-		zip.addFolder(implDir+validationDir, validationDir, false);
+    // Generate C# project file & update assembly version
+    CSharpProjectGenerator.buildProjectFile(projectDir, generatedFilenames);
+    CSharpProjectGenerator.setAssemblyVersionInProperties(projectDir + propertiesDir, definitions.getVersion(), svnRevision);
 
-		zip.addFiles(implDir+"Properties" + sl, "Properties"+sl, ".cs", null);
-		zip.addFiles(implDir, "", ".csproj", null);
-		zip.addFiles(implDir, "", ".sln", null);
-		zip.addFiles(implDir, "", "Hl7.Fhir.vsmdi", null);
-		zip.addFiles(implDir, "", "README.txt", null);
-
-		// Include supporting libraries
-		String librariesDir = "Libraries" + sl;
-	//	String winRTLibrariesDir = librariesDir + "WinRT" + sl;
-		zip.addFiles(implDir+librariesDir, librariesDir, ".dll", null);
-	//	zip.addFiles(implDir+winRTLibrariesDir, winRTLibrariesDir , ".dll", null);
+    ZipFilename = getZipFilename(version);
+    ZipGenerator zip = new ZipGenerator(destDir+ZipFilename);
+		//ZipGenerator zip = new ZipGenerator(destDir + CSHARP_FILENAME);
 		
-		// Include test project
-		String testProjectDir = "Hl7.Fhir.Tests" + sl;
+	  // Zip Hl7.Fhir.Model directory	
+    zip.addFolder(projectDir+generationDir, modelProjectDir + generationDir, false);
+		zip.addFolder(projectDir+introspectionDir, modelProjectDir + introspectionDir, false);
+		zip.addFolder(projectDir+validationDir, modelProjectDir + validationDir, false);
+
+		zip.addFiles(projectDir+propertiesDir, modelProjectDir + propertiesDir, ".cs", null);
+		zip.addFiles(projectDir, modelProjectDir, ".csproj", null);
+		zip.addFiles(projectDir, modelProjectDir, ".cs", null);
+    zip.addFiles(projectDir, modelProjectDir, "packages.config", null);
+    	
+		// Zip Hl7.Fhir.Model.Tests directory
+		String testProjectDir = "Hl7.Fhir.Model.Tests" + sl;
 		zip.addFiles(implDir+testProjectDir, testProjectDir, ".cs", null);
 		zip.addFiles(implDir+testProjectDir + "Properties" + sl, testProjectDir+"Properties"+sl, ".cs", null);
 		zip.addFiles(implDir+testProjectDir, testProjectDir, ".csproj", null);
+		zip.addFiles(implDir+testProjectDir, testProjectDir, "packages.config", null);
+		
+		// Add cross-project files
+    zip.addFiles(implDir, "", ".sln", null);
+    zip.addFiles(implDir, "", "README.txt", null);
+    zip.addFiles(implDir + "packages" + sl, "packages" + sl, "repositories.config", null);
 		
 		zip.close();		
 	}
@@ -243,13 +194,13 @@ public boolean doesCompile() {
   }
 
   
-  private static final String CSHARP_FILENAME = "CSharp.zip";
+  private String ZipFilename;
   
   @Override
   public boolean compile(String rootDir, List<String> errors, Logger logger) 
   {  
     String solutionDirectory = Utilities.path(rootDir, "implementations", "csharp");
-    String solutionFile = Utilities.path(solutionDirectory, "Hl7.Fhir.csproj");
+    String solutionFile = Utilities.path(solutionDirectory, "Hl7.Fhir.sln");
     DotNetCompileResult result = DotNetFramework.compile(solutionFile, this.logger);
 
     // If result == null, the compile function will have logged the reason
@@ -262,14 +213,14 @@ public boolean doesCompile() {
       logger.log(result.message, LogMessageType.Error);
       return false;
     }
-
-    return addCompiledAssemblyToCsharpZip(rootDir, solutionDirectory);    
+   
+    return addCompiledAssemblyToCsharpZip(rootDir, solutionDirectory, ZipFilename);    
   }
 
-  private boolean addCompiledAssemblyToCsharpZip(String rootDir, String solutionDirectory) {
+  private boolean addCompiledAssemblyToCsharpZip(String rootDir, String solutionDirectory, String zipFilename) {
     // Try to add the newly compiled assembly to the distribution zip
-    String csharpZip = Utilities.path(rootDir, "publish", CSHARP_FILENAME );
-    String assemblyDirectory = Utilities.path(solutionDirectory,"bin","Release");
+    String csharpZip = Utilities.path(rootDir, "publish", zipFilename );
+    String assemblyDirectory = Utilities.path(solutionDirectory,"Hl7.Fhir.Model","bin","Release","Net40");
     String tempZip = csharpZip + "_temp";
     
     File origZipFile = new File(csharpZip);
@@ -286,12 +237,12 @@ public boolean doesCompile() {
       char sl = File.separatorChar;
       ZipGenerator zip = new ZipGenerator(csharpZip);
       zip.addFromZip(tempZip);
-      zip.addFolder( assemblyDirectory + sl, "bin" + sl, false);
+      zip.addFolder(assemblyDirectory + sl, "bin" + sl + "Net40" + sl, false);
       zip.close();
     }
-    catch( Exception e)
+    catch(Exception e)
     {
-      logger.log("Failed to add compiled assembly to csharp distribution zip", LogMessageType.Error);
+      logger.log("Failed to add compiled assembly to csharp distribution zip: " + e.getMessage(), LogMessageType.Error);
       return false;
     }
     finally

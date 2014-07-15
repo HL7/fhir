@@ -30,6 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -3116,9 +3117,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   @Override
-  public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir,
-      String implDir, Logger logger, String svnRevision) throws Exception {
-
+  public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
     throw new UnsupportedOperationException("Pascal generator uses ElementDefn-style definitions.");
   }
 

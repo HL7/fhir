@@ -295,7 +295,7 @@ public class GeneratorUtils {
 		else if (name.equals("string"))
 			return "string";
 		else if (name.equals("uri"))
-			return "System.Uri";
+			return "string";
 		else if (name.equals("code"))
 			return "string";
 		else if (name.equals("oid"))
