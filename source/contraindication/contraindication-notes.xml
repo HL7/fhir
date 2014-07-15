@@ -1,0 +1,27 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Linking to Contraindications</h2>
+<p>
+Contraindication follows the pattern of linking from the resource created "second".  As Contraindication originates in response to one or more other existing records, it points to those records rather than being pointed to from them.
+</p>
+<p>
+In some cases, a contraindication might be associated with a single record.  When this occurs, it may be stored as a contained resource within the implicated resource provided that there is no expected need to search for the contraindication directly.  However, with contraindications that implicate multiple records, containment is more problematic.  In some workflows, a contraindication might be deemed to be "owned" by the record whose creation triggers the contrindication being created - i.e. the "second" or "last" record.  However, where multiple actions are proposed as part of a single submission, there can be no single owner and containment will not be feasible.
+</p>
+<p>
+If there is a strong need to point from an implicated resource to Contraindication and containment is not appropriate, an extension can be used.
+</p>
+
+<h2>Contraindications and Workflow</h2>
+<p>
+One of the key drivers of electronic health records is the increased ability to detect and prevent or mitigate clinical issues resulting from conflicting or sub-optimal therapies.  To actually create this desired change, it is necessary not only that the issues be detected but that they be conveyed to the appropriate individuals and that action be taken based on the identified issue(s).
+</p>
+<p>
+Some systems may choose to perform contraindication checking whenever new records are created or existing records are changed.  The associated contraindications can then be returned with the acknowledgement of the associated action as a "warning" of potential issues.  In some environments, a proposed new record or change to a record might even be rejected with contraindications being returned with the rejection response.  In order to successfully initiate the change, the client system would need to resubmit their request with links acknowledging the contraindications and possibly with mitigations identified.
+</p>
+<p>
+Systems that require such workflows should document them as part of their Conformance resources.
+</p>
+
+<!-- insert xhtml content here -->
+
+</div>

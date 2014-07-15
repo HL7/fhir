@@ -1,4 +1,4 @@
-﻿<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
+<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
   <!--
  This file is for the convenience of implementers, to enable sharing of language translations.
  There is no obligation for any implementer to use the messages contained in this file, but
@@ -107,6 +107,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">遵从</translation>
     <translation lang="es">Conformidad</translation>
     <translation lang="fr">Conformité</translation>
+  </item>
+  <item id="Contraindication">
+    <translation lang="en">Contraindication</translation>
   </item>
   <item id="Coverage">
     <translation lang="en">Coverage</translation>
@@ -392,6 +395,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">汇款</translation>
     <translation lang="es">Remesa</translation>
     <translation lang="fr">Remise</translation>
+  </item>
+  <item id="RiskAssessment">
+    <translation lang="en">RiskAssessment</translation>
   </item>
   <item id="SecurityEvent">
     <translation lang="en">SecurityEvent</translation>

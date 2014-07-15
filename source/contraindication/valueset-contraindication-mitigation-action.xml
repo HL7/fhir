@@ -1,0 +1,22 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="contraindication-mitigation-action"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Kinds of mitigating actions and observations that can be associated with a contraindicaiton, such as 'added concurrent therapy', 'prior therapy documented', etc."/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/actcode"/>
+      <filter>
+        <property value="concept" />
+        <op value="is-a"/>
+        <value value="_ActDetectedIssueManagementCode"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
+
