@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Using RxNorm with FHIR%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<%txheader%>
+
+<h2>Using RxNorm with FHIR</h2>
+
+<h3>Summary</h3>
+
+<table class="grid">
+ <tr><td>Source</td><td>RxNorm is made available by the <a href="http://www.nlm.nih.gov/">US National Library of Medicine</a> at <a href=" http://www.nlm.nih.gov/research/umls/rxnorm">http://www.nlm.nih.gov/research/umls/rxnorm</a></td></tr>
+ <tr><td>System</td><td>The URI <a href=" http://www.nlm.nih.gov/research/umls/rxnorm">http://www.nlm.nih.gov/research/umls/rxnorm</a> identifies the RxNorm code system</td></tr>
+ <tr><td>Version</td><td>Where a version is used, it should be the date of release, encoded as in the download files, e.g. "07092014"</td></tr>
+ <tr><td>Code</td><td>The code value for an RxNorm code is a Concept Identiier (CUI)</td></tr>
+ <tr><td>Display</td><td>The correct display for CUI is the String description for it associated with the source RXNORM</td></tr>
+ <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
+</table>
+
+<h3>RxNorm MySQL Database</h3>
+<p>
+The RxNorm scripts are able to populate a MySQL database that contains the data from RxNorm. 
+This page provides SQL statements that describe how to implement the features of the RxNorm 
+database correctly against this database. These are provided for implementer convenience, and 
+do not imply that any particular approach be used in implementations. 
+</p>
+<p>
+For Example, the correct display name for a CUI is 'Select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM'.
+</p>
+
+<h3>Copyright/License Issues</h3>
+
+<p>
+The use of RxNorm codes and display names in this specification is pursuant to HL7's status
+as a licensee of the NLM UMLS. This license does not convey the right to use RxNorm to 
+any users of the specification; implementers must acquire a license to use RxNorm in 
+their own right.
+</p>
+
+<p>
+The <a href="https://uts.nlm.nih.gov/license.html">license for RxNorm</a> places restrictions on
+the distribution of the UMLS Metathesaurus or subsets of it. We are seeking a clarification of 
+what constitutes a "subset of the metathesaurus" in order to make it clear what the status of 
+an RxNorm value set is.
+</p>
+
+<h3>RxNorm Filter Properties</h3>
+
+<p>
+This section documents the property filters that can be used with the RxNorm 
+code system in value set composition statements.
+</p>
+<p>
+The base SQL statement for returning a list of CUIS that conform to these filters 
+is:
+</p>
+<pre>
+  Select RXCUI from rxnconso where SAB = 'RXNORM'
+</pre>
+
+<h4>Semantic Type</h4>
+
+<table class="grid">
+ <tr><td>Description</td><td>Allows to choose a set of CUIs based on their Semantic Type</td></tr>
+ <tr><td>Property Name</td><td>STY</td></tr>
+ <tr><td>Operations Allowed</td><td>= / in</td></tr>
+ <tr><td>Values Allowed</td><td>[column:]value</td></tr>
+ <tr><td>Comments</td><td>If not column is specified, the default column is TUI</td></tr>
+ <tr><td>SQL</td><td><pre>and RXCUI in (select RXCUI from rxnsty where [:column] = :value)</pre></td></tr>
+</table>
+
+<h4>Source</h4>
+
+<table class="grid">
+ <tr><td>Description</td><td>Allows for selection of a concept based on a source from which it is derived</td></tr>
+ <tr><td>Property Name</td><td>SAB</td></tr>
+ <tr><td>Operations Allowed</td><td>= / in</td></tr>
+ <tr><td>Values Allowed</td><td>Values from RxNorm SAB table (e.g. select RSAB from rxnsab) </td></tr>
+ <tr><td>SQL</td><td><pre>and RXCUI in (select RXCUI from rxnconso where SAB = :value)</pre></td></tr>
+</table>
+
+<h4>Term Type</h4>
+
+<table class="grid">
+ <tr><td>Description</td><td>Allows for selection of a concept based on it's designated type</td></tr>
+ <tr><td>Property Name</td><td>TTY</td></tr>
+ <tr><td>Operations Allowed</td><td>= / in</td></tr>
+ <tr><td>Values Allowed</td><td>TTY values from the RxNorm Concept table (e.g. select distinct TTY from rxnconso)</td></tr>
+ <tr><td>SQL</td><td><pre>and TTY = :value</pre></td></tr>
+</table>
+
+<h4>Relationship</h4>
+
+<table class="grid">
+ <tr><td>Description</td><td>Allows for selection of a concept based on it's relationships</td></tr>
+ <tr><td>Property Name</td><td>[REL]</td></tr>
+ <tr><td>Operations Allowed</td><td>= / in</td></tr>
+ <tr><td>Values Allowed</td><td>CUIs or AUIs (e.g. select RXAUI from rxnconso and select distinct RXCUI from rxnconso)</td></tr>
+ <tr><td>Comments</td><td>[REL] (:rel) is one of SY, SIB, RN, PAR, CHD, RB or RO</td></tr>
+ <tr><td>SQL</td><td><pre>and (RXCUI in (select RXCUI from rxnconso where RXAUI in (select RXAUI1 from rxnrel where REL = :rel and RXAUI2 = :value)) or RXCUI in (select RXCUI1 from rxnrel where REL = :rel and RXCUI2 = :value))</pre></td></tr>
+</table>
+
+<h4>Relationship Type</h4>
+
+<table class="grid">
+ <tr><td>Description</td><td>Allows for selection of a concept based on the type of it's relationships</td></tr>
+ <tr><td>Property Name</td><td>[RELA]</td></tr>
+ <tr><td>Operations Allowed</td><td>= / in</td></tr>
+ <tr><td>Values Allowed</td><td>CUIs or AUIs (e.g. select RXAUI from rxnconso and select distinct RXCUI from rxnconso)</td></tr>
+ <tr><td>Comments</td><td>[RELA] (:rela) is one of the relationship types below</td></tr>
+ <tr><td>SQL</td><td><pre>and (RXCUI in (select RXCUI from rxnconso where RXAUI in (select RXAUI1 from rxnrel where RELA = :rela and RXAUI2 = :value)) or RXCUI in (select RXCUI1 from rxnrel where RELA = :rela and RXCUI2 = :value))</pre></td></tr>
+</table>
+
+<p><b>Relationship Types</b></p>
+<ul>
+  <li>active_ingredient_of</li>
+  <li>active_metabolites_of</li>
+  <li>chemical_structure_of</li>
+  <li>consists_of</li>
+  <li>constitutes</li>
+  <li>contained_in</li>
+  <li>contains</li>
+  <li>contraindicated_with_disease</li>
+  <li>contraindicating_class_of</li>
+  <li>contraindicating_mechanism_of_action_of</li>
+  <li>contraindicating_physiologic_effect_of</li>
+  <li>doseformgroup_of</li>
+  <li>dose_form_of</li>
+  <li>effect_may_be_inhibited_by</li>
+  <li>entry_version_of</li>
+  <li>form_of</li>
+  <li>has_active_ingredient</li>
+  <li>has_active_metabolites</li>
+  <li>has_chemical_structure</li>
+  <li>has_contraindicated_drug</li>
+  <li>has_contraindicating_class</li>
+  <li>has_contraindicating_mechanism_of_action</li>
+  <li>has_contraindicating_physiologic_effect</li>
+  <li>has_doseformgroup</li>
+  <li>has_dose_form</li>
+  <li>has_entry_version</li>
+  <li>has_form</li>
+  <li>has_ingredient</li>
+  <li>has_ingredients</li>
+  <li>has_mechanism_of_action</li>
+  <li>has_member</li>
+  <li>has_part</li>
+  <li>has_participant</li>
+  <li>has_permuted_term</li>
+  <li>has_pharmacokinetics</li>
+  <li>has_physiologic_effect</li>
+  <li>has_precise_ingredient</li>
+  <li>has_print_name</li>
+  <li>has_product_component</li>
+  <li>has_quantified_form</li>
+  <li>has_sort_version</li>
+  <li>has_therapeutic_class</li>
+  <li>has_tradename</li>
+  <li>included_in</li>
+  <li>includes</li>
+  <li>induced_by</li>
+  <li>induces</li>
+  <li>ingredients_of</li>
+  <li>ingredient_of</li>
+  <li>inverse_isa</li>
+  <li>isa</li>
+  <li>mapped_from</li>
+  <li>mapped_to</li>
+  <li>may_be_diagnosed_by</li>
+  <li>may_be_prevented_by</li>
+  <li>may_be_treated_by</li>
+  <li>may_diagnose</li>
+  <li>may_inhibit_effect_of</li>
+  <li>may_prevent</li>
+  <li>may_treat</li>
+  <li>mechanism_of_action_of</li>
+  <li>member_of</li>
+  <li>metabolic_site_of</li>
+  <li>participates_in</li>
+  <li>part_of</li>
+  <li>permuted_term_of</li>
+  <li>pharmacokinetics_of</li>
+  <li>physiologic_effect_of</li>
+  <li>precise_ingredient_of</li>
+  <li>print_name_of</li>
+  <li>product_component_of</li>
+  <li>quantified_form_of</li>
+  <li>reformulated_to</li>
+  <li>reformulation_of</li>
+  <li>site_of_metabolism</li>
+  <li>sort_version_of</li>
+  <li>therapeutic_class_of</li>
+  <li>tradename_of</li>
+</ul>
+
+
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>

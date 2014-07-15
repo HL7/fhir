@@ -18,7 +18,7 @@
 <h3>Summary</h3>
 
 <table class="grid">
- <tr><td>Source</td><td>LOINC is made available at <a href="http://loinc.org">http://loinc.org</a></td></tr>
+ <tr><td>Source</td><td>LOINC is made available by the <a href="https://www.regenstrief.org/">Regenstrief Institute</a> at <a href="http://loinc.org">http://loinc.org</a></td></tr>
  <tr><td>System</td><td>The URI <a href="http://loinc.org">http://loinc.org</a> identifies LOINC codes</td></tr>
  <tr><td>Version</td><td>Where a version is used, it should be the standard LOINC version e.g. 2.48</td></tr>
  <tr><td>Code</td><td>The LOINC Code Identifier e.g. 21176-3. LOINC codes are not case sensitive</td></tr>
@@ -63,11 +63,16 @@ Part codes are the same LOINC URI (http://loinc.org), and SHALL be represented i
 
 <h3>LOINC Filter Properties</h3>
 
+<p>
+This section documents the property filters that can be used with the LOINC 
+code system in value set composition statements.
+</p>
+
 <h4>LOINC Property filter</h4>
 
 <table class="grid">
  <tr><td>Description</td><td>Allows the selection of a set of LOINC codes with a common property value</td></tr>
- <tr><td>Property Name</td><td>The names listed in the "Field Name" column in LOINC Database Structure (Appendix A of the LOINC manual)</td></tr>
+ <tr><td>Property Name</td><td>One of the names listed in the "Field Name" column in LOINC Database Structure (Appendix A of the LOINC manual)</td></tr>
  <tr><td>Operations Allowed</td><td>= / regex</td></tr>
  <tr><td>Values Allowed</td><td>[string value]</td></tr>
  <tr><td>Comments</td><td>The 6 properties COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, and METHOD_TYP are most likely to be useful.</td></tr>
