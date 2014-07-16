@@ -545,6 +545,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="fr">Le contenu peut être une ressource, un flux atom, ou une archive zip d'un ensemble de ressources et de flux atom (xml ou json)</translation>
     <translation lang="ru">Контент может быть ресурсом, веб-каналом Atom или zip архивом ресурсов или атомов (xml или json)</translation>
   </item>
+  <item id="MSG_CONTENT_PASTE">
+    <translation lang="en">or just paste your xml or json here</translation>
+  </item>  
   <item id="MSG_CONTENT_UPLOAD">
     <translation lang="en">Content to upload</translation>
     <translation lang="it">Contenuto da caricare</translation>
@@ -675,7 +678,6 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="es">Este servidor tiene una baseURL (ver especificación de FHIR) de "%s".</translation>
     <translation lang="fr">Ce serveur possède une baseURL (voir les spécification FHIR) de "%s".</translation>
     <translation lang="ru">baseURL для данного сервера (смотри спецификацию FHIR) "%s".</translation>
-</item>
   </item>
   <item id="MSG_HOME_PAGE_3">
     <translation lang="en">This server hosts the following resource types:</translation>
@@ -1312,6 +1314,18 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="fr">Version de FHIR</translation>
     <translation lang="ru">Версия FHIR</translation>
   </item>
+  <item id="NO_TAGS">
+    <translation lang="en">(No tags defined)</translation>
+  </item>
+  <item id="SYSTEM_TAGS">
+    <translation lang="en">Tags defined on this System</translation>
+    <translation lang="nl">Gedefinieerde labels op dit systeem</translation>
+    <!-- <translation lang="zh">该系统中资源类型 %s id %s的标签已定义</translation> -->
+    <translation lang="pl">Znaczniki zdefiniowane w tym systemie</translation>
+    <translation lang="es">Etiquetas definidas en este sistema</translation>
+    <translation lang="fr">Labels définis sur ce système</translation>
+    <translation lang="ru">Тэги определённые в системе</translation>
+  </item>
   <item id="RESOURCE_TAGS">
     <translation lang="en">Tags defined on this System for the resource type %s ID %s</translation>
     <translation lang="nl">Gedefinieerde labels op dit systeem voor resourcetype %s id %s</translation>
@@ -1487,4 +1501,42 @@ NOTE: while translations on Resources are possible they should be used for rende
   <item id="HOME">
     <translation lang="en">Home</translation>
   </item>
+  <item id="SERVER_HOME">
+    <translation lang="en">Server Home</translation>
+  </item>  
+  <item id="TERMINOLOGY">
+    <!-- as in, this is a 'terminology' server -->
+    <translation lang="en">Terminology</translation>
+  </item>  
+  <item id="WELCOME">
+    <!-- as in, 'welcome' to the FHIR server -->
+    <translation lang="en">Welcome</translation>
+  </item>  
+  <item id="FOUND">
+    <!-- as in, # Patients 'found' -->
+    <translation lang="en">found</translation>
+  </item>  
+  <item id="SYSTEM_OPERATIONS">
+    <translation lang="en">System Operations</translation>
+  </item>  
+  <item id="CONF_PROFILE">
+    <translation lang="en">Conformance Profile</translation>
+  </item>  
+  <item id="OR">
+    <!-- as in, XML 'or' JSON -->
+    <translation lang="en">or</translation>
+    <translation lang="it">o</translation>
+    <translation lang="nl">of</translation>
+    <translation lang="zh">或</translation>
+    <translation lang="pl">lub</translation>
+    <translation lang="es">o</translation>
+    <translation lang="fr">ou</translation>
+    <translation lang="ru">или</translation>
+  </item>
+  <item id="GENERAL_SEARCH">
+    <translation lang="en">General Search</translation>
+  </item>  
+  <item id="THIS_RESOURCE">
+    <translation lang="en">This Resource</translation>
+  </item>  
 </translations>
