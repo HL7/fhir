@@ -494,6 +494,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Powrót do strony głównej</translation>
     <translation lang="es">Volver al inicio</translation>
     <translation lang="fr">Retour à l'accueil</translation>
+    <translation lang="ru">В начало</translation>
   </item>
   <item id="MSG_BAD_FORMAT">
     <translation lang="en">Bad Syntax: "%s" must be a %s'</translation>
@@ -503,6 +504,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Błąd składni: "%s" powinno być %s'</translation>
     <translation lang="es">Sintaxis Incorrecta: "%s" debe de ser un %s'</translation>
     <translation lang="fr">Erreur de Syntaxe : "%s" doit être un %s</translation>
+    <translation lang="ru">Неверный синтакс: "%s" должен быть %s</translation>
   </item>
   <item id="MSG_BAD_SYNTAX">
     <translation lang="en">Bad Syntax in %s</translation>
@@ -512,6 +514,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Błąd składni w %s</translation>
     <translation lang="es">Sintaxis Incorrecta en %s</translation>
     <translation lang="fr">Erreur de Syntaxe dans %s</translation>
+    <translation lang="ru">Неверный синтакс: %s</translation>
   </item>
   <item id="MSG_CANT_PARSE_CONTENT">
     <translation lang="en">Unable to parse feed (entry content type = "%s")</translation>
@@ -530,6 +533,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Błąd parsowania (nazwa elementu root = "%s")</translation>
     <translation lang="ee">No se pudo parsear el feed (nombre del elemento raiz = "%s")</translation>
     <translation lang="fr">Impossible d'analyser le flux (nom de l'élément racine = "%s")</translation>
+    <translation lang="ru">Не удалось разобрать данные (корневой элемент = "%s")</translation>
   </item>
   <item id="MSG_CONTENT_MESSAGE">
     <translation lang="en">Content can be a resource, an atom feed, or a zip file collection of resources and atom feeds (xml or json)</translation>
@@ -539,6 +543,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Zawartością może być zasób, treść w formacie atom (atom feed) lub plik zip zasobów i treści w formacie atom (xml lub json)</translation>
     <translation lang="es">El contenido puede ser un recurso, una fuente web (feed) o una colección de recursos y feeds (xml o json)</translation>
     <translation lang="fr">Le contenu peut être une ressource, un flux atom, ou une archive zip d'un ensemble de ressources et de flux atom (xml ou json)</translation>
+    <translation lang="ru">Контент может быть ресурсом, веб-каналом Atom или zip архивом ресурсов или атомов (xml или json)</translation>
   </item>
   <item id="MSG_CONTENT_UPLOAD">
     <translation lang="en">Content to upload</translation>
@@ -547,7 +552,8 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">待上传内容</translation>
     <translation lang="pl">Treść do załadowania</translation>
     <translation lang="es">Contenido a subir</translation>
-    <translation lang="fr">Contenu à transmettre</translation>    
+    <translation lang="fr">Contenu à transmettre</translation>
+    <translation lang="ru">Контент для загрузки</translation>    
   </item>
   <item id="MSG_CONTENT_VALIDATE">
     <translation lang="en">Content to validate</translation>
@@ -557,6 +563,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Treść do walidacji</translation>
     <translation lang="es">Contenido a validar</translation>
     <translation lang="fr">Contenu à valider</translation>
+    <translation lang="ru">Контент для проверки</translation>
   </item>
   <item id="MSG_CREATED">
     <translation lang="en">existing resource created</translation>
@@ -565,7 +572,8 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">存在的资源已创建</translation>
     <translation lang="pl">utworzono istniejący zasób</translation>
     <translation lang="es">recurso existente creado</translation>
-    <translation lang="fr">ressource existante créée</translation>    
+    <translation lang="fr">ressource existante créée</translation> 
+    <translation lang="ru">существующий ресурс создан</translation>    
   </item>
   <item id="MSG_DATE_FORMAT">
     <translation lang="en">The Date value %s is not in the correct format (Xml Date Format required)</translation>
@@ -575,6 +583,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Niepoprawny format wartości daty %s (wymagany format XML)</translation>
     <translation lang="es">El valor de la fecha %s no está en el formato correcto (se requiere un formato de fecha Xml)</translation>
     <translation lang="fr">Le format de la date %s est incorrect (format Date Xml attendu)</translation>
+    <translation lang="ru">Значение Date %s в неверном формате (требуется Xml Date формат)</translation>
   </item>
   <item id="MSG_DELETED">
     <translation lang="en">This resource has been deleted</translation>
@@ -583,6 +592,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Ten zasób został usunięty</translation>
     <translation lang="es">Este recurso ha sido borrado</translation>
     <translation lang="fr">La ressource a été supprimée</translation>
+    <translation lang="ru">Данный ресурс был удалён</translation>
   </item>
   <item id="MSG_DELETED_DONE">
     <translation lang="en">Resource deleted</translation>
@@ -592,6 +602,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Zasób usunięto</translation>
     <translation lang="es">Recurso borrado</translation>
     <translation lang="fr">Ressource supprimée</translation>
+    <translation lang="ru">Ресурс удалён</translation>
   </item>
   <item id="MSG_DELETED_ID">
     <translation lang="en">The resource "%s" has been deleted</translation>
@@ -603,6 +614,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Zasób "%s" został usunięty</translation>
     <translation lang="es">El recurso "%s" ha sido borrado</translation>
     <translation lang="fr">La ressource "%s" a été supprimée</translation>
+    <translation lang="ru">Ресурс "%s" был удалён</translation>
   </item>
   <item id="MSG_DUPLICATE_ID">
     <translation lang="en">Duplicate Id %s for resource type %s</translation>
@@ -612,6 +624,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Zdublowany identyfikator %s dla zasobu typu %s</translation>
     <translation lang="es">Id %s duplicada para el recurso de tipo %s</translation>
     <translation lang="fr">Id %s en double pour le type de ressource %s</translation> 
+    <translation lang="ru">Дублирующий Id %s для типа ресурса %s</translation>
   </item>
   <item id="MSG_ERROR_PARSING">
     <translation lang="en">Error parsing resource Xml (%s)</translation>
@@ -620,7 +633,8 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">解析资源Xml时出错 (%s)</translation>
     <translation lang="pl">Błąd w trakcie parsowania zasobu XML (%s)</translation>
     <translation lang="es">Error parseando el recurso Xml (%s)</translation>
-    <translation lang="fr">Erreur d'analyse de la ressource Xml (%s)</translation>    
+    <translation lang="fr">Erreur d'analyse de la ressource Xml (%s)</translation>
+    <translation lang="ru">Ошибка синтаксического разбора ресурса Xml (%s)</translation>    
   </item>
   <item id="MSG_GENERAL_VALIDATION">
     <translation lang="en">General Validation</translation>
@@ -630,6 +644,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Walidacja podstawowa</translation>
     <translation lang="es">Validación General</translation>
     <translation lang="fr">Validation Générale</translation>
+    <translation lang="ru">Общая проверка</translation>
   </item>
   <item id="MSG_HISTORY">
     <translation lang="en">History for %s</translation>
@@ -639,6 +654,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Historia dla %s</translation>
     <translation lang="es">Historia de %s</translation>
     <translation lang="fr">Historique de %s</translation>
+    <translation lang="ru">История для %s</translation>
   </item>
   <item id="MSG_HOME_PAGE_1">
     <translation lang="en">This is an implementation of the RESTful FHIR specification found at %s.</translation>
@@ -648,6 +664,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">To jest implementacja specyfikacji RESTful FHIR pochodzącej z %s.</translation>
     <translation lang="es">Esta es una implementación de la especificación RESTful de FHIR que se encuentra disponible en %s.</translation>
     <translation lang="fr">Implémentation de la spécification RESTful FHIR trouvée à %s.</translation>
+    <translation lang="ru">Данная реализация спецификации RESTful FHIR найдена на %s.</translation>
   </item>
   <item id="MSG_HOME_PAGE_2">
     <translation lang="en">This server has a baseURL (see the FHIR specification) of "%s".</translation>
@@ -657,6 +674,8 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Ten serwer posiada bazowy URL (baseURL - patrz specyfikacja FHIR): "%s".</translation>
     <translation lang="es">Este servidor tiene una baseURL (ver especificación de FHIR) de "%s".</translation>
     <translation lang="fr">Ce serveur possède une baseURL (voir les spécification FHIR) de "%s".</translation>
+    <translation lang="ru">baseURL для данного сервера (смотри спецификацию FHIR) "%s".</translation>
+</item>
   </item>
   <item id="MSG_HOME_PAGE_3">
     <translation lang="en">This server hosts the following resource types:</translation>
@@ -666,6 +685,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Ten serwer udostępnia następujące typy zasobów:</translation>
     <translation lang="es">Este servidor incluye los siguientes tipos de recursos:</translation>
     <translation lang="fr">Ce serveur héberge les ressources des types suivants :</translation>
+    <translation lang="ru">Данный сервер содержит следующие типы ресурсов:</translation>
   </item>
   <item id="MSG_HOME_PAGE_TITLE">
     <translation lang="en">Fast Healthcare Interoperability Resources - Home Page</translation>
@@ -675,6 +695,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Fast Healthcare Interoperability Resources - Strona główna</translation>
     <translation lang="es">Fast Healthcare Interoperability Resources - Página de Inicio</translation>
     <translation lang="fr">Fast Healthcare Interoperability Resources - Accueil</translation>
+    <translation lang="ru">Fast Healthcare Interoperability Resources - Домашняя страница</translation>
   </item>
   <item id="MSG_ID_INVALID">
     <translation lang="en">Id "%s" has an invalid character "%s"</translation>
@@ -684,6 +705,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Identyfikator "%s" zawiera niepoprawny znak "%s"</translation>
     <translation lang="es">El Id "%s" contiene el caracter inválido "%s"</translation>
     <translation lang="fr">Id "%s" possède un caractère invalide "%s"</translation>
+    <translation lang="ru">Id "%s" содержит недопустимые символы "%s"</translation>
   </item>
   <item id="MSG_ID_TOO_LONG">
     <translation lang="en">Id "%s" too long (length limit 36)</translation>
@@ -693,6 +715,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Identyfikator "%s" jest zbyt długi (limit długości 36)</translation>
     <translation lang="es">El Id "%s" es demasiado largo (limite de longitud: 36)</translation>
     <translation lang="fr">Id "%s" trop long (la longueur limite est 36)</translation>
+    <translation lang="ru">Недопустимая длина Id "%s" (ограничение 36)</translation>
   </item>
   <item id="MSG_INVALID_ID">
     <translation lang="en">Id not accepted</translation>
@@ -702,6 +725,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Identyfikator nie zaakceptowany</translation>
     <translation lang="es">Id no aceptada</translation>
     <translation lang="fr">Id non accepté</translation>
+    <translation lang="ru">Id не принято</translation>
   </item>
   <item id="MSG_JSON_OBJECT">
     <translation lang="en">Json Source for a resource should start with an object</translation>
@@ -711,6 +735,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Źródło json dla zasobu powinno rozpoczynać się od obiektu</translation>
     <translation lang="es">La fuente Json para un recurso debería empezar con un objeto</translation>
     <translation lang="fr">La source Json pour une ressource doit commencer par un objet</translation>
+    <translation lang="ru">Json Source для ресурса должен начинаться с объекта</translation>
   </item>
   <item id="MSG_LOCAL_FAIL">
     <translation lang="en">Unable to resolve local reference to resource %s</translation>
@@ -720,6 +745,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Zasób wskazywany przez loklaną referencję %s nie został odnaleziony</translation>
     <translation lang="es">Imposible resolver la referencia al recurso %s</translation>
     <translation lang="fr">Impossible de résourdre la référence locale à la ressource %s</translation>
+    <translation lang="ru">Невозможно определить локальную ссылку на ресурс %s</translation>
   </item>
   <item id="MSG_NO_EXIST">
     <translation lang="en">Resource Id "%s" does not exist</translation>
@@ -729,6 +755,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Zasób o identyfikatorze "%s" nie istnieje</translation>
     <translation lang="es">El recurso con Id "%s" no existe</translation>
     <translation lang="fr">La ressource avec l'Id "%s" n'existe pas</translation>
+    <translation lang="ru">Ресурс Id "%s" не существует</translation>
   </item>
   <item id="MSG_NO_MODULE">
     <translation lang="en">No module could be found to handle the request "%s"</translation>
@@ -738,6 +765,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Nie można odnaleźć modułu, aby obsłużyć żądanie "%s"</translation>
     <translation lang="es">No se encontró un modulo que gestione la petición "%s"</translation>
     <translation lang="fr">Aucun module disponible pour traiter la requête "%s"</translation>
+    <translation lang="ru">Модуль для обработки запроса "%s" не найден</translation>
   </item>
   <item id="MSG_NO_SUMMARY">
     <translation lang="en">No Summary for this resource</translation>
@@ -747,6 +775,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Brak podsumowania (Summary) dla tego zasobu</translation>
     <translation lang="es">No existe un resumen para este recurso</translation>
     <translation lang="fr">Aucun résumé disponible pour cette ressource</translation>
+    <translation lang="ru">Отсутствует Summary для данного ресурса</translation>
   </item>
   <item id="MSG_OP_NOT_ALLOWED">
     <translation lang="en">Operation %s not allowed for resource %s (due to local configuration)</translation>
@@ -756,6 +785,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Niedozwolona operacja %s dla zasobu %s (ze względu na lokalną konfigurację)</translation>
     <translation lang="es">Operación %s no permitida para el recurso %s (debido a la configuración local)</translation>
     <translation lang="fr">L'opération %s n'est pas permise pour la ressource %s (à cause de la configuration locale)</translation>
+    <translation lang="ru">Операция %s недопустима для ресурса %s (по причине локальной конфигурации)</translation>
   </item>
   <item id="MSG_PARAM_CHAINED">
     <translation lang="en">Unknown chained parameter name "%s"</translation>
@@ -765,6 +795,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Nieznana nazwa parametru powiązanego "%s"</translation>
     <translation lang="es">Nombre de parametro encadenado desconocido: "%s"</translation>
     <translation lang="fr">Nom du paramètre chainé inconnu : "%s"</translation>
+    <translation lang="ru">Неизвестое вложенное наименование параметра "%s"</translation>
   </item>
   <item id="MSG_PARAM_NO_REPEAT">
     <translation lang="en">Parameter "%s" is not allowed to repeat</translation>
@@ -774,6 +805,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Parametr "%s" nie może zostać powtórzony</translation>
     <translation lang="es">No se permite la repetición del parámetro "%s"</translation>
     <translation lang="fr">Le paramètre "%s" ne peut pas être répété</translation>
+    <translation lang="ru">Параметр "%s" не может быть повторён</translation>
   </item>
   <item id="MSG_PARAM_UNK_REPEAT">
     <translation lang="en">unable to determine repeat behaviour for parameter "%s"</translation>
@@ -783,6 +815,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">nie można określić zachowania dla powtórzeń parametru "%s"</translation>
     <translation lang="es">no se pudo determinar el comportamiento de repetición para el parámetro "%s"</translation>
     <translation lang="fr">impossible de déterminer le comportement pour la répétition du paramètre "%s"</translation>
+    <translation lang="ru">невозможно определить принципы повтора для параметра "%s"</translation>
   </item>
   <item id="MSG_PARAM_UNKNOWN">
     <translation lang="en">Parameter "%s" not understood</translation>
@@ -792,6 +825,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Niezrozumiały parametr "%s"</translation>
     <translation lang="es">Parámetro "%s" no reconocido</translation>
     <translation lang="fr">Paramètre "%s" non reconnu</translation>
+    <translation lang="ru">Параметр "%s" не понят</translation>
   </item>
   <item id="MSG_RESOURCE_EXAMPLE_PROTECTED">
     <translation lang="en">Resources with identity "example" cannot be deleted (for testing/training purposes)</translation>
@@ -800,6 +834,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Zasoby oznaczone jako "example" nie mogą zostać usunięte (dla celów testów/szkoleń)</translation>
     <translation lang="es">Recursos con la identidad "example" no pueden ser borrados (son usados para pruebas/entrenamiento)</translation>
     <translation lang="fr">Les ressources ayant l'identité "example" ne peuvent pas être supprimées (utilisées pour les tests/formations)</translation>
+    <translation lang="ru">Ресурс с идентификатором "example" не может быть удалён (для случаев тестирования/обучения)</translation>
   </item>
   <item id="MSG_RESOURCE_ID_FAIL">
     <translation lang="en">unable to allocate resource id</translation>
@@ -809,6 +844,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">nie można nadać identyfikatora zasobu</translation>
     <translation lang="es">imposible encontrar el id del recurso</translation>
     <translation lang="fr">impossible d'allouer l'id de la ressource</translation>
+    <translation lang="ru">невозможно выделить идентификатор ресурса</translation>
   </item>
   <item id="MSG_RESOURCE_NOT_ALLOWED">
     <translation lang="en">Not allowed to submit a resource for this operation</translation>
@@ -818,6 +854,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Nie można zgłosić zasobu dla tej operacji</translation>
     <translation lang="es">No se permite el envío de un recurso para esta operación</translation>
     <translation lang="fr">Non autorisé à soumettre une ressource pour cette opération</translation>
+    <translation lang="ru">Для данной операции отправка ресурса недопустима</translation>
   </item>
   <item id="MSG_RESOURCE_REQUIRED">
     <translation lang="en">A resource is required</translation>
@@ -827,6 +864,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Zasób jest wymagany</translation>
     <translation lang="es">Se requiere un recurso</translation>
     <translation lang="fr">Une ressource est requise</translation>
+    <translation lang="ru">Требуется ресурс</translation>
   </item>
   <item id="MSG_RESOURCE_TYPE_MISMATCH">
     <translation lang="en">Resource Type Mismatch</translation>
@@ -836,6 +874,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Niepoprawny typ zasobu</translation>
     <translation lang="es">Los Tipos de los recursos no coinciden</translation>
     <translation lang="fr">Type de ressource incorrect</translation>
+    <translation lang="ru">Несоответствие типа ресурса</translation>
   </item>
   <item id="MSG_SEARCH_RESULTS">
     <translation lang="en">Search results for resource type %s</translation>
@@ -845,6 +884,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Wyniki wyszukiwania dla zasobu typu %s</translation>
     <translation lang="es">Resultados de la búsqueda para recursos de tipo %s</translation>
     <translation lang="fr">Résultats de la recherche pour le type de ressource %s</translation>
+    <translation lang="ru">Результаты поиска для ресурса %s</translation>
   </item>
   <item id="MSG_SEARCH_RESULTS_ALL">
     <translation lang="en">Search results for all resources</translation>
@@ -853,6 +893,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Wyniki wyszukiwania dla wszystkich zasobów</translation>
     <translation lang="es">Resultados de busqueda para todos los recursos</translation>
     <translation lang="fr">Résultats de la recherche pour toutes les ressources</translation>
+    <translation lang="ru">Результаты поиска для всех ресурсов</translation>
   </item>
   <item id="MSG_SORT_UNKNOWN">
     <translation lang="en">Unknown sort parameter name "%s"</translation>
@@ -862,6 +903,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Nieznany parametr sortowania "%s"</translation>
     <translation lang="es">Nombre del parámetro de ordenación "%s" desconocido</translation>
     <translation lang="fr">Nom du paramètre de tri inconnu "%s"</translation>
+    <translation lang="ru">Неизвестное имя параметра сортировки "%s"</translation>
   </item>
   <item id="MSG_TRANSACTION_DUPLICATE_ID">
     <translation lang="en">Duplicate Identifier in transaction: %s</translation>
@@ -871,6 +913,7 @@ NOTE: while translations on Resources are possible they should be used for rende
      <translation lang="pl">Zdublowany identyfikator w transakcji: %s</translation>
      <translation lang="es">Identificador duplicado en la transacción: %s</translation>
     <translation lang="fr">Identifiant en double dans la transaction : %s</translation>
+    <translation lang="ru">Дублирующий идентификатор в транзакции: %s</translation>
   </item>
   <item id="MSG_TRANSACTION_MISSING_ID">
     <translation lang="en">Missing Identifier in transaction - an entry.id must be provided</translation>
@@ -880,6 +923,7 @@ NOTE: while translations on Resources are possible they should be used for rende
      <translation lang="pl">Brak identyfikatora w transakcji - należy podać entry.id</translation>
      <translation lang="es">Identificador de la transacción no encontrado - se debe proporcionar un entry.id</translation>
     <translation lang="fr">Identifiant manquant dans la transaction - un élément entry.id doit être fourni</translation>
+    <translation lang="ru">Отсутствует идентификатор в транзакции - требуется entry.id</translation>
   </item>
   <item id="MSG_TRANSACTION_PROCESSED">
     <translation lang="en">%d resources processed</translation>
@@ -889,6 +933,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Przetworzono %d zasobów</translation>
     <translation lang="es">%d recursos procesados</translation>
     <translation lang="fr">%d ressources traitées</translation>
+    <translation lang="ru">ресурс %d обработан</translation>
   </item>
   <item id="MSG_UNHANDLED_NODE_TYPE">
     <translation lang="en">Unhandled xml node type "%s"</translation>
@@ -898,6 +943,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Nieobsługiwany typ węzła XML "%s"</translation>
     <translation lang="es">Tipo de nodo Xml no soportado "%s"</translation>
     <translation lang="fr">Type de noeud xml "%s" non traité</translation>
+    <translation lang="ru">Не обработанный xml узел "%s"</translation>
   </item>
   <item id="MSG_UNKNOWN_CONTENT">
     <translation lang="en">Unknown Content (%s) at %s</translation>
@@ -907,6 +953,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Nieznana zawartość (%s) dla %s</translation>
     <translation lang="es">Contenido desconocido (%s) en %s</translation>
     <translation lang="fr">Contenu inconnu (%s) à %s</translation>
+    <translation lang="ru">Неизвестный контент (%s) в %s</translation>
   </item>
   <item id="MSG_UNKNOWN_OPERATION">
     <translation lang="en">unknown FHIR http operation</translation>
@@ -916,6 +963,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">nieznana operacja FHIR http</translation>
     <translation lang="es">Operación http FHIR desconocida</translation>
     <translation lang="fr">operation http FHIR inconnue</translation>
+    <translation lang="ru">неизвестная операция FHIR http</translation>
   </item>
   <item id="MSG_UNKNOWN_TYPE">
     <translation lang="en">Resource Type "%s" not recognised</translation>
@@ -925,6 +973,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Nie rozpoznany typ zasobu: "%s"</translation>
     <translation lang="es">Tipo de Recurso "%s" no reconocido</translation>
     <translation lang="fr">Type de ressource "%s" non reconnu</translation>
+    <translation lang="ru">Тип ресурса "%s" не распознан</translation>
   </item>
   <item id="MSG_UPDATED">
     <translation lang="en">existing resource updated</translation>
@@ -934,6 +983,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">uaktualniono istniejący zasób</translation>
     <translation lang="es">Recurso existente actualizado</translation>
     <translation lang="fr">ressource existante mise à jour</translation>
+    <translation lang="ru">существующий ресурс обновлён</translation>
   </item>
   <item id="MSG_VERSION_AWARE">
     <translation lang="en">Version aware updates are required for this resource</translation>
@@ -943,6 +993,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Uaktualnienia zakładające wersjonowanie są wymagane dla tego zasobu</translation>
     <translation lang="es">Este recurso requiere actualizaciones en base a versiones</translation>
     <translation lang="fr">Des mises à jour en relation avec la version sont requises pour cette ressource</translation>
+    <translation lang="ru">Для данного ресурса необходимы обновления с учётом версии</translation>
   </item>
   <item id="MSG_VERSION_AWARE_CONFLICT">
     <translation lang="en">Update Conflict (server current version = "%s", client version referenced = "%s")</translation>
@@ -952,6 +1003,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Konflikt podczas uaktualnienia (obecna wersja na serwerze = "%s", wersja wskazana przez klienta = "%s")</translation>
     <translation lang="es">Conflicto de actualizaciones (versión actual del servidor = "%s", versión del cliente referenciada = "%s")</translation>
     <translation lang="fr">Conflit de mise à jour (version courante du serveur = "%s", version référencée du client = "%s")</translation>
+    <translation lang="ru">Конфликт обновления (текущая версия сервера = "%s", указанная версия клиента = "%s")</translation>
   </item>
   <item id="MSG_VERSION_AWARE_URL">
     <translation lang="en">Version specific URL not recognised</translation>
@@ -961,6 +1013,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Nie rozpoznany URL specyficzny dla wersji</translation>
     <translation lang="es">URL especifica de la versión no reconocida</translation>
     <translation lang="fr">URL spécifique à une version non reconnue</translation>
+    <translation lang="ru">URL для указанной версии не распознан</translation>
   </item>
   <item id="MSG_WRONG_NS">
     <translation lang="en">This does not appear to be a FHIR element, resource or atom feed (wrong namespace "%s")</translation>
@@ -970,6 +1023,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Prawdopodobnie nie jest to element FHIR, zasób, ani treść w formacie atom (niepoprawna przestrzeń nazw "%s")</translation>
     <translation lang="es">Esto no parece ser un elemento FHIR, recurso o atom feed (namespace incorrecto "%s")</translation>
     <translation lang="fr">Cet élement ne semble pas être ni un élément FHIR, ni une ressource ni un flux atom (espace de noms "%s" incorrect)</translation>
+    <translation lang="ru">Вероятно не является элементом FHIR, ресурсом или веб-каналом Atom (неверное пространство имён "%s")</translation>
   </item>
   <item id="NAME_BINARY">
     <translation lang="en">Binary Content</translation>
@@ -979,6 +1033,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Treść binarna</translation>
     <translation lang="es">Contenido Binario</translation>
     <translation lang="fr">Contenu binaire</translation>
+    <translation lang="ru">Бинарный контент</translation>
   </item>
   <item id="NAME_DELETED">
     <translation lang="en">deleted</translation>
@@ -988,6 +1043,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">usunięto</translation>
     <translation lang="es">borrado</translation>
     <translation lang="fr">supprimé</translation>
+    <translation lang="ru">удалено</translation>
   </item>
   <item id="NAME_ERROR">
     <translation lang="en">Error</translation>
@@ -996,6 +1052,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Błąd</translation>
     <translation lang="es">Error</translation>
     <translation lang="fr">Erreur</translation>
+    <translation lang="ru">Ошибка</translation>
   </item>
   <item id="NAME_FIRST">
     <translation lang="en">First</translation>
@@ -1005,6 +1062,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Pierwszy/a/e</translation>
     <translation lang="es">Primero</translation>
     <translation lang="fr">Premier</translation>
+    <translation lang="ru">Первый</translation>
   </item>
   <item id="NAME_HISTORY">
     <translation lang="en">the full version history</translation>
@@ -1014,6 +1072,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">kompletna historia wersji</translation>
     <translation lang="es">el historial completo de versiones</translation>
     <translation lang="fr">historique complet de la version</translation>
+    <translation lang="ru">полная версия истории</translation>
   </item>
   <item id="NAME_IMPLEMENTATION">
     <translation lang="en">Implementation</translation>
@@ -1023,6 +1082,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Implementacja</translation>
     <translation lang="es">Implementación</translation>
     <translation lang="fr">Implémentation</translation>
+    <translation lang="ru">Реализация</translation>
   </item>
   <item id="NAME_LAST">
     <translation lang="en">Last</translation>
@@ -1032,6 +1092,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Ostatni/a/e</translation>
     <translation lang="es">Último</translation>
     <translation lang="fr">Dernier</translation>
+    <translation lang="ru">Последний</translation>
   </item>
   <item id="NAME_LINKS">
     <translation lang="en">Links</translation>
@@ -1040,6 +1101,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Odnośniki</translation>
     <translation lang="es">Enlaces</translation>
     <translation lang="fr">Liens</translation>
+    <translation lang="ru">Ссылки</translation>
   </item>
   <item id="NAME_MANUAL_UPLOAD">
     <translation lang="en">Manual Upload</translation>
@@ -1049,6 +1111,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Upload ręczny</translation>
     <translation lang="es">Subida Manual</translation>
     <translation lang="fr">Chargement manuel</translation>
+    <translation lang="ru">Ручная загрузка</translation>
   </item>
   <item id="NAME_NEXT">
     <translation lang="en">Next</translation>
@@ -1058,6 +1121,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Następny/a/e</translation>
     <translation lang="es">Siguiente</translation>
     <translation lang="fr">Suivant</translation>
+    <translation lang="ru">Следующий</translation>
   </item>
   <item id="NAME_NO_SEARCH">
     <translation lang="en">No Search</translation>
@@ -1067,6 +1131,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Bez wyszukiwania</translation>
     <translation lang="es">Ninguna Búsqueda</translation>
     <translation lang="fr">Aucune recherche</translation>
+    <translation lang="ru">Нет поиска</translation>
   </item>
   <item id="NAME_OPERATIONS">
     <translation lang="en">Operations</translation>
@@ -1076,6 +1141,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Operacje</translation>
     <translation lang="es">Operaciones</translation>
     <translation lang="fr">Opérations</translation>
+    <translation lang="ru">Операция</translation>
   </item>
   <item id="NAME_PREVIOUS">
     <translation lang="en">Previous</translation>
@@ -1085,6 +1151,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Poprzedni/a/e</translation>
     <translation lang="es">Previo</translation>
     <translation lang="fr">Précédent</translation>
+    <translation lang="ru">Предыдущий</translation>
   </item>
   <item id="NAME_PROFILE">
     <translation lang="en">Profile</translation>
@@ -1094,6 +1161,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Profil</translation>
     <translation lang="es">Perfil</translation>
     <translation lang="fr">Profil</translation>
+    <translation lang="ru">Профайл</translation>
   </item>
   <item id="NAME_REPRESENTATION">
     <!-- (i.e. 'xml' representation -->
@@ -1104,6 +1172,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">reprezentacja</translation>
     <translation lang="es">representación</translation>
     <translation lang="fr">représentation</translation>
+    <translation lang="ru">представление</translation>
   </item>
   <item id="NAME_RESOURCE">
     <translation lang="en">Resource</translation>
@@ -1113,6 +1182,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Zasób</translation>
     <translation lang="es">Recurso</translation>
     <translation lang="fr">Ressource</translation>
+    <translation lang="ru">Ресурс</translation>
   </item>
   <item id="NAME_RESULT">
     <translation lang="en">Result</translation>
@@ -1121,6 +1191,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Wynik</translation>
     <translation lang="es">Resultado</translation>
     <translation lang="fr">Résultat</translation>
+    <translation lang="ru">Результат</translation>
   </item>
   <item id="NAME_SEARCH">
     <translation lang="en">Search</translation>
@@ -1130,6 +1201,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Wyszukiwanie</translation>
     <translation lang="es">Buscar</translation>
     <translation lang="fr">Recherche</translation>
+    <translation lang="ru">Поиск</translation>
   </item>
   <item id="NAME_SERVER">
     <translation lang="en">FHIR Server</translation>
@@ -1139,6 +1211,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Serwer FHIR</translation>
     <translation lang="es">Servidor FHIR</translation>
     <translation lang="fr">Serveur FHIR</translation>
+    <translation lang="ru">Сервер FHIR</translation>
   </item>
   <item id="NAME_STORED">
     <translation lang="en"># stored</translation>
@@ -1148,6 +1221,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl"># zapisanych</translation>
     <translation lang="es"># guardado</translation>
     <translation lang="fr"># enregistré</translation>
+    <translation lang="ru"># сохранён</translation>
   </item>
   <item id="NAME_SYSTEM">
     <!-- as in, history for the whole system -->
@@ -1158,6 +1232,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">całego systemu</translation>
     <translation lang="es">el sistema completo</translation>
     <translation lang="fr">le système entier</translation>
+    <translation lang="ru">вся система</translation>
   </item>
   <item id="NAME_TAGS">
     <translation lang="en">Tags</translation>
@@ -1166,6 +1241,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Znaczniki</translation>
     <translation lang="es">Etiquetas</translation>
     <translation lang="fr">Labels</translation>
+    <translation lang="ru">Тэги</translation>
   </item>
   <item id="NAME_TYPE">
     <translation lang="en">Type</translation>
@@ -1175,6 +1251,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Typ</translation>
     <translation lang="es">Tipo</translation>
     <translation lang="fr">Type</translation>
+    <translation lang="ru">Тип</translation>
   </item>
   <item id="NAME_UPDATES">
     <translation lang="en">Updates</translation>
@@ -1184,6 +1261,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Uaktualnienia</translation>
     <translation lang="es">Actualizaciones</translation>
     <translation lang="fr">Mises à jour</translation>
+    <translation lang="ru">Обновления</translation>
   </item>
   <item id="NAME_UPLOAD">
     <translation lang="en">Upload</translation>
@@ -1193,6 +1271,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Upload</translation>
     <translation lang="es">Subida</translation>
     <translation lang="fr">Upload</translation>
+    <translation lang="ru">Загрузить</translation>
   </item>
   <item id="NAME_UPLOAD_SERVICES">
     <translation lang="en">Upload Services</translation>
@@ -1201,6 +1280,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Usługi upload'u</translation>
     <translation lang="es">Servicios de subida</translation>
     <translation lang="fr">Services d'upload</translation>
+    <translation lang="ru">Сервисы загрузки</translation>
   </item>
   <item id="NAME_VALIDATE">
     <translation lang="en">Validate</translation>
@@ -1210,6 +1290,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Waliduj</translation>
     <translation lang="es">Validar</translation>
     <translation lang="fr">Validateur</translation>
+    <translation lang="ru">Проверка</translation>
   </item>
   <item id="NAME_VERSION">
     <translation lang="en">Version</translation>
@@ -1219,6 +1300,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Wersja</translation>
     <translation lang="es">Versión</translation>
     <translation lang="fr">Version</translation>
+    <translation lang="ru">Версия</translation>
   </item>
   <item id="NAME_VERSION_LONG">
     <translation lang="en">FHIR Version</translation>
@@ -1228,6 +1310,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Wersja FHIR</translation>
     <translation lang="es">Versión de FHIR</translation>
     <translation lang="fr">Version de FHIR</translation>
+    <translation lang="ru">Версия FHIR</translation>
   </item>
   <item id="RESOURCE_TAGS">
     <translation lang="en">Tags defined on this System for the resource type %s ID %s</translation>
@@ -1236,6 +1319,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Znaczniki zdefiniowane w tym systemie dla zasobu typu %s o identyfikatorze %s</translation>
     <translation lang="es">Etiquetas definidas en este sistema para el tipo de recurso %s ID %s</translation>
     <translation lang="fr">Labels définis sur ce système pour le type de ressource %s ID %s</translation>
+    <translation lang="ru">Тэги определённые в системе для типа ресурса %s ID %s</translation>
   </item>
   <item id="RESOURCE_TYPE_TAGS">
     <translation lang="en">Tags defined on this System for the resource type %s</translation>
@@ -1244,6 +1328,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Znaczniki zdefiniowane w tym systemie dla zasobu typu %s</translation>
     <translation lang="es">Etiquetas definidas en este sistema para el tipo de recurso %s</translation>
     <translation lang="fr">Labels définis sur ce système pour le type de ressource %s</translation>
+    <translation lang="ru">Тэги определённые в системе для типа ресурса %s</translation>
   </item>
   <item id="RESOURCE_VER_TAGS">
     <translation lang="en">Tags defined on this System for the resource type %s ID %s version %s</translation>
@@ -1252,6 +1337,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Znaczniki zdefiniowane w tym systemie dla zasobu typu %s o identyfikatorze %s w wersji %s</translation>
     <translation lang="es">Etiquetas definidas en este sistema para el tipo de recurso %s ID %s version %s</translation>
     <translation lang="fr">Labels définis sur ce système pour le type de ressource %s ID %s version %s</translation>
+    <translation lang="ru">Тэги определённые в системе для типа ресурса %s ID %s версии %s</translation>
   </item>
   <item id="SEARCH_MULTIPLE">
     <translation lang="en">Error: Multiple matches exist for %s search parameters "%s"</translation>
@@ -1261,6 +1347,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Błąd: Istnieją wielokrotne dopasowania dla %s parametrów wyszukiwania "%s"</translation>
     <translation lang="es">Error: Multiples ocurrencias existen para %s parametros de búsqueda "%s"</translation>
     <translation lang="fr">Erreur : Plusieurs correspondances existent pour ce paramètre de recherche %s</translation>
+    <translation lang="ru">Ошибка: множественные совпадения для %s с параметрами поиска "%s"</translation>
   </item>
   <item id="SEARCH_NONE">
     <translation lang="en">Error: no processable search found for %s search parameters "%s"</translation>
@@ -1270,7 +1357,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Błąd: Niewykonalne wyszukiwanie dla %s parametrów wyszukiwania "%s"</translation>
     <translation lang="es">Error: no se encontro una búsqueda apropiada para %s parametros de búsqueda "%s"</translation>
     <translation lang="fr">Erreur : aucune recherche trouvée pour les paramètres %s "%s"</translation>
-    
+    <translation lang="ru">Ошибка: обрабатываемых результатов поиска для %s с параметрами поиска "%s" не найдено</translation>
   </item>
   <item id="SEARCH_REC_COUNT">
     <translation lang="en"># Records to return</translation>
@@ -1280,7 +1367,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl"># wyszukanych rekordów</translation>
     <translation lang="es"># Registros a devolver</translation>
     <translation lang="fr"># Enregistrements à retourner</translation>
-    
+    <translation lang="ru"># Записей для возврата</translation>    
   </item>
   <item id="SEARCH_REC_COUNT_COMMENT">
     <translation lang="en">(default value, which is also max allowed, is %d. Values of &lt;2 not allowed)</translation>
@@ -1290,6 +1377,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">(wartość domyślna, która jest także wartością maksymalną, wynosi %d. Wartości &lt;2 nie są dozwolone)</translation>
     <translation lang="es">(valor por defecto, que tambien tiene un máximo permitido, es %d. Valores &lt;2 no permitidos)</translation>
     <translation lang="fr">(valeur par défaut, qui est aussi le maximum autorisé, est %d. Valeurs &lt;2 non permises)</translation>
+    <translation lang="ru">(значение по умолчанию, максимальное количество которых %d. Значение &lt;2 недопустимо)</translation>
   </item>
   <item id="SEARCH_REC_TEXT">
     <translation lang="en">Text</translation>
@@ -1297,7 +1385,8 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">文本</translation>
     <translation lang="pl">Tekst</translation>
     <translation lang="es">Texto</translation>
-    <translation lang="fr">Texte</translation>    
+    <translation lang="fr">Texte</translation> 
+    <translation lang="ru">Текст</translation>    
   </item>
   <item id="SEARCH_REC_TEXT_COMMENT">
     <translation lang="en">Search for these words in the narrative. See [[http://technet.microsoft.com/en-us/library/ms142571.aspx]] for details</translation>
@@ -1306,6 +1395,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Szukaj tych słów w opisie. Szczegóły na [[http://technet.microsoft.com/en-us/library/ms142571.aspx]]</translation>
     <translation lang="es">Busca estas palabras en la parte narrativa. Visita [[http://technet.microsoft.com/en-us/library/ms142571.aspx]] para obtener mas detalles</translation>
     <translation lang="fr">Recherche de ces mots dans le texte. Pour plus de détails, voir [[http://technet.microsoft.com/en-us/library/ms142571.aspx]]</translation>
+    <translation lang="ru">Проведите поиск по этому слову в описании. Дополнительно в [[http://technet.microsoft.com/en-us/library/ms142571.aspx]]</translation>
   </item>
   <item id="SEARCH_REC_OFFSET">
     <translation lang="en">First Record</translation>
@@ -1314,7 +1404,8 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="zh">第一条记录</translation>
     <translation lang="pl">Pierwszy rekord</translation>
     <translation lang="es">Primer Registro</translation>
-    <translation lang="fr">Premier Enregistrement</translation>    
+    <translation lang="fr">Premier Enregistrement</translation>
+    <translation lang="ru">Первая запись</translation>    
   </item>
   <item id="SEARCH_REC_OFFSET_COMMENT">
     <translation lang="en">(empty = start at the start)</translation>
@@ -1324,6 +1415,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">(brak wyników = zacznij od początku)</translation>
     <translation lang="es">(vacío = comienza por el principio)</translation>
     <translation lang="fr">(vide = commencez par le début)</translation>
+    <translation lang="ru">(пустой = начните с начала)</translation>
   </item>
   <item id="SEARCH_SORT_BY">
     <translation lang="en">Sort By</translation>
@@ -1333,6 +1425,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Sortuj wg</translation>
     <translation lang="es">Ordenar Por</translation>
     <translation lang="fr">Trié par</translation>
+    <translation lang="ru">Сортировать по</translation>
   </item>
   <item id="SEARCH_SUMMARY">
     <translation lang="en">Summary: </translation>
@@ -1341,6 +1434,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Podsumowanie:</translation>
     <translation lang="es">Resumen:</translation>
     <translation lang="fr">Résumé : </translation>
+    <translation lang="ru">Итоги:</translation>
   </item>
   <item id="SEARCH_SUMMARY_COMMENT">
     <translation lang="en">Return just a summary for each resource (if applicable)</translation>
@@ -1349,6 +1443,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Zwróć tylko podsumowanie dla każdego zasobu (jeśli dotyczy)</translation>
     <translation lang="es">Devuelve solamente un resumen para cada recurso (si aplica)</translation>
     <translation lang="fr">Retourne juste un résumé pour chaque ressource (si applicable)</translation>
+    <translation lang="ru">Возвратить только итоги для искомого ресурса (если применимо)</translation>
   </item>
   <item id="SEARCH_TITLE">
     <translation lang="en">FHIR Repository Search</translation>
@@ -1358,6 +1453,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Wyszukiwanie w repozytorium FHIR</translation>
     <translation lang="es">Buscar en el Repositorio FHIR</translation>
     <translation lang="fr">Recherche dans le Repository FHIR</translation>
+    <translation lang="ru">Поиск по репозиторию FHIR</translation>
   </item>
   <item id="SYSTEM_TAGS">
     <translation lang="en">Tags defined on this System</translation>
@@ -1366,6 +1462,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Znaczniki zdefiniowane w tym systemie</translation>
     <translation lang="es">Etiquetas definidas en este sistema</translation>
     <translation lang="fr">Labels définis dans ce système</translation>
+    <translation lang="ru">Тэги определённые в этой системе</translation>
   </item>
   <item id="UPLOAD">
     <translation lang="en">FHIR RESTful Server - Upload for %s</translation>
@@ -1375,6 +1472,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Serwer FHIR RESTful - Upload %s</translation>
     <translation lang="es">FHIR RESTful Server - Subiendo %s</translation>
     <translation lang="fr">Serveur RESTful FHIR - Upload de %s</translation>
+    <translation lang="ru">Сервер FHIR RESTful - Загрузка для %s</translation>
   </item>
   <item id="UPLOAD_DONE">
     <translation lang="en">FHIR RESTful Server - Upload for %s done</translation>
@@ -1384,6 +1482,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="pl">Serwer FHIR RESTful - Upload %s ukończono</translation>
     <translation lang="es">FHIR RESTful Server - Subida de %s completada</translation>
     <translation lang="fr">Serveur RESTful FHIR - Upload de %s terminé</translation>
+    <translation lang="ru">Сервер FHIR RESTful - Загрузка для %s завершена</translation>
   </item>
   <item id="HOME">
     <translation lang="en">Home</translation>
