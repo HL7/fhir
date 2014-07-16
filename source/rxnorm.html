@@ -30,11 +30,11 @@
 <p>
 The RxNorm scripts are able to populate a MySQL database that contains the data from RxNorm. 
 This page provides SQL statements that describe how to implement the features of the RxNorm 
-database correctly against this database. These are provided for implementer convenience, and 
+terminology correctly against this database. These are provided for implementer convenience, and 
 do not imply that any particular approach be used in implementations. 
 </p>
 <p>
-For Example, the correct display name for a CUI is 'Select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM'.
+For example, the correct display name for a CUI is 'Select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM' and TTY &lt;&gt; 'SY'.
 </p>
 
 <h3>Copyright/License Issues</h3>
@@ -42,7 +42,7 @@ For Example, the correct display name for a CUI is 'Select STR from rxnconso whe
 <p>
 The use of RxNorm codes and display names in this specification is pursuant to HL7's status
 as a licensee of the NLM UMLS. This license does not convey the right to use RxNorm to 
-any users of the specification; implementers must acquire a license to use RxNorm in 
+any users of this specification; implementers must acquire a license to use RxNorm in 
 their own right.
 </p>
 
@@ -64,7 +64,7 @@ The base SQL statement for returning a list of CUIS that conform to these filter
 is:
 </p>
 <pre>
-  Select RXCUI from rxnconso where SAB = 'RXNORM'
+  Select RXCUI from rxnconso where SAB = 'RXNORM' and TTY &lt;&gt; 'SY' 
 </pre>
 
 <h4>Semantic Type</h4>
