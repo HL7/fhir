@@ -147,6 +147,7 @@ import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.QuestionnaireBuilder;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
+import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ProfileValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -738,7 +739,6 @@ public class Publisher {
   }
 
   private IniFile ini;
-  private Document translations;
 
   private void defineSpecialValues() throws Exception {
     for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
@@ -882,9 +882,8 @@ public class Publisher {
       // schema check
       checkBySchema(page.getFolders().rootDir + "implementations" + File.separator + "translations.xml", new String[] {page.getFolders().rootDir + "implementations" + File.separator + "translations.xsd"});
       Utilities.copyFile(page.getFolders().rootDir + "implementations" + File.separator + "translations.xml", page.getFolders().dstDir + "translations.xml");
-      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-      DocumentBuilder builder = factory.newDocumentBuilder();
-      translations = builder.parse(new CSFileInputStream(new CSFile(page.getFolders().rootDir + "implementations" + File.separator + "translations.xml")));
+      page.getTranslations().setLang("en");
+      page.getTranslations().load(page.getFolders().rootDir + "implementations" + File.separator + "translations.xml");
     }
 
     if (errors.size() > 0)
@@ -897,7 +896,7 @@ public class Publisher {
 
   private boolean validate() throws Exception {
     page.log("Validating", LogMessageType.Process);
-    ResourceValidator val = new ResourceValidator(page.getDefinitions(), translations.getDocumentElement(), page.getCodeSystems());
+    ResourceValidator val = new ResourceValidator(page.getDefinitions(), page.getTranslations(), page.getCodeSystems());
 
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     for (String n : page.getDefinitions().getTypes().keySet())
@@ -3247,9 +3246,9 @@ public class Publisher {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
       for (SearchParameter sp : r.getSearchParams().values()) {
         if (!sp.isWorks() && !sp.getCode().equals("_id")) {
-          page.log(
-              "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")",
-              LogMessageType.Warning);
+//          page.log(
+//              "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")",
+//              LogMessageType.Warning);
           page.getQa().warning(
               "Search Parameter '" + rn + "." + sp.getCode() + "' had no fond values in any example. Consider reviewing the path (" + sp.getXPath() + ")");
         }

@@ -94,6 +94,7 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
+import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ExtensionDefinition;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
@@ -140,8 +141,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private Map<String, AtomEntry<ConceptMap>> conceptMaps = new HashMap<String, AtomEntry<ConceptMap>>();
   private Map<String, Profile> profiles = new HashMap<String, Profile>();
   
+  private Translations translations = new Translations();
   private Map<String, String> svgs = new HashMap<String, String>();
-  private BreadCrumbManager breadCrumbManager = new BreadCrumbManager();
+  private BreadCrumbManager breadCrumbManager = new BreadCrumbManager(translations);
   private String publicationType = "Local Build ("+System.getenv("COMPUTERNAME")+")";
   private String publicationNotice = "";
   private BindingNameRegistry registry;
@@ -149,7 +151,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private EPubManager epub;
   private SpecificationTerminologyServices conceptLocator;
   private String baseURL = "http://hl7.org/implement/standards/FHIR-Develop/";
-  
+
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
           "This is the stable development version of FHIR. There's also a <a href=\"http://hl7.org/fhir\">Current DSTU</a>, and a <a href=\"http://latest.fhir.me/\">Continuous Integration Build</a> (will be incorrect/inconsistent at times).\r\n"+
@@ -3575,6 +3577,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       }
     }
     return null;
+  }
+
+  public Translations getTranslations() {
+    return translations;
+  }
+
+  public void setTranslations(Translations translations) {
+    this.translations = translations;
   }
 
   

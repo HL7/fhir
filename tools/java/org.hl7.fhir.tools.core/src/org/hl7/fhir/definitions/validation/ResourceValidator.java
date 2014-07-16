@@ -51,6 +51,7 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -76,13 +77,13 @@ public class ResourceValidator extends BaseValidator {
 
   private Definitions definitions;
 	private Map<String, Usage> usages = new HashMap<String, Usage>();
-  private Element translations;
+  private Translations translations;
   private Map<String, AtomEntry<ValueSet>> codeSystems = new HashMap<String, AtomEntry<ValueSet>>();
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
   
   
 
-	public ResourceValidator(Definitions definitions, Element translations, Map<String, AtomEntry<ValueSet>> map) {
+	public ResourceValidator(Definitions definitions, Translations translations, Map<String, AtomEntry<ValueSet>> map) {
 		super();
     source = Source.ResourceValidator;
 		this.definitions = definitions;
@@ -124,7 +125,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "structure", parent.getName(), !name.equals("Tags"), "The name 'Tags' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("MailBox"), "The name 'MailBox' is not a legal name for a resource");
     rule(errors, "structure", parent.getName(), !name.equals("Validation"), "The name 'Validation' is not a legal name for a resource");
-    rule(errors, "required",  parent.getName(), hasTranslationsEntry(name), "The name '"+name+"' is not found in the file translations.xml");
+    rule(errors, "required",  parent.getName(), translations.hasTranslation(name), "The name '"+name+"' is not found in the file translations.xml");
     rule(errors, "structure", parent.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
 
     rule(errors, "required",  parent.getName(), parent.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
@@ -189,16 +190,6 @@ public class ResourceValidator extends BaseValidator {
         name.equals("OperationOutcome");         
   }
 
-  private boolean hasTranslationsEntry(String name) {
-    Element child = XMLUtil.getFirstChild(translations);
-    while (child != null) {
-      if (child.getNodeName().equals("item") && child.getAttribute("id").equals(name)) {
-        return true;
-      }
-      child = XMLUtil.getNextSibling(child);
-    }
-    return false;
-  }
 
   public List<ValidationMessage> check(String name, ResourceDefn parent) {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();

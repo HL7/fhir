@@ -1385,4 +1385,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="es">FHIR RESTful Server - Subida de %s completada</translation>
     <translation lang="fr">Serveur RESTful FHIR - Upload de %s terminé</translation>
   </item>
+  <item id="HOME">
+    <translation lang="en">Home</translation>
+  </item>
 </translations>

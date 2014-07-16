@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Utilities;
@@ -17,6 +18,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class BreadCrumbManager {
+
+  
+  private Translations translations;
+
+  public BreadCrumbManager(Translations translations) {
+    super();
+    this.translations = translations;
+  }
 
   public class Node {
     
@@ -208,7 +217,7 @@ public class BreadCrumbManager {
 
   public String navlist(String name, String prefix) {
     StringBuilder b = new StringBuilder();
-    b.append("              <li><a href=\""+prefix+"index.html\">Home</a></li>\r\n");
+    b.append("              <li><a href=\""+prefix+"index.html\">"+translations.getMessage("HOME", "Home")+"</a></li>\r\n");
     for (Node n : home.getChildren()) {
       b.append("              <li><a href=\""+prefix+((Page) n).getFilename()+"\">"+((Page) n).getTitle()+"</a></li>\r\n");
     }
@@ -220,7 +229,7 @@ public class BreadCrumbManager {
     if (name.equals("index")) {
       b.append("        <li><b>Home</b></li>\r\n");      
     } else {
-      b.append("        <li><a href=\""+prefix+"index.html\">Home</a></li>\r\n");
+      b.append("        <li><a href=\""+prefix+"index.html\">"+translations.getMessage("HOME", "Home")+"</a></li>\r\n");
       name = name + ".html";
       if (map.containsKey(name)) {
         String[] path = map.get(name).split("\\.");
