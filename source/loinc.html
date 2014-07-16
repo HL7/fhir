@@ -103,6 +103,58 @@ code system in value set composition statements.
 Document.Kind, Document.TypeOfService, Document.Setting, Document.Role, and Document.SubjectMatterDomain
 -->
 
+<h3>Implicit Value Sets</h3>
+
+<p>
+Implicit value sets are those whose specification can predicted based on the grammar of the 
+underlying code system, and the known structure of the URL that refers to them. LOINC
+defines one sets of implicit value sets: By Multi-Axial Hierarchy Entry.
+</p>
+<p>
+If any value set resources exist with an identifier that conforms to the URL patterns specified below,
+the content of the resource must conform to the template provided. Profiles and other value set
+references are allowed to reference these value sets directly. <i>todo: can LOINC actually host a service that returns these?</i>
+</p>
+
+<p>
+The value set identifier http://loinc.org/vs is a value set that contains all LOINC codes.
+</p>
+
+<h4>Multi-Axial Hierarchy Entry</h4>
+
+<p>
+A value set with an identifier of "http://loinc.org/vs/[partcode]" must 
+conform to this template, where [partcode] is a part code from the 
+multi-axial hierarchy:
+</p>
+<pre>
+&lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      [some html that identifies that this value set 
+      includes all LOINC codes subsumed by the identified 
+      Multi-Axial Heirarchy Part Code]
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;identifier value=&quot;http://loinc.org/vs/[partcode]&quot;/&gt;
+  &lt;version value=&quot;[optional - but strongly recommended - LOINC version]&quot;/&gt;
+  &lt;name value=&quot;LOINC Value Set from Multi-Axial Heirarchy code [partcode]&quot;/&gt;
+  &lt;description value=&quot;All LOINC codes for [partcode or name]&quot;/&gt;
+  &lt;status value=&quot;active&quot;/&gt;
+  &lt;date value=&quot;[optional date of LOINC release]&quot;/&gt;
+  &lt;compose&gt;
+    &lt;include&gt;
+      &lt;system value=&quot;http://loinc.org&quot;/&gt;
+      &lt;filter&gt;
+        &lt;property value=&quot;ancestor&quot;/&gt;
+        &lt;op value=&quot;=&quot;/&gt;
+        &lt;value value=&quot;[partcode]&quot;/&gt;
+      &lt;/filter&gt;
+    &lt;/include&gt;
+  &lt;/compose&gt;
+&lt;/ValueSet&gt;
+</pre>
 
 
 </div>

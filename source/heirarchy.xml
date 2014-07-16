@@ -48,6 +48,7 @@ todo: compartments
     <page title="Using Codes" filename="terminologies.html">
       <page title="Systems" filename="terminologies-systems.html">
         <page title="LOINC" filename="loinc.html"/>
+        <page title="SNOMED CT" filename="snomedct.html"/>
         <page title="RxNorm" filename="rxnorm.html"/>
       </page>
       <page title="Value Sets" filename="terminologies-valuesets.html">
