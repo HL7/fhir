@@ -10,7 +10,7 @@
   <status value="active"/>
   <experimental value="false"/>
   <date value="2011-10-03"/>
-
+ 
   <mapping>
     <!-- set up a formal mapping for the CDL Keys -->
     <identity value="cdl.key"/>
@@ -25,7 +25,7 @@
     <!-- this is deried from observation directly -->
     <base value="http://hl7.org/fhir/Profile/Observation"/> 
 
-    <!-- actually, this name is useless, but it's here right now as a publishing requirement (tooling limtiation to be addressed -->
+    <!-- actually, this name is useless, but it's here right now as a publishing requirement (tooling limitation to be addressed) -->
     <name value="StandardLabObs"/>
     
     <!-- this is the constraint the profile expresses publically. other constraint statements below (if any) are in support of this, and are not used directly -->
@@ -59,6 +59,8 @@
   attribution Updated updated card(0..1);                            : complicated - extension? 
   constraint abnormalInterpretation.CD.code.domain (AbnormalInterpretation_VALUESET_ECID);
   constraint deltaFlag.CD.code.domain (DeltaFlag_VALUESET_ECID);
+  
+  binding = ValueSet/Country_VALUESET_ECID Extensible
 -->
     
       <element>
@@ -191,6 +193,7 @@
             Final                : final
         -->
         <definition>
+          <exampleCode value="registered"/>
           <binding>
             <name value="ResultStatus_VALUESET_ECID"/>
             <isExtensible value="false"/> 

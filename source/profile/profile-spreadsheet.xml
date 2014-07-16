@@ -20,7 +20,6 @@
   <WindowWidth>9450</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>780</WindowTopY>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -185,7 +184,10 @@
    <Column ss:StyleID="s63" ss:Width="131.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ISO 11179 Mapping</Data><NamedCell
+    <Cell><Data ss:Type="String">ISO 11179 Mapping</Data><Comment
+      ss:Author="Grahame"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><B><Font
+         html:Face="Tahoma" x:CharSet="1" html:Size="9" html:Color="#000000">Grahame:</Font></B><Font
+        html:Face="Tahoma" x:CharSet="1" html:Size="9" html:Color="#000000">&#10;test</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Inv.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1899,7 +1901,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>36</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1912,12 +1914,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>44</ActiveRow>
-     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
