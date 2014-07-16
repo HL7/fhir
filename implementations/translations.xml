@@ -1317,15 +1317,6 @@ NOTE: while translations on Resources are possible they should be used for rende
   <item id="NO_TAGS">
     <translation lang="en">(No tags defined)</translation>
   </item>
-  <item id="SYSTEM_TAGS">
-    <translation lang="en">Tags defined on this System</translation>
-    <translation lang="nl">Gedefinieerde labels op dit systeem</translation>
-    <!-- <translation lang="zh">该系统中资源类型 %s id %s的标签已定义</translation> -->
-    <translation lang="pl">Znaczniki zdefiniowane w tym systemie</translation>
-    <translation lang="es">Etiquetas definidas en este sistema</translation>
-    <translation lang="fr">Labels définis sur ce système</translation>
-    <translation lang="ru">Тэги определённые в системе</translation>
-  </item>
   <item id="RESOURCE_TAGS">
     <translation lang="en">Tags defined on this System for the resource type %s ID %s</translation>
     <translation lang="nl">Gedefinieerde labels op dit systeem voor resourcetype %s id %s</translation>
