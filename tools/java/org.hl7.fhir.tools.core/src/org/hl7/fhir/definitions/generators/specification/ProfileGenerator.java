@@ -152,6 +152,7 @@ public class ProfileGenerator {
     p.getStructure().add(cd);
     cd.setPublishSimple(true); 
     cd.setTypeSimple(pt.getBaseType());
+    cd.setNameSimple(pt.getName());
     cd.setPurposeSimple("This is the invariants for the "+pt.getName()+" data type profile");
     cd.setBaseSimple("http://hl7.org/fhir/Profile/"+pt.getBaseType());
     ElementComponent e = new ElementComponent();

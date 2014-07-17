@@ -21,7 +21,7 @@
  <tr><td>Source</td><td>RxNorm is made available by the <a href="http://www.nlm.nih.gov/">US National Library of Medicine</a> at <a href=" http://www.nlm.nih.gov/research/umls/rxnorm">http://www.nlm.nih.gov/research/umls/rxnorm</a></td></tr>
  <tr><td>System</td><td>The URI <a href="http://www.nlm.nih.gov/research/umls/rxnorm">http://www.nlm.nih.gov/research/umls/rxnorm</a> identifies the RxNorm code system</td></tr>
  <tr><td>Version</td><td>Where a version is used, it should be the date of release, encoded as in the download files, e.g. "07092014"</td></tr>
- <tr><td>Code</td><td>The code value for an RxNorm code is a Concept Identifier (CUI)</td></tr>
+ <tr><td>Code</td><td>The code value for an RxNorm code is a Concept Identifier (CUI), and only CUIs for which there is an SAB=RXNORM</td></tr>
  <tr><td>Display</td><td>The correct display for CUI is the String description for it associated with the source RXNORM</td></tr>
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
@@ -81,7 +81,7 @@ is:
 <h4>Source</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Allows for selection of a concept based on a source from which it is derived</td></tr>
+ <tr><td>Description</td><td>Allows for selection of the set of concepts that have mappings to a particular rxnorm source</td></tr>
  <tr><td>Property Name</td><td>SAB</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
  <tr><td>Values Allowed</td><td>Values from RxNorm SAB table (e.g. select RSAB from rxnsab) </td></tr>
@@ -104,9 +104,14 @@ is:
  <tr><td>Description</td><td>Allows for selection of a concept based on it's relationships</td></tr>
  <tr><td>Property Name</td><td>[REL]</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
- <tr><td>Values Allowed</td><td>CUIs or AUIs (e.g. select RXAUI from rxnconso and select distinct RXCUI from rxnconso)</td></tr>
+ <tr><td>Values Allowed</td><td>CUI:[RXCUI] or AUI:[RXAUI] must be a valid CUI or AUI. Note that a CUI does not need to have a SAB=RXNORM entry to be used here</td></tr>
  <tr><td>Comments</td><td>[REL] (:rel) is one of SY, SIB, RN, PAR, CHD, RB or RO</td></tr>
- <tr><td>SQL</td><td><pre>and (RXCUI in (select RXCUI from rxnconso where RXAUI in (select RXAUI1 from rxnrel where REL = :rel and RXAUI2 = :value)) or RXCUI in (select RXCUI1 from rxnrel where REL = :rel and RXCUI2 = :value))</pre></td></tr>
+ <tr><td>SQL</td><td>
+   for CUI:
+   <pre>and (RXCUI in (select RXCUI from rxnconso where RXCUI in (select RXCUI1 from rxnrel where REL = :rel and RXCUI2 = :value))</pre>
+   for AUI:
+   <pre>and (RXCUI in (select RXCUI from rxnconso where RXAUI in (select RXAUI1 from rxnrel where REL = :rel and RXAUI2 = :value))</pre>
+   </td></tr>
 </table>
 
 <h4>Relationship Type</h4>
@@ -115,9 +120,14 @@ is:
  <tr><td>Description</td><td>Allows for selection of a concept based on the type of it's relationships</td></tr>
  <tr><td>Property Name</td><td>[RELA]</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
- <tr><td>Values Allowed</td><td>CUIs or AUIs (e.g. select RXAUI from rxnconso and select distinct RXCUI from rxnconso)</td></tr>
+ <tr><td>Values Allowed</td><td>CUI:[RXCUI] or AUI:[RXAUI] must be a valid CUI or AUI. Note that a CUI does not need to have a SAB=RXNORM entry to be used here</td></tr>
  <tr><td>Comments</td><td>[RELA] (:rela) is one of the relationship types below</td></tr>
- <tr><td>SQL</td><td><pre>and (RXCUI in (select RXCUI from rxnconso where RXAUI in (select RXAUI1 from rxnrel where RELA = :rela and RXAUI2 = :value)) or RXCUI in (select RXCUI1 from rxnrel where RELA = :rela and RXCUI2 = :value))</pre></td></tr>
+ <tr><td>SQL</td><td>
+   for CUI:
+   <pre>and (RXCUI in (select RXCUI from rxnconso where RXCUI in (select RXCUI1 from rxnrel where RELA = :rel and RXCUI2 = :value))</pre>
+   for AUI:
+   <pre>and (RXCUI in (select RXCUI from rxnconso where RXAUI in (select RXAUI1 from rxnrel where RELA = :rel and RXAUI2 = :value))</pre>
+   </td></tr>
 </table>
 
 <p><b>Relationship Types</b></p>
