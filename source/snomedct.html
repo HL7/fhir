@@ -19,17 +19,42 @@
 
 <table class="grid">
  <tr><td>Source</td><td>SNOMED CT is made managed by <a href="http://www.ihtsdo.org/">IHTSDO</a>. 
-    IHTSDO is an international standards organization with multiple different countries as members, each of which distribute their own variant of SNOMED CT. 
-    Note that there is no single distribution that contains all defined SNOMED CT codes in all contexts of use</td></tr>
+    IHTSDO is an international standards organization with multiple different countries as members, each of which distribute their own variant of SNOMED CT</td></tr>
  <tr><td>System</td><td>The URI <a href="http://snomed.info/sct">http://snomed.info/sct</a> identifies the SNOMED CT code system</td></tr>
- <tr><td>Version</td><td>Where a version is used, it should be either the date of release (encoded as YYYYMMDD, e.g. "20140531"), 
-   or a full URI that represents the specific distribution, following the <a href="??">SNOMED URI Specification</a></td></tr>
+ <tr><td>Version</td><td>Where a version is used, it should be a full URI that represents the specific distribution, following the <a href="http://snomed.org/uristandard.pdf">SNOMED URI Specification</a> (see note below)</td></tr>
  <tr><td>Code</td><td>The following SNOMED CT artifacts are valid in the <i>code</i> element for the http://snomed.info/sct namespace: 
-   <a href="">Concept IDs</a>, <a href="http://ihtsdo.org/fileadmin/user_upload/doc/download/doc_TechnicalImplementationGuide_Current-en-US_INT_20130731.pdf">Expressions</a> and <a href="">SNOMED Legacy codes</a>.<br/><br/>
+   <a href="http://www.snomed.org/gl?t=glsct_st_ConceptId">Concept IDs</a>, 
+   <a href="http://www.snomed.org/gl?t=glsct_se_Expression">Expressions</a> and
+   <a href="http://www.snomed.org/tig?t=tsg2_metadata_refset_legacy">SNOMED Legacy codes</a>.<br/><br/>
      Description Ids are not valid, nor are other concepts associated with SNOMED CT Concepts using the RF2 identifier infrastructure. Expressions SHOULD NOT contain terms, only concept IDs </td></tr>
- <tr><td>Display</td><td>The correct display for a concept identifier, or a legacy code is the preferred term for the concept. There is no defined name for a SNOMED CT expression</td></tr>
+ <tr><td>Display</td><td>The correct display for a concept identifier, or a legacy code is the preferred term for the concept. There is no defined name for a SNOMED CT expression, though the full expression syntax with preferred terms embedded may be used</td></tr>
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
+
+<p>
+Note: The <a href="http://snomed.org/gl.pdf">IHTSDO glossary</a> explains some of these SNOMED CT specific terms. 
+</p>
+
+<h3>Version Issues</h3>
+<p>
+There is no single distribution that contains all defined SNOMED CT codes in all contexts of use; 
+instead, each national office distributes a set of version of a particular distribution. In 
+addition, other release authorities may be designated. 
+The <a href="http://snomed.org/uristandard.pdf">SNOMED URI Specification</a> describes
+how to unambiguously reference a particular version of a distribution: 
+</p>
+<pre>
+  http://snomed.info/sct/[sctid]/version/[YYYYMMDD] 
+</pre>
+<p>
+where [sctid] is the concept id of the SNOMED CT distribution (e.g. 32506021000036107 for Australia), and
+the tail is the date of release (by custom, this is usually the last
+day of the month). Note that many implementations are in the habit of 
+simple using the date of release in the form YYYYMMDD (e.g. "20140531"), 
+and assuming the that the distribution is known. However this is not always
+safe, so implementations that populate the <i>version</i> element 
+SHOULD use the full URI form. 
+</p>
 
 <h3>Copyright/License Issues</h3>
 
