@@ -153,7 +153,7 @@ The second part of the URL is a query portion that specifies the scope of the co
 </ul>
 
 <p>
-A value set with an query portion of "?fhir_vs=isa/[sctid]" in the identifier
+A value set with an identifier that follows the pattern "[edition/version]?fhir_vs=isa/[sctid]" in the identifier
 follows this template:
 </p>
 <pre>
@@ -164,8 +164,8 @@ follows this template:
      [Some HTML that describes this value set as all concepts subsumed by conceptid]
     &lt;/div&gt;
   &lt;/text&gt;
-  &lt;identifier value=&quot;http://snomed.info/id/[conceptid]&quot;/&gt;
-  &lt;version value=&quot;[base portion of URI]&quot;/&gt;
+  &lt;identifier value=&quot;[edition/version]?fhir_vs=isa/[sctid]&quot;/&gt;
+  &lt;version value=&quot;[edition/version]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT Concept [conceptid] and descendents&quot;/&gt;
   &lt;description value=&quot;All SNOMED CT concepts for [concept id or preferred description]&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
@@ -183,7 +183,7 @@ follows this template:
 </pre>
 
 <p>
-A value set with an query portion of "?fhir_vs=refset/[sctid]" in the identifier
+A value set with an identifier that follows the pattern "[edition/version]?fhir_vs=refset/[sctid]" in the identifier
 follows this template:
 </p>
 <pre>
@@ -194,8 +194,8 @@ follows this template:
      [Some HTML that describes this value set as all concepts in the reference set identified by conceptid]
     &lt;/div&gt;
   &lt;/text&gt;
-  &lt;identifier value=&quot;http://snomed.info/id/[conceptid]&quot;/&gt;
-  &lt;version value=&quot;[base portion of URI]&quot;/&gt;
+  &lt;identifier value=&quot;[edition/version]?fhir_vs=refset/[sctid]&quot;/&gt;
+  &lt;version value=&quot;[edition/version]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT Reference Set [conceptid]&quot;/&gt;
   &lt;description value=&quot;All SNOMED CT concepts in the reference set [concept id or preferred description]&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
