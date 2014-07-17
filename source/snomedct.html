@@ -103,41 +103,58 @@ of the <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_
  <tr><td>Property Name</td><td>concept</td></tr>
  <tr><td>Operations Allowed</td><td>in</td></tr>
  <tr><td>Values Allowed</td><td>[concept id]</td></tr>
- <tr><td>Comments</td><td>Includes all concept ids that are in the reference set identified by the concept Id provided as the value</td></tr>
+ <tr><td>Comments</td><td>Includes all concept ids that are active members of the reference set identified by the concept Id provided as the value</td></tr>
  <tr><td>SCT QL</td><td><pre>MembersOf([concept])</pre></td></tr>
 </table>
 
 <h4>By Snomed Query Expression</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Select a set of concepts based on their membership of a SNOMED CT reference set</td></tr>
+ <tr><td>Description</td><td>Select a set of concepts based on a formal expression statement</td></tr>
  <tr><td>Property Name</td><td>expression</td></tr>
  <tr><td>Operations Allowed</td><td>=</td></tr>
  <tr><td>Values Allowed</td><td>[expression]</td></tr>
- <tr><td>Comments</td><td>The result of the filter is the result of executing the given SNOMED CT expression</td></tr>
+ <tr><td>Comments</td><td>The result of the filter is the result of executing the given SNOMED CT expression. note: the query statement is under current development</td></tr>
 </table>
 
 <h3>Implicit Value Sets</h3>
 
 <p>
 Implicit value sets are those whose specification can predicted based on the grammar of the 
-underlying code system, and the known structure of the URL that refers to them. SNOMED CT
+underlying code system, and the known structure of the URL that identifies them. SNOMED CT
 has two sets of implicit value sets: By Subsumption, and By Reference Set.
 </p>
 <p>
 If any value set resources exist with an identifier that conforms to the URL patterns specified below,
 the content of the resource must conform to the template provided. Profiles and other value set
-references are allowed to reference these value sets directly. <i>todo: can IHTSDO actually host a service that returns these?</i>
+references are allowed to reference these value sets directly (by reference as a URI, rather than 
+by a value set reference, which is a literal reference).
 </p>
 <p>
-The value set identifier http://snomed.info/vs is a value set that contains all SNOMED CT concepts and expressions.
+A Snomed implicit value set URL has two parts, the base part is the URI for the edition
+version, in the format specified by the IHTSDO the <a href="http://snomed.org/uristandard.pdf">SNOMED 
+URI Specification</a>, with one exception: the URI 
 </p>
-
-<h4>By Subsumption</h4>
+<pre>
+  http://snomed.info/sct
+</pre>
+<p>
+should be understood to mean an unspecified edition/version. This defines an incomplete value set whose
+actual membership will depend on the particular edition used when it is expanded. 
+</p>
+<p>
+The second part of the URL is a query portion that specifies the scope of the content. For this,
+3 possible values are:
+</p>
+<ul>
+  <li>?fhir_vs - all Concept IDs in the edition/version. If the base URI is http://snomed.info/sct, this means all possible SNOMED CT concepts</li>
+  <li>?fhir_vs=isa/[sctid] - all concept IDs that are subsumed by the specified Concept.</li>
+  <li>?fhir_vs=refset/[sctid] - all concept IDs in the specified reference set</li>
+</ul>
 
 <p>
-A value set with an identifier of "http://snomed.info/sct/[conceptid]" must 
-conform to this template:
+A value set with an query portion of "?fhir_vs=isa/[sctid]" in the identifier
+follows this template:
 </p>
 <pre>
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
@@ -148,29 +165,26 @@ conform to this template:
     &lt;/div&gt;
   &lt;/text&gt;
   &lt;identifier value=&quot;http://snomed.info/id/[conceptid]&quot;/&gt;
-  &lt;version value=&quot;[optional - but recommended - version of SNOMED CT&quot;/&gt;
+  &lt;version value=&quot;[base portion of URI]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT Concept [conceptid] and descendents&quot;/&gt;
-  &lt;description value=&quot;All Snomed CT concepts for [concept id or preferred description]&quot;/&gt;
+  &lt;description value=&quot;All SNOMED CT concepts for [concept id or preferred description]&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
-  &lt;date value=&quot;[optional date of version release]&quot;/&gt;
   &lt;compose&gt;
     &lt;include&gt;
       &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
       &lt;filter&gt;
         &lt;property value=&quot;concept&quot;/&gt;
         &lt;op value=&quot;is-a&quot;/&gt;
-        &lt;value value=&quot;[conceptid]&quot;/&gt;
+        &lt;value value=&quot;[sctid]&quot;/&gt;
       &lt;/filter&gt;
     &lt;/include&gt;
   &lt;/compose&gt;
 &lt;/ValueSet&gt;
 </pre>
 
-<h4>By Reference Set</h4>
-
 <p>
-A value set with an identifier of "http://snomed.info/id/[conceptid]" must 
-conform to this templatem where conceptid is the identifier of a reference set:
+A value set with an query portion of "?fhir_vs=refset/[sctid]" in the identifier
+follows this template:
 </p>
 <pre>
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
@@ -181,11 +195,10 @@ conform to this templatem where conceptid is the identifier of a reference set:
     &lt;/div&gt;
   &lt;/text&gt;
   &lt;identifier value=&quot;http://snomed.info/id/[conceptid]&quot;/&gt;
-  &lt;version value=&quot;[optional - but recommended - version of SNOMED CT&quot;/&gt;
+  &lt;version value=&quot;[base portion of URI]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT Reference Set [conceptid]&quot;/&gt;
-  &lt;description value=&quot;All Snomed CT concepts in the reference set [concept id or preferred description]&quot;/&gt;
+  &lt;description value=&quot;All SNOMED CT concepts in the reference set [concept id or preferred description]&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
-  &lt;date value=&quot;[optional date of version release]&quot;/&gt;
   &lt;compose&gt;
     &lt;include&gt;
       &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
