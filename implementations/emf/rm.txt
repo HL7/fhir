@@ -1,0 +1,74 @@
+  // FHIR Basic Reference Model
+  
+  abstract class Element { // logical root for all classes 
+    attribute EString id (0..1); // xml ID 
+    attribute Extension extension {0..-1}; 
+  }
+  
+  abstract class BackboneElement extends Element { // Resources and elements defined in a resource
+    attribute Extension modifierExtension (0..-1);
+  }
+  
+  abstract class Type extends Element { // Logical base class for types. 
+  }
+  
+  abstract class Resource extends BackboneElement {
+    attribute EString language (0..1);
+    attribute Narrative text (0..1);
+    attribute Resource contained (0..-1);
+  }
+  
+  // primitive Types
+  
+  class Boolean extends Type {
+    attribute EBoolean value (0..1); // Values can be either true or false (0 and 1 are not valid values)
+  }
+  
+  class Integer extends Type {
+    attribute EInt value (0..1); // A signed 32-bit integer (for larger values, use decimal)
+  }
+
+  class Decimal extends Type {
+    attribute EBigDecimal value (0..1); // A rational number. Note: for implementations, do not use a IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigDecimal). Decimals may not use exponents 
+  }
+
+  class Base64Binary extends Type {
+    attribute EByteArray value (0..1); // A stream of bytes, base64 encoded (RFC 4648)
+  }
+	
+  class Instant extends Type {
+    attribute EDate value (0..1); // An instant in time - known at least to the second and always includes a time zone. Note: This type is for system times, not human times (see date and dateTime below).
+  }
+
+  class String extends Type {
+    attribute EString value (0..1); // 	A sequence of Unicode characters. Note that strings SHALL NOT exceed 1MB in size
+  }
+
+  class Uri extends Type {
+    attribute EString value (0..1); // A Uniform Resource Identifier Reference. It can be absolute or relative, and may have an optional fragment identifier (RFC 3986)
+  }
+	
+  class DateTime extends Type {
+    attribute EDate value (0..1); // union of xs:date, xs:gYearMonth, xs:gYear	A date, or partial date (e.g. just year or year + month) as used in human communication. There is no time zone. Dates SHALL be valid dates. 
+  }
+
+  class DateTime extends Type {
+    attribute EBool value (0..1); // union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear	A date, date-time or partial date (e.g. just year or year + month) as used in human communication. If hours and minutes are specified, a time zone SHALL be populated. Seconds may be provided but may also be ignored. Dates SHALL be valid dates. 
+  }
+	
+  class Code extends String {
+    // regex: [^\s]+([\s]+[^\s]+)*
+  }
+
+  class Oid extends Uri {
+    // An OID represented as a URI (RFC 3001): urn:oid:1.2.3.4.5
+  }
+
+  class Uuid extends Uri {
+    // A UUID, represented as a URI (RFC 4122): urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11. Note the RFC comments about case: UUID values SHALL be represented in lower case, but systems SHOULD interpret them case insensitively
+  }
+
+  class Id extends String {
+    A whole number in the range 0 to 2^64-1 (optionally represented in hex), a uuid, an oid, or any other combination of lowercase letters, numerals, "-" and ".", with a length limit of 36 characters
+    regex: [a-z0-9\-\.]{1,36}
+  }

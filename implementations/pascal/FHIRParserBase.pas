@@ -871,7 +871,7 @@ begin
       xml.IsPretty := false;
       xml.CharEncoding := '';
       xml.Namespace := XHTML_NS;
-
+      xml.NoHeader := true;
       {
       xml.StartFragment;
       ComposeXHtmlNode(xml, value, true);

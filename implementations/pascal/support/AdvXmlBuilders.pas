@@ -86,8 +86,11 @@ begin
   xml := TAdvXMLFormatter.Create;
   xml.HasWhitespace := IsPretty;
   xml.Stream := mem.Link;
+  if not NoHeader then
+  begin
   xml.AddAttribute('encoding', 'UTF-8');
   xml.ProduceHeader;
+  end;
   wantDefineNS := Namespace <> '';
   for i := 0 to namespaces.Count - 1 do
     xml.AddNamespace(namespaces.ValueByIndex[i], namespaces.KeyByIndex[i]);
