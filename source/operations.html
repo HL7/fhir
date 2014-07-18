@@ -87,16 +87,16 @@ definition of a parameter should make it's use clear. <i>To do: what about "date
 The URL for an operation end-point depends on its context:
 </p>
 <ul>
- <li>system: the url is [base]\$[name]</li>
- <li>resource type: the url is [base]\[type]\$[name]</li>
- <li>resource instance: the url is [base]\[type]\[id]\$[name]</li>
+ <li>system: the url is [base]/$[name]</li>
+ <li>resource type: the url is [base]/[type]/$[name]</li>
+ <li>resource instance: the url is [base]/[type]/[id]/$[name]</li>
 </ul>
 
 <p>
 An operation is invoked by performing an HTTP POST to the operation end-point.
 The content of the body is a multipart/form-data that contains the parameters 
-for the operation. Where the parameter type is a data type, the type may 
-be represented as either json or xml; the root name of the object is the 
+for the operation. Where the parameter type is a data type or resources, the content
+may be represented as either json or xml; for a datatype, the root name of the object is the 
 name of the parameter. 
 </p>
 
@@ -112,9 +112,9 @@ in response to an operation request.
 <p>
 If the result of the operation is a single resource, then the 
 body of the response will be the resource. Note that the usual
-arrangement in regard to <a href="http.html#mime-type">content type apply</a>.
-If the result of the operation is more than one resource, then the 
-server returns an atom feed with the resources. 
+arrangement in regard to <a href="http.html#mime-type">content types applies</a>.
+If the result of the operation is more than one resource, or a document, then the 
+server returns an atom feed as the response. 
 </p>
 <p>
 The resources that are returned by the operation may be 

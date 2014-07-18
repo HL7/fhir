@@ -136,7 +136,7 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
   
   @Override
   public boolean wantListAsDownload() {
-    return true;
+    return false;
   }
 
 

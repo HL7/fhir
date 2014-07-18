@@ -608,10 +608,33 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         Operation op = r.getOperations().get(opn);
         b.append("<tr><td><a href=\""+n.toLowerCase()+"-operations.html#"+opn+"\">");
         b.append(Utilities.escapeXml(op.getTitle()));
-        b.append("</a></td><td>[base]/");
-        b.append(n);
-        b.append("/_op/");
-        b.append(opn);
+        b.append("</a></td><td>");
+        boolean first = true;
+        if (op.isSystem()) {
+          first = false;
+          b.append("[base]/$");
+          b.append(opn);
+        }
+        if (op.isType()) {
+          if (first) 
+            first = false;
+          else 
+            b.append(" | ");
+          b.append("[base]/");
+          b.append(n);
+          b.append("/$");
+          b.append(opn);
+        }
+        if (op.isInstance()) {
+          if (first) 
+            first = false;
+          else 
+            b.append(" | ");
+          b.append("[base]/");
+          b.append(n);
+          b.append("/[id]/$");
+          b.append(opn);
+        }
         b.append("</td></tr>");
       }
     }
