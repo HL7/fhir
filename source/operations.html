@@ -28,8 +28,8 @@ Operations have the following general properties:
 </p>
 <ul>
  <li>Each operation has a name</li>
- <li>Each operation has a list if in and out parameters</li>
- <li>The parameters are either resources, or data types, or search parameters</li>
+ <li>Each operation has a list of 'in' and 'out' parameters</li>
+ <li>The parameters are either resources, data types or search parameters</li>
  <li>The operations are subject to the same security arrangements as the RESTful API</li>
  <li>The URIs for the operation end points are based on the existing RESTful API address scheme</li>
  <li>The operations may make use of the existing repository of resources in their definitions</li>
@@ -68,13 +68,13 @@ For each parameter, the following information is needed:
  <li>Name - the name of the operation. For implementer convenience, the name should be a valid token (see below)</li>
  <li>Use - In | Out | Both</li>
  <li>Type - a data type, a search parameter type, or a resource type. Out parameters must have a type which is a resource</li>
- <li>Documentation - describes it's use</li>
+ <li>Documentation - describes its use</li>
 </ul>
 
 <h3>Executing an Operation</h3>
 
 <p>
-The URL for an operation end-point depends on it's context:
+The URL for an operation end-point depends on its context:
 </p>
 <ul>
  <li>system: the url is [base]\_op\[name]</li>
