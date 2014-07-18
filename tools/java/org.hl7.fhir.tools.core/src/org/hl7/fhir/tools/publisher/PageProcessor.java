@@ -2092,7 +2092,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String genReferenceImplList() throws Exception {
     StringBuilder s = new StringBuilder();
     for (PlatformGenerator gen : referenceImplementations) {
-      if (!gen.wantListAsDownload())
+      if (gen.wantListAsDownload())
         s.append("<tr><td><a href=\""+gen.getReference(version)+"\">"+gen.getTitle()+"</a></td><td>"+processMarkdown(gen.getDescription())+"</td></tr>\r\n");
     }
     return s.toString();
