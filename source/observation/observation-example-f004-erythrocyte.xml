@@ -3,8 +3,8 @@
     <name>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="28540-3"/>
-            <display value="Erythrocyte concentration"/>
+            <code value="789-8"/>
+            <display value="Erythrocytes [#/volume] in Blood by Automated count"/>
         </coding>
     </name>
     <valueQuantity>
