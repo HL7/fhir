@@ -2,12 +2,12 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
 
   <contained>
-    <Observation id="length">
+    <Observation id="height">
       <name>
         <coding>   
             <system value="http://snomed.info/sct"/>
-            <code value="410667008"/>
-            <display value="Length"/>   
+            <code value="50373000"/>
+            <display value="Body height measure"/>   
         </coding>      
       </name>
       <valueQuantity>
@@ -25,8 +25,8 @@
       <name>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="60621009"/>
-            <display value="Weight"/>  
+            <code value="27113001"/>
+            <display value="Body weight"/>  
         </coding>    
       </name>
       <valueQuantity>
@@ -82,7 +82,7 @@
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="122869004"/>
-        <display value="Measurement - action"/> 
+        <display value="Measurement procedure"/> 
     </coding>
   </method>
   <!--No identifier could be provided to this observation-->
@@ -100,8 +100,8 @@
     <meaning>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="310252000"/>
-            <display value="Low BMI"/> 
+            <code value="3248342006"/>
+            <display value="Underweight"/> 
         </coding>
     </meaning>
   </referenceRange>
@@ -115,8 +115,8 @@
     <meaning>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="412768003"/>
-            <display value="Normal BMI"/> 
+            <code value="43664005"/>
+            <display value="Normal weight"/> 
         </coding>
     </meaning>
   </referenceRange>
@@ -130,7 +130,7 @@
     <meaning>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="162863004"/>
+            <code value="238131007"/>
             <display value="Overweight"/> 
         </coding>
     </meaning>
@@ -145,8 +145,8 @@
     <meaning> 
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="162864005"/>
-            <display value="Obesity"/> 
+            <code value="414915002"/>
+            <display value="Obese"/> 
         </coding>
     </meaning>
   </referenceRange>
@@ -157,15 +157,15 @@
     <meaning>
         <coding>   
             <system value="http://snomed.info/sct"/>
-            <code value="162864005"/>
-            <display value="Severe obesity"/> 
+            <code value="238136002"/>
+            <display value="Morbid obesity"/> 
         </coding>   
     </meaning>
   </referenceRange>
   <related>
     <type value="derived-from"/>
     <target>
-      <reference value="#length"/>
+      <reference value="#height"/>
     </target>
   </related>
   <related>
