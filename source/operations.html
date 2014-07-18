@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Operations on the RESTful API%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="base"> </a>
+<h2>Operations on the RESTful API</h2>
+
+<p>
+The <a href="http.html">RESTful API</a> defines a set of common operations performed on 
+a repository of typed resources. These operations follow the RESTful paradigm of 
+managing state by Create/Read/Update/Delete operations on a set of identified 
+resources. While this approach solves many use cases, there is some specific 
+functionality that can be met more efficiently using an RPC-like paradigm. 
+This specification describes an operation framework that seamlessly extends
+the RESTful API. 
+</p>
+<p>
+Operations have the following general properties:
+</p>
+<ul>
+ <li>Each operation has a name</li>
+ <li>Each operation has a list if in and out parameters</li>
+ <li>The parameters are either resources, or data types, or search parameters</li>
+ <li>The operations are subject to the same security arrangements as the RESTful API</li>
+ <li>The URIs for the operation end points are based on the existing RESTful API address scheme</li>
+ <li>The operations may make use of the existing repository of resources in their definitions</li>
+</ul>
+
+<p>
+Note: the definition of these services does not prevent the use of other 
+kinds of services not dependent on or integrated with the RESTful API.
+</p>
+
+<h3>FHIR defined Operations</h3>
+<p>
+This specification defines several operations:
+</p>
+<%operationslist%>
+<p>
+Implementations are able to define their own operations in addition to
+those defined here. <i>Todo: how is name conflict managed?</i>
+</p>
+
+<h3>Defining an Operation</h3>
+
+<p>
+Each Operation is defined by:
+</p>
+<ul>
+ <li>A context for the operation - system, resource type, or resource instance</li>
+ <li>A name for the operation</li>
+ <li>A list of parameters, with their definitions</li>
+</ul>
+
+<p>
+For each parameter, the following information is needed:
+</p>
+<ul>
+ <li>Name - the name of the operation. For implementer convenience, the name should be a valid token (see below)</li>
+ <li>Use - In | Out | Both</li>
+ <li>Type - a data type, a search parameter type, or a resource type. Out parameters must have a type which is a resource</li>
+ <li>Documentation - describes it's use</li>
+</ul>
+
+<h3>Executing an Operation</h3>
+
+<p>
+The URL for an operation end-point depends on it's context:
+</p>
+<ul>
+ <li>system: the url is [base]\_op\[name]</li>
+ <li>resource type: the url is [base]\[type]\_op\[name]</li>
+ <li>resource instance: the url is [base]\[type]\[id]\_op\[name]</li>
+</ul>
+
+<p>
+An operation is invoked by performing an HTTP POST to the operation end-point.
+The content of the body is a multipart/form-data that contains the parameters 
+for the operation. Where the parameter type is a data type, the type may 
+be represented as either json or xml; the root name of the object is the 
+name of the parameter. 
+</p>
+
+<h4>Operation Output</h4>
+
+<p>
+If the operation succeeds, the HTTP Status code is 200 OK. An
+HTTP status code if 4xx or 5xx indicates an error. User agents should 
+note that servers may issue redirects etc to authenticate the client 
+in response to an operation request.
+</p>
+
+<p>
+If the result of the operation is a single resource, then the 
+body of the response will be the resource. Note that the usual
+arrangement in regard to <a href="http.html#mime-type">content type apply</a>.
+If the result of the operation is more than one resource, then the 
+server returns an atom feed with the resources. 
+</p>
+<p>
+The resources that are returned by the operation may be 
+retained and made available in the resource repository 
+on the operation server. In that case, the server will 
+provide the identity of the resource in the content-location
+header in the response, or in the atom feed id/self link. When
+resources that are not persisted are returned in an atom feed,
+they should be assigned a cid: identifier that will never 
+be re-used.
+</p>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>

@@ -38,7 +38,8 @@ public class ResourceDefn  {
    private List<Example> examples = new ArrayList<Example>();
    private Map<String, SearchParameter> searchParams = new HashMap<String, SearchParameter>();
    private List<RegisteredProfile> profiles = new ArrayList<RegisteredProfile>();
-   
+   private Map<String, Operation> operations = new HashMap<String, Operation>();
+      
    private boolean sandbox;
    private String status;
      
@@ -165,6 +166,10 @@ public class ResourceDefn  {
 
   public void setProfile(Profile profile) {
     this.root.setProfile(profile);
+  }
+
+  public Map<String, Operation> getOperations() {
+    return operations;
   }
 
 

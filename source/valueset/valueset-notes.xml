@@ -161,50 +161,7 @@ expanding a value set:
 The "result set" is then represented in <i>expansion</i>. Note that the expansion structure is inherently ordered, and 
 also provides support for a hierarchical tree of codes. This specification does not fix the meaning of use of either
 of these, and the conceptual approach described should not be understood to prohibit any implementation approach in
-these regards.
-</p>
-<p>
-An application MAY offer to expand value sets for other applications. In this 
-case, the standard way to produce a value set expansion is to perform a 
-<a href="search.html">query</a> on the value set with _query=expand:
-</p>
-<pre>
-  GET [service-url]/ValueSet/?_query=expand&amp;id=:valueSet&amp;...
-</pre>
-<p>
-This is a request to produce a value set expansion for the value set
-with the provided id which is either a logical id, or an absolute reference to a value set. 
-The value set can be identified by other means, such as identifier and version. 
-Servers can define their own additional parameters that influence the expansion 
-process, such in relation to order and hierarchy.
-</p>
-<p>
-The value set expansion returned by this query should be treated 
-as a transient result that will change over time (whether it does or
-not depends on how the value set is specified), so applications 
-should repeat the query each time the value set is used.
-</p>
-<h2>Value Set Validation</h2>
-<p>
-An application may offer to provide code validation services for other 
-applications. In this case, the standard way for an application to 
-ask for validation is to perform a 
-<a href="search.html">query</a> on the value set with _query=validate:
-</p>
-<pre>
-  GET [service-url]/ValueSet/?_query=validate&amp;id=:valueSet&amp;system=:system&amp;version=:version&amp;code=:code&amp;...
-</pre>
-<p>
-The values for system, version, and code are those from the <a href="datatypes.html#Coding">Coding</a> data type.
-Version is optional, and code and system are mandatory. Additionally, the parameter "coding" or "codeableconcept" 
-can be used - the value of these parameters is a URL encoded XML or JSON representation of the two data types
-respectively. An additional boolean parameter "extensible" can be provided to specify whether the
-applicable binding is extensible or not.
-</p>
-<p>
-The result of this query is an <a href="operationoutcome.html">Operation Outcome</a>.
-If there are no errors in the outcome (OperationOutcome.issue.severity), then the code is considered
-to be valid.
+these regards. There is a <a href="valueset-operations.html">defined operation</a> to ask a server to perform this expansion.
 </p>
 
 

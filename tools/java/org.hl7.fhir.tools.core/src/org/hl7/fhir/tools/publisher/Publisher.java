@@ -2371,6 +2371,13 @@ public class Publisher {
         page.getFolders().dstDir + n + "-profiles.html");
     page.getEpub().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), EPubManager.XHTML_TYPE);
 
+    if (!resource.getOperations().isEmpty()) {
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-operations.html");
+      TextFile.stringToFile(
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Operations", n + "-operations.html"), st, n
+              + "-operations.html"), page.getFolders().dstDir + n + "-operations.html");
+      page.getEpub().registerFile(n + "-operations.html", "Operations for " + resource.getName(), EPubManager.XHTML_TYPE);
+    }
     src = TextFile.fileToString(page.getFolders().srcDir + "template-book.html").replace("<body>", "<body style=\"margin: 10px\">");
     src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "resource", n + ".html");
     cachePage(n + ".html", src, "Resource " + resource.getName());

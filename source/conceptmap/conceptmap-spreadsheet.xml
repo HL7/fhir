@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2014-05-09T07:17:51Z</LastSaved>
+  <LastSaved>2014-07-18T07:24:33Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,7 @@
   <WindowWidth>18555</WindowWidth>
   <WindowTopX>19455</WindowTopX>
   <WindowTopY>8895</WindowTopY>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -135,6 +136,19 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s94">
+   <Borders/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s95">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s148">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -428,7 +442,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -847,6 +860,122 @@
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
      <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Operations">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="11" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="207"/>
+   <Row>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Use</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Optional</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Title</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Documentation</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Footer</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">translate</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Concept Translation</Data></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Translate a code from one value set to another, based on the existing value set and concept maps resources, and/or other additional knowledge available to the server. || One (and only one) of the in parameters (code, coding, codeableConcept) must be provided, to identify the code that is to be translated. Only one of the parameters (id, identifier, valueset) may be provided; this is optional, to identify value set used when the concept (system/code pair) was chosen.  || The outcome is an operationOutcome with hints, warnings, or errors, or the translated code in an extension</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">translate.id</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="String">SHALL</Data></Cell>
+    <Cell><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">A url which is a literal reference to a value set. Maybe a relative (e.g. local to the server) or absolute URL (on some other server, though servers are not required to support this option)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">translate.identifier</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="String">SHOULD</Data></Cell>
+    <Cell><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">A logical value set identifier (i.e. ValueSet.identifier). The server must know the value set (e.g. it is defined explicitly in the server's valuesets, or it is defined implicitly by some code system known to the server</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">translate.valueSet</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="String">MAY</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The value set is provided directly as part of the request. Servers may choose not to accept value sets in this fashion</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">translate.code</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="String">SHALL</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The code that is to be translated. If a code is provided, a system must be provided</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">translate.system</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="String">SHALL</Data></Cell>
+    <Cell><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The system for the code that is to be translated</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">translate.version</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="String">SHOULD</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The version of the system, if one was provided in the source data</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">translate.coding</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="String">SHALL</Data></Cell>
+    <Cell><Data ss:Type="String">Coding</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">A coding to translate</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">translate.codeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="String">SHALL</Data></Cell>
+    <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">A full codeableConcept to validate. The server can translate any of the coding values as it chooses</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">translate.outcome</Data></Cell>
+    <Cell><Data ss:Type="String">out</Data></Cell>
+    <Cell><Data ss:Type="String">no</Data></Cell>
+    <Cell><Data ss:Type="String">SHALL</Data></Cell>
+    <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">If the translation is successful, the translation is represented as an extension (uri = [[[http://hl7.org/fhir/Profile/general-extensions#translation]]]) of type Coding on the operation outcome, or else an error must be returned. Hints and warnings may be returned in either case</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -1,9 +1,4 @@
 package org.hl7.fhir.tools.implementations.emf;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.OutputStreamWriter;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.util.Date;
 import java.util.List;
 import org.hl7.fhir.definitions.Config;
@@ -18,13 +13,9 @@ import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 public class EMFGenerator extends EMFBase implements PlatformGenerator {
 
-  private Definitions definitions;
-  
   public EMFGenerator() {
     super();
   }
@@ -41,8 +32,7 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
 
   @Override
   public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
-    char sl = File.separatorChar;
-    this.definitions = definitions;
+
     init(null);
     
     write("package fhir fhir \"http://hl7.org/fhir/emf\" {");

@@ -42,6 +42,7 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
+import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.EventDefn.Category;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
@@ -49,6 +50,7 @@ import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.ExtensionDefn.ContextType;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.RegisteredProfile.ProfileInputType;
@@ -229,21 +231,47 @@ public class SpreadsheetParser {
 	  readExamples(root, loadSheet("Examples"));
 	  readSearchParams(root, loadSheet("Search"));
 	  readProfiles(root, loadSheet("Profiles"));
+	  readOperations(root, loadSheet("Operations"));
 
-		return root;
+	  return root;
 	}
 
-	  private ExampleType parseExampleType(String s, int row) throws Exception {
-			if (s==null || "".equals(s))
-				return ExampleType.XmlFile;
-			if ("tool".equals(s))
-				return ExampleType.Tool;
-			if ("xml".equals(s))
-				return ExampleType.XmlFile;
-      if ("csv".equals(s))
-        return ExampleType.CsvFile;
-			throw new Exception("Unknown Example Type '" + s + "': " + getLocation(row));
-		}
+	private void readOperations(ResourceDefn root, Sheet sheet) throws Exception {
+	  if (sheet != null) {
+      for (int row = 0; row < sheet.rows.size(); row++) {
+        String name = sheet.getColumn(row, "Name");
+        String use = sheet.getColumn(row, "Use"); 
+        String doco = sheet.getColumn(row, "Documentation");
+        if (!name.contains(".")) {
+          if (!use.equals("Resource"))
+            throw new Exception("Only allowed type is 'Resource' at "+getLocation(row));
+          root.getOperations().put(name, new Operation(name, use, sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer")));
+        } else {
+          String[] parts = name.split("\\.");
+          if (!use.equals("in") && !use.equals("out"))
+            throw new Exception("Only allowed types are 'in' or 'out' at "+getLocation(row));
+          Operation operation = root.getOperations().get(parts[0]);
+          if (operation == null)
+            throw new Exception("Unknown Operation '"+parts[0]+"' at "+getLocation(row));
+          String type = sheet.getColumn(row, "Type");
+          operation.getParameters().add(new OperationParameter(parts[1], use, doco, sheet.getColumn(row, "Optional"), sheet.getColumn(row, "Conformance"), type));
+        }
+      }
+	  }
+	}
+
+
+	private ExampleType parseExampleType(String s, int row) throws Exception {
+	  if (s==null || "".equals(s))
+	    return ExampleType.XmlFile;
+	  if ("tool".equals(s))
+	    return ExampleType.Tool;
+	  if ("xml".equals(s))
+	    return ExampleType.XmlFile;
+	  if ("csv".equals(s))
+	    return ExampleType.CsvFile;
+	  throw new Exception("Unknown Example Type '" + s + "': " + getLocation(row));
+	}
 
 	  
 	private void readProfiles(ResourceDefn defn, Sheet sheet) throws Exception {

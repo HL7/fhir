@@ -15,7 +15,7 @@
 <h2>Search / Query</h2>
 
 <p>
-One operation that is fundamental to the way FHIR works is to search (or query).
+One aspect that is fundamental to the way FHIR works is to search (or query).
 Search/Query operations search through an existing set of resources by a set 
 of search criteria supplied as parameters to the search. This page documents 
 the FHIR search framework, starting with the simple cases, and working through 
@@ -666,7 +666,6 @@ rules should be made about how _include works, based on implementation experienc
 </blockquote>
 
 
-
 <h4>Paging</h4>
 <p>
 When returning paged results for a query with _include resources, all _include resources that are 
@@ -750,33 +749,15 @@ _query parameter:
 <p>
 The _query parameter names a custom search profile that
 describes a specific search/query operation. The named query
-may define additional parameters that are used with that 
-particular named query, and  will define their type and 
-behavior on repetition and omission. 
-</p>
-<p>
-FHIR defines some named queries:
-</p>
-<ul>
- <li><a href="valueset.html#expansion">Value Set Expansion</a></li>
-</ul>
-<p>
-In addition, servers can define their own additional named
-queries to meet their own uses.
+may define additional named parameters that are used with that 
+particular named query. Servers can define their own additional 
+named queries to meet their own uses. 
 </p>
 <p>
 There can only ever be one _query parameter in a set of search
 parameters. Servers processing search requests SHALL 
 refuse to process a search request if they do not recognize 
 the _query parameter value.
-</p>
-<p>
-Some named queries may have side effects such as creating 
-new clinical resources that may be persistent or transitory. 
-The general search defined above always searches existing 
-resources, and the only new resources that may be created 
-are <a href="securityevent.html">Security Event</a> resources 
-auditing the search.
 </p>
 
 <h2>Executing Search / Query</h2>
@@ -815,22 +796,11 @@ how to handle ongoing updates to the resources while the search
 is proceeding. 
 </p>
 <p>
-Query result sets may include resources created by the processing of the 
-search. Typically, these are the results of queries for decision support,
-value set expansion, etc., and represent the outcome of processing the 
-query. In order to be usable in the scenarios above, these resources
-have a defined structure and have the same metadata as any other resource,
-including a known identity, but they have the same currency issues as
-the results from a query. 
+Note that performing a search operation does not change the set of 
+resources on the server, with the exception of the creation
+of <a href="securityevent.html">Security Event</a> resources 
+auditing the search itself. 
 </p>
-<p>
-Applications handling the results of an operation that creates 
-resources should use these resources with careful consideration 
-of their currency. Though the resources may be retained for audit 
-purposes, implementers must be careful not to reuse these as if
-they are current.
-</p>
-
 
 </div>
 
@@ -839,5 +809,4 @@ they are current.
 [%file newfooter%]
 </body>
 </html>
-
 

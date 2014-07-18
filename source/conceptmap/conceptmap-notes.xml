@@ -7,31 +7,5 @@
  <li>The concept map is a statement of mapping in a single direction. The existence of a matching mapping in the reverse direction cannot be assumed to exist automatically, but only through human review</li>
 </ul>
 
-<h2>Concept Translation</h2>
-<p>
-An application may offer to provide concept translation services for other 
-applications. In this case, the standard way for an application to 
-ask for concept translation is to perform a 
-<a href="search.html">search</a> on the value set with _query=translate:
-</p>
-<pre>
-  GET [service-url]/ConceptMap/?_query=translate&amp;identity=:valueSet&amp;system=:system&amp;version=:version&amp;code=:code&amp;...
-</pre>
-<p>
-The identifier is the <a href="valueset-definitions.html#ValueSet.identifier">ValueSet.identifier</a> of the 
-value set used when the concept (system/code pair) was chosen. If an identifier is provided, the application
-performing the translation can locate a concept map for a matching value set; if no value set is identified,
-the application must look for a code equivalence assertion in a concept map where the value set the provides
-context matches the entire code system. The values for system, version, and code are those from the 
-<a href="datatypes.html#Coding">Coding</a> data type. Version is optional, and code and system are mandatory. 
-Alternatively, the parameter "coding" or "codeableconcept" can be used - the value of these parameters is a 
-URL encoded XML or JSON representation of the two data types respectively. 
-</p>
-<p>
-The result of this query is an <a href="operationoutcome.html">Operation Outcome</a> with an extension
-<a href="general-extensions.html">http://hl7.org/fhir/Profile/general-extensions#translation</a>, which 
-is a codeableConcept that expresses the translation, if one could be found, or an error if one could not 
-be found. The Operation Outcome may include warnings about how the translation was made. 
-</p>
 
 </div>
