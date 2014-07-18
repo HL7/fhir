@@ -11,8 +11,8 @@
  <valueCodeableConcept>
      <coding>
         <system value="http://snomed.info/sct"/>
-        <code value="8745002"/>
-        <display value="Gram-positive bacteria"/>
+        <code value="3092008"/>
+        <display value="Staphylococcus aureus"/>
      </coding>
  </valueCodeableConcept>
  <interpretation>
