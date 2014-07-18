@@ -3,19 +3,34 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-Todo
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+This resource captures predictivd outcomes for a patient or population on the basis of source information.  Examples include:
 </p>
+<ul>
+  <li>A prognosis statement for a particular condition</li>
+  <li>Risk of health outcome (heart attack, particular type of cancer) on the basis of lifestyle factors and/or family history</li>
+  <li>List of potential health risks based on a patient's genetic analysis</li>
+  <li>A prediction of outbreak infection rates within a geography based on immunization rates</li>
+</ul>
 </div>
 
-<!-- (recommended): 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+Risk assessments are a specialized type of observation.  We use a specialized resource to allow capture of a series of risks.  These risks may vary by different factors - different outcomes, different time ranges and/or other factors (e.g. a location radius extension for population risk).  All risk assertions are captured at one time based on a single set of source inputs.  Capture of a single risk may be done using the <a href="observation.html">Observation</a> class.
+</p>
+<p>
+Risk assessments may be based on a variety of factors, including:
+</p>
+<ul>
+<li>Basic demographic information from the <a href="patient.html">Patient</a> or <a href="group.html">Group</a> resources</li>
+<li>Various <a href="observation.html">Observations</a> including vital signs, lab information, assessments, genetic information, etc.</li>
+<li><a href="familyhistory.html">FamilyHistory</a></li>
+<li>Current, past and proposed therapies <a href="immunization.html">Immunization</a>, <a href="procedure.html">Procedure</a>, <a href="careplan.html">CarePlan</a>, etc.</li>
+</ul>
+<p>
+Because so many resources can potentially be used, no limit is placed on what resources can be sent in <code>RiskAssessment.basis</code>.  However, some resources would be nonsensical for this use (e.g. <a href="messageheader.html">MessageHeader</a>).
 </p>
 </div>
--->
 
 <!-- (optional):
 <div>
