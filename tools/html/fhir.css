@@ -82,6 +82,10 @@ table.dict td {
 	vertical-align: top;
 }
 
+table.dict p {
+	font-size: 11px;
+}
+
 table.dict td.structure {
         padding:3px 7px 2px 7px;
 	font-size: 12px;

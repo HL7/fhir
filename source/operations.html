@@ -47,7 +47,10 @@ This specification defines several operations:
 <%operationslist%>
 <p>
 Implementations are able to define their own operations in addition to
-those defined here. <i>Todo: how is name conflict managed?</i>
+those defined here. In order to minimize name clashes between operations
+defined by different implementers, implementers should prefix the operation
+name with a short code that identifies them sufficiently, such as ihe.[name].
+Formally, name clashes can be resolved by use of the <a href="conformance.html">conformance statement</a>.
 </p>
 
 <h3>Defining an Operation</h3>
@@ -67,9 +70,16 @@ For each parameter, the following information is needed:
 <ul>
  <li>Name - the name of the operation. For implementer convenience, the name should be a valid token (see below)</li>
  <li>Use - In | Out | Both</li>
- <li>Type - a data type, a search parameter type, or a resource type. Out parameters must have a type which is a resource</li>
+ <li>Type - a data type, a search parameter type, a resource type, or "Document". Out parameters must have a type which is a resource</li>
  <li>Documentation - describes its use</li>
 </ul>
+
+<p>
+Note that search parameter types are allowed for use where the parameter is used as a search parameter
+i.e. to link between the context of operations, and a set of existing resources that the operation refers
+to, where as data types and resources are used to provide information directly to the operation. The
+definition of a parameter should make it's use clear. <i>To do: what about "date"?</i>
+</p>
 
 <h3>Executing an Operation</h3>
 
@@ -77,9 +87,9 @@ For each parameter, the following information is needed:
 The URL for an operation end-point depends on its context:
 </p>
 <ul>
- <li>system: the url is [base]\_op\[name]</li>
- <li>resource type: the url is [base]\[type]\_op\[name]</li>
- <li>resource instance: the url is [base]\[type]\[id]\_op\[name]</li>
+ <li>system: the url is [base]\$[name]</li>
+ <li>resource type: the url is [base]\[type]\$[name]</li>
+ <li>resource instance: the url is [base]\[type]\[id]\$[name]</li>
 </ul>
 
 <p>

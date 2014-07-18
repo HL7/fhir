@@ -116,6 +116,8 @@ import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import com.github.rjeschke.txtmark.Processor;
+
 public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private static final String SIDEBAR_SPACER = "<p>&nbsp;</p>\r\n";
@@ -285,16 +287,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return prevSidebars.get(prefix);
   }
 
-  private String combineNotes(List<String> followUps, String notes) {
+  private String combineNotes(List<String> followUps, String notes) throws Exception {
     String s = "";
     if (notes != null && !notes.equals(""))
       s = notes;
     if (followUps.size() > 0)
       if (s != "")
-        s = s + "<br/>Follow ups: "+Utilities.asCSV(followUps);
+        s = s + "\r\n\r\nFollow ups: "+Utilities.asCSV(followUps);
       else
         s = "Follow ups: "+Utilities.asCSV(followUps);
-    return s;      
+    return processMarkdown(s);      
   }
 
   private String describeMsg(List<String> resources, List<String> aggregations) {
@@ -1997,7 +1999,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return s.toString();
   }
 
-  private String getEventsTable() {
+  private String getEventsTable() throws Exception {
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getEvents().keySet());
     Collections.sort(codes);
@@ -2010,8 +2012,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         EventUsage u = e.getUsages().get(0);
         s.append(" <tr><td>"+e.getCode()+"<a name=\""+e.getCode()+"\"> </a></td><td>"+(e.getCategory() == null ? "??" : e.getCategory().toString())+"</td><td>"+e.getDefinition()+"</td>");
         s.append("<td>"+describeMsg(u.getRequestResources(), u.getRequestAggregations())+"</td><td>"+
-            describeMsg(u.getResponseResources(), u.getResponseAggregations())+"</td><td>"+
-            combineNotes(e.getFollowUps(), u.getNotes())+"</td></tr>\r\n");
+            describeMsg(u.getResponseResources(), u.getResponseAggregations())+"</td><td>"+combineNotes(e.getFollowUps(), u.getNotes())+"</td></tr>\r\n");
       } else {
         boolean first = true;
         for (EventUsage u : e.getUsages()) {
@@ -2088,10 +2089,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   }
 
-  private String genReferenceImplList() {
+  private String genReferenceImplList() throws Exception {
     StringBuilder s = new StringBuilder();
     for (PlatformGenerator gen : referenceImplementations) {
-      s.append("<tr><td><a href=\""+gen.getReference(version)+"\">"+gen.getTitle()+"</a></td><td>"+Utilities.genMarkdown(gen.getDescription())+"</td></tr>\r\n");
+      if (!gen.wantListAsDownload())
+        s.append("<tr><td><a href=\""+gen.getReference(version)+"\">"+gen.getTitle()+"</a></td><td>"+processMarkdown(gen.getDescription())+"</td></tr>\r\n");
     }
     return s.toString();
   }
@@ -2761,7 +2763,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return Integer.toString(resource.getOperations().size()) + (resource.getOperations().size() == 1 ? " operation" : " operations");
   }
 
-  private String genOperations(ResourceDefn resource) {
+  private String genOperations(ResourceDefn resource) throws Exception {
     StringBuilder b = new StringBuilder();
     List<String> names = new ArrayList<String>();
     names.addAll(resource.getOperations().keySet());
@@ -2769,12 +2771,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : names) {
       Operation op = resource.getOperations().get(n);
       b.append("<h3>"+Utilities.escapeXml(op.getTitle())+"<a name=\""+n+"\"> </a></h3>\r\n");
-      b.append("<p>"+Utilities.genMarkdown(op.getDoco())+"</p>\r\n");
-      b.append("<p>URL: [base]/");
-      b.append(resource.getName());
-      b.append("/_op/");
-      b.append(n);
-      b.append("</p>\r\n");
+      b.append(processMarkdown(op.getDoco())+"\r\n");
+      if (op.isSystem())
+        b.append("<p>URL: [base]/$"+n+"</p>\r\n");
+      if (op.isType())
+        b.append("<p>URL: [base]/"+resource.getName()+"/$"+n+"</p>\r\n");
+      if (op.isInstance())
+        b.append("<p>URL: [base]/"+resource.getName()+"/[id]/$"+n+"</p>\r\n");
       b.append("<p>Parameters:</p>\r\n");
       b.append("<table class=\"grid\">\r\n");
       b.append("<tr><td>");
@@ -2784,11 +2787,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append("</td><td>");
       b.append("<b>Optional</b>");
       b.append("</td><td>");
-      b.append("<b>Conformance</b>");
-      b.append("</td><td>");
       b.append("<b>Type</b>");
       b.append("</td><td>");
-      b.append("<b>Doc</b>");
+      b.append("<b>Documentation</b>");
       b.append("</td></tr>");
       for (OperationParameter p : op.getParameters()) {
         b.append("<tr><td>");
@@ -2798,15 +2799,63 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append("</td><td>");
         b.append(p.getOptional());
         b.append("</td><td>");
-        b.append(p.getConformance());
+        String t = p.getType();
+        if (definitions.hasResource(t)) {
+          b.append("<a href=\"");
+          b.append(t.toLowerCase());
+          b.append(".html\">");
+          b.append(t);
+          b.append("</a>");
+          
+        } else if (definitions.hasPrimitiveType(t)) {
+          b.append("<a href=\"datatypes.html#");
+          b.append(t);
+          b.append("\">");
+          b.append(t);
+          b.append("</a>");
+          
+        } else if (definitions.hasElementDefn(t)) {
+          b.append("<a href=\"");
+          b.append(GeneratorUtils.getSrcFile(t));
+          b.append(".html#");
+          b.append(t);
+          b.append("\">");
+          b.append(t);
+          b.append("</a>");
+          
+        } else if (SearchParameter.isType(t)) {
+          b.append("<a href=\"search.html#");
+          b.append(t);
+          b.append("\">");
+          b.append(t);
+          b.append("</a>");
+          
+        } else if (t.startsWith("Resource(")) {
+          b.append("<a href=\"references.html#Resource\">Resource</a>");
+          String pn = t.substring(0, t.length()-1).substring(9);
+          b.append("(");
+          boolean first = true;
+          for (String tn : pn.split("\\|")) {
+            if (first)
+              first = false;
+            else
+              b.append("|");
+            b.append("<a href=\"");
+            b.append(tn.toLowerCase());
+            b.append(".html\">");
+            b.append(tn);
+            b.append("</a>");
+          }
+          b.append(")");
+        } else {
+          b.append(t);
+        }
         b.append("</td><td>");
-        b.append(p.getType());
-        b.append("</td><td>");
-        b.append(Utilities.genMarkdown(p.getDoc()));
+        b.append(processMarkdown(p.getDoc()));
         b.append("</td></tr>");
       }
       b.append("</table>\r\n");
-      b.append("<p>"+Utilities.genMarkdown(op.getFooter())+"</p>\r\n");
+      b.append(processMarkdown(op.getFooter())+"\r\n");
       b.append("<p></p>");
     }
     return b.toString();
@@ -3677,6 +3726,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setTranslations(Translations translations) {
     this.translations = translations;
+  }
+
+  public String processMarkdown(String text) throws Exception {
+    // 1. custom FHIR extensions
+    text = text.replace("||", "\r\n\r\n");
+    while (text.contains("[[[")) {
+      String left = text.substring(0, text.indexOf("[[["));
+      String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
+      String right = text.substring(text.indexOf("]]]")+3);
+      String actual;
+      String[] parts = url.split("\\#");
+      Profile p = definitions.getProfileByURL(parts[0]);
+      if (p != null)
+        actual = p.getTag("filename")+".html";
+      else {
+        throw new Exception("Unresolved logical URL "+url);
+      }
+      text = left+"["+url+"]("+actual+")"+right;
+    }
+    
+    // 2. markdown
+    String s = Processor.process(Utilities.escapeXml(text));
+    return s;
   }
 
   

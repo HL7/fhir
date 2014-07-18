@@ -37,5 +37,10 @@ public abstract class BaseGenerator implements PlatformGenerator {
     return "fhir-"+version+"-"+getTitle()+"-"+getVersion()+".zip";
   }
 
+  @Override
+  public boolean wantListAsDownload() {
+    return true;
+  }
+
  
 }

@@ -243,9 +243,21 @@ public class SpreadsheetParser {
         String use = sheet.getColumn(row, "Use"); 
         String doco = sheet.getColumn(row, "Documentation");
         if (!name.contains(".")) {
-          if (!use.equals("Resource"))
-            throw new Exception("Only allowed type is 'Resource' at "+getLocation(row));
-          root.getOperations().put(name, new Operation(name, use, sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer")));
+          boolean system = false;
+          boolean type = false;
+          boolean instance = false;
+          for (String c : use.split("\\|")) {
+            c = c.trim();
+            if ("system".equalsIgnoreCase(c))
+              system = true;
+            else if ("resource".equalsIgnoreCase(c))
+              type = true;
+            else if ("instance".equalsIgnoreCase(c))
+              instance = true;
+            else 
+              throw new Exception("unknown operation use code "+c);
+          }
+          root.getOperations().put(name, new Operation(name, system, type, instance, sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer")));
         } else {
           String[] parts = name.split("\\.");
           if (!use.equals("in") && !use.equals("out"))
@@ -254,7 +266,7 @@ public class SpreadsheetParser {
           if (operation == null)
             throw new Exception("Unknown Operation '"+parts[0]+"' at "+getLocation(row));
           String type = sheet.getColumn(row, "Type");
-          operation.getParameters().add(new OperationParameter(parts[1], use, doco, sheet.getColumn(row, "Optional"), sheet.getColumn(row, "Conformance"), type));
+          operation.getParameters().add(new OperationParameter(parts[1], use, doco, sheet.getColumn(row, "Optional"), type));
         }
       }
 	  }

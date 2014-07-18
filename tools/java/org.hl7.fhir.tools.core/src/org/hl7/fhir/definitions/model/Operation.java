@@ -6,16 +6,20 @@ import java.util.List;
 public class Operation {
 
   private String name;
-  private String use;
+  private boolean system;
+  private boolean type;
+  private boolean instance;
   private String doco;
   private List<OperationParameter> parameters = new ArrayList<OperationParameter>();
   private String title;
   private String footer;
 
-  public Operation(String name, String use, String title, String doco, String footer) {
+  public Operation(String name, boolean system, boolean type, boolean instance, String title, String doco, String footer) {
     this.name = name;
     this.title = title;
-    this.use = use;
+    this.system = system;
+    this.type = type;
+    this.instance = instance;
     this.doco = doco;
     this.footer = footer;
     
@@ -29,12 +33,29 @@ public class Operation {
     this.name = name;
   }
 
-  public String getUse() {
-    return use;
+  
+  public boolean isSystem() {
+    return system;
   }
 
-  public void setUse(String use) {
-    this.use = use;
+  public void setSystem(boolean system) {
+    this.system = system;
+  }
+
+  public boolean isType() {
+    return type;
+  }
+
+  public void setType(boolean type) {
+    this.type = type;
+  }
+
+  public boolean isInstance() {
+    return instance;
+  }
+
+  public void setInstance(boolean instance) {
+    this.instance = instance;
   }
 
   public String getDoco() {

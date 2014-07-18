@@ -532,25 +532,6 @@ public class Utilities {
   }
 
 
-  public static String genMarkdown(String text) {
-    text = escapeXml(text);
-    text = text.replace("||", "<br/><br/>");
-    while (text.contains("[[[")) {
-      String left = text.substring(0, text.indexOf("[[["));
-      String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
-      String right = text.substring(text.indexOf("]]]")+3);
-      // todo: work the url over....
-      text = left+"<a href=\""+url+"\">"+url+"</a>"+right;
-    }
-    while (text.contains("[[")) {
-      String left = text.substring(0, text.indexOf("[["));
-      String url = text.substring(text.indexOf("[[")+2, text.indexOf("]]"));
-      String right = text.substring(text.indexOf("]]")+2);
-      text = left+"<a href=\""+url+"\">"+url+"</a>"+right;
-    }
-    return text; 
-  }
-
 
 	public static String normalize(String s) {
 		if (noString(s))

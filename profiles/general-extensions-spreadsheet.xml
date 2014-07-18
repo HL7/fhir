@@ -86,6 +86,11 @@
   <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="19" x:FullColumns="1"
@@ -180,7 +185,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Extensions">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="192.75"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="77.25"/>
@@ -233,6 +238,26 @@
     <Cell><Data ss:Type="String">The registered place of birth of the patient</Data></Cell>
     <Cell><Data ss:Type="String">This is used in some contexts as an administrative attribute of the patient</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">translation</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Coding</Data></Cell>
+    <Cell><Data ss:Type="String">!</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Result of translate Operation</Data></Cell>
+    <Cell><Data ss:Type="String">A Coding that is the result of a translation operation, if the operation is successful</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">See the ConceptMap operation &quot;translate&quot;</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">codedSource</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">MessageHeader</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">Coding | CodeableConcept</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Source coded value for the operation</Data></Cell>
+    <Cell><Data ss:Type="String">Coded value that is source for the operation (conceptmap-translate, or valueset-validate)</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -251,8 +276,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

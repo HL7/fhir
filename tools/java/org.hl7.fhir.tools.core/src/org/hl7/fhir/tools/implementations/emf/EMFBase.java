@@ -6,16 +6,16 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
-import org.hl7.fhir.definitions.generators.specification.BaseGenerator;
+import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
 
-public class EMFBase extends BaseGenerator {
+public abstract class EMFBase {
   
-  
+  protected Definitions definitions;
   protected ByteArrayOutputStream b;
   protected Writer w;
   

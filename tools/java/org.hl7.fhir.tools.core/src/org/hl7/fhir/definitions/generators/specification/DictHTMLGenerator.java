@@ -265,7 +265,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		else
 		  tableRowNE("Type", "datatypes.html", type);
 		tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(e.isModifier()));
-		tableRow("Requirements", null, e.getRequirements());
+		tableRowNE("Requirements", null, page.processMarkdown(e.getRequirements()));
     tableRow("Aliases", null, toSeperatedString(e.getAliases()));
     if (e.isSummaryItem())
       tableRow("Summary", "search.html#summary", Boolean.toString(e.isSummaryItem()));

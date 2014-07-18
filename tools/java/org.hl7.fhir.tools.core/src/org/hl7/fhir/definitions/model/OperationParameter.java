@@ -6,15 +6,13 @@ public class OperationParameter {
   private String use;
   private String doc;
   private String optional;
-  private String conformance;
   private String type;
 
-  public OperationParameter(String name, String use, String doco, String optional, String conformance, String type) {
+  public OperationParameter(String name, String use, String doco, String optional, String type) {
     this.name = name; 
     this.use = use;
     this.doc = doco; 
     this.optional = optional; 
-    this.conformance = conformance; 
     this.type = type;
   }
 
@@ -48,14 +46,6 @@ public class OperationParameter {
 
   public void setOptional(String optional) {
     this.optional = optional;
-  }
-
-  public String getConformance() {
-    return conformance;
-  }
-
-  public void setConformance(String conformance) {
-    this.conformance = conformance;
   }
 
   public String getType() {

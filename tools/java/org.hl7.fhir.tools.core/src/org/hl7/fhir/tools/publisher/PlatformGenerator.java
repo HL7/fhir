@@ -137,4 +137,10 @@ public interface PlatformGenerator {
    *  
    */
   public String checkFragments(String rootDir, String fragmentsXml, boolean inProcess) throws Exception;
+
+  /**
+   * Whether to list this in the downloads page
+   * @return
+   */
+  public boolean wantListAsDownload();
 }

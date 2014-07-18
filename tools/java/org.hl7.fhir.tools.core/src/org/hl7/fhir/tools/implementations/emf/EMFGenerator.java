@@ -133,4 +133,11 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
   public String getReference(String version) {
     return "emf.txt";
   }
+  
+  @Override
+  public boolean wantListAsDownload() {
+    return true;
+  }
+
+
 }

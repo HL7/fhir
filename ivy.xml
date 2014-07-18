@@ -23,7 +23,8 @@
     <dependency org="org.eclipse.emf" name="org.eclipse.emf.ecore" rev="2.9.2-v20131212-0545"/>
     <dependency org="org.eclipse.emf" name="org.eclipse.emf.ecore.xmi" rev="2.9.1-v20131212-0545"/>
     <dependency org="org.eclipse.emf" name="org.eclipse.emf.common" rev="2.9.2-v20131212-0545"/>
-            
+    <dependency org="com.github.rjeschke" name="txtmark" rev="0.11"/>        
+    
     <dependency org="org.hamcrest" name="hamcrest-core" rev="1.3"/>
     <dependency org="org.jdom" name="jdom" rev="1.1.3"/>
     <dependency org="org.tmatesoft.sqljet" name="sqljet" rev="1.1.10"/>
