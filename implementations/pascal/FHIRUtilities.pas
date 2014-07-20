@@ -37,6 +37,7 @@ uses
   GuidSupport,
   DateSupport,
 
+  IdSoapMime,
   TextUtilities,
   ZLib,
 
@@ -72,6 +73,7 @@ procedure listAttachments(resource : TFhirResource; list : TFhirAttachmentList);
 Function FhirHtmlToText(html : TFhirXHtmlNode):String;
 function FindContainedResource(resource : TFhirResource; ref : TFhirResourceReference) : TFhirResource;
 function GetResourceFromFeed(feed : TFHIRAtomFeed; ref : TFhirResourceReference) : TFHIRResource;
+function LoadFromFormParam(part : TIdSoapMimePart; lang : String) : TFhirResource;
 
 function BuildOperationOutcome(lang : String; e : exception) : TFhirOperationOutcome; overload;
 Function BuildOperationOutcome(lang, message : String) : TFhirOperationOutcome; overload;
@@ -830,6 +832,59 @@ begin
   end;
 end;
 
+function LoadDTFromFormParam(part : TIdSoapMimePart; lang, name : String; type_ : TFHIRTypeClass) : TFhirType;
+var
+  ct : String;
+  parser : TFHIRParser;
+begin
+  parser := nil;
+  try
+    // first, figure out the format
+    ct := part.Headers.Values['Content-Type'];
+    if ct <> '' then
+    begin
+      if StringStartsWithInsensitive(ct, 'application/json') or StringStartsWithInsensitive(ct, 'application/fhir+json') or StringStartsWithInsensitive(ct, 'application/json+fhir') or StringStartsWithInsensitive(ct, 'json') or StringStartsWithInsensitive(ct, 'text/json') Then
+        parser := TFHIRJsonParser.Create(lang)
+      else if StringStartsWithInsensitive(ct, 'text/xml') or StringStartsWithInsensitive(ct, 'application/xml') or
+          StringStartsWithInsensitive(ct, 'application/fhir+xml') or StringStartsWithInsensitive(ct, 'application/xml+fhir') or StringStartsWithInsensitive(ct, 'xml') Then
+        parser := TFHIRXMLParser.Create(lang);
+    end;
+    if parser = nil then
+      parser := DetectFormat(part.content).Create(lang);
+    parser.source := part.Content;
+    result := parser.ParseDT(name, type_);
+  finally
+    parser.Free;
+  end;
+end;
+
+function LoadFromFormParam(part : TIdSoapMimePart; lang : String) : TFhirResource;
+var
+  ct : String;
+  parser : TFHIRParser;
+begin
+  parser := nil;
+  try
+    // first, figure out the format
+    ct := part.Headers.Values['Content-Type'];
+    if ct <> '' then
+    begin
+      if StringStartsWithInsensitive(ct, 'application/json') or StringStartsWithInsensitive(ct, 'application/fhir+json') or StringStartsWithInsensitive(ct, 'application/json+fhir') or StringStartsWithInsensitive(ct, 'json') or StringStartsWithInsensitive(ct, 'text/json') Then
+        parser := TFHIRJsonParser.Create(lang)
+      else if StringStartsWithInsensitive(ct, 'text/xml') or StringStartsWithInsensitive(ct, 'application/xml') or
+          StringStartsWithInsensitive(ct, 'application/fhir+xml') or StringStartsWithInsensitive(ct, 'application/xml+fhir') or StringStartsWithInsensitive(ct, 'xml') Then
+        parser := TFHIRXMLParser.Create(lang);
+    end;
+    if parser = nil then
+      parser := DetectFormat(part.content).Create(lang);
+    parser.source := part.Content;
+    parser.Parse;
+    result := parser.resource.Link;
+  finally
+    parser.Free;
+  end;
+end;
+
 
 (*
 
@@ -1250,6 +1305,7 @@ begin
   {$ENDIF}
 end;
 
+{$IFNDEF FHIR-DSTU}
 { TFhirConceptMapElementHelper }
 
 function TFhirConceptMapElementHelper.system: TFhirUri;
@@ -1292,6 +1348,8 @@ function TFhirConceptMapElementDependsOnHelper.conceptST: String;
 begin
   result := elementST;
 end;
+{$ENDIF}
+
 
 end.
 

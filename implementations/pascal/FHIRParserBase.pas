@@ -81,6 +81,7 @@ Type
     Destructor Destroy; Override;
     property source : TStream read FSource write FSource;
     procedure Parse; Virtual; abstract;
+    function ParseDT(rootName : String; type_ : TFHIRTypeClass) : TFHIRType; Virtual; abstract;
     property resource : TFhirResource read Fresource write SeTFhirResource;
     property feed : TFHIRAtomFeed read Ffeed write Setfeed;
     Property Tags : TFHIRAtomCategoryList read FTags;
@@ -126,8 +127,10 @@ Type
     Function ParseResource(element : IXmlDomElement; path : String) : TFhirResource; Virtual;
     function parseBinary(element : IXmlDomElement; path : String) : TFhirBinary;
     Procedure checkOtherAttributes(value : IXmlDomElement; path : String);
+    function ParseDataType(element : IXmlDomElement; name : String; type_ : TFHIRTypeClass) : TFHIRType; virtual;
   Public
     procedure Parse; Override;
+    function ParseDT(rootName : String; type_ : TFHIRTypeClass) : TFHIRType; Override;
     property Element : IXmlDomElement read FElement write SeTFhirElement;
     Function ParseHtml(element : IXmlDomElement) : TFhirXHtmlNode; Overload;
     Function ParseHtml() : TFhirXHtmlNode; Overload;
@@ -151,6 +154,7 @@ Type
     Function ParseFeed(jsn : TJsonObject) : TFHIRAtomFeed;
     function parseBinary(jsn : TJsonObject) : TFhirBinary;
     procedure ParseComments(base : TFHIRBase; jsn : TJsonObject);
+    function ParseDataType(jsn : TJsonObject; name : String; type_ : TFHIRTypeClass) : TFHIRType; virtual;
 
     procedure iterateArray(arr : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectHandler);
     procedure iteratePrimitiveArray(arr1, arr2 : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectPrimitiveHandler);
@@ -163,6 +167,7 @@ Type
     procedure ParseContained(jsn : TJsonObject; ctxt : TFHIRObjectList);
   Public
     procedure Parse; Override;
+    function ParseDT(rootName : String; type_ : TFHIRTypeClass) : TFHIRType; Override;
     class function ParseFragment(fragment, type_, lang : String) : TFHIRElement; overload;
   End;
 
@@ -628,6 +633,24 @@ end;
 procedure TFHIRJsonParserBase.ParseContained(jsn : TJsonObject; ctxt : TFHIRObjectList);
 begin
   ctxt.add(ParseResource(jsn));
+end;
+
+function TFHIRJsonParserBase.ParseDataType(jsn : TJsonObject; name : String; type_ : TFHIRTypeClass) : TFHIRType;
+begin
+  raise exception.create('don''t use TFHIRJsonParserBase directly - use TFHIRJsonParser');
+end;
+
+function TFHIRJsonParserBase.ParseDT(rootName: String; type_: TFHIRTypeClass): TFHIRType;
+var
+  obj : TJsonObject;
+  s : string;
+begin
+  obj := TJSONParser.Parse(source);
+  try
+    result := ParseDataType(obj, rootName, type_);
+  finally
+    obj.Free;
+  end;
 end;
 
 procedure TFHIRJsonParserBase.iterateArray(arr : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectHandler);
@@ -1334,6 +1357,11 @@ begin
   TakeCommentsStart(base);
 end;
 
+function TFHIRXmlParserBase.ParseDataType(element: IXmlDomElement; name: String; type_: TFHIRTypeClass): TFHIRType;
+begin
+  raise exception.create('don''t use TFHIRXmlParserBase directly - use TFHIRXmlParser');
+end;
+
 function TFHIRXmlParserBase.ParseDeletedEntry(element: IXmlDomElement): TFHIRAtomEntry;
 var
   child : IXMLDOMElement;
@@ -1371,6 +1399,30 @@ begin
     result.link;
   finally
     result.free;
+  end;
+end;
+
+function TFHIRXmlParserBase.ParseDT(rootName: String; type_: TFHIRTypeClass): TFHIRType;
+var
+  xml : IXmlDomDocument2;
+  root : IXmlDomElement;
+begin
+  FComments := TAdvStringList.create;
+  try
+    if (Element = nil) then
+    begin
+      xml := LoadXml(Source);
+      root := xml.documenTElement;
+    end
+    else
+      root := element;
+
+    if root.namespaceURI <> FHIR_NS Then
+      XmlError('/', StringFormat(GetFhirMessage('MSG_WRONG_NS', lang), [root.namespaceURI]));
+
+    result := ParseDataType(root, rootName, type_);
+  finally
+    FComments.Free;
   end;
 end;
 

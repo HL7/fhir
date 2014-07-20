@@ -37,7 +37,8 @@ function FormatTextToHTML(AStr: String): String; // translate ready for use in H
 function FormatTextToXML(AStr: String): String;
 function FormatXMLToHTML(AStr : String):String;
 
-function StringToUTFStream(value : String):TStream;
+function StringToUTF8Stream(value : String) : TStream;
+function UTF8StreamToString(value : TStream) : String;
 
 function FileToString(filename : String; {$IFDEF UNICODE}encoding : TEncoding; {$ENDIF}AShareMode : Word = fmOpenRead + fmShareDenyWrite) : String;
 
@@ -261,9 +262,19 @@ begin
     raise Exception.Create('File "' + filename + '" not found');
 end;
 
-function StringToUTFStream(value : String):TStream;
+function StringToUTF8Stream(value : String):TStream;
 begin
   result := TBytesStream.Create(TEncoding.UTF8.GetBytes(value));
+end;
+
+function UTF8StreamToString(value : TStream) : String;
+var
+  b : TBytes;
+begin
+  SetLength(b, value.Size);
+  if (value.Size > 0) then
+    value.Read(b[0], value.Size);
+  result := TEncoding.UTF8.GetString(b);
 end;
 
 

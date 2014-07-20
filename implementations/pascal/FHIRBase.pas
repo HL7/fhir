@@ -78,6 +78,9 @@ Type
     fcmdGetTags, {@enum.value fcmdGetTags get a list of tags fixed to a resource version, resource, used with a resource type, or used on the system}
     fcmdUpdateTags, {@enum.value fcmdAddTags add to the list of tags attached to a resource or version}
     fcmdDeleteTags, {@enum.value fcmdDeleteTags delete from the list of tags attached to a resource or version}
+
+    fcmdOperation, {@enum.value fcmdOperation operation, as defined in DSTU2}
+
     fcmdWebUI); {@enum.value fcmdWebUI Special web interface operations - not a valid FHIR operation}
 
 
@@ -110,7 +113,7 @@ Const
   FHIR_NS = 'http://hl7.org/fhir';
   FHIR_TAG_SCHEME = 'http://hl7.org/fhir/tag';
   CODES_TFHIRCommandType : array [TFHIRCommandType] of String = (
-    'Unknown', 'MailBox', 'Read', 'VersionRead', 'Update', 'Delete', 'HistoryInstance', 'Create', 'Search', 'HistoryType', 'Validate', 'ConformanceStmt', 'Transaction', 'HistorySystem', 'Upload', 'GetTags', 'UpdateTags', 'DeleteTags', 'WebUI');
+    'Unknown', 'MailBox', 'Read', 'VersionRead', 'Update', 'Delete', 'HistoryInstance', 'Create', 'Search', 'HistoryType', 'Validate', 'ConformanceStmt', 'Transaction', 'HistorySystem', 'Upload', 'GetTags', 'UpdateTags', 'DeleteTags', 'Operation', 'WebUI');
   CODES_TFHIRHtmlNodeType : array [TFHIRHtmlNodeType] of String = ('Element', 'Text', 'Comment', 'Document');
   CODES_TFHIRFormat : Array [TFHIRFormat] of String = ('AsIs', 'XML', 'JSON', 'XHTML');
   MIMETYPES_TFHIRFormat : Array [TFHIRFormat] of String = ('', 'text/xml+fhir', 'application/json+fhir', 'text/xhtml');
