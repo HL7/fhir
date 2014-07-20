@@ -80,7 +80,7 @@ For each parameter, the following information is needed:
 Note that search parameter types are allowed for use where the parameter is used as a search parameter
 i.e. to link between the context of operations, and a set of existing resources that the operation refers
 to, where as data types and resources are used to provide information directly to the operation. The
-definition of a parameter should make it's use clear. <i>To do: what about "date"?</i>
+definition of a parameter should make it's use clear.
 </p>
 
 <a name="executing"> </a>
@@ -96,25 +96,38 @@ The URL for an operation end-point depends on its context:
  <li>resource instance: the url is [base]/[type]/[id]/$[name]</li>
 </ul>
 
+<a name="request"> </a>
+<h4>Operation Request</h4>
+
 <p>
-An operation is invoked by performing an HTTP POST to the operation end-point.
+In the general case, an operation is invoked by performing an HTTP POST to the operation end-point.
 The content of the body is a <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2">multipart/form-data</a> that 
 contains the parameters for the operation. Where the parameter type is a data type or resources, the content
 may be represented as either json or xml; for a datatype, the root name of the object is the 
 name of the parameter. 
 </p>
 <p>
-Some notes about the operation request:
+Some notes about this format:
 </p>
 <ul>
  <li>For resources and data types, a Content-Type header SHOULD be provided, but may not be if the content is submitted by an HTML form</li>
  <li>For an example of an operation, see <a href="op-example-request.html">the value set expansion request example</a></li>
- <li>Servers are permitted, but not required, to allow a GET operation for ease of use where the parameters are simple string values, or URL escaped content. This would not generally be appropriate for parameters that are resources (URL length limmitations)</li>
 </ul>
 
-<a name="output"> </a>
+<p>
+If there is only one complex parameter (e.g. a parameter where the representation is XML or JSON, not a search parameter),
+then the operation can be performed by an HTTP POST with the complex parameter as the body of the post, and the 
+other parameters appended to the URL in the search portion of the URL (e.g. after the "?").
+</p>
+<p>
+If there are no complex parameters to the operation, the operation may be invoked by performing an HTTP GET
+operation where all the parameters are appended to the URL in the search portion of the URL (e.g. after the "?").
+</p>
 
-<h4>Operation Output</h4>
+
+<a name="response"> </a>
+
+<h4>Operation Response</h4>
 
 <p>
 If the operation succeeds, the HTTP Status code is 200 OK. An

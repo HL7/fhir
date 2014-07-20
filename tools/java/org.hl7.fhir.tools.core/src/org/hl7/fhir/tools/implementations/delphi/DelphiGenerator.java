@@ -113,6 +113,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   private StringBuilder srlsdefJ = new StringBuilder();
   private StringBuilder prsrFragJ = new StringBuilder();
   private StringBuilder prsrFragX = new StringBuilder();
+  private StringBuilder prsrDTX = new StringBuilder();
+  private StringBuilder prsrDTJ = new StringBuilder();
   private Map<String, String> simpleTypes = new HashMap<String, String>();
 
   private List<String> types = new ArrayList<String>();
@@ -146,10 +148,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     parserGap();
 
     for (ElementDefn n : definitions.getInfrastructure().values()) {
-      if (n.getName().equals("Extension"))
-        generate(n, "TFHIRElement", true, false, ClassCategory.Type);
-      else
-        generate(n, "TFhirElement", true, false, ClassCategory.Type);
+      generate(n, "TFHIRType", true, false, ClassCategory.Type);
     }
     for (ElementDefn n : definitions.getTypes().values()) {
       generate(n, "TFhirType", false, false, ClassCategory.Type);
@@ -466,6 +465,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrFragJ.append("  else if (type_ = '"+tn+"') then\r\n    result := parse"+root.getName()+"(jsn)\r\n");
     prsrFragX.append("  else if SameText(element.NodeName, '"+tn+"') then\r\n    result := parse"+root.getName()+"(element, element.nodeName)\r\n");
+    prsrDTJ.append("  else if (type_ = "+tn+") then\r\n    result := parse"+root.getName()+"(jsn)\r\n");
+    prsrDTX.append("  else if (type_ = "+tn+") then\r\n    result := parse"+root.getName()+"(element, name)\r\n");
     workingParserX = new StringBuilder();
     workingParserXA = new StringBuilder();
     workingComposerX = new StringBuilder();
@@ -2404,6 +2405,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     def.append("    Function Clone : TFhirType; Overload;\r\n");
     def.append("    {!script show}\r\n");
     def.append("  End;\r\n");   
+    def.append("  TFHIRTypeClass = class of TFhirType;\r\n");
     def.append("  \r\n");
 
     StringBuilder impl2 = new StringBuilder();
@@ -3060,6 +3062,26 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         );
 
     prsrImpl.append(
+        "function TFHIRJsonParser.ParseDataType(jsn : TJsonObject; name : String; type_ : TFHIRTypeClass) : TFHIRType;\r\n"+
+            "begin\r\n  "+
+            prsrDTJ.toString().substring(6)+
+            "  else\r\n"+
+            "    raise Exception.create('Unknown Type');\r\n" +
+            "end;\r\n\r\n"
+        );
+
+    prsrImpl.append(
+        "function TFHIRXmlParser.ParseDataType(element : IXMLDOMElement; name : String; type_ : TFHIRTypeClass) : TFhirType;\r\n"+
+            "begin\r\n  "+
+            "  if (name <> '') and (name <> element.baseName) then\r\n"+
+            "    raise Exception.Create('Expected Name mismatch : expected \"'+name+'\"+, but found \"'+element.baseName+'\"');\r\n"+
+            prsrDTX.toString().substring(6)+
+            "  else\r\n"+
+            "    raise Exception.create('Unknown Type');\r\n" +
+            "end;\r\n\r\n"
+        );
+
+    prsrImpl.append(
         "procedure TFHIRJsonComposer.ComposeResource(json : TJSONWriter; id, ver : String; resource: TFhirResource);\r\n"+
             "begin\r\n"+
             "  if (resource = nil) Then\r\n"+
@@ -3079,6 +3101,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  protected\r\n"+
         prsrdefX.toString()+
         "    function ParseResource(element : IxmlDomElement; path : String) : TFhirResource; override;\r\n"+
+        "    function ParseDataType(element : IXmlDomElement; name : String; type_ : TFHIRTypeClass) : TFHIRType; override;\r\n"+
         "  public\r\n"+
         "    function ParseFragment(element : IxmlDomElement) : TFhirElement; overload;\r\n"+
         "  end;\r\n\r\n"+
@@ -3091,6 +3114,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  protected\r\n"+
         prsrdefJ.toString()+
         "    function ParseResource(jsn : TJsonObject) : TFhirResource; override;\r\n"+
+        "    function ParseDataType(jsn : TJsonObject; name : String; type_ : TFHIRTypeClass) : TFHIRType; override;\r\n"+
         "  public\r\n"+
         "    function ParseFragment(jsn : TJsonObject; type_ : String) : TFhirElement;  overload;\r\n"+
         "  end;\r\n\r\n"+
