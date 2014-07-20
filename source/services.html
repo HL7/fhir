@@ -1,22 +1,5 @@
 <!DOCTYPE HTML>
 
-
-<!--
-However 
-applications may need to replace Service Root URLs. This may be needed 
-as application URLs may change or in uses of FHIR within internal 
-eco-systems, local configuration may dictate that the provider of 
-a resource is different to that claimed by any particular provider 
-or consumer. 
--->
-
-<!--
-
- A person or animal receiving care at multiple organizations will therefore have its information present in multiple Patient Resources.			
- 
- What are the explicit mechanisms that should be used to synchronize them? This dynamic behavior,  is not covered at any depth (that I can see), except to suggest that a message that emulates a V2 or V3 event be employed. The entire notion of dynamic behavior of a model employing resources is not covered well. If one happens to employ RESTful services (not required AFAICS) then, yes, we have CRUD verb mappings on resources, but no real discussion of the dynamic behavior of multiple resources involved in transactions/events, except to fall back on V2 and V3. Am I missing something? 
- 
--->
       
 [%settitle Using Resources with Services%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -34,8 +17,10 @@ or consumer.
 <h2>Using Resources with Services</h2>
 <p>
 Though FHIR Resources are primarily designed with for the <a href="http.html">RESTful HTTP-based implementation</a>,
+
 it is not necessary to use a RESTful interface when exchanging the resources; one way that they can be exchanged 
-is in the context of services. Service Oriented Architecture (SOA) is an architecture pattern using services to encapsulate and provide discreet pieces of application functionality to each other. Services communicate 
+is in the context of services. Service Oriented Architecture (SOA) is an architecture pattern using services 
+to encapsulate and provide discreet pieces of application functionality to each other. Services communicate 
 by invoking public interfaces and exchanging information (as parameters and outputs) in accordance to a 
 well-defined service contract. 
 </p>

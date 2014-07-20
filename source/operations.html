@@ -40,6 +40,7 @@ Note: the definition of these services does not prevent the use of other
 kinds of services not dependent on or integrated with the RESTful API.
 </p>
 
+<a name="defined"> </a>
 <h3>FHIR defined Operations</h3>
 <p>
 This specification defines several operations:
@@ -53,6 +54,7 @@ name with a short code that identifies them sufficiently, such as ihe.[name].
 Formally, name clashes can be resolved by use of the <a href="conformance.html">conformance statement</a>.
 </p>
 
+<a name="defining"> </a>
 <h3>Defining an Operation</h3>
 
 <p>
@@ -81,6 +83,8 @@ to, where as data types and resources are used to provide information directly t
 definition of a parameter should make it's use clear. <i>To do: what about "date"?</i>
 </p>
 
+<a name="executing"> </a>
+
 <h3>Executing an Operation</h3>
 
 <p>
@@ -94,11 +98,21 @@ The URL for an operation end-point depends on its context:
 
 <p>
 An operation is invoked by performing an HTTP POST to the operation end-point.
-The content of the body is a multipart/form-data that contains the parameters 
-for the operation. Where the parameter type is a data type or resources, the content
+The content of the body is a <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2">multipart/form-data</a> that 
+contains the parameters for the operation. Where the parameter type is a data type or resources, the content
 may be represented as either json or xml; for a datatype, the root name of the object is the 
 name of the parameter. 
 </p>
+<p>
+Some notes about the operation request:
+</p>
+<ul>
+ <li>For resources and data types, a Content-Type header SHOULD be provided, but may not be if the content is submitted by an HTML form</li>
+ <li>For an example of an operation, see <a href="op-example-request.html">the value set expansion request example</a></li>
+ <li>Servers are permitted, but not required, to allow a GET operation for ease of use where the parameters are simple string values, or URL escaped content. This would not generally be appropriate for parameters that are resources (URL length limmitations)</li>
+</ul>
+
+<a name="output"> </a>
 
 <h4>Operation Output</h4>
 

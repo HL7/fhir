@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+      
+[%settitle Operation Request Example%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<a name="SOA"> </a>
+<a name="soa"> </a>
+<h2>Operation Request Example</h2>
+<pre>
+POST http://[base]/ValueSet/$expand HTTP/1.1
+Content-Type: multipart/form-data; boundary=----796D81B5E4BE4233B7E7D04011F5C902
+helpful-description: This is an example of a operation request for a value set expansion where the value set is submitted on the fly
+
+------796D81B5E4BE4233B7E7D04011F5C902
+helpful-description: This is a parameter with no value
+Content-Disposition: form-data; name=&quot;_format&quot;
+
+------796D81B5E4BE4233B7E7D04011F5C902
+helpful-description: This is a parameter with a simple (e.g. string) value
+Content-Disposition: form-data; name=&quot;filter&quot;
+
+abdo
+
+------796D81B5E4BE4233B7E7D04011F5C902
+helpful-description: This is a parameter that is a resource. Note that the content-type SHOULD be 
+helpful-description2: provided, but might not be if the content is the result of an HTML form
+helpful-description3: In that case, the server has to guess
+helpful-description3: Note: the content can be base64 ed etc. See http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2
+Content-Disposition: form-data; name=&quot;valueSet&quot;
+Content-Type: application/xml+fhir
+
+&lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;!-- Snipped for brevity --&gt;&lt;/div&gt;
+  &lt;/text&gt;
+  &lt;identifier value=&quot;http://hl7.org/fhir/vs/body-site&quot;/&gt;
+  &lt;name value=&quot;SNOMED CT Body Structures&quot;/&gt;
+  &lt;publisher value=&quot;FHIR Project team&quot;/&gt;
+  &lt;telecom&gt;
+    &lt;system value=&quot;url&quot;/&gt;
+    &lt;value value=&quot;http://hl7.org/fhir&quot;/&gt;
+  &lt;/telecom&gt;
+  &lt;description value=&quot;This value set includes all the &amp;quot;Clinical finding&amp;quot; SNOMED CT codes (i.e. codes
+   with an is-a relationship with 91723000: Anatomical structure)&quot;/&gt;
+  &lt;status value=&quot;draft&quot;/&gt;
+  &lt;compose&gt;
+    &lt;include&gt;&lt;!--   all the descendents of clinical finding, not include itself   --&gt;
+      &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+      &lt;filter&gt;&lt;!--   todo: work this over. what this means is any concepts where they have is-a with 91723000.
+         how should this be done?   --&gt;
+        &lt;property value=&quot;concept&quot;/&gt;
+        &lt;op value=&quot;is-a&quot;/&gt;
+        &lt;value value=&quot;91723000&quot;/&gt;
+      &lt;/filter&gt;
+    &lt;/include&gt;
+  &lt;/compose&gt;
+&lt;/ValueSet&gt;
+------796D81B5E4BE4233B7E7D04011F5C902--
+</pre>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>
