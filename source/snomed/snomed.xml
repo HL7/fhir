@@ -697,6 +697,15 @@
     <display value="Endoscopic brushings of GIT"/>
     <display value="Endoscopic brushings of gastrointestinal tract (procedure)"/>
   </concept>
+  <concept id="238131007" display="Overweight (finding)">
+    <display value="Overweight"/>
+    <display value="Patient overweight"/>
+    <display value="Overweight (finding)"/>
+  </concept>
+  <concept id="238136002" display="Morbid obesity (disorder)">
+    <display value="Morbid obesity"/>
+    <display value="Morbid obesity (disorder)"/>
+  </concept>
   <concept id="240977001" display="Biopsy of skin">
     <display value="Biopsy of skin"/>
     <display value="Skin biopsy"/>
@@ -1723,6 +1732,10 @@
     <display value="Mucous membrane"/>
     <display value="Tunica mucosa"/>
   </concept>
+  <concept id="414915002" display="Obese (finding)">
+    <display value="Obese (finding)"/>
+    <display value="Obese"/>
+  </concept>
   <concept id="415215001" display="Puff - unit of product usage (qualifier value)">
     <display value="Puff (qualifier value)"/>
     <display value="Puff"/>
@@ -1836,6 +1849,10 @@
     <display value="Upper jaw region structure"/>
     <display value="Upper jaw region structure (body structure)"/>
     <display value="Upper jaw"/>
+  </concept>
+  <concept id="43664005" display="Normal weight (finding)">
+    <display value="Normal weight"/>
+    <display value="Normal weight (finding)"/>
   </concept>
   <concept id="438660002" display="Specimen from prosthetic device (specimen)">
     <display value="Specimen from prosthetic device (specimen)"/>
@@ -1977,6 +1994,14 @@
     <display value="Left external ear structure"/>
     <display value="Left external ear structure (body structure)"/>
     <display value="Left external ear"/>
+  </concept>
+  <concept id="50373000" display="Body height measure (observable entity)">
+    <display value="Body height measure"/>
+    <display value="Body height measure (observable entity)"/>
+    <display value="Body height"/>
+    <display value="Body height, NOS"/>
+    <display value="Body length, NOS"/>
+    <display value="Body length"/>
   </concept>
   <concept id="51185008" display="Chest">
     <display value="Thoracic structure"/>
