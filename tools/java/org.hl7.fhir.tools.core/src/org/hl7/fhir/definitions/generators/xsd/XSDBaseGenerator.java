@@ -252,23 +252,29 @@ public class XSDBaseGenerator {
         PrimitiveType pt = (PrimitiveType) cd;
         // two very special cases due to schema weirdness
         if (cd.getCode().equals("date")) {
-          write("<xs:simpleType name=\"date-primitive\">\r\n");
-          write("  <xs:restriction>\r\n");
-          write("    <xs:simpleType>\r\n");
-          write("      <xs:union memberTypes=\"xs:gYear xs:gYearMonth xs:date\"/>\r\n");
-          write("    </xs:simpleType>\r\n");
-          write("    <xs:pattern value=\"\\d{4}(\\-\\d{2}(\\-\\d{2})?)?(Z|(\\+|\\-)\\d{2}:\\d{2})?\"/>\r\n");
-          write("  </xs:restriction>\r\n");
-          write("</xs:simpleType>\r\n");
+          write("  <xs:simpleType name=\"date-primitive\">\r\n");
+          write("    <xs:restriction>\r\n");
+          write("      <xs:simpleType>\r\n");
+          write("        <xs:union memberTypes=\"xs:gYear xs:gYearMonth xs:date\"/>\r\n");
+          write("      </xs:simpleType>\r\n");
+          write("      <xs:pattern value=\"-?[0-9]{4}(-(0[1-9]|1[0-2])(-([0-2][1-9]|3[0-1]))?)?\"/>\r\n");
+          write("    </xs:restriction>\r\n");
+          write("  </xs:simpleType>\r\n");
         } else if (cd.getCode().equals("dateTime")) {
-          write("<xs:simpleType name=\"dateTime-primitive\">\r\n");
-          write("  <xs:restriction>\r\n");
-          write("    <xs:simpleType>\r\n");
-          write("      <xs:union memberTypes=\"xs:gYear xs:gYearMonth xs:date xs:dateTime\"/>\r\n");
-          write("    </xs:simpleType>\r\n");
-          write("    <xs:pattern value=\"\\d{4}(\\-\\d{2}(\\-\\d{2}(T\\d{2}(:\\d{2}(:\\d{2}(\\.\\d+)?)?)?)?)?)?(Z|(\\+|\\-)\\d{2}:\\d{2})?\"/>\r\n");
-          write("  </xs:restriction>\r\n");
-          write("</xs:simpleType>\r\n");          
+          write("  <xs:simpleType name=\"dateTime-primitive\">\r\n");
+          write("    <xs:restriction>\r\n");
+          write("      <xs:simpleType>\r\n");
+          write("        <xs:union memberTypes=\"xs:gYear xs:gYearMonth xs:date xs:dateTime\"/>\r\n");
+          write("      </xs:simpleType>\r\n");
+          write("      <xs:pattern value=\"-?[0-9]{4}(-(0[1-9]|1[0-2])(-([0-2][1-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?\"/>\r\n");
+          write("    </xs:restriction>\r\n");
+          write("  </xs:simpleType>\r\n");          
+        } else if (cd.getCode().equals("time")) {
+          write("  <xs:simpleType name=\"time-primitive\">\r\n");
+          write("    <xs:restriction base=\"xs:time\">\r\n");
+          write("      <xs:pattern value=\"([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?\"/>\r\n");
+          write("    </xs:restriction>\r\n");
+          write("  </xs:simpleType>\r\n");          
         } else {
           write("  <xs:simpleType name=\"" + pt.getCode() + "-primitive\">\r\n");
           if (pt.getSchemaType().contains(",")) {

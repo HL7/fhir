@@ -7,19 +7,19 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Ewout Kramer</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-21T19:16:26Z</Created>
-  <LastSaved>2013-12-03T14:26:14Z</LastSaved>
+  <LastSaved>2014-07-21T01:57:47Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9810</WindowHeight>
-  <WindowWidth>15570</WindowWidth>
-  <WindowTopX>480</WindowTopX>
-  <WindowTopY>240</WindowTopY>
+  <WindowHeight>9180</WindowHeight>
+  <WindowWidth>15270</WindowWidth>
+  <WindowTopX>630</WindowTopX>
+  <WindowTopY>720</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -35,12 +35,18 @@
   <Style ss:ID="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Imports">
   <Names>
    <NamedRange ss:Name="boolean" ss:RefersTo="=Imports!R2C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="10" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="66.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="177"/>
@@ -103,7 +109,7 @@
        html:Color="#000000">A date, or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font
         html:Color="#000000">Dates SHALL be valid dates.</Font></B></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">-?([1-9][0-9]{3}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">-?[0-9]{4}(-(0[1-9]|1[0-2])(-([0-2][1-9]|3[0-1]))?)?</Data></Cell>
     <Cell><Data ss:Type="String">Could get fancy and check legal days/month or even leap years, but not worth it.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="109.5" ss:StyleID="s62">
@@ -112,7 +118,16 @@
        html:Color="#000000">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds may be provided but may also be ignored.  </Font><B><Font
         html:Color="#000000">Dates SHALL be valid dates.</Font></B></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date, xs:dateTime</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">-?([1-9][0-9]{3}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01])(T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?|(24:00:00(\.0+)?))(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">-?[0-9]{4}(-(0[1-9]|1[0-2])(-([0-2][1-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="100.5" ss:StyleID="s65">
+    <Cell><Data ss:Type="String">time</Data></Cell>
+    <Cell><Data ss:Type="String">A time during the day, with no date specified </Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s66"><Data ss:Type="String">xs:time</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String" x:Ticked="1">([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -126,8 +141,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

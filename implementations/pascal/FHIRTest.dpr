@@ -8,7 +8,6 @@ uses
   SysUtils,
   Classes,
   ActiveX,
-//  IdSoapTestingUtils,
   StringSupport in 'support\StringSupport.pas',
   MathSupport in 'support\MathSupport.pas',
   DecimalSupport in 'support\DecimalSupport.pas',
@@ -92,7 +91,10 @@ uses
   AdvObjectMatches in 'support\AdvObjectMatches.pas',
   RegExpr in 'support\RegExpr.pas',
   FHIRUtilities in 'FHIRUtilities.pas',
-  AdvStringObjectMatches in 'support\AdvStringObjectMatches.pas';
+  AdvStringObjectMatches in 'support\AdvStringObjectMatches.pas',
+  JWT in 'support\JWT.pas',
+  HMAC in 'support\HMAC.pas',
+  libeay32 in 'support\libeay32.pas';
 
 procedure SaveStringToFile(s : AnsiString; fn : String);
 var

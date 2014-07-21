@@ -85,6 +85,8 @@ public class ObjectiveCUtils {
       return "NSString";
     else if (name.equals("date"))
       return "NSString";
+    else if (name.equals("time"))
+      return "NSString";
     else if (name.equals("dateTime"))
       return "NSString";
     else if (name.equals("idref"))

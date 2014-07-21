@@ -202,6 +202,9 @@
         <DCCReference Include="support\RegExpr.pas"/>
         <DCCReference Include="FHIRUtilities.pas"/>
         <DCCReference Include="support\AdvStringObjectMatches.pas"/>
+        <DCCReference Include="support\JWT.pas"/>
+        <DCCReference Include="support\HMAC.pas"/>
+        <DCCReference Include="support\libeay32.pas"/>
         <None Include="Profiling\AQtimeModule1.aqt"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>

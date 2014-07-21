@@ -1,11 +1,12 @@
 [diagram]
-classes=decimal,integer,boolean,instant,date,base64Binary,string,code,dateTime,id,uri,oid,uuid
+classes=decimal,integer,boolean,instant,date,base64Binary,string,code,dateTime,id,uri,oid,uuid,time
 element-attributes=true
 
 [directions]
 instant=-180;-80
-date=-50;-80
-dateTime=200;-80
+time=-60;-80
+date=30;-80
+dateTime=230;-80
 decimal=-180;-10
 integer=-180;50
 boolean=240;-10
