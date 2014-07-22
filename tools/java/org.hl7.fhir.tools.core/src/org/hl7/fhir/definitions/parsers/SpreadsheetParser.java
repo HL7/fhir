@@ -228,9 +228,9 @@ public class SpreadsheetParser {
 	  ResourceDefn root = parseCommonTypeColumns();
 
 	  readEvents(loadSheet("Events"));
-	  readExamples(root, loadSheet("Examples"));
 	  readSearchParams(root, loadSheet("Search"));
 	  readProfiles(root, loadSheet("Profiles"));
+    readExamples(root, loadSheet("Examples"));
 	  readOperations(root, loadSheet("Operations"));
 
 	  return root;
@@ -293,7 +293,7 @@ public class SpreadsheetParser {
         if (name != null && !name.equals("") && !name.startsWith("!")) {
           String desc = sheet.getColumn(row, "Description");
           if (desc == null || desc.equals(""))
-            throw new Exception("Example " + name + " has no description parsing " + this.name);
+            throw new Exception("Profile " + name + " has no description parsing " + this.name);
           String title = sheet.getColumn(row, "Filename");
           String source = sheet.getColumn(row, "Source");
           if (Utilities.noString(source))
@@ -309,7 +309,10 @@ public class SpreadsheetParser {
             if (!efile.exists())
               throw new Exception("Profile Example " + name + " file '" + efile.getAbsolutePath() + "' not found parsing " + this.name);
           }
-          defn.getProfiles().add(new RegisteredProfile(name, desc, title, source, file.getAbsolutePath(), type, etitle, efile == null ? null : efile.getAbsolutePath()));
+          RegisteredProfile rp = new RegisteredProfile(name, desc, title, source, file.getAbsolutePath(), type);
+          if (efile != null)
+            rp.getExamples().put(etitle, new Example(etitle, Utilities.fileTitle(etitle), "General Example for "+title, efile, ExampleType.XmlFile, true));
+          defn.getProfiles().add(rp);
         }
       }
     }
@@ -656,9 +659,21 @@ public class SpreadsheetParser {
 					String type = sheet.getColumn(row, "Type");
 					if (!file.exists() && !("tool".equals(type) || isSpecialType(type)))
 						throw new Exception("Example " + name + " file '" + file.getAbsolutePath() + "' not found parsing " + this.name);
+					String pn = sheet.getColumn(row, "Profile");
+					if (Utilities.noString(pn)) {
 					defn.getExamples().add(new Example(name, id, desc, file, 
 							parseExampleType(type, row),
 							parseBoolean(sheet.getColumn(row, "In Book"), row, false)));
+					} else {
+					  RegisteredProfile rp = null;
+					  for (RegisteredProfile r : defn.getProfiles()) {
+					    if (r.getName().equals(pn))
+		            rp = r;
+					  }
+					  if (rp == null)
+              throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
+					  rp.getExamples().put(id, new Example(name, id, desc, file, parseExampleType(type, row), parseBoolean(sheet.getColumn(row, "In Book"), row, false)));
+					}
 				}
 			}
 		}

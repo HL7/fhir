@@ -3185,7 +3185,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource);
   }
 
-  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master, String pagePath, ProfileStructureComponent structure, String basefilename) throws Exception {
+  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master, String pagePath, ProfileStructureComponent structure, String basefilename, Map<String, Example> examples) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(filename)+"_Page";
     String workingTitle = null;
 
@@ -3262,8 +3262,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+(intro == null ? profile.metadata("description") : intro) +s3;
       else if (com[0].equals("profile.notes"))
         src = s1+(notes == null ? "" : notes) +s3;
-      else if (com[0].equals("example"))
-        src = s1+example+s3;
       else if (com[0].equals("status"))
         src = s1+describeStatus(profile.metadata("status"))+s3;
       else if (com[0].equals("author"))
@@ -3324,12 +3322,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+mappingsProfile(profile.getSource())+s3;
       else if (com[0].equals("definitions"))
         src = s1+definitionsProfile(profile.getSource())+s3;
+      else if (com[0].equals("profile-examples"))
+        src = s1+profileExampleList(profile, examples, example)+s3;
       else if (com[0].equals("resurl")) {
           src = s1+"The id of this profile is "+profile.metadata("id")+s3;
       } else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String profileExampleList(ProfileDefn profile, Map<String, Example> examples, String example) {
+    if (examples == null || examples.isEmpty())
+      return "<p>No Examples Provided.</p>";
+    else if (examples.size() == 1)
+      return example;
+    else
+      return "<p>Example List.. todo</p>";
   }
 
   private String mappingsProfile(Profile source) {

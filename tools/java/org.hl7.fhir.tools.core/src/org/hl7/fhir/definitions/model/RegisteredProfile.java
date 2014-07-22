@@ -1,5 +1,8 @@
 package org.hl7.fhir.definitions.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.hl7.fhir.instance.model.Profile;
 
 /*
@@ -29,7 +32,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 
 /**
  * a profile registered against a resource as part of FHIR itself
@@ -49,13 +52,11 @@ public class RegisteredProfile {
   private String destFilename;
   private String filepath;
   private ProfileDefn profile;
-  private String example;
   private ProfileInputType type;
-  private String examplePath;
   private Profile resource;
-  
-  
-  public RegisteredProfile(String name, String description, String destFilename, String sourceFilename, String filepath, ProfileInputType type, String example, String examplePath) {
+  private Map<String, Example> examples = new HashMap<String, Example>();
+
+  public RegisteredProfile(String name, String description, String destFilename, String sourceFilename, String filepath, ProfileInputType type) {
     super();
     this.name = name;
     this.description = description;
@@ -63,10 +64,8 @@ public class RegisteredProfile {
     this.destFilename = destFilename;
     this.filepath = filepath;
     this.type= type;
-    this.example = example;
-    this.examplePath = examplePath;
   }
-  
+
   public String getName() {
     return name;
   }
@@ -89,16 +88,8 @@ public class RegisteredProfile {
     return filepath;
   }
 
-  public String getExample() {
-    return example;
-  }
-
   public ProfileInputType getType() {
     return type;
-  }
-
-  public String getExamplePath() {
-    return examplePath;
   }
 
   public void setProfile(ProfileDefn profile) {
@@ -120,7 +111,11 @@ public class RegisteredProfile {
   public String getDestFilenameNoExt() {
     return getTitle();
   }
-  
 
- 
+  public Map<String, Example> getExamples() {
+    return examples;
+  }
+
+
+
 }
