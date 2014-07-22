@@ -257,7 +257,7 @@ public class XSDBaseGenerator {
           write("      <xs:simpleType>\r\n");
           write("        <xs:union memberTypes=\"xs:gYear xs:gYearMonth xs:date\"/>\r\n");
           write("      </xs:simpleType>\r\n");
-          write("      <xs:pattern value=\"-?[0-9]{4}(-(0[1-9]|1[0-2])(-([0-2][1-9]|3[0-1]))?)?\"/>\r\n");
+          write("      <xs:pattern value=\"-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1]))?)?\"/>\r\n");
           write("    </xs:restriction>\r\n");
           write("  </xs:simpleType>\r\n");
         } else if (cd.getCode().equals("dateTime")) {
@@ -266,7 +266,7 @@ public class XSDBaseGenerator {
           write("      <xs:simpleType>\r\n");
           write("        <xs:union memberTypes=\"xs:gYear xs:gYearMonth xs:date xs:dateTime\"/>\r\n");
           write("      </xs:simpleType>\r\n");
-          write("      <xs:pattern value=\"-?[0-9]{4}(-(0[1-9]|1[0-2])(-([0-2][1-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?\"/>\r\n");
+          write("      <xs:pattern value=\"-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?\"/>\r\n");
           write("    </xs:restriction>\r\n");
           write("  </xs:simpleType>\r\n");          
         } else if (cd.getCode().equals("time")) {
