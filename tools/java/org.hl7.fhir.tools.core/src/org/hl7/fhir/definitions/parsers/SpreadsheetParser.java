@@ -266,7 +266,9 @@ public class SpreadsheetParser {
           if (operation == null)
             throw new Exception("Unknown Operation '"+parts[0]+"' at "+getLocation(row));
           String type = sheet.getColumn(row, "Type");
-          operation.getParameters().add(new OperationParameter(parts[1], use, doco, sheet.getColumn(row, "Optional"), type));
+          String min = sheet.getColumn(row, "Min");
+          String max = sheet.getColumn(row, "Max");
+          operation.getParameters().add(new OperationParameter(parts[1], use, doco, Integer.parseInt(min), max, type));
         }
       }
 	  }

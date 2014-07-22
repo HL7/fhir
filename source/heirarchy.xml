@@ -160,6 +160,7 @@ todo: compartments
     <page type="resource" resource="ValueSet"/>
     <page type="resource" resource="Profile"/>
     <page type="resource" resource="ConceptMap"/>
+    <page type="resource" resource="OperationDefinition"/>
   </page>
 </page>
 </fhir>

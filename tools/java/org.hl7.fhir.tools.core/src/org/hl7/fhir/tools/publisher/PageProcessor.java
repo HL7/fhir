@@ -686,12 +686,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String describeProfileType(Profile source) {
-    if (source.getStructure().isEmpty() && source.getQuery().isEmpty())
+    if (source.getStructure().isEmpty())
       return source.getExtensionDefn().size() == 1 ?  "Extension" : "Extensions";
-    if (source.getExtensionDefn().isEmpty() && source.getQuery().isEmpty())
+    if (source.getExtensionDefn().isEmpty())
       return source.getStructure().size() == 1 ?  "Constraint" : "Constraints";
-    if (source.getStructure().isEmpty() && source.getExtensionDefn().isEmpty())
-      return source.getQuery().size() == 1 ?  "Query" :  "Queries";
     return "Mixed";
   }
 
@@ -2795,6 +2793,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       Operation op = resource.getOperations().get(n);
       b.append("<h3>"+Utilities.escapeXml(op.getTitle())+"<a name=\""+n+"\"> </a></h3>\r\n");
       b.append(processMarkdown(op.getDoco())+"\r\n");
+      b.append("<p><a href=\"operation-"+resource.getName().toString().toLowerCase()+"-"+op.getName().toLowerCase()+".html\">Formal Definition</a> (as a <a href=\"operationdefinition.html\">OperationDefinition</a>).</p>\r\n");
       if (op.isSystem())
         b.append("<p>URL: [base]/$"+n+"</p>\r\n");
       if (op.isType())
@@ -2808,7 +2807,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append("</td><td>");
       b.append("<b>Use</b>");
       b.append("</td><td>");
-      b.append("<b>Optional</b>");
+      b.append("<b>Cardinality</b>");
       b.append("</td><td>");
       b.append("<b>Type</b>");
       b.append("</td><td>");
@@ -2820,7 +2819,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append("</td><td>");
         b.append(p.getUse());
         b.append("</td><td>");
-        b.append(p.getOptional());
+        b.append(p.describeCardinality());
         b.append("</td><td>");
         String t = p.getType();
         if (definitions.hasResource(t)) {

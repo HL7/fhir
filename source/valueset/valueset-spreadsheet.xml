@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9585</WindowHeight>
+  <WindowHeight>9525</WindowHeight>
   <WindowWidth>18435</WindowWidth>
   <WindowTopX>405</WindowTopX>
-  <WindowTopY>795</WindowTopY>
+  <WindowTopY>855</WindowTopY>
   <ActiveSheet>10</ActiveSheet>
   <FirstVisibleSheet>3</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
@@ -1252,14 +1252,16 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Operations">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="16" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="92.25" ss:Span="1"/>
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="72.75" ss:Span="1"/>
+   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="30"/>
+   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="72.75" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s88">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Use</Data></Cell>
-    <Cell><Data ss:Type="String">Optional</Data></Cell>
+    <Cell><Data ss:Type="String">Min</Data></Cell>
+    <Cell><Data ss:Type="String">Max</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell><Data ss:Type="String">Title</Data></Cell>
     <Cell><Data ss:Type="String">Documentation</Data></Cell>
@@ -1268,106 +1270,119 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">expand</Data></Cell>
     <Cell><Data ss:Type="String">Resource | Instance</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Value Set Expansion</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Value Set Expansion</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. &#10;&#10;If the operation is not called at the instance level, one of the in parameters identifier or valueset must be provided.&#10;&#10;An expanded value set will be returned, or an OperationOutcome with an error message</Data></Cell>
     <Cell><Data ss:Type="String">The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">expand.identifier</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">A logical value set identifier (i.e. ValueSet.identifier). The server must know the value set (e.g. it is defined explicitly in the server's valuesets, or it is defined implicitly by some code system known to the server</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">A logical value set identifier (i.e. ValueSet.identifier). The server must know the value set (e.g. it is defined explicitly in the server's valuesets, or it is defined implicitly by some code system known to the server</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">expand.valueSet</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">The value set is provided directly as part of the request. Servers may choose not to accept value sets in this fashion</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The value set is provided directly as part of the request. Servers may choose not to accept value sets in this fashion</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">expand.filter</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">A text filter that is applied to restrict the codes that are returned (this is useful in a UI context)</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">A text filter that is applied to restrict the codes that are returned (this is useful in a UI context)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">expand.expansion</Data></Cell>
     <Cell><Data ss:Type="String">out</Data></Cell>
-    <Cell><Data ss:Type="String">no</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">The result of the expansion</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The result of the expansion</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">validate</Data></Cell>
     <Cell><Data ss:Type="String">Resource | Instance</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Value Set based Validation</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Value Set based Validation</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Validate that a coded value is in the set of codes allowed by a value set.&#10;&#10;If the operation is not called at the instance level, one of the in parameters identifier or valueset must be provided.&#10;&#10;One (and only one) of the in parameters (code, coding, codeableConcept) must be provided. || The outcome is an OperationOutcome with hints, warnings, or errors. </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">validate.identifier</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">A logical value set identifier (i.e. ValueSet.identifier). The server must know the value set (e.g. it is defined explicitly in the server's valuesets, or it is defined implicitly by some code system known to the server</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">A logical value set identifier (i.e. ValueSet.identifier). The server must know the value set (e.g. it is defined explicitly in the server's valuesets, or it is defined implicitly by some code system known to the server</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">validate.valueSet</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">The value set is provided directly as part of the request. Servers may choose not to accept value sets in this fashion</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The value set is provided directly as part of the request. Servers may choose not to accept value sets in this fashion</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">validate.code</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">The code that is to be validated. If a code is provided, a system must be provided</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The code that is to be validated. If a code is provided, a system must be provided</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">validate.system</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">The system for the code that is to be validated</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The system for the code that is to be validated</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">validate.version</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">The version of the system, if one was provided in the source data</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The version of the system, if one was provided in the source data</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">validate.display</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">The display associated with the code, if provided. If a display is provided a code must be provided. If no display is provided, the server cannot validate the display value, but may choose to return athe recommended display name in an extension in the outcome</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The display associated with the code, if provided. If a display is provided a code must be provided. If no display is provided, the server cannot validate the display value, but may choose to return athe recommended display name in an extension in the outcome</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">validate.coding</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Coding</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">A coding to validate</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">A coding to validate</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">validate.codeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">yes</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">A full codeableConcept to validate. The server returns true if one of the coding values is in the value set, and may also validate that the codings are not in conflict with each other</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">A full codeableConcept to validate. The server returns true if one of the coding values is in the value set, and may also validate that the codings are not in conflict with each other</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">validate.outcome</Data></Cell>
     <Cell><Data ss:Type="String">out</Data></Cell>
-    <Cell><Data ss:Type="String">no</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">The result of the validation. If there is no errors, the code is deemed to be validated ok</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The result of the validation. If there is no errors, the code is deemed to be validated ok</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1381,7 +1396,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

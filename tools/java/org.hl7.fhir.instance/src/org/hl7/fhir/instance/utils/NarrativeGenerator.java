@@ -60,6 +60,8 @@ import org.hl7.fhir.instance.model.HumanName.NameUse;
 import org.hl7.fhir.instance.model.Id;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.Instant;
+import org.hl7.fhir.instance.model.OperationDefinition;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterComponent;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Quantity;
@@ -101,6 +103,9 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.hl7.fhir.utilities.xhtml.XhtmlParser;
+
+import com.github.rjeschke.txtmark.Processor;
 
 public class NarrativeGenerator {
 
@@ -152,6 +157,8 @@ public class NarrativeGenerator {
       generate((OperationOutcome) r); // Maintainer = Grahame
     } else if (r instanceof Conformance) {
       generate((Conformance) r);   // Maintainer = Grahame
+    } else if (r instanceof OperationDefinition) {
+      generate((OperationDefinition) r);   // Maintainer = Grahame
     } else if (profiles.containsKey(r.getResourceType().toString())) {
       generateByProfile(r, profiles.get(r.getResourceType().toString()), true); // todo: make this manageable externally 
     } else if (profiles.containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
@@ -1756,8 +1763,66 @@ public class NarrativeGenerator {
 	  return null;
   }
 
-  public void generate(Conformance conf) {
+	public void generate(OperationDefinition opd) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
+    x.addTag("h2").addText(opd.getTitleSimple());
+    x.addTag("p").addText(Utilities.capitalize(opd.getKindSimple().toString())+": "+opd.getNameSimple());
+    addMarkdown(x, opd.getDescriptionSimple());
+    
+    if (opd.getSystemSimple())
+      x.addTag("p").addText("URL: [base]/$"+opd.getNameSimple());
+    for (Code c : opd.getType()) {
+      x.addTag("p").addText("URL: [base]/"+c.getValue()+"/$"+opd.getNameSimple());
+      if (opd.getInstanceSimple())
+        x.addTag("p").addText("URL: [base]/"+c.getValue()+"/[id]/$"+opd.getNameSimple());
+    }
+    
+    x.addTag("p").addText("Parameters");
+    XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
+    XhtmlNode tr = tbl.addTag("tr");
+    tr.addTag("td").addTag("b").addText("Name");
+    tr.addTag("td").addTag("b").addText("Use");
+    tr.addTag("td").addTag("b").addText("Cardinality");
+    tr.addTag("td").addTag("b").addText("Type");
+    tr.addTag("td").addTag("b").addText("Documentation");
+    for (OperationDefinitionParameterComponent p : opd.getParameter()) {
+      tr = tbl.addTag("tr");
+      tr.addTag("td").addText(p.getNameSimple());
+      tr.addTag("td").addText(p.getUseSimple().toString());
+      tr.addTag("td").addText(Integer.toString(p.getMinSimple())+".."+p.getMaxSimple());
+      tr.addTag("td").addText(p.getType().getCodeSimple());
+      addMarkdown(tr.addTag("td"), p.getDocumentationSimple());
+    }
+    addMarkdown(x, opd.getNotesSimple());
+    inject(opd, x, NarrativeStatus.generated);
+	}
+	
+	private void addMarkdown(XhtmlNode x, String text) throws Exception {
+    // 1. custom FHIR extensions
+    while (text.contains("[[[")) {
+      String left = text.substring(0, text.indexOf("[[["));
+      String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
+      String right = text.substring(text.indexOf("]]]")+3);
+      String actual = url;
+//      String[] parts = url.split("\\#");
+//      Profile p = parts[0]; // todo: definitions.getProfileByURL(parts[0]);
+//      if (p != null)
+//        actual = p.getTag("filename")+".html";
+//      else {
+//        throw new Exception("Unresolved logical URL "+url);
+//      }
+      text = left+"["+url+"]("+actual+")"+right;
+    }
+    
+    // 2. markdown
+    String s = Processor.process(Utilities.escapeXml(text));
+    XhtmlParser p = new XhtmlParser();
+    XhtmlNode m = p.parse("<div>"+s+"</div>", "div");
+    x.getChildNodes().addAll(m.getChildNodes());   
+  }
+
+  public void generate(Conformance conf) {
+	  XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("h2").addText(conf.getNameSimple());
     smartAddText(x.addTag("p"), conf.getDescriptionSimple());
     ConformanceRestComponent rest = conf.getRest().get(0);

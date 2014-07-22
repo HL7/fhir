@@ -90,6 +90,8 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
+import org.hl7.fhir.definitions.model.Operation;
+import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
@@ -111,7 +113,10 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Code;
+import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.Identifier;
+import org.hl7.fhir.instance.model.OperationDefinition;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptEquivalence;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
@@ -130,6 +135,10 @@ import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterComponent;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationKind;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationParameterUse;
+import org.hl7.fhir.instance.model.OperationDefinition.ResourceProfileStatus;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
@@ -2377,6 +2386,10 @@ public class Publisher {
           insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Operations", n + "-operations.html"), st, n
               + "-operations.html"), page.getFolders().dstDir + n + "-operations.html");
       page.getEpub().registerFile(n + "-operations.html", "Operations for " + resource.getName(), EPubManager.XHTML_TYPE);
+      
+      for (Operation t : resource.getOperations().values()) {
+        produceOperation(resource, t);
+      }
     }
     src = TextFile.fileToString(page.getFolders().srcDir + "template-book.html").replace("<body>", "<body style=\"margin: 10px\">");
     src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "resource", n + ".html");
@@ -2400,6 +2413,70 @@ public class Publisher {
     // resource
     Profile p = generateProfile(resource, n, xml);
     generateQuestionnaire(n, p);
+  }
+
+  private void produceOperation(ResourceDefn r, Operation op) throws Exception {
+    String name = r.getName().toLowerCase()+"-"+op.getName();
+    OperationDefinition opd = new OperationDefinition();
+//    opd.setIdentifierSimple("http://hl7.org/fhir/operation-"+r.getname().toLowerCase()+"-"+op.getName());
+    opd.setTitleSimple(op.getTitle());
+    opd.setPublisherSimple("HL7 (FHIR Project)");
+    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
+    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.email, "fhir@lists.hl7.org"));
+    opd.setDescriptionSimple(op.getDoco());
+    opd.setStatusSimple(ResourceProfileStatus.draft);
+    opd.setDateSimple(new DateAndTime(page.getGenDate()));
+    opd.setKindSimple(OperationKind.operation);
+    opd.setNameSimple(op.getName());
+    opd.setNotesSimple(op.getFooter());
+    opd.setSystemSimple(op.isSystem());
+    if (op.isType())
+      opd.getType().add(new Code().setValue(r.getName()));
+    opd.setInstanceSimple(op.isInstance());
+    for (OperationParameter p : op.getParameters()) {
+      OperationDefinitionParameterComponent pp = new OperationDefinitionParameterComponent();
+      pp.setNameSimple(p.getName());
+      if (p.getUse().equals("in"))
+        pp.setUseSimple(OperationParameterUse.in);
+      else if (p.getUse().equals("out"))
+        pp.setUseSimple(OperationParameterUse.out);
+      else
+        throw new Exception("Unable to determine parameter use: "+p.getUse()); // but this is validated elsewhere
+      // todo: min and max
+      pp.setDocumentationSimple(p.getDoc());
+      pp.setMinSimple(p.getMin());
+      pp.setMaxSimple(p.getMax());
+      Coding cc = new Coding();
+      cc.setSystemSimple("http://hl7.org/fhir/vs/defined-types");
+      cc.setCodeSimple(p.getType());
+      pp.setType(cc);
+      opd.getParameter().add(pp);
+    }
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
+    gen.generate(opd);
+
+    new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "operation-" + name + ".xml"), opd, true, true);
+    cloneToXhtml("operation-" + name + "", "Operation Definition", true, "resource-instance:OperationDefinition");
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "operation-" + name + ".json"), opd, true);
+    jsonToXhtml("operation-" + name, "Operation Definition", resource2Json(opd), "resource-instance:OperationDefinition");
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + "operation-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + "operation-" + name + ".xml"));
+    if (buildFlags.get("all"))
+      addToResourceFeed(opd, "operation-" + name + "", profileFeed);
+
+    // now, we create an html page from the narrative
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", new XhtmlComposer().compose(opd.getText().getDiv()));
+    html = page.processPageIncludes("operation-" + name + ".html", html, "resource-instance:OperationDefinition", null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + "operation-" + name + ".html");
+    // head =
+    // "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
+    // "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<p>"+Utilities.escapeXml(e.getDescription())+"</p>\r\n"+
+    // "<p><a href=\""+n+".xml.html\">XML</a> <a href=\""+n+".json.html\">JSON</a></p>\r\n";
+    // tail = "\r\n</body>\r\n</html>\r\n";
+    // TextFile.stringToFile(head+narrative+tail, page.getFolders().dstDir + n +
+    // ".html");
+    page.getEpub().registerExternal("operation-" + name + ".html");
+    page.getEpub().registerExternal("operation-" + name + ".json.html");
+    page.getEpub().registerExternal("operation-" + name + ".xml.html");
   }
 
   private void generateQuestionnaire(String n, Profile p) throws Exception {
@@ -2658,7 +2735,7 @@ public class Publisher {
     xml.compose(stream, html);
   }
 
-  private void addToResourceFeed(Profile profile, String id, AtomFeed dest) throws Exception {
+  private void addToResourceFeed(org.hl7.fhir.instance.model.Resource resource, String id, AtomFeed dest) throws Exception {
     AtomEntry<? extends org.hl7.fhir.instance.model.Resource> byId = dest.getById("http://hl7.org/fhir/profile/" + id);
     if (byId != null)
       dest.getEntryList().remove(byId);
@@ -2671,10 +2748,10 @@ public class Publisher {
     e.setPublished(new DateAndTime(page.getGenDate()));
     e.setAuthorName("HL7, Inc (FHIR Project)");
     e.setAuthorUri("http://hl7.org/fhir");
-    e.setResource(profile);
-    if (profile.getText() == null || profile.getText().getDiv() == null)
+    e.setResource(resource);
+    if (resource.getText() == null || resource.getText().getDiv() == null)
       throw new Exception("Example Resource " + id + " does not have any narrative");
-    e.setSummary(profile.getText().getDiv());
+    e.setSummary(resource.getText().getDiv());
     dest.getEntryList().add(e);
   }
 

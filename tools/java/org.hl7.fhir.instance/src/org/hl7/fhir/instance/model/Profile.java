@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 22, 2014 14:59+1000 for FHIR v0.2.1
+// Generated on Tue, Jul 22, 2014 17:06+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -3156,134 +3156,6 @@ public class Profile extends Resource {
 
   }
 
-    public static class ProfileQueryComponent extends BackboneElement {
-        /**
-         * The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.
-         */
-        protected String_ name;
-
-        /**
-         * Description of the query - the functionality it offers, and considerations about how it functions and to use it.
-         */
-        protected String_ documentation;
-
-        /**
-         * A parameter of a named query.
-         */
-        protected List<ProfileStructureSearchParamComponent> parameter = new ArrayList<ProfileStructureSearchParamComponent>();
-
-        private static final long serialVersionUID = 1319228927L;
-
-      public ProfileQueryComponent() {
-        super();
-      }
-
-      public ProfileQueryComponent(String_ name, String_ documentation) {
-        super();
-        this.name = name;
-        this.documentation = documentation;
-      }
-
-        /**
-         * @return {@link #name} (The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.)
-         */
-        public String_ getName() { 
-          return this.name;
-        }
-
-        /**
-         * @param value {@link #name} (The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.)
-         */
-        public ProfileQueryComponent setName(String_ value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.
-         */
-        public String getNameSimple() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.
-         */
-        public ProfileQueryComponent setNameSimple(String value) { 
-            if (this.name == null)
-              this.name = new String_();
-            this.name.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #documentation} (Description of the query - the functionality it offers, and considerations about how it functions and to use it.)
-         */
-        public String_ getDocumentation() { 
-          return this.documentation;
-        }
-
-        /**
-         * @param value {@link #documentation} (Description of the query - the functionality it offers, and considerations about how it functions and to use it.)
-         */
-        public ProfileQueryComponent setDocumentation(String_ value) { 
-          this.documentation = value;
-          return this;
-        }
-
-        /**
-         * @return Description of the query - the functionality it offers, and considerations about how it functions and to use it.
-         */
-        public String getDocumentationSimple() { 
-          return this.documentation == null ? null : this.documentation.getValue();
-        }
-
-        /**
-         * @param value Description of the query - the functionality it offers, and considerations about how it functions and to use it.
-         */
-        public ProfileQueryComponent setDocumentationSimple(String value) { 
-            if (this.documentation == null)
-              this.documentation = new String_();
-            this.documentation.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #parameter} (A parameter of a named query.)
-         */
-        public List<ProfileStructureSearchParamComponent> getParameter() { 
-          return this.parameter;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #parameter} (A parameter of a named query.)
-         */
-        public ProfileStructureSearchParamComponent addParameter() { 
-          ProfileStructureSearchParamComponent t = new ProfileStructureSearchParamComponent();
-          this.parameter.add(t);
-          return t;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("documentation", "string", "Description of the query - the functionality it offers, and considerations about how it functions and to use it.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("parameter", "@Profile.structure.searchParam", "A parameter of a named query.", 0, java.lang.Integer.MAX_VALUE, parameter));
-        }
-
-      public ProfileQueryComponent copy() {
-        ProfileQueryComponent dst = new ProfileQueryComponent();
-        dst.name = name == null ? null : name.copy();
-        dst.documentation = documentation == null ? null : documentation.copy();
-        dst.parameter = new ArrayList<ProfileStructureSearchParamComponent>();
-        for (ProfileStructureSearchParamComponent i : parameter)
-          dst.parameter.add(i.copy());
-        return dst;
-      }
-
-  }
-
     /**
      * The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.
      */
@@ -3364,12 +3236,7 @@ public class Profile extends Resource {
      */
     protected List<ProfileExtensionDefnComponent> extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
 
-    /**
-     * Definition of a named query and its parameters and their meaning.
-     */
-    protected List<ProfileQueryComponent> query = new ArrayList<ProfileQueryComponent>();
-
-    private static final long serialVersionUID = 1629111250L;
+    private static final long serialVersionUID = -94816655L;
 
     public Profile() {
       super();
@@ -3832,23 +3699,6 @@ public class Profile extends Resource {
       return t;
     }
 
-    /**
-     * @return {@link #query} (Definition of a named query and its parameters and their meaning.)
-     */
-    public List<ProfileQueryComponent> getQuery() { 
-      return this.query;
-    }
-
-    // syntactic sugar
-    /**
-     * @return {@link #query} (Definition of a named query and its parameters and their meaning.)
-     */
-    public ProfileQueryComponent addQuery() { 
-      ProfileQueryComponent t = new ProfileQueryComponent();
-      this.query.add(t);
-      return t;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.", 0, java.lang.Integer.MAX_VALUE, url));
@@ -3867,7 +3717,6 @@ public class Profile extends Resource {
         childrenList.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("structure", "", "A constraint statement about what contents a resource or data type may have.", 0, java.lang.Integer.MAX_VALUE, structure));
         childrenList.add(new Property("extensionDefn", "", "An extension defined as part of the profile.", 0, java.lang.Integer.MAX_VALUE, extensionDefn));
-        childrenList.add(new Property("query", "", "Definition of a named query and its parameters and their meaning.", 0, java.lang.Integer.MAX_VALUE, query));
       }
 
       public Profile copy() {
@@ -3900,9 +3749,6 @@ public class Profile extends Resource {
         dst.extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
         for (ProfileExtensionDefnComponent i : extensionDefn)
           dst.extensionDefn.add(i.copy());
-        dst.query = new ArrayList<ProfileQueryComponent>();
-        for (ProfileQueryComponent i : query)
-          dst.query.add(i.copy());
         return dst;
       }
 

@@ -78,7 +78,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="39" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="40" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s62" ss:Width="313.5"/>
    <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="60"/>
@@ -407,6 +407,12 @@
     <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OperationDefinition.status</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -416,6 +422,12 @@
    </PageSetup>
    <Unsynced/>
    <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>40</ActiveRow>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

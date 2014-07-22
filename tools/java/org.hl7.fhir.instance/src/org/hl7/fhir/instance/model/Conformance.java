@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 22, 2014 14:59+1000 for FHIR v0.2.1
+// Generated on Tue, Jul 22, 2014 17:06+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -774,16 +774,16 @@ public class Conformance extends Resource {
         protected List<SystemInteractionComponent> interaction = new ArrayList<SystemInteractionComponent>();
 
         /**
-         * Definition of a named query and its parameters and their meaning.
+         * Definition of an operation or a named query and with it's parameters and their meaning and type.
          */
-        protected List<ConformanceRestQueryComponent> query = new ArrayList<ConformanceRestQueryComponent>();
+        protected List<ConformanceRestOperationComponent> operation = new ArrayList<ConformanceRestOperationComponent>();
 
         /**
          * A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.
          */
         protected List<Uri> documentMailbox = new ArrayList<Uri>();
 
-        private static final long serialVersionUID = -1819763648L;
+        private static final long serialVersionUID = 831648737L;
 
       public ConformanceRestComponent() {
         super();
@@ -912,19 +912,19 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return {@link #query} (Definition of a named query and its parameters and their meaning.)
+         * @return {@link #operation} (Definition of an operation or a named query and with it's parameters and their meaning and type.)
          */
-        public List<ConformanceRestQueryComponent> getQuery() { 
-          return this.query;
+        public List<ConformanceRestOperationComponent> getOperation() { 
+          return this.operation;
         }
 
     // syntactic sugar
         /**
-         * @return {@link #query} (Definition of a named query and its parameters and their meaning.)
+         * @return {@link #operation} (Definition of an operation or a named query and with it's parameters and their meaning and type.)
          */
-        public ConformanceRestQueryComponent addQuery() { 
-          ConformanceRestQueryComponent t = new ConformanceRestQueryComponent();
-          this.query.add(t);
+        public ConformanceRestOperationComponent addOperation() { 
+          ConformanceRestOperationComponent t = new ConformanceRestOperationComponent();
+          this.operation.add(t);
           return t;
         }
 
@@ -972,7 +972,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("security", "", "Information about security of implementation.", 0, java.lang.Integer.MAX_VALUE, security));
           childrenList.add(new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction));
-          childrenList.add(new Property("query", "", "Definition of a named query and its parameters and their meaning.", 0, java.lang.Integer.MAX_VALUE, query));
+          childrenList.add(new Property("operation", "", "Definition of an operation or a named query and with it's parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
           childrenList.add(new Property("documentMailbox", "uri", "A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this purpose.", 0, java.lang.Integer.MAX_VALUE, documentMailbox));
         }
 
@@ -987,9 +987,9 @@ public class Conformance extends Resource {
         dst.interaction = new ArrayList<SystemInteractionComponent>();
         for (SystemInteractionComponent i : interaction)
           dst.interaction.add(i.copy());
-        dst.query = new ArrayList<ConformanceRestQueryComponent>();
-        for (ConformanceRestQueryComponent i : query)
-          dst.query.add(i.copy());
+        dst.operation = new ArrayList<ConformanceRestOperationComponent>();
+        for (ConformanceRestOperationComponent i : operation)
+          dst.operation.add(i.copy());
         dst.documentMailbox = new ArrayList<Uri>();
         for (Uri i : documentMailbox)
           dst.documentMailbox.add(i.copy());
@@ -2036,34 +2036,29 @@ public class Conformance extends Resource {
 
   }
 
-    public static class ConformanceRestQueryComponent extends BackboneElement {
+    public static class ConformanceRestOperationComponent extends BackboneElement {
         /**
          * The name of a query, which is used in the _query parameter when the query is called.
          */
         protected String_ name;
 
         /**
-         * Identifies the custom query, defined either in FHIR core or another profile.
+         * Where the formal definition can be found.
          */
-        protected Uri definition;
+        protected ResourceReference definition;
 
         /**
-         * Additional information about how the query functions in this particular implementation.
+         * The actual object that is the target of the reference (Where the formal definition can be found.)
          */
-        protected String_ documentation;
+        protected OperationDefinition definitionTarget;
 
-        /**
-         * Identifies which of the parameters for the named query are supported.
-         */
-        protected List<ConformanceRestResourceSearchParamComponent> parameter = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+        private static final long serialVersionUID = 1367099669L;
 
-        private static final long serialVersionUID = 853016812L;
-
-      public ConformanceRestQueryComponent() {
+      public ConformanceRestOperationComponent() {
         super();
       }
 
-      public ConformanceRestQueryComponent(String_ name, Uri definition) {
+      public ConformanceRestOperationComponent(String_ name, ResourceReference definition) {
         super();
         this.name = name;
         this.definition = definition;
@@ -2079,7 +2074,7 @@ public class Conformance extends Resource {
         /**
          * @param value {@link #name} (The name of a query, which is used in the _query parameter when the query is called.)
          */
-        public ConformanceRestQueryComponent setName(String_ value) { 
+        public ConformanceRestOperationComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
@@ -2094,7 +2089,7 @@ public class Conformance extends Resource {
         /**
          * @param value The name of a query, which is used in the _query parameter when the query is called.
          */
-        public ConformanceRestQueryComponent setNameSimple(String value) { 
+        public ConformanceRestOperationComponent setNameSimple(String value) { 
             if (this.name == null)
               this.name = new String_();
             this.name.setValue(value);
@@ -2102,106 +2097,45 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return {@link #definition} (Identifies the custom query, defined either in FHIR core or another profile.)
+         * @return {@link #definition} (Where the formal definition can be found.)
          */
-        public Uri getDefinition() { 
+        public ResourceReference getDefinition() { 
           return this.definition;
         }
 
         /**
-         * @param value {@link #definition} (Identifies the custom query, defined either in FHIR core or another profile.)
+         * @param value {@link #definition} (Where the formal definition can be found.)
          */
-        public ConformanceRestQueryComponent setDefinition(Uri value) { 
+        public ConformanceRestOperationComponent setDefinition(ResourceReference value) { 
           this.definition = value;
           return this;
         }
 
         /**
-         * @return Identifies the custom query, defined either in FHIR core or another profile.
+         * @return {@link #definition} (The actual object that is the target of the reference. Where the formal definition can be found.)
          */
-        public String getDefinitionSimple() { 
-          return this.definition == null ? null : this.definition.getValue();
+        public OperationDefinition getDefinitionTarget() { 
+          return this.definitionTarget;
         }
 
         /**
-         * @param value Identifies the custom query, defined either in FHIR core or another profile.
+         * @param value {@link #definition} (The actual object that is the target of the reference. Where the formal definition can be found.)
          */
-        public ConformanceRestQueryComponent setDefinitionSimple(String value) { 
-            if (this.definition == null)
-              this.definition = new Uri();
-            this.definition.setValue(value);
+        public ConformanceRestOperationComponent setDefinitionTarget(OperationDefinition value) { 
+          this.definitionTarget = value;
           return this;
-        }
-
-        /**
-         * @return {@link #documentation} (Additional information about how the query functions in this particular implementation.)
-         */
-        public String_ getDocumentation() { 
-          return this.documentation;
-        }
-
-        /**
-         * @param value {@link #documentation} (Additional information about how the query functions in this particular implementation.)
-         */
-        public ConformanceRestQueryComponent setDocumentation(String_ value) { 
-          this.documentation = value;
-          return this;
-        }
-
-        /**
-         * @return Additional information about how the query functions in this particular implementation.
-         */
-        public String getDocumentationSimple() { 
-          return this.documentation == null ? null : this.documentation.getValue();
-        }
-
-        /**
-         * @param value Additional information about how the query functions in this particular implementation.
-         */
-        public ConformanceRestQueryComponent setDocumentationSimple(String value) { 
-          if (value == null)
-            this.documentation = null;
-          else {
-            if (this.documentation == null)
-              this.documentation = new String_();
-            this.documentation.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #parameter} (Identifies which of the parameters for the named query are supported.)
-         */
-        public List<ConformanceRestResourceSearchParamComponent> getParameter() { 
-          return this.parameter;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #parameter} (Identifies which of the parameters for the named query are supported.)
-         */
-        public ConformanceRestResourceSearchParamComponent addParameter() { 
-          ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
-          this.parameter.add(t);
-          return t;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of a query, which is used in the _query parameter when the query is called.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("definition", "uri", "Identifies the custom query, defined either in FHIR core or another profile.", 0, java.lang.Integer.MAX_VALUE, definition));
-          childrenList.add(new Property("documentation", "string", "Additional information about how the query functions in this particular implementation.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("parameter", "@Conformance.rest.resource.searchParam", "Identifies which of the parameters for the named query are supported.", 0, java.lang.Integer.MAX_VALUE, parameter));
+          childrenList.add(new Property("definition", "Resource(OperationDefinition)", "Where the formal definition can be found.", 0, java.lang.Integer.MAX_VALUE, definition));
         }
 
-      public ConformanceRestQueryComponent copy() {
-        ConformanceRestQueryComponent dst = new ConformanceRestQueryComponent();
+      public ConformanceRestOperationComponent copy() {
+        ConformanceRestOperationComponent dst = new ConformanceRestOperationComponent();
         dst.name = name == null ? null : name.copy();
         dst.definition = definition == null ? null : definition.copy();
-        dst.documentation = documentation == null ? null : documentation.copy();
-        dst.parameter = new ArrayList<ConformanceRestResourceSearchParamComponent>();
-        for (ConformanceRestResourceSearchParamComponent i : parameter)
-          dst.parameter.add(i.copy());
         return dst;
       }
 

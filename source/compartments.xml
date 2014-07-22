@@ -104,7 +104,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="73" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="74" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -267,6 +267,9 @@
     <Cell><Data ss:Type="String">performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OperationDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -419,7 +422,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>42</TopRowBottomPane>
+   <TopRowBottomPane>24</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -427,8 +430,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>52</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>38</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

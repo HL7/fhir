@@ -46,6 +46,7 @@ public enum ResourceType {
     Encounter,
     SecurityEvent,
     List,
+    OperationDefinition,
     DeviceObservationReport,
     RiskAssessment,
     FamilyHistory,
@@ -153,6 +154,8 @@ public enum ResourceType {
       return "securityevent";
     case List:
       return "list";
+    case OperationDefinition:
+      return "operationdefinition";
     case DeviceObservationReport:
       return "deviceobservationreport";
     case RiskAssessment:

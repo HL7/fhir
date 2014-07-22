@@ -296,6 +296,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="es">Observación</translation>
     <translation lang="fr">Observation</translation>
   </item>
+  <item id="OperationDefinition">
+    <translation lang="en">OperationDefinition</translation>
+  </item>  
   <item id="OperationOutcome">
     <translation lang="en">OperationOutcome</translation>
     <translation lang="zh">手术成果</translation>

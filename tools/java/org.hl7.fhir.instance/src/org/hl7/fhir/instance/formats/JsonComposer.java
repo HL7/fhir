@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 22, 2014 14:59+1000 for FHIR v0.2.1
+// Generated on Tue, Jul 22, 2014 17:06+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1618,10 +1618,10 @@ public class JsonComposer extends JsonComposerBase {
           composeConformanceSystemInteractionComponent(null, e);
         closeArray();
       };
-      if (element.getQuery().size() > 0) {
-        openArray("query");
-        for (Conformance.ConformanceRestQueryComponent e : element.getQuery()) 
-          composeConformanceConformanceRestQueryComponent(null, e);
+      if (element.getOperation().size() > 0) {
+        openArray("operation");
+        for (Conformance.ConformanceRestOperationComponent e : element.getOperation()) 
+          composeConformanceConformanceRestOperationComponent(null, e);
         closeArray();
       };
       if (element.getDocumentMailbox().size() > 0) {
@@ -1785,22 +1785,13 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
-  private void composeConformanceConformanceRestQueryComponent(String name, Conformance.ConformanceRestQueryComponent element) throws Exception {
+  private void composeConformanceConformanceRestOperationComponent(String name, Conformance.ConformanceRestOperationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeBackbone(element);
       composeStringCore("name", element.getName(), false);
       composeStringExtras("name", element.getName(), false);
-      composeUriCore("definition", element.getDefinition(), false);
-      composeUriExtras("definition", element.getDefinition(), false);
-      composeStringCore("documentation", element.getDocumentation(), false);
-      composeStringExtras("documentation", element.getDocumentation(), false);
-      if (element.getParameter().size() > 0) {
-        openArray("parameter");
-        for (Conformance.ConformanceRestResourceSearchParamComponent e : element.getParameter()) 
-          composeConformanceConformanceRestResourceSearchParamComponent(null, e);
-        closeArray();
-      };
+      composeResourceReference("definition", element.getDefinition());
       close();
     }
   }
@@ -3668,6 +3659,100 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeOperationDefinition(String name, OperationDefinition element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeStringCore("version", element.getVersion(), false);
+      composeStringExtras("version", element.getVersion(), false);
+      composeStringCore("title", element.getTitle(), false);
+      composeStringExtras("title", element.getTitle(), false);
+      composeStringCore("publisher", element.getPublisher(), false);
+      composeStringExtras("publisher", element.getPublisher(), false);
+      if (element.getTelecom().size() > 0) {
+        openArray("telecom");
+        for (Contact e : element.getTelecom()) 
+          composeContact(null, e);
+        closeArray();
+      };
+      composeStringCore("description", element.getDescription(), false);
+      composeStringExtras("description", element.getDescription(), false);
+      if (element.getCode().size() > 0) {
+        openArray("code");
+        for (Coding e : element.getCode()) 
+          composeCoding(null, e);
+        closeArray();
+      };
+      if (element.getStatus() != null) {
+        composeEnumerationCore("status", element.getStatus(), new OperationDefinition.ResourceProfileStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new OperationDefinition.ResourceProfileStatusEnumFactory(), false);
+      }
+      composeBooleanCore("experimental", element.getExperimental(), false);
+      composeBooleanExtras("experimental", element.getExperimental(), false);
+      composeDateTimeCore("date", element.getDate(), false);
+      composeDateTimeExtras("date", element.getDate(), false);
+      if (element.getKind() != null) {
+        composeEnumerationCore("kind", element.getKind(), new OperationDefinition.OperationKindEnumFactory(), false);
+        composeEnumerationExtras("kind", element.getKind(), new OperationDefinition.OperationKindEnumFactory(), false);
+      }
+      composeCodeCore("name", element.getName(), false);
+      composeCodeExtras("name", element.getName(), false);
+      composeStringCore("notes", element.getNotes(), false);
+      composeStringExtras("notes", element.getNotes(), false);
+      composeResourceReference("base", element.getBase());
+      composeBooleanCore("system", element.getSystem(), false);
+      composeBooleanExtras("system", element.getSystem(), false);
+      if (element.getType().size() > 0) {
+        openArray("type");
+        for (Code e : element.getType()) 
+          composeCodeCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getType())) {
+          openArray("_type");
+          for (Code e : element.getType()) 
+            composeCodeExtras(null, e, true);
+          closeArray();
+        }
+      };
+      composeBooleanCore("instance", element.getInstance(), false);
+      composeBooleanExtras("instance", element.getInstance(), false);
+      if (element.getParameter().size() > 0) {
+        openArray("parameter");
+        for (OperationDefinition.OperationDefinitionParameterComponent e : element.getParameter()) 
+          composeOperationDefinitionOperationDefinitionParameterComponent(null, e);
+        closeArray();
+      };
+    }
+  }
+
+  private void composeOperationDefinitionOperationDefinitionParameterComponent(String name, OperationDefinition.OperationDefinitionParameterComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeCodeCore("name", element.getName(), false);
+      composeCodeExtras("name", element.getName(), false);
+      if (element.getUse() != null) {
+        composeEnumerationCore("use", element.getUse(), new OperationDefinition.OperationParameterUseEnumFactory(), false);
+        composeEnumerationExtras("use", element.getUse(), new OperationDefinition.OperationParameterUseEnumFactory(), false);
+      }
+      composeIntegerCore("min", element.getMin(), false);
+      composeIntegerExtras("min", element.getMin(), false);
+      composeStringCore("max", element.getMax(), false);
+      composeStringExtras("max", element.getMax(), false);
+      composeStringCore("documentation", element.getDocumentation(), false);
+      composeStringExtras("documentation", element.getDocumentation(), false);
+      composeCoding("type", element.getType());
+      composeResourceReference("profile", element.getProfile());
+      close();
+    }
+  }
+
   private void composeOperationOutcome(String name, OperationOutcome element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -4190,12 +4275,6 @@ public class JsonComposer extends JsonComposerBase {
           composeProfileProfileExtensionDefnComponent(null, e);
         closeArray();
       };
-      if (element.getQuery().size() > 0) {
-        openArray("query");
-        for (Profile.ProfileQueryComponent e : element.getQuery()) 
-          composeProfileProfileQueryComponent(null, e);
-        closeArray();
-      };
     }
   }
 
@@ -4503,24 +4582,6 @@ public class JsonComposer extends JsonComposerBase {
         openArray("element");
         for (Profile.ElementComponent e : element.getElement()) 
           composeProfileElementComponent(null, e);
-        closeArray();
-      };
-      close();
-    }
-  }
-
-  private void composeProfileProfileQueryComponent(String name, Profile.ProfileQueryComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeBackbone(element);
-      composeStringCore("name", element.getName(), false);
-      composeStringExtras("name", element.getName(), false);
-      composeStringCore("documentation", element.getDocumentation(), false);
-      composeStringExtras("documentation", element.getDocumentation(), false);
-      if (element.getParameter().size() > 0) {
-        openArray("parameter");
-        for (Profile.ProfileStructureSearchParamComponent e : element.getParameter()) 
-          composeProfileProfileStructureSearchParamComponent(null, e);
         closeArray();
       };
       close();
@@ -5637,6 +5698,8 @@ public class JsonComposer extends JsonComposerBase {
       composeNamespace("Namespace", (Namespace)resource);
     else if (resource instanceof Observation)
       composeObservation("Observation", (Observation)resource);
+    else if (resource instanceof OperationDefinition)
+      composeOperationDefinition("OperationDefinition", (OperationDefinition)resource);
     else if (resource instanceof OperationOutcome)
       composeOperationOutcome("OperationOutcome", (OperationOutcome)resource);
     else if (resource instanceof Order)
@@ -5760,6 +5823,8 @@ public class JsonComposer extends JsonComposerBase {
       composeNamespace(name, (Namespace)resource);
     else if (resource instanceof Observation)
       composeObservation(name, (Observation)resource);
+    else if (resource instanceof OperationDefinition)
+      composeOperationDefinition(name, (OperationDefinition)resource);
     else if (resource instanceof OperationOutcome)
       composeOperationOutcome(name, (OperationOutcome)resource);
     else if (resource instanceof Order)
