@@ -194,7 +194,7 @@
     <Cell><Data ss:Type="String">!RestfulOperation</Data></Cell>
     <Cell><Data ss:Type="String">A code that describes the kind of restful operations that are defined</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">#restful-operations</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">#restful-interactions</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

@@ -63,31 +63,31 @@
       <profile>
         <reference value="http://fhir.hl7.org/base/Profile7896271d-57f6-4231-89dc-dcc91eab2416"/>
       </profile> 
-      <operation>
+      <interaction>
         <code value="read"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="vread"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="update"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="history-instance"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="create"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="history-type"/>
-      </operation>
+      </interaction>
     </resource>
-    <operation>
+    <interaction>
       <code value="transaction"/>      
-    </operation>
-    <operation>
+    </interaction>
+    <interaction>
       <code value="history-system"/>      
-    </operation>
+    </interaction>
   </rest>
 
   <!-- a messaging conformance statement. Applications are not required to make a conformance 

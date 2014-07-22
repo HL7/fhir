@@ -30,62 +30,62 @@ test 4
       <profile>
         <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
       </profile>
-      <operation>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows a user to search for existing data elements"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific known data element"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a specific version of a data element"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to a data element over time"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="validate"/>
         <documentation value="Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
         <documentation value="Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
-      </operation>
+      </interaction>
       <searchInclude value="DataElement.binding.valueSet"/>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
@@ -190,63 +190,63 @@ test 4
       <profile>
         <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
       </profile>
-      <operation>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing value sets for use in authoring data elements"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific value set referenced within a data element"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a value set as referenced within a data element"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to a value set over time"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows definition of a new value set used by one or more data elements"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows existing value sets referenced by one or more data elements to be maintained"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="validate"/>
         <documentation value="Allows verification that a value set is valid prior to submission - useful for some workflows."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
         <documentation value="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
         <!-- Should we include this in the conformance statement at all? -->
-      </operation>
+      </interaction>
       <searchInclude value="ValueSet.compose.import"/>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">

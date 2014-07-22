@@ -50,6 +50,9 @@ import org.hl7.fhir.instance.model.Composition.SectionComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
 import org.hl7.fhir.instance.model.ConceptMap.OtherElementComponent;
+import org.hl7.fhir.instance.model.Conformance.ResourceInteractionComponent;
+import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
+import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.HumanName;
@@ -63,15 +66,10 @@ import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Ratio;
 import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
-import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
-import org.hl7.fhir.instance.model.ConceptMap.OtherElementComponent;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
-import org.hl7.fhir.instance.model.Conformance.ConformanceRestOperationComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
-import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceOperationComponent;
-import org.hl7.fhir.instance.model.Conformance.SystemRestfulOperation;
-import org.hl7.fhir.instance.model.Conformance.TypeRestfulOperation;
+import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.instance.model.Contact;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.DateTime;
@@ -1767,9 +1765,9 @@ public class NarrativeGenerator {
     addTableRow(t, "Mode", rest.getModeSimple().toString());
     addTableRow(t, "Description", rest.getDocumentationSimple());
     
-    addTableRow(t, "Transaction", showOp(rest, SystemRestfulOperation.transaction));
-    addTableRow(t, "System History", showOp(rest, SystemRestfulOperation.historysystem));
-    addTableRow(t, "System Search", showOp(rest, SystemRestfulOperation.searchsystem));
+    addTableRow(t, "Transaction", showOp(rest, SystemRestfulInteraction.transaction));
+    addTableRow(t, "System History", showOp(rest, SystemRestfulInteraction.historysystem));
+    addTableRow(t, "System Search", showOp(rest, SystemRestfulInteraction.searchsystem));
     
     t = x.addTag("table");
     XhtmlNode tr = t.addTag("tr");
@@ -1792,29 +1790,29 @@ public class NarrativeGenerator {
       	a.addText(r.getProfile().getReferenceSimple());
       	a.setAttribute("href", prefix+r.getProfile().getReferenceSimple());
       }
-      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.read));
-      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.vread));
-      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.searchtype));
-      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.update));
-      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.historyinstance));
-      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.create));
-      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.delete));
-      tr.addTag("td").addText(showOp(r, TypeRestfulOperation.historytype));
+      tr.addTag("td").addText(showOp(r, TypeRestfulInteraction.read));
+      tr.addTag("td").addText(showOp(r, TypeRestfulInteraction.vread));
+      tr.addTag("td").addText(showOp(r, TypeRestfulInteraction.searchtype));
+      tr.addTag("td").addText(showOp(r, TypeRestfulInteraction.update));
+      tr.addTag("td").addText(showOp(r, TypeRestfulInteraction.historyinstance));
+      tr.addTag("td").addText(showOp(r, TypeRestfulInteraction.create));
+      tr.addTag("td").addText(showOp(r, TypeRestfulInteraction.delete));
+      tr.addTag("td").addText(showOp(r, TypeRestfulInteraction.historytype));
     }
     
     inject(conf, x, NarrativeStatus.generated);
   }
 
-  private String showOp(ConformanceRestResourceComponent r, TypeRestfulOperation on) {
-    for (ConformanceRestResourceOperationComponent op : r.getOperation()) {
+  private String showOp(ConformanceRestResourceComponent r, TypeRestfulInteraction on) {
+    for (ResourceInteractionComponent op : r.getInteraction()) {
       if (op.getCodeSimple() == on)
         return "y";
     }
     return "";
   }
 
-  private String showOp(ConformanceRestComponent r, SystemRestfulOperation on) {
-    for (ConformanceRestOperationComponent op : r.getOperation()) {
+  private String showOp(ConformanceRestComponent r, SystemRestfulInteraction on) {
+    for (SystemInteractionComponent op : r.getInteraction()) {
       if (op.getCodeSimple() == on)
         return "y";
     }	

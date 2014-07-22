@@ -24,39 +24,39 @@
       <profile>
         <reference value="http://hl7.org/fhir/Profile/questionnaire-sdc"/>
       </profile>
-      <operation>
+      <interaction>
         <code value="search-type"/>
         <documentation value="SHALL. Allows discovery of existing questionnaires for editing"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="read"/>
         <documentation value="SHALL. Allows retrieval of a specific questionnaire by id"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="create"/>
         <documentation value="SHALL. Allows submission of a new form design"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="update"/>
         <documentation value="SHALL. Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="history-instance"/>
         <documentation value="SHOULD. Allows review of changes to questionnaire over time"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="vread"/>
         <documentation value="SHOULD. Allows retrieval of a historical version of a questionnaire"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="delete"/>
         <documentation value="MAY. Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner."/>
         <!-- Should we include this in the conformance statement at all? -->
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="validate"/>
         <documentation value="MAY. Allows verification that form is valid prior to submission - useful for some workflows."/>
-      </operation>
+      </interaction>
       <!-- Do we want to define what search criteria must be supported? -->
     </resource>
     <resource>
@@ -64,39 +64,39 @@
       <profile>
         <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
       </profile>
-      <operation>
+      <interaction>
         <code value="search-type"/>
         <documentation value="SHALL. Allows discovery of existing value sets for use by questions in a form"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="read"/>
         <documentation value="SHALL. Allows retrieval of a specific value set by id"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="create"/>
         <documentation value="SHALL. Allows definition of a new value set used by one or more questions"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="update"/>
         <documentation value="SHALL. Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="history-instance"/>
         <documentation value="SHOULD. Allows review of changes to a value set over time"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="vread"/>
         <documentation value="SHOULD. Allows retrieval of a historical version of a value set"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="delete"/>
         <documentation value="MAY. Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
         <!-- Should we include this in the conformance statement at all? -->
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="validate"/>
         <documentation value="MAY. Allows verification that a value set is valid prior to submission - useful for some workflows."/>
-      </operation>
+      </interaction>
       <!-- Do we want to define what search criteria must be supported? -->
     </resource>
     <resource>
@@ -104,39 +104,39 @@
       <profile>
         <reference value="http://hl7.org/fhir/Profile/dataelement-sdc"/>
       </profile>
-      <operation>
+      <interaction>
         <code value="search-type"/>
         <documentation value="SHALL.  Allows a user to search for existing data elements for re-use in a form design"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="read"/>
         <documentation value="SHALL.  Allows retrieval of data elements referenced in an existing form design"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="vread"/>
         <documentation value="SHOULD. Allows viewing of specific versions of a data element if the form references a specific version"/>
         <!-- Do we need this to be SHALL too? -->
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="history-instance"/>
         <documentation value="SHOULD. Allows review of changes to a data element over time"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="create"/>
         <documentation value="MAY. Allows defining new data elements for subsequent re-use while creating and editing forms"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="update"/>
         <documentation value="MAY. Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="delete"/>
         <documentation value="MAY. Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="validate"/>
         <documentation value="MAY. Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission"/>
-      </operation>
+      </interaction>
       <!-- Do we want to define what search criteria must be supported? -->
     </resource>
   </rest>

@@ -24,38 +24,38 @@
       <profile>
         <reference value="http://hl7.org/fhir/Profile/questionnaire-sdc"/>
       </profile>
-      <operation>
+      <interaction>
         <code value="search-type"/>
         <documentation value="SHALL.  Allows a user to search for existing forms"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="read"/>
         <documentation value="SHALL.  Allows retrieval of a specific known form"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="vread"/>
         <documentation value="SHALL. Allows retrieval of a specific version of a form"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="history-instance"/>
         <documentation value="SHALL. Allows review of changes to a form over time"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="create"/>
         <documentation value="SHALL. Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="update"/>
         <documentation value="SHALL. Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="validate"/>
         <documentation value="SHOULD. Allows a client to verify whether a particular new form or revision of an existing form would be accepted based on validation and other business rules.  Useful for some workflows"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="delete"/>
         <documentation value="MAY. Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc."/>
-      </operation>
+      </interaction>
       <searchInclude value="Questionnaire.group.question.options"/>
       <searchParam>        <name value="code"/>
         <definition value="http://hl7.org/fhir/Profile/questionnaire#code"/>
@@ -110,39 +110,39 @@
       <profile>
         <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
       </profile>
-      <operation>
+      <interaction>
         <code value="search-type"/>
         <documentation value="SHALL. Allows discovery of existing value sets for use in authoring questionnaires"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="read"/>
         <documentation value="SHALL. Allows retrieval of a specific value set referenced within a questionnaire"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="vread"/>
         <documentation value="SHALL. Allows retrieval of a historical version of a value set as referenced within a questionnaire"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="history-instance"/>
         <documentation value="SHALL. Allows review of changes to a value set over time"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="create"/>
         <documentation value="SHALL. Allows definition of a new value set used by one or more questionnaires"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="update"/>
         <documentation value="SHALL. Allows existing value sets referenced by one or more questionnaires to be maintained"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="validate"/>
         <documentation value="SHOULD. Allows verification that a value set is valid prior to submission - useful for some workflows."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="delete"/>
         <documentation value="MAY. Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
         <!-- Should we include this in the conformance statement at all? -->
-      </operation>
+      </interaction>
       <searchInclude value="ValueSet.compose.import"/>
       <searchParam>
         <name value="code"/>

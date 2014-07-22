@@ -10,7 +10,7 @@
     </type>
     <subtype>
       <coding>
-        <system value="http://hl7.org/fhir/restful-operation"/>
+        <system value="http://hl7.org/fhir/restful-interaction"/>
         <code value="vread"/>
         <display value="vread"/>
       </coding>

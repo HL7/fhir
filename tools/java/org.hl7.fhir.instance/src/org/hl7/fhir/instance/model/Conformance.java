@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 7, 2014 07:04+1000 for FHIR v0.2.1
+// Generated on Tue, Jul 22, 2014 14:59+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -130,7 +130,7 @@ public class Conformance extends Resource {
       }
     }
 
-    public enum TypeRestfulOperation {
+    public enum TypeRestfulInteraction {
         read, // 
         vread, // 
         update, // 
@@ -141,7 +141,7 @@ public class Conformance extends Resource {
         create, // 
         searchtype, // 
         Null; // added to help the parsers
-        public static TypeRestfulOperation fromCode(String codeString) throws Exception {
+        public static TypeRestfulInteraction fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("read".equals(codeString))
@@ -162,7 +162,7 @@ public class Conformance extends Resource {
           return create;
         if ("search-type".equals(codeString))
           return searchtype;
-        throw new Exception("Unknown TypeRestfulOperation code '"+codeString+"'");
+        throw new Exception("Unknown TypeRestfulInteraction code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -180,49 +180,49 @@ public class Conformance extends Resource {
         }
     }
 
-  public static class TypeRestfulOperationEnumFactory implements EnumFactory {
+  public static class TypeRestfulInteractionEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("read".equals(codeString))
-          return TypeRestfulOperation.read;
+          return TypeRestfulInteraction.read;
         if ("vread".equals(codeString))
-          return TypeRestfulOperation.vread;
+          return TypeRestfulInteraction.vread;
         if ("update".equals(codeString))
-          return TypeRestfulOperation.update;
+          return TypeRestfulInteraction.update;
         if ("delete".equals(codeString))
-          return TypeRestfulOperation.delete;
+          return TypeRestfulInteraction.delete;
         if ("history-instance".equals(codeString))
-          return TypeRestfulOperation.historyinstance;
+          return TypeRestfulInteraction.historyinstance;
         if ("validate".equals(codeString))
-          return TypeRestfulOperation.validate;
+          return TypeRestfulInteraction.validate;
         if ("history-type".equals(codeString))
-          return TypeRestfulOperation.historytype;
+          return TypeRestfulInteraction.historytype;
         if ("create".equals(codeString))
-          return TypeRestfulOperation.create;
+          return TypeRestfulInteraction.create;
         if ("search-type".equals(codeString))
-          return TypeRestfulOperation.searchtype;
-        throw new Exception("Unknown TypeRestfulOperation code '"+codeString+"'");
+          return TypeRestfulInteraction.searchtype;
+        throw new Exception("Unknown TypeRestfulInteraction code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == TypeRestfulOperation.read)
+      if (code == TypeRestfulInteraction.read)
         return "read";
-      if (code == TypeRestfulOperation.vread)
+      if (code == TypeRestfulInteraction.vread)
         return "vread";
-      if (code == TypeRestfulOperation.update)
+      if (code == TypeRestfulInteraction.update)
         return "update";
-      if (code == TypeRestfulOperation.delete)
+      if (code == TypeRestfulInteraction.delete)
         return "delete";
-      if (code == TypeRestfulOperation.historyinstance)
+      if (code == TypeRestfulInteraction.historyinstance)
         return "history-instance";
-      if (code == TypeRestfulOperation.validate)
+      if (code == TypeRestfulInteraction.validate)
         return "validate";
-      if (code == TypeRestfulOperation.historytype)
+      if (code == TypeRestfulInteraction.historytype)
         return "history-type";
-      if (code == TypeRestfulOperation.create)
+      if (code == TypeRestfulInteraction.create)
         return "create";
-      if (code == TypeRestfulOperation.searchtype)
+      if (code == TypeRestfulInteraction.searchtype)
         return "search-type";
       return "?";
       }
@@ -310,12 +310,12 @@ public class Conformance extends Resource {
       }
     }
 
-    public enum SystemRestfulOperation {
+    public enum SystemRestfulInteraction {
         transaction, // 
         searchsystem, // 
         historysystem, // 
         Null; // added to help the parsers
-        public static SystemRestfulOperation fromCode(String codeString) throws Exception {
+        public static SystemRestfulInteraction fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("transaction".equals(codeString))
@@ -324,7 +324,7 @@ public class Conformance extends Resource {
           return searchsystem;
         if ("history-system".equals(codeString))
           return historysystem;
-        throw new Exception("Unknown SystemRestfulOperation code '"+codeString+"'");
+        throw new Exception("Unknown SystemRestfulInteraction code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -336,25 +336,25 @@ public class Conformance extends Resource {
         }
     }
 
-  public static class SystemRestfulOperationEnumFactory implements EnumFactory {
+  public static class SystemRestfulInteractionEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("transaction".equals(codeString))
-          return SystemRestfulOperation.transaction;
+          return SystemRestfulInteraction.transaction;
         if ("search-system".equals(codeString))
-          return SystemRestfulOperation.searchsystem;
+          return SystemRestfulInteraction.searchsystem;
         if ("history-system".equals(codeString))
-          return SystemRestfulOperation.historysystem;
-        throw new Exception("Unknown SystemRestfulOperation code '"+codeString+"'");
+          return SystemRestfulInteraction.historysystem;
+        throw new Exception("Unknown SystemRestfulInteraction code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == SystemRestfulOperation.transaction)
+      if (code == SystemRestfulInteraction.transaction)
         return "transaction";
-      if (code == SystemRestfulOperation.searchsystem)
+      if (code == SystemRestfulInteraction.searchsystem)
         return "search-system";
-      if (code == SystemRestfulOperation.historysystem)
+      if (code == SystemRestfulInteraction.historysystem)
         return "history-system";
       return "?";
       }
@@ -771,7 +771,7 @@ public class Conformance extends Resource {
         /**
          * A specification of restful operations supported by the system.
          */
-        protected List<ConformanceRestOperationComponent> operation = new ArrayList<ConformanceRestOperationComponent>();
+        protected List<SystemInteractionComponent> interaction = new ArrayList<SystemInteractionComponent>();
 
         /**
          * Definition of a named query and its parameters and their meaning.
@@ -783,7 +783,7 @@ public class Conformance extends Resource {
          */
         protected List<Uri> documentMailbox = new ArrayList<Uri>();
 
-        private static final long serialVersionUID = 2080191569L;
+        private static final long serialVersionUID = -1819763648L;
 
       public ConformanceRestComponent() {
         super();
@@ -895,19 +895,19 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return {@link #operation} (A specification of restful operations supported by the system.)
+         * @return {@link #interaction} (A specification of restful operations supported by the system.)
          */
-        public List<ConformanceRestOperationComponent> getOperation() { 
-          return this.operation;
+        public List<SystemInteractionComponent> getInteraction() { 
+          return this.interaction;
         }
 
     // syntactic sugar
         /**
-         * @return {@link #operation} (A specification of restful operations supported by the system.)
+         * @return {@link #interaction} (A specification of restful operations supported by the system.)
          */
-        public ConformanceRestOperationComponent addOperation() { 
-          ConformanceRestOperationComponent t = new ConformanceRestOperationComponent();
-          this.operation.add(t);
+        public SystemInteractionComponent addInteraction() { 
+          SystemInteractionComponent t = new SystemInteractionComponent();
+          this.interaction.add(t);
           return t;
         }
 
@@ -971,7 +971,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("documentation", "string", "Information about the system's restful capabilities that apply across all applications, such as security.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("security", "", "Information about security of implementation.", 0, java.lang.Integer.MAX_VALUE, security));
           childrenList.add(new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
-          childrenList.add(new Property("operation", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, operation));
+          childrenList.add(new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction));
           childrenList.add(new Property("query", "", "Definition of a named query and its parameters and their meaning.", 0, java.lang.Integer.MAX_VALUE, query));
           childrenList.add(new Property("documentMailbox", "uri", "A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this purpose.", 0, java.lang.Integer.MAX_VALUE, documentMailbox));
         }
@@ -984,9 +984,9 @@ public class Conformance extends Resource {
         dst.resource = new ArrayList<ConformanceRestResourceComponent>();
         for (ConformanceRestResourceComponent i : resource)
           dst.resource.add(i.copy());
-        dst.operation = new ArrayList<ConformanceRestOperationComponent>();
-        for (ConformanceRestOperationComponent i : operation)
-          dst.operation.add(i.copy());
+        dst.interaction = new ArrayList<SystemInteractionComponent>();
+        for (SystemInteractionComponent i : interaction)
+          dst.interaction.add(i.copy());
         dst.query = new ArrayList<ConformanceRestQueryComponent>();
         for (ConformanceRestQueryComponent i : query)
           dst.query.add(i.copy());
@@ -1277,7 +1277,7 @@ public class Conformance extends Resource {
         /**
          * Identifies a restful operation supported by the solution.
          */
-        protected List<ConformanceRestResourceOperationComponent> operation = new ArrayList<ConformanceRestResourceOperationComponent>();
+        protected List<ResourceInteractionComponent> interaction = new ArrayList<ResourceInteractionComponent>();
 
         /**
          * A flag for whether the server is able to return past versions as part of the vRead operation.
@@ -1299,7 +1299,7 @@ public class Conformance extends Resource {
          */
         protected List<ConformanceRestResourceSearchParamComponent> searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
 
-        private static final long serialVersionUID = -2082612240L;
+        private static final long serialVersionUID = -1573207965L;
 
       public ConformanceRestResourceComponent() {
         super();
@@ -1373,19 +1373,19 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return {@link #operation} (Identifies a restful operation supported by the solution.)
+         * @return {@link #interaction} (Identifies a restful operation supported by the solution.)
          */
-        public List<ConformanceRestResourceOperationComponent> getOperation() { 
-          return this.operation;
+        public List<ResourceInteractionComponent> getInteraction() { 
+          return this.interaction;
         }
 
     // syntactic sugar
         /**
-         * @return {@link #operation} (Identifies a restful operation supported by the solution.)
+         * @return {@link #interaction} (Identifies a restful operation supported by the solution.)
          */
-        public ConformanceRestResourceOperationComponent addOperation() { 
-          ConformanceRestResourceOperationComponent t = new ConformanceRestResourceOperationComponent();
-          this.operation.add(t);
+        public ResourceInteractionComponent addInteraction() { 
+          ResourceInteractionComponent t = new ResourceInteractionComponent();
+          this.interaction.add(t);
           return t;
         }
 
@@ -1519,7 +1519,7 @@ public class Conformance extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "A type of resource exposed via the restful interface.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("profile", "Resource(Profile)", "A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.", 0, java.lang.Integer.MAX_VALUE, profile));
-          childrenList.add(new Property("operation", "", "Identifies a restful operation supported by the solution.", 0, java.lang.Integer.MAX_VALUE, operation));
+          childrenList.add(new Property("interaction", "", "Identifies a restful operation supported by the solution.", 0, java.lang.Integer.MAX_VALUE, interaction));
           childrenList.add(new Property("readHistory", "boolean", "A flag for whether the server is able to return past versions as part of the vRead operation.", 0, java.lang.Integer.MAX_VALUE, readHistory));
           childrenList.add(new Property("updateCreate", "boolean", "A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.", 0, java.lang.Integer.MAX_VALUE, updateCreate));
           childrenList.add(new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude));
@@ -1530,9 +1530,9 @@ public class Conformance extends Resource {
         ConformanceRestResourceComponent dst = new ConformanceRestResourceComponent();
         dst.type = type == null ? null : type.copy();
         dst.profile = profile == null ? null : profile.copy();
-        dst.operation = new ArrayList<ConformanceRestResourceOperationComponent>();
-        for (ConformanceRestResourceOperationComponent i : operation)
-          dst.operation.add(i.copy());
+        dst.interaction = new ArrayList<ResourceInteractionComponent>();
+        for (ResourceInteractionComponent i : interaction)
+          dst.interaction.add(i.copy());
         dst.readHistory = readHistory == null ? null : readHistory.copy();
         dst.updateCreate = updateCreate == null ? null : updateCreate.copy();
         dst.searchInclude = new ArrayList<String_>();
@@ -1546,24 +1546,24 @@ public class Conformance extends Resource {
 
   }
 
-    public static class ConformanceRestResourceOperationComponent extends BackboneElement {
+    public static class ResourceInteractionComponent extends BackboneElement {
         /**
          * Coded identifier of the operation, supported by the system resource.
          */
-        protected Enumeration<TypeRestfulOperation> code;
+        protected Enumeration<TypeRestfulInteraction> code;
 
         /**
          * Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
         protected String_ documentation;
 
-        private static final long serialVersionUID = 1478000140L;
+        private static final long serialVersionUID = -1540898431L;
 
-      public ConformanceRestResourceOperationComponent() {
+      public ResourceInteractionComponent() {
         super();
       }
 
-      public ConformanceRestResourceOperationComponent(Enumeration<TypeRestfulOperation> code) {
+      public ResourceInteractionComponent(Enumeration<TypeRestfulInteraction> code) {
         super();
         this.code = code;
       }
@@ -1571,14 +1571,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #code} (Coded identifier of the operation, supported by the system resource.)
          */
-        public Enumeration<TypeRestfulOperation> getCode() { 
+        public Enumeration<TypeRestfulInteraction> getCode() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (Coded identifier of the operation, supported by the system resource.)
          */
-        public ConformanceRestResourceOperationComponent setCode(Enumeration<TypeRestfulOperation> value) { 
+        public ResourceInteractionComponent setCode(Enumeration<TypeRestfulInteraction> value) { 
           this.code = value;
           return this;
         }
@@ -1586,16 +1586,16 @@ public class Conformance extends Resource {
         /**
          * @return Coded identifier of the operation, supported by the system resource.
          */
-        public TypeRestfulOperation getCodeSimple() { 
+        public TypeRestfulInteraction getCodeSimple() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value Coded identifier of the operation, supported by the system resource.
          */
-        public ConformanceRestResourceOperationComponent setCodeSimple(TypeRestfulOperation value) { 
+        public ResourceInteractionComponent setCodeSimple(TypeRestfulInteraction value) { 
             if (this.code == null)
-              this.code = new Enumeration<TypeRestfulOperation>();
+              this.code = new Enumeration<TypeRestfulInteraction>();
             this.code.setValue(value);
           return this;
         }
@@ -1610,7 +1610,7 @@ public class Conformance extends Resource {
         /**
          * @param value {@link #documentation} (Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.)
          */
-        public ConformanceRestResourceOperationComponent setDocumentation(String_ value) { 
+        public ResourceInteractionComponent setDocumentation(String_ value) { 
           this.documentation = value;
           return this;
         }
@@ -1625,7 +1625,7 @@ public class Conformance extends Resource {
         /**
          * @param value Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
-        public ConformanceRestResourceOperationComponent setDocumentationSimple(String value) { 
+        public ResourceInteractionComponent setDocumentationSimple(String value) { 
           if (value == null)
             this.documentation = null;
           else {
@@ -1642,8 +1642,8 @@ public class Conformance extends Resource {
           childrenList.add(new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
-      public ConformanceRestResourceOperationComponent copy() {
-        ConformanceRestResourceOperationComponent dst = new ConformanceRestResourceOperationComponent();
+      public ResourceInteractionComponent copy() {
+        ResourceInteractionComponent dst = new ResourceInteractionComponent();
         dst.code = code == null ? null : code.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         return dst;
@@ -1931,24 +1931,24 @@ public class Conformance extends Resource {
 
   }
 
-    public static class ConformanceRestOperationComponent extends BackboneElement {
+    public static class SystemInteractionComponent extends BackboneElement {
         /**
          * A coded identifier of the operation, supported by the system.
          */
-        protected Enumeration<SystemRestfulOperation> code;
+        protected Enumeration<SystemRestfulInteraction> code;
 
         /**
          * Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
          */
         protected String_ documentation;
 
-        private static final long serialVersionUID = 234115255L;
+        private static final long serialVersionUID = 1381602668L;
 
-      public ConformanceRestOperationComponent() {
+      public SystemInteractionComponent() {
         super();
       }
 
-      public ConformanceRestOperationComponent(Enumeration<SystemRestfulOperation> code) {
+      public SystemInteractionComponent(Enumeration<SystemRestfulInteraction> code) {
         super();
         this.code = code;
       }
@@ -1956,14 +1956,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #code} (A coded identifier of the operation, supported by the system.)
          */
-        public Enumeration<SystemRestfulOperation> getCode() { 
+        public Enumeration<SystemRestfulInteraction> getCode() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (A coded identifier of the operation, supported by the system.)
          */
-        public ConformanceRestOperationComponent setCode(Enumeration<SystemRestfulOperation> value) { 
+        public SystemInteractionComponent setCode(Enumeration<SystemRestfulInteraction> value) { 
           this.code = value;
           return this;
         }
@@ -1971,16 +1971,16 @@ public class Conformance extends Resource {
         /**
          * @return A coded identifier of the operation, supported by the system.
          */
-        public SystemRestfulOperation getCodeSimple() { 
+        public SystemRestfulInteraction getCodeSimple() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value A coded identifier of the operation, supported by the system.
          */
-        public ConformanceRestOperationComponent setCodeSimple(SystemRestfulOperation value) { 
+        public SystemInteractionComponent setCodeSimple(SystemRestfulInteraction value) { 
             if (this.code == null)
-              this.code = new Enumeration<SystemRestfulOperation>();
+              this.code = new Enumeration<SystemRestfulInteraction>();
             this.code.setValue(value);
           return this;
         }
@@ -1995,7 +1995,7 @@ public class Conformance extends Resource {
         /**
          * @param value {@link #documentation} (Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.)
          */
-        public ConformanceRestOperationComponent setDocumentation(String_ value) { 
+        public SystemInteractionComponent setDocumentation(String_ value) { 
           this.documentation = value;
           return this;
         }
@@ -2010,7 +2010,7 @@ public class Conformance extends Resource {
         /**
          * @param value Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
          */
-        public ConformanceRestOperationComponent setDocumentationSimple(String value) { 
+        public SystemInteractionComponent setDocumentationSimple(String value) { 
           if (value == null)
             this.documentation = null;
           else {
@@ -2027,8 +2027,8 @@ public class Conformance extends Resource {
           childrenList.add(new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
-      public ConformanceRestOperationComponent copy() {
-        ConformanceRestOperationComponent dst = new ConformanceRestOperationComponent();
+      public SystemInteractionComponent copy() {
+        SystemInteractionComponent dst = new SystemInteractionComponent();
         dst.code = code == null ? null : code.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         return dst;

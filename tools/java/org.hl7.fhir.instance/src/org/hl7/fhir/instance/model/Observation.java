@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jul 7, 2014 07:04+1000 for FHIR v0.2.1
+// Generated on Tue, Jul 22, 2014 14:59+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -1003,7 +1003,7 @@ public class Observation extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("name", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|dateTime|Period|SampledData|string", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
+        childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|dateTime|Period|SampledData|string|time", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));
         childrenList.add(new Property("applies[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the 'physiologically relevant time'. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, applies));

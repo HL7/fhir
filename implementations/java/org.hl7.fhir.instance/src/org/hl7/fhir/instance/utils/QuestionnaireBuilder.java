@@ -21,6 +21,7 @@ import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionnaireStatus;
 import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
@@ -201,11 +202,14 @@ public class QuestionnaireBuilder {
     group.setRequiredSimple(element.getDefinition().getMin().getValue() > 0);
     group.setRepeatsSimple(!element.getDefinition().getMax().getValue().equals("1"));
 
-    if (element.getDefinition().getType().size() != 1)
-    	throw new Exception("Multiple types not handled yet");
+    if (element.getDefinition().getType().size() == 1) {
+      //    	throw new Exception("Multiple types not handled yet");
     
     // no we have to build the question panel for each different data type
     TypeRefComponent type = element.getDefinition().getType().get(0);
+      if (type.getCodeSimple().equals("*"))
+        return;
+      
     if (type.getCodeSimple().equals("code"))
       addCodeQuestions(group, element);
     else if (type.getCodeSimple().equals("string") || type.getCodeSimple().equals("id") || type.getCodeSimple().equals("oid"))
@@ -242,9 +246,56 @@ public class QuestionnaireBuilder {
       addQuantityQuestions(group, element);
     else if (type.getCodeSimple().equals("ResourceReference"))
     	addReferenceQuestions(group, element);
+      else if (type.getCodeSimple().equals("idref"))
+        addIdRefQuestions(group, element);
+      else if (type.getCodeSimple().equals("Duration"))
+        addDurationQuestions(group, element);
+      else if (type.getCodeSimple().equals("base64Binary"))
+        addBinaryQuestions(group, element);
+      else if (type.getCodeSimple().equals("Attachment"))
+        addAttachmentQuestions(group, element);
+      else if (type.getCodeSimple().equals("Range"))
+        addRangeQuestions(group, element);
+      else if (type.getCodeSimple().equals("Schedule"))
+        addScheduleQuestions(group, element);
+      else if (type.getCodeSimple().equals("Extension"))
+        addExtensionQuestions(group, element);
     else 
     	throw new Exception("Unhandled Data Type: "+type.getCodeSimple()+" on element "+element.getPathSimple());
   }
+  }
+
+	private void addExtensionQuestions(GroupComponent group, ElementComponent element) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  private void addRangeQuestions(GroupComponent group, ElementComponent element) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  private void addScheduleQuestions(GroupComponent group, ElementComponent element) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  private void addDurationQuestions(GroupComponent group, ElementComponent element) {
+    
+  }
+
+  private void addAttachmentQuestions(GroupComponent group, ElementComponent element) {
+    
+  }
+
+  private void addBinaryQuestions(GroupComponent group, ElementComponent element) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  private void addIdRefQuestions(GroupComponent group, ElementComponent element) {
+	  
+	}
 
 	private void addCodeableConceptQuestions(GroupComponent group, ElementComponent element) {
 		addQuestion(group, AnswerFormat.string, "text", "text:");		
@@ -345,6 +396,9 @@ public class QuestionnaireBuilder {
   }
 
 	private ResourceReference getValueSet(ElementComponent element) {
+	  if (element == null|| element.getDefinition() == null || element.getDefinition().getBinding() == null || element.getDefinition().getBinding().getReference() instanceof Uri)
+	    return null;
+	  else
 	  return (ResourceReference) element.getDefinition().getBinding().getReference();
   }
 

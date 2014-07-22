@@ -117,14 +117,14 @@ import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
-import org.hl7.fhir.instance.model.Conformance.ConformanceRestOperationComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
-import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceOperationComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceSearchParamComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceStatementStatus;
+import org.hl7.fhir.instance.model.Conformance.ResourceInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.RestfulConformanceMode;
-import org.hl7.fhir.instance.model.Conformance.SystemRestfulOperation;
-import org.hl7.fhir.instance.model.Conformance.TypeRestfulOperation;
+import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
+import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
+import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Factory;
@@ -652,9 +652,9 @@ public class Publisher {
       conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the none of the functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from. A conformance profile has to contain something, so this contains a read of a Conformance Statement");
     }
     if (full) {
-      genConfOp(conf, rest, SystemRestfulOperation.transaction);
-      genConfOp(conf, rest, SystemRestfulOperation.historysystem);
-      genConfOp(conf, rest, SystemRestfulOperation.searchsystem);
+      genConfOp(conf, rest, SystemRestfulInteraction.transaction);
+      genConfOp(conf, rest, SystemRestfulInteraction.historysystem);
+      genConfOp(conf, rest, SystemRestfulInteraction.searchsystem);
 
       for (String rn : page.getDefinitions().sortedResourceNames()) {
         ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
@@ -662,15 +662,15 @@ public class Publisher {
         rest.getResource().add(res);
         res.setTypeSimple(rn);
         res.setProfile(Factory.makeResourceReference("http://hl7.org/fhir/" + rn));
-        genConfOp(conf, res, TypeRestfulOperation.read);
-        genConfOp(conf, res, TypeRestfulOperation.vread);
-        genConfOp(conf, res, TypeRestfulOperation.update);
-        genConfOp(conf, res, TypeRestfulOperation.delete);
-        genConfOp(conf, res, TypeRestfulOperation.historyinstance);
-        genConfOp(conf, res, TypeRestfulOperation.validate);
-        genConfOp(conf, res, TypeRestfulOperation.historytype);
-        genConfOp(conf, res, TypeRestfulOperation.create);
-        genConfOp(conf, res, TypeRestfulOperation.searchtype);
+        genConfOp(conf, res, TypeRestfulInteraction.read);
+        genConfOp(conf, res, TypeRestfulInteraction.vread);
+        genConfOp(conf, res, TypeRestfulInteraction.update);
+        genConfOp(conf, res, TypeRestfulInteraction.delete);
+        genConfOp(conf, res, TypeRestfulInteraction.historyinstance);
+        genConfOp(conf, res, TypeRestfulInteraction.validate);
+        genConfOp(conf, res, TypeRestfulInteraction.historytype);
+        genConfOp(conf, res, TypeRestfulInteraction.create);
+        genConfOp(conf, res, TypeRestfulInteraction.searchtype);
 
         for (SearchParameter i : rd.getSearchParams().values()) {
           res.getSearchParam().add(makeSearchParam(conf, rn, i));
@@ -680,7 +680,7 @@ public class Publisher {
       ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
       rest.getResource().add(res);
       res.setTypeSimple("Conformance");
-      genConfOp(conf, res, TypeRestfulOperation.read);
+      genConfOp(conf, res, TypeRestfulInteraction.read);
     }
 
     NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
@@ -727,16 +727,16 @@ public class Publisher {
     return null;
   }
 
-  private void genConfOp(Conformance conf, ConformanceRestResourceComponent res, TypeRestfulOperation op) {
-    ConformanceRestResourceOperationComponent t = new Conformance.ConformanceRestResourceOperationComponent();
+  private void genConfOp(Conformance conf, ConformanceRestResourceComponent res, TypeRestfulInteraction op) {
+    ResourceInteractionComponent t = new ResourceInteractionComponent();
     t.setCodeSimple(op);
-    res.getOperation().add(t);
+    res.getInteraction().add(t);
   }
 
-  private void genConfOp(Conformance conf, ConformanceRestComponent res, SystemRestfulOperation op) {
-    ConformanceRestOperationComponent t = new Conformance.ConformanceRestOperationComponent();
+  private void genConfOp(Conformance conf, ConformanceRestComponent res, SystemRestfulInteraction op) {
+    SystemInteractionComponent t = new SystemInteractionComponent();
     t.setCodeSimple(op);
-    res.getOperation().add(t);
+    res.getInteraction().add(t);
   }
 
   private IniFile ini;

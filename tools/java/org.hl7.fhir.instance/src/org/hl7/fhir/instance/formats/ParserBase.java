@@ -98,6 +98,10 @@ public abstract class ParserBase extends FormatUtilities {
     return new DateAndTime(value);
   }
 
+  protected String parseTimePrimitive(String value) throws ParseException {
+    return value;
+  }
+
   protected BigDecimal parseDecimalPrimitive(BigDecimal value) {
     return value;
   }

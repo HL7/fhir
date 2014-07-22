@@ -21,7 +21,6 @@
   <WindowTopX>19305</WindowTopX>
   <WindowTopY>75</WindowTopY>
   <TabRatio>651</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -543,22 +542,23 @@
     <Cell ss:Index="12"><Data ss:Type="String">The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Conformance.rest.resource.operation</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest.resource.interaction</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">=ResourceInteraction</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">-20;560</Data></Cell>
     <Cell><Data ss:Type="String">What operations are supported?</Data></Cell>
     <Cell><Data ss:Type="String">Identifies a restful operation supported by the solution</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Conformance.rest.resource.operation.code</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest.resource.interaction.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">RestfulOperationType</Data></Cell>
+    <Cell><Data ss:Type="String">TypeRestfulInteraction</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">read | vread | update | delete | history-instance | validate | history-type | create | search-type</Data></Cell>
     <Cell><Data ss:Type="String">Coded identifier of the operation, supported by the system resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">Conformance.rest.resource.operation.documentation</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest.resource.interaction.documentation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Anything special about operation behavior</Data></Cell>
@@ -710,22 +710,23 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Conformance.rest.operation</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest.interaction</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">=SystemInteraction</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">-20;430</Data></Cell>
     <Cell><Data ss:Type="String">What operations are supported?</Data></Cell>
     <Cell><Data ss:Type="String">A specification of restful operations supported by the system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Conformance.rest.operation.code</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest.interaction.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">RestfulOperationSystem</Data></Cell>
+    <Cell><Data ss:Type="String">SystemRestfulInteraction</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">transaction | search-system | history-system</Data></Cell>
     <Cell><Data ss:Type="String">A coded identifier of the operation, supported by the system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Conformance.rest.operation.documentation</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance.rest.interaction.documentation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Anything special about operation behavior</Data></Cell>
@@ -1044,6 +1045,7 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1064,8 +1066,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>45</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>48</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1379,16 +1381,16 @@
     <Cell><Data ss:Type="String">#restful-security-service</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">RestfulOperationType</Data></Cell>
+    <Cell><Data ss:Type="String">TypeRestfulInteraction</Data></Cell>
     <Cell><Data ss:Type="String">Operations supported by REST at the type or instance level</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell><Data ss:Type="String">#type-restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">#type-restful-interaction</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">RestfulOperationSystem</Data></Cell>
+    <Cell><Data ss:Type="String">SystemRestfulInteraction</Data></Cell>
     <Cell><Data ss:Type="String">Operations supported by REST at the system level</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell><Data ss:Type="String">#system-restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">#system-restful-interaction</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="18">
     <Cell><Data ss:Type="String">ConformanceEventMode</Data></Cell>
@@ -1443,8 +1445,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1541,7 +1542,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1561,6 +1561,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>14</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1622,7 +1623,7 @@
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="type-restful-operation">
+ <Worksheet ss:Name="type-restful-interaction">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="64.5" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="222"/>
@@ -1632,43 +1633,43 @@
     <Cell><Data ss:Type="String">Code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">read</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">vread</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell><Data ss:Type="String">update</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell><Data ss:Type="String">delete</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell><Data ss:Type="String">history-instance</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell><Data ss:Type="String">validate</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell><Data ss:Type="String">history-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell><Data ss:Type="String">create</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell><Data ss:Type="String">search-type</Data></Cell>
    </Row>
   </Table>
@@ -1705,8 +1706,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1714,7 +1715,7 @@
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="system-restful-operation">
+ <Worksheet ss:Name="system-restful-interaction">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="64.5" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="222"/>
@@ -1724,19 +1725,19 @@
     <Cell><Data ss:Type="String">Code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">transaction</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">search-system</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-operation</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/restful-interaction</Data></Cell>
     <Cell><Data ss:Type="String">history-system</Data></Cell>
    </Row>
   </Table>

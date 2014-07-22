@@ -50,23 +50,23 @@
     <resource>
       <!-- patient resource: read and search for patients the authenticated user has access too -->
       <type value="Patient"/>
-      <operation>
+      <interaction>
         <code value="read"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="search-type"/>
         <documentation value="When a client searches patients with no search criteria, they get a list of all patients they have access too. Servers may elect to offer additional search parameters, but this is not required"/>
-      </operation>
+      </interaction>
     </resource>
     <resource>
       <!-- document reference resource: read and search  -->
       <type value="DocumentReference"/>
-      <operation>
+      <interaction>
         <code value="read"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="search-type"/>
-      </operation>
+      </interaction>
       <searchParam>
         <name value="_id"/>
         <type value="token"/>
@@ -78,12 +78,12 @@
     <resource>
       <!-- Condition - let the patient see a list of their Conditions -->
       <type value="Condition"/>
-      <operation>
+      <interaction>
         <code value="read"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="search-type"/>
-      </operation>
+      </interaction>
       <searchParam>
         <name value="_id"/>
         <type value="token"/>
@@ -94,12 +94,12 @@
     <resource>
       <!-- Diagnostic Reports - can be lots of these, so we'll suggest that at least service category should be supported as a search criteria -->
       <type value="DiagnosticReport"/>
-      <operation>
+      <interaction>
         <code value="read"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="search-type"/>
-      </operation>
+      </interaction>
       <searchParam>
         <name value="_id"/>
         <type value="token"/>

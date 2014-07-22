@@ -23,30 +23,30 @@
       <profile>
         <reference value="http://hl7.org/fhir/Profile/dataelement-sdc"/>
       </profile>
-      <operation>
+      <interaction>
         <code value="search-type"/>
         <documentation value="SHALL.  Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="create"/>
         <documentation value="SHALL. Allows recording a completed or partially-completed form"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="update"/>
         <documentation value="SHALL. Allows updating an existing completed or partially-completed form.  (Systems may place rules on who can update forms and under what circumstances.)"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="delete"/>
         <documentation value="SHALL. Allows removal of a completed form from a repository.  Note that the removal may be logical rather than physical.  Some systems may have rules for who can remove a completed form and under what circumstances."/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="history-instance"/>
         <documentation value="SHALL. Allows review of prior versions of an answer set - allows reversion to previously recorded versions"/>
-      </operation>
-      <operation>
+      </interaction>
+      <interaction>
         <code value="validate"/>
         <documentation value="SHALL. Allows checking an answer set for validity against submission rules without persisting any data"/>
-      </operation>
+      </interaction>
       <searchInclude value="QuestionnaireAnswers.questionnaire"/>
       <searchInclude value="Questionnaire.group.question.options"/>
       <searchParam>

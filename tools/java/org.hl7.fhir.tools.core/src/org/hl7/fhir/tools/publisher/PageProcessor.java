@@ -1866,7 +1866,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           if ("http://loinc.org".equals(uri)) n = "LOINC";
           if ("http://nema.org/dicom/dcid".equals(uri)) n = "DICOM";
           if ("http://hl7.org/fhir/resource-types".equals(uri)) n = "FHIR";
-          if ("http://hl7.org/fhir/restful-operation".equals(uri)) n = "FHIR";
+          if ("http://hl7.org/fhir/restful-interaction".equals(uri)) n = "FHIR";
           if ("http://unitsofmeasure.org".equals(uri)) n = "FHIR";
           if (uri.startsWith("http://hl7.org/fhir/v3/"))  n = "V3";
           if (uri.startsWith("http://hl7.org/fhir/v2/"))  n = "V2";
