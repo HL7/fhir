@@ -29,10 +29,10 @@ It's also possible (though a little unlikely) that a server will be required to 
 these operations. Should this be the case, the server is able to do this by giving on of them
 a new name, and then referring to it by definition in the conformance statement. To illustrate
 this, let's assume that two different organisations (orgA and orgB) both define an operation 
-called "dothis", and the definitions are incompatible. OrgA publishes it's operation
-definition at http://orga.com/fhir/dothis.xml, and OrgB publishes it's operation at 
+called "dothis", and the definitions are incompatible. OrgA publishes its operation
+definition at http://orga.com/fhir/dothis.xml, and OrgB publishes its operation at 
 http://fhir.orgb.com/meta/OperationDefinition/dothis. The server is able to implement
-both. It's conformance statement will say:
+both. Its conformance statement will say:
 </p>
 <pre class="xml">
 &lt;Conformance xmlns=&quot;http://hl7.org/fhir&quot;&gt;
@@ -67,7 +67,7 @@ definition URI, and then execute the name given in the conformance statement.
 <h3>Determining System Compatibility</h3>
 
 <p>
-A client can determine the compatiblity of the server by iterating it's conformance
+A client can determine the compatiblity of the server by iterating its conformance
 statement and seeing whether any of the operations it declares to support source
 from the same definitions as those the client depends on, and whether the paramters
 it uses are supported by the server. A client that does this can report a useful 
@@ -76,19 +76,19 @@ error to the user rather than allowing mystifying operational errors to occur.
 <p>
 Note, however, that there are fundamental limitations to this approach because 
 there are many aspects of these operations that aren't (and can't be) defined 
-in a formal fashion. 
+in a formal fashion.  (For example, co-occurrence constraints amongst parameters.)
 </p>
 <p>
-In the same sense, a 3rd party tool can examine the conformnce statements from 
-a server, and a client definition of an acceptable server, and conform whether
-they are unable to interoperate.
+In the same sense, a 3rd party tool can examine the conformance statements from 
+a server and a client definition of an acceptable server and confirm whether
+those two system are would be unable to interoperate.
 </p>
 
 <h3>Dynamically Generating Forms</h3>
 
 <p>
-Finally, it is possible to generate user interface forms autoamtically from 
-the operation definitions, and the documentation in the form definition 
+Finally, it is possible to generate user interface forms automatically from 
+the operation definitions. The documentation in the form definition 
 and the parameter documentation should be sufficiently useful to allow
 moderately technical users to guess at the correct content of the form.
 For this reason, highly technical documentation should go in OperationDefinition.notes.
