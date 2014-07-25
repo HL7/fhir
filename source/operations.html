@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-[%settitle Operations on the RESTful API%]
+[%settitle Extended Operations on the RESTful API%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -12,16 +12,16 @@
 <div class="col-9">
 
 <a name="base"> </a>
-<h2>Operations on the RESTful API</h2>
+<h2>Extended Operations on the RESTful API</h2>
 
 <p>
-The <a href="http.html">RESTful API</a> defines a set of common operations performed on 
-a repository of typed resources. These operations follow the RESTful paradigm of 
-managing state by Create/Read/Update/Delete operations on a set of identified 
+The <a href="http.html">RESTful API</a> defines a set of common interactions performed on 
+a repository of typed resources (read, update, search, etc). These interactions follow 
+the RESTful paradigm of managing state by Create/Read/Update/Delete actions on a set of identified 
 resources. While this approach solves many use cases, there is some specific 
-functionality that can be met more efficiently using an RPC-like paradigm. 
-This specification describes an operation framework that seamlessly extends
-the RESTful API. 
+functionality that can be met more efficiently using an RPC-like paradigm,
+where named operations are performed with inputs and outputs. This specification 
+describes a light operation framework that seamlessly extends the RESTful API. 
 </p>
 <p>
 Operations have the following general properties:
@@ -48,10 +48,9 @@ This specification defines several operations:
 <%operationslist%>
 <p>
 Implementations are able to define their own operations in addition to
-those defined here. In order to minimize name clashes between operations
-defined by different implementers, implementers should prefix the operation
-name with a short code that identifies them sufficiently, such as ihe.[name].
-Formally, name clashes can be resolved by use of the <a href="conformance.html">conformance statement</a>.
+those defined here. Name clashes between operations defined 
+by different implementers can be resolved by use of the 
+<a href="conformance.html">conformance statement</a>.
 </p>
 
 <a name="defining"> </a>
@@ -137,18 +136,19 @@ in response to an operation request.
 </p>
 
 <p>
-If the result of the operation is a single resource, then the 
-body of the response will be the resource. Note that the usual
-arrangement in regard to <a href="http.html#mime-type">content types applies</a>.
-If the result of the operation is more than one resource, or a document, then the 
-server returns an atom feed as the response. 
+The result of the operation is a <a href="extras.html#bundle">bundle</a> containing 
+zero or more resources. Note that the same arrangement as the RESTful interface applies
+in regard to <a href="http.html#mime-type">content types</a>.
+</p>
+<p>
+Identifying out parameters by name....
+
 </p>
 <p>
 The resources that are returned by the operation may be 
 retained and made available in the resource repository 
 on the operation server. In that case, the server will 
-provide the identity of the resource in the content-location
-header in the response, or in the atom feed id/self link. When
+provide the identity of the resource in the bundle ientry identifiers. When
 resources that are not persisted are returned in an atom feed,
 they should be assigned a cid: identifier that will never 
 be re-used.

@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2205</WindowHeight>
+  <WindowHeight>2145</WindowHeight>
   <WindowWidth>9450</WindowWidth>
   <WindowTopX>-120</WindowTopX>
-  <WindowTopY>780</WindowTopY>
+  <WindowTopY>840</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -467,7 +467,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">0;0</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">100;0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">External specification that the content is mapped to</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -545,7 +545,7 @@
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">8</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">530;240</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">530;150</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A constraint on a resource or a data type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -664,7 +664,7 @@
     <Cell><Data ss:Type="String" x:Ticked="1">=Constraint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">450;380</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">550;320</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Snapshot view of the structure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -687,7 +687,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String" x:Ticked="1">=Element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">210;250</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">220;250</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Definition of elements in the resource (if no profile)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Captures constraints on each element within the resource</Data><NamedCell
@@ -1040,7 +1040,7 @@
     <Cell ss:Index="5" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=TypeRef</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">0;450</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">0;490</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Data type and Profile for this element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1376,7 +1376,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">12</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">460;470</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">480;390</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ValueSet details if this is coded</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1465,7 +1465,7 @@
     <Cell ss:Index="5" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">110;540</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">480;540</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Map element to another set of definitions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1544,7 +1544,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">530;90</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">530;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Search params defined</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Additional search parameters for implementations to support and/or make use of</Data><NamedCell
@@ -1901,7 +1901,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>46</TopRowBottomPane>
+   <TopRowBottomPane>58</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1918,7 +1918,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>49</ActiveRow>
+     <ActiveRow>61</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
