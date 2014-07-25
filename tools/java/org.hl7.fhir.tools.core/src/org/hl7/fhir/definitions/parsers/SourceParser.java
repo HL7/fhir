@@ -455,7 +455,9 @@ public class SourceParser {
 		prim.setDefinition(sheet.getColumn(row, "Definition"));
 		prim.setComment(sheet.getColumn(row, "Comments"));
 		prim.setSchemaType(sheet.getColumn(row, "Schema"));
-		prim.setRegEx(sheet.getColumn(row, "RegEx"));
+    prim.setRegEx(sheet.getColumn(row, "RegEx"));
+    prim.setV2(sheet.getColumn(row, "v2"));
+    prim.setV3(sheet.getColumn(row, "v3"));
 		TypeRef td = new TypeRef();
 		td.setName(prim.getCode());
 		definitions.getKnownTypes().add(td);

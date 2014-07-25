@@ -1705,7 +1705,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   private boolean typeIsPrimitive(String tn) {
     return tn.equalsIgnoreCase("uri") || tn.equalsIgnoreCase("datetime") || tn.equalsIgnoreCase("code") || tn.equalsIgnoreCase("boolean")
-        || tn.equalsIgnoreCase("integer") || tn.equalsIgnoreCase("idref") || tn.equalsIgnoreCase("instant") 
+        || tn.equalsIgnoreCase("integer") || tn.equalsIgnoreCase("idref") || tn.equalsIgnoreCase("instant") || tn.equalsIgnoreCase("time")
         || tn.equalsIgnoreCase("datetime") || tn.equalsIgnoreCase("date") || tn.equalsIgnoreCase("id") || tn.equalsIgnoreCase("oid")
         || tn.equalsIgnoreCase("decimal") || tn.equalsIgnoreCase("string") || tn.equalsIgnoreCase("base64Binary");
   }

@@ -71,6 +71,7 @@ import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
+import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
@@ -344,8 +345,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-//      else if (com[0].equals("dtheader"))
-//        src = s1+dtHeader(name, com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("dtheader"))
+        src = s1+dtHeader(com.length > 1 ? com[1] : null)+s3;
 //      else if (com[0].equals("formatsheader"))
 //        src = s1+formatsHeader(name, com.length > 1 ? com[1] : null)+s3;
 //      else if (com[0].equals("resourcesheader"))
@@ -1111,14 +1112,40 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String genDataTypeMappings(String name) throws Exception {
-    List<ElementDefn> list = new ArrayList<ElementDefn>();
-//    list.addAll(definitions.getStructures().values());
-//    list.addAll(definitions.getTypes().values());
-//    list.addAll(definitions.getInfrastructure().values());
-    list.add(definitions.getElementDefn(name));
-    MappingsGenerator maps = new MappingsGenerator(definitions);
-    maps.generate(list);
-    return maps.getMappings();
+    if (name.equals("primitives")) {
+      StringBuilder b = new StringBuilder();
+      b.append("<table class=\"grid\">\r\n");
+      b.append("<tr>");
+      b.append("<td><b>Data Type</b></td>");
+      b.append("<td><b>V2</b></td>");
+      b.append("<td><b>RIM</b></td>");
+      b.append("</tr>");
+      List<String> names = new ArrayList<String>();
+      names.addAll(definitions.getPrimitives().keySet());
+      Collections.sort(names);
+      for (String n : names) {
+        DefinedCode dc = definitions.getPrimitives().get(n);
+        if (dc instanceof PrimitiveType) {
+          PrimitiveType pt = (PrimitiveType) dc;
+          b.append("<tr>");
+          b.append("<td>"+n+"</td>");
+          b.append("<td>"+pt.getV2()+"</td>");
+          b.append("<td>"+pt.getV3()+"</td>");
+          b.append("</tr>");
+        }
+      }
+      b.append("</table>\r\n");      
+      return b.toString();
+    } else {
+      List<ElementDefn> list = new ArrayList<ElementDefn>();
+      //    list.addAll(definitions.getStructures().values());
+      //    list.addAll(definitions.getTypes().values());
+      //    list.addAll(definitions.getInfrastructure().values());
+      list.add(definitions.getElementDefn(name));
+      MappingsGenerator maps = new MappingsGenerator(definitions);
+      maps.generate(list);
+      return maps.getMappings();
+    }
   }
 
   private String resItem(String name, boolean even) throws Exception {
@@ -1533,32 +1560,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return "<div class=\"navtop\"><ul class=\"navtop\"><li class=\"spacerright\" style=\"width: 500px\"><span>&nbsp;</span></li></ul></div>\r\n";
   }
   
-//  private String dtHeader(String n, String mode) {
-//    if (n.contains("-"))
-//      n = n.substring(0, n.indexOf('-'));
-//    StringBuilder b = new StringBuilder();
-//    b.append("<div class=\"navtop\">");
-//    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
-//    if (mode == null || mode.equals("content"))
-//      b.append("<li class=\"selected\"><span>Content</span></li>");
-//    else
-//      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
-//    if ("examples".equals(mode))
-//      b.append("<li class=\"selected\"><span>Examples</span></li>");
-//    else
-//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
-//    if ("definitions".equals(mode))
-//      b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
-//    else
-//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
-//    if ("mappings".equals(mode))
-//        b.append("<li class=\"selected\"><span>Mappings</span></li>");
-//      else
-//        b.append("<li class=\"nselected\"><span><a href=\""+n+"-mappings.html\">Mappings</a></span></li>");
-//    b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
-//    b.append("</ul></div>\r\n");
-//    return b.toString();
-//  }
+  private String dtHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Data Types", "datatypes.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "datatypes-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Formal Definitions", "datatypes-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "datatypes-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
+ 
 
 //  private String resourcesHeader(String n, String mode) {
 //      if (n.contains("-"))

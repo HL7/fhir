@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2014-01-25T02:47:00Z</LastSaved>
+  <LastSaved>2014-07-21T00:45:21Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -123,7 +123,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="28" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="197.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -135,7 +135,7 @@
    <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="2"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -150,6 +150,7 @@
     <Cell><Data ss:Type="String">Comments</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">SNOMED-CT</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
@@ -164,7 +165,7 @@
     <Cell><Data ss:Type="String">Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Observation[classCode=OBS, moodCode=EVN, code=ASSERTION, value&lt;Diagnosis]</Data></Cell>
     <Cell><Data ss:Type="String">PPR message</Data></Cell>
-    <Cell><Data ss:Type="String">* Age is questionable, you might well need a range of Age or even (in practice)&#10;&#10;a text like &quot;in their teens&quot;. =&gt; new ballot comment.&#10;&#10;* Todo: discuss the applicability of assessing stages&#10;&#10;* Change the description: it is circular</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">* Age is questionable, you might well need a range of Age or even (in practice)&#10;&#10;a text like &quot;in their teens&quot;. =&gt; new ballot comment.&#10;&#10;* Todo: discuss the applicability of assessing stages&#10;&#10;* Change the description: it is circular</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Condition.identifier</Data></Cell>
@@ -178,9 +179,9 @@
     <Cell><Data ss:Type="String">This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Need to allow connection to a wider workflow</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s69"><Data ss:Type="String">.id</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s71"/>
+    <Cell ss:Index="15" ss:StyleID="s71"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:Index="17" ss:StyleID="s67"/>
+    <Cell ss:Index="18" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Condition.subject</Data></Cell>
@@ -208,6 +209,7 @@
     <Cell><Data ss:Type="String">Person who takes responsibility for asserting the existence of the condition as part of the electronic record</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.participation[typeCode=AUT].role</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">REL-7.1 identifier + REL-7.12 type code</Data></Cell>
+    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Condition.dateAsserted</Data></Cell>
@@ -227,6 +229,7 @@
     <Cell><Data ss:Type="String">Identification of the condition, problem or diagnosis. </Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.value</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PRB-3</Data></Cell>
+    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Condition.category</Data></Cell>
@@ -282,6 +285,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">Age is generally used when the patient reports an age at which the Condition began to occur</Data></Cell>
     <Cell><Data ss:Type="String">.effectiveTime.low&#10;or&#10;.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;age at onset&quot;].value</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">PRB-16</Data></Cell>
+    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="225">
     <Cell><Data ss:Type="String">Condition.abatement[x]</Data></Cell>
@@ -317,7 +321,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Formal record of assessment</Data></Cell>
     <Cell><Data ss:Type="String">Reference to a formal record of the evidence on which the staging assessment is based</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.self</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">When an assessment resource / framework is developed, this will be changed from Any to something narrower</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">When an assessment resource / framework is developed, this will be changed from Any to something narrower</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Condition.evidence</Data></Cell>
@@ -364,6 +368,7 @@
     <Cell><Data ss:Type="String">Code that identifies the structural location</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">May include laterality</Data></Cell>
     <Cell><Data ss:Type="String">.self</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">|finding site = $|</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Condition.location.detail</Data></Cell>
@@ -383,6 +388,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">Although a condition may be caused by a substance, this is not intended to be used to record allergies/adverse reactions to substances</Data></Cell>
     <Cell><Data ss:Type="String">.outboundRelationship[typeCode=RSON, SAS]</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">could infer from presence of multiple PRB segments in a PPR message that the problems are related, but not clear how to communicate the nature of the relationship</Data></Cell>
+    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Condition.relatedItem.type</Data></Cell>
@@ -420,6 +426,7 @@
     <Cell><Data ss:Type="String">Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">NTE child of PRB</Data></Cell>
+    <Cell ss:StyleID="s67"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -439,7 +446,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -452,9 +459,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

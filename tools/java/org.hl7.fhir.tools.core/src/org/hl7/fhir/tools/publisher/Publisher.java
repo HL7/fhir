@@ -411,6 +411,7 @@ public class Publisher {
       }
       if (!doAny || !(new File(page.getFolders().dstDir + "qa.html").exists()))
         buildFlags.put("all", true); // nothing - build all
+      buildFlags.put("all", true); // override partial bild until it can figured out
       cache.save();
 
       if (!buildFlags.get("all"))

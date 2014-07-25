@@ -30,6 +30,9 @@ POSSIBILITY OF SUCH DAMAGE.
 public class PrimitiveType extends DefinedCode {
 
   private String schemaType;
+  private String v2;
+  private String v3;
+  private String regEx;
 
   public PrimitiveType() {
     super();
@@ -48,7 +51,6 @@ public class PrimitiveType extends DefinedCode {
     return schemaType;
   }
 
-  private String regEx;
   
   public void setRegEx(String value)
   {
@@ -60,4 +62,20 @@ public class PrimitiveType extends DefinedCode {
 	  return regEx;
   }
 
+  public String getV2() {
+    return v2;
+  }
+
+  public void setV2(String v2) {
+    this.v2 = v2;
+  }
+
+  public String getV3() {
+    return v3;
+  }
+
+  public void setV3(String v3) {
+    this.v3 = v3;
+  }
+  
 }

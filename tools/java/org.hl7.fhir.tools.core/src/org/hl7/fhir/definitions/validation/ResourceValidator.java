@@ -187,6 +187,7 @@ public class ResourceValidator extends BaseValidator {
         name.equals("Profile") || 
         name.equals("Query") || 
         name.equals("ValueSet") ||         
+        name.equals("OperationDefinition") ||         
         name.equals("OperationOutcome");         
   }
 
