@@ -29,7 +29,7 @@ public class TableGenerator extends BaseGenerator {
   }
 
   protected boolean dictLinks() {
-    return false;
+    return pageName != null;
   }
   protected Row genElement(ElementDefn e, HeirarchicalTableGenerator gen, boolean resource, String path, boolean isProfile) throws Exception {
     Row row = gen.new Row();
@@ -47,11 +47,11 @@ public class TableGenerator extends BaseGenerator {
     } else {
       
       if (!e.getElements().isEmpty()) {
-        row.getCells().add(gen.new Cell()); 
+        row.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null)); 
         row.setIcon("icon_element.gif");
         row.getCells().add(gen.new Cell(null, null, "Element", null, null));   
       } else if (e.getTypes().size() == 1) {
-        row.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null)); // todo: invariants
+        row.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null)); 
         String t = e.getTypes().get(0).getName();
         Cell c;
         if (t.startsWith("@")) {

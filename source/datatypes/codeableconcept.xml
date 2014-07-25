@@ -21,6 +21,7 @@
   <WindowTopX>5865</WindowTopX>
   <WindowTopY>6870</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -170,7 +171,7 @@
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">Only one coding in a set can be chosen directly by the user</Data></Cell>
     <Cell><Data ss:Type="String">codings.collect(primary = true)-&gt;size() &lt;= 1</Data></Cell>
-    <Cell><Data ss:Type="String">count(f:coding[f:primary/@value='true'])&lt;1</Data></Cell>
+    <Cell><Data ss:Type="String">count(f:coding[f:primary/@value='true'])&lt;=1</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -185,7 +186,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
