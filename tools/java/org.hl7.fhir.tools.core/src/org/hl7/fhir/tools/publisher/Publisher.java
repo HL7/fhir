@@ -2338,6 +2338,7 @@ public class Publisher {
         // throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
       }
     }
+    processQuestionnaire(resource, profile);
 
     String prefix = page.getBreadCrumbManager().getIndexPrefixForResource(resource.getName());
     SectionTracker st = new SectionTracker(prefix);
@@ -2513,6 +2514,48 @@ public class Publisher {
 
 //    page.getEpub().registerFile(n + ".xml.html", description, EPubManager.XHTML_TYPE);
     page.getEpub().registerExternal(n + ".xml.html");
+  }
+
+  private void processQuestionnaire(ResourceDefn resource, Profile profile) throws Exception {
+    Questionnaire q = new QuestionnaireBuilder().buildQuestionnaire(profile);
+    
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.json"), q, true);
+    new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml"), q, true);
+    
+    String json = "<div class=\"example\">\r\n<p>Generated Questionnaire for "+resource.getName()+"</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(new JsonComposer().composeString(q, true)) + "\r\n</pre>\r\n</div>\r\n";
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
+    html = page.processPageIncludes(resource.getName().toLowerCase() + ".questionnaire.json.html", html, "resource-questionnaire:" + resource.getName(), null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.json.html");
+
+    String xml = "<div class=\"example\">\r\n<p>Generated Questionnaire for "+resource.getName()+"</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(new XmlComposer().composeString(q, true)) + "\r\n</pre>\r\n</div>\r\n";
+    html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", xml);
+    html = page.processPageIncludes(resource.getName().toLowerCase() + ".questionnaire.xml.html", html, "resource-questionnaire:" + resource.getName(), null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml.html");
+
+    File tmpTransform = File.createTempFile("tmp", ".html");
+    tmpTransform.deleteOnExit();
+    Utilities.saxonTransform(
+          Utilities.path(page.getFolders().rootDir, "implementations", "xmltools"), // directory for xslt references  
+          page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml",  // source to run xslt on 
+          Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "QuestionnaireToHTML.xslt"), // xslt file to run 
+          tmpTransform.getAbsolutePath() // file to produce
+    );
+       
+    // now, generate the form
+    html = TextFile.fileToString(page.getFolders().srcDir + "template-questionnaire.html").replace("<%questionnaire%>", loadHtmlForm(tmpTransform.getAbsolutePath()));
+    html = page.processPageIncludes(resource.getName().toLowerCase() + ".questionnaire.html", html, "resource-questionnaire:" + resource.getName(), null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.html");
+    
+    page.getEpub().registerExternal(resource.getName().toLowerCase() + ".questionnaire.html");
+    page.getEpub().registerExternal(resource.getName().toLowerCase() + ".questionnaire.json.html");
+    page.getEpub().registerExternal(resource.getName().toLowerCase() + ".questionnaire.xml.html");
+  }
+  
+  private String loadHtmlForm(String path) throws Exception {
+    String form = TextFile.fileToString(path);
+    form = form.substring(form.indexOf("<body>")+6);
+    form = form.substring(0, form.lastIndexOf("</body>"));
+    return form;
   }
 
   private void processExample(Example e, ResourceDefn resource, Profile profile) throws Exception {

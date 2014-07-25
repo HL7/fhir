@@ -273,6 +273,17 @@ public class BreadCrumbManager {
           b.append("        <li><b>Example Instance</b></li>");
         else
           b.append("        <li><b>Profile Instance</b></li>");
+      } else if (type.startsWith("resource-questionnaire") && type.contains(":")) {
+        String[] path = map.get(type.substring(type.indexOf(":")+1).toLowerCase()).split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length; i++) {
+          focus = getChild(focus, path[i]);
+          if (focus.type == PageType.resource)
+            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          else
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><b>Generated Questionnaire</b></li>");
       } else if (type.equals("valueset-instance") && name.contains(".")) {
         String[] path = map.get("terminologies-valuesets.html").split("\\.");
         Page focus = home;

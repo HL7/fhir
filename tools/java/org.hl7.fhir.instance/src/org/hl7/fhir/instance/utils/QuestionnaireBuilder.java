@@ -403,7 +403,7 @@ public class QuestionnaireBuilder {
   }
 
 	private boolean hasValueSet(ElementComponent element) {
-	  return element.getDefinition().getBinding() == null || !(element.getDefinition().getBinding().getReference() instanceof ResourceReference);
+	  return element.getDefinition().getBinding() != null && (element.getDefinition().getBinding().getReference() instanceof ResourceReference);
   }
 
 	private QuestionComponent addQuestion(GroupComponent group, AnswerFormat af, String id, String name) {

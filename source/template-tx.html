@@ -20,13 +20,17 @@
 This is a value set defined by the FHIR project<%vsxref%>
 </p>
 
+<p><b>Summary</b></p>
+<table>
+ <tr><td>Code System URL:</td><td><%txurl%></td></tr>
+ <tr><td>Value Set URL:</td><td><%vstxurl%></td></tr>
+ <tr><td>Definition:</td><td><%txdef%></td></tr>
+</table>
+ 
 <p>
-<%txdef%>
+Formal value Set definition :  <a href="<%txname%>.xml.html">XML</a> or <a href="<%txname%>.json.html">JSON</a>. 
 </p>
 
-<p>
-Formal value Set definition (identifier <b><%vstxurl%></b>):  <a href="<%txname%>.xml.html">XML</a> or <a href="<%txname%>.json.html">JSON</a>. 
-</p>
 <%conceptmaplistvs l0%>
 
 <p>
@@ -37,9 +41,13 @@ Formal value Set definition (identifier <b><%vstxurl%></b>):  <a href="<%txname%
 
 <%txusage%>
 
-<p>
-The OID for the value set is <%vsoid%> <%txoid%> (OIDs are not used in FHIR, but may be used in v3, or OID based terminology systems).<br/>
-</p>
+<p><b>OIDs</b></p>
+
+<table>
+ <tr><td>Code System OID:</td><td><%txoid%></td></tr>
+ <tr><td>Value Set OID:</td><td><%vsoid%></td></tr>
+ <tr><td colspan="2">Note: these OIDs are not used in FHIR, but may be used in v3, or OID based terminology systems</td></tr>
+</table>
 
 <p>
 See <a href="terminologies-valuesets.html">the full registry of value sets</a> defined as part of FHIR.

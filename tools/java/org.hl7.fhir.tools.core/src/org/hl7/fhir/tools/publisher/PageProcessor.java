@@ -2287,7 +2287,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else
         return OID_VS + cd.getId();
     } else if (!Utilities.noString(cd.getOid()))    
-      return cd.getOid();
+      return OID_TX+ cd.getOid();
     else if (cd.hasInternalCodes())
       return "(and the OID for the implicit code system is "+OID_TX + cd.getId()+")";
     else
