@@ -74,6 +74,7 @@ Function FhirHtmlToText(html : TFhirXHtmlNode):String;
 function FindContainedResource(resource : TFhirResource; ref : TFhirResourceReference) : TFhirResource;
 function GetResourceFromFeed(feed : TFHIRAtomFeed; ref : TFhirResourceReference) : TFHIRResource;
 function LoadFromFormParam(part : TIdSoapMimePart; lang : String) : TFhirResource;
+function LoadDTFromFormParam(part : TIdSoapMimePart; lang, name : String; type_ : TFHIRTypeClass) : TFhirType;
 
 function BuildOperationOutcome(lang : String; e : exception) : TFhirOperationOutcome; overload;
 Function BuildOperationOutcome(lang, message : String) : TFhirOperationOutcome; overload;
@@ -130,6 +131,8 @@ type
     function error(source, typeCode, path : string; test : boolean; msg : string) : boolean;
     function warning(source, typeCode, path : string; test : boolean; msg : string) : boolean;
     function hint(source, typeCode, path : string; test : boolean; msg : string) : boolean;
+
+    function hasErrors : boolean;
   end;
 
   {$IFNDEF FHIR-DSTU}
@@ -1060,6 +1063,15 @@ begin
     end;
   end;
   result := test;
+end;
+
+function TFHIROperationOutcomeHelper.hasErrors: boolean;
+var
+  i : integer;
+begin
+  result := false;
+  for i := 0 to issueList.Count - 1 do
+    result := result or (issueList[i].severityST in [IssueSeverityFatal, IssueSeverityError]);
 end;
 
 function TFHIROperationOutcomeHelper.hint(source, typeCode, path: string; test: boolean; msg: string): boolean;

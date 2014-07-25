@@ -1075,7 +1075,7 @@ var
   cat : TFHIRAtomCategory;
   i : integer;
 begin
-  ja := obj.vArr['tags'];
+  ja := obj.arr['tags'];
   for i := 0 to ja.Count - 1 do
   begin
     jsn := ja[i];
