@@ -2,7 +2,7 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-     <p><b>http://hl7.org/fhir/tools/extensions</b></p>
+     <p><b>http://hl7.org/fhir/Profile/tools-extensions</b></p>
      <p>Extensions defined by the build tools. These extensions are candidates for being elevated into the core.</p>
      <table>
       <tr>
@@ -11,6 +11,20 @@
         <td><b>Type</b></td>
         <td><b>Cardinality</b></td>
         <td><b>Notes</b></td>
+      </tr>
+      <tr>
+        <td>profile-base</td>
+        <td>Profile.structure</td>
+        <td>uri</td>
+        <td>0..1</td>
+        <td>The structure that is the base on which this set of constraints is derived from.</td>
+      </tr>
+      <tr>
+        <td>profile-structure-form</td>
+        <td>Profile.structure</td>
+        <td>code</td>
+        <td>0..1</td>
+        <td>Whether the structure is snapshot or a differential.</td>
       </tr>
       <tr>
         <td>comment</td>
@@ -98,8 +112,29 @@
       </define>
     </ValueSet>
   </contained>
-
-  <url value="http://hl7.org/fhir/tools/Profile/extensions"/>
+  <contained>
+    <ValueSet id="v1">
+      <name value="ProfileStructureType"/>
+      <description value="Whether the structure is snapshot or a differential"/>
+      <status value="draft"/>
+      <define>
+        <system value="http://hl7.org/fhir/profile-structure-type"/>
+        <caseSensitive value="true"/>
+        <concept>
+          <code value="Snapshot"/>
+          <display value="Snapshot"/>
+          <definition value="This structure is a snapshot"/>
+        </concept>
+        <concept>
+          <code value="Differential"/>
+          <display value="Differential"/>
+          <definition value="This structure is a differential structure"/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  
+  <url value="http://hl7.org/fhir/Profile/tools-extensions"/>
   <name value="Extensions defined by the FHIR build tools"/>
   <publisher value="FHIR Project Team"/>
   <telecom>
@@ -110,6 +145,57 @@
   <status value="draft"/>
   <date value="2013-07-07"/>
 
+  <extensionDefn> 
+    <code value="profile-base"/>
+    <display value="Base Profile"/>
+    <contextType value="resource"/>
+    <context value="Profile.structure"/>
+    <element>
+      <path value="profile-base"/>
+      <definition>
+        <short value="Structure that this set of constraints applies to"/>
+        <formal value="The structure that is the base on which this set of constraints is derived from"/>
+        <comments value="If differential constraints are specified in this structure, they are applied to the base in a 'differential' fashion. If there is no base, then the differential constraints cannot be provided (snapshot only). Differential structures are useful for the editing perspective, and snapshot structures are suitable for operational use. The FHIR Project provides a number of tools/services to populate snaphots from differential constraints."/>
+        <requirements value="This is defined for use in DSTU 1. It exists as a native element in DSTU 2"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type> 
+          <code value="uri"/>      
+        </type>
+        <isModifier value="false"/>
+      </definition> 
+    </element>
+  </extensionDefn>
+  
+  <extensionDefn> 
+    <code value="profile-structure-form"/>
+    <display value="Profile Structure Form"/>
+    <contextType value="resource"/>
+    <context value="Profile.structure"/>
+    <element>
+      <path value="profile-base"/>
+      <definition>
+        <short value="Whether the structure is snapshot or a differential"/>
+        <formal value="Whether the structure is snapshot or a differential"/>
+        <requirements value="This is defined for use in DSTU 1. It exists as a native element in DSTU 2"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type> 
+          <code value="code"/>      
+        </type>
+        <isModifier value="false"/>
+        <binding>
+          <name value="ProfileStructureType"/>
+          <isExtensible value="false"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="#v2"/>
+          </referenceResource>
+        </binding>
+      </definition> 
+    </element>
+  </extensionDefn>
+  
   <extensionDefn> 
     <code value="comment"/>
     <display value="Comment"/>
