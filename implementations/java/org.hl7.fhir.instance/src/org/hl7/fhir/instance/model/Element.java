@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 /*
 Copyright (c) 2011-2014, HL7, Inc
 All rights reserved.
@@ -32,7 +33,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-import java.util.Map;
 
 /**
  * The base element as defined in FHIR: an id attribute or property, and extensions. 

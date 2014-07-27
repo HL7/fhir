@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 22, 2014 17:06+1000 for FHIR v0.2.1
+// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -2167,6 +2167,8 @@ public class XmlParser extends XmlParserBase {
         res.setEncounter(parseResourceReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("clinicalNotes")) {
         res.setClinicalNotes(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("supportingInformation")) {
+        res.getSupportingInformation().add(parseResourceReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("specimen")) {
         res.getSpecimen().add(parseResourceReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
@@ -3930,7 +3932,7 @@ public class XmlParser extends XmlParserBase {
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.getIdentifier().add(parseIdentifier(xpp));
+        res.setIdentifier(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("version")) {
         res.setVersion(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("title")) {

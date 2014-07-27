@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 22, 2014 17:06+1000 for FHIR v0.2.1
+// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -570,12 +570,12 @@ public class DiagnosticOrder extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * An encounter that provides additional informaton about the healthcare context in which this request is made.
+     * An encounter that provides additional information about the healthcare context in which this request is made.
      */
     protected ResourceReference encounter;
 
     /**
-     * The actual object that is the target of the reference (An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * The actual object that is the target of the reference (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     protected Encounter encounterTarget;
 
@@ -583,6 +583,16 @@ public class DiagnosticOrder extends Resource {
      * An explanation or justification for why this diagnostic investigation is being requested.
      */
     protected String_ clinicalNotes;
+
+    /**
+     * Additional clinical information about the patient or specimen that may influence test interpretations.
+     */
+    protected List<ResourceReference> supportingInformation = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (Additional clinical information about the patient or specimen that may influence test interpretations.)
+     */
+    protected List<Resource> supportingInformationTarget = new ArrayList<Resource>();
+
 
     /**
      * One or more specimens that the diagnostic investigation is about.
@@ -614,7 +624,7 @@ public class DiagnosticOrder extends Resource {
      */
     protected List<DiagnosticOrderItemComponent> item = new ArrayList<DiagnosticOrderItemComponent>();
 
-    private static final long serialVersionUID = -460303943L;
+    private static final long serialVersionUID = -1608936020L;
 
     public DiagnosticOrder() {
       super();
@@ -703,14 +713,14 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * @return {@link #encounter} (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
     /**
-     * @param value {@link #encounter} (An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * @param value {@link #encounter} (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     public DiagnosticOrder setEncounter(ResourceReference value) { 
       this.encounter = value;
@@ -718,14 +728,14 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (The actual object that is the target of the reference. An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * @return {@link #encounter} (The actual object that is the target of the reference. An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     public Encounter getEncounterTarget() { 
       return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #encounter} (The actual object that is the target of the reference. An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * @param value {@link #encounter} (The actual object that is the target of the reference. An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     public DiagnosticOrder setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
@@ -766,6 +776,30 @@ public class DiagnosticOrder extends Resource {
         this.clinicalNotes.setValue(value);
       }
       return this;
+    }
+
+    /**
+     * @return {@link #supportingInformation} (Additional clinical information about the patient or specimen that may influence test interpretations.)
+     */
+    public List<ResourceReference> getSupportingInformation() { 
+      return this.supportingInformation;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #supportingInformation} (Additional clinical information about the patient or specimen that may influence test interpretations.)
+     */
+    public ResourceReference addSupportingInformation() { 
+      ResourceReference t = new ResourceReference();
+      this.supportingInformation.add(t);
+      return t;
+    }
+
+    /**
+     * @return {@link #supportingInformation} (The actual objects that are the target of the reference. Additional clinical information about the patient or specimen that may influence test interpretations.)
+     */
+    public List<Resource> getSupportingInformationTarget() { 
+      return this.supportingInformationTarget;
     }
 
     /**
@@ -913,8 +947,9 @@ public class DiagnosticOrder extends Resource {
         childrenList.add(new Property("subject", "Resource(Patient|Group|Location|Device)", "Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("orderer", "Resource(Practitioner)", "The practitioner that holds legal responsibility for ordering the investigation.", 0, java.lang.Integer.MAX_VALUE, orderer));
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the order or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "An encounter that provides additional informaton about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("encounter", "Resource(Encounter)", "An encounter that provides additional information about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("clinicalNotes", "string", "An explanation or justification for why this diagnostic investigation is being requested.", 0, java.lang.Integer.MAX_VALUE, clinicalNotes));
+        childrenList.add(new Property("supportingInformation", "Resource(Observation|Condition)", "Additional clinical information about the patient or specimen that may influence test interpretations.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("specimen", "Resource(Specimen)", "One or more specimens that the diagnostic investigation is about.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("status", "code", "The status of the order.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("priority", "code", "The clinical priority associated with this order.", 0, java.lang.Integer.MAX_VALUE, priority));
@@ -931,6 +966,9 @@ public class DiagnosticOrder extends Resource {
           dst.identifier.add(i.copy());
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.clinicalNotes = clinicalNotes == null ? null : clinicalNotes.copy();
+        dst.supportingInformation = new ArrayList<ResourceReference>();
+        for (ResourceReference i : supportingInformation)
+          dst.supportingInformation.add(i.copy());
         dst.specimen = new ArrayList<ResourceReference>();
         for (ResourceReference i : specimen)
           dst.specimen.add(i.copy());

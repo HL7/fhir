@@ -173,7 +173,7 @@
     <contextType value="resource"/>
     <context value="Profile.structure"/>
     <element>
-      <path value="profile-base"/>
+      <path value="profile-structure-form"/>
       <definition>
         <short value="Whether the structure is snapshot or a differential"/>
         <formal value="Whether the structure is snapshot or a differential"/>

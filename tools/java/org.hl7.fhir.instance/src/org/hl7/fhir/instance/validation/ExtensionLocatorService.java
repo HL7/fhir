@@ -1,7 +1,6 @@
 package org.hl7.fhir.instance.validation;
 
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
-import org.hl7.fhir.instance.validation.ExtensionLocatorService.ExtensionLocationResponse;
 
 
 

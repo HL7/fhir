@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
@@ -12,9 +13,9 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class ProfileValidator {
 
-  private Map<String, Profile> profiles;
+  private Map<String, AtomEntry<Profile>> profiles;
 
-  public void setProfiles(Map<String, Profile> profiles) {
+  public void setProfiles(Map<String, AtomEntry<Profile>> profiles) {
     this.profiles = profiles;    
   }
 
@@ -47,7 +48,7 @@ public class ProfileValidator {
     String parts[] = url.split("#");
     if (parts.length != 2)
       return null;
-    Profile p = Utilities.noString(parts[0]) ? self : profiles.get(parts[0]);
+    Profile p = Utilities.noString(parts[0]) ? self : profiles.get(parts[0]).getResource();
     if (p == null)
       return null;
     for (ProfileExtensionDefnComponent defn : p.getExtensionDefn()) {

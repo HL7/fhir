@@ -53,6 +53,7 @@ import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 
+import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -209,6 +210,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   private String makeConstantsClass(String version, String svnRevision, Date genDate) {
     String s = 
         "package org.hl7.fhir.instance.model;\r\n"+
+            "\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n"+
+            "// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n"+
             "\r\n"+
             "public class Constants {\r\n"+
             "\r\n"+

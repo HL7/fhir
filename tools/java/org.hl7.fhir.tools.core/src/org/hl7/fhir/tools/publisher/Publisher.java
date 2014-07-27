@@ -505,14 +505,21 @@ public class Publisher {
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
     Profile profile = new ProfileGenerator(page.getDefinitions()).generate(pt, page.getGenDate());
-    page.getProfiles().put(profile.getUrlSimple(), profile);
+    page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
     pt.setProfile(profile);
     // todo: what to do in the narrative?
   }
 
+  private AtomEntry<Profile> genWrapper(Profile profile) {
+    AtomEntry<Profile> e = new AtomEntry<Profile>();
+    e.setId(profile.getUrlSimple());
+    e.setResource(profile);
+    return e;
+  }
+
   private void genTypeProfile(TypeDefn t) throws Exception {
     Profile profile = new ProfileGenerator(page.getDefinitions()).generate(t, page.getGenDate());
-    page.getProfiles().put(profile.getUrlSimple(), profile);
+    page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
     t.setProfile(profile);
     DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, null, true);
     t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -526,7 +533,7 @@ public class Publisher {
     if (profile.getSource() == null) {
       Profile p = new ProfileGenerator(page.getDefinitions()).generate(profile, profile.metadata("id"), page.getGenDate());
       profile.setSource(p);
-      page.getProfiles().put(p.getUrlSimple(), p);
+      page.getProfiles().put(p.getUrlSimple(), genWrapper(p));
     } else {
       // special case: if the profile itself doesn't claim a date, it's date is the date of this publication
       if (profile.getSource().getDate() == null)
@@ -537,7 +544,7 @@ public class Publisher {
           ProfileStructureComponent base = page.getDefinitions().getSnapShotForProfile(c.getBaseSimple());
           new ProfileUtilities().generateSnapshot(base, c, c.getBaseSimple().split("#")[0]);
         }
-        page.getProfiles().put(profile.getSource().getUrlSimple(), profile.getSource());
+        page.getProfiles().put(profile.getSource().getUrlSimple(), genWrapper(profile.getSource()));
       }
     }
     profile.getSource().setTag("filename", filename);
@@ -693,7 +700,7 @@ public class Publisher {
       genConfOp(conf, res, TypeRestfulInteraction.read);
     }
 
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(conf);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".xml"), conf, true, true);
     cloneToXhtml("conformance-" + name + "", "Basic Conformance Statement", true, "resource-instance:Conformance");
@@ -1832,7 +1839,7 @@ public class Publisher {
           }
       }
     }
-    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
+    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
     new ValueSetValidator(page.getDefinitions(), "v3: " + id).validate(vs, false);
     return vs;
@@ -2454,7 +2461,7 @@ public class Publisher {
       pp.setType(cc);
       opd.getParameter().add(pp);
     }
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(opd);
 
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "operation-" + name + ".xml"), opd, true, true);
@@ -2482,7 +2489,7 @@ public class Publisher {
   }
 
   private void generateQuestionnaire(String n, Profile p) throws Exception {
-    QuestionnaireBuilder b = new QuestionnaireBuilder();
+    QuestionnaireBuilder b = new QuestionnaireBuilder(page.getWorkerContext());
     Questionnaire q = b.buildQuestionnaire(p);
     
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".questionnaire.xml"), q, true, false);
@@ -2517,7 +2524,7 @@ public class Publisher {
   }
 
   private void processQuestionnaire(ResourceDefn resource, Profile profile) throws Exception {
-    Questionnaire q = new QuestionnaireBuilder().buildQuestionnaire(profile);
+    Questionnaire q = new QuestionnaireBuilder(page.getWorkerContext()).buildQuestionnaire(profile);
     
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.json"), q, true);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml"), q, true);
@@ -2600,7 +2607,7 @@ public class Publisher {
             r = ae.getResource();
             wantSave = wantSave || (r.getText() == null || r.getText().getDiv() == null);
             if (true /*(r.getText() == null || r.getText().getDiv() == null) || !web */) {
-              NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, rf.getFeed()));
+              NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext().clone(new SpecificationInternalClient(page, rf.getFeed())));
               gen.generate(r);
             }
             if (r.getText() != null && r.getText().getDiv() != null) {
@@ -2608,7 +2615,7 @@ public class Publisher {
               combined.addTag("hr");
             }  
             if (rf.getFeed().isDocument()) {
-              NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, null));
+              NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext().clone(new SpecificationInternalClient(page, null)));
               combined = gen.generateDocumentNarrative(rf.getFeed());
             }
           }
@@ -2622,7 +2629,7 @@ public class Publisher {
           r = rf.getResource();
           wantSave = r.getText() == null || r.getText().getDiv() == null;
           if (wantSave/* || !web */) {
-            NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, null));
+            NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext().clone(new SpecificationInternalClient(page, null)));
             gen.generate(r);
           }
           if (r.getText() != null && r.getText().getDiv() != null) {
@@ -2726,7 +2733,6 @@ public class Publisher {
     page.getEpub().registerExternal(n + ".html");
     page.getEpub().registerExternal(n + ".json.html");
     page.getEpub().registerExternal(n + ".xml.html");
-
   }
 
   private String buildLoincExample(String filename) throws FileNotFoundException, Exception {
@@ -2742,7 +2748,7 @@ public class Publisher {
 
   private Profile generateProfile(ResourceDefn root, String n, String xmlSpec) throws Exception, FileNotFoundException {
     Profile rp = root.getProfile();
-    page.getProfiles().put(root.getName(), rp);
+    page.getProfiles().put(root.getName(), genWrapper(rp));
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.json"), rp, true);
 
@@ -3304,8 +3310,7 @@ public class Publisher {
     schemaFactory.setErrorHandler(new MyErrorHandler(false));
     schemaFactory.setResourceResolver(new MyResourceResolver(page.getFolders().dstDir));
     Schema schema = schemaFactory.newSchema(sources);
-    InstanceValidator validator = new InstanceValidator(page.getFolders().dstDir + "validation.zip", new SpecificationExtensionResolver(
-        page.getFolders().dstDir), page.getConceptLocator());
+    InstanceValidator validator = new InstanceValidator(page.getWorkerContext());
     validator.setSuppressLoincSnomedMessages(true);
     page.log(".... done", LogMessageType.Process);
 
@@ -3686,7 +3691,7 @@ public class Publisher {
 
     if (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-      new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(),  null).generate(vs);
+      new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
     new ValueSetValidator(page.getDefinitions(), name).validate(vs, true);
 
     if (isGenerate) {
@@ -3849,7 +3854,7 @@ public class Publisher {
       b.append(s);
     }
     cm.setDescriptionSimple("v2 Map (" + b.toString() + ")");
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(cm);
 
     JsonComposer json = new JsonComposer();
@@ -3933,7 +3938,7 @@ public class Publisher {
       b.append(s);
     }
     cm.setDescriptionSimple("v3 Map (" + b.toString() + ")");
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(cm);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json")), cm, true);
@@ -3974,7 +3979,7 @@ public class Publisher {
     if (!Utilities.noString(cd.getV3Map()))
       generateConceptMapV3(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/" + Utilities.fileTitle(filename));
 
-    new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null).generate(vs);
+    new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
 
     if (isGenerate) {
       addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed);

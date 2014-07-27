@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 22, 2014 17:06+1000 for FHIR v0.2.1
+// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1441,6 +1441,8 @@ public class XmlComposer extends XmlComposerBase {
         composeIdentifier("identifier", e);
       composeResourceReference("encounter", element.getEncounter());
       composeString("clinicalNotes", element.getClinicalNotes());
+      for (ResourceReference e : element.getSupportingInformation()) 
+        composeResourceReference("supportingInformation", e);
       for (ResourceReference e : element.getSpecimen()) 
         composeResourceReference("specimen", e);
       if (element.getStatus() != null)
@@ -2563,8 +2565,7 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeResourceElements(element);
-      for (Identifier e : element.getIdentifier()) 
-        composeIdentifier("identifier", e);
+      composeUri("identifier", element.getIdentifier());
       composeString("version", element.getVersion());
       composeString("title", element.getTitle());
       composeString("publisher", element.getPublisher());

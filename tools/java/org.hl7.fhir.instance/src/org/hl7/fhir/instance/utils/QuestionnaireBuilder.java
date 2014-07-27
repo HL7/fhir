@@ -2,13 +2,9 @@ package org.hl7.fhir.instance.utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
-import org.hl7.fhir.instance.client.FHIRClient;
-import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
@@ -22,10 +18,6 @@ import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionnaireStatus;
 import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.Uri;
-import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.utils.NarrativeGenerator;
-import org.hl7.fhir.instance.utils.ProfileUtilities;
-import org.hl7.fhir.instance.utils.TerminologyServices;
 
 
 
@@ -77,7 +69,14 @@ import org.hl7.fhir.instance.utils.TerminologyServices;
  */
 public class QuestionnaireBuilder {
 
-	/**
+  private WorkerContext context;
+    
+	public QuestionnaireBuilder(WorkerContext context) {
+    super();
+    this.context = context;
+  }
+
+  /**
 	 * Given a profile, build a questionnaire. 
 	 * The profile must have a single structure in it
 	 *  
@@ -108,8 +107,8 @@ public class QuestionnaireBuilder {
 	  Questionnaire result = new Questionnaire();
 	  processMetadata(result, profile, structure);
 	  buildGroup(result.getGroup(), profile, structure, structure.getSnapshot().getElement().get(0), new ArrayList<ElementComponent>());
-	  if (profiles != null) {
-	  	NarrativeGenerator ngen = new NarrativeGenerator("", conceptLocator, codeSystems, valueSets, maps, profiles, client);
+	  if (context != null) {
+	  	NarrativeGenerator ngen = new NarrativeGenerator("", context);
 	  	ngen.generate(result);
 	  }
 	  return result;
@@ -415,51 +414,5 @@ public class QuestionnaireBuilder {
 	  q.setRepeatsSimple(false);
 	  return q;
   }
-
-	// FHIR context. You don't have to provide any of these, but 
-	// the more you provide, the better the conversion will be
-  private TerminologyServices conceptLocator;
-  private Map<String, AtomEntry<ValueSet>> codeSystems;
-  private Map<String, AtomEntry<ValueSet>> valueSets;
-  private Map<String, AtomEntry<ConceptMap>> maps;
-  private FHIRClient client;
-  private Map<String, Profile> profiles;
-	public TerminologyServices getConceptLocator() {
-		return conceptLocator;
-	}
-	public void setConceptLocator(TerminologyServices conceptLocator) {
-		this.conceptLocator = conceptLocator;
-	}
-	public Map<String, AtomEntry<ValueSet>> getCodeSystems() {
-		return codeSystems;
-	}
-	public void setCodeSystems(Map<String, AtomEntry<ValueSet>> codeSystems) {
-		this.codeSystems = codeSystems;
-	}
-	public Map<String, AtomEntry<ValueSet>> getValueSets() {
-		return valueSets;
-	}
-	public void setValueSets(Map<String, AtomEntry<ValueSet>> valueSets) {
-		this.valueSets = valueSets;
-	}
-	public Map<String, AtomEntry<ConceptMap>> getMaps() {
-		return maps;
-	}
-	public void setMaps(Map<String, AtomEntry<ConceptMap>> maps) {
-		this.maps = maps;
-	}
-	public FHIRClient getClient() {
-		return client;
-	}
-	public void setClient(FHIRClient client) {
-		this.client = client;
-	}
-	public Map<String, Profile> getProfiles() {
-		return profiles;
-	}
-	public void setProfiles(Map<String, Profile> profiles) {
-		this.profiles = profiles;
-	}
-
   
 }

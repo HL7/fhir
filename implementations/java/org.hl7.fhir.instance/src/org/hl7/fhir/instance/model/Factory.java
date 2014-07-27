@@ -2,6 +2,7 @@ package org.hl7.fhir.instance.model;
 
 import java.net.URISyntaxException;
 import java.text.ParseException;
+
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.utilities.Utilities;

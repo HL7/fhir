@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 22, 2014 17:06+1000 for FHIR v0.2.1
+// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -2114,6 +2114,12 @@ public class JsonComposer extends JsonComposerBase {
       composeResourceReference("encounter", element.getEncounter());
       composeStringCore("clinicalNotes", element.getClinicalNotes(), false);
       composeStringExtras("clinicalNotes", element.getClinicalNotes(), false);
+      if (element.getSupportingInformation().size() > 0) {
+        openArray("supportingInformation");
+        for (ResourceReference e : element.getSupportingInformation()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
       if (element.getSpecimen().size() > 0) {
         openArray("specimen");
         for (ResourceReference e : element.getSpecimen()) 
@@ -3663,12 +3669,8 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       prop("resourceType", name);
       composeResourceElements(element);
-      if (element.getIdentifier().size() > 0) {
-        openArray("identifier");
-        for (Identifier e : element.getIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
+      composeUriCore("identifier", element.getIdentifier(), false);
+      composeUriExtras("identifier", element.getIdentifier(), false);
       composeStringCore("version", element.getVersion(), false);
       composeStringExtras("version", element.getVersion(), false);
       composeStringCore("title", element.getTitle(), false);

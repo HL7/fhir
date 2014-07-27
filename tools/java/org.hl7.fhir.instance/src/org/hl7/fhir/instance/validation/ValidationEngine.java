@@ -19,6 +19,7 @@ import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.Utilities;
@@ -76,13 +77,14 @@ public class ValidationEngine {
     builder.setErrorHandler(new ValidationErrorHandler(outputs));
     doc = builder.parse(new ByteArrayInputStream(source));
 
-    outputs.addAll(new InstanceValidator(definitions, null).validateInstance(doc.getDocumentElement(), profile));
+    WorkerContext context = WorkerContext.fromDefinitions(definitions);
+    outputs.addAll(new InstanceValidator(context).validateInstance(doc.getDocumentElement(), profile));
         
     OperationOutcome op = new OperationOutcome();
     for (ValidationMessage vm : outputs) {
       op.getIssue().add(vm.asIssue(op));
     }
-    new NarrativeGenerator("", null, null, null, null, null, null).generate(op);
+    new NarrativeGenerator("", context).generate(op);
     outcome = op;
   }
 

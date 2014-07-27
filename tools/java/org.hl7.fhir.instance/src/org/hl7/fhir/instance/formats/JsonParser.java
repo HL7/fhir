@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Jul 22, 2014 17:06+1000 for FHIR v0.2.1
+// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -2337,6 +2337,12 @@ public class JsonParser extends JsonParserBase {
       res.setClinicalNotes(parseString(json.get("clinicalNotes").getAsString()));
     if (json.has("_clinicalNotes"))
       parseElementProperties(json.getAsJsonObject("_clinicalNotes"), res.getClinicalNotes());
+    if (json.has("supportingInformation")) {
+      JsonArray array = json.getAsJsonArray("supportingInformation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSupportingInformation().add(parseResourceReference(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("specimen")) {
       JsonArray array = json.getAsJsonArray("specimen");
       for (int i = 0; i < array.size(); i++) {
@@ -4228,12 +4234,10 @@ public class JsonParser extends JsonParserBase {
   private OperationDefinition parseOperationDefinition(JsonObject json) throws Exception {
     OperationDefinition res = new OperationDefinition();
     parseResourceProperties(json, res);
-    if (json.has("identifier")) {
-      JsonArray array = json.getAsJsonArray("identifier");
-      for (int i = 0; i < array.size(); i++) {
-        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
-      }
-    };
+    if (json.has("identifier"))
+      res.setIdentifier(parseUri(json.get("identifier").getAsString()));
+    if (json.has("_identifier"))
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
     if (json.has("version"))
       res.setVersion(parseString(json.get("version").getAsString()));
     if (json.has("_version"))

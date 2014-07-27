@@ -36,7 +36,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
@@ -48,45 +47,45 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.Composition.SectionComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
 import org.hl7.fhir.instance.model.ConceptMap.OtherElementComponent;
+import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
 import org.hl7.fhir.instance.model.Conformance.ResourceInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
+import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
+import org.hl7.fhir.instance.model.Contact;
+import org.hl7.fhir.instance.model.Contact.ContactSystem;
+import org.hl7.fhir.instance.model.DateTime;
 import org.hl7.fhir.instance.model.Duration;
+import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Enumeration;
+import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.HumanName.NameUse;
 import org.hl7.fhir.instance.model.Id;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.Instant;
-import org.hl7.fhir.instance.model.OperationDefinition;
-import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterComponent;
-import org.hl7.fhir.instance.model.Period;
-import org.hl7.fhir.instance.model.PrimitiveType;
-import org.hl7.fhir.instance.model.Quantity;
-import org.hl7.fhir.instance.model.Ratio;
-import org.hl7.fhir.instance.model.ResourceReference;
-import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
-import org.hl7.fhir.instance.model.Conformance;
-import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
-import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
-import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
-import org.hl7.fhir.instance.model.Contact;
-import org.hl7.fhir.instance.model.Contact.ContactSystem;
-import org.hl7.fhir.instance.model.DateTime;
-import org.hl7.fhir.instance.model.Element;
-import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.OperationDefinition;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterComponent;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.instance.model.Period;
+import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Property;
+import org.hl7.fhir.instance.model.Quantity;
+import org.hl7.fhir.instance.model.Ratio;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.Schedule;
 import org.hl7.fhir.instance.model.Schedule.EventTiming;
 import org.hl7.fhir.instance.model.Schedule.ScheduleRepeatComponent;
@@ -130,22 +129,13 @@ public class NarrativeGenerator {
   }
 
   private String prefix;
-  private TerminologyServices conceptLocator;
-  private Map<String, AtomEntry<ValueSet>> codeSystems;
-  private Map<String, AtomEntry<ValueSet>> valueSets;
-  private Map<String, AtomEntry<ConceptMap>> maps;
-  private FHIRClient client;
-  private Map<String, Profile> profiles;
+  private WorkerContext context;
+ 
   
-  public NarrativeGenerator(String prefix, TerminologyServices conceptLocator, Map<String, AtomEntry<ValueSet>> codeSystems, Map<String, AtomEntry<ValueSet>> valueSets, Map<String, AtomEntry<ConceptMap>> maps, Map<String, Profile> profiles, FHIRClient client) {
+  public NarrativeGenerator(String prefix, WorkerContext context) {
     super();
     this.prefix = prefix;
-    this.conceptLocator = conceptLocator;
-    this.codeSystems = codeSystems;
-    this.valueSets = valueSets;
-    this.maps = maps;
-    this.profiles = profiles;
-    this.client = client;
+    this.context = context;
   }
 
   public void generate(Resource r) throws Exception {
@@ -159,10 +149,10 @@ public class NarrativeGenerator {
       generate((Conformance) r);   // Maintainer = Grahame
     } else if (r instanceof OperationDefinition) {
       generate((OperationDefinition) r);   // Maintainer = Grahame
-    } else if (profiles.containsKey(r.getResourceType().toString())) {
-      generateByProfile(r, profiles.get(r.getResourceType().toString()), true); // todo: make this manageable externally 
-    } else if (profiles.containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
-      generateByProfile(r, profiles.get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
+    } else if (context.getProfiles().containsKey(r.getResourceType().toString())) {
+      generateByProfile(r, context.getProfiles().get(r.getResourceType().toString()).getResource(), true); // todo: make this manageable externally 
+    } else if (context.getProfiles().containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
+      generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()).getResource(), true); // todo: make this manageable externally 
     }
   }
   
@@ -216,7 +206,7 @@ public class NarrativeGenerator {
                     }
                   }
                 }
-              } else if (canDoTable(grandChildren)) {
+              } else if (canDoTable(path, p, grandChildren)) {
                 x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
                 XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
                 addColumnHeadings(tbl.addTag("tr"), grandChildren);
@@ -295,13 +285,29 @@ public class NarrativeGenerator {
     return path.substring(path.lastIndexOf(".")+1);
   }
 
-  private boolean canDoTable(List<ElementComponent> grandChildren) {
-    boolean result = true;
+  private boolean canDoTable(String path, Property p, List<ElementComponent> grandChildren) {
     for (ElementComponent e : grandChildren) {
-      if (!isPrimitive(e))
+      List<Property> values = getValues(path, p, e);
+      if (values.size() > 1 || !isPrimitive(e) || !canCollapse(e))
         return false;
     }
-    return result;
+    return true;
+  }
+
+  private List<Property> getValues(String path, Property p, ElementComponent e) {
+    List<Property> res = new ArrayList<Property>();
+    for (Element v : p.values) {
+      for (Property g : v.children()) {
+        if ((path+"."+p.getName()+"."+g.getName()).equals(e.getPathSimple()))
+          res.add(p);
+      }
+    }
+    return res;
+  }
+
+  private boolean canCollapse(ElementComponent e) {
+    // we can collapse any data type
+    return !e.getDefinition().getType().isEmpty();
   }
 
   private boolean isPrimitive(ElementComponent e) {
@@ -529,7 +535,7 @@ public class NarrativeGenerator {
       x.addText("Generated Summary: ");
     }
     String path = res.getResourceType().toString();
-    Profile profile = profiles.get(path);
+    Profile profile = context.getProfiles().get(path).getResource();
     if (profile == null)
       x.addText("unknown resource " +path);
     else {
@@ -582,10 +588,10 @@ public class NarrativeGenerator {
       }
       return null;
     }
-    if (client == null)
+    if (!context.hasClient())
       return null;
     
-    AtomEntry<?> ae = client.read(null, url);
+    AtomEntry<?> ae = context.getClient().read(null, url);
     if (ae == null)
       return null;
     else
@@ -676,12 +682,12 @@ public class NarrativeGenerator {
 
   private String lookupCode(String system, String code) {
     ValueSetDefineConceptComponent t;
-    if (codeSystems == null && conceptLocator == null)
+    if (context.getCodeSystems() == null && context.getTerminologyServices() == null)
     	return code;
-    else if (codeSystems != null && codeSystems.containsKey(system)) 
-      t = findCode(code, codeSystems.get(system).getResource().getDefine().getConcept());
+    else if (context.getCodeSystems() != null && context.getCodeSystems().containsKey(system)) 
+      t = findCode(code, context.getCodeSystems().get(system).getResource().getDefine().getConcept());
     else 
-      t = conceptLocator.getCodeDefinition(system, code);
+      t = context.getTerminologyServices().getCodeDefinition(system, code);
       
     if (t != null && t.getDisplay() != null)
         return t.getDisplaySimple();
@@ -918,11 +924,22 @@ public class NarrativeGenerator {
     return s;
   }
 
-  private List<ElementComponent> getChildrenForPath(List<ElementComponent> elements, String path) {
+  private List<ElementComponent> getChildrenForPath(List<ElementComponent> elements, String path) throws Exception {
     // do we need to do a name reference substitution?
     for (ElementComponent e : elements) {
-      if (e.getPathSimple().equals(path) && e.getDefinition().getNameReference() != null)
-        path = e.getDefinition().getNameReferenceSimple();
+      if (e.getPathSimple().equals(path) && e.getDefinition().getNameReference() != null) {
+      	String name = e.getDefinition().getNameReferenceSimple();
+      	ElementComponent t = null;
+      	// now, resolve the name
+        for (ElementComponent e1 : elements) {
+        	if (name.equals(e1.getNameSimple()))
+        		t = e1;
+        }
+        if (t == null)
+        	throw new Exception("Unable to resolve name reference "+name+" trying to resolve "+path);
+        path = t.getPathSimple();
+        break;
+      }
     }
     
     List<ElementComponent> results = new ArrayList<Profile.ElementComponent>();
@@ -1151,11 +1168,11 @@ public class NarrativeGenerator {
   private String getDisplayForConcept(String system, String code) {
     if (code == null)
       return null;
-    if (codeSystems.containsKey(system)) {
-      ValueSet vs = codeSystems.get(system).getResource();
+    if (context.getCodeSystems().containsKey(system)) {
+      ValueSet vs = context.getCodeSystems().get(system).getResource();
       return getDisplayForConcept(code, vs.getDefine().getConcept(), vs.getDefine().getCaseSensitiveSimple());
-    } else if (conceptLocator != null) {
-      ValueSetDefineConceptComponent cl = conceptLocator.getCodeDefinition(system, code);
+    } else if (context.getTerminologyServices() != null) {
+      ValueSetDefineConceptComponent cl = context.getTerminologyServices().getCodeDefinition(system, code);
       return cl == null ? null : cl.getDisplaySimple();
     } else
       return null;
@@ -1232,11 +1249,11 @@ public class NarrativeGenerator {
   private boolean generateExpansion(XhtmlNode x, ValueSet vs) {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (AtomEntry<ConceptMap> a : maps.values()) {
+    for (AtomEntry<ConceptMap> a : context.getMaps().values()) {
       if (((ResourceReference) a.getResource().getSource()).getReferenceSimple().equals(vs.getIdentifierSimple())) {
         String url = "";
-        if (valueSets.containsKey(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()))
-            url = valueSets.get(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()).getLinks().get("path");
+        if (context.getValueSets().containsKey(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()))
+            url = context.getValueSets().get(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()).getLinks().get("path");
         mymaps.put(a.getResource(), url);
       }
     }
@@ -1262,11 +1279,11 @@ public class NarrativeGenerator {
   private boolean generateDefinition(XhtmlNode x, ValueSet vs) {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (AtomEntry<ConceptMap> a : maps.values()) {
+    for (AtomEntry<ConceptMap> a : context.getMaps().values()) {
       if (((ResourceReference) a.getResource().getSource()).getReferenceSimple().equals(vs.getIdentifierSimple())) {
         String url = "";
-        if (valueSets.containsKey(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()))
-            url = valueSets.get(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()).getLinks().get("path");
+        if (context.getValueSets().containsKey(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()))
+            url = context.getValueSets().get(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()).getLinks().get("path");
         mymaps.put(a.getResource(), url);
       }
     }
@@ -1364,7 +1381,7 @@ public class NarrativeGenerator {
     
     String s = Utilities.padLeft("", '.', i*2);
     td.addText(s);
-    AtomEntry<? extends Resource> e = codeSystems.get(c.getSystemSimple());
+    AtomEntry<? extends Resource> e = context.getCodeSystems().get(c.getSystemSimple());
     if (e == null)
       td.addText(c.getCodeSimple());
     else {
@@ -1527,9 +1544,9 @@ public class NarrativeGenerator {
 
   private void AddVsRef(String value, XhtmlNode li) {
 
-    AtomEntry<? extends Resource> vs = valueSets.get(value);
+    AtomEntry<? extends Resource> vs = context.getValueSets().get(value);
     if (vs == null) 
-      vs = codeSystems.get(value); 
+      vs = context.getCodeSystems().get(value); 
     if (vs != null) {
       String ref= vs.getLinks().get("path");
       XhtmlNode a = li.addTag("a");
@@ -1548,7 +1565,7 @@ public class NarrativeGenerator {
     boolean hasExtensions = false;
     XhtmlNode li;
     li = ul.addTag("li");
-    AtomEntry<? extends Resource> e = codeSystems.get(inc.getSystemSimple());
+    AtomEntry<? extends Resource> e = context.getCodeSystems().get(inc.getSystemSimple());
     
     if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) { 
       li.addText(type+" all codes defined in ");
@@ -1618,8 +1635,8 @@ public class NarrativeGenerator {
 
   private <T extends Resource> ValueSetDefineConceptComponent getConceptForCode(AtomEntry<T> e, String code, String system) {
     if (e == null) {
-      if (conceptLocator != null)
-        return conceptLocator.getCodeDefinition(system, code);
+      if (context.getTerminologyServices() != null)
+        return context.getTerminologyServices().getCodeDefinition(system, code);
       else
         return null;
     }

@@ -101,6 +101,7 @@ import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ExtensionDefinition;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
+import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.definitions.generators.specification.GeneratorUtils;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -144,7 +145,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private Map<String, AtomEntry<ValueSet>> codeSystems = new HashMap<String, AtomEntry<ValueSet>>();
   private Map<String, AtomEntry<ValueSet>> valueSets = new HashMap<String, AtomEntry<ValueSet>>();
   private Map<String, AtomEntry<ConceptMap>> conceptMaps = new HashMap<String, AtomEntry<ConceptMap>>();
-  private Map<String, Profile> profiles = new HashMap<String, Profile>();
+  private Map<String, AtomEntry<Profile>> profiles = new HashMap<String, AtomEntry<Profile>>();
   
   private Translations translations = new Translations();
   private Map<String, String> svgs = new HashMap<String, String>();
@@ -154,8 +155,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private BindingNameRegistry registry;
   private String id; // technical identifier associated with the page being built
   private EPubManager epub;
-  private SpecificationTerminologyServices conceptLocator;
   private String baseURL = "http://hl7.org/implement/standards/FHIR-Develop/";
+  private SpecificationTerminologyServices terminologyServices;
+  private WorkerContext workerContext = new WorkerContext(null, null, null, codeSystems, valueSets, conceptMaps, profiles);
 
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
@@ -2349,13 +2351,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (!hasDynamicContent(vs))
       return "";
     try {
-      ValueSetExpansionCache cache = new ValueSetExpansionCache(definitions.getValuesets(), definitions.getCodeSystems(), conceptLocator);
+      ValueSetExpansionCache cache = new ValueSetExpansionCache(workerContext);
       ValueSet exp = cache.getExpander().expand(vs).getValueset();
       exp.setCompose(null);
       exp.setDefine(null);
       exp.setText(null); 
       exp.setDescriptionSimple("Value Set Contents (Expansion) for "+vs.getNameSimple()+" at "+Config.DATE_FORMAT().format(new Date()));
-      new NarrativeGenerator(prefix, conceptLocator, codeSystems, valueSets, conceptMaps, profiles, null).generate(exp);
+      new NarrativeGenerator(prefix, workerContext).generate(exp);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+e.getMessage()+"</div>";
@@ -3526,7 +3528,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setFolders(FolderManager folders) {
     this.folders = folders;
-    conceptLocator = new SpecificationTerminologyServices(Utilities.path(folders.srcDir, "terminologies", "cache"));
+    terminologyServices = new SpecificationTerminologyServices(Utilities.path(folders.srcDir, "terminologies", "cache"));
+    workerContext.setTerminologyServices(terminologyServices);
     epub = new EPubManager(this);
   }
 
@@ -3696,24 +3699,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   public void loadSnomed() throws Exception {
-    conceptLocator.loadSnomed(Utilities.path(folders.srcDir, "snomed", "snomed.xml"));
+    terminologyServices.loadSnomed(Utilities.path(folders.srcDir, "snomed", "snomed.xml"));
   }
 
   public void saveSnomed() throws Exception {
-    conceptLocator.saveSnomed(Utilities.path(folders.srcDir, "snomed", "snomed.xml"));
+    terminologyServices.saveSnomed(Utilities.path(folders.srcDir, "snomed", "snomed.xml"));
   }
   
   public void loadLoinc() throws Exception {
     log("Load Loinc", LogMessageType.Process);
-    conceptLocator.loadLoinc(Utilities.path(folders.srcDir, "loinc", "loinc.xml"));
+    terminologyServices.loadLoinc(Utilities.path(folders.srcDir, "loinc", "loinc.xml"));
     log("Loinc Loaded", LogMessageType.Process);
   }
 
   public SpecificationTerminologyServices getConceptLocator() {
-    return conceptLocator;
+    return terminologyServices;
   }
 
-  public Map<String, Profile> getProfiles() {
+  public Map<String, AtomEntry<Profile>> getProfiles() {
     return profiles;
   }
 
@@ -3793,6 +3796,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     // 2. markdown
     String s = Processor.process(Utilities.escapeXml(text));
     return s;
+  }
+
+  public WorkerContext getWorkerContext() {
+    return workerContext;
   }
 
   

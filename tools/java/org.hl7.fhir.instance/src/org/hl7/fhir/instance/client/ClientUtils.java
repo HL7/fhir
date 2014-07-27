@@ -78,11 +78,11 @@ import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.OperationOutcome;
-import org.hl7.fhir.instance.model.ResourceUtilities;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
+import org.hl7.fhir.instance.model.ResourceUtilities;
 
 /**
  * Helper class handling lower level HTTP transport concerns.

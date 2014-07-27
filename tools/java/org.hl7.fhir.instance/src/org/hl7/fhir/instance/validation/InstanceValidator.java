@@ -1,21 +1,12 @@
 package org.hl7.fhir.instance.validation;
 
 
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
-
-import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Address;
-import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
@@ -48,23 +39,15 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
-import org.hl7.fhir.instance.utils.TerminologyServices;
 import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
+import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.ExtensionLocatorService.Status;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
-import org.w3c.dom.Attr;
-import org.w3c.dom.DOMException;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.TypeInfo;
-import org.w3c.dom.UserDataHandler;
 
 
 /* 
@@ -162,14 +145,7 @@ public class InstanceValidator extends BaseValidator {
     }
   }
 
-  public class NullExtensionResolver implements ExtensionLocatorService {
-
-    @Override
-    public ExtensionLocationResponse locateExtension(String uri) {
-      return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.Unknown, null, null);
-    }
-  }
-  
+ 
   public enum CheckDisplayOption {
     Ignore,
     Check,
@@ -179,98 +155,19 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private CheckDisplayOption checkDisplay;
-
+  private WorkerContext context;
 
   private static final String NS_FHIR = "http://hl7.org/fhir";
 
 
-  private Map<String, Profile> types = new HashMap<String, Profile>();
-  private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
-  private Map<String, ValueSet> codesystems = new HashMap<String, ValueSet>();
   private ValueSetExpansionCache cache;
   private boolean suppressLoincSnomedMessages;
-  private ExtensionLocatorService extensions;
-
-
-  private TerminologyServices conceptLocator;
-
-  public InstanceValidator(String validationZip, ExtensionLocatorService extensions, TerminologyServices conceptLocator) throws Exception {
+  
+  public InstanceValidator(WorkerContext context) throws Exception {
     super();
     source = Source.InstanceValidator;
-    loadValidationResources(validationZip);
-    this.extensions = (extensions == null ) ? new NullExtensionResolver() : extensions;
-    this.conceptLocator = conceptLocator;
-    cache = new ValueSetExpansionCache(valuesets, codesystems, conceptLocator);
+    cache = new ValueSetExpansionCache(context);
   }  
-
-  public void seeValueSet(String id, ValueSet valueset) {
-  	valuesets.put(id, valueset);
-  	if (valueset.getDefine() != null)
-  		codesystems.put(valueset.getDefine().getSystemSimple(), valueset);  	
-  }
-  
-  public void seeProfile(String id, Profile profile) {
-  	types.put(id, profile);
-  }
-
-  
-  public Map<String, Profile> getTypes() {
-		return types;
-	}
-
-	private void loadValidationResources(String name) throws Exception {
-    ZipInputStream zip = new ZipInputStream(new FileInputStream(name));
-    ZipEntry ze;
-    while ((ze = zip.getNextEntry()) != null) {
-      if (ze.getName().endsWith(".xml")) {
-        readFile(zip, ze.getName());
-      }
-      zip.closeEntry();
-    }
-    zip.close();    
-  }
-	
-
-  public InstanceValidator(Map<String, byte[]> source, ExtensionLocatorService extensions) throws Exception {
-    super();
-    super.source = Source.InstanceValidator;
-    this.extensions = (extensions == null ) ? new NullExtensionResolver() : extensions;
-    loadValidationResources(source);
-  }  
-
-  private void loadValidationResources(Map<String, byte[]> source) throws Exception {
-    for (String name : source.keySet()) {
-      if (name.endsWith(".xml")) {
-        readFile(new ByteArrayInputStream(source.get(name)), name);        
-      }
-    }
-  }
-
-  private void readFile(InputStream zip, String name) throws Exception {
-    XmlParser xml = new XmlParser();
-    AtomFeed f = xml.parseGeneral(zip).getFeed();
-    for (AtomEntry<?> e : f.getEntryList()) {
-      if (e.getId() == null) {
-        System.out.println("unidentified resource "+e.getLinks().get("self")+" in "+name);
-      }
-      Resource r = e.getResource();
-      if (r instanceof Profile) {
-        Profile p = (Profile) r;
-        if (p.getStructure().get(0).getName() != null)
-          types.put(p.getStructure().get(0).getNameSimple().toLowerCase(), p);
-        else 
-          types.put(p.getStructure().get(0).getTypeSimple().toLowerCase(), p);
-      }
-      if (r instanceof ValueSet) {
-        ValueSet vs = (ValueSet) r;
-        valuesets.put(vs.getIdentifierSimple(), vs);
-        if (vs.getDefine() != null) {
-          codesystems.put(vs.getDefine().getSystemSimple().toString(), vs);
-        }
-      }
-    }
-  }
-
 
   public class ChildIterator {
     private WrapperElement parent;
@@ -420,7 +317,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private Resource getResource(String id) {
-    return types.get(id.toLowerCase());
+    return context.getProfiles().get(id.toLowerCase()).getResource();
   }
 
   private void validateBinary(WrapperElement elem) {
@@ -555,7 +452,7 @@ public class InstanceValidator extends BaseValidator {
     if (url.startsWith("#") && extensionContext != null)
       ext = extensionContext.clone(url.substring(1));
     else
-      ext = extensions.locateExtension(url);
+      ext = context.getExtensionLocator().locateExtension(url);
       
     if (ext.getStatus() == Status.NotAllowed) {
     	rule(errors, "structure", path+"[url='"+url+"']", false, "This extension cannot be used here ("+ext.getMessage()+")");
@@ -589,7 +486,7 @@ public class InstanceValidator extends BaseValidator {
           cok = rule(errors, "structure", path+"[url='"+url+"']", child != null && child.getName().startsWith("value") && child.getName().substring(5).equals(Utilities.capitalize(cs)), "No Extension value found (looking for '"+cs+"')");
         }
         if (cok) {
-          Profile type = types.get(cs);
+          Profile type = context.getProfiles().get(cs).getResource();
           ElementComponent ec = new ElementComponent(); // gimmy up a fake element component for the next call
           ec.setPathSimple(path+"[url='"+url+"']");
           ec.setNameSimple(child.getName());
@@ -627,7 +524,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private boolean isKnownType(String code) {
-    return types.get(code.toLowerCase()) != null; 
+    return context.getProfiles().get(code.toLowerCase()) != null; 
   }
 
   private ElementComponent getElementByPath(ProfileExtensionDefnComponent definition, String path) {
@@ -669,34 +566,34 @@ public class InstanceValidator extends BaseValidator {
 	  } else 
   		throw new Error("Unknown context type");	  	
   }
-
-  private String simplifyPath(String path) {
-    String s = path.replace("/f:", ".");
-    while (s.contains("[")) 
-      s = s.substring(0, s.indexOf("["))+s.substring(s.indexOf("]")+1);
-    String[] parts = s.split("\\.");
-    int i = 0;
-    while (i < parts.length && !types.containsKey(parts[i].toLowerCase()))
-      i++;
-    if (i >= parts.length)
-      throw new Error("Unable to process part "+path);
-    int j = parts.length - 1;
-    while (j > 0 && (parts[j].equals("extension") || parts[j].equals("modifierExtension")))
-        j--;
-    StringBuilder b = new StringBuilder();
-    boolean first = true;
-    for (int k = i; k <= j; k++) {
-      if (k == j || !parts[k].equals(parts[k+1])) {
-        if (first)
-          first = false;
-        else
-          b.append(".");
-        b.append(parts[k]);
-      }
-    }
-    return b.toString();
-  }
-
+//
+//  private String simplifyPath(String path) {
+//    String s = path.replace("/f:", ".");
+//    while (s.contains("[")) 
+//      s = s.substring(0, s.indexOf("["))+s.substring(s.indexOf("]")+1);
+//    String[] parts = s.split("\\.");
+//    int i = 0;
+//    while (i < parts.length && !context.getProfiles().containsKey(parts[i].toLowerCase()))
+//      i++;
+//    if (i >= parts.length)
+//      throw new Error("Unable to process part "+path);
+//    int j = parts.length - 1;
+//    while (j > 0 && (parts[j].equals("extension") || parts[j].equals("modifierExtension")))
+//        j--;
+//    StringBuilder b = new StringBuilder();
+//    boolean first = true;
+//    for (int k = i; k <= j; k++) {
+//      if (k == j || !parts[k].equals(parts[k+1])) {
+//        if (first)
+//          first = false;
+//        else
+//        b.append(".");
+//      b.append(parts[k]);
+//    }
+//    }
+//    return b.toString();
+//  }
+//
 
   private boolean empty(WrapperElement element) {
     if (element.hasAttribute("value"))
@@ -818,9 +715,9 @@ public class InstanceValidator extends BaseValidator {
 
   private ValueSet resolveBindingReference(Type reference) {
     if (reference instanceof Uri)
-      return valuesets.get(((Uri) reference).getValue().toString());
+      return context.getValueSets().get(((Uri) reference).getValue().toString()).getResource();
     else if (reference instanceof ResourceReference)
-      return valuesets.get(((ResourceReference) reference).getReferenceSimple());
+      return context.getValueSets().get(((ResourceReference) reference).getReferenceSimple()).getResource();
     else
       return null;
   }
@@ -908,8 +805,8 @@ public class InstanceValidator extends BaseValidator {
 
 
   private boolean checkCode(List<ValidationMessage> errors, String path, String code, String system, String display) {
-    if (conceptLocator != null && conceptLocator.verifiesSystem(system)) {
-      org.hl7.fhir.instance.utils.TerminologyServices.ValidationResult s = conceptLocator.validateCode(system, code, display);
+    if (context.getTerminologyServices() != null && context.getTerminologyServices().verifiesSystem(system)) {
+      org.hl7.fhir.instance.utils.TerminologyServices.ValidationResult s = context.getTerminologyServices().validateCode(system, code, display);
       if (s == null)
         return true;
       if (s.getSeverity() == IssueSeverity.information)
@@ -961,7 +858,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private ValueSet getValueSet(String system) {
-    return codesystems.get(system);
+    return context.getCodeSystems().get(system).getResource();
   }
 
   public boolean isSuppressLoincSnomedMessages() {
@@ -1437,6 +1334,9 @@ public class InstanceValidator extends BaseValidator {
 	public void setCheckDisplay(CheckDisplayOption checkDisplay) {
 		this.checkDisplay = checkDisplay;
 	}
+	public WorkerContext getWorkerContext() {
+	  return context;
+  }
 	
 	
 }

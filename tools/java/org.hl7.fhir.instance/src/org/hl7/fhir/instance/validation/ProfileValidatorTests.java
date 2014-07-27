@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
@@ -42,7 +43,7 @@ public class ProfileValidatorTests {
 	}
 
 	public void execute() throws Exception {
-	  InstanceValidator v = new InstanceValidator(pack.getAbsolutePath(), null, null);
+	  InstanceValidator v = new InstanceValidator(WorkerContext.fromPack(pack.getAbsolutePath()));
 	  
     Document reg = parseXml(registry.getAbsolutePath());
     List<Element> tests = new ArrayList<Element>();

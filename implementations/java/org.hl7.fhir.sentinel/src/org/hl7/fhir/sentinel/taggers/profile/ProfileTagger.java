@@ -20,6 +20,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.sentinel.Tagger;
@@ -33,7 +34,7 @@ public class ProfileTagger implements Tagger {
 	@Override
 	public void initialise(FHIRClient client, Conformance conf) throws Exception {
 
-		validator = new InstanceValidator("C:\\work\\org.hl7.fhir\\build\\publish\\validation.zip", null, null);
+		validator = new InstanceValidator(WorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation.zip"));
 
 	  String next = null;
 	  int i = 1;
@@ -68,24 +69,26 @@ public class ProfileTagger implements Tagger {
 	}
 
 	
-	private void seeValueSet(AtomEntry<? extends Resource> e) throws Exception {
+	@SuppressWarnings("unchecked")
+  private void seeValueSet(AtomEntry<? extends Resource> e) throws Exception {
 		ValueSet vs = (ValueSet) e.getResource();
 		if (isValidAgainstBase(vs, loadAsXml(vs), e.getId())) {
 			AtomEntry<? extends Resource> cached = cache.get(e.getId());
 			if (cached == null || cached.getUpdated().before(e.getUpdated())) {
 				cache.put(e.getId(), e);
-				validator.seeValueSet(e.getId(), vs);
+				validator.getWorkerContext().seeValueSet((AtomEntry<ValueSet>) e);
 			}	  
 		}
   }
 
-	private void seeProfile(AtomEntry<? extends Resource> e) throws Exception {
+	@SuppressWarnings("unchecked")
+  private void seeProfile(AtomEntry<? extends Resource> e) throws Exception {
 		Profile p = (Profile) e.getResource();
 		if (isValidAgainstBase(p, loadAsXml(p), e.getId())) {
 			AtomEntry<? extends Resource> cached = cache.get(e.getId());
 			if (cached == null || cached.getUpdated().before(e.getUpdated())) {
 				cache.put(e.getId(), e);
-				validator.seeProfile(e.getId(), p);
+				validator.getWorkerContext().seeProfile((AtomEntry<Profile>) e);
 			}
 		}
   }
@@ -102,10 +105,10 @@ public class ProfileTagger implements Tagger {
 			if (!isValidAgainstBase(entry.getResource(), doc, entry.getId()))
 				added.add(new AtomCategory("http://hl7.org/fhir/tag", "http://www.healthintersections.com.au/fhir/tags/invalid", "Non-conformant Resource"));
 			
-			for (String n : validator.getTypes().keySet()) {
-				Profile p = validator.getTypes().get(n);
+			for (String n : validator.getWorkerContext().getProfiles().keySet()) {
+				Profile p = validator.getWorkerContext().getProfiles().get(n).getResource();
 
-				if (p.getIdentifierSimple() != null && !p.getIdentifierSimple().equals("http://hl7.org/fhir/profile/"+doc.getDocumentElement().getLocalName().toLowerCase())) {
+				if (p.getUrlSimple() != null && !p.getUrlSimple().equals("http://hl7.org/fhir/profile/"+doc.getDocumentElement().getLocalName().toLowerCase())) {
 					boolean valid = check(doc, p, null);
 					if (valid) 
 						added.add(new AtomCategory("http://hl7.org/fhir/tag/profile", n, "Profile "+p.getNameSimple()));
@@ -131,7 +134,7 @@ public class ProfileTagger implements Tagger {
 
 	private boolean isValidAgainstBase(Resource r, Document doc, String id) throws Exception {
 	  String name = doc.getDocumentElement().getLocalName();
-	  Profile p = validator.getTypes().get(name.toLowerCase());
+	  Profile p = validator.getWorkerContext().getProfiles().get(name.toLowerCase()).getResource();
 	  new XmlComposer().compose(new FileOutputStream("c:\\temp\\resource.xml"), r, true);
 	  if (p != null)
 	  	new XmlComposer().compose(new FileOutputStream("c:\\temp\\profile.xml"), p, true);

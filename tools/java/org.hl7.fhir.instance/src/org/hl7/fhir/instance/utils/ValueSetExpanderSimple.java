@@ -18,21 +18,17 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 
 public class ValueSetExpanderSimple implements ValueSetExpander {
 
-  private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
-  private Map<String, ValueSet> codesystems = new HashMap<String, ValueSet>();
+  private WorkerContext context;
   private List<ValueSetExpansionContainsComponent> codes = new ArrayList<ValueSet.ValueSetExpansionContainsComponent>();
   private Map<String, ValueSetExpansionContainsComponent> map = new HashMap<String, ValueSet.ValueSetExpansionContainsComponent>();
   private ValueSet focus;
-  private TerminologyServices locator;
 
 	private ValueSetExpanderFactory factory;
   
-  public ValueSetExpanderSimple(Map<String, ValueSet> valuesets, Map<String, ValueSet> codesystems, ValueSetExpanderFactory factory, TerminologyServices locator) {
+  public ValueSetExpanderSimple(WorkerContext context, ValueSetExpanderFactory factory) {
     super();
-    this.valuesets = valuesets;
-    this.codesystems = codesystems;
+    this.context = context;
     this.factory = factory;
-    this.locator = locator;
   }
   
   @Override
@@ -57,7 +53,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     } catch (Exception e) {
       // well, we couldn't expand, so we'll return an interface to a checked that can check membership of the set
       // that might fail too, but it might not, later.
-      return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, locator, factory, codesystems, valuesets));
+      return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context));
     }
   }
 
@@ -74,7 +70,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	private void importValueSet(String value) throws Exception {
 	  if (value == null)
 	  	throw new Exception("unable to find value set with no identity");
-	  ValueSet vs = valuesets.get(value);
+	  ValueSet vs = context.getValueSets().get(value).getResource();
 	  if (vs == null)
 			throw new Exception("Unable to find imported value set "+value);
 	  ValueSetExpansionOutcome vso = factory.getExpander().expand(vs);
@@ -86,12 +82,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
 	private void includeCodes(ConceptSetComponent inc) throws Exception {
-	  if (locator != null && locator.supportsSystem(inc.getSystemSimple())) {
-        addCodes(locator.expandVS(inc));
+	  if (context.getTerminologyServices() != null && context.getTerminologyServices().supportsSystem(inc.getSystemSimple())) {
+        addCodes(context.getTerminologyServices().expandVS(inc));
       return;
 	  }
 	    
-	  ValueSet cs = codesystems.get(inc.getSystemSimple());
+	  ValueSet cs = context.getCodeSystems().get(inc.getSystemSimple()).getResource();
 	  if (cs == null)
 	  	throw new Exception("unable to find code system "+inc.getSystemSimple().toString());
 	  if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) {
@@ -137,7 +133,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
 	private void excludeCodes(ConceptSetComponent inc) throws Exception {
-	  ValueSet cs = codesystems.get(inc.getSystemSimple().toString());
+	  ValueSet cs = context.getCodeSystems().get(inc.getSystemSimple().toString()).getResource();
 	  if (cs == null)
 	  	throw new Exception("unable to find value set "+inc.getSystemSimple().toString());
     if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) {

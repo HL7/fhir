@@ -49,8 +49,8 @@ import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
-//import org.hl7.fhir.instance.formats.AtomComposer;
 import org.hl7.fhir.instance.utils.Version;
+//import org.hl7.fhir.instance.formats.AtomComposer;
 
 /**
  * Simple RESTful client for the FHIR Resource Oriented API.

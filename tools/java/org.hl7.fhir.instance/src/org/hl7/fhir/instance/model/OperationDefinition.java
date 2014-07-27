@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jul 22, 2014 17:06+1000 for FHIR v0.2.1
+// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
 
 import java.util.*;
 
 /**
- * Definition of an operation or a named query.
+ * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
  */
 public class OperationDefinition extends Resource {
 
@@ -463,9 +463,9 @@ public class OperationDefinition extends Resource {
   }
 
     /**
-     * Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).
+     * The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    protected Uri identifier;
 
     /**
      * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
@@ -557,7 +557,7 @@ public class OperationDefinition extends Resource {
      */
     protected List<OperationDefinitionParameterComponent> parameter = new ArrayList<OperationDefinitionParameterComponent>();
 
-    private static final long serialVersionUID = 439676585L;
+    private static final long serialVersionUID = -1336048022L;
 
     public OperationDefinition() {
       super();
@@ -574,20 +574,39 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #identifier} (Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
+     * @return {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
      */
-    public List<Identifier> getIdentifier() { 
+    public Uri getIdentifier() { 
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #identifier} (Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
+     * @param value {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
      */
-    public Identifier addIdentifier() { 
-      Identifier t = new Identifier();
-      this.identifier.add(t);
-      return t;
+    public OperationDefinition setIdentifier(Uri value) { 
+      this.identifier = value;
+      return this;
+    }
+
+    /**
+     * @return The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     */
+    public String getIdentifierSimple() { 
+      return this.identifier == null ? null : this.identifier.getValue();
+    }
+
+    /**
+     * @param value The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     */
+    public OperationDefinition setIdentifierSimple(String value) { 
+      if (value == null)
+        this.identifier = null;
+      else {
+        if (this.identifier == null)
+          this.identifier = new Uri();
+        this.identifier.setValue(value);
+      }
+      return this;
     }
 
     /**
@@ -1118,7 +1137,7 @@ public class OperationDefinition extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "uri", "The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("title", "string", "A free text natural language name identifying the Profile.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the profile.", 0, java.lang.Integer.MAX_VALUE, publisher));
@@ -1140,9 +1159,7 @@ public class OperationDefinition extends Resource {
 
       public OperationDefinition copy() {
         OperationDefinition dst = new OperationDefinition();
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.title = title == null ? null : title.copy();
         dst.publisher = publisher == null ? null : publisher.copy();

@@ -1,6 +1,9 @@
 package org.hl7.fhir.instance.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
 import java.util.Calendar;
