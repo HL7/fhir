@@ -21,6 +21,7 @@
   <WindowTopX>1200</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -104,7 +105,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="74" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="77" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -329,8 +330,17 @@
     <Cell><Data ss:Type="String">performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SecurityClaim</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SecurityEvent</Data></Cell>
     <Cell><Data ss:Type="String">reference.subject | reference.patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SecurityPrincipal</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SecurityGroup</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Slot</Data></Cell>
@@ -430,7 +440,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>38</ActiveRow>
+     <ActiveRow>53</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

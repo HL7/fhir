@@ -1,0 +1,63 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here -->
+<!--
+subjects to cover:
+
+* using login 
+ * hashing
+* claim types
+  * searching claim types
+  
+
+-->
+<h3>Managing the Authentication Process</h3>
+
+<p>
+The SecurityPrincipal resource is used to:
+</p>
+
+<ul>
+ <li>identify the user/device</li>
+ <li>connect that user to their associated resources</li>
+ <li>relate the user to a set of claims that are used by the access control system to grant specific requests</li>
+ <li>identify the target of a <a href="securityevent.html">security event</a></li>
+</ul>
+<p>
+The user may be authenticated by a variety of methods, including by delegation to
+an identity server (e.g. by using OAuth). The choice of which authentication method is appropriate is 
+driven by context, and business and regulatory considerations.
+</p>
+<p>
+One way to authenticate the user is directly by username/password. The SecurityPrincipal
+resource includes the elements "login" and "passwordHash" to support this process. The
+expectation in this case is that a server will provide an HTML form for the user
+to fill out the username and password, and/or it will provide an endpoint that 
+accepts a username and password. Note that this specification does not specify any
+protocol for this exchange. Either way, the server's hash of the password 
+must match the hash record in the resource. 
+</p>
+<p>
+Server's that use a password based login, and that allow clients to administer the
+users have to provide a method for the client to generate a password hash, in order
+for the client to correctly populate the passwordHash element. This can be achieved 
+using the <a href="securityprincipal-operations.html">$hash operation</a>.
+</p>
+
+<h3>Security Claim Types</h3>
+
+<p>
+For further information concerning security claims, see <a href="securityclaimtype.html">Security Claim Types</a>.
+This resource defines two search parameters for claims, "type" and "claim". <i>type</i> is a uri search that searches for 
+any security principal resources with claims of a partocular type, but a URL. <i>claim</i> is a token search that searches
+both "type" and "claim" - if the token includes a namespace, portion, then the namespace portion relates to the 
+security type (e.g. the "type" and "claim" correspond to "system" and "code" from a <a href="datatypes.html#Coding">Coding</a>
+data type for searching purposes).
+</p>
+<p>
+The claims function as a Set - that is, the full set of claims for a principal is the union of the claims made
+for the principal itself, and those made for all the principal's groups.
+</p>
+
+
+</div>

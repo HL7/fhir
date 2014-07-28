@@ -408,6 +408,15 @@ NOTE: while translations on Resources are possible they should be used for rende
     <translation lang="es">EventoSeguridad</translation>
     <translation lang="fr">ÉvènementSécurité</translation>
   </item>
+  <item id="SecurityPrincipal">
+    <translation lang="en">SecurityPrincipal</translation>
+  </item>
+  <item id="SecurityGroup">
+    <translation lang="en">SecurityGroup</translation>
+  </item>
+  <item id="SecurityClaim">
+    <translation lang="en">SecurityClaim</translation>
+  </item>
   <item id="Sequence">
     <translation lang="en">Sequence</translation>
     <translation lang="zh">序列</translation>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>All concepts in the following value sets:</p>
+      <ul>
+        <li>Confidentiality</li>
+        <li>InformationSensitivityPolicy</li>
+        <li>Compartment</li>
+        <li>SecurityIntegrityObservationValue</li>
+        <li>SecurityControlObservationValue</li>
+        <li>ActUSPrivacyLaw</li>
+      </ul>
+    </div>
+  </text>
+  <identifier value="http://hl7.org/fhir/ValueSet/security-labels"/>
+  <name value="All Security Labels"/>
+  <publisher value="FHIR project team"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="A single value set for all security labels defined by FHIR"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2014-07-28"/>
+  <compose>
+    <import value="http://hl7.org/fhir/v3/vs/Confidentiality"/>
+    <import value="http://hl7.org/fhir/v3/vs/InformationSensitivityPolicy"/>
+    <import value="http://hl7.org/fhir/v3/vs/Compartment"/>
+    <import value="http://hl7.org/fhir/v3/vs/SecurityIntegrityObservationValue"/>
+    <import value="http://hl7.org/fhir/v3/vs/SecurityControlObservationValue"/>
+    <import value="http://hl7.org/fhir/v3/vs/ActUSPrivacyLaw"/>
+  </compose>
+</ValueSet>

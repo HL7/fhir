@@ -1,0 +1,39 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This resource represents a "principal" that uses FHIR-based resources or services. 
+The user may be either a human, or a device that is authenticated, and whose identity is 
+used as the basis for making access control decisions.
+</p>
+<p>
+This resource is defined to allow FHIR based systems to expose their user and 
+security management over the FHIR interface if this is a useful service to provide.
+It is not necessary to use these resources in order to use or provide a FHIR server, 
+or to provision and administer either users or security on system that use FHIR.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+FHIR defines a number of security related resources:
+</p>
+<table class="grid">
+ <tr> <td><a href="securityevent.html">SecurityEvent</a></td> <td>A record of an event made for purposes of maintaining a security log</td> </tr>
+ <tr> <td><a href="securityprincipal.html">SecurityPrincipal</a></td> <td>Tracks a human or software device that uses the system</td> </tr>
+ <tr> <td><a href="securitygroup.html">SecurityGroup</a></td> <td>A group of rights for security principals</td> </tr>
+ <tr> <td><a href="securityclaim.html">SecurityClaim</a></td> <td>A definition of a claim that can be made about a user</td> </tr>
+</table>
+<p>
+The SecurityPrincipal resource represents the authenticated user. Such users typically correspond to an entity that
+is already represented elsewhere, either as a <a href="practitioner.html">Practitioner</a> (e.g. staff accounts), 
+a <a href="patient.html">Patient</a>, or a <a href="device.html">Device</a>. In some cases, 
+SecurityPrincipal resources are also defined for a <a href="relatedperson.html">RelatedPerson</a>,
+an <a href="organization.html">Organization</a>, or a <a href="group.html">Group</a>. Linking a SecirityPrincipal
+to an organization or group indicates that there is a single security account associated with multiple users.
+</p>
+</div>
+
+</div>

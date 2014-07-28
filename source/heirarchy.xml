@@ -161,6 +161,9 @@ todo: compartments
     <page type="resource" resource="Profile"/>
     <page type="resource" resource="ConceptMap"/>
     <page type="resource" resource="OperationDefinition"/>
+    <page type="resource" resource="SecurityPrincipal"/>
+    <page type="resource" resource="SecurityGroup"/>
+    <page type="resource" resource="SecurityClaim"/>
   </page>
 </page>
 </fhir>
