@@ -20,6 +20,8 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>150</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -115,9 +117,8 @@
   <Style ss:ID="s79">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s80">
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"
-    ss:Bold="1"/>
+  <Style ss:ID="s81">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -206,7 +207,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -296,7 +296,14 @@
     <Cell ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:Index="3" ss:StyleID="s70"/>
+    <Cell><Data ss:Type="String">religion</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Patient</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">Religion</Data></Cell>
+    <Cell><Data ss:Type="String">Patient's professed religious affiliation</Data></Cell>
+    <Cell><Data ss:Type="String">A code classifying a person's professed religion</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:Index="3" ss:StyleID="s70"/>
@@ -355,12 +362,13 @@
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
+    <VerticalResolution>600</VerticalResolution>
    </Print>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -368,7 +376,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="224.25"/>
@@ -391,13 +399,19 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Race</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Race</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Ethnicity</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">A code classifying the person into a named category of humans sharing a common real or presumed heritage.</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s80"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Ethnicity</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s81"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Ethnicity</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Religion</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">A code classifying a person's professed religion</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ReligiousAffiliation</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -407,11 +421,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

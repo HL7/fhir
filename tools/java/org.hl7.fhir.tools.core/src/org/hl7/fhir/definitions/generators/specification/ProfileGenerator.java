@@ -237,6 +237,7 @@ public class ProfileGenerator {
     cd.setTypeSimple(r.getRoot().getName());
     cd.setPurposeSimple("This is the definition for the "+r.getRoot().getName()+" resource");
     cd.setDifferential(new ConstraintComponent());
+//    cd.setBaseSimple("http://hl7.org/fhir/Profile/Resource"); // this is semi-fictional, and causes errors.
     defineElement(null, p, cd.getDifferential(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
 
     reset();
