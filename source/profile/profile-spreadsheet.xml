@@ -20,6 +20,8 @@
   <WindowWidth>9450</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>840</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1897,7 +1899,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1918,8 +1919,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>61</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>63</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1930,7 +1931,7 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="28" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
    <Column ss:Index="3" ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="265.5"/>
    <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="309.75"/>
@@ -1989,7 +1990,8 @@
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.snapshot.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">Value may only be specified if the type consists of a single repetition that has a type corresponding to one of the primitive data types.</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'value')])) or (count(f:type)=0) or (count(f:type)=1 and f:type/f:code[substring(@value,1,1)=lower-case(substring(@value,1,1))])</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'value')])) or (count(f:type)=0) or (count(f:type)=1 )</Data></Cell>
+    <Cell><Data ss:Type="String">and f:type/f:code[substring(@value,1,1)=lower-case(substring(@value,1,1))]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">12</Data></Cell>
@@ -2123,6 +2125,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2142,8 +2145,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
