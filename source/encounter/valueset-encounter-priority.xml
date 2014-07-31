@@ -1,15 +1,15 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="Diet"/>
+  <name value="Encounter Priority"/>
   <publisher value="FHIR Project team"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="This value set defines a set of codes that can be used to indicate the encounter priority as determined by triage."/>
+  <description value="This is an example value set defined by the FHIR project, that could be used in Emergency to indicate the encounter priority as determined by triage."/>
   <status value="draft"/>
   <define>
-    <system value="http://hl7.org/fhir/diet"/>
+    <system value="http://hl7.org/fhir/vs/encounter-priority"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="imm"/>
