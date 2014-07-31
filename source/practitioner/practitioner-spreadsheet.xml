@@ -115,9 +115,14 @@
   <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="19" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="20" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="340.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="33.75"/>
@@ -373,6 +378,15 @@
     <Cell><Data ss:Type="String">CER?</Data></Cell>
     <Cell><Data ss:Type="String">./Qualifications</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Practitioner.qualification.identifier</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">An identifier for this qualification for the practitioner</Data></Cell>
+    <Cell><Data ss:Type="String">An identifier that applies to this person's qualification in this role</Data></Cell>
+    <Cell><Data ss:Type="String">Often, specific identities are assigned for the qualification</Data></Cell>
+    <Cell ss:Index="15" ss:StyleID="s81"/>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner.qualification.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
@@ -453,7 +467,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
