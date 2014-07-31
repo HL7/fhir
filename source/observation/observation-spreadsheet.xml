@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-07-10T20:21:32Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-07-31T21:57:10Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -217,9 +217,19 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s99">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s100">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="26" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="27" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s67" ss:Width="198"/>
    <Column ss:StyleID="s66" ss:Width="29.25"/>
@@ -237,6 +247,11 @@
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="16" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="258"/>
    <Column ss:Index="18" ss:StyleID="s66" ss:Width="88.5"/>
+   <Column ss:Index="20" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="150"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="142.5"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="123.75"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="109.5"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="101.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="19.5" ss:StyleID="s68">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -770,6 +785,47 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="165">
+    <Cell><Data ss:Type="String">Observation.encounter</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell><Data ss:Type="String">Healthcare event related to the observation</Data></Cell>
+    <Cell><Data ss:Type="String">The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s99"><Data ss:Type="String">For some observations it may be important to know the link between an observation and a particular encounter.</Data></Cell>
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:Index="14" ss:StyleID="s100"><Data ss:Type="String">Encounter[moodCode=EVN]</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Encounter[moodCode=EVN]</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">PV1</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">review mapping</Data></Cell>
+    <Cell><Data ss:Type="String">[#3379]</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">y (with qualifiers)</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell><Data ss:Type="String">!Observation.normalValue[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -1082,9 +1138,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>15</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1092,6 +1148,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1099,8 +1156,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1359,6 +1416,11 @@
     <Cell ss:Index="8" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Healthcare event related to the observation</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.encounter</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">[#3379]</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1442,7 +1504,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1455,12 +1517,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
