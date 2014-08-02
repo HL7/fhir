@@ -406,7 +406,7 @@
             <xsl:choose>
               <xsl:when test="not(f:options/f:reference/@value)">
                 <xsl:message>
-<!--                  <xsl:value-of select="concat('WARNING: A question was defined as requiring a coded answer, but no set of allowed values was declared so unable to expose code choices for question: ', f:text/@value)"/>-->
+                  <xsl:value-of select="concat('WARNING: A question was defined as requiring a coded answer, but no set of allowed values was declared so unable to expose code choices for question: ', f:text/@value)"/>
                 </xsl:message>
               </xsl:when>
               <xsl:otherwise>
@@ -425,7 +425,7 @@
                   <xsl:when test="count($valuesetCodings/f:coding)&gt;$maxCodings">
                     <xsl:value-of select="concat('WARNING: Question has value set with more than ', $maxCodings, ' options.  No proper interface could be provided.&#x0a;', f:text/@value)"/>
                   </xsl:when>
-                  <xsl:when test="ends-with($answerType, 'single-choice')">
+                  <xsl:when test="contains($answerType, 'single-choice')">
                     <br/>
                     <xsl:for-each select="$valuesetCodings/f:coding">
                       <xsl:if test="f:system">
@@ -467,12 +467,12 @@
             <xsl:choose>
               <xsl:when test="normalize-space($answerType)=''">
                 <xsl:message>
-<!--                  <xsl:value-of select="concat('WARNING: Answer format was not declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>-->
+                  <xsl:value-of select="concat('WARNING: Answer format was not declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>
                 </xsl:message>
               </xsl:when>
               <xsl:when test="not($answerType='string')">
                 <xsl:message>
-<!--                  <xsl:value-of select="concat('WARNING: Unrecognized answer format ', $answerType, ' was declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>-->
+                  <xsl:value-of select="concat('WARNING: Unrecognized answer format ', $answerType, ' was declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>
                 </xsl:message>
               </xsl:when>
             </xsl:choose>
