@@ -8,17 +8,17 @@
   <Author>Grahame</Author>
   <LastAuthor>David Hay</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-08-03T01:22:05Z</LastSaved>
+  <LastSaved>2014-08-03T02:35:35Z</LastSaved>
   <Version>14.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8780</WindowHeight>
-  <WindowWidth>24720</WindowWidth>
-  <WindowTopX>740</WindowTopX>
-  <WindowTopY>1580</WindowTopY>
+  <WindowHeight>11420</WindowHeight>
+  <WindowWidth>27560</WindowWidth>
+  <WindowTopX>540</WindowTopX>
+  <WindowTopY>360</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -101,7 +101,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="16" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="17" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="180"/>
@@ -110,11 +110,11 @@
    <Column ss:StyleID="s62" ss:Width="60"/>
    <Column ss:StyleID="s62" ss:Width="27"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="107"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="85"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="121"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="199"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="88"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="77"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="64"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="166"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135"/>
@@ -153,9 +153,24 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="72">
+    <Cell><Data ss:Type="String">ReferralRequest.status</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ReferralStatus</Data></Cell>
+    <Cell><Data ss:Type="String">draft | sent | active | cancelled | refused | completed</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">The workflow status of the referral or transfer of care request</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">ReferralRequest.identifier</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -168,24 +183,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="210">
-    <Cell><Data ss:Type="String">ReferralRequest.time</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">N</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Requested service(s) fulfillment time</Data></Cell>
-    <Cell><Data ss:Type="String">The period of time within which the services identified in the referral/transfer of care is specified or required to occur </Data></Cell>
-    <Cell><Data ss:Type="String">EffectiveTime</Data></Cell>
-    <Cell><Data ss:Type="String">Y</Data></Cell>
-    <Cell><Data ss:Type="String">Use cases:&#13;(1) to indicate that the requested service is not to happen before a specified date&#13;(2) to indicate that the requested service must happen before a specified date&#13;(3) to indicate that the requested service must happen during the specified dates (&quot;low&quot; and &quot;high&quot; values)</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="195">
+   <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell><Data ss:Type="String">ReferralRequest.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -203,14 +201,14 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="78">
-    <Cell><Data ss:Type="String">ReferralRequest.discipline</Data></Cell>
+    <Cell><Data ss:Type="String">ReferralRequest.specialty</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Clinical discipline requested</Data></Cell>
+    <Cell><Data ss:Type="String">The clinical specialty (discipline) that the referral is requested for</Data></Cell>
     <Cell><Data ss:Type="String">Indication of the clinical domain or discipline to which the referral or transfer of care request is sent</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Examples:&#13;Cardiology&#13;Gastroenterology&#13;Diabetology</Data></Cell>
@@ -234,38 +232,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">ReferralRequest.status</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">ReferralStatus</Data></Cell>
-    <Cell><Data ss:Type="String">draft | sent | active | cancelled | refused | completed</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">The workflow status of the referral or transfer of care request</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">draft | sent | active | cancelled | refused | completed</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">ReferralRequest.encounter</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">N</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Encounter)</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Encounter</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">The encounter at which the request for referral or transfer of care is initiated</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell><Data ss:Type="String">ReferralRequest.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">N</Data></Cell>
@@ -285,7 +252,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">ReferralRequest.receiver</Data></Cell>
+    <Cell><Data ss:Type="String">ReferralRequest.recipient</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner | Organization)</Data></Cell>
@@ -293,6 +260,22 @@
     <Cell><Data ss:Type="String">The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">There will be a primary receiver.&#13;But the request can be received by any number of &quot;copied to&quot; providers or organisations</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">ReferralRequest.encounter</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Encounter</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">The encounter at which the request for referral or transfer of care is initiated</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">ReferralRequest.dateSent</Data></Cell>
@@ -325,8 +308,17 @@
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000"> ReferralReasonCode</Font></B><Font
        html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40">:&#13;01 = Pathological Anomalies&#13;02 = Disabled (physical or mental)&#13;03 = Complexity of Treatment&#13;04 = Seizure Disorders&#13;05 = Extensive Surgery&#13;06 = Surgical Complexity&#13;07 = Rampant decay&#13;08 = Medical History (to provide details upon request)&#13;09 = Temporal Mandibular Joint Anomalies&#13;10 = Accidental Injury&#13;11 = Anaesthesia complications (local or general)&#13;12 = Developmental Anomalies&#13;13 = Behavioral Management &#13;</Font></Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="54">
+    <Cell><Data ss:Type="String">ReferralRequest.description</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">A textual description of the referral</Data></Cell>
+    <Cell><Data ss:Type="String">The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">This would be a good candidate for a 'markdown' data type</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="108">
-    <Cell><Data ss:Type="String">ReferralRequest.service</Data></Cell>
+    <Cell><Data ss:Type="String">ReferralRequest.serviceRequested</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -336,7 +328,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">Examples:&#13;&quot;cardiac pacemaker insertion&quot;&#13;&#13;HL7 v3 Concept domain - ReferralReasonCode examples:&#13;- Specialized medical assistance&#13;- Other care requirement&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="210">
-    <Cell><Data ss:Type="String">ReferralRequest.supportInformation</Data></Cell>
+    <Cell><Data ss:Type="String">ReferralRequest.supportingInformation</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource (Any)</Data></Cell>
@@ -344,6 +336,23 @@
     <Cell><Data ss:Type="String">Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Examples include:&#13;Presenting problems/chief complaints&#13;Medical History&#13;Family History&#13;Alerts&#13;Allergy/Intolerance and Adverse Reactions&#13;Medications&#13;Observations/Assessments (may include cognitive and fundtional assessments)&#13;Diagnostic Reports&#13;Care Plan</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="210">
+    <Cell><Data ss:Type="String">ReferralRequest.fulfillmentTime</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Period</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Requested service(s) fulfillment time</Data></Cell>
+    <Cell><Data ss:Type="String">The period of time within which the services identified in the referral/transfer of care is specified or required to occur </Data></Cell>
+    <Cell><Data ss:Type="String">EffectiveTime</Data></Cell>
+    <Cell><Data ss:Type="String">Y</Data></Cell>
+    <Cell><Data ss:Type="String">Use cases:&#13;(1) to indicate that the requested service is not to happen before a specified date&#13;(2) to indicate that the requested service must happen before a specified date&#13;(3) to indicate that the requested service must happen during the specified dates (&quot;low&quot; and &quot;high&quot; values)</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -364,7 +373,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>11</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -377,12 +386,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

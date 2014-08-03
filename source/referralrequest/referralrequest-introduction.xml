@@ -2,6 +2,16 @@
 
 <div>
 <h2>Scope and Usage</h2>
+    <p>
+        A referral is a common clinical task where one clinician asks another to manage some aspect
+        of a patients care. This can either be part of a patients care, or a complete transfer of the care.
+        </p>
+    <p>It is also possible for a patient to make a referral directly (often termed a 'self referral')
+    </p>
+    <p>
+        The workflow around the referral is managed by the Order/OrderResponce resources, with the 
+        ReferralRequest containing the clincial details. 
+    </p>
 <p>
 Todo
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->

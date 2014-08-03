@@ -5,7 +5,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
 
-  <status value="active"/>
+  <status value="sent"/>
   <!-- insert contents here -->
   
 </ReferralRequest>
