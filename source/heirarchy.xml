@@ -105,6 +105,7 @@ todo: compartments
     <page type="resource" resource="FamilyHistory"/>
     <page type="resource" resource="Condition"/>
     <page type="resource" resource="Procedure"/>
+    <page type="resource" resource="ReferralRequest"/>
     <page type="resource" resource="QuestionnaireAnswers"/>
     <page type="resource" resource="RiskAssessment"/>
     <page type="resource" resource="Medication"/>
