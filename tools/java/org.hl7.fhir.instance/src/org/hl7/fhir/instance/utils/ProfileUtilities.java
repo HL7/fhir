@@ -512,7 +512,7 @@ public class ProfileUtilities {
     }
   }
   
-  public XhtmlNode generateExtensionsTable(String defFile, Profile profile, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp) throws Exception {
+  public XhtmlNode generateExtensionsTable(String defFile, Profile profile, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp, String profileBaseFileName) throws Exception {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable();
     
@@ -525,12 +525,12 @@ public class ProfileUtilities {
     re.getCells().add(gen.new Cell(null, null, "Extensions defined by the URL \""+profile.getUrlSimple()+"\"", null, null));
 
     for (ProfileExtensionDefnComponent ext : profile.getExtensionDefn()) {
-      genExtension(defFile, gen, re.getSubRows(), ext, profile, pkp);
+      genExtension(defFile, gen, re.getSubRows(), ext, profile, pkp, profileBaseFileName);
     }
     return gen.generate(model);
   }
   
-  private void genExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, ProfileExtensionDefnComponent ext, Profile profile, ProfileKnowledgeProvider pkp) throws Exception {
+  private void genExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, ProfileExtensionDefnComponent ext, Profile profile, ProfileKnowledgeProvider pkp, String profileBaseFileName) throws Exception {
     Row r = gen.new Row();
     rows.add(r);
     r.setAnchor(ext.getCodeSimple());
@@ -539,7 +539,7 @@ public class ProfileUtilities {
     r.getCells().add(gen.new Cell(null, null, describeCardinality(e.getDefinition(), null, new UnusedTracker()), null, null));
     if (ext.getElement().size() == 1) {
       r.setIcon("icon_extension_simple.png");
-      genTypes(gen, pkp, r, e, defFile);
+      genTypes(gen, pkp, r, e, profileBaseFileName);
     } else {
       r.setIcon("icon_extension_complex.png");
       r.getCells().add(gen.new Cell());
@@ -548,7 +548,7 @@ public class ProfileUtilities {
     r.getCells().add(gen.new Cell(null, null, e.getDefinition().getShortSimple(), null, null).addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null)));
     List<ElementComponent> children = getChildren(ext.getElement(), e);
     for (ElementComponent child : children)
-      genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profile, pkp, true, defFile);
+      genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profile, pkp, true, profileBaseFileName);
   }
 
   private void genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementComponent e, String profileBaseFileName) throws Exception {

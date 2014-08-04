@@ -1382,7 +1382,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (vs.getCompose() != null) {
         for (Uri t : vs.getCompose().getImport()) {
           if (t.getValue().equals(vsn)) 
-            b.append(" <li>Imported into Valueset <a href=\""+(ae.getLinks().get("path").startsWith("valueset-") ? ae.getLinks().get("path"): "valueset-"+ae.getLinks().get("path"))+"\">"+Utilities.escapeXml(vs.getNameSimple())+"</a></li>");
+            b.append(" <li>Imported into Valueset <a href=\""+ae.getLinks().get("path")+"\">"+Utilities.escapeXml(vs.getNameSimple())+"</a></li>");
         }
         for (ConceptSetComponent t : vs.getCompose().getInclude()) {
           if (t.getSystemSimple().equals(csn)) 
@@ -3658,7 +3658,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String generateProfileExtensionsTable(ProfileDefn profile, String filename) throws Exception {
     if (profile.getSource().getExtensionDefn().isEmpty())
       return "";
-    return "<p><b>Extensions:</b></p>\r\n"+new XhtmlComposer().compose(new ProfileUtilities().generateExtensionsTable(Utilities.changeFileExt(filename, "-definitions.html"), profile.getSource(), folders.dstDir, false, this));
+    return "<p><b>Extensions:</b></p>\r\n"+new XhtmlComposer().compose(new ProfileUtilities().generateExtensionsTable(Utilities.changeFileExt(filename, "-definitions.html"), profile.getSource(), folders.dstDir, false, this, Utilities.fileTitle(filename)));
   }
 
   private boolean isAggregationEndpoint(String name) {
