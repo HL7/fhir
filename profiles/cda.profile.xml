@@ -41,21 +41,23 @@
 					</mapping>
 				</definition>
 			</element>
-			<element>
-				<path value="Composition.extension"/>
-				<definition>
-					<short value="Additional Content defined by implementations"/>
-					<formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-					<comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-					<synonym value="extensions"/>
-					<synonym value="user content"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Extension"/>
-					</type>
-				</definition>
-			</element>
+      <element><!-- inFulfillmentOf extension -->
+        <path value="Composition.extension"/>
+        <definition>
+          <short value="CDA inFulFillmentOf"/>
+          <min value="0"/>
+          <max value="*"/>
+          <type>
+            <code value="ResourceReference"/>
+            <profile value="#inFulFillmentOf"/>
+          </type>
+          <isModifier value="false"/>
+          <mapping>
+            <identity value="cda"/>
+            <map value=".inFulFillmentOf"/>
+          </mapping>
+        </definition>
+      </element>
 			<element>
 				<path value="Composition.modifierExtension"/>
 				<definition>
@@ -1506,6 +1508,188 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
     </differential>
   </structure>
   
+  <structure> <!-- Diagnostic Order (inFulfillmentOf) -->
+    <type value="DiagnosticOrder"/>
+		<base value="http://hl7.org/fhir/Profile/DiagnosticOrder"/>
+    <name value="inFulFillmentOfDiagnosticOrder"/>
+    <publish value="false"/>
+    <purpose value="DiagnosticOrder resource as referred to in CDA"/>
+    <differential>
+      <element>
+        <path value="DiagnosticOrder"/>
+        <definition>
+          <short value="CDA inFulFillmentOf"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="Resource"/>
+          </type>
+          <isModifier value="false"/>
+          <mapping>
+            <identity value="cda"/>
+            <map value="inFulFillmentOf"/>
+          </mapping>
+        </definition>
+      </element>
+      <element>
+        <path value="DiagnosticOrder.subject"/>
+        <definition>
+          <short value="Populate from the Composition subject"/>
+          <isModifier value="false"/>
+          <mapping>
+            <identity value="cda"/>
+            <map value="../recordTarget..."/> <!-- todo: how to do this well? -->
+          </mapping>
+        </definition>
+      </element>
+      <element>
+        <path value="DiagnosticOrder.orderer[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element>   
+      <element>
+        <path value="DiagnosticOrder.identifier"/>
+        <definition>
+          <short value="Identifiers assigned to this order"/>
+          <formal value="Identifiers assigned to this order by the order or by the receiver."/>
+          <min value="0"/>
+          <max value="*"/>
+          <type>
+            <code value="Identifier"/>
+          </type>
+          <isModifier value="false"/>
+          <mapping>
+            <identity value="cda"/>
+            <map value=".order.id"/>
+          </mapping>
+        </definition>
+      </element>
+      <element>
+        <path value="DiagnosticOrder.encounter[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element>  
+      <element>
+        <path value="DiagnosticOrder.clinicalNotes[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element>  
+      <element>
+        <path value="DiagnosticOrder.supportingInformation[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element> 
+      <element>
+        <path value="DiagnosticOrder.specimen[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element> 
+      <element>
+        <path value="DiagnosticOrder.status[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element> 
+      <element>
+        <!-- todo: updated this mapping after discussion with OO -->
+        <path value="DiagnosticOrder.priority"/>
+        <definition>
+          <mapping>
+            <identity value="cda"/>
+            <map value=".inFulfillment/Order/priorityCode"/>
+          </mapping>
+        </definition>
+      </element>
+      <element> <!-- Other event children removed -->
+        <path value="DiagnosticOrder.event[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element> 
+
+      <element>
+        <path value="DiagnosticOrder.item"/>
+        <definition>
+          <min value="0"/>
+          <max value="1"/>
+          <isModifier value="false"/>
+          <mapping>
+            <identity value="cda"/>
+            <map value=".order.code"/>
+          </mapping>
+        </definition>
+      </element>
+      <element>
+        <path value="DiagnosticOrder.item.code"/>
+        <definition>
+          <short value="CDA ORder Code"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="CodeableConcept"/>
+          </type>
+          <isModifier value="false"/>
+          <!-- todo: update the binding -->
+          <mapping>
+            <identity value="cda"/>
+            <map value=".order.code"/>
+          </mapping>
+        </definition>
+      </element>
+      <element>
+        <path value="DiagnosticOrder.item.specimen[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element> 
+      <element>
+        <path value="DiagnosticOrder.item.bodySite[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element>
+      <element>
+        <path value="DiagnosticOrder.item.status[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element>
+      <element>
+        <path value="DiagnosticOrder.item.event[x]"/>
+        <definition>
+          <min value="0"/>
+          <max value="0"/>
+          <isModifier value="true"/>
+        </definition>
+      </element>
+    </differential>
+  </structure>
+  
   <extensionDefn>
     <code value="language-preference"/>
     <contextType value="resource"/>
@@ -1713,5 +1897,22 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
     </element>
   </extensionDefn>
   
+  <extensionDefn>
+    <code value="inFulFillmentOf"/>
+    <contextType value="resource"/>
+    <context value="Composition"/>
+    <element>
+      <path value="inFulFillmentOf"/>
+      <definition>
+        <short value="Indicates an order that this document is created to fulfill"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="ResourceReference"/>
+          <profile value="#inFulFillmentOfDiagnosticOrder"/>
+        </type>
+      </definition>
+    </element>
+  </extensionDefn>
   
 </Profile>
