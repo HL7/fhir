@@ -33,6 +33,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -585,6 +586,28 @@ public class Utilities {
 
   public static String getFileNameForName(String name) {
     return name.toLowerCase();
+  }
+
+  public static void deleteTempFiles() throws IOException {
+    File file = createTempFile("test", "test");
+    String folder = getDirectoryForFile(file.getAbsolutePath());
+    String[] list = new File(folder).list(new FilenameFilter() {
+      public boolean accept(File dir, String name) {
+        return name.startsWith("ohfu-");
+      }
+    });
+    if (list != null) {
+      for (String n : list) {
+        new File(path(folder, n)).delete();
+      }
+    }
+  }
+
+  public static File createTempFile(String prefix, String suffix) throws IOException {
+ // this allows use to eaily identify all our dtemp files and delete them, since delete on Exit doesn't really work.
+    File file = File.createTempFile("ohfu-"+prefix, suffix);  
+    file.deleteOnExit();
+    return file;
   }
   
 }

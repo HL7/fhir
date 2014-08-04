@@ -160,12 +160,22 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
   private void describeType(StringBuilder b, TypeRefComponent t) throws Exception {
     b.append("<a href=\"");
-    b.append(GeneratorUtils.getSrcFile(t.getCodeSimple()));
+    b.append(GeneratorUtils.getSrcFile(t.getCodeSimple(), false));
     b.append(".html#");
-    b.append(t.getCodeSimple());
+    String type = t.getCodeSimple();
+    if (type.equals("*"))
+      b.append("open");
+    else 
+      b.append(t.getCodeSimple());
     b.append("\">");
     b.append(t.getCodeSimple());
     b.append("</a>");
+    if (t.getProfileSimple() != null) {
+      b.append("<a href=\"todo.html\">");
+      b.append("(Profile = "+t.getProfileSimple()+")");
+      b.append("</a>");
+      
+    }
   }
 
   private String invariants(List<ElementDefinitionConstraintComponent> constraints) {
@@ -431,7 +441,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	}
 
   private String typeLink(String name) throws Exception {
-    String srcFile = GeneratorUtils.getSrcFile(name);
+    String srcFile = GeneratorUtils.getSrcFile(name, false);
     if (srcFile.equalsIgnoreCase(name))
       return srcFile+ ".html";
     else

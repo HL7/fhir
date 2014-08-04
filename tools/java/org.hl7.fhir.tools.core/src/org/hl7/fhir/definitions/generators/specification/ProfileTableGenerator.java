@@ -101,6 +101,7 @@ public class ProfileTableGenerator extends TableGenerator {
   private void genExtension(HeirarchicalTableGenerator gen, List<Row> rows, ExtensionDefn ext, boolean root) {
     Row r = gen.new Row();
     rows.add(r);
+    r.setAnchor(ext.getCode());
     if (ext.getChildren().isEmpty())
       r.setIcon("icon_extension_simple.png");
     else

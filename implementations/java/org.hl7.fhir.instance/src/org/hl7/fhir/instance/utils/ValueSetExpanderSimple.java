@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Uri;
@@ -49,11 +50,11 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
           focus.getExpansion().getContains().add(c);
         }
       }
-      return new ValueSetExpansionOutcome(focus);
+      return new ValueSetExpansionOutcome(focus, null);
     } catch (Exception e) {
       // well, we couldn't expand, so we'll return an interface to a checked that can check membership of the set
       // that might fail too, but it might not, later.
-      return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context));
+      return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage());
     }
   }
 
@@ -87,9 +88,10 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       return;
 	  }
 	    
-	  ValueSet cs = context.getCodeSystems().get(inc.getSystemSimple()).getResource();
-	  if (cs == null)
+	  AtomEntry<ValueSet> ae = context.getCodeSystems().get(inc.getSystemSimple());
+	  if (ae == null)
 	  	throw new Exception("unable to find code system "+inc.getSystemSimple().toString());
+    ValueSet cs = ae.getResource();
 	  if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) {
 	    // special case - add all the code system
 	    for (ValueSetDefineConceptComponent def : cs.getDefine().getConcept()) {

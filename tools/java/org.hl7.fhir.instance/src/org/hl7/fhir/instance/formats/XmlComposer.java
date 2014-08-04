@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
+// Generated on Mon, Aug 4, 2014 08:52+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -2054,7 +2054,8 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeResourceElements(element);
-      composeIdentifier("identifier", element.getIdentifier());
+      for (Identifier e : element.getIdentifier()) 
+        composeIdentifier("identifier", e);
       composeString("name", element.getName());
       composeString("description", element.getDescription());
       composeCodeableConcept("type", element.getType());
@@ -2526,6 +2527,7 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceReference("specimen", element.getSpecimen());
       for (ResourceReference e : element.getPerformer()) 
         composeResourceReference("performer", e);
+      composeResourceReference("encounter", element.getEncounter());
       for (Observation.ObservationReferenceRangeComponent e : element.getReferenceRange()) 
         composeObservationObservationReferenceRangeComponent("referenceRange", e);
       for (Observation.ObservationRelatedComponent e : element.getRelated()) 
@@ -2826,7 +2828,8 @@ public class XmlComposer extends XmlComposerBase {
       composeHumanName("name", element.getName());
       for (Contact e : element.getTelecom()) 
         composeContact("telecom", e);
-      composeAddress("address", element.getAddress());
+      for (Address e : element.getAddress()) 
+        composeAddress("address", e);
       composeCodeableConcept("gender", element.getGender());
       composeDateTime("birthDate", element.getBirthDate());
       for (Attachment e : element.getPhoto()) 
@@ -2852,6 +2855,8 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
+      for (Identifier e : element.getIdentifier()) 
+        composeIdentifier("identifier", e);
       composeCodeableConcept("code", element.getCode());
       composePeriod("period", element.getPeriod());
       composeResourceReference("issuer", element.getIssuer());
@@ -3334,6 +3339,35 @@ public class XmlComposer extends XmlComposerBase {
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
       composeType("value", element.getValue());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeReferralRequest(String name, ReferralRequest element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      if (element.getStatus() != null)
+        composeEnumeration("status", element.getStatus(), new ReferralRequest.ReferralstatusEnumFactory());
+      for (Identifier e : element.getIdentifier()) 
+        composeIdentifier("identifier", e);
+      composeCodeableConcept("type", element.getType());
+      composeCodeableConcept("specialty", element.getSpecialty());
+      composeCodeableConcept("priority", element.getPriority());
+      composeResourceReference("subject", element.getSubject());
+      composeResourceReference("requester", element.getRequester());
+      for (ResourceReference e : element.getRecipient()) 
+        composeResourceReference("recipient", e);
+      composeResourceReference("encounter", element.getEncounter());
+      composeDateTime("dateSent", element.getDateSent());
+      composeCodeableConcept("reason", element.getReason());
+      composeString("description", element.getDescription());
+      for (CodeableConcept e : element.getServiceRequested()) 
+        composeCodeableConcept("serviceRequested", e);
+      for (ResourceReference e : element.getSupportingInformation()) 
+        composeResourceReference("supportingInformation", e);
+      composePeriod("fulfillmentTime", element.getFulfillmentTime());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3951,6 +3985,8 @@ public class XmlComposer extends XmlComposerBase {
       composeQuestionnaire("Questionnaire", (Questionnaire)resource);
     else if (resource instanceof QuestionnaireAnswers)
       composeQuestionnaireAnswers("QuestionnaireAnswers", (QuestionnaireAnswers)resource);
+    else if (resource instanceof ReferralRequest)
+      composeReferralRequest("ReferralRequest", (ReferralRequest)resource);
     else if (resource instanceof RelatedPerson)
       composeRelatedPerson("RelatedPerson", (RelatedPerson)resource);
     else if (resource instanceof RiskAssessment)

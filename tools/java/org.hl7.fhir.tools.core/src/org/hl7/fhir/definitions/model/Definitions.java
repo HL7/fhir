@@ -239,6 +239,14 @@ public class Definitions {
 		return profiles;
 	}
 
+  public BindingSpecification getBindingByReference(String ref, BindingSpecification other) {
+    for (BindingSpecification b : bindings.values()) {
+      if (ref.equals(b.getReference()) && other != b)
+        return b;
+    }
+    return null;
+  }
+  
   public BindingSpecification getBindingByReference(String ref) {
     for (BindingSpecification b : bindings.values()) {
       if (ref.equals(b.getReference()))
@@ -387,5 +395,4 @@ public class Definitions {
     throw new Exception("Unable to find snapshot for "+base);
   }
 
-  
 }

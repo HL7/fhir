@@ -124,8 +124,7 @@ public class ZipGenerator {
 	}
 
 	public void addFileSource(String path, String cnt, boolean omitIfExists) throws Exception {
-		File tmp = File.createTempFile("tmp", ".tmp");
-		tmp.deleteOnExit();
+		File tmp = Utilities.createTempFile("tmp", ".tmp");
 		TextFile.stringToFile(cnt, tmp.getAbsolutePath());
 		addFileName(path, tmp.getAbsolutePath(), omitIfExists);
 		tmp.delete();

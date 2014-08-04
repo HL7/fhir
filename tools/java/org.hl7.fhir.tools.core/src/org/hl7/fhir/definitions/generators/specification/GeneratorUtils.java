@@ -2,7 +2,7 @@ package org.hl7.fhir.definitions.generators.specification;
 
 public class GeneratorUtils {
 
-  public static String getSrcFile(String name) throws Exception {
+  public static String getSrcFile(String name, boolean definitions) throws Exception {
   	if (name == null)
   		throw new Exception("unknown null type");
   	if (name.equals("Attachment"))
@@ -47,7 +47,7 @@ public class GeneratorUtils {
   		return "datatypes";
   	if (name.equals("base64Binary"))
   		return "datatypes";
-  	if (name.equals("datetime"))
+  	if (name.equals("dateTime"))
   		return "datatypes";
   	if (name.equals("string"))
   		return "datatypes";
@@ -69,7 +69,7 @@ public class GeneratorUtils {
   		return "datatypes";
   	if (name.equals("date"))
   		return "datatypes";
-  	if (name.equals("dateTime"))
+  	if (name.equals("time"))
   		return "datatypes";
   	if (name.equals("Money"))
   		return "datatypes";
@@ -77,12 +77,18 @@ public class GeneratorUtils {
       return "narrative";
     if (name.equalsIgnoreCase("xhtml"))
       return "narrative";
+    if (name.equals("Narrative") && definitions)
+      return "base";
   	if (name.equals("Narrative"))
   		return "narrative";
-  	if (name.equals("Extension"))
-  		return "extensibility";
+    if (name.equals("Extension") && definitions)
+      return "base";
+    if (name.equals("Extension"))
+      return "extensibility";
     if (name.equals("Resource"))
       return "references";
+    if (name.equals("ResourceReference") && definitions)
+      return "base";
     if (name.equals("ResourceReference"))
       return "references";
     if (name.equals("Binary"))

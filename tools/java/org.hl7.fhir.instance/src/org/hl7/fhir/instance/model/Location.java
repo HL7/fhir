@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
+// Generated on Mon, Aug 4, 2014 08:52+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -279,7 +279,7 @@ public class Location extends Resource {
     /**
      * Unique code or number identifying the location to its users.
      */
-    protected Identifier identifier;
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Name of the location as used by humans. Does not need to be unique.
@@ -346,7 +346,7 @@ public class Location extends Resource {
      */
     protected Enumeration<LocationMode> mode;
 
-    private static final long serialVersionUID = -282813644L;
+    private static final long serialVersionUID = -390679052L;
 
     public Location() {
       super();
@@ -355,16 +355,18 @@ public class Location extends Resource {
     /**
      * @return {@link #identifier} (Unique code or number identifying the location to its users.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
+    // syntactic sugar
     /**
-     * @param value {@link #identifier} (Unique code or number identifying the location to its users.)
+     * @return {@link #identifier} (Unique code or number identifying the location to its users.)
      */
-    public Location setIdentifier(Identifier value) { 
-      this.identifier = value;
-      return this;
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -666,7 +668,9 @@ public class Location extends Resource {
 
       public Location copy() {
         Location dst = new Location();
-        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
         dst.type = type == null ? null : type.copy();

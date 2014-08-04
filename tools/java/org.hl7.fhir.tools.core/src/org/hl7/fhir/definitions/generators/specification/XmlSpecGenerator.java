@@ -137,7 +137,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
     write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+"</span>");
     String t = elem.typeCode();
-    write(" (<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t)+ ".html#" + t) + "\">" + t + "</a></span>)\"");
+    write(" (<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t, false)+ ".html#" + t) + "\">" + t + "</a></span>)\"");
   }
 
   public void generate(ProfileDefn profile, String root) throws Exception {
@@ -223,7 +223,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           write(" <span style=\"color: navy\">"+Utilities.escapeXml(ex.getDefinition().getShortDefn())+"</span>");
           write(" <span style=\" color: Gray\">--&gt; </span>&lt;/" + vn + ">\r\n");
         } else if (ex.getDefinition().getTypes().size() == 1) {
-          write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>]\"/>");
+          write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t, false)+ ".html#" + t) + "\">" + t+ "</a></span>]\"/>");
           write("<span style=\" color: Gray\">&lt;!-- </span>");
           write("<span style=\"color: navy\">"
               + Utilities.escapeXml(ex.getDefinition().getShortDefn())
@@ -366,7 +366,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			  if (elem.typeCode().equals("idref"))
           write(" value=\"[<span style=\"color: darkgreen\"><a href=\"references.html#idref\">" + t.getName()+ "</a></span>]\"/");
 			  else
-  			  write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName())+ ".html#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
+  			  write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName(), false)+ ".html#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
 			}
 			write("&gt;");
 
@@ -441,9 +441,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
 	                AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
 	                write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
-				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
-				        write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
-				      else
+				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
+				        BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+bs.getReference().substring(23), bs);
+				        if (bs1 != null)
+                  write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+                else
+                  write("<a href=\"valueset-"+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+				      } else
 				        throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
 				    } else
 				      write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");				  
@@ -568,7 +572,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       else if (t.getName().equals("Extension") && t.getParams().size() == 0 && !Utilities.noString(elem.getStatedProfile()))
         write("<a href=\""+elem.getStatedProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getStatedProfile().substring(1)+"</span></a>");     
       else
-        write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName())
+        write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName(), false)
             + ".html#" + t.getName() + "\">" + t.getName()).replace("[", "_").replace("]", "_")
             + "</a>");
       if (t.hasParams()) {
@@ -596,7 +600,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
             // of the profile as specified
             // in the aggregation. For now it links to the
             // base resource.
-            write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p)
+            write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p, false)
                 + ".html#" + p + "\">"
                 + elem.getAggregation()).replace("[", "_").replace("]", "_") + "</a>");
           } 
@@ -608,7 +612,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           else if (t.getName().equals("Resource") && t.getParams().size() == 1 && !Utilities.noString(elem.getStatedProfile()))
             write("<a href=\""+elem.getStatedProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getStatedProfile().substring(1)+"</span></a>");     
           else
-            write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p)
+            write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p, false)
                 + ".html#" + p).replace("[", "_").replace("]", "_") + "\">" + p + "</a>");
 
           firstp = false;

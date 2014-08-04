@@ -48,6 +48,7 @@ public enum ResourceType {
     List,
     OperationDefinition,
     DeviceObservationReport,
+    ReferralRequest,
     RiskAssessment,
     FamilyHistory,
     Location,
@@ -158,6 +159,8 @@ public enum ResourceType {
       return "operationdefinition";
     case DeviceObservationReport:
       return "deviceobservationreport";
+    case ReferralRequest:
+      return "referralrequest";
     case RiskAssessment:
       return "riskassessment";
     case FamilyHistory:

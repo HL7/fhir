@@ -177,28 +177,32 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           if (Utilities.noString(cd.getReference())) 
             write("??");
           else if (cd.getReference().startsWith("valueset-"))
-            write("<a href=\""+cd.getReference()+".html\">http://hl7.org/fhir/vs/"+cd.getReference().substring(9)+"</a>");            
+            write("<a href=\""+cd.getReference()+".html\">http://hl7.org/fhir/vs/"+cd.getReference().substring(9)+"</a><!-- a -->");            
           else if (cd.getReference().startsWith("http://hl7.org/fhir")) {
             if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
               AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
               if (vs.getLinks().get("path") == null)
                 throw new Exception("unknown path on "+cd.getReference());
-              write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a>");
+              write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- b -->");
             } else if (cd.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
                 AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
-                write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a>");
-            } else if (cd.getReference().startsWith("http://hl7.org/fhir/vs/"))
-              write("<a href=\""+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a>");
-            else
+                write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- c -->");
+            } else if (cd.getReference().startsWith("http://hl7.org/fhir/vs/")) {
+              BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+cd.getReference().substring(23), cd);
+              if (bs1 != null)
+                write("<a href=\""+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a><!-- d -->");
+              else
+                write("<a href=\"valueset-"+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a><!-- d -->");
+            } else
               throw new Exception("Internal reference "+cd.getReference()+" not handled yet");
           } else
-            write("<a href=\""+cd.getReference()+".html\">http://hl7.org/fhir/"+cd.getReference()+"</a>");            
+            write("<a href=\""+cd.getReference()+".html\">http://hl7.org/fhir/"+cd.getReference()+"</a><!-- e -->");            
         }
         if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
-          write("<a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a>");            
+          write("<a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a><!-- f -->");            
         }
         if (cd.getBinding() == BindingSpecification.Binding.Reference) {
-          write("<a href=\""+cd.getReference()+"\">"+cd.getDescription()+"</a>");
+          write("<a href=\""+cd.getReference()+"\">"+cd.getDescription()+"</a><!-- g -->");
         }
 
         write("</td>");

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
+// Generated on Mon, Aug 4, 2014 08:52+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -39,6 +39,11 @@ import java.util.*;
 public class Practitioner extends Resource {
 
     public static class PractitionerQualificationComponent extends BackboneElement {
+        /**
+         * An identifier that applies to this person's qualification in this role.
+         */
+        protected List<Identifier> identifier = new ArrayList<Identifier>();
+
         /**
          * Coded representation of the qualification.
          */
@@ -59,7 +64,7 @@ public class Practitioner extends Resource {
          */
         protected Organization issuerTarget;
 
-        private static final long serialVersionUID = -878582183L;
+        private static final long serialVersionUID = 1498294019L;
 
       public PractitionerQualificationComponent() {
         super();
@@ -69,6 +74,23 @@ public class Practitioner extends Resource {
         super();
         this.code = code;
       }
+
+        /**
+         * @return {@link #identifier} (An identifier that applies to this person's qualification in this role.)
+         */
+        public List<Identifier> getIdentifier() { 
+          return this.identifier;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #identifier} (An identifier that applies to this person's qualification in this role.)
+         */
+        public Identifier addIdentifier() { 
+          Identifier t = new Identifier();
+          this.identifier.add(t);
+          return t;
+        }
 
         /**
          * @return {@link #code} (Coded representation of the qualification.)
@@ -132,6 +154,7 @@ public class Practitioner extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
+          childrenList.add(new Property("identifier", "Identifier", "An identifier that applies to this person's qualification in this role.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("code", "CodeableConcept", "Coded representation of the qualification.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("period", "Period", "Period during which the qualification is valid.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("issuer", "Resource(Organization)", "Organization that regulates and issues the qualification.", 0, java.lang.Integer.MAX_VALUE, issuer));
@@ -139,6 +162,9 @@ public class Practitioner extends Resource {
 
       public PractitionerQualificationComponent copy() {
         PractitionerQualificationComponent dst = new PractitionerQualificationComponent();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.code = code == null ? null : code.copy();
         dst.period = period == null ? null : period.copy();
         dst.issuer = issuer == null ? null : issuer.copy();
@@ -165,7 +191,7 @@ public class Practitioner extends Resource {
     /**
      * The postal address where the practitioner can be found or visited or to which mail can be delivered.
      */
-    protected Address address;
+    protected List<Address> address = new ArrayList<Address>();
 
     /**
      * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
@@ -227,7 +253,7 @@ public class Practitioner extends Resource {
      */
     protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
 
-    private static final long serialVersionUID = -1959079809L;
+    private static final long serialVersionUID = -1296622364L;
 
     public Practitioner() {
       super();
@@ -285,16 +311,18 @@ public class Practitioner extends Resource {
     /**
      * @return {@link #address} (The postal address where the practitioner can be found or visited or to which mail can be delivered.)
      */
-    public Address getAddress() { 
+    public List<Address> getAddress() { 
       return this.address;
     }
 
+    // syntactic sugar
     /**
-     * @param value {@link #address} (The postal address where the practitioner can be found or visited or to which mail can be delivered.)
+     * @return {@link #address} (The postal address where the practitioner can be found or visited or to which mail can be delivered.)
      */
-    public Practitioner setAddress(Address value) { 
-      this.address = value;
-      return this;
+    public Address addAddress() { 
+      Address t = new Address();
+      this.address.add(t);
+      return t;
     }
 
     /**
@@ -539,7 +567,9 @@ public class Practitioner extends Resource {
         dst.telecom = new ArrayList<Contact>();
         for (Contact i : telecom)
           dst.telecom.add(i.copy());
-        dst.address = address == null ? null : address.copy();
+        dst.address = new ArrayList<Address>();
+        for (Address i : address)
+          dst.address.add(i.copy());
         dst.gender = gender == null ? null : gender.copy();
         dst.birthDate = birthDate == null ? null : birthDate.copy();
         dst.photo = new ArrayList<Attachment>();

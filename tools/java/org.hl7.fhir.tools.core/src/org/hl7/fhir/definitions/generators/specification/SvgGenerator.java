@@ -667,7 +667,10 @@ public class SvgGenerator extends BaseGenerator {
 
   private ClassItem drawClass(XMLWriter xml, ElementDefn e, boolean isRoot, ResourceDefn resource, boolean link, String path, DefinedCode primitive) throws Exception {
     ClassItem item = classes.get(e);
-    String tn = Utilities.capitalize(e.getName());
+    String tn = e.getName();
+    if (!definitions.hasPrimitiveType(tn))
+      tn = Utilities.capitalize(tn);
+      
     xml.attribute("x", Double.toString(item.left));
     xml.attribute("y", Double.toString(item.top));
     xml.attribute("rx", "4");
@@ -700,7 +703,7 @@ public class SvgGenerator extends BaseGenerator {
     if (link) {
       xml.open("text");
       if (tn.equals("Extension") || tn.equals("ResourceReference") || tn.equals("Narrative"))
-        xml.attribute("xlink:href", GeneratorUtils.getSrcFile(tn) + ".html#"+tn.toLowerCase());
+        xml.attribute("xlink:href", GeneratorUtils.getSrcFile(tn, false) + ".html#"+tn.toLowerCase());
       else
         xml.attribute("xlink:href", "#"+tn.toLowerCase());
       xml.open("a");
@@ -1022,7 +1025,7 @@ public class SvgGenerator extends BaseGenerator {
       else if (tr.getName().startsWith("@")) 
         prog.attribute(xml, "title", "@"+tr.getName().substring(1));
       else
-        prog.attribute(xml, "xlink:href", GeneratorUtils.getSrcFile(tr.getName()) + ".html#" + tr.getName());
+        prog.attribute(xml, "xlink:href", GeneratorUtils.getSrcFile(tr.getName(), false) + ".html#" + tr.getName());
       
       prog.element(xml, "a", tr.getName());
       
@@ -1036,7 +1039,7 @@ public class SvgGenerator extends BaseGenerator {
           if (definitions.getFutureResources().containsKey(t))
             prog.attribute(xml, "title", "This resource is not been defined yet");
           else
-            prog.attribute(xml, "xlink:href", GeneratorUtils.getSrcFile(t) + ".html#" + t);
+            prog.attribute(xml, "xlink:href", GeneratorUtils.getSrcFile(t, false) + ".html#" + t);
           prog.element(xml, "a", t);
           firstP = false;
         }

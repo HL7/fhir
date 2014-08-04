@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
+// Generated on Mon, Aug 4, 2014 08:52+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -3021,7 +3021,12 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       prop("resourceType", name);
       composeResourceElements(element);
-      composeIdentifier("identifier", element.getIdentifier());
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
       composeStringCore("name", element.getName(), false);
       composeStringExtras("name", element.getName(), false);
       composeStringCore("description", element.getDescription(), false);
@@ -3623,6 +3628,7 @@ public class JsonComposer extends JsonComposerBase {
           composeResourceReference(null, e);
         closeArray();
       };
+      composeResourceReference("encounter", element.getEncounter());
       if (element.getReferenceRange().size() > 0) {
         openArray("referenceRange");
         for (Observation.ObservationReferenceRangeComponent e : element.getReferenceRange()) 
@@ -4077,7 +4083,12 @@ public class JsonComposer extends JsonComposerBase {
           composeContact(null, e);
         closeArray();
       };
-      composeAddress("address", element.getAddress());
+      if (element.getAddress().size() > 0) {
+        openArray("address");
+        for (Address e : element.getAddress()) 
+          composeAddress(null, e);
+        closeArray();
+      };
       composeCodeableConcept("gender", element.getGender());
       composeDateTimeCore("birthDate", element.getBirthDate(), false);
       composeDateTimeExtras("birthDate", element.getBirthDate(), false);
@@ -4126,6 +4137,12 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeBackbone(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
       composeCodeableConcept("code", element.getCode());
       composePeriod("period", element.getPeriod());
       composeResourceReference("issuer", element.getIssuer());
@@ -4903,6 +4920,53 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       composeType("value", element.getValue());
       close();
+    }
+  }
+
+  private void composeReferralRequest(String name, ReferralRequest element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getStatus() != null) {
+        composeEnumerationCore("status", element.getStatus(), new ReferralRequest.ReferralstatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new ReferralRequest.ReferralstatusEnumFactory(), false);
+      }
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeCodeableConcept("type", element.getType());
+      composeCodeableConcept("specialty", element.getSpecialty());
+      composeCodeableConcept("priority", element.getPriority());
+      composeResourceReference("subject", element.getSubject());
+      composeResourceReference("requester", element.getRequester());
+      if (element.getRecipient().size() > 0) {
+        openArray("recipient");
+        for (ResourceReference e : element.getRecipient()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      composeResourceReference("encounter", element.getEncounter());
+      composeDateTimeCore("dateSent", element.getDateSent(), false);
+      composeDateTimeExtras("dateSent", element.getDateSent(), false);
+      composeCodeableConcept("reason", element.getReason());
+      composeStringCore("description", element.getDescription(), false);
+      composeStringExtras("description", element.getDescription(), false);
+      if (element.getServiceRequested().size() > 0) {
+        openArray("serviceRequested");
+        for (CodeableConcept e : element.getServiceRequested()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getSupportingInformation().size() > 0) {
+        openArray("supportingInformation");
+        for (ResourceReference e : element.getSupportingInformation()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      composePeriod("fulfillmentTime", element.getFulfillmentTime());
     }
   }
 
@@ -5728,6 +5792,8 @@ public class JsonComposer extends JsonComposerBase {
       composeQuestionnaire("Questionnaire", (Questionnaire)resource);
     else if (resource instanceof QuestionnaireAnswers)
       composeQuestionnaireAnswers("QuestionnaireAnswers", (QuestionnaireAnswers)resource);
+    else if (resource instanceof ReferralRequest)
+      composeReferralRequest("ReferralRequest", (ReferralRequest)resource);
     else if (resource instanceof RelatedPerson)
       composeRelatedPerson("RelatedPerson", (RelatedPerson)resource);
     else if (resource instanceof RiskAssessment)
@@ -5853,6 +5919,8 @@ public class JsonComposer extends JsonComposerBase {
       composeQuestionnaire(name, (Questionnaire)resource);
     else if (resource instanceof QuestionnaireAnswers)
       composeQuestionnaireAnswers(name, (QuestionnaireAnswers)resource);
+    else if (resource instanceof ReferralRequest)
+      composeReferralRequest(name, (ReferralRequest)resource);
     else if (resource instanceof RelatedPerson)
       composeRelatedPerson(name, (RelatedPerson)resource);
     else if (resource instanceof RiskAssessment)

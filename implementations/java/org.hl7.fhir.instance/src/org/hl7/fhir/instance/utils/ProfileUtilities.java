@@ -11,6 +11,7 @@ import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.instance.model.Profile.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ElementSlicingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
@@ -489,12 +490,25 @@ public class ProfileUtilities {
         dst.getType().add(t.copy());
       }      
       // todo: mappings are cumulative - or does one replace another?
-      dst.getMapping().addAll(src.getMapping());
+      for (ElementDefinitionMappingComponent s : src.getMapping()) {
+        boolean found = false;
+        for (ElementDefinitionMappingComponent d : dst.getMapping()) {
+          found = found || (d.getIdentitySimple().equals(s.getIdentitySimple()) && d.getMapSimple().equals(s.getMapSimple()));
+        }
+        if (!found)
+          dst.getMapping().add(s);
+      }
       
       // todo: constraints are cumulative - or does one replace another?
-      dst.getConstraint().addAll(src.getConstraint());
+      for (ElementDefinitionConstraintComponent s : src.getConstraint()) {
+        boolean found = false;
+        for (ElementDefinitionConstraintComponent d : dst.getConstraint()) {
+          found = found || (d.getKeySimple().equals(s.getKeySimple()));
+        }
+        if (!found)
+          dst.getConstraint().add(s);
+      }
     }
-    
   }
   
   public XhtmlNode generateExtensionsTable(String defFile, Profile profile, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp) throws Exception {
@@ -523,7 +537,7 @@ public class ProfileUtilities {
     r.getCells().add(gen.new Cell(null, null, describeCardinality(e.getDefinition(), null, new UnusedTracker()), null, null));
     if (ext.getElement().size() == 1) {
       r.setIcon("icon_extension_simple.png");
-      genTypes(gen, pkp, r, e);
+      genTypes(gen, pkp, r, e, defFile);
     } else {
       r.setIcon("icon_extension_complex.png");
       r.getCells().add(gen.new Cell());
@@ -532,20 +546,25 @@ public class ProfileUtilities {
     r.getCells().add(gen.new Cell(null, null, e.getDefinition().getShortSimple(), null, null).addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null)));
     List<ElementComponent> children = getChildren(ext.getElement(), e);
     for (ElementComponent child : children)
-      genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profile, pkp);
+      genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profile, pkp, true, defFile);
   }
 
-  private void genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementComponent e) throws Exception {
+  private void genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementComponent e, String profileBaseFileName) throws Exception {
     Cell c = gen.new Cell();
     r.getCells().add(c);
     boolean first = true;
     for (TypeRefComponent t : e.getDefinition().getType()) {
-      if (first) first = false; else c.addPiece(gen.new Piece(null,", ", null));
+      if (first) 
+        first = false; 
+      else 
+        c.addPiece(gen.new Piece(null,", ", null));
       if (t.getCodeSimple().equals("ResourceReference")) {
         if (t.getProfileSimple().startsWith("http://hl7.org/fhir/Profile/")) {
           String rn = t.getProfileSimple().substring(28);
           c.addPiece(gen.new Piece(pkp.getLinkFor(rn), rn, null));
-        } else
+        } else if (t.getProfileSimple().startsWith("#"))
+          c.addPiece(gen.new Piece(profileBaseFileName+"."+t.getProfileSimple().substring(1)+".html", t.getProfileSimple(), null));
+        else
           c.addPiece(gen.new Piece(t.getProfileSimple(), t.getProfileSimple(), null));
       } else if (pkp.hasLinkFor(t.getCodeSimple())) {
         c.addPiece(gen.new Piece(pkp.getLinkFor(t.getCodeSimple()), t.getCodeSimple(), null));
@@ -584,18 +603,17 @@ public class ProfileUtilities {
       return (min == null ? "" : Integer.toString(min.getValue())) + ".." + (max == null ? "" : max.getValue());
   }
 
-  public XhtmlNode generateTable(String defFile, ProfileStructureComponent structure, boolean diff, String imageFolder, boolean inlineGraphics, Profile profile, ProfileKnowledgeProvider pkp) throws Exception {
+  public XhtmlNode generateTable(String defFile, ProfileStructureComponent structure, boolean diff, String imageFolder, boolean inlineGraphics, Profile profile, ProfileKnowledgeProvider pkp, String profileBaseFileName) throws Exception {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable();
     List<ElementComponent> list = diff ? structure.getDifferential().getElement() : structure.getSnapshot().getElement();
-    genElement(defFile == null ? null : defFile+"#"+structure.getNameSimple()+".", gen, model.getRows(), list.get(0), list, profile, pkp);
+    genElement(defFile == null ? null : defFile+"#"+structure.getNameSimple()+".", gen, model.getRows(), list.get(0), list, profile, pkp, diff, profileBaseFileName);
     return gen.generate(model);
   }
 
-  private void genElement(String defPath, HeirarchicalTableGenerator gen, List<Row> rows, ElementComponent element, List<ElementComponent> all, Profile profile, ProfileKnowledgeProvider pkp) throws Exception {
+  private void genElement(String defPath, HeirarchicalTableGenerator gen, List<Row> rows, ElementComponent element, List<ElementComponent> all, Profile profile, ProfileKnowledgeProvider pkp, boolean showMissing, String profileBaseFileName) throws Exception {
     if (!onlyInformationIsMapping(all, element)) { // we don't even show it in this case
     Row row = gen.new Row();
-    rows.add(row);
     row.setAnchor(element.getPathSimple());
     String s = tail(element.getPathSimple());
     boolean hasDef = element.getDefinition() != null;
@@ -634,12 +652,12 @@ public class ProfileUtilities {
             generateDescription(gen, row, element, null, used.used, profile.getUrlSimple(), element.getDefinition().getType().get(0).getProfileSimple());
         } else {
             row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), extDefn.getDefn().getElement().get(0).getDefinition(), used), null, null));
-          genTypes(gen, pkp, row, extDefn.getDefn().getElement().get(0));
+            genTypes(gen, pkp, row, extDefn.getDefn().getElement().get(0), profileBaseFileName);
             generateDescription(gen, row, element, extDefn.getDefn().getElement().get(0), used.used, profile.getUrlSimple(), element.getDefinition().getType().get(0).getProfileSimple());
         }
       } else if (element.getDefinition() != null) {
           row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
-        genTypes(gen, pkp, row, element);
+          genTypes(gen, pkp, row, element, profileBaseFileName);
           generateDescription(gen, row, element, null, used.used, null, null);
       } else {
           row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
@@ -649,7 +667,7 @@ public class ProfileUtilities {
     } else {
         row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
       if (hasDef)
-        genTypes(gen, pkp, row, element);
+          genTypes(gen, pkp, row, element, profileBaseFileName);
       else
           row.getCells().add(gen.new Cell());
         generateDescription(gen, row, element, null, used.used, null, null);
@@ -661,6 +679,8 @@ public class ProfileUtilities {
           for (Piece p : cell.getPieces())
             p.addStyle("font-style: italic");
     }
+      if (used.used || showMissing)
+        rows.add(row);
       if (!used.used) {
         for (Cell cell : row.getCells())
           for (Piece p : cell.getPieces())
@@ -668,7 +688,7 @@ public class ProfileUtilities {
       } else{
     List<ElementComponent> children = getChildren(all, element);
     for (ElementComponent child : children)
-          genElement(defPath, gen, row.getSubRows(), child, all, profile, pkp);
+          genElement(defPath, gen, row.getSubRows(), child, all, profile, pkp, showMissing, profileBaseFileName);
   }
     }
   }

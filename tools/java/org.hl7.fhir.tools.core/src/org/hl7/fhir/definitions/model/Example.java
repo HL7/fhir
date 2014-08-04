@@ -69,8 +69,7 @@ public class Example {
       CSVProcessor csv = new CSVProcessor();
       csv.setSource(new CSFileInputStream(path));
       csv.setData(new CSFileInputStream(Utilities.changeFileExt(path.getAbsolutePath(), ".csv")));
-      File tmp = File.createTempFile("fhir", "xml");
-      tmp.deleteOnExit();
+      File tmp = Utilities.createTempFile("fhir", "xml");
       csv.setOutput(new FileOutputStream(tmp));
       csv.process();
       path = tmp;

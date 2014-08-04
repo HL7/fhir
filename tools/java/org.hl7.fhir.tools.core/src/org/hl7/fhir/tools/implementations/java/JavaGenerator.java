@@ -65,6 +65,7 @@ import org.hl7.fhir.instance.test.ToolsHelper;
 import org.hl7.fhir.instance.utils.Version;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaResourceGenerator.JavaGenClass;
+import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
@@ -77,15 +78,15 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
   private static final boolean IN_PROCESS = false;
   
-  private String rootDir;
+  private FolderManager folders;
   private String javaDir;
   private String javaParserDir;
   private Definitions definitions;
   private Map<String, String> hashes = new HashMap<String, String>();
   
-  public JavaGenerator(String rootDir) {
+  public JavaGenerator(FolderManager folders) {
     super();
-    this.rootDir = rootDir;
+    this.folders = folders;
   }
 
   @Override
@@ -194,7 +195,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     zip.addFiles(implDir+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xhtml"+sl, "org/hl7/fhir/utilities/xhtml/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xml"+sl, "org/hl7/fhir/utilities/xml/", ".java", null);
 
-    String importsDir = rootDir+sl+"tools"+sl+"java"+sl+"imports";
+    String importsDir = folders.rootDir+sl+"tools"+sl+"java"+sl+"imports";
     zip.addFileName("imports/xpp3-1.1.3.4.O.jar", importsDir+sl+"xpp3-1.1.3.4.O.jar", false);
     zip.addFileName("imports/gson-2.2.4.jar", importsDir+sl+"gson-2.2.4.jar", false);
     zip.addFileName("imports/commons-codec-1.3.jar", importsDir+sl+"commons-codec-1.3.jar", false);
@@ -294,13 +295,13 @@ public boolean doesCompile() {
 
 	  
 	  
-    int r = ToolProvider.getSystemJavaCompiler().run(null, null, null, rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"model"+sl+"Type.java");
+    int r = ToolProvider.getSystemJavaCompiler().run(null, null, null, folders.rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"model"+sl+"Type.java");
     return r == 0;
   }
   
   @Override
 public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
-    assert(this.rootDir.equals(rootDir));
+    assert(this.folders.rootDir.equals(rootDir));
     char sl = File.separatorChar;
     List<File> classes = new ArrayList<File>();
 
@@ -336,7 +337,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
     manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.instance.validation.Validator");
     
-    JarOutputStream jar = new JarOutputStream(new FileOutputStream(rootDir+sl+"publish"+sl+"org.hl7.fhir.validator.jar"), manifest);
+    JarOutputStream jar = new JarOutputStream(new FileOutputStream(folders.dstDir+sl+"org.hl7.fhir.validator.jar"), manifest);
     List<String> names = new ArrayList<String>();
     names.add("META-INF/");
     names.add("META-INF/MANIFEST.MF");
@@ -358,7 +359,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
     manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.instance.test.ToolsHelper");
     
-    jar = new JarOutputStream(new FileOutputStream(rootDir+sl+"publish"+sl+"org.hl7.fhir.tools.jar"), manifest);
+    jar = new JarOutputStream(new FileOutputStream(folders.dstDir+sl+"org.hl7.fhir.tools.jar"), manifest);
     names = new ArrayList<String>();
     names.add("META-INF/");
     names.add("META-INF/MANIFEST.MF");
@@ -396,14 +397,14 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     command.add(destFile);
 
     ProcessBuilder builder = new ProcessBuilder(command);
-    builder.directory(new File(Utilities.path(rootDir, "publish")));
+    builder.directory(new File(folders.dstDir));
     final Process process = builder.start();
     BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
     String s;
     while ((s = stdError.readLine()) != null) {
       System.err.println(s);
     }    
-    builder.directory(new File(rootDir));
+    builder.directory(new File(folders.dstDir));
 
     process.waitFor();
     if (!(new File(destFile).exists()))
@@ -583,14 +584,12 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
   @Override
   // in process for debugging, but requires tool generated code to be current
   public String checkFragments(String rootDir, String fragments, boolean inProcess) throws Exception {
-    File file = File.createTempFile("temp", ".xml");
-    file.deleteOnExit();
+    File file = Utilities.createTempFile("temp", ".xml");
     if (file.exists())
       file.delete();
     TextFile.stringToFile(fragments, file.getAbsolutePath());
     
-    File filed = File.createTempFile("temp", ".txt");
-    filed.deleteOnExit();
+    File filed = Utilities.createTempFile("temp", ".txt");
     if (filed.exists())
       filed.delete();
     

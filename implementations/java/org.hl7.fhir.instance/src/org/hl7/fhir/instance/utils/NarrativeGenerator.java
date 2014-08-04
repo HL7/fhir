@@ -1320,6 +1320,9 @@ public class NarrativeGenerator {
   }
 
 	private void smartAddText(XhtmlNode p, String text) {
+	  if (text == null)
+	    return;
+	  
     String[] lines = text.split("\\r\\n");
     for (int i = 0; i < lines.length; i++) {
       if (i > 0)

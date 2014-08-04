@@ -91,6 +91,7 @@ import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -100,6 +101,7 @@ import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ExtensionDefinition;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.definitions.generators.specification.GeneratorUtils;
@@ -122,6 +124,7 @@ import com.github.rjeschke.txtmark.Processor;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
+  private ImplementationGuideDetails ig;
   private static final String SIDEBAR_SPACER = "<p>&nbsp;</p>\r\n";
   private List<String> suppressedMessages = new ArrayList<String>();
   private Definitions definitions;
@@ -146,6 +149,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private Map<String, AtomEntry<ValueSet>> valueSets = new HashMap<String, AtomEntry<ValueSet>>();
   private Map<String, AtomEntry<ConceptMap>> conceptMaps = new HashMap<String, AtomEntry<ConceptMap>>();
   private Map<String, AtomEntry<Profile>> profiles = new HashMap<String, AtomEntry<Profile>>();
+  private Map<String, AtomEntry<? extends Resource>> igResources = new HashMap<String, AtomEntry<? extends Resource>>();
   
   private Translations translations = new Translations();
   private Map<String, String> svgs = new HashMap<String, String>();
@@ -167,7 +171,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //  private boolean notime;
   
   private String dictForDt(String dt) throws Exception {
-	  File tmp = File.createTempFile("tmp", ".tmp");
+	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  DictHTMLGenerator gen = new DictHTMLGenerator(new FileOutputStream(tmp), this);
 	  TypeParser tp = new TypeParser();
 	  TypeRef t = tp.parse(dt).get(0);
@@ -191,8 +195,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String tsForDt(String dt) throws Exception {
-	  File tmp = File.createTempFile("tmp", ".tmp");
-	  tmp.deleteOnExit();
+	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  TerminologyNotesGenerator gen = new TerminologyNotesGenerator(new FileOutputStream(tmp), this);
 	  TypeParser tp = new TypeParser();
 	  TypeRef t = tp.parse(dt).get(0);
@@ -217,8 +220,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
   
   private String xmlForDt(String dt, String pn) throws Exception {
-	  File tmp = File.createTempFile("tmp", ".tmp");
-	  tmp.deleteOnExit();
+	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  if (dt.equals("ResourceReference") || dt.equals("Narrative") || dt.equals("Extension"))
 	    pn = "base.html";
 	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this);
@@ -316,10 +318,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
 
-  public String processPageIncludes(String file, String src, String type, Map<String, String> others) throws Exception {
-    return processPageIncludes(file, src, type, others, file);
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, Resource resource) throws Exception {
+    return processPageIncludes(file, src, type, others, file, resource);
   }
-  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath) throws Exception {
+  
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     String workingTitle = null;
     int level = 0;
@@ -355,6 +358,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //        src = s1+resourcesHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("txheader"))
         src = s1+txHeader(name, com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("igheader"))
+        src = s1+igHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("cmpheader"))
         src = s1+cmpHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("extheader"))
@@ -488,6 +493,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
         src = s1 + genValueSetsTable() + s3;
+      else if (com[0].equals("igvaluesetslist"))
+        src = s1 + genIGValueSetsTable() + s3;
       else if (com[0].equals("conceptmapslist"))
         src = s1 + genConceptMapsTable() + s3;
       else if (com[0].equals("bindingtable-others"))
@@ -501,6 +508,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vstxurl"))
         src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
+        if (resource != null)
+          src = s1 + ((ValueSet) resource).getIdentifierSimple() + s3;
+        else {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         if (bs == null) {
           src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
@@ -510,12 +520,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             reference = reference.substring(9);
           src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
         }
+        }
       } else if (com[0].equals("toc"))
         src = s1 + generateToc() + s3;
       else if (com[0].equals("txdef"))
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
+      else if (com[0].equals("igname"))
+        src = s1 + ig.getName() + s3;
       else if (com[0].equals("vsdef"))
-        src = s1 + generateValueSetDefinition(Utilities.fileTitle(file)) + s3;
+        src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescriptionSimple()) : generateValueSetDefinition(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txoid"))
         src = s1 + generateOID(Utilities.fileTitle(file), false) + s3;
       else if (com[0].equals("vsoid"))
@@ -525,15 +538,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsname"))
         src = s1 + Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsref")) {
+        if (resource != null)
+          src = s1 + Utilities.fileTitle(resource.getTag("filename")) + s3;
+        else {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         if (bs == null)
           src = s1 + Utilities.fileTitle(file) + s3;
         else
           src = s1 + bs.getReference() + s3;
+        }
       } else if (com[0].equals("txdesc"))
         src = s1 + generateDesc(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsdesc"))
-        src = s1 + generateVSDesc(Utilities.fileTitle(file)) + s3;
+        src = s1 + (resource != null ? new XhtmlComposer().compose(resource.getText().getDiv()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
         src = s1 + generateBSUsage(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsusage"))
@@ -573,7 +590,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsxref"))
         src = s1 + xreferencesForFhir(name) + s3;      
       else if (com[0].equals("vsexpansion"))
-        src = s1 + expandValueSet(Utilities.fileTitle(file)) + s3;
+        src = s1 + expandValueSet(Utilities.fileTitle(file), null) + s3;
+      else if (com[0].equals("vsexpansionig"))
+        src = s1 + expandValueSetIG((ValueSet) resource) + s3;
       else if (com[0].equals("v3expansion"))
         src = s1 + expandV3ValueSet(name) + s3;
       else if (com[0].equals("level"))
@@ -588,15 +607,46 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + Utilities.URLEncode(baseURL) + s3;  
       else if (com[0].equals("profilelist"))
         src = s1 + genProfilelist() + s3;  
+      else if (com[0].equals("igprofileslist"))
+        src = s1 + genIGProfilelist() + s3;  
       else if (com[0].equals("operationslist"))
         src = s1 + genOperationList() + s3;  
       else if (others != null && others.containsKey(com[0]))  
         src = s1 + others.get(com[0]) + s3; 
-      
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genIGProfilelist() {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"grid\">\r\n");
+    b.append("  <tr>\r\n");
+    b.append("    <td><b>Name</b></td>\r\n");
+    b.append("    <td><b>Type</b></td>\r\n");
+    b.append("    <td><b>Usage</b></td>\r\n");
+    b.append("  </tr>\r\n");
+    
+    List<String> names = new ArrayList<String>();
+    for (AtomEntry<? extends Resource> ae : igResources.values()) {
+      if (ae.getResource() instanceof Profile) 
+        names.add(ae.getId());
+    }
+    Collections.sort(names);
+    
+    for (String s : names) {
+      @SuppressWarnings("unchecked")
+      AtomEntry<Profile> ae  = (AtomEntry<Profile>) igResources.get(s);
+      b.append("  <tr>\r\n");
+      b.append("    <td><a href=\""+ae.getLinks().get("path")+"\">"+Utilities.escapeXml(ae.getResource().getNameSimple())+"</a></td>\r\n");
+      b.append("    <td>"+describeProfileType(ae.getResource())+"</td>\r\n");
+      b.append("    <td>"+Utilities.escapeXml(ae.getResource().getDescriptionSimple())+"</td>\r\n");
+      b.append(" </tr>\r\n");
+    }
+    b.append("</table>\r\n");
+   
+    return b.toString();
   }
 
   private String genOperationList() throws Exception {
@@ -960,7 +1010,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, name, description, level, adorn, n+".xml.html");
     String html = TextFile.fileToString(folders.srcDir + "template-example-xml.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", b.toString());
-    html = processPageIncludes(n+".xml.html", html, pageType, null);
+    html = processPageIncludes(n+".xml.html", html, pageType, null, null);
     TextFile.stringToFile(html, dst);
     
 //    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
@@ -971,7 +1021,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(folders.srcDir + "template-example-json.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", json);
-    html = processPageIncludes(dst, html, pageType, null);
+    html = processPageIncludes(dst, html, pageType, null, null);
     TextFile.stringToFile(html, getFolders().dstDir + dst);
 //    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
     epub.registerExternal(dst);
@@ -1653,6 +1703,27 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();   
   }
 
+  private String igHeader(String n, String mode) {
+    if (n.contains("-"))
+      n = n.substring(0, n.indexOf('-'));
+    StringBuilder b = new StringBuilder();
+    String pfx = "";
+    if ("l1".equals(mode))
+      pfx = "../";
+    if ("l2".equals(mode))
+      pfx = "../../";
+    if ("l3".equals(mode))
+      pfx = "../../../";
+
+    b.append("<ul class=\"nav nav-tabs\">");    
+    b.append(makeHeaderTab("Orientation", pfx + ig.getFilePrefix()+"orientation.html", mode==null || "orientation".equals(mode)));
+    b.append(makeHeaderTab("Profiles", pfx + "ig-profiles.html", "profiles".equals(mode)));
+    b.append(makeHeaderTab("Value Sets", pfx + "ig-valuesets.html", "valuesets".equals(mode)));
+    b.append(makeHeaderTab("Security", pfx + ig.getFilePrefix()+"security.html", "security".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
   private String txHeader(String n, String mode) {
     if (n.contains("-"))
       n = n.substring(0, n.indexOf('-'));
@@ -1837,26 +1908,74 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
 
-  private String genValueSetsTable() throws Exception {
+  @SuppressWarnings("unchecked")
+  private String genIGValueSetsTable() throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
-    s.append(" <tr><td><b>Name</b> (in http://hl7.org/fhir/vs/)</td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td></tr>\r\n");
-    List<String> sorts = new ArrayList<String>();
-    sorts.addAll(valueSets.keySet());
-    Collections.sort(sorts);
-    
-    for (String sn : sorts) {
-      if (!sn.startsWith("http://hl7.org/fhir/v3") && !sn.startsWith("http://hl7.org/fhir/v2")) {
-          AtomEntry ae = valueSets.get(sn);
-          String n = sn.substring(23);
-          ValueSet vs = (ValueSet) ae.getResource();
-          s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+sourceSummary(vs)+"</td><td>"+Utilities.oidTail(ae.getLinks().get("oid"))+"</td></tr>\r\n");
+    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td></td></tr>\r\n");
+    List<String> namespaces = new ArrayList<String>();
+    Map<String, AtomEntry<ValueSet>> vslist = new HashMap<String, AtomEntry<ValueSet>>();
+    for (String sn : igResources.keySet()) {
+      if (igResources.get(sn).getResource() instanceof ValueSet) {
+        vslist.put(sn, (AtomEntry<ValueSet>) igResources.get(sn));
+        String n = getNamespace(sn);
+        if (!namespaces.contains(n))
+          namespaces.add(n);
       }
     }
+    Collections.sort(namespaces);
+    for (String n : namespaces)  
+      generateVSforNS(s, n, valueSets, false);
     s.append("</table>\r\n");
     return s.toString();
   }
+  
+  private String genValueSetsTable() throws Exception {
+    StringBuilder s = new StringBuilder();
+    s.append("<table class=\"codes\">\r\n");
+    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td></tr>\r\n");
+    List<String> namespaces = new ArrayList<String>();
+    for (String sn : valueSets.keySet()) {
+      String n = getNamespace(sn);
+      if (!n.equals("http://hl7.org/fhir/vs") && !sn.startsWith("http://hl7.org/fhir/v3") && !sn.startsWith("http://hl7.org/fhir/v2") && !namespaces.contains(n))
+        namespaces.add(n);
+    }
+    Collections.sort(namespaces);
+    generateVSforNS(s, "http://hl7.org/fhir/vs", valueSets, true);
+    for (String n : namespaces)  
+      generateVSforNS(s, n, valueSets, true);
+    s.append("</table>\r\n");
+    return s.toString();
+  }
+  
+  private void generateVSforNS(StringBuilder s, String ns, Map<String, AtomEntry<ValueSet>> vslist, boolean hasId) {
+    s.append(" <tr><td colspan=\"3\" style=\"background: #DFDFDF\"><b>Namespace: </b>"+ns+"</td></tr>\r\n");
+    List<String> sorts = new ArrayList<String>();
+    for (String sn : vslist.keySet()) {
+      String n = getNamespace(sn);
+      if (ns.equals(n))
+        sorts.add(sn);
+    }
+    Collections.sort(sorts);
+    for (String sn : sorts) {
+      AtomEntry<ValueSet> ae = valueSets.get(sn);
+      String n = getTail(sn);
+      ValueSet vs = (ValueSet) ae.getResource();
+      s.append(" <tr><td><a href=\""+Utilities.changeFileExt(ae.getLinks().get("path"), ".html")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescriptionSimple())+"</td><td>"+sourceSummary(vs)+"</td>");
+      if (hasId)
+        s.append("<td>"+Utilities.oidTail(ae.getLinks().get("oid"))+"</td>");
+      s.append("</tr>\r\n");
+    }
+  }
 
+
+  private String getTail(String sn) {
+    return sn.substring(getNamespace(sn).length()+1);
+  }
+
+  private String getNamespace(String sn) {
+    return sn.contains("/") ? sn.substring(0, sn.lastIndexOf("/")) : sn;
+  }
 
   private String sourceSummary(ValueSet vs) {
     StringBuilder b = new StringBuilder();
@@ -2135,7 +2254,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
 
-  String processPageIncludesForPrinting(String file, String src) throws Exception {
+  String processPageIncludesForPrinting(String file, String src, Resource resource) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     boolean even = false;
 
@@ -2162,7 +2281,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || com[0].equals("extheader") || com[0].equals("txheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
+      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || com[0].equals("extheader") || com[0].equals("txheader") || 
+          com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+resHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
@@ -2184,7 +2304,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         wikilink = com[1];
         src = s1+s3;
       }
-      else if (com[0].equals("dtmappings"))
+      else  if (com[0].equals("conceptmaplistvs")) {
+        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+        String ref;
+        if (bs == null) {
+          ref = "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file);
+        } else {
+          ref = bs.getReference();
+          if (ref.startsWith("valueset-"))
+            ref = ref.substring(9);
+          ref = "http://hl7.org/fhir/vs/"+ref;
+        }
+        src = s1 + conceptmaplist(ref, com[1]) + s3;
+      }  else if (com[0].equals("dtmappings"))
         src = s1 + genDataTypeMappings(com[1]) + s3;
       else if (com[0].equals("dtusage")) 
         src = s1 + genDataTypeUsage(com[1]) + s3;
@@ -2236,6 +2368,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
         src = s1 + genValueSetsTable() + s3;
+      else if (com[0].equals("igvaluesetslist"))
+        src = s1 + genIGValueSetsTable() + s3;
       else if (com[0].equals("resimplall"))
         src = s1 + genResImplList() + s3;
       else if (com[0].equals("impllist"))
@@ -2245,6 +2379,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vstxurl"))
         src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
+        if (resource != null)
+          src = s1 + ((ValueSet) resource).getIdentifierSimple() + s3;
+        else {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         if (bs == null) {
           src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
@@ -2254,10 +2391,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             reference = reference.substring(9);
           src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
         }
+        }
       } else if (com[0].equals("txdef"))
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
+      else if (com[0].equals("vsxref"))
+        src = s1 + xreferencesForFhir(name) + s3;      
+      else if (com[0].equals("igname"))
+        src = s1 + ig.getName() + s3;
       else if (com[0].equals("vsdef"))
-        src = s1 + generateValueSetDefinition(Utilities.fileTitle(file)) + s3;
+        src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescriptionSimple()) : generateValueSetDefinition(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
         src = s1 + generateBSUsage(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsusage"))
@@ -2270,6 +2412,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + generateToc() + s3;
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;      
+      else if (com[0].equals("vsexpansion"))
+        src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : (ValueSet) resource) + s3;
+      else if (com[0].equals("vsexpansionig"))
+        src = s1 + expandValueSetIG((ValueSet) resource) + s3;
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;      
       else 
@@ -2332,13 +2478,33 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return n;
   }
 
-  private String expandValueSet(String fileTitle) throws Exception {
-    ValueSet vs = null;
-    BindingSpecification cd = definitions.getBindingByName(fileTitle);
-    if (cd == null)
-      vs = definitions.getExtraValuesets().get(fileTitle);
-    else 
-      vs = cd.getReferredValueSet();
+  private String expandValueSetIG(ValueSet vs) throws Exception {
+    if (!hasDynamicContent(vs))
+      return "";
+    try {
+      ValueSetExpansionCache cache = new ValueSetExpansionCache(workerContext);
+      ValueSetExpansionOutcome result = cache.getExpander().expand(vs);
+      if (result.getError() != null)
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+result.getError()+"</div>";
+      ValueSet exp = result.getValueset();
+      exp.setCompose(null);
+      exp.setDefine(null);
+      exp.setText(null); 
+      exp.setDescriptionSimple("Value Set Contents (Expansion) for "+vs.getNameSimple()+" at "+Config.DATE_FORMAT().format(new Date()));
+      new NarrativeGenerator("", workerContext).generate(exp);
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
+    } catch (Exception e) {
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+e.getMessage()+"</div>";
+    }
+  }
+  private String expandValueSet(String fileTitle, ValueSet vs) throws Exception {
+    if (vs == null) {
+      BindingSpecification cd = definitions.getBindingByName(fileTitle);
+      if (cd == null)
+        vs = definitions.getExtraValuesets().get(fileTitle);
+      else 
+        vs = cd.getReferredValueSet();
+    }
     return expandVS(vs, "");
   }
   
@@ -2352,7 +2518,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "";
     try {
       ValueSetExpansionCache cache = new ValueSetExpansionCache(workerContext);
-      ValueSet exp = cache.getExpander().expand(vs).getValueset();
+      ValueSetExpansionOutcome result = cache.getExpander().expand(vs);
+      if (result.getError() != null)
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+result.getError()+"</div>";
+      ValueSet exp = result.getValueset();
       exp.setCompose(null);
       exp.setDefine(null);
       exp.setText(null); 
@@ -2360,7 +2529,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       new NarrativeGenerator(prefix, workerContext).generate(exp);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
-      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+e.getMessage()+"</div>";
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+e.getMessage()+" (2)</div>";
 //      return "<!-- This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
     }
   }
@@ -2395,7 +2564,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return cd.getReferredValueSet().getDescriptionSimple();
   }
 
-  String processPageIncludesForBook(String file, String src, String type) throws Exception {
+  String processPageIncludesForBook(String file, String src, String type, Resource resource) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     String workingTitle = null;
     int level = 0;
@@ -2424,7 +2593,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("resourcesheader") || com[0].equals("formatsheader") || com[0].equals("extheader") || com[0].equals("txheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
+      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("resourcesheader") || com[0].equals("formatsheader") || com[0].equals("extheader") || 
+          com[0].equals("txheader") || com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+s3;
@@ -2438,7 +2608,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           src = s1+s3;
       else if (com[0].equals("onthispage"))
           src = s1+s3;
-      else if (com[0].equals("res-category")) {
+      else if (com[0].equals("conceptmaplistvs")) {
+        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+        String ref;
+        if (bs == null) {
+          ref = "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file);
+        } else {
+          ref = bs.getReference();
+          if (ref.startsWith("valueset-"))
+            ref = ref.substring(9);
+          ref = "http://hl7.org/fhir/vs/"+ref;
+        }
+        src = s1 + conceptmaplist(ref, com[1]) + s3;
+      }  else if (com[0].equals("res-category")) {
         src = s1+resCategory(s2.substring(com[0].length()+1))+s3;
         even = false;
       } else if (com[0].equals("res-item")) {
@@ -2511,12 +2693,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
         src = s1 + genValueSetsTable() + s3;
+      else if (com[0].equals("igvaluesetslist"))
+        src = s1 + genIGValueSetsTable() + s3;
       else if (com[0].equals("conceptmapslist"))
         src = s1 + genConceptMapsTable() + s3;
       else if (com[0].equals("bindingtable"))
         src = s1 + genBindingsTable() + s3;
       else if (com[0].equals("bindingtable-others"))
         src = s1 + genBindingTable(false) + s3;
+      else if (com[0].equals("vsxref"))
+        src = s1 + xreferencesForFhir(name) + s3;      
       else if (com[0].equals("resimplall"))
         src = s1 + genResImplList() + s3;
       else if (com[0].equals("impllist"))
@@ -2526,6 +2712,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vstxurl"))
         src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
+        if (resource != null)
+          src = s1 + ((ValueSet) resource).getIdentifierSimple() + s3;
+        else {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         if (bs == null) {
           src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
@@ -2535,10 +2724,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             reference = reference.substring(9);
           src = s1 + "http://hl7.org/fhir/vs/"+reference + s3;
         }
+        }
       } else if (com[0].equals("txdef"))
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
+      else if (com[0].equals("vsexpansion"))
+        src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : (ValueSet) resource) + s3;
+      else if (com[0].equals("vsexpansionig"))
+        src = s1 + expandValueSetIG((ValueSet) resource) + s3;
+      else if (com[0].equals("igname"))
+        src = s1 + ig.getName() + s3;
       else if (com[0].equals("vsdef"))
-        src = s1 + generateValueSetDefinition(Utilities.fileTitle(file)) + s3;
+        src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescriptionSimple()) : generateValueSetDefinition(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txoid"))
         src = s1 + generateOID(Utilities.fileTitle(file), false) + s3;
       else if (com[0].equals("vsoid"))
@@ -2548,15 +2744,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsname"))
         src = s1 + Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsref")) {
+        if (resource != null)
+          src = s1 + Utilities.fileTitle(resource.getTag("filename")) + s3;
+        else {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         if (bs == null)
           src = s1 + Utilities.fileTitle(file) + s3;
         else
           src = s1 + bs.getReference() + s3;
+        }
       } else if (com[0].equals("txdesc"))
         src = s1 + generateDesc(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsdesc"))
-        src = s1 + generateVSDesc(Utilities.fileTitle(file)) + s3;
+        src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescriptionSimple()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
         src = s1 + generateBSUsage(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsusage"))
@@ -2605,6 +2805,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + publicationNotice + s3;      
       else if (com[0].equals("profilelist"))
         src = s1 + genProfilelist() + s3;  
+      else if (com[0].equals("igprofileslist"))
+        src = s1 + genIGProfilelist() + s3;  
       else if (com[0].equals("operationslist"))
         src = s1 + genOperationList() + s3;  
       else 
@@ -2853,7 +3055,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           
         } else if (definitions.hasElementDefn(t)) {
           b.append("<a href=\"");
-          b.append(GeneratorUtils.getSrcFile(t));
+          b.append(GeneratorUtils.getSrcFile(t, false));
           b.append(".html#");
           b.append(t);
           b.append("\">");
@@ -3089,7 +3291,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String cnt = TextFile.fileToString(filename);
     Map<String, String> others = new HashMap<String, String>();
     others.put("definition", definition);
-    cnt = processPageIncludes(filename, cnt, "notes", others).trim()+"\r\n";
+    cnt = processPageIncludes(filename, cnt, "notes", others, null).trim()+"\r\n";
     if (cnt.startsWith("<div")) {
       if (!cnt.startsWith(HTML_PREFIX1) && !cnt.startsWith(HTML_PREFIX2))
         throw new Exception("unable to process start xhtml content "+filename+" : "+cnt.substring(0, HTML_PREFIX1.length())+" - should be '"+HTML_PREFIX1+"' or '"+HTML_PREFIX2+"'");
@@ -3400,7 +3602,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (definitions.hasResource(name))
         return "<a href=\""+name.toLowerCase()+".html\">"+name+"</a>";
       else if (definitions.hasElementDefn(name))
-        return "<a href=\""+GeneratorUtils.getSrcFile(name)+"#"+name+".html\">"+name+"</a>";  
+        return "<a href=\""+GeneratorUtils.getSrcFile(name, false)+"#"+name+".html\">"+name+"</a>";  
       else
         return "??"+name;
     } else {
@@ -3418,8 +3620,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String generateProfileStructureTable(ProfileDefn profile, ProfileStructureComponent structure, boolean diff, String filename) throws Exception {
-    filename = filename.substring(0, filename.indexOf('.'))+"-definitions.html";
-    return new XhtmlComposer().compose(new ProfileUtilities().generateTable(filename, structure, diff, folders.dstDir, false, profile.getSource(), this));
+    String deffile = filename.substring(0, filename.indexOf('.'))+"-definitions.html";
+    return new XhtmlComposer().compose(new ProfileUtilities().generateTable(deffile, structure, diff, folders.dstDir, false, profile.getSource(), this, filename.substring(0, filename.indexOf('.'))));
   }
 
   private String generateProfileConstraintLinks(ProfileDefn profile, String filename) throws Exception {
@@ -3743,7 +3945,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (definitions.hasResource(type)) 
       return type.toLowerCase()+".html";
     else 
-      return GeneratorUtils.getSrcFile(type)+".html#"+type;
+      return GeneratorUtils.getSrcFile(type, false)+".html#"+type;
   }
 
   @Override
@@ -3800,6 +4002,22 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public WorkerContext getWorkerContext() {
     return workerContext;
+  }
+
+  public ImplementationGuideDetails getIg() {
+    return ig;
+  }
+
+  public void setIg(ImplementationGuideDetails ig) {
+    this.ig = ig;
+  }
+
+  public boolean hasIG() {
+    return ig != null;
+  }
+
+  public Map<String, AtomEntry<? extends Resource>> getIgResources() {
+    return igResources;
   }
 
   

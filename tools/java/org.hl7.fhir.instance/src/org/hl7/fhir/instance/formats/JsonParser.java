@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Jul 27, 2014 08:55+1000 for FHIR v0.2.1
+// Generated on Mon, Aug 4, 2014 08:52+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -3430,8 +3430,12 @@ public class JsonParser extends JsonParserBase {
   private Location parseLocation(JsonObject json) throws Exception {
     Location res = new Location();
     parseResourceProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("name"))
       res.setName(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
@@ -4186,6 +4190,8 @@ public class JsonParser extends JsonParserBase {
         res.getPerformer().add(parseResourceReference(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("encounter"))
+      res.setEncounter(parseResourceReference(json.getAsJsonObject("encounter")));
     if (json.has("referenceRange")) {
       JsonArray array = json.getAsJsonArray("referenceRange");
       for (int i = 0; i < array.size(); i++) {
@@ -4718,8 +4724,12 @@ public class JsonParser extends JsonParserBase {
         res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("address"))
-      res.setAddress(parseAddress(json.getAsJsonObject("address")));
+    if (json.has("address")) {
+      JsonArray array = json.getAsJsonArray("address");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAddress().add(parseAddress(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("gender"))
       res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
     if (json.has("birthDate"))
@@ -4772,6 +4782,12 @@ public class JsonParser extends JsonParserBase {
   private Practitioner.PractitionerQualificationComponent parsePractitionerPractitionerQualificationComponent(JsonObject json, Practitioner owner) throws Exception {
     Practitioner.PractitionerQualificationComponent res = new Practitioner.PractitionerQualificationComponent();
     parseBackboneProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("period"))
@@ -5715,6 +5731,64 @@ public class JsonParser extends JsonParserBase {
     Type value = parseType("value", json);
     if (value != null)
       res.setValue(value);
+    return res;
+  }
+
+  private ReferralRequest parseReferralRequest(JsonObject json) throws Exception {
+    ReferralRequest res = new ReferralRequest();
+    parseResourceProperties(json, res);
+    if (json.has("status"))
+      res.setStatus(parseEnumeration(json.get("status").getAsString(), ReferralRequest.Referralstatus.Null, new ReferralRequest.ReferralstatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("specialty"))
+      res.setSpecialty(parseCodeableConcept(json.getAsJsonObject("specialty")));
+    if (json.has("priority"))
+      res.setPriority(parseCodeableConcept(json.getAsJsonObject("priority")));
+    if (json.has("subject"))
+      res.setSubject(parseResourceReference(json.getAsJsonObject("subject")));
+    if (json.has("requester"))
+      res.setRequester(parseResourceReference(json.getAsJsonObject("requester")));
+    if (json.has("recipient")) {
+      JsonArray array = json.getAsJsonArray("recipient");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRecipient().add(parseResourceReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("encounter"))
+      res.setEncounter(parseResourceReference(json.getAsJsonObject("encounter")));
+    if (json.has("dateSent"))
+      res.setDateSent(parseDateTime(json.get("dateSent").getAsString()));
+    if (json.has("_dateSent"))
+      parseElementProperties(json.getAsJsonObject("_dateSent"), res.getDateSent());
+    if (json.has("reason"))
+      res.setReason(parseCodeableConcept(json.getAsJsonObject("reason")));
+    if (json.has("description"))
+      res.setDescription(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+    if (json.has("serviceRequested")) {
+      JsonArray array = json.getAsJsonArray("serviceRequested");
+      for (int i = 0; i < array.size(); i++) {
+        res.getServiceRequested().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("supportingInformation")) {
+      JsonArray array = json.getAsJsonArray("supportingInformation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSupportingInformation().add(parseResourceReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("fulfillmentTime"))
+      res.setFulfillmentTime(parsePeriod(json.getAsJsonObject("fulfillmentTime")));
     return res;
   }
 
@@ -6689,6 +6763,8 @@ public class JsonParser extends JsonParserBase {
       return parseQuestionnaire(json);
     else if (t.equals("QuestionnaireAnswers"))
       return parseQuestionnaireAnswers(json);
+    else if (t.equals("ReferralRequest"))
+      return parseReferralRequest(json);
     else if (t.equals("RelatedPerson"))
       return parseRelatedPerson(json);
     else if (t.equals("RiskAssessment"))

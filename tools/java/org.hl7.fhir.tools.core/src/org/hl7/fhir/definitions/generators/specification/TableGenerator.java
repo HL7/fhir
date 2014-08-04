@@ -36,7 +36,7 @@ public class TableGenerator extends BaseGenerator {
 
     row.setAnchor(path);
     boolean isProfiledExtension = isProfile && (e.getName().equals("extension") || e.getName().equals("modifierExtension"));
-    row.getCells().add(gen.new Cell(null, dictLinks() ? pageName+"#"+path : null, e.getName(), e.getDefinition(), null));
+    row.getCells().add(gen.new Cell(null, dictLinks() ? pageName+"#"+path.replace("[", "_").replace("]", "_") : null, e.getName(), e.getDefinition(), null));
   
     if (resource) {
       row.getCells().add(gen.new Cell()); 
@@ -78,7 +78,7 @@ public class TableGenerator extends BaseGenerator {
             row.setIcon("icon_extension_simple.png");
           else
             row.setIcon("icon_datatype.gif");
-          c = gen.new Cell(null, GeneratorUtils.getSrcFile(t)+".html#"+t.replace("*", "open"), t, null, null);
+          c = gen.new Cell(null, GeneratorUtils.getSrcFile(t, false)+".html#"+t.replace("*", "open"), t, null, null);
         }
         row.getCells().add(c);
       } else {
@@ -147,7 +147,7 @@ public class TableGenerator extends BaseGenerator {
           choicerow.getCells().add(gen.new Cell(null, null, e.getName().replace("[x]",  Utilities.capitalize(t)), definitions.getTypes().containsKey(t) ? definitions.getTypes().get(t).getDefinition() : null, null));
           choicerow.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null));
           choicerow.setIcon("icon_datatype.gif");
-          choicerow.getCells().add(gen.new Cell(null, GeneratorUtils.getSrcFile(t)+".html#"+t.replace("*", "open"), t, null, null));
+          choicerow.getCells().add(gen.new Cell(null, GeneratorUtils.getSrcFile(t, false)+".html#"+t.replace("*", "open"), t, null, null));
         }
       
         choicerow.getCells().add(gen.new Cell());

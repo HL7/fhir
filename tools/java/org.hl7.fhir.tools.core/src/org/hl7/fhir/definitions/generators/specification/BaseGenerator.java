@@ -33,9 +33,13 @@ public class BaseGenerator {
         } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
             AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
             return vs.getLinks().get("path").replace(File.separatorChar, '/');
-        } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
-          return bs.getReference().substring(23)+".html";
-        else
+        } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
+          BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+bs.getReference().substring(23), bs);
+          if (bs1 != null)
+            return ""+bs.getReference().substring(23)+".html";
+          else
+            return "valueset-"+bs.getReference().substring(23)+".html";
+        } else
           throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
       } else
         return bs.getReference()+".html";            

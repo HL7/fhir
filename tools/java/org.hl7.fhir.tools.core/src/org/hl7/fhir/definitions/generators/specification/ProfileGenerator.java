@@ -449,9 +449,18 @@ public class ProfileGenerator {
     dDst.setIsModifier(Factory.newBoolean(dSrc.isModifier()));
     // dDst.
     for (TypeRef t : dSrc.getTypes()) {
-      TypeRefComponent type = new Profile.TypeRefComponent();
-      type.setCode(Factory.newCode(t.summary()));
-      dDst.getType().add(type);
+      if (t.hasParams()) {
+        for (String tp : t.getParams()) {
+          TypeRefComponent type = new Profile.TypeRefComponent();
+          type.setCode(Factory.newCode(t.getName()));
+          type.setProfileSimple("http://hl7.org/fhir/Profile/"+tp);
+          dDst.getType().add(type);
+        }
+      } else {
+        TypeRefComponent type = new Profile.TypeRefComponent();
+        type.setCode(Factory.newCode(t.getName()));
+        dDst.getType().add(type);
+      }
     }
     for (String mu : definitions.getMapTypes().keySet()) {
       if (dSrc.hasMapping(mu)) {
