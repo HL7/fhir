@@ -396,13 +396,13 @@
           <xsl:when test="$answerType='dateTime'">
             <input type="text" onblur="checkDateTime(this)" maxlength="26"/>
           </xsl:when>
-          <xsl:when test="$answerType='dateInstant'">
+          <xsl:when test="$answerType='instant'">
             <input type="text" onblur="checkInstant(this)" maxlength="30"/>
           </xsl:when>
           <xsl:when test="$answerType='text'">
             <textarea rows="4" cols="50">&#xA0;</textarea>
           </xsl:when>
-          <xsl:when test="$answerType='single-choice' or $answerType='multiple-choice' or $answerType='open-single-choice' or $answerType='open-multiple-choice'">
+          <xsl:when test="$answerType='choice' or $answerType='open-choice'">
             <xsl:choose>
               <xsl:when test="not(f:options/f:reference/@value)">
                 <xsl:message>
@@ -425,7 +425,7 @@
                   <xsl:when test="count($valuesetCodings/f:coding)&gt;$maxCodings">
                     <xsl:value-of select="concat('WARNING: Question has value set with more than ', $maxCodings, ' options.  No proper interface could be provided.&#x0a;', f:text/@value)"/>
                   </xsl:when>
-                  <xsl:when test="contains($answerType, 'single-choice')">
+                  <xsl:when test="f:repeats/@value='true'">
                     <br/>
                     <xsl:for-each select="$valuesetCodings/f:coding">
                       <xsl:if test="f:system">
@@ -460,6 +460,10 @@
                     </xsl:for-each>
                   </xsl:otherwise>
                 </xsl:choose>
+                <xsl:if test="$answerType='open-choice'">
+                  <xsl:text>Other:</xsl:text>
+                  <input type="text"/>
+                </xsl:if>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:when>
@@ -575,7 +579,9 @@
         <xsl:copy-of select="ancestor::atom:feed/atom:entry[atom:id=current()/@value]/atom:content/f:*"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:copy-of select="document(concat(@value, '?_format=application/xml+fhir'))"/>
+<!-- Need to suppress this until HL7 starts returning proper resources
+        <xsl:copy-of select="document(concat(@value, '?_format=application/xml+fhir'), /)"/>
+-->
         <!-- Todo: Is there a way to set HTTP headers in a retrieval? -->
       </xsl:otherwise>
     </xsl:choose>
