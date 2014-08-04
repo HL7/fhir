@@ -71,7 +71,7 @@ public class ProfileUtilities {
     ExtensionDefinition getExtensionDefinition(Profile profile, String profileReference);
   }
 
-  
+
 /**
  * Given a Structure, navigate to the element given by the path and return the direct children of that element
  *   
@@ -159,7 +159,7 @@ public class ProfileUtilities {
     return res;
   }
 
-
+  
   public static List<ElementComponent> getChildList(ProfileStructureComponent structure, ElementComponent element) {
 	  	return getChildList(structure, element.getPathSimple());
 	  }
@@ -206,6 +206,7 @@ public class ProfileUtilities {
       // get the current focus of the base, and decide what to do
       ElementComponent currentBase = base.getElement().get(baseCursor); 
       List<ElementComponent> diffMatches = getDiffMatches(differential, currentBase.getPathSimple(), diffCursor, diffLimit); // get a list of matching elements in scope
+
       // in the simple case, source is not sliced. 
       if (currentBase.getSlicing() == null) {
         if (diffMatches.isEmpty()) { // the differential doesn't say anything about this item 
@@ -227,7 +228,7 @@ public class ProfileUtilities {
             // (but you might do that in order to split up constraints by type)
             throw new Exception("Attempt to a slice an element that does not repeat: "+currentBase.getPathSimple()); 
           if (diffMatches.get(0).getSlicing() == null && !isExtension(currentBase)) // well, the diff has set up a slice, but hasn't defined it. this is an error
-            throw new Exception("differential does not have a slice"); 
+            throw new Exception("differential does not have a slice: "+currentBase.getPathSimple()); 
             
           // well, if it passed those preconditions then we slice the dest. 
           // we're just going to accept the differential slicing at face value
@@ -235,9 +236,9 @@ public class ProfileUtilities {
           if (diffMatches.get(0).getSlicing() == null) 
             outcome.setSlicing(makeExtensionSlicing());
           else            
-          outcome.setSlicing(diffMatches.get(0).getSlicing().copy());
+            outcome.setSlicing(diffMatches.get(0).getSlicing().copy());
           result.getElement().add(outcome);
-
+          
           // differential - if the first one in the list has a name, we'll process it. Else we'll treat it as the base definition of the slice.
           int start = 0;
           if (diffMatches.get(0).getName() == null) {
@@ -376,7 +377,7 @@ public class ProfileUtilities {
       cursor++;
     }
     return result;
-      }
+  }
 
   private void updateFromSlicing(ElementSlicingComponent dst, ElementSlicingComponent src) {
     if (src.getOrdered() != null)
@@ -402,7 +403,7 @@ public class ProfileUtilities {
 
   private boolean isSlicedToOneOnly(ElementComponent e) {
     return (e.getSlicing() != null && e.getDefinition() != null && e.getDefinition().getMax() != null && e.getDefinition().getMaxSimple().equals("1"));
-    }      
+  }
 
   private ElementSlicingComponent makeExtensionSlicing() {
     ElementSlicingComponent slice = new ElementSlicingComponent();
@@ -485,9 +486,9 @@ public class ProfileUtilities {
       
       // todo: is this actually right? 
       if (!src.getType().isEmpty()) {
-      dst.getType().clear();
-      for (TypeRefComponent t : src.getType())
-        dst.getType().add(t.copy());
+        dst.getType().clear();
+        for (TypeRefComponent t : src.getType())
+          dst.getType().add(t.copy());
       }      
       // todo: mappings are cumulative - or does one replace another?
       for (ElementDefinitionMappingComponent s : src.getMapping()) {
@@ -650,7 +651,7 @@ public class ProfileUtilities {
             row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getDefinition().getType().get(0).getProfileSimple(), null, null));
             generateDescription(gen, row, element, null, used.used, profile.getUrlSimple(), element.getDefinition().getType().get(0).getProfileSimple());
-        } else {
+          } else {
             row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), extDefn.getDefn().getElement().get(0).getDefinition(), used), null, null));
             genTypes(gen, pkp, row, extDefn.getDefn().getElement().get(0), profileBaseFileName);
             generateDescription(gen, row, element, extDefn.getDefn().getElement().get(0), used.used, profile.getUrlSimple(), element.getDefinition().getType().get(0).getProfileSimple());
@@ -661,14 +662,14 @@ public class ProfileUtilities {
           generateDescription(gen, row, element, null, used.used, null, null);
       } else {
           row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
-        row.getCells().add(gen.new Cell());
+          row.getCells().add(gen.new Cell());
           generateDescription(gen, row, element, null, used.used, null, null);
       }
     } else {
         row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
-      if (hasDef)
+        if (hasDef)
           genTypes(gen, pkp, row, element, profileBaseFileName);
-      else
+        else
           row.getCells().add(gen.new Cell());
         generateDescription(gen, row, element, null, used.used, null, null);
       }
@@ -678,7 +679,7 @@ public class ProfileUtilities {
         for (Cell cell : row.getCells())
           for (Piece p : cell.getPieces())
             p.addStyle("font-style: italic");
-    }
+      }
       if (used.used || showMissing)
         rows.add(row);
       if (!used.used) {
@@ -686,10 +687,10 @@ public class ProfileUtilities {
           for (Piece p : cell.getPieces())
             p.setStyle("text-decoration:line-through");
       } else{
-    List<ElementComponent> children = getChildren(all, element);
-    for (ElementComponent child : children)
+        List<ElementComponent> children = getChildren(all, element);
+        for (ElementComponent child : children)
           genElement(defPath, gen, row.getSubRows(), child, all, profile, pkp, showMissing, profileBaseFileName);
-  }
+      }
     }
   }
 
@@ -829,5 +830,5 @@ public class ProfileUtilities {
     }
     return b.toString();
   }
-  
+
 }

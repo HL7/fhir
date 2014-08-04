@@ -124,5 +124,12 @@
     <id>dex</id>
     <sort>14</sort>
   </space>
+  <space>
+    <url>http://openehr.org</url>
+    <columnName>OpenEHR mapping</columnName>
+    <title>Open EHR</title>
+    <id>openehr</id>
+    <sort>15</sort>
+  </space>
   
 </mappingSpaces>

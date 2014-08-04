@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-07-13T21:47:17Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-07-23T15:33:30Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,8 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -31,6 +33,10 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s62" ss:Name="Hyperlink">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
+    ss:Underline="Single"/>
   </Style>
   <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
@@ -74,12 +80,15 @@
   <Style ss:ID="s70">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s72" ss:Parent="s62">
+   <Alignment ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:Width="189"/>
    <Column ss:StyleID="s63" ss:Width="29.25"/>
@@ -97,7 +106,7 @@
    <Column ss:Index="16" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="103.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="119.25"/>
-   <Row ss:Height="45" ss:StyleID="s65">
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -117,7 +126,7 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:Height="120">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">Contraindication</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -135,65 +144,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:Height="30">
-    <Cell><Data ss:Type="String">Contraindication.category</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">ContraindicationCategory</Data></Cell>
-    <Cell><Data ss:Type="String">E.g. Drug-drug, duplicate therapy, etc.</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Identifies the general type of issue identified.</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">type</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">.code</Data></Cell>
-   </Row>
-   <Row ss:Height="75">
-    <Cell><Data ss:Type="String">Contraindication.detail</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Description and context</Data></Cell>
-    <Cell><Data ss:Type="String">A textual explanation of the contraindication</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Should focus on information not covered elsewhere as discrete data - no need to duplicate the narrative.</Data></Cell>
-    <Cell><Data ss:Type="String">.text</Data></Cell>
-   </Row>
-   <Row ss:Height="60">
-    <Cell><Data ss:Type="String">Contraindication.date</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">When identified</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">The date or date-time when the contraindication was initially identified.</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">No-one can be responsible for mitigation prior to the issue being identified</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">.effectiveTime</Data></Cell>
-   </Row>
-   <Row ss:Height="60">
-    <Cell><Data ss:Type="String">Contraindication.identifier</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Unique id for the contraindication</Data></Cell>
-    <Cell><Data ss:Type="String">Business identifier associated with the contraindication record</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Allows linking instances of the same contraindication found on different servers</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s67"><Data ss:Type="String">.id</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-   </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Contraindication.patient</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -210,7 +161,75 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">Contraindication.category</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ContraindicationCategory</Data></Cell>
+    <Cell><Data ss:Type="String">E.g. Drug-drug, duplicate therapy, etc.</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Identifies the general type of issue identified.</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">type</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">.code</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">Contraindication.severity</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ContraindicationSeverity</Data></Cell>
+    <Cell><Data ss:Type="String">high | medium | low</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Indicates the degree of importance associated with the identified issue based on the potential impact on the patient</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">severity</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV].value</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="135">
+    <Cell><Data ss:Type="String">Contraindication.implicated</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Problem resource</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the resource representing the current activity or proposed activity that </Data></Cell>
+    <Cell><Data ss:Type="String">cause</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">There's an implicit constraint on the number of implicated resources based on Contraindication.type.  E.g. For drug-drug, there would be more than one.  For timing, there would typically only be one.</Data></Cell>
+    <Cell><Data ss:Type="String">.outboundRelationship[typeCode=SUBJ].target[moodCode=EVN, INT]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">Contraindication.detail</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Description and context</Data></Cell>
+    <Cell><Data ss:Type="String">A textual explanation of the contraindication</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Should focus on information not covered elsewhere as discrete data - no need to duplicate the narrative.</Data></Cell>
+    <Cell><Data ss:Type="String">.text</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">Contraindication.date</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">When identified</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">The date or date-time when the contraindication was initially identified.</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">No-one can be responsible for mitigation prior to the issue being identified</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">.effectiveTime</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Contraindication.author</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -227,18 +246,24 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">.participation[typeCode=AUT].role[classCode=ASSIGNED]</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Is this 80%?</Data></Cell>
    </Row>
-   <Row ss:Height="135">
-    <Cell><Data ss:Type="String">Contraindication.implicated</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Problem resource</Data></Cell>
-    <Cell><Data ss:Type="String">Indicates the resource representing the current activity or proposed activity that </Data></Cell>
-    <Cell><Data ss:Type="String">cause</Data></Cell>
-    <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">There's an implicit constraint on the number of implicated resources based on Contraindication.type.  E.g. For drug-drug, there would be more than one.  For timing, there would typically only be one.</Data></Cell>
-    <Cell><Data ss:Type="String">.outboundRelationship[typeCode=SUBJ].target[moodCode=EVN, INT]</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">Contraindication.identifier</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell><Data ss:Type="String">Unique id for the contraindication</Data></Cell>
+    <Cell><Data ss:Type="String">Business identifier associated with the contraindication record</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Allows linking instances of the same contraindication found on different servers</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s67"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Contraindication.reference</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
@@ -247,15 +272,16 @@
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=INST].target[classCode=ALRT, moodCode=DEFN].text.uri</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Is this in the 80%?</Data></Cell>
    </Row>
-   <Row ss:Height="150">
+   <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Contraindication.mitigation</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">350;0</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Step taken to address</Data></Cell>
     <Cell><Data ss:Type="String">Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=MITG].target[classCode=ACT, moodCode=EVN]</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">How much, if any of this is in the 80%?</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Contraindication.mitigation.action</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -265,7 +291,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">The &quot;text&quot; component can be used for detail or when no appropriate code exists.</Data></Cell>
     <Cell><Data ss:Type="String">.code</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Contraindication.mitigation.date</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
@@ -274,7 +300,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">This may not be the same as when the mitigating step was actually taken</Data></Cell>
     <Cell><Data ss:Type="String">.effectiveTime</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Contraindication.mitigation.author</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
@@ -289,11 +315,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -306,9 +332,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -676,16 +705,20 @@
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell><Data ss:Type="String">valueset-contraindication-category</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s63"><Data ss:Type="String">ContraindicationMitigationAction</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Codes describing steps taken to resolve the contraindication or other circumstances that mitigate the risk associated with the contraindication.  E.g. 'added concurrent therapy', 'prior therapy documented', etc.</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell><Data ss:Type="String">valueset-contraindication-mitigation-action</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ContraindicationSeverity</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Indicates the potential degree of impact of the identified issue on the patient</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s72" ss:HRef="http://hl7.org/fhir/v3/vs/SeverityObservation"><Data
+      ss:Type="String">http://hl7.org/fhir/v3/vs/SeverityObservation</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -695,12 +728,17 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -708,12 +746,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -721,15 +762,15 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s71" ss:DefaultColumnWidth="260.25"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s73" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s71" ss:Width="88.5"/>
-   <Column ss:StyleID="s71" ss:Width="327.75"/>
-   <Column ss:StyleID="s71" ss:Width="57"/>
-   <Column ss:StyleID="s71" ss:Width="205.5"/>
-   <Column ss:StyleID="s71" ss:Width="27.75"/>
-   <Column ss:StyleID="s71" ss:Width="39.75"/>
+   <Column ss:StyleID="s73" ss:Width="88.5"/>
+   <Column ss:StyleID="s73" ss:Width="327.75"/>
+   <Column ss:StyleID="s73" ss:Width="57"/>
+   <Column ss:StyleID="s73" ss:Width="205.5"/>
+   <Column ss:StyleID="s73" ss:Width="27.75"/>
+   <Column ss:StyleID="s73" ss:Width="39.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
@@ -738,12 +779,33 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Drug-drug</Data></Cell>
-    <Cell><Data ss:Type="String">Drug-drug interaction between two prescriptions</Data></Cell>
+    <Cell><Data ss:Type="String">Drug-drug interaction between prescription and medication statement</Data></Cell>
     <Cell><Data ss:Type="String">ddi</Data></Cell>
     <Cell><Data ss:Type="String">contraindication-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">Duplicate Therapy</Data></Cell>
+    <Cell><Data ss:Type="String">Diagnostic order is placed when a recent image of the same body site already exists</Data></Cell>
+    <Cell><Data ss:Type="String">duplicate</Data></Cell>
+    <Cell><Data ss:Type="String">contraindication-example-dup.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Drug-allergy</Data></Cell>
+    <Cell><Data ss:Type="String">Patient is allergic to an inactive ingredient in an ordered medication</Data></Cell>
+    <Cell><Data ss:Type="String">allergy</Data></Cell>
+    <Cell><Data ss:Type="String">contraindication-example-allergy.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Lab order</Data></Cell>
+    <Cell><Data ss:Type="String">Lab order is contraindicated based on a patient's existing medication</Data></Cell>
+    <Cell><Data ss:Type="String">lab</Data></Cell>
+    <Cell><Data ss:Type="String">contraindication-example-lab.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -819,6 +881,51 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="contraindication-severity">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="14.25"/>
+   <Column ss:Index="3" ss:Width="225"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">System</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">H</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/vs/SeverityObservation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">M</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/vs/SeverityObservation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">L</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/vs/SeverityObservation</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

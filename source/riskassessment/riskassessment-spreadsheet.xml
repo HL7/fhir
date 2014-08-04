@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-07-14T04:39:29Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-08-02T22:15:47Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -82,9 +82,16 @@
   <Style ss:ID="s71">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="225"/>
    <Column ss:StyleID="s62" ss:Width="29.25"/>
@@ -117,7 +124,7 @@
     <Cell><Data ss:Type="String">Comments</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
-    <Cell><Data ss:Type="String">??? Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">OpenEHR Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
@@ -135,8 +142,26 @@
     <Cell ss:Index="12" ss:StyleID="s66"/>
     <Cell ss:Index="14" ss:StyleID="s66"><Data ss:Type="String">Observation[classCode=OBS, moodCode=EVN, code=&quot;Risk Assessment&quot;]</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">OpenEHR-EHR-EVALUATION.risk.v1</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">RiskAssessment.subject</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">Resource(Patient|Group)</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">Who/what does assessment apply to?</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">The patient or group the risk assessment applies to</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">.participation[typeCode=SBJ].role</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Subject of Care</Data></Cell>
+    <Cell><Data ss:Type="String">Should this cover anything else?  Device?  Location?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">RiskAssessment.date</Data></Cell>
@@ -155,56 +180,6 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">RiskAssessment.performer</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner | Device)</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Who did assessment?</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">The provider or software application that performed the assessment</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">.participation[typeCode=PFM].role[classCode=ASSIGNED]</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">RiskAssessment.identifier</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Unique identifier for the assessment</Data></Cell>
-    <Cell><Data ss:Type="String">Business identifier assigned to the risk assessment</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:Index="14" ss:StyleID="s66"><Data ss:Type="String">.id</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">RiskAssessment.subject</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Patient|Group)</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Who/what does assessment apply to?</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">The patient or group the risk assessment applies to</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">.participation[typeCode=SBJ].role</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Should this cover anything else?  Device?  Location?</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">RiskAssessment.condition</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -220,6 +195,40 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">.outboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">RiskAssessment.performer</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">Resource(Practitioner | Device)</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">Who did assessment?</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">The provider or software application that performed the assessment</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">.participation[typeCode=PFM].role[classCode=ASSIGNED]</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Information Provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">RiskAssessment.identifier</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">Unique identifier for the assessment</Data></Cell>
+    <Cell><Data ss:Type="String">Business identifier assigned to the risk assessment</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:Index="14" ss:StyleID="s66"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Workflow Identifier</Data></Cell>
+    <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">RiskAssessment.method</Data></Cell>
@@ -240,10 +249,12 @@
     <Cell ss:Index="8"><Data ss:Type="String">Information used in assessment</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.)</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=DRIV].target</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Risk Factor; Link to Evidence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">RiskAssessment.prediction</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">320;0</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Outcome predicted</Data></Cell>
     <Cell><Data ss:Type="String">Describes the expected outcome for the subject</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Multiple repetitions can be used to identify the same type of outcome in different timeframes as well as different types of outcomes</Data></Cell>
@@ -257,15 +268,18 @@
     <Cell><Data ss:Type="String">Possible outcome for the subject</Data></Cell>
     <Cell><Data ss:Type="String">One of the potential outcomes for the patient (e.g. remission, death,  a particular condition)</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.value</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Risk</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">RiskAssessment.prediction.probability[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">decimal | CodeableConcept</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">decimal | Range | CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">RiskAssessmentProbability</Data></Cell>
     <Cell><Data ss:Type="String">Likelihood of specified outcome</Data></Cell>
     <Cell><Data ss:Type="String">How likely is the outcome (in the specified timeframe)</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;probability&quot;].value</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">If range is used, it represents the lower and upper bounds of certainty.  E.g. 40-60%&#10;&#10;Decimal values are expressed as percentages as well (max = 100)</Data></Cell>
+    <Cell><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;probability&quot;].value</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Category</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">RiskAssessment.prediction.relativeRisk</Data></Cell>
@@ -286,12 +300,23 @@
     <Cell ss:Index="13"><Data ss:Type="String">If not specified, the risk applies &quot;over the subject's lifespan&quot;</Data></Cell>
     <Cell><Data ss:Type="String">.effectiveTime or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;age&quot;].value</Data></Cell>
    </Row>
-   <Row ss:Height="30">
-    <Cell><Data ss:Type="String">RiskAssessment.rationale</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">RiskAssessment.prediction.rationale</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Explanation of prediction</Data></Cell>
-    <Cell><Data ss:Type="String">Additional guidance explaining the basis for the prediction</Data></Cell>
+    <Cell><Data ss:Type="String">Additional information explaining the basis for the prediction</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.reasonCode.text</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Rationale</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">RiskAssessment.mitigation</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">How to reduce risk</Data></Cell>
+    <Cell><Data ss:Type="String">A description of the steps that might be taken to reduce the identified risk(s).</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">One of the main reasons for assessing risks is to identify whether interventional steps are needed to reduce risk</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=MTGT].target[classCode=ACT, moodCode=EVN].text</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -305,7 +330,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -318,9 +343,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -328,13 +356,13 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s67" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="115.5"/>
    <Column ss:StyleID="s67" ss:Width="165"/>
    <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="204.75"/>
    <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   <Column ss:StyleID="s67" ss:Width="251.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -343,29 +371,21 @@
     <Cell><Data ss:Type="String">OCL</Data></Cell>
     <Cell><Data ss:Type="String">XPath</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s66"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Probability Range Percentage</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">RiskAssessment.prediction.probabilityRange</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">low and high must be percentages, if present</Data></Cell>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">(not(f:low) or f:low[f:code/@value='%' and f:system/@value='http://unitsofmeasure.org']) and (not(f:high) or f:high[f:code/@value='%' and f:system/@value='http://unitsofmeasure.org'])</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
+    <Cell ss:StyleID="s66"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Probability percentage</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">RiskAssessment.prediction.probabilityDecimal</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Must be &lt;= 100</Data></Cell>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">@value &lt;= 100</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"/>
@@ -410,6 +430,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -685,23 +706,24 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s68">
     <Cell ss:StyleID="s62"><Data ss:Type="String">RiskAssessmentMethod</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">The mechanism or algorithm used to make the assessment.  E.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc.</Data></Cell>
     <Cell><Data ss:Type="String">Unbound</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s62"><Data ss:Type="String">RiskAssessmentOutcome</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">The condition or other outcome.  E.g. death, remission, amputation, infection, etc.</Data></Cell>
     <Cell><Data ss:Type="String">Unbound</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"><Data ss:Type="String">RiskAssessmentProbability</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Todo</Data></Cell>
-    <Cell><Data ss:Type="String">Unbound</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">The likelihood of the occurrence of a specified outcome</Data></Cell>
+    <Cell><Data ss:Type="String">Value Set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-risk-probability</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -737,7 +759,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s71" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s71" ss:Width="88.5"/>
@@ -759,6 +781,27 @@
     <Cell><Data ss:Type="String">Genetic risk assessment</Data></Cell>
     <Cell><Data ss:Type="String">genetic</Data></Cell>
     <Cell><Data ss:Type="String">riskassessment-example.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">prognosis</Data></Cell>
+    <Cell><Data ss:Type="String">Patient prognosis</Data></Cell>
+    <Cell><Data ss:Type="String">prognosis</Data></Cell>
+    <Cell><Data ss:Type="String">riskassessment-example-prognosis.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">cardiac</Data></Cell>
+    <Cell><Data ss:Type="String">Cardiac risk assessment</Data></Cell>
+    <Cell><Data ss:Type="String">cardiac</Data></Cell>
+    <Cell><Data ss:Type="String">riskassessment-example-cardiac.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">population</Data></Cell>
+    <Cell><Data ss:Type="String">Public health population risk assessment</Data></Cell>
+    <Cell><Data ss:Type="String">population</Data></Cell>
+    <Cell><Data ss:Type="String">riskassessment-example-population.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
   </Table>
@@ -788,6 +831,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

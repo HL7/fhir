@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
+  <text>
+   <status value="generated"/>
+   <div xmlns="http://www.w3.org/1999/xhtml">Ischemic stroke, July 18, 2010</div>   
+ </text>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <code> 
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="422504002"/>
+      <display value="Ischemic stroke (disorder)"/>
+    </coding>
+    <text value="Stroke"/>
+  </code>
+ <category>
+   <coding>
+    <system value="http://hl7.org/fhir/condition-category"/>
+    <code value="diagnosis"/> 
+    <display value="Diagnosis"/>
+   </coding>
+ </category>
+ <status value="confirmed"/>
+ <onsetDate value="2010-07-18"/>
+</Condition>

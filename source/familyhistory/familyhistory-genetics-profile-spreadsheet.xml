@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2014-06-23T08:21:34Z</LastSaved>
+  <LastSaved>2014-07-20T00:04:15Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -172,6 +172,9 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s141">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -1097,7 +1100,69 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Examples">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="310.5" ss:DefaultRowHeight="15">
+   <Column ss:Width="56.25"/>
+   <Column ss:Width="199.5"/>
+   <Column ss:Width="56.25"/>
+   <Column ss:Width="200.25"/>
+   <Column ss:Width="27.75"/>
+   <Column ss:Width="39.75"/>
+   <Row ss:Height="30">
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">In Book</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell ss:StyleID="s141"><Data ss:Type="String">genetic</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Simple genetic family history</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">genetic</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">familyhistory-genetics-profile-example.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s141"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell ss:StyleID="s141"><Data ss:Type="String">annie</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Example for risk assessment</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">prognosis</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">familyhistory-genetics-profile-annie-example.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s141"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

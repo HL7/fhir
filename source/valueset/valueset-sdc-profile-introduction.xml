@@ -1,0 +1,27 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile sets expectations for use of the <a href="valueset.html">ValueSet</a> resource within the 
+<a href="http://http://wiki.siframework.org/IHE+SDC+Profile">Structured Data Capture</a> project.  This includes
+identifying which core elements and extensions must be supported.
+</p>
+<p>
+For the purposes of this profile, <i>Supported</i> means that clients SHALL be capable of processing the element/extension and use the information to control the display
+and information capture associated with the <a href="valueset.html">ValueSet</a>.  It means that servers SHALL be capable of persisting those elements and returning them in response to requests.  For systems rendering <a href="questionnaire.html" >Questionnaires</a>, these <i>Supported</i> elements and extensions must be supported in the rendering of allowed choices associated with questions.
+</p>
+</div>
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This profile relies on the use of the <a href="valueset-extensions.html">valueset-extensions</a> profile which defines a number of less common properties for value sets, several of which are mandated for this profile.
+</p>
+</div>
+
+</div>
+
+
+
+
+

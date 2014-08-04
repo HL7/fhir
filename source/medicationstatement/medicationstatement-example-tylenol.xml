@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example is used for the Contraindication-example.xml  When making updates, don't alter the medication or timing in a way that violates the contraindication -->
+<MedicationStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medicationstatement.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>500 mg Acetaminophen tablet 1/day, PRN since 2010</p>
+    </div>
+  </text> 
+  <contained>
+    <Substance id="1">
+      <type>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.5.1103"/>
+          <code value="270"/>
+        </coding>
+      </type>
+    </Substance>
+  </contained>
+  <contained>
+    <Medication id="2">
+      <name value="ACETAMINOPHEN"/>
+      <code>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.6.73"/>
+          <code value="N02BE01"/>
+        </coding>
+      </code>
+      <product>
+        <form>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/MaterialForm"/>
+            <code value="TAB"/>
+            <display value="tablet"/>
+          </coding>
+        </form>
+        <ingredient>
+          <item>
+            <reference value="#1"/>
+          </item>
+          <amount>
+            <numerator>
+              <value value="500"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="mg"/>
+            </numerator>
+          </amount>
+        </ingredient>
+      </product>
+    </Medication>
+  </contained>
+  <!--  -->
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <whenGiven>
+    <start value="2010"/>
+  </whenGiven>
+  <medication>
+    <reference value="#2"/> 
+  </medication>
+  <dosage>
+    <timing>
+      <repeat>
+        <frequency value="1"/>
+        <duration value="1"/>
+        <units value="d"/>
+      </repeat>
+    </timing>
+    <asNeededBoolean value="true"/>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="394899003"/>
+        <display value="oral administration of treatment"/>
+      </coding>  
+    </route>
+    <quantity>
+      <value value="1"/>
+    </quantity>
+  </dosage>
+</MedicationStatement>

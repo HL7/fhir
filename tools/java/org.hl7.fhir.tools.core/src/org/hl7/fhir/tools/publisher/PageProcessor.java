@@ -3658,7 +3658,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String generateProfileExtensionsTable(ProfileDefn profile, String filename) throws Exception {
     if (profile.getSource().getExtensionDefn().isEmpty())
       return "";
-    return "<p><b>Extensions:</b></p>\r\n"+new XhtmlComposer().compose(new ProfileUtilities().generateExtensionsTable(Utilities.changeFileExt(filename, "-definitions.html"), profile.getSource(), folders.dstDir, false, this, Utilities.fileTitle(filename)));
+    return "<p><b>Extensions:</b></p>\r\n"+new XhtmlComposer().compose(new ProfileUtilities().generateExtensionsTable(Utilities.changeFileExt(filename, "-definitions.html"), profile.getSource(), folders.dstDir, false, this));
   }
 
   private boolean isAggregationEndpoint(String name) {
@@ -3984,13 +3984,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String left = text.substring(0, text.indexOf("[[["));
       String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
       String right = text.substring(text.indexOf("]]]")+3);
-      String actual;
+      String actual = "";
       String[] parts = url.split("\\#");
-      Profile p = definitions.getProfileByURL(parts[0]);
+      Profile p = definitions.getProfileByURL(parts[0].toLowerCase());
       if (p != null)
         actual = p.getTag("filename")+".html";
       else {
-        throw new Exception("Unresolved logical URL "+url);
+      	System.out.println("Error: Unresolved logical URL "+url);
+//        throw new Exception("Unresolved logical URL "+url);
       }
       text = left+"["+url+"]("+actual+")"+right;
     }

@@ -3380,6 +3380,7 @@ public class Publisher {
       insertSectionNumbersInNode(doc, st, link);
       return new XhtmlComposer().compose(doc);
     } catch (Exception e) {
+			System.out.println(e.getMessage());
       TextFile.stringToFile(src, "c:\\temp\\dump.html");
       throw new Exception("Exception inserting section numbers in " + link + ": " + e.getMessage(), e);
     }

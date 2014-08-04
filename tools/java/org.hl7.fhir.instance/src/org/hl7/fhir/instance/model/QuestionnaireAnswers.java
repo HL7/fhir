@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Aug 4, 2014 08:52+1000 for FHIR v0.2.1
+// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -489,9 +489,9 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * Single-valued answer to the question.
          */
-        protected org.hl7.fhir.instance.model.Type value;
+        protected Type value;
 
-        private static final long serialVersionUID = -1848069669L;
+        private static final long serialVersionUID = -732981989L;
 
       public QuestionAnswerComponent() {
         super();
@@ -500,21 +500,21 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #value} (Single-valued answer to the question.)
          */
-        public org.hl7.fhir.instance.model.Type getValue() { 
+        public Type getValue() { 
           return this.value;
         }
 
         /**
          * @param value {@link #value} (Single-valued answer to the question.)
          */
-        public QuestionAnswerComponent setValue(org.hl7.fhir.instance.model.Type value) { 
+        public QuestionAnswerComponent setValue(Type value) { 
           this.value = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("value[x]", "*", "Single-valued answer to the question.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value[x]", "boolean|decimal|integer|date|dateTime|instant|time|string|Attachment|Coding|Quantity", "Single-valued answer to the question.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       public QuestionAnswerComponent copy() {
@@ -524,6 +524,11 @@ public class QuestionnaireAnswers extends Resource {
       }
 
   }
+
+    /**
+     * A business identifier assigned to a particular completed (or partially completed) questionnaire.
+     */
+    protected Identifier identifier;
 
     /**
      * Indicates the Questionnaire resource that defines the form for which answers are being provided.
@@ -590,7 +595,7 @@ public class QuestionnaireAnswers extends Resource {
      */
     protected GroupComponent group;
 
-    private static final long serialVersionUID = 1853002169L;
+    private static final long serialVersionUID = -377881841L;
 
     public QuestionnaireAnswers() {
       super();
@@ -600,6 +605,21 @@ public class QuestionnaireAnswers extends Resource {
       super();
       this.status = status;
       this.authored = authored;
+    }
+
+    /**
+     * @return {@link #identifier} (A business identifier assigned to a particular completed (or partially completed) questionnaire.)
+     */
+    public Identifier getIdentifier() { 
+      return this.identifier;
+    }
+
+    /**
+     * @param value {@link #identifier} (A business identifier assigned to a particular completed (or partially completed) questionnaire.)
+     */
+    public QuestionnaireAnswers setIdentifier(Identifier value) { 
+      this.identifier = value;
+      return this;
     }
 
     /**
@@ -833,6 +853,7 @@ public class QuestionnaireAnswers extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "A business identifier assigned to a particular completed (or partially completed) questionnaire.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("questionnaire", "Resource(Questionnaire)", "Indicates the Questionnaire resource that defines the form for which answers are being provided.", 0, java.lang.Integer.MAX_VALUE, questionnaire));
         childrenList.add(new Property("status", "code", "The lifecycle status of the questionnaire answers as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("subject", "Resource(Any)", "The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.", 0, java.lang.Integer.MAX_VALUE, subject));
@@ -845,6 +866,7 @@ public class QuestionnaireAnswers extends Resource {
 
       public QuestionnaireAnswers copy() {
         QuestionnaireAnswers dst = new QuestionnaireAnswers();
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.questionnaire = questionnaire == null ? null : questionnaire.copy();
         dst.status = status == null ? null : status.copy();
         dst.subject = subject == null ? null : subject.copy();

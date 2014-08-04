@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RiskAssessment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/riskassessment.xsd">
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table>
+        <tr>
+          <td colspan="2">
+            <h1>Information about your risk score:</h1>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Age:</strong>
+          </td>
+          <td>39</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Gender:</strong>
+          </td>
+          <td>male</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Total Cholesterol:</strong>
+          </td>
+          <td>244 mg/dL</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>HDL Cholesterol:</strong>
+          </td>
+          <td>50 mg/dL
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Smoker:</strong>
+          </td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Systolic Blood Pressure:</strong>
+          </td>
+          <td>107 mm/Hg</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>On medication for HBP:</strong>
+          </td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <b>Risk Score*</b>
+          </td>
+          <td>2%<br/>Means 2 of 100 people with this level of risk will have a heart attack in the next 10 years.</td>
+        </tr>
+        <tr>
+          <td colspan="2">* Your risk score was calculated using an equation.  Other NCEP products, such as printed ATP III materials, use a point system to determine a risk score that is close to the equation score.</td>
+        </tr>
+        <tr>
+          <td colspan="2">To find out what your risk score means and how to lower your risk for a heart attack, go to<br/>
+            <a href="http://www.nhlbi.nih.gov/health/public/heart/chol/hbc_what.htm">"High Blood Cholesterol—What You Need to Know"</a>.<br/>
+            <a href="http://www.nhlbi.nih.gov/health/public/heart/chol/chol_tlc.htm">Your Guide to Lowering Cholesterol with Therapeutic Lifestyle Changes (TLC)</a><br/>
+            <a href="http://www.nhlbi.nih.gov/health/public/heart/other/hhw/index.htm">The Healthy Heart Handbook for Women</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </text>
+  <date value="2014-07-19T16:04:00"/>
+  <performer>
+    <display value="http://cvdrisk.nhlbi.nih.gov/#cholesterol"/>
+  </performer>
+  <basis>
+    <reference value="Patient/example"/>
+  </basis>
+  <basis>
+    <reference value="DiagnosticReport/lipids"/>
+  </basis>
+  <basis>
+    <reference value="Observation/blood-pressure"/>
+  </basis>
+  <prediction>
+    <outcome>
+      <text value="Heart Attack"/>
+    </outcome>
+    <probabilityDecimal value="0.02"/>
+    <whenRange>
+      <low>
+        <value value="39"/>
+        <units value="years"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </low>
+      <high>
+        <value value="49"/>
+        <units value="years"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </high>
+    </whenRange>
+  </prediction>
+</RiskAssessment>

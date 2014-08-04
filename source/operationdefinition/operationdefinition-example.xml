@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text>
-
-  <!-- insert contents here -->
-  
+<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/operationdefinition.xsd">
+  <title value="Populate Questionnaire (SDC)"/>
+  <publisher value="U.S. Office of the National Coordinator (ONC)"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+  </telecom>
+  <description value="This operation defines a constrained version of the 'populate' operation that reflects the expectations for conformance with the Structured Data Capture implementation guide."/>
+  <status value="draft"/>
+  <date value="2014-08-04"/>
+  <kind value="operation"/>
+  <name value="populate"/>
+  <notes value="The constraints reflected here are not intended to prevent implementers from supporting additional parameters or capabilities of the operation, merely to establish a minimum baseline expectation."/>
+  <system value="true"/>
+  <type value="Questionnaire"/>
+  <instance value="true"/>
+  <parameter>
+			<name value="identifier"/>
+			<use value="in"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+        <system value="http://hl7.org/fhir/defined-types"/>
+        <code value="uri"/>
+			</type>
+	</parameter>
 </OperationDefinition>

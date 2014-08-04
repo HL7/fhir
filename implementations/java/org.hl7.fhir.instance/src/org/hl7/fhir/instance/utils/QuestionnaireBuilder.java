@@ -203,48 +203,48 @@ public class QuestionnaireBuilder {
 
     if (element.getDefinition().getType().size() == 1) {
       //    	throw new Exception("Multiple types not handled yet");
-    
-    // no we have to build the question panel for each different data type
-    TypeRefComponent type = element.getDefinition().getType().get(0);
+
+      // no we have to build the question panel for each different data type
+      TypeRefComponent type = element.getDefinition().getType().get(0);
       if (type.getCodeSimple().equals("*"))
         return;
       
-    if (type.getCodeSimple().equals("code"))
-      addCodeQuestions(group, element);
-    else if (type.getCodeSimple().equals("string") || type.getCodeSimple().equals("id") || type.getCodeSimple().equals("oid"))
-      addStringQuestions(group, element);
-    else if (type.getCodeSimple().equals("uri"))
-      addUriQuestions(group, element);
-    else if (type.getCodeSimple().equals("boolean"))
-      addBooleanQuestions(group, element);
-    else if (type.getCodeSimple().equals("decimal"))
-      addDecimalQuestions(group, element);
-    else if (type.getCodeSimple().equals("dateTime") || type.getCodeSimple().equals("date"))
-      addDateTimeQuestions(group, element);
-    else if (type.getCodeSimple().equals("instant"))
-      addInstantQuestions(group, element);
-    else if (type.getCodeSimple().equals("CodeableConcept"))
-      addCodeableConceptQuestions(group, element);
-    else if (type.getCodeSimple().equals("Period"))
-      addPeriodQuestions(group, element);
-    else if (type.getCodeSimple().equals("Ratio"))
-      addRatioQuestions(group, element);
-    else if (type.getCodeSimple().equals("HumanName"))
-      addHumanNameQuestions(group, element);
-    else if (type.getCodeSimple().equals("Address"))
-      addAddressQuestions(group, element);
-    else if (type.getCodeSimple().equals("Contact"))
-    	addContactQuestions(group, element);
-    else if (type.getCodeSimple().equals("Identifier"))
-    	addIdentifierQuestions(group, element);
-    else if (type.getCodeSimple().equals("Integer"))
-    	addIntegerQuestions(group, element);
-    else if (type.getCodeSimple().equals("Coding"))
-    	addCodingQuestions(group, element);
-    else if (type.getCodeSimple().equals("Quantity"))
-      addQuantityQuestions(group, element);
-    else if (type.getCodeSimple().equals("ResourceReference"))
-    	addReferenceQuestions(group, element);
+      if (type.getCodeSimple().equals("code"))
+        addCodeQuestions(group, element);
+      else if (type.getCodeSimple().equals("string") || type.getCodeSimple().equals("id") || type.getCodeSimple().equals("oid"))
+        addStringQuestions(group, element);
+      else if (type.getCodeSimple().equals("uri"))
+        addUriQuestions(group, element);
+      else if (type.getCodeSimple().equals("boolean"))
+        addBooleanQuestions(group, element);
+      else if (type.getCodeSimple().equals("decimal"))
+        addDecimalQuestions(group, element);
+      else if (type.getCodeSimple().equals("dateTime") || type.getCodeSimple().equals("date"))
+        addDateTimeQuestions(group, element);
+      else if (type.getCodeSimple().equals("instant"))
+        addInstantQuestions(group, element);
+      else if (type.getCodeSimple().equals("CodeableConcept"))
+        addCodeableConceptQuestions(group, element);
+      else if (type.getCodeSimple().equals("Period"))
+        addPeriodQuestions(group, element);
+      else if (type.getCodeSimple().equals("Ratio"))
+        addRatioQuestions(group, element);
+      else if (type.getCodeSimple().equals("HumanName"))
+        addHumanNameQuestions(group, element);
+      else if (type.getCodeSimple().equals("Address"))
+        addAddressQuestions(group, element);
+      else if (type.getCodeSimple().equals("Contact"))
+        addContactQuestions(group, element);
+      else if (type.getCodeSimple().equals("Identifier"))
+        addIdentifierQuestions(group, element);
+      else if (type.getCodeSimple().equals("integer"))
+        addIntegerQuestions(group, element);
+      else if (type.getCodeSimple().equals("Coding"))
+        addCodingQuestions(group, element);
+      else if (type.getCodeSimple().equals("Quantity"))
+        addQuantityQuestions(group, element);
+      else if (type.getCodeSimple().equals("ResourceReference"))
+        addReferenceQuestions(group, element);
       else if (type.getCodeSimple().equals("idref"))
         addIdRefQuestions(group, element);
       else if (type.getCodeSimple().equals("Duration"))
@@ -259,9 +259,9 @@ public class QuestionnaireBuilder {
         addScheduleQuestions(group, element);
       else if (type.getCodeSimple().equals("Extension"))
         addExtensionQuestions(group, element);
-    else 
-    	throw new Exception("Unhandled Data Type: "+type.getCodeSimple()+" on element "+element.getPathSimple());
-  }
+      else 
+        throw new Exception("Unhandled Data Type: "+type.getCodeSimple()+" on element "+element.getPathSimple());
+    }
   }
 
 	private void addExtensionQuestions(GroupComponent group, ElementComponent element) {
@@ -398,7 +398,7 @@ public class QuestionnaireBuilder {
 	  if (element == null|| element.getDefinition() == null || element.getDefinition().getBinding() == null || element.getDefinition().getBinding().getReference() instanceof Uri)
 	    return null;
 	  else
-	  return (ResourceReference) element.getDefinition().getBinding().getReference();
+	    return (ResourceReference) element.getDefinition().getBinding().getReference();
   }
 
 	private boolean hasValueSet(ElementComponent element) {

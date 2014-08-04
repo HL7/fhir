@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Diagnostic image example - CT scan -->
+<!-- This example is used with contraindication-example-dup, so don't make changes that would cause it to no longer be a duplicate -->
+<DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticorder.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Chest CT - ordered May 8, 2013 by Dr. Adam Careful</p>
+    </div>
+  </text>
+  <subject>
+    <reference value="Patient/dicom"/>
+  </subject>
+  <orderer>
+    <reference value="Practitioner/example"/>
+    <display value="Dr. Adam Careful"/>
+  </orderer>
+  <status value="requested"/>
+  <event>
+    <status value="requested"/>
+    <dateTime value="2013-05-08T09:33:27"/>
+  </event>
+  <item>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="24627-2"/>
+      </coding>
+      <text value="Chest CT"/>
+    </code>
+  </item>
+</DiagnosticOrder>

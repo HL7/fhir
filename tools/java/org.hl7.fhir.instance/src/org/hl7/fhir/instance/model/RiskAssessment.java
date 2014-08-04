@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Aug 4, 2014 08:52+1000 for FHIR v0.2.1
+// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -60,7 +60,12 @@ public class RiskAssessment extends Resource {
          */
         protected Type when;
 
-        private static final long serialVersionUID = 1170829862L;
+        /**
+         * Additional information explaining the basis for the prediction.
+         */
+        protected String_ rationale;
+
+        private static final long serialVersionUID = -596192725L;
 
       public RiskAssessmentPredictionComponent() {
         super();
@@ -152,12 +157,49 @@ public class RiskAssessment extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #rationale} (Additional information explaining the basis for the prediction.)
+         */
+        public String_ getRationale() { 
+          return this.rationale;
+        }
+
+        /**
+         * @param value {@link #rationale} (Additional information explaining the basis for the prediction.)
+         */
+        public RiskAssessmentPredictionComponent setRationale(String_ value) { 
+          this.rationale = value;
+          return this;
+        }
+
+        /**
+         * @return Additional information explaining the basis for the prediction.
+         */
+        public String getRationaleSimple() { 
+          return this.rationale == null ? null : this.rationale.getValue();
+        }
+
+        /**
+         * @param value Additional information explaining the basis for the prediction.
+         */
+        public RiskAssessmentPredictionComponent setRationaleSimple(String value) { 
+          if (value == null)
+            this.rationale = null;
+          else {
+            if (this.rationale == null)
+              this.rationale = new String_();
+            this.rationale.setValue(value);
+          }
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("outcome", "CodeableConcept", "One of the potential outcomes for the patient (e.g. remission, death,  a particular condition).", 0, java.lang.Integer.MAX_VALUE, outcome));
-          childrenList.add(new Property("probability[x]", "decimal|CodeableConcept", "How likely is the outcome (in the specified timeframe).", 0, java.lang.Integer.MAX_VALUE, probability));
+          childrenList.add(new Property("probability[x]", "decimal|Range|CodeableConcept", "How likely is the outcome (in the specified timeframe).", 0, java.lang.Integer.MAX_VALUE, probability));
           childrenList.add(new Property("relativeRisk", "decimal", "Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).", 0, java.lang.Integer.MAX_VALUE, relativeRisk));
           childrenList.add(new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, java.lang.Integer.MAX_VALUE, when));
+          childrenList.add(new Property("rationale", "string", "Additional information explaining the basis for the prediction.", 0, java.lang.Integer.MAX_VALUE, rationale));
         }
 
       public RiskAssessmentPredictionComponent copy() {
@@ -166,15 +208,36 @@ public class RiskAssessment extends Resource {
         dst.probability = probability == null ? null : probability.copy();
         dst.relativeRisk = relativeRisk == null ? null : relativeRisk.copy();
         dst.when = when == null ? null : when.copy();
+        dst.rationale = rationale == null ? null : rationale.copy();
         return dst;
       }
 
   }
 
     /**
+     * The patient or group the risk assessment applies to.
+     */
+    protected ResourceReference subject;
+
+    /**
+     * The actual object that is the target of the reference (The patient or group the risk assessment applies to.)
+     */
+    protected Resource subjectTarget;
+
+    /**
      * The date (and possibly time) the risk assessment was performed.
      */
     protected DateTime date;
+
+    /**
+     * For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
+     */
+    protected ResourceReference condition;
+
+    /**
+     * The actual object that is the target of the reference (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
+     */
+    protected Condition conditionTarget;
 
     /**
      * The provider or software application that performed the assessment.
@@ -190,26 +253,6 @@ public class RiskAssessment extends Resource {
      * Business identifier assigned to the risk assessment.
      */
     protected Identifier identifier;
-
-    /**
-     * The patient or group the risk assessment applies to.
-     */
-    protected ResourceReference subject;
-
-    /**
-     * The actual object that is the target of the reference (The patient or group the risk assessment applies to.)
-     */
-    protected Resource subjectTarget;
-
-    /**
-     * For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
-     */
-    protected ResourceReference condition;
-
-    /**
-     * The actual object that is the target of the reference (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
-     */
-    protected Condition conditionTarget;
 
     /**
      * The algorithm, processs or mechanism used to evaluate the risk.
@@ -232,14 +275,44 @@ public class RiskAssessment extends Resource {
     protected List<RiskAssessmentPredictionComponent> prediction = new ArrayList<RiskAssessmentPredictionComponent>();
 
     /**
-     * Additional guidance explaining the basis for the prediction.
+     * A description of the steps that might be taken to reduce the identified risk(s).
      */
-    protected String_ rationale;
+    protected String_ mitigation;
 
-    private static final long serialVersionUID = -1463457700L;
+    private static final long serialVersionUID = 410590778L;
 
     public RiskAssessment() {
       super();
+    }
+
+    /**
+     * @return {@link #subject} (The patient or group the risk assessment applies to.)
+     */
+    public ResourceReference getSubject() { 
+      return this.subject;
+    }
+
+    /**
+     * @param value {@link #subject} (The patient or group the risk assessment applies to.)
+     */
+    public RiskAssessment setSubject(ResourceReference value) { 
+      this.subject = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The patient or group the risk assessment applies to.)
+     */
+    public Resource getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The patient or group the risk assessment applies to.)
+     */
+    public RiskAssessment setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
+      return this;
     }
 
     /**
@@ -275,6 +348,36 @@ public class RiskAssessment extends Resource {
           this.date = new DateTime();
         this.date.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #condition} (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
+     */
+    public ResourceReference getCondition() { 
+      return this.condition;
+    }
+
+    /**
+     * @param value {@link #condition} (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
+     */
+    public RiskAssessment setCondition(ResourceReference value) { 
+      this.condition = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #condition} (The actual object that is the target of the reference. For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
+     */
+    public Condition getConditionTarget() { 
+      return this.conditionTarget;
+    }
+
+    /**
+     * @param value {@link #condition} (The actual object that is the target of the reference. For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
+     */
+    public RiskAssessment setConditionTarget(Condition value) { 
+      this.conditionTarget = value;
       return this;
     }
 
@@ -320,66 +423,6 @@ public class RiskAssessment extends Resource {
      */
     public RiskAssessment setIdentifier(Identifier value) { 
       this.identifier = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #subject} (The patient or group the risk assessment applies to.)
-     */
-    public ResourceReference getSubject() { 
-      return this.subject;
-    }
-
-    /**
-     * @param value {@link #subject} (The patient or group the risk assessment applies to.)
-     */
-    public RiskAssessment setSubject(ResourceReference value) { 
-      this.subject = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The patient or group the risk assessment applies to.)
-     */
-    public Resource getSubjectTarget() { 
-      return this.subjectTarget;
-    }
-
-    /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The patient or group the risk assessment applies to.)
-     */
-    public RiskAssessment setSubjectTarget(Resource value) { 
-      this.subjectTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #condition} (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
-     */
-    public ResourceReference getCondition() { 
-      return this.condition;
-    }
-
-    /**
-     * @param value {@link #condition} (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
-     */
-    public RiskAssessment setCondition(ResourceReference value) { 
-      this.condition = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #condition} (The actual object that is the target of the reference. For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
-     */
-    public Condition getConditionTarget() { 
-      return this.conditionTarget;
-    }
-
-    /**
-     * @param value {@link #condition} (The actual object that is the target of the reference. For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
-     */
-    public RiskAssessment setConditionTarget(Condition value) { 
-      this.conditionTarget = value;
       return this;
     }
 
@@ -440,61 +483,61 @@ public class RiskAssessment extends Resource {
     }
 
     /**
-     * @return {@link #rationale} (Additional guidance explaining the basis for the prediction.)
+     * @return {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).)
      */
-    public String_ getRationale() { 
-      return this.rationale;
+    public String_ getMitigation() { 
+      return this.mitigation;
     }
 
     /**
-     * @param value {@link #rationale} (Additional guidance explaining the basis for the prediction.)
+     * @param value {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).)
      */
-    public RiskAssessment setRationale(String_ value) { 
-      this.rationale = value;
+    public RiskAssessment setMitigation(String_ value) { 
+      this.mitigation = value;
       return this;
     }
 
     /**
-     * @return Additional guidance explaining the basis for the prediction.
+     * @return A description of the steps that might be taken to reduce the identified risk(s).
      */
-    public String getRationaleSimple() { 
-      return this.rationale == null ? null : this.rationale.getValue();
+    public String getMitigationSimple() { 
+      return this.mitigation == null ? null : this.mitigation.getValue();
     }
 
     /**
-     * @param value Additional guidance explaining the basis for the prediction.
+     * @param value A description of the steps that might be taken to reduce the identified risk(s).
      */
-    public RiskAssessment setRationaleSimple(String value) { 
+    public RiskAssessment setMitigationSimple(String value) { 
       if (value == null)
-        this.rationale = null;
+        this.mitigation = null;
       else {
-        if (this.rationale == null)
-          this.rationale = new String_();
-        this.rationale.setValue(value);
+        if (this.mitigation == null)
+          this.mitigation = new String_();
+        this.mitigation.setValue(value);
       }
       return this;
     }
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("subject", "Resource(Patient|Group)", "The patient or group the risk assessment applies to.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("date", "dateTime", "The date (and possibly time) the risk assessment was performed.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("condition", "Resource(Condition)", "For assessments or prognosis specific to a particular condition, indicates the condition being assessed.", 0, java.lang.Integer.MAX_VALUE, condition));
         childrenList.add(new Property("performer", "Resource(Practitioner|Device)", "The provider or software application that performed the assessment.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("identifier", "Identifier", "Business identifier assigned to the risk assessment.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Resource(Patient|Group)", "The patient or group the risk assessment applies to.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("condition", "Resource(Condition)", "For assessments or prognosis specific to a particular condition, indicates the condition being assessed.", 0, java.lang.Integer.MAX_VALUE, condition));
         childrenList.add(new Property("method", "CodeableConcept", "The algorithm, processs or mechanism used to evaluate the risk.", 0, java.lang.Integer.MAX_VALUE, method));
         childrenList.add(new Property("basis", "Resource(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis));
         childrenList.add(new Property("prediction", "", "Describes the expected outcome for the subject.", 0, java.lang.Integer.MAX_VALUE, prediction));
-        childrenList.add(new Property("rationale", "string", "Additional guidance explaining the basis for the prediction.", 0, java.lang.Integer.MAX_VALUE, rationale));
+        childrenList.add(new Property("mitigation", "string", "A description of the steps that might be taken to reduce the identified risk(s).", 0, java.lang.Integer.MAX_VALUE, mitigation));
       }
 
       public RiskAssessment copy() {
         RiskAssessment dst = new RiskAssessment();
+        dst.subject = subject == null ? null : subject.copy();
         dst.date = date == null ? null : date.copy();
+        dst.condition = condition == null ? null : condition.copy();
         dst.performer = performer == null ? null : performer.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
-        dst.subject = subject == null ? null : subject.copy();
-        dst.condition = condition == null ? null : condition.copy();
         dst.method = method == null ? null : method.copy();
         dst.basis = new ArrayList<ResourceReference>();
         for (ResourceReference i : basis)
@@ -502,7 +545,7 @@ public class RiskAssessment extends Resource {
         dst.prediction = new ArrayList<RiskAssessmentPredictionComponent>();
         for (RiskAssessmentPredictionComponent i : prediction)
           dst.prediction.add(i.copy());
-        dst.rationale = rationale == null ? null : rationale.copy();
+        dst.mitigation = mitigation == null ? null : mitigation.copy();
         return dst;
       }
 

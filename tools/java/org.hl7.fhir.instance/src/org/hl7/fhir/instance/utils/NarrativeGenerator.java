@@ -125,12 +125,11 @@ public class NarrativeGenerator {
     public Resource getResource() {
       return resource;
     }
-
   }
 
   private String prefix;
   private WorkerContext context;
- 
+  
   
   public NarrativeGenerator(String prefix, WorkerContext context) {
     super();
@@ -1842,7 +1841,7 @@ public class NarrativeGenerator {
   }
 
   public void generate(Conformance conf) {
-	  XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
+    XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("h2").addText(conf.getNameSimple());
     smartAddText(x.addTag("p"), conf.getDescriptionSimple());
     ConformanceRestComponent rest = conf.getRest().get(0);

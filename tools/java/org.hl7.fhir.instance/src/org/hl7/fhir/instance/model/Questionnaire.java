@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Aug 4, 2014 08:52+1000 for FHIR v0.2.1
+// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -89,54 +89,70 @@ public class Questionnaire extends Resource {
     }
 
     public enum AnswerFormat {
+        boolean_, // Answer is a yes/no answer.
         decimal, // Answer is a floating point number.
         integer, // Answer is an integer.
-        boolean_, // Answer is a yes/no answer.
         date, // Answer is a date.
-        string, // Answer is a short (few words to short sentence) free-text entry.
-        text, // Answer is a long (potentially multi-paragram) free-text entry.
         dateTime, // Answer is a date and time.
         instant, // Answer is a system timestamp.
+        time, // Answer is a time independent of date.
+        string, // Answer is a short (few words to short sentence) free-text entry.
+        text, // Answer is a long (potentially multi-paragram) free-text entry.
         choice, // Answer is a choice from a list of options.
         openchoice, // Answer is a choice from a list of options or a free-text entry.
+        attachment, // Answer is binary content such as a image, PDF, etc.
+        reference, // Answer is a reference to another resource (practitioner, organization, etc.).
+        quantity, // Answer is a combination of a numeric value and unit.
         Null; // added to help the parsers
         public static AnswerFormat fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("boolean".equals(codeString))
+          return boolean_;
         if ("decimal".equals(codeString))
           return decimal;
         if ("integer".equals(codeString))
           return integer;
-        if ("boolean".equals(codeString))
-          return boolean_;
         if ("date".equals(codeString))
           return date;
-        if ("string".equals(codeString))
-          return string;
-        if ("text".equals(codeString))
-          return text;
         if ("dateTime".equals(codeString))
           return dateTime;
         if ("instant".equals(codeString))
           return instant;
+        if ("time".equals(codeString))
+          return time;
+        if ("string".equals(codeString))
+          return string;
+        if ("text".equals(codeString))
+          return text;
         if ("choice".equals(codeString))
           return choice;
         if ("open-choice".equals(codeString))
           return openchoice;
+        if ("attachment".equals(codeString))
+          return attachment;
+        if ("reference".equals(codeString))
+          return reference;
+        if ("quantity".equals(codeString))
+          return quantity;
         throw new Exception("Unknown AnswerFormat code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
+            case boolean_: return "boolean";
             case decimal: return "decimal";
             case integer: return "integer";
-            case boolean_: return "boolean";
             case date: return "date";
-            case string: return "string";
-            case text: return "text";
             case dateTime: return "dateTime";
             case instant: return "instant";
+            case time: return "time";
+            case string: return "string";
+            case text: return "text";
             case choice: return "choice";
             case openchoice: return "open-choice";
+            case attachment: return "attachment";
+            case reference: return "reference";
+            case quantity: return "quantity";
             default: return "?";
           }
         }
@@ -147,49 +163,65 @@ public class Questionnaire extends Resource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("boolean".equals(codeString))
+          return AnswerFormat.boolean_;
         if ("decimal".equals(codeString))
           return AnswerFormat.decimal;
         if ("integer".equals(codeString))
           return AnswerFormat.integer;
-        if ("boolean".equals(codeString))
-          return AnswerFormat.boolean_;
         if ("date".equals(codeString))
           return AnswerFormat.date;
-        if ("string".equals(codeString))
-          return AnswerFormat.string;
-        if ("text".equals(codeString))
-          return AnswerFormat.text;
         if ("dateTime".equals(codeString))
           return AnswerFormat.dateTime;
         if ("instant".equals(codeString))
           return AnswerFormat.instant;
+        if ("time".equals(codeString))
+          return AnswerFormat.time;
+        if ("string".equals(codeString))
+          return AnswerFormat.string;
+        if ("text".equals(codeString))
+          return AnswerFormat.text;
         if ("choice".equals(codeString))
           return AnswerFormat.choice;
         if ("open-choice".equals(codeString))
           return AnswerFormat.openchoice;
+        if ("attachment".equals(codeString))
+          return AnswerFormat.attachment;
+        if ("reference".equals(codeString))
+          return AnswerFormat.reference;
+        if ("quantity".equals(codeString))
+          return AnswerFormat.quantity;
         throw new Exception("Unknown AnswerFormat code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
+      if (code == AnswerFormat.boolean_)
+        return "boolean";
       if (code == AnswerFormat.decimal)
         return "decimal";
       if (code == AnswerFormat.integer)
         return "integer";
-      if (code == AnswerFormat.boolean_)
-        return "boolean";
       if (code == AnswerFormat.date)
         return "date";
-      if (code == AnswerFormat.string)
-        return "string";
-      if (code == AnswerFormat.text)
-        return "text";
       if (code == AnswerFormat.dateTime)
         return "dateTime";
       if (code == AnswerFormat.instant)
         return "instant";
+      if (code == AnswerFormat.time)
+        return "time";
+      if (code == AnswerFormat.string)
+        return "string";
+      if (code == AnswerFormat.text)
+        return "text";
       if (code == AnswerFormat.choice)
         return "choice";
       if (code == AnswerFormat.openchoice)
         return "open-choice";
+      if (code == AnswerFormat.attachment)
+        return "attachment";
+      if (code == AnswerFormat.reference)
+        return "reference";
+      if (code == AnswerFormat.quantity)
+        return "quantity";
       return "?";
       }
     }

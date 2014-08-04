@@ -86,6 +86,9 @@ todo: compartments
       <page title="Security Labels" filename="security-labels.html"/>
     </page>
     <page title="Integrated Examples" filename="integrated-examples.html"/>
+    <page title="Implementation Guides" filename="iglist.html">
+      <page title="Structured Data Capture" filename="sdc.html"/>
+    </page>
   </page>
 
   <page title="Resources" filename="resourcelist.html"/>
@@ -100,14 +103,13 @@ todo: compartments
   <page title="Clinical" filename="clinical.html">
     <page type="resource" resource="AdverseReaction"/>
     <page type="resource" resource="AllergyIntolerance"/>
-    <page type="resource" resource="CarePlan"/>
-    <page type="resource" resource="Contraindication"/>
-    <page type="resource" resource="FamilyHistory"/>
     <page type="resource" resource="Condition"/>
-    <page type="resource" resource="Procedure"/>
+    <page type="resource" resource="CarePlan"/>
     <page type="resource" resource="ReferralRequest"/>
-    <page type="resource" resource="QuestionnaireAnswers"/>
+    <page type="resource" resource="Procedure"/>
+    <page type="resource" resource="Contraindication"/>
     <page type="resource" resource="RiskAssessment"/>
+
     <page type="resource" resource="Medication"/>
     <page type="resource" resource="MedicationPrescription"/>
     <page type="resource" resource="MedicationAdministration"/>
@@ -115,53 +117,66 @@ todo: compartments
     <page type="resource" resource="MedicationStatement"/>
     <page type="resource" resource="Immunization"/>
     <page type="resource" resource="ImmunizationRecommendation"/>
+
     <page type="resource" resource="Observation"/>
     <page type="resource" resource="DiagnosticReport"/>
     <page type="resource" resource="DiagnosticOrder"/>
     <page type="resource" resource="ImagingStudy"/>
     <page type="resource" resource="Specimen"/>
     <page type="resource" resource="DeviceObservationReport"/>
+
+    <page type="resource" resource="Questionnaire"/>
+    <page type="resource" resource="QuestionnaireAnswers"/>
+    <page type="resource" resource="FamilyHistory"/>
   </page>
   <page title="Administrative" filename="administration.html">
     <page type="resource" resource="Patient"/>
     <page type="resource" resource="RelatedPerson"/>
     <page type="resource" resource="Practitioner"/>
     <page type="resource" resource="Organization"/>
+
     <page type="resource" resource="Device"/>
     <page type="resource" resource="Location"/>
     <page type="resource" resource="Substance"/>
     <page type="resource" resource="Group"/>
+
     <page type="resource" resource="Encounter"/>
     <page type="resource" resource="Alert"/>
     <page type="resource" resource="Supply"/>
     <page type="resource" resource="Order"/>
     <page type="resource" resource="OrderResponse"/>
+
     <page type="resource" resource="Appointment"/>
     <page type="resource" resource="AppointmentResponse"/>
     <page type="resource" resource="Availability"/>
     <page type="resource" resource="Slot"/>
   </page>
   <page title="Infrastructure" filename="infrastructure.html">
-    <page type="resource" resource="DataElement"/>
     <page type="resource" resource="List"/>
     <page type="resource" resource="Media"/>
     <page type="resource" resource="Other"/>
-    <page type="resource" resource="Questionnaire"/>
+    <page type="resource" resource="Provenance"/>
+
+    <page type="resource" resource="Composition"/>
     <page type="resource" resource="DocumentReference"/>
     <page type="resource" resource="DocumentManifest"/>
-    <page type="resource" resource="Provenance"/>
-    <page type="resource" resource="SecurityEvent"/>
-    <page type="resource" resource="Composition"/>
     <page type="resource" resource="MessageHeader"/>
     <page type="resource" resource="OperationOutcome"/>
     <page type="resource" resource="Query"/>
     <page type="resource" resource="Subscription"/>
+    
+    <page type="resource" resource="SecurityEvent"/>
+    <page type="resource" resource="SecurityPrincipal"/>
+    <page type="resource" resource="SecurityGroup"/>
+    <page type="resource" resource="SecurityClaim"/>
+
     <page type="resource" resource="Conformance"/>
-    <page type="resource" resource="Namespace"/>
-    <page type="resource" resource="ValueSet"/>
     <page type="resource" resource="Profile"/>
-    <page type="resource" resource="ConceptMap"/>
     <page type="resource" resource="OperationDefinition"/>
+    <page type="resource" resource="DataElement"/>
+    <page type="resource" resource="ValueSet"/>
+    <page type="resource" resource="Namespace"/>
+    <page type="resource" resource="ConceptMap"/>
   </page>
 </page>
 </fhir>

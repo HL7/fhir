@@ -16,7 +16,7 @@ This resource captures predictivd outcomes for a patient or population on the ba
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Risk assessments are a specialized type of observation.  We use a specialized resource to allow capture of a series of risks.  These risks may vary by different factors - different outcomes, different time ranges and/or other factors (e.g. a location radius extension for population risk).  All risk assertions are captured at one time based on a single set of source inputs.  Capture of a single risk may be done using the <a href="observation.html">Observation</a> class.
+Risk assessments are a specialized type of observation.  We use a specialized resource to provide a simpler mechanism to capture of a series of risks and to associate those risks with time-ranges, probabilities, etc.  All risk assertions are captured at one time based on a single set of source inputs.  Capture of a single risk MAY be done using the <a href="observation.html">Observation</a> class, particularly in circumstances where it's treated as a generic observation, but for consistency, all risk assessments and prognosis SHOULD be captured using <b>RiskAssessment</b>.
 </p>
 <p>
 Risk assessments may be based on a variety of factors, including:
@@ -32,13 +32,11 @@ Because so many resources can potentially be used, no limit is placed on what re
 </p>
 </div>
 
-<!-- (optional):
 <div>
 <h2>Background and Context</h2>
 <p>
-Provides additional detail on exactly how the resource is to be used
+Risk Assessments can be determined manually by health-care providers based on their professional expertise, by using an algorithmic scoring system or through a combination.  Risk assessments can also be computed by decision support systems.  <a href="operation.html">Operations</a> may be defined by servers to generate risk assessments based on particular combinations of source resources or other inputs.
 </p>
 </div>
--->
 
 </div>

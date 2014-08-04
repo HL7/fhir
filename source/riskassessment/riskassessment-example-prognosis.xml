@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RiskAssessment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/riskassessment.xsd">
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Moderate risk of permanent weakness of the left arm, but otherwise no permanent disability</p>
+    </div>
+  </text>
+  <date value="2010-11-22"/>
+  <condition>
+    <reference value="Condition/stroke"/>
+    <display value="Ischemic Stroke"/>
+  </condition>
+  <prediction>
+    <outcome>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="249943000:363698007=72098002,260868000=934004"/>
+      </coding>
+      <text value="permanent weakness of the left arm"/>
+    </outcome>
+    <probabilityCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/risk-probability"/>
+        <code value="moderate"/>
+        <display value="moderate likelihood"/>
+      </coding>
+    </probabilityCodeableConcept>
+  </prediction>
+</RiskAssessment>

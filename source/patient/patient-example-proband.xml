@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+  <extension url="http://hl7.org/fhir/Profile/us-core#race">
+    <valueCodeableConcept>
+      <coding>
+        <system value="urn:oid:2.16.840.1.113883.6.238"/>
+        <code value="2106-3"/>
+        <display value="white"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <b>Annie Proband</b>: Female, born 1966-04-04</p>
+    </div>
+  </text>
+  <identifier>
+    <use value="usual"/>
+    <label value="Computer-Stored Abulatory Records (COSTAR)"/>
+    <!-- This OID has been used below for illustration purposes only -->
+    <system value="urn:oid:2.16.840.1.113883.6.117"/>
+    <value value="999999999"/>
+    <assigner>
+      <display value="Boston Massachesetts General Hospital"/>
+    </assigner>
+  </identifier>
+  <gender>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+      <code value="F"/>
+    </coding>
+  </gender>
+  <birthDate value="1966-04-04"/>
+  <deceasedBoolean value="false"/>
+  <active value="true"/>
+</Patient>
