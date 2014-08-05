@@ -346,7 +346,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     AddJarToJar(jar, importsDir+sl+"xpp3-1.1.3.4.O.jar", names);
     AddJarToJar(jar, importsDir+sl+"gson-2.2.4.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-codec-1.3.jar", names);
-    AddJarToJar(jar, importsDir+sl+"Saxon-HE-9.4.jar", names);
+    AddJarToJar(jar, importsDir+sl+"Saxon-HE-9.5.1-5.jar", names);
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"+sl).length(), names);
