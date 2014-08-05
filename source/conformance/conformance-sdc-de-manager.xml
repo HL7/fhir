@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <h2>SDC Data Element Manager</h2>
       <p>(Requirements Definition)</p>
       <p>Published: 2014-07-06 (draft)</p>
-      <p>Published by: <b />: http://wiki.siframework.org/Structured+Data+Capture+Initiative</p>
-      <p>This profile defines the expected capabilities of the <i>SDC Data Element Manager</i> role when conforming to the ONC's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms. * test1 * test2 test 3 test 4 # test5 </p>
+      <p>Published by: <b/>: http://wiki.siframework.org/Structured+Data+Capture+Initiative</p>
+      <p>This profile defines the expected capabilities of the <i>SDC Data Element Manager</i> role when conforming to the ONC's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms.</p>
       <h2>General</h2>
       <table>
         <tbody>
@@ -28,7 +28,7 @@
       </p>
       <p>Implementations must meet the general security requirements documented in the <a href="sdc-security.html">SDC implementation guide</a>.</p>
       <h3>Summary</h3>
-      <table>
+      <table class="grid">
         <thead>
           <tr>
             <th>Resource</th>
@@ -46,64 +46,148 @@
         <tbody>
           <tr>
             <th>DataElement</th>
-            <td>SHALL</td>
-            <td>SHALL</td>
-            <td>SHALL</td>
-            <td>SHALL</td>
-            <td />
-            <td>SHOULD</td>
-            <td>SHALL</td>
-            <td>SHALL</td>
-            <td>MAY</td>
+            <td>
+              <a title="Allows a user to search for existing data elements" href="#DataElement-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific known data element" href="#DataElement-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific version of a data element" href="#DataElement-vread">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to a data element over time" href="#DataElement-history-instance">SHALL</a>
+            </td>
+            <td/>
+            <td>
+              <a title="Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows" href="#DataElement-validate">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'." href="#DataElement-create">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements." href="#DataElement-update">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc." href="#DataElement-delete">MAY</a>
+            </td>
           </tr>
           <tr>
             <th>ValueSet</th>
-            <td>SHALL</td>
-            <td>SHALL</td>
-            <td>SHALL</td>
-            <td>SHALL</td>
-            <td />
-            <td>SHOULD</td>
-            <td>SHALL</td>
-            <td>SHALL</td>
-            <td>MAY</td>
+            <td>
+              <a title="Allows discovery of existing value sets for use in authoring data elements" href="#ValueSet-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific value set referenced within a data element" href="#ValueSet-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a value set as referenced within a data element" href="#ValueSet-vread">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to a value set over time" href="#ValueSet-history-instance">SHALL</a>
+            </td>
+            <td/>
+            <td>
+              <a title="Allows verification that a value set is valid prior to submission - useful for some workflows." href="#ValueSet-validate">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows definition of a new value set used by one or more data elements" href="#ValueSet-create">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows existing value sets referenced by one or more data elements to be maintained" href="#ValueSet-update">SHALL</a>
+            </td>
+            <td>
+              <a title="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner." href="#ValueSet-delete">MAY</a>
+            </td>
           </tr>
         </tbody>
       </table>
       <h3>
         <a href="dataelement.html">DataElement</a>
       </h3>
-      <p>
-        <b>search-type</b>(SHALL)</p>
-      <p>Allows a user to search for existing data elements</p>
-      <p>
-        <b>read</b>(SHALL)</p>
-      <p>Allows retrieval of a specific known data element</p>
-      <p>
-        <b>vread</b>(SHALL)</p>
-      <p>Allows retrieval of a specific version of a data element</p>
-      <p>
-        <b>history-instance</b>(SHALL)</p>
-      <p>Allows review of changes to a data element over time</p>
-      <p>
-        <b>create</b>(SHALL)</p>
-      <p>Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'.</p>
-      <p>
-        <b>update</b>(SHALL)</p>
-      <p>Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements.</p>
-      <p>
-        <b>validate</b>(SHOULD)</p>
-      <p>Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows</p>
-      <p>
-        <b>delete</b>(MAY)</p>
-      <p>Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc.</p>
+      <table class="list">
+        <tbody>
+          <tr>
+            <td>
+              <a id="DataElement-search-type"/>
+              <b>search-type(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows a user to search for existing data elements</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="DataElement-read"/>
+              <b>read(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows retrieval of a specific known data element</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="DataElement-vread"/>
+              <b>vread(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows retrieval of a specific version of a data element</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="DataElement-history-instance"/>
+              <b>history-instance(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows review of changes to a data element over time</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="DataElement-create"/>
+              <b>create(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="DataElement-update"/>
+              <b>update(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="DataElement-validate"/>
+              <b>validate(SHOULD)</b>
+            </td>
+            <td>
+              <p>Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="DataElement-delete"/>
+              <b>delete(MAY)</b>
+            </td>
+            <td>
+              <p>Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
       <b>Search</b>
       <p>Supported Includes: DataElement.binding.valueSet</p>
-      <table>
+      <table class="list">
         <thead>
           <tr>
             <th>Parameter</th>
-            <th>conformance</th>
+            <th>Conformance</th>
             <th>Type</th>
             <th>Definition &amp; Chaining</th>
           </tr>
@@ -115,7 +199,7 @@
             </th>
             <td>SHALL</td>
             <td>token</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -123,7 +207,7 @@
             </th>
             <td>SHALL</td>
             <td>token</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -131,7 +215,7 @@
             </th>
             <td>SHALL</td>
             <td>date</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -139,7 +223,7 @@
             </th>
             <td>SHALL</td>
             <td>string</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -147,7 +231,7 @@
             </th>
             <td>SHALL</td>
             <td>token</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -155,7 +239,7 @@
             </th>
             <td>SHALL</td>
             <td>string</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -163,7 +247,7 @@
             </th>
             <td>SHALL</td>
             <td>string</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -171,7 +255,7 @@
             </th>
             <td>SHALL</td>
             <td>token</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -179,7 +263,7 @@
             </th>
             <td>SHALL</td>
             <td>string</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -187,7 +271,7 @@
             </th>
             <td>SHALL</td>
             <td>token</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -195,7 +279,7 @@
             </th>
             <td>SHALL</td>
             <td>token</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -203,46 +287,96 @@
             </th>
             <td>SHALL</td>
             <td>token</td>
-            <td>
-              <p>SHALL</p>
-            </td>
+            <td/>
           </tr>
         </tbody>
       </table>
       <h3>
         <a href="valueset.html">ValueSet</a>
       </h3>
-      <p>
-        <b>search-type</b>(SHALL)</p>
-      <p>Allows discovery of existing value sets for use in authoring data elements</p>
-      <p>
-        <b>read</b>(SHALL)</p>
-      <p>Allows retrieval of a specific value set referenced within a data element</p>
-      <p>
-        <b>vread</b>(SHALL)</p>
-      <p>Allows retrieval of a historical version of a value set as referenced within a data element</p>
-      <p>
-        <b>history-instance</b>(SHALL)</p>
-      <p>Allows review of changes to a value set over time</p>
-      <p>
-        <b>create</b>(SHALL)</p>
-      <p>Allows definition of a new value set used by one or more data elements</p>
-      <p>
-        <b>update</b>(SHALL)</p>
-      <p>Allows existing value sets referenced by one or more data elements to be maintained</p>
-      <p>
-        <b>validate</b>(SHOULD)</p>
-      <p>Allows verification that a value set is valid prior to submission - useful for some workflows.</p>
-      <p>
-        <b>delete</b>(MAY)</p>
-      <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
+      <table class="list">
+        <tbody>
+          <tr>
+            <td>
+              <a id="ValueSet-search-type"/>
+              <b>search-type(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows discovery of existing value sets for use in authoring data elements</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="ValueSet-read"/>
+              <b>read(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows retrieval of a specific value set referenced within a data element</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="ValueSet-vread"/>
+              <b>vread(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows retrieval of a historical version of a value set as referenced within a data element</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="ValueSet-history-instance"/>
+              <b>history-instance(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows review of changes to a value set over time</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="ValueSet-create"/>
+              <b>create(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows definition of a new value set used by one or more data elements</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="ValueSet-update"/>
+              <b>update(SHALL)</b>
+            </td>
+            <td>
+              <p>Allows existing value sets referenced by one or more data elements to be maintained</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="ValueSet-validate"/>
+              <b>validate(SHOULD)</b>
+            </td>
+            <td>
+              <p>Allows verification that a value set is valid prior to submission - useful for some workflows.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a id="ValueSet-delete"/>
+              <b>delete(MAY)</b>
+            </td>
+            <td>
+              <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
       <b>Search</b>
       <p>Supported Includes: ValueSet.compose.import</p>
-      <table>
+      <table class="list">
         <thead>
           <tr>
             <th>Parameter</th>
-            <th>conformance</th>
+            <th>Conformance</th>
             <th>Type</th>
             <th>Definition &amp; Chaining</th>
           </tr>
@@ -254,7 +388,7 @@
             </th>
             <td>SHALL</td>
             <td>token</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -262,7 +396,7 @@
             </th>
             <td>SHALL</td>
             <td>date</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -270,7 +404,7 @@
             </th>
             <td>SHALL</td>
             <td>string</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -278,7 +412,7 @@
             </th>
             <td>SHALL</td>
             <td>token</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -286,7 +420,7 @@
             </th>
             <td>SHALL</td>
             <td>string</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -294,7 +428,7 @@
             </th>
             <td>SHALL</td>
             <td>string</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -302,7 +436,7 @@
             </th>
             <td>SHALL</td>
             <td>string</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -310,7 +444,7 @@
             </th>
             <td>SHALL</td>
             <td>token</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -318,7 +452,7 @@
             </th>
             <td>SHALL</td>
             <td>string</td>
-            <td />
+            <td/>
           </tr>
           <tr>
             <th>
@@ -326,333 +460,332 @@
             </th>
             <td>SHALL</td>
             <td>string</td>
-            <td />
+            <td/>
           </tr>
         </tbody>
       </table>
     </div>
   </text>
-  <name value="SDC Data Element Manager" />
-  <publisher value="U.S. Office of the National Coordinator (ONC)" />
+  <name value="SDC Data Element Manager"/>
+  <publisher value="U.S. Office of the National Coordinator (ONC)"/>
   <telecom>
-    <system value="url" />
-    <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative" />
+    <system value="url"/>
+    <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
   </telecom>
-  <description value="This profile defines the expected capabilities of the ''SDC Data Element Manager'' role when conforming to the ONC's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms. * test1 * test2 test 3 test 4 # test5 " />
-  <status value="draft" />
-  <date value="2014-07-06" />
-  <fhirVersion value="0.2" />
-  <acceptUnknown value="false" />
-  <format value="xml" />
-  <format value="json" />
+  <description value="This profile defines the expected capabilities of the ''SDC Data Element Manager'' role when conforming to the ONC's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms."/>
+  <status value="draft"/>
+  <date value="2014-07-06"/>
+  <fhirVersion value="0.2"/>
+  <acceptUnknown value="false"/>
+  <format value="xml"/>
+  <format value="json"/>
   <rest>
-    <mode value="server" />
-    <documentation value="The primary focus of the repository is the definition of [[DataElement]]s.  However, [[ValueSet]]s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing [[Questionnaire]].)" />
+    <mode value="server"/>
+    <documentation value="The primary focus of the repository is the definition of [[DataElement]]s.  However, [[ValueSet]]s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing [[Questionnaire]].)"/>
     <security>
-      <description value="Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]." />
+      <description value="Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]."/>
     </security>
     <resource>
-      <type value="DataElement" />
+      <type value="DataElement"/>
       <profile>
-        <reference value="http://hl7.org/fhir/Profile/valueset-sdc" />
+        <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="search-type" />
-        <documentation value="Allows a user to search for existing data elements" />
+        <code value="search-type"/>
+        <documentation value="Allows a user to search for existing data elements"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="read" />
-        <documentation value="Allows retrieval of a specific known data element" />
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific known data element"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="vread" />
-        <documentation value="Allows retrieval of a specific version of a data element" />
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a specific version of a data element"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="history-instance" />
-        <documentation value="Allows review of changes to a data element over time" />
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to a data element over time"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="create" />
-        <documentation value="Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'." />
+        <code value="create"/>
+        <documentation value="Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'."/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="update" />
-        <documentation value="Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements." />
+        <code value="update"/>
+        <documentation value="Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements."/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHOULD" />
+          <valueCode value="SHOULD"/>
         </extension>
-        <code value="validate" />
-        <documentation value="Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows" />
+        <code value="validate"/>
+        <documentation value="Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="MAY" />
+          <valueCode value="MAY"/>
         </extension>
-        <code value="delete" />
-        <documentation value="Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc." />
+        <code value="delete"/>
+        <documentation value="Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
       </interaction>
-      <searchInclude value="DataElement.binding.valueSet" />
+      <searchInclude value="DataElement.binding.valueSet"/>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="category" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement#category" />
-        <type value="token" />
+        <name value="category"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#category"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="code" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement#code" />
-        <type value="token" />
+        <name value="code"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#code"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="date" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement#date" />
-        <type value="date" />
+        <name value="date"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#date"/>
+        <type value="date"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="description" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement#description" />
-        <type value="string" />
+        <name value="description"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#description"/>
+        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="identifier" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement#identifier" />
-        <type value="token" />
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#identifier"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="name" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement#name" />
-        <type value="string" />
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#name"/>
+        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="publisher" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement#publisher" />
-        <type value="string" />
+        <name value="publisher"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#publisher"/>
+        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="status" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement#status" />
-        <type value="token" />
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#status"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="version" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement#version" />
-        <type value="string" />
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#version"/>
+        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="meaning" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement-11179#meaning" />
-        <type value="token" />
+        <name value="meaning"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement-11179#meaning"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="objectClass" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement-11179#objectClass" />
-        <type value="token" />
+        <name value="objectClass"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement-11179#objectClass"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="property" />
-        <definition value="http://hl7.org/fhir/Profile/dataelement-11179#property" />
-        <type value="token" />
-        <documentation value="SHALL" />
+        <name value="property"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement-11179#property"/>
+        <type value="token"/>
       </searchParam>
     </resource>
     <resource>
-      <type value="ValueSet" />
+      <type value="ValueSet"/>
       <profile>
-        <reference value="http://hl7.org/fhir/Profile/valueset-sdc" />
+        <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="search-type" />
-        <documentation value="Allows discovery of existing value sets for use in authoring data elements" />
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing value sets for use in authoring data elements"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="read" />
-        <documentation value="Allows retrieval of a specific value set referenced within a data element" />
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific value set referenced within a data element"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="vread" />
-        <documentation value="Allows retrieval of a historical version of a value set as referenced within a data element" />
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a value set as referenced within a data element"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="history-instance" />
-        <documentation value="Allows review of changes to a value set over time" />
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to a value set over time"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="create" />
-        <documentation value="Allows definition of a new value set used by one or more data elements" />
+        <code value="create"/>
+        <documentation value="Allows definition of a new value set used by one or more data elements"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="update" />
-        <documentation value="Allows existing value sets referenced by one or more data elements to be maintained" />
+        <code value="update"/>
+        <documentation value="Allows existing value sets referenced by one or more data elements to be maintained"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHOULD" />
+          <valueCode value="SHOULD"/>
         </extension>
-        <code value="validate" />
-        <documentation value="Allows verification that a value set is valid prior to submission - useful for some workflows." />
+        <code value="validate"/>
+        <documentation value="Allows verification that a value set is valid prior to submission - useful for some workflows."/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="MAY" />
+          <valueCode value="MAY"/>
         </extension>
-        <code value="delete" />
-        <documentation value="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner." />
+        <code value="delete"/>
+        <documentation value="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
         <!-- Should we include this in the conformance statement at all? -->
       </interaction>
-      <searchInclude value="ValueSet.compose.import" />
+      <searchInclude value="ValueSet.compose.import"/>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="code" />
-        <definition value="http://hl7.org/fhir/Profile/valueset#code" />
-        <type value="token" />
+        <name value="code"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#code"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="date" />
-        <definition value="http://hl7.org/fhir/Profile/valueset#date" />
-        <type value="date" />
+        <name value="date"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#date"/>
+        <type value="date"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="description" />
-        <definition value="http://hl7.org/fhir/Profile/valueset#description" />
-        <type value="string" />
+        <name value="description"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#description"/>
+        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="identifier" />
-        <definition value="http://hl7.org/fhir/Profile/valueset#identifier" />
-        <type value="token" />
+        <name value="identifier"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#identifier"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="name" />
-        <definition value="http://hl7.org/fhir/Profile/valueset#name" />
-        <type value="string" />
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#name"/>
+        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="publisher" />
-        <definition value="http://hl7.org/fhir/Profile/valueset#publisher" />
-        <type value="string" />
+        <name value="publisher"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#publisher"/>
+        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="reference" />
-        <definition value="http://hl7.org/fhir/Profile/valueset#reference" />
-        <type value="string" />
+        <name value="reference"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#reference"/>
+        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="status" />
-        <definition value="http://hl7.org/fhir/Profile/valueset#status" />
-        <type value="token" />
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#status"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="system" />
-        <definition value="http://hl7.org/fhir/Profile/valueset#system" />
-        <type value="string" />
+        <name value="system"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#system"/>
+        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
-          <valueCode value="SHALL" />
+          <valueCode value="SHALL"/>
         </extension>
-        <name value="version" />
-        <definition value="http://hl7.org/fhir/Profile/valueset#version" />
-        <type value="string" />
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/Profile/valueset#version"/>
+        <type value="string"/>
       </searchParam>
       <!-- Any custom search parameters for value set? -->
     </resource>

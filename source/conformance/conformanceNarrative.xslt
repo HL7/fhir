@@ -149,7 +149,7 @@
               <xsl:copy-of select="fn:handleMarkdownLines(.)"/>
             </xsl:for-each>
             <h3>Summary</h3>
-            <table>
+            <table class="grid">
               <thead>
                 <tr>
                   <th>Resource</th>
@@ -176,49 +176,49 @@
                       </xsl:for-each>
                     </th>
                     <td>
-                      <xsl:for-each select="operation[code/@value='search-type']">
+                      <xsl:for-each select="interaction[code/@value='search-type']">
                         <xsl:call-template name="doConformance"/>
                       </xsl:for-each>
                     </td>
                     <td>
-                      <xsl:for-each select="operation[code/@value='read']">
+                      <xsl:for-each select="interaction[code/@value='read']">
                         <xsl:call-template name="doConformance"/>
                       </xsl:for-each>
                     </td>
                     <td>
-                      <xsl:for-each select="operation[code/@value='vread']">
+                      <xsl:for-each select="interaction[code/@value='vread']">
                         <xsl:call-template name="doConformance"/>
                       </xsl:for-each>
                       <xsl:if test="readHistory/@value='false'">(current only)</xsl:if>
                     </td>
                     <td>
-                      <xsl:for-each select="operation[code/@value='history-instance']">
+                      <xsl:for-each select="interaction[code/@value='history-instance']">
                         <xsl:call-template name="doConformance"/>
                       </xsl:for-each>
                     </td>
                     <td>
-                      <xsl:for-each select="operation[code/@value='history-type']">
+                      <xsl:for-each select="interaction[code/@value='history-type']">
                         <xsl:call-template name="doConformance"/>
                       </xsl:for-each>
                     </td>
                     <td>
-                      <xsl:for-each select="operation[code/@value='validate']">
+                      <xsl:for-each select="interaction[code/@value='validate']">
                         <xsl:call-template name="doConformance"/>
                       </xsl:for-each>
                     </td>
                     <td>
-                      <xsl:for-each select="operation[code/@value='create']">
+                      <xsl:for-each select="interaction[code/@value='create']">
                         <xsl:call-template name="doConformance"/>
                       </xsl:for-each>
                     </td>
                     <td>
-                      <xsl:for-each select="operation[code/@value='update']">
+                      <xsl:for-each select="interaction[code/@value='update']">
                         <xsl:call-template name="doConformance"/>
                       </xsl:for-each>
                       <xsl:if test="updateCreate/@value='false'">(existing only)</xsl:if>
                     </td>
                     <td>
-                      <xsl:for-each select="operation[code/@value='delete']">
+                      <xsl:for-each select="interaction[code/@value='delete']">
                         <xsl:call-template name="doConformance"/>
                       </xsl:for-each>
                     </td>
@@ -227,8 +227,26 @@
               </tbody>
             </table>
             <xsl:if test="operation">
-              <h3>General operations</h3>
-              <xsl:apply-templates select="operation"/>
+              <p>
+                <b>Operations:</b>
+                <xsl:for-each select="operation">
+                  <xsl:if test="position()!=1">, </xsl:if>
+                  <a title="{definition/display/@value}" href="{definition/reference/@value}">
+                    <xsl:value-of select="name/@value"/>
+                  </a>
+                  <xsl:for-each select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value">
+                    <xsl:value-of select="concat('(', ., ')')"/>
+                  </xsl:for-each>
+                </xsl:for-each>
+              </p>
+            </xsl:if>
+            <xsl:if test="interaction">
+              <h3>General interactions</h3>
+              <table class="list">
+                <tbody>
+                  <xsl:apply-templates select="interaction"/>
+                </tbody>
+              </table>
             </xsl:if>
             <xsl:for-each select="resource">
               <h3>
@@ -247,7 +265,11 @@
               <xsl:copy-of select="fn:handleMarkdownLines(description/@value)">
                 <!-- This doesn't exist yet -->
               </xsl:copy-of>
-              <xsl:apply-templates select="operation[documentation]"/>
+              <table class="list">
+                <tbody>
+                  <xsl:apply-templates select="interaction[documentation]"/>
+                </tbody>
+              </table>
               <b>Search</b>
               <xsl:if test="searchInclude">
                 <p>
@@ -279,7 +301,7 @@
               <xsl:value-of select="endpoint/@value"/>
             </p>
             <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
-            <table>
+            <table class="grid">
               <thead>
                 <tr>
                   <th>Event</th>
@@ -337,7 +359,7 @@
             <xsl:for-each select="rest/documentMailbox/@value">
               <xsl:value-of select="concat('Mailbox: ', .)"/>
             </xsl:for-each>
-            <table>
+            <table class="grid">
               <thead>
                 <tr>
                   <th>Mode</th>
@@ -368,12 +390,12 @@
           </xsl:if>
         </div>
       </text>
-      <xsl:copy-of select="node()[not(self::Conformance)]"/>
+      <xsl:copy-of select="node()[not(self::text)]"/>
     </xsl:copy>
   </xsl:template>
   <xsl:template name="doParams" as="element(xhtml:table)">
     <xsl:variable name="doConformance" as="xs:boolean" select="exists(*[self::searchParam or self::parameter]/extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value)"/>
-    <table>
+    <table class="list">
       <thead>
         <tr>
           <th>Parameter</th>
@@ -421,23 +443,43 @@
       </tbody>
     </table>
   </xsl:template>
-  <xsl:template match="operation">
-    <p>
-      <b>
-        <xsl:value-of select="code/@value"/>
-      </b>
-      <xsl:for-each select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value">
-        <xsl:value-of select="concat('(', ., ')')"/>
-      </xsl:for-each>
-    </p>
-    <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
+  <xsl:template match="interaction">
+    <tr>
+      <td>
+        <a id="{ancestor::resource/type/@value}-{code/@value}"/>
+        <b>
+          <xsl:value-of select="code/@value"/>
+          <xsl:for-each select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value">
+            <xsl:value-of select="concat('(', ., ')')"/>
+          </xsl:for-each>
+        </b>
+      </td>
+      <td>
+        <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
+      </td>
+    </tr>
   </xsl:template>
-  <xsl:template name="doConformance" as="xs:string">
+  <xsl:template name="doConformance" as="node()">
+    <xsl:variable name="documentation" as="xs:string">
+      <xsl:copy-of select="fn:handleMarkdown(documentation/@value)"/>
+    </xsl:variable>
+    <xsl:variable name="value" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']">
+          <xsl:value-of select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value"/>
+        </xsl:when>
+        <xsl:otherwise>Yes</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:choose>
-      <xsl:when test="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']">
-        <xsl:value-of select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value"/>
+      <xsl:when test="normalize-space($documentation)=''">
+        <xsl:value-of select="$value"/>
       </xsl:when>
-      <xsl:otherwise>Yes</xsl:otherwise>
+      <xsl:otherwise>
+        <a title="{$documentation}" href="#{ancestor::resource/type/@value}-{code/@value}">
+          <xsl:value-of select="$value"/>
+        </a>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
   <xsl:function name="fn:handleMarkdownLines" as="item()*">

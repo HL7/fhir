@@ -29,8 +29,8 @@ second FHIR DSTU as part of the December-January ballot cycle.  This will provid
 
 <h3>Background</h3>
 <ul>
-  <li><a href="sdc-intro.html">Introduction</a> - How this project came to be and what it's trying to achieve</li>
-  <li><a href="sdc-security.html">Security</a> - Rules</li>
+  <li><a href="sdc-intro.html">Introduction</a> - How this project came to be and what it is trying to achieve</li>
+  <li><a href="sdc-security.html">Security</a> - Security and privacy rules and considerations</li>
   <li><a href="http://http://wiki.siframework.org/Structured+Data+Capture+Initiative">Project wiki containing development materials and discussions (for additional background)</a></li>
 </ul>
 
@@ -52,7 +52,7 @@ no SDC-specific profiles have been created for them.    As well, basic aspects o
 <!-- Todo: decide how explicit the list of relevant sections needs to be -->
 </p>
 <p>
-The SDC specification is broken into the following components:
+The SDC specification consists of the following components:
 </p>
 <ul>
   <li><b>SDC profiles</b> - Profiles on the four FHIR resources used to support the IG requirements:
@@ -63,7 +63,7 @@ The SDC specification is broken into the following components:
       <li><a href="valueset-sdc.html">SDC Value Set Profile</a> - Constraints and extensions for defining lists of allowed codes</li>
     </ul>
   </li>
-  <li><a href="sdc-pre-prop-service.html">Pre-population Service</a> - The definition of the custom service that allows pre-population of forms based on 
+  <li><a href="#population">Pre-population Operation</a> - The definition of the custom service that allows pre-population of forms based on 
   CDA and other data sources</li>
   <li><b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved supporting SDC functionality:
     <ul>
@@ -75,7 +75,33 @@ The SDC specification is broken into the following components:
     </ul>
   </li>
 </ul>
-
+<a id="population"/>
+<h3>Pre-population service</h3>
+<p>
+The <a href="questionnaire.html">Questionnaire</a> resource defines a custom operation called <a href="questionnaire-operations.html">populate</a>.
+This operation supports generating a "blank" <a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance based on a specified
+<a href="questionnaire.html">Questionnaire</a>.  It also allows for the returned questionnaire to be partially or even fully completed based
+on data passed in to the operation or data already available to the server on which the operation is invoked.
+</p>
+<p>
+For SDC purposes, server systems claiming to support roles that require support for the ''populate'' operation (
+<a href="conformance-sdc-form-manager.html">SDC Form Manager</a>) SHALL, at minimum:
+</p>
+<ul>
+  <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>subject</code> and <code>content</code></li>
+  <li>Support <code>content</code> parameters consisting of a Binary resource containing a C-CDA document</li>
+  <li>Populate the returned <a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance for all questions referencing
+  <a href="dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
+</ul>
+<p>
+Similarly, client systems claiming to support the ''populate'' operation (<a href="conformance-sdc-form-filler.html">SDC Form Filler</a>)
+SHALL, at a minimum:
+</p>
+<ul>
+  <li>Be capable of invoking the operation on a selected questionnaire both directly (<code>Questionnaire/[identifier]/$populate</code>)
+as well as indirectly either by <code>identifier</code> or <code>questionnaire</code></li>
+  <li>Support passing a single C-CDA document as a <a href="binary.html">Binary</a> resource using the <code>content</code> parameter</li>
+</ul>
 
 </div>
 

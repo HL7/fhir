@@ -10,6 +10,8 @@
 
 <div class="col-9">
 
+<a id="general"/>
+<h3>General Security Considerations</h3>
 <p>
 Some of the SDC transactions make use of patient-specific information.  Even those that merely retrieve empty forms could
 be abused by malicious actors to corrupt the form - resulting in the potential subsequent exposure of patient data.  For this
@@ -40,6 +42,19 @@ For the purposes of SDC, security conformance rules are as follows:
   <li>Where workflow requires digital signatures on forms or on answer submissions, implementers SHALL make use of the
   <a href="provenance.html">Provenance</a> resource to record such signatures.</li>
 </ul>
+
+<h3>Consent</h3>
+<p>
+The SDC workflow envisions the sharing of patient-identifiable healthcare information from 
+<a href="conformance-sdc-form-filler.html">SDC Form Filler</a> systems to <a href="conformance-sdc-form-manager.html">SDC Form Manager</a>.
+It also envisions transmitting completed forms from <a href="conformance-sdc-form-filler.html">SDC Form Filler</a> to
+<a href="conformance-sdc-form-receiver.html">SDC Form Receiver</a> systems.
+Where such exchanges take place across organizational or other custodial boundaries, patient consent may be required.  Furthermore,
+use of C-CDA data for completing questionnaires for purposes unrelated to the initial population of the C-CDA may also require patient
+consent.  It is the responsibility of the client systems to ensure that any necessary consent records exist and are reviewed prior to
+each exchange of patient-identifiable healthcare information.  This verification should be logged in the same manner as other transactions,
+as discussed above under <a href="#general">General Security Considerations.</a>
+</p>
 
 </div>
 
