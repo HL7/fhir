@@ -54,6 +54,12 @@ public class ProfileValidator {
     for (ProfileExtensionDefnComponent defn : p.getExtensionDefn()) {
       if (defn.getCodeSimple().equals(parts[1]))
         return defn;
+      if (parts[1].contains(".") && parts[1].startsWith(defn.getCodeSimple()+".")) {
+        for (ElementComponent ec : defn.getElement()) {
+          if (ec.getPathSimple().equals(parts[1]))
+            return defn;
+        }
+      }
     }
     return null;
   }

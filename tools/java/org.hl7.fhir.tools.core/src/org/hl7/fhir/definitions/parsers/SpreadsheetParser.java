@@ -830,7 +830,8 @@ public class SpreadsheetParser {
       throw new Exception("Column 'Must Understand' has been renamed to 'Is Modifier'");
 
 		e.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, false));
-    e.setMustSupport(parseBoolean(sheet.getColumn(row, "Must Support"), row, false));
+		if (isProfile)
+		  e.setMustSupport(parseBoolean(sheet.getColumn(row, "Must Support"), row, false));
     e.setSummaryItem(parseBoolean(sheet.getColumn(row, "Summary"), row, false));
     e.setRegex(sheet.getColumn(row, "Regex"));
     String uml = sheet.getColumn(row, "UML");
