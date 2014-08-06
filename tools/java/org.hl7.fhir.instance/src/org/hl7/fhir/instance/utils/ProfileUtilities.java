@@ -231,21 +231,23 @@ public class ProfileUtilities {
           outcome.setNameSimple(diffMatches.get(0).getNameSimple());
           outcome.setSlicing(null);
           updateFromDefinition(outcome, diffMatches.get(0));
+          if (outcome.getPathSimple().endsWith("[x]") && outcome.getDefinition().getType().size() == 1) // if the base profile allows multiple types, but the profile only allows one, rename it 
+            outcome.setPathSimple(outcome.getPathSimple().substring(0, outcome.getPathSimple().length()-3)+Utilities.capitalize(outcome.getDefinition().getType().get(0).getCodeSimple()));
           result.getElement().add(outcome);
           baseCursor++;
           diffCursor = differential.getElement().indexOf(diffMatches.get(0))+1;
           if (differential.getElement().size() > diffCursor && isDataType(outcome.getDefinition().getType())) { 
-            if (differential.getElement().get(diffCursor).getPathSimple().startsWith(diffMatches.get(0).getPathSimple()+".")) {
+            if (pathStartsWith(differential.getElement().get(diffCursor).getPathSimple(), diffMatches.get(0).getPathSimple()+".")) {
               if (outcome.getDefinition().getType().size() > 1)
                 throw new Exception(diffMatches.get(0).getPathSimple()+" has children ("+differential.getElement().get(diffCursor).getPathSimple()+") and multiple types ("+asString(outcome.getDefinition().getType())+") in profile "+profileName);
               ProfileStructureComponent dt = getStructureForDataType(outcome.getDefinition().getType().get(0));
               if (dt == null)
                 throw new Exception(diffMatches.get(0).getPathSimple()+" has children ("+differential.getElement().get(diffCursor).getPathSimple()+") for type "+asString(outcome.getDefinition().getType())+" in profile "+profileName+", but can't find type");
               int start = diffCursor;
-              while (differential.getElement().size() > diffCursor && differential.getElement().get(diffCursor).getPathSimple().startsWith(diffMatches.get(0).getPathSimple()+".")) 
+              while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPathSimple(), diffMatches.get(0).getPathSimple()+".")) 
                 diffCursor++;
               processPaths(result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1, 
-                  diffCursor - 1, url, profileName+"/"+dt.getNameSimple(), cpath); 
+                  diffCursor - 1, url, profileName+"/"+dt.getNameSimple(), diffMatches.get(0).getPathSimple()); 
             }
           }
         } else {
@@ -379,6 +381,11 @@ public class ProfileUtilities {
   }
 
   
+  private boolean pathStartsWith(String p1, String p2) {
+    return p1.startsWith(p2);
+  }
+
+
   private String fixedPath(String contextPath, String pathSimple) {
     if (contextPath == null)
       return pathSimple;
@@ -495,7 +502,8 @@ public class ProfileUtilities {
   private List<ElementComponent> getDiffMatches(ConstraintComponent context, String path, int start, int end) {
     List<ElementComponent> result = new ArrayList<Profile.ElementComponent>();
     for (int i = start; i <= end; i++) {
-      if (context.getElement().get(i).getPathSimple().equals(path)) {
+      String statedPath = context.getElement().get(i).getPathSimple();
+      if (statedPath.equals(path) || (path.endsWith("[x]") && statedPath.length() > path.length() && statedPath.substring(0, path.length()-3).equals(path.substring(0, path.length()-3)) && !statedPath.substring(path.length()).contains("."))) {
         result.add(context.getElement().get(i));
       }
     }
@@ -600,20 +608,21 @@ public class ProfileUtilities {
     re.getCells().add(gen.new Cell(null, null, "Extensions defined by the URL \""+profile.getUrlSimple()+"\"", null, null));
 
     for (ProfileExtensionDefnComponent ext : profile.getExtensionDefn()) {
-      genExtension(defFile, gen, re.getSubRows(), ext, profile, pkp);
+      genExtension(defFile, gen, re.getSubRows(), ext, profile, pkp, profileBaseName);
     }
     return gen.generate(model);
   }
   
-  private void genExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, ProfileExtensionDefnComponent ext, Profile profile, ProfileKnowledgeProvider pkp) throws Exception {
+  private void genExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, ProfileExtensionDefnComponent ext, Profile profile, ProfileKnowledgeProvider pkp, String profileBaseFileName) throws Exception {
     Row r = gen.new Row();
     rows.add(r);
+    r.setAnchor(ext.getCodeSimple());
     ElementComponent e = ext.getElement().get(0);
     r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension."+ext.getCodeSimple(), ext.getCodeSimple(), e.getDefinition().getFormalSimple(), null));
     r.getCells().add(gen.new Cell(null, null, describeCardinality(e.getDefinition(), null, new UnusedTracker()), null, null));
     if (ext.getElement().size() == 1) {
       r.setIcon("icon_extension_simple.png");
-      genTypes(gen, pkp, r, e, defFile);
+      genTypes(gen, pkp, r, e, profileBaseFileName);
     } else {
       r.setIcon("icon_extension_complex.png");
       r.getCells().add(gen.new Cell());
@@ -622,7 +631,7 @@ public class ProfileUtilities {
     r.getCells().add(gen.new Cell(null, null, e.getDefinition().getShortSimple(), null, null).addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null)));
     List<ElementComponent> children = getChildren(ext.getElement(), e);
     for (ElementComponent child : children)
-      genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profile, pkp, true, defFile);
+      genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profile, pkp, true, profileBaseFileName);
   }
 
   private void genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementComponent e, String profileBaseFileName) throws Exception {
@@ -639,7 +648,7 @@ public class ProfileUtilities {
           String rn = t.getProfileSimple().substring(28);
           c.addPiece(gen.new Piece(pkp.getLinkFor(rn), rn, null));
         } else if (t.getProfileSimple().startsWith("#"))
-          c.addPiece(gen.new Piece(profileBaseFileName+"."+t.getProfileSimple().substring(1)+".html", t.getProfileSimple(), null));
+          c.addPiece(gen.new Piece(profileBaseFileName+"."+t.getProfileSimple().substring(1).toLowerCase()+".html", t.getProfileSimple(), null));
         else
           c.addPiece(gen.new Piece(t.getProfileSimple(), t.getProfileSimple(), null));
       } else if (pkp.hasLinkFor(t.getCodeSimple())) {
