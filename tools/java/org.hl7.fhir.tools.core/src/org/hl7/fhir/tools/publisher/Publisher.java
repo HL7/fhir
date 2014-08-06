@@ -90,6 +90,7 @@ import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
+import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
@@ -553,6 +554,10 @@ public class Publisher {
   private void processProfiles() throws Exception {
     page.log(" ...process profiles", LogMessageType.Process);
     // first, for each type and resource, we build it's master profile
+    for (DefinedCode t : page.getDefinitions().getPrimitives().values()) {
+      if (t instanceof PrimitiveType)
+        genPrimitiveTypeProfile((PrimitiveType) t);
+    }
     for (TypeDefn t : page.getDefinitions().getTypes().values())
       genTypeProfile(t);
     for (TypeDefn t : page.getDefinitions().getStructures().values())
@@ -611,6 +616,16 @@ public class Publisher {
     e.setResource(profile);
     return e;
   }
+
+  private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
+    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
+    page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
+//    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
+//    t.setProfile(profile);
+//    t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
+//    t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
+  }
+
 
   private void genTypeProfile(TypeDefn t) throws Exception {
     Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());

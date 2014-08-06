@@ -49,6 +49,7 @@ import org.hl7.fhir.definitions.model.ExtensionDefn.ContextType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
@@ -115,6 +116,80 @@ public class ProfileGenerator {
     this.context = context;
   }
 
+  public Profile generate(PrimitiveType type, Calendar genDate) throws Exception {
+    Profile p = new Profile();
+    p.setUrlSimple("http://hl7.org/fhir/Profile/"+ type.getCode());
+    p.setNameSimple(type.getCode());
+    p.setPublisherSimple("HL7 FHIR Standard");
+    p.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
+    p.setDescriptionSimple("Base Profile for "+type.getCode()+" Resource: "+type.getDefinition());
+    p.setDateSimple(new DateAndTime(genDate));
+    p.setStatusSimple(Profile.ResourceProfileStatus.fromCode("draft")); // DSTU
+
+    Set<String> containedSlices = new HashSet<String>();
+
+    // first, the differential
+    Profile.ProfileStructureComponent cd = new Profile.ProfileStructureComponent();
+    p.getStructure().add(cd);
+    cd.setPublishSimple(true); 
+    cd.setTypeSimple(type.getCode());
+    cd.setPurposeSimple("This is the defintion for the "+type.getCode()+" datatype");
+    cd.setBaseSimple("http://hl7.org/fhir/Profile/Element"); // master profile
+    cd.setDifferential(new ConstraintComponent());
+    ElementComponent ec = new ElementComponent();
+    cd.getDifferential().getElement().add(ec);
+    ec.setPathSimple(type.getCode());
+    ec.setDefinition(new ElementDefinitionComponent());
+    ec.getDefinition().setShortSimple("Primitive Type " +type.getCode());
+    ec.getDefinition().setFormalSimple(type.getDefinition());
+    ec.getDefinition().setCommentsSimple(type.getComment());
+    ec.getDefinition().setMinSimple(0);
+    ec.getDefinition().setMaxSimple("*");
+    ec.getDefinition().getType().add(new TypeRefComponent().setCodeSimple("Element"));
+    
+//    ec = new ElementComponent();
+//    cd.getDifferential().getElement().add(ec);
+//    ec.setPathSimple("value");
+//    ec.addRepresentationSimple(PropertyRepresentation.xmlAttr);
+//    ec.setDefinition(new ElementDefinitionComponent());
+//    ec.getDefinition().setShortSimple("Primitive value for " +type.getCode());
+//    ec.getDefinition().getType().add(new TypeRefComponent().setCodeSimple(type.getSchemaType()));
+    
+    reset();
+    // now. the snapshot
+    cd.setSnapshot(new ConstraintComponent());
+    ec = new ElementComponent();
+    cd.getSnapshot().getElement().add(ec);
+    ec.setPathSimple(type.getCode());
+    ec.setDefinition(new ElementDefinitionComponent());
+    ec.getDefinition().setShortSimple("Primitive Type " +type.getCode());
+    ec.getDefinition().setFormalSimple(type.getDefinition());
+    ec.getDefinition().setCommentsSimple(type.getComment());
+    ec.getDefinition().getType().add(new TypeRefComponent().setCodeSimple("Element"));
+    ec.getDefinition().setMinSimple(0);
+    ec.getDefinition().setMaxSimple("*");
+
+    makeExtensionSlice("extension", null, p, cd.getSnapshot(), null, type.getCode());
+    
+    
+//    ec = new ElementComponent();
+//    cd.getSnapshot().getElement().add(ec);
+//    ec.setPathSimple("value");
+//    ec.addRepresentationSimple(PropertyRepresentation.xmlAttr);
+//    ec.setDefinition(new ElementDefinitionComponent());
+//    ec.getDefinition().setShortSimple("Primitive value for " +type.getCode());
+//    ec.getDefinition().getType().add(new TypeRefComponent().setCodeSimple(type.getSchemaType()));
+
+    containedSlices.clear();
+
+    XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
+    div.addText("to do");
+    p.setText(new Narrative());
+    p.getText().setStatusSimple(NarrativeStatus.generated);
+    p.getText().setDiv(div);
+    return p;
+  }
+
   public Profile generate(TypeDefn t, Calendar genDate) throws Exception {
     Profile p = new Profile();
     p.setUrlSimple("http://hl7.org/fhir/Profile/"+ t.getName());
@@ -134,12 +209,12 @@ public class ProfileGenerator {
     cd.setPublishSimple(true); 
     cd.setTypeSimple(t.getName());
     cd.setPurposeSimple("This is the defintion for the "+t.getName()+" datatype");
-    cd.setBaseSimple("http://hl7.org/fhir/Profile/ResourceElement"); // master profile
+    cd.setBaseSimple("http://hl7.org/fhir/Profile/Element"); // master profile
     cd.setDifferential(new ConstraintComponent());
     defineElement(null, p, cd.getDifferential(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
     
     reset();
-    // now. the snashot
+    // now. the snapshot
     cd.setSnapshot(new ConstraintComponent());
     defineElement(null, p, cd.getSnapshot(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.DataType);
 

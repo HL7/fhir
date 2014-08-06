@@ -394,7 +394,7 @@ public class ProfileUtilities {
 
 
   private ProfileStructureComponent getStructureForDataType(TypeRefComponent type) {
-    if (type.getProfile() != null && !type.getCodeSimple().equals("ResourceReference")) 
+    if (type.getProfile() != null && !type.getCodeSimple().equals("ResourceReference") && !type.getCodeSimple().equals("Extension")) 
       throw new Error("handling profiles is not supported yet");
     for (AtomEntry<Profile> ae : context.getProfiles().values()) {
       if (ae.getResource().getNameSimple().equals(type.getCodeSimple())) {
@@ -422,7 +422,8 @@ public class ProfileUtilities {
     if (types.isEmpty())
       return false;
     for (TypeRefComponent type : types) {
-      if (!isDataType(type.getCodeSimple()) && !type.getCodeSimple().equals("ResourceReference"))
+      String t = type.getCodeSimple();
+      if (!isDataType(t) && !t.equals("ResourceReference") && !t.equals("Extension") && !isPrimitive(t))
         return false;
     }
     return true;
