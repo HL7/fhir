@@ -147,14 +147,14 @@ public abstract class Element implements Serializable {
       if (c.getName().equals(name))
         return c;
     return null;
-  }
-
+  }  
+  
   public List<String> getXmlComments() {
     if (xmlComments == null)
       xmlComments = new ArrayList<String>();
     return xmlComments;
   }  
-  
+
   public String getTag(String name) {
     if (tags == null)
       return null;

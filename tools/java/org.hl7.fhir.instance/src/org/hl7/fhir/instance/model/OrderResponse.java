@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -154,7 +154,7 @@ public class OrderResponse extends Resource {
     /**
      * The date and time at which this order response was made (created/posted).
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * The person, organization, or device credited with making the response.
@@ -179,7 +179,7 @@ public class OrderResponse extends Resource {
     /**
      * Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.
      */
-    protected String_ description;
+    protected StringType description;
 
     /**
      * Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.
@@ -191,7 +191,7 @@ public class OrderResponse extends Resource {
     protected List<Resource> fulfillmentTarget = new ArrayList<Resource>();
 
 
-    private static final long serialVersionUID = 834951178L;
+    private static final long serialVersionUID = 1422952117L;
 
     public OrderResponse() {
       super();
@@ -253,14 +253,14 @@ public class OrderResponse extends Resource {
     /**
      * @return {@link #date} (The date and time at which this order response was made (created/posted).)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date and time at which this order response was made (created/posted).)
      */
-    public OrderResponse setDate(DateTime value) { 
+    public OrderResponse setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -280,7 +280,7 @@ public class OrderResponse extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;
@@ -366,14 +366,14 @@ public class OrderResponse extends Resource {
     /**
      * @return {@link #description} (Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.)
      */
-    public String_ getDescription() { 
+    public StringType getDescription() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.)
      */
-    public OrderResponse setDescription(String_ value) { 
+    public OrderResponse setDescription(StringType value) { 
       this.description = value;
       return this;
     }
@@ -393,7 +393,7 @@ public class OrderResponse extends Resource {
         this.description = null;
       else {
         if (this.description == null)
-          this.description = new String_();
+          this.description = new StringType();
         this.description.setValue(value);
       }
       return this;

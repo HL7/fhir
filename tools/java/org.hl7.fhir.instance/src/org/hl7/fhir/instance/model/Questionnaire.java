@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -230,12 +230,12 @@ public class Questionnaire extends Resource {
         /**
          * A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
-        protected String_ linkId;
+        protected StringType linkId;
 
         /**
          * The human-readable name for this section of the questionnaire.
          */
-        protected String_ title;
+        protected StringType title;
 
         /**
          * Identifies a how this group of questions is known in a particular terminology such as LOINC.
@@ -245,17 +245,17 @@ public class Questionnaire extends Resource {
         /**
          * Additional text for the group, used for display purposes.
          */
-        protected String_ text;
+        protected StringType text;
 
         /**
          * If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
          */
-        protected Boolean required;
+        protected BooleanType required;
 
         /**
          * Whether the group may occur multiple times in the instance, containing multiple sets of answers.
          */
-        protected Boolean repeats;
+        protected BooleanType repeats;
 
         /**
          * A sub-group within a group. The ordering of groups within this group is relevant.
@@ -267,7 +267,7 @@ public class Questionnaire extends Resource {
          */
         protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
 
-        private static final long serialVersionUID = -2075705443L;
+        private static final long serialVersionUID = 427521870L;
 
       public GroupComponent() {
         super();
@@ -276,14 +276,14 @@ public class Questionnaire extends Resource {
         /**
          * @return {@link #linkId} (A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.)
          */
-        public String_ getLinkId() { 
+        public StringType getLinkId() { 
           return this.linkId;
         }
 
         /**
          * @param value {@link #linkId} (A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.)
          */
-        public GroupComponent setLinkId(String_ value) { 
+        public GroupComponent setLinkId(StringType value) { 
           this.linkId = value;
           return this;
         }
@@ -303,7 +303,7 @@ public class Questionnaire extends Resource {
             this.linkId = null;
           else {
             if (this.linkId == null)
-              this.linkId = new String_();
+              this.linkId = new StringType();
             this.linkId.setValue(value);
           }
           return this;
@@ -312,14 +312,14 @@ public class Questionnaire extends Resource {
         /**
          * @return {@link #title} (The human-readable name for this section of the questionnaire.)
          */
-        public String_ getTitle() { 
+        public StringType getTitle() { 
           return this.title;
         }
 
         /**
          * @param value {@link #title} (The human-readable name for this section of the questionnaire.)
          */
-        public GroupComponent setTitle(String_ value) { 
+        public GroupComponent setTitle(StringType value) { 
           this.title = value;
           return this;
         }
@@ -339,7 +339,7 @@ public class Questionnaire extends Resource {
             this.title = null;
           else {
             if (this.title == null)
-              this.title = new String_();
+              this.title = new StringType();
             this.title.setValue(value);
           }
           return this;
@@ -365,14 +365,14 @@ public class Questionnaire extends Resource {
         /**
          * @return {@link #text} (Additional text for the group, used for display purposes.)
          */
-        public String_ getText() { 
+        public StringType getText() { 
           return this.text;
         }
 
         /**
          * @param value {@link #text} (Additional text for the group, used for display purposes.)
          */
-        public GroupComponent setText(String_ value) { 
+        public GroupComponent setText(StringType value) { 
           this.text = value;
           return this;
         }
@@ -392,7 +392,7 @@ public class Questionnaire extends Resource {
             this.text = null;
           else {
             if (this.text == null)
-              this.text = new String_();
+              this.text = new StringType();
             this.text.setValue(value);
           }
           return this;
@@ -401,14 +401,14 @@ public class Questionnaire extends Resource {
         /**
          * @return {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.)
          */
-        public Boolean getRequired() { 
+        public BooleanType getRequired() { 
           return this.required;
         }
 
         /**
          * @param value {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.)
          */
-        public GroupComponent setRequired(Boolean value) { 
+        public GroupComponent setRequired(BooleanType value) { 
           this.required = value;
           return this;
         }
@@ -428,7 +428,7 @@ public class Questionnaire extends Resource {
             this.required = null;
           else {
             if (this.required == null)
-              this.required = new Boolean();
+              this.required = new BooleanType();
             this.required.setValue(value);
           }
           return this;
@@ -437,14 +437,14 @@ public class Questionnaire extends Resource {
         /**
          * @return {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.)
          */
-        public Boolean getRepeats() { 
+        public BooleanType getRepeats() { 
           return this.repeats;
         }
 
         /**
          * @param value {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.)
          */
-        public GroupComponent setRepeats(Boolean value) { 
+        public GroupComponent setRepeats(BooleanType value) { 
           this.repeats = value;
           return this;
         }
@@ -464,7 +464,7 @@ public class Questionnaire extends Resource {
             this.repeats = null;
           else {
             if (this.repeats == null)
-              this.repeats = new Boolean();
+              this.repeats = new BooleanType();
             this.repeats.setValue(value);
           }
           return this;
@@ -541,7 +541,7 @@ public class Questionnaire extends Resource {
         /**
          * A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.
          */
-        protected String_ linkId;
+        protected StringType linkId;
 
         /**
          * Identifies a how this group of questions is known in a particular terminology such as LOINC.
@@ -551,7 +551,7 @@ public class Questionnaire extends Resource {
         /**
          * Text of the question as it is shown to the user.
          */
-        protected String_ text;
+        protected StringType text;
 
         /**
          * The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple)choice is expected.
@@ -561,12 +561,12 @@ public class Questionnaire extends Resource {
         /**
          * If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
          */
-        protected Boolean required;
+        protected BooleanType required;
 
         /**
          * Whether the group may occur multiple times in the instance, containing multiple sets of answers.
          */
-        protected Boolean repeats;
+        protected BooleanType repeats;
 
         /**
          * Reference to a valueset containing the possible options.
@@ -583,7 +583,7 @@ public class Questionnaire extends Resource {
          */
         protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 
-        private static final long serialVersionUID = -1373335559L;
+        private static final long serialVersionUID = -883055791L;
 
       public QuestionComponent() {
         super();
@@ -592,14 +592,14 @@ public class Questionnaire extends Resource {
         /**
          * @return {@link #linkId} (A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.)
          */
-        public String_ getLinkId() { 
+        public StringType getLinkId() { 
           return this.linkId;
         }
 
         /**
          * @param value {@link #linkId} (A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.)
          */
-        public QuestionComponent setLinkId(String_ value) { 
+        public QuestionComponent setLinkId(StringType value) { 
           this.linkId = value;
           return this;
         }
@@ -619,7 +619,7 @@ public class Questionnaire extends Resource {
             this.linkId = null;
           else {
             if (this.linkId == null)
-              this.linkId = new String_();
+              this.linkId = new StringType();
             this.linkId.setValue(value);
           }
           return this;
@@ -645,14 +645,14 @@ public class Questionnaire extends Resource {
         /**
          * @return {@link #text} (Text of the question as it is shown to the user.)
          */
-        public String_ getText() { 
+        public StringType getText() { 
           return this.text;
         }
 
         /**
          * @param value {@link #text} (Text of the question as it is shown to the user.)
          */
-        public QuestionComponent setText(String_ value) { 
+        public QuestionComponent setText(StringType value) { 
           this.text = value;
           return this;
         }
@@ -672,7 +672,7 @@ public class Questionnaire extends Resource {
             this.text = null;
           else {
             if (this.text == null)
-              this.text = new String_();
+              this.text = new StringType();
             this.text.setValue(value);
           }
           return this;
@@ -717,14 +717,14 @@ public class Questionnaire extends Resource {
         /**
          * @return {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.)
          */
-        public Boolean getRequired() { 
+        public BooleanType getRequired() { 
           return this.required;
         }
 
         /**
          * @param value {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.)
          */
-        public QuestionComponent setRequired(Boolean value) { 
+        public QuestionComponent setRequired(BooleanType value) { 
           this.required = value;
           return this;
         }
@@ -744,7 +744,7 @@ public class Questionnaire extends Resource {
             this.required = null;
           else {
             if (this.required == null)
-              this.required = new Boolean();
+              this.required = new BooleanType();
             this.required.setValue(value);
           }
           return this;
@@ -753,14 +753,14 @@ public class Questionnaire extends Resource {
         /**
          * @return {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.)
          */
-        public Boolean getRepeats() { 
+        public BooleanType getRepeats() { 
           return this.repeats;
         }
 
         /**
          * @param value {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.)
          */
-        public QuestionComponent setRepeats(Boolean value) { 
+        public QuestionComponent setRepeats(BooleanType value) { 
           this.repeats = value;
           return this;
         }
@@ -780,7 +780,7 @@ public class Questionnaire extends Resource {
             this.repeats = null;
           else {
             if (this.repeats == null)
-              this.repeats = new Boolean();
+              this.repeats = new BooleanType();
             this.repeats.setValue(value);
           }
           return this;
@@ -872,7 +872,7 @@ public class Questionnaire extends Resource {
     /**
      * The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.
      */
-    protected String_ version;
+    protected StringType version;
 
     /**
      * The lifecycle status of the questionnaire as a whole.
@@ -882,19 +882,19 @@ public class Questionnaire extends Resource {
     /**
      * The date that this version of the questionnaire was authored.
      */
-    protected Date date;
+    protected DateType date;
 
     /**
      * Organization responsible for developing and maintaining the questionnaire.
      */
-    protected String_ publisher;
+    protected StringType publisher;
 
     /**
      * A collection of related questions (or further groupings of questions).
      */
     protected GroupComponent group;
 
-    private static final long serialVersionUID = 1188451963L;
+    private static final long serialVersionUID = 17724285L;
 
     public Questionnaire() {
       super();
@@ -926,14 +926,14 @@ public class Questionnaire extends Resource {
     /**
      * @return {@link #version} (The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.)
      */
-    public String_ getVersion() { 
+    public StringType getVersion() { 
       return this.version;
     }
 
     /**
      * @param value {@link #version} (The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.)
      */
-    public Questionnaire setVersion(String_ value) { 
+    public Questionnaire setVersion(StringType value) { 
       this.version = value;
       return this;
     }
@@ -953,7 +953,7 @@ public class Questionnaire extends Resource {
         this.version = null;
       else {
         if (this.version == null)
-          this.version = new String_();
+          this.version = new StringType();
         this.version.setValue(value);
       }
       return this;
@@ -994,14 +994,14 @@ public class Questionnaire extends Resource {
     /**
      * @return {@link #date} (The date that this version of the questionnaire was authored.)
      */
-    public Date getDate() { 
+    public DateType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date that this version of the questionnaire was authored.)
      */
-    public Questionnaire setDate(Date value) { 
+    public Questionnaire setDate(DateType value) { 
       this.date = value;
       return this;
     }
@@ -1021,7 +1021,7 @@ public class Questionnaire extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new Date();
+          this.date = new DateType();
         this.date.setValue(value);
       }
       return this;
@@ -1030,14 +1030,14 @@ public class Questionnaire extends Resource {
     /**
      * @return {@link #publisher} (Organization responsible for developing and maintaining the questionnaire.)
      */
-    public String_ getPublisher() { 
+    public StringType getPublisher() { 
       return this.publisher;
     }
 
     /**
      * @param value {@link #publisher} (Organization responsible for developing and maintaining the questionnaire.)
      */
-    public Questionnaire setPublisher(String_ value) { 
+    public Questionnaire setPublisher(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -1057,7 +1057,7 @@ public class Questionnaire extends Resource {
         this.publisher = null;
       else {
         if (this.publisher == null)
-          this.publisher = new String_();
+          this.publisher = new StringType();
         this.publisher.setValue(value);
       }
       return this;

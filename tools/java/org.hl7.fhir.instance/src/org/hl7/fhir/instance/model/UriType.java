@@ -26,39 +26,36 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-/**
- * 
- */
 package org.hl7.fhir.instance.model;
 
 /**
- * Primitive type "boolean" in FHIR "true" or "false"
+ * Primitive type "uri" in FHIR: any valid URI. Sometimes constrained to be only an absolute URI, and sometimes constrained to be a literal reference
  */
-public class Boolean extends PrimitiveType {
-
-  private static final long serialVersionUID = 2983474044199586731L;
-	/**
-	 * The value of the boolean
-	 */
-	private java.lang.Boolean value;
+public class UriType extends PrimitiveType {
 	
+  private static final long serialVersionUID = -4774715915772053479L;
 	/**
-	 * @return The value of the boolean
+	 * any valid URI
 	 */
-	public java.lang.Boolean getValue() {
+	protected String value;
+
+	/**
+	 * @return - the URI value
+	 */
+	public String getValue() {
 		return value;
 	}
 
 	/**
-	 * @param value The value of the boolean
+	 * @param value any valid URI
 	 */
-	public void setValue(java.lang.Boolean value) {
-	  this.value = value;
+	public void setValue(String value) {
+		this.value = value;
 	}
-
+	
 	@Override
-  public Boolean copy() {
-		Boolean dst = new Boolean();
+  public UriType copy() {
+		UriType dst = new UriType();
 		dst.value = value;
 		return dst;
 	}
@@ -68,13 +65,9 @@ public class Boolean extends PrimitiveType {
 		return copy();
 	}
 
-	public String getStringValue() {
-		return value == null ? null : value.toString();
-	}
-
   @Override
   public String asStringValue() {
-    return value.toString();
+    return value;
   }
-	
+
 }

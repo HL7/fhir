@@ -93,7 +93,7 @@ import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceReference;
-import org.hl7.fhir.instance.model.Uri;
+import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
@@ -1380,7 +1380,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (AtomEntry ae : valueSets.values()) {
       ValueSet vs = (ValueSet) ae.getResource();
       if (vs.getCompose() != null) {
-        for (Uri t : vs.getCompose().getImport()) {
+        for (UriType t : vs.getCompose().getImport()) {
           if (t.getValue().equals(vsn)) 
             b.append(" <li>Imported into Valueset <a href=\""+ae.getLinks().get("path")+"\">"+Utilities.escapeXml(vs.getNameSimple())+"</a></li>");
         }

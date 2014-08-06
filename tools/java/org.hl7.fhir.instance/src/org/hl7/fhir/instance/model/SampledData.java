@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -47,40 +47,40 @@ public class SampledData extends Type {
     /**
      * The length of time between sampling times, measured in milliseconds.
      */
-    protected Decimal period;
+    protected DecimalType period;
 
     /**
      * A correction factor that is applied to the sampled data points before they are added to the origin.
      */
-    protected Decimal factor;
+    protected DecimalType factor;
 
     /**
      * The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
      */
-    protected Decimal lowerLimit;
+    protected DecimalType lowerLimit;
 
     /**
      * The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
      */
-    protected Decimal upperLimit;
+    protected DecimalType upperLimit;
 
     /**
      * The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
      */
-    protected Integer dimensions;
+    protected IntegerType dimensions;
 
     /**
      * A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.
      */
-    protected String_ data;
+    protected StringType data;
 
-    private static final long serialVersionUID = 1739399349L;
+    private static final long serialVersionUID = 173820410L;
 
     public SampledData() {
       super();
     }
 
-    public SampledData(Quantity origin, Decimal period, Integer dimensions, String_ data) {
+    public SampledData(Quantity origin, DecimalType period, IntegerType dimensions, StringType data) {
       super();
       this.origin = origin;
       this.period = period;
@@ -106,14 +106,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #period} (The length of time between sampling times, measured in milliseconds.)
      */
-    public Decimal getPeriod() { 
+    public DecimalType getPeriod() { 
       return this.period;
     }
 
     /**
      * @param value {@link #period} (The length of time between sampling times, measured in milliseconds.)
      */
-    public SampledData setPeriod(Decimal value) { 
+    public SampledData setPeriod(DecimalType value) { 
       this.period = value;
       return this;
     }
@@ -130,7 +130,7 @@ public class SampledData extends Type {
      */
     public SampledData setPeriodSimple(BigDecimal value) { 
         if (this.period == null)
-          this.period = new Decimal();
+          this.period = new DecimalType();
         this.period.setValue(value);
       return this;
     }
@@ -138,14 +138,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #factor} (A correction factor that is applied to the sampled data points before they are added to the origin.)
      */
-    public Decimal getFactor() { 
+    public DecimalType getFactor() { 
       return this.factor;
     }
 
     /**
      * @param value {@link #factor} (A correction factor that is applied to the sampled data points before they are added to the origin.)
      */
-    public SampledData setFactor(Decimal value) { 
+    public SampledData setFactor(DecimalType value) { 
       this.factor = value;
       return this;
     }
@@ -165,7 +165,7 @@ public class SampledData extends Type {
         this.factor = null;
       else {
         if (this.factor == null)
-          this.factor = new Decimal();
+          this.factor = new DecimalType();
         this.factor.setValue(value);
       }
       return this;
@@ -174,14 +174,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #lowerLimit} (The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).)
      */
-    public Decimal getLowerLimit() { 
+    public DecimalType getLowerLimit() { 
       return this.lowerLimit;
     }
 
     /**
      * @param value {@link #lowerLimit} (The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).)
      */
-    public SampledData setLowerLimit(Decimal value) { 
+    public SampledData setLowerLimit(DecimalType value) { 
       this.lowerLimit = value;
       return this;
     }
@@ -201,7 +201,7 @@ public class SampledData extends Type {
         this.lowerLimit = null;
       else {
         if (this.lowerLimit == null)
-          this.lowerLimit = new Decimal();
+          this.lowerLimit = new DecimalType();
         this.lowerLimit.setValue(value);
       }
       return this;
@@ -210,14 +210,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #upperLimit} (The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).)
      */
-    public Decimal getUpperLimit() { 
+    public DecimalType getUpperLimit() { 
       return this.upperLimit;
     }
 
     /**
      * @param value {@link #upperLimit} (The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).)
      */
-    public SampledData setUpperLimit(Decimal value) { 
+    public SampledData setUpperLimit(DecimalType value) { 
       this.upperLimit = value;
       return this;
     }
@@ -237,7 +237,7 @@ public class SampledData extends Type {
         this.upperLimit = null;
       else {
         if (this.upperLimit == null)
-          this.upperLimit = new Decimal();
+          this.upperLimit = new DecimalType();
         this.upperLimit.setValue(value);
       }
       return this;
@@ -246,14 +246,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #dimensions} (The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.)
      */
-    public Integer getDimensions() { 
+    public IntegerType getDimensions() { 
       return this.dimensions;
     }
 
     /**
      * @param value {@link #dimensions} (The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.)
      */
-    public SampledData setDimensions(Integer value) { 
+    public SampledData setDimensions(IntegerType value) { 
       this.dimensions = value;
       return this;
     }
@@ -270,7 +270,7 @@ public class SampledData extends Type {
      */
     public SampledData setDimensionsSimple(int value) { 
         if (this.dimensions == null)
-          this.dimensions = new Integer();
+          this.dimensions = new IntegerType();
         this.dimensions.setValue(value);
       return this;
     }
@@ -278,14 +278,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #data} (A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.)
      */
-    public String_ getData() { 
+    public StringType getData() { 
       return this.data;
     }
 
     /**
      * @param value {@link #data} (A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.)
      */
-    public SampledData setData(String_ value) { 
+    public SampledData setData(StringType value) { 
       this.data = value;
       return this;
     }
@@ -302,7 +302,7 @@ public class SampledData extends Type {
      */
     public SampledData setDataSimple(String value) { 
         if (this.data == null)
-          this.data = new String_();
+          this.data = new StringType();
         this.data.setValue(value);
       return this;
     }

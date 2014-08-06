@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.Boolean;
+import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
@@ -19,7 +19,7 @@ import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.ResourceReference;
-import org.hl7.fhir.instance.model.String_;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
@@ -471,7 +471,7 @@ public class ProfileUtilities {
       dst.setRules(src.getRules().copy());
   }
 
-  private boolean orderMatches(Boolean diff, Boolean base) {
+  private boolean orderMatches(BooleanType diff, BooleanType base) {
     return (diff == null) || (base == null) || (diff == base);
   }
 
@@ -520,7 +520,7 @@ public class ProfileUtilities {
   }
 
   private boolean unbounded(ElementDefinitionComponent definition) {
-    String_ max = definition.getMax();
+    StringType max = definition.getMax();
     if (max == null)
       return false; // this is not valid
     if (max.getValue().equals("1"))
@@ -546,7 +546,7 @@ public class ProfileUtilities {
         dst.setComments(src.getComments().copy());
       if (src.getRequirements() != null)
         dst.setRequirements(src.getRequirements().copy());
-      for (String_ s : src.getSynonym()) {
+      for (StringType s : src.getSynonym()) {
         if (!dst.hasSynonymSimple(s.getValue()))
           dst.getSynonym().add(s.copy());
       }
@@ -661,7 +661,7 @@ public class ProfileUtilities {
   
   private String describeExtensionContext(ProfileExtensionDefnComponent ext) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-    for (String_ t : ext.getContext())
+    for (StringType t : ext.getContext())
       b.append(t.getValue());
     switch (ext.getContextTypeSimple()) {
     case datatype: return "Use on data type: "+b.toString();
@@ -674,8 +674,8 @@ public class ProfileUtilities {
   }
 
   private String describeCardinality(ElementDefinitionComponent definition, ElementDefinitionComponent fallback, UnusedTracker tracker) {
-    org.hl7.fhir.instance.model.Integer min = definition.getMin();
-    String_ max = definition.getMax();
+    org.hl7.fhir.instance.model.IntegerType min = definition.getMin();
+    StringType max = definition.getMax();
     if (min == null && fallback != null)
       min = fallback.getMin();
     if (max == null && fallback != null)

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ public class Contraindication extends Resource {
         /**
          * Indicates when the mitigating action was documented.
          */
-        protected DateTime date;
+        protected DateTimeType date;
 
         /**
          * Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.
@@ -59,7 +59,7 @@ public class Contraindication extends Resource {
          */
         protected Practitioner authorTarget;
 
-        private static final long serialVersionUID = -1866820616L;
+        private static final long serialVersionUID = -2022383266L;
 
       public ContraindicationMitigationComponent() {
         super();
@@ -88,14 +88,14 @@ public class Contraindication extends Resource {
         /**
          * @return {@link #date} (Indicates when the mitigating action was documented.)
          */
-        public DateTime getDate() { 
+        public DateTimeType getDate() { 
           return this.date;
         }
 
         /**
          * @param value {@link #date} (Indicates when the mitigating action was documented.)
          */
-        public ContraindicationMitigationComponent setDate(DateTime value) { 
+        public ContraindicationMitigationComponent setDate(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -115,7 +115,7 @@ public class Contraindication extends Resource {
             this.date = null;
           else {
             if (this.date == null)
-              this.date = new DateTime();
+              this.date = new DateTimeType();
             this.date.setValue(value);
           }
           return this;
@@ -186,7 +186,7 @@ public class Contraindication extends Resource {
     /**
      * Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
      */
-    protected Code severity;
+    protected CodeType severity;
 
     /**
      * Indicates the resource representing the current activity or proposed activity that.
@@ -201,12 +201,12 @@ public class Contraindication extends Resource {
     /**
      * A textual explanation of the contraindication.
      */
-    protected String_ detail;
+    protected StringType detail;
 
     /**
      * The date or date-time when the contraindication was initially identified.
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * Identifies the provider or software that identified the.
@@ -226,14 +226,14 @@ public class Contraindication extends Resource {
     /**
      * The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.
      */
-    protected Uri reference;
+    protected UriType reference;
 
     /**
      * Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
      */
     protected List<ContraindicationMitigationComponent> mitigation = new ArrayList<ContraindicationMitigationComponent>();
 
-    private static final long serialVersionUID = -1280900690L;
+    private static final long serialVersionUID = -709355231L;
 
     public Contraindication() {
       super();
@@ -287,14 +287,14 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.)
      */
-    public Code getSeverity() { 
+    public CodeType getSeverity() { 
       return this.severity;
     }
 
     /**
      * @param value {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.)
      */
-    public Contraindication setSeverity(Code value) { 
+    public Contraindication setSeverity(CodeType value) { 
       this.severity = value;
       return this;
     }
@@ -314,7 +314,7 @@ public class Contraindication extends Resource {
         this.severity = null;
       else {
         if (this.severity == null)
-          this.severity = new Code();
+          this.severity = new CodeType();
         this.severity.setValue(value);
       }
       return this;
@@ -347,14 +347,14 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #detail} (A textual explanation of the contraindication.)
      */
-    public String_ getDetail() { 
+    public StringType getDetail() { 
       return this.detail;
     }
 
     /**
      * @param value {@link #detail} (A textual explanation of the contraindication.)
      */
-    public Contraindication setDetail(String_ value) { 
+    public Contraindication setDetail(StringType value) { 
       this.detail = value;
       return this;
     }
@@ -374,7 +374,7 @@ public class Contraindication extends Resource {
         this.detail = null;
       else {
         if (this.detail == null)
-          this.detail = new String_();
+          this.detail = new StringType();
         this.detail.setValue(value);
       }
       return this;
@@ -383,14 +383,14 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #date} (The date or date-time when the contraindication was initially identified.)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date or date-time when the contraindication was initially identified.)
      */
-    public Contraindication setDate(DateTime value) { 
+    public Contraindication setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -410,7 +410,7 @@ public class Contraindication extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;
@@ -464,14 +464,14 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.)
      */
-    public Uri getReference() { 
+    public UriType getReference() { 
       return this.reference;
     }
 
     /**
      * @param value {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.)
      */
-    public Contraindication setReference(Uri value) { 
+    public Contraindication setReference(UriType value) { 
       this.reference = value;
       return this;
     }
@@ -491,7 +491,7 @@ public class Contraindication extends Resource {
         this.reference = null;
       else {
         if (this.reference == null)
-          this.reference = new Uri();
+          this.reference = new UriType();
         this.reference.setValue(value);
       }
       return this;

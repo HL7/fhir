@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -47,14 +47,14 @@ public class Substance extends Resource {
         /**
          * When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
          */
-        protected DateTime expiry;
+        protected DateTimeType expiry;
 
         /**
          * The amount of the substance.
          */
         protected Quantity quantity;
 
-        private static final long serialVersionUID = -95905434L;
+        private static final long serialVersionUID = -1474380480L;
 
       public SubstanceInstanceComponent() {
         super();
@@ -78,14 +78,14 @@ public class Substance extends Resource {
         /**
          * @return {@link #expiry} (When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.)
          */
-        public DateTime getExpiry() { 
+        public DateTimeType getExpiry() { 
           return this.expiry;
         }
 
         /**
          * @param value {@link #expiry} (When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.)
          */
-        public SubstanceInstanceComponent setExpiry(DateTime value) { 
+        public SubstanceInstanceComponent setExpiry(DateTimeType value) { 
           this.expiry = value;
           return this;
         }
@@ -105,7 +105,7 @@ public class Substance extends Resource {
             this.expiry = null;
           else {
             if (this.expiry == null)
-              this.expiry = new DateTime();
+              this.expiry = new DateTimeType();
             this.expiry.setValue(value);
           }
           return this;
@@ -238,7 +238,7 @@ public class Substance extends Resource {
     /**
      * A description of the substance - its appearance, handling requirements, and other usage notes.
      */
-    protected String_ description;
+    protected StringType description;
 
     /**
      * Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance.
@@ -250,7 +250,7 @@ public class Substance extends Resource {
      */
     protected List<SubstanceIngredientComponent> ingredient = new ArrayList<SubstanceIngredientComponent>();
 
-    private static final long serialVersionUID = -1020778180L;
+    private static final long serialVersionUID = -1024152127L;
 
     public Substance() {
       super();
@@ -279,14 +279,14 @@ public class Substance extends Resource {
     /**
      * @return {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.)
      */
-    public String_ getDescription() { 
+    public StringType getDescription() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.)
      */
-    public Substance setDescription(String_ value) { 
+    public Substance setDescription(StringType value) { 
       this.description = value;
       return this;
     }
@@ -306,7 +306,7 @@ public class Substance extends Resource {
         this.description = null;
       else {
         if (this.description == null)
-          this.description = new String_();
+          this.description = new StringType();
         this.description.setValue(value);
       }
       return this;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -41,45 +41,45 @@ public class Attachment extends Type {
     /**
      * Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
      */
-    protected Code contentType;
+    protected CodeType contentType;
 
     /**
      * The human language of the content. The value can be any valid value according to BCP 47.
      */
-    protected Code language;
+    protected CodeType language;
 
     /**
      * The actual data of the attachment - a sequence of bytes. In XML, represented using base64.
      */
-    protected Base64Binary data;
+    protected Base64BinaryType data;
 
     /**
      * An alternative location where the data can be accessed.
      */
-    protected Uri url;
+    protected UriType url;
 
     /**
      * The number of bytes of data that make up this attachment.
      */
-    protected Integer size;
+    protected IntegerType size;
 
     /**
      * The calculated hash of the data using SHA-1. Represented using base64.
      */
-    protected Base64Binary hash;
+    protected Base64BinaryType hash;
 
     /**
      * A label or set of text to display in place of the data.
      */
-    protected String_ title;
+    protected StringType title;
 
-    private static final long serialVersionUID = 1845468239L;
+    private static final long serialVersionUID = 483430116L;
 
     public Attachment() {
       super();
     }
 
-    public Attachment(Code contentType) {
+    public Attachment(CodeType contentType) {
       super();
       this.contentType = contentType;
     }
@@ -87,14 +87,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #contentType} (Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.)
      */
-    public Code getContentType() { 
+    public CodeType getContentType() { 
       return this.contentType;
     }
 
     /**
      * @param value {@link #contentType} (Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.)
      */
-    public Attachment setContentType(Code value) { 
+    public Attachment setContentType(CodeType value) { 
       this.contentType = value;
       return this;
     }
@@ -111,7 +111,7 @@ public class Attachment extends Type {
      */
     public Attachment setContentTypeSimple(String value) { 
         if (this.contentType == null)
-          this.contentType = new Code();
+          this.contentType = new CodeType();
         this.contentType.setValue(value);
       return this;
     }
@@ -119,14 +119,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #language} (The human language of the content. The value can be any valid value according to BCP 47.)
      */
-    public Code getLanguage() { 
+    public CodeType getLanguage() { 
       return this.language;
     }
 
     /**
      * @param value {@link #language} (The human language of the content. The value can be any valid value according to BCP 47.)
      */
-    public Attachment setLanguage(Code value) { 
+    public Attachment setLanguage(CodeType value) { 
       this.language = value;
       return this;
     }
@@ -146,7 +146,7 @@ public class Attachment extends Type {
         this.language = null;
       else {
         if (this.language == null)
-          this.language = new Code();
+          this.language = new CodeType();
         this.language.setValue(value);
       }
       return this;
@@ -155,14 +155,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #data} (The actual data of the attachment - a sequence of bytes. In XML, represented using base64.)
      */
-    public Base64Binary getData() { 
+    public Base64BinaryType getData() { 
       return this.data;
     }
 
     /**
      * @param value {@link #data} (The actual data of the attachment - a sequence of bytes. In XML, represented using base64.)
      */
-    public Attachment setData(Base64Binary value) { 
+    public Attachment setData(Base64BinaryType value) { 
       this.data = value;
       return this;
     }
@@ -182,7 +182,7 @@ public class Attachment extends Type {
         this.data = null;
       else {
         if (this.data == null)
-          this.data = new Base64Binary();
+          this.data = new Base64BinaryType();
         this.data.setValue(value);
       }
       return this;
@@ -191,14 +191,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #url} (An alternative location where the data can be accessed.)
      */
-    public Uri getUrl() { 
+    public UriType getUrl() { 
       return this.url;
     }
 
     /**
      * @param value {@link #url} (An alternative location where the data can be accessed.)
      */
-    public Attachment setUrl(Uri value) { 
+    public Attachment setUrl(UriType value) { 
       this.url = value;
       return this;
     }
@@ -218,7 +218,7 @@ public class Attachment extends Type {
         this.url = null;
       else {
         if (this.url == null)
-          this.url = new Uri();
+          this.url = new UriType();
         this.url.setValue(value);
       }
       return this;
@@ -227,14 +227,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #size} (The number of bytes of data that make up this attachment.)
      */
-    public Integer getSize() { 
+    public IntegerType getSize() { 
       return this.size;
     }
 
     /**
      * @param value {@link #size} (The number of bytes of data that make up this attachment.)
      */
-    public Attachment setSize(Integer value) { 
+    public Attachment setSize(IntegerType value) { 
       this.size = value;
       return this;
     }
@@ -254,7 +254,7 @@ public class Attachment extends Type {
         this.size = null;
       else {
         if (this.size == null)
-          this.size = new Integer();
+          this.size = new IntegerType();
         this.size.setValue(value);
       }
       return this;
@@ -263,14 +263,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #hash} (The calculated hash of the data using SHA-1. Represented using base64.)
      */
-    public Base64Binary getHash() { 
+    public Base64BinaryType getHash() { 
       return this.hash;
     }
 
     /**
      * @param value {@link #hash} (The calculated hash of the data using SHA-1. Represented using base64.)
      */
-    public Attachment setHash(Base64Binary value) { 
+    public Attachment setHash(Base64BinaryType value) { 
       this.hash = value;
       return this;
     }
@@ -290,7 +290,7 @@ public class Attachment extends Type {
         this.hash = null;
       else {
         if (this.hash == null)
-          this.hash = new Base64Binary();
+          this.hash = new Base64BinaryType();
         this.hash.setValue(value);
       }
       return this;
@@ -299,14 +299,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #title} (A label or set of text to display in place of the data.)
      */
-    public String_ getTitle() { 
+    public StringType getTitle() { 
       return this.title;
     }
 
     /**
      * @param value {@link #title} (A label or set of text to display in place of the data.)
      */
-    public Attachment setTitle(String_ value) { 
+    public Attachment setTitle(StringType value) { 
       this.title = value;
       return this;
     }
@@ -326,7 +326,7 @@ public class Attachment extends Type {
         this.title = null;
       else {
         if (this.title == null)
-          this.title = new String_();
+          this.title = new StringType();
         this.title.setValue(value);
       }
       return this;

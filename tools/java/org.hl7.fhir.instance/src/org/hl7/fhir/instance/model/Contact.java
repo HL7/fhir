@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -170,7 +170,7 @@ public class Contact extends Type {
     /**
      * The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
      */
-    protected String_ value;
+    protected StringType value;
 
     /**
      * Identifies the purpose for the address.
@@ -182,7 +182,7 @@ public class Contact extends Type {
      */
     protected Period period;
 
-    private static final long serialVersionUID = 1897894773L;
+    private static final long serialVersionUID = 1117502294L;
 
     public Contact() {
       super();
@@ -227,14 +227,14 @@ public class Contact extends Type {
     /**
      * @return {@link #value} (The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).)
      */
-    public String_ getValue() { 
+    public StringType getValue() { 
       return this.value;
     }
 
     /**
      * @param value {@link #value} (The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).)
      */
-    public Contact setValue(String_ value) { 
+    public Contact setValue(StringType value) { 
       this.value = value;
       return this;
     }
@@ -254,7 +254,7 @@ public class Contact extends Type {
         this.value = null;
       else {
         if (this.value == null)
-          this.value = new String_();
+          this.value = new StringType();
         this.value.setValue(value);
       }
       return this;

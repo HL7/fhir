@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -135,25 +135,25 @@ public class Location extends Resource {
         /**
          * Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
          */
-        protected Decimal longitude;
+        protected DecimalType longitude;
 
         /**
          * Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
          */
-        protected Decimal latitude;
+        protected DecimalType latitude;
 
         /**
          * Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
          */
-        protected Decimal altitude;
+        protected DecimalType altitude;
 
-        private static final long serialVersionUID = -1232709324L;
+        private static final long serialVersionUID = -74276134L;
 
       public LocationPositionComponent() {
         super();
       }
 
-      public LocationPositionComponent(Decimal longitude, Decimal latitude) {
+      public LocationPositionComponent(DecimalType longitude, DecimalType latitude) {
         super();
         this.longitude = longitude;
         this.latitude = latitude;
@@ -162,14 +162,14 @@ public class Location extends Resource {
         /**
          * @return {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).)
          */
-        public Decimal getLongitude() { 
+        public DecimalType getLongitude() { 
           return this.longitude;
         }
 
         /**
          * @param value {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).)
          */
-        public LocationPositionComponent setLongitude(Decimal value) { 
+        public LocationPositionComponent setLongitude(DecimalType value) { 
           this.longitude = value;
           return this;
         }
@@ -186,7 +186,7 @@ public class Location extends Resource {
          */
         public LocationPositionComponent setLongitudeSimple(BigDecimal value) { 
             if (this.longitude == null)
-              this.longitude = new Decimal();
+              this.longitude = new DecimalType();
             this.longitude.setValue(value);
           return this;
         }
@@ -194,14 +194,14 @@ public class Location extends Resource {
         /**
          * @return {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).)
          */
-        public Decimal getLatitude() { 
+        public DecimalType getLatitude() { 
           return this.latitude;
         }
 
         /**
          * @param value {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).)
          */
-        public LocationPositionComponent setLatitude(Decimal value) { 
+        public LocationPositionComponent setLatitude(DecimalType value) { 
           this.latitude = value;
           return this;
         }
@@ -218,7 +218,7 @@ public class Location extends Resource {
          */
         public LocationPositionComponent setLatitudeSimple(BigDecimal value) { 
             if (this.latitude == null)
-              this.latitude = new Decimal();
+              this.latitude = new DecimalType();
             this.latitude.setValue(value);
           return this;
         }
@@ -226,14 +226,14 @@ public class Location extends Resource {
         /**
          * @return {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).)
          */
-        public Decimal getAltitude() { 
+        public DecimalType getAltitude() { 
           return this.altitude;
         }
 
         /**
          * @param value {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).)
          */
-        public LocationPositionComponent setAltitude(Decimal value) { 
+        public LocationPositionComponent setAltitude(DecimalType value) { 
           this.altitude = value;
           return this;
         }
@@ -253,7 +253,7 @@ public class Location extends Resource {
             this.altitude = null;
           else {
             if (this.altitude == null)
-              this.altitude = new Decimal();
+              this.altitude = new DecimalType();
             this.altitude.setValue(value);
           }
           return this;
@@ -284,12 +284,12 @@ public class Location extends Resource {
     /**
      * Name of the location as used by humans. Does not need to be unique.
      */
-    protected String_ name;
+    protected StringType name;
 
     /**
      * Description of the Location, which helps in finding or referencing the place.
      */
-    protected String_ description;
+    protected StringType description;
 
     /**
      * Indicates the type of function performed at the location.
@@ -346,7 +346,7 @@ public class Location extends Resource {
      */
     protected Enumeration<LocationMode> mode;
 
-    private static final long serialVersionUID = -390679052L;
+    private static final long serialVersionUID = 1099672064L;
 
     public Location() {
       super();
@@ -372,14 +372,14 @@ public class Location extends Resource {
     /**
      * @return {@link #name} (Name of the location as used by humans. Does not need to be unique.)
      */
-    public String_ getName() { 
+    public StringType getName() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (Name of the location as used by humans. Does not need to be unique.)
      */
-    public Location setName(String_ value) { 
+    public Location setName(StringType value) { 
       this.name = value;
       return this;
     }
@@ -399,7 +399,7 @@ public class Location extends Resource {
         this.name = null;
       else {
         if (this.name == null)
-          this.name = new String_();
+          this.name = new StringType();
         this.name.setValue(value);
       }
       return this;
@@ -408,14 +408,14 @@ public class Location extends Resource {
     /**
      * @return {@link #description} (Description of the Location, which helps in finding or referencing the place.)
      */
-    public String_ getDescription() { 
+    public StringType getDescription() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Description of the Location, which helps in finding or referencing the place.)
      */
-    public Location setDescription(String_ value) { 
+    public Location setDescription(StringType value) { 
       this.description = value;
       return this;
     }
@@ -435,7 +435,7 @@ public class Location extends Resource {
         this.description = null;
       else {
         if (this.description == null)
-          this.description = new String_();
+          this.description = new StringType();
         this.description.setValue(value);
       }
       return this;

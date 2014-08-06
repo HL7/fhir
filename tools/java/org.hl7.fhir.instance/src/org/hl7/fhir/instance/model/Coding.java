@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -41,27 +41,27 @@ public class Coding extends Type {
     /**
      * The identification of the code system that defines the meaning of the symbol in the code.
      */
-    protected Uri system;
+    protected UriType system;
 
     /**
      * The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.
      */
-    protected String_ version;
+    protected StringType version;
 
     /**
      * A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).
      */
-    protected Code code;
+    protected CodeType code;
 
     /**
      * A representation of the meaning of the code in the system, following the rules of the system.
      */
-    protected String_ display;
+    protected StringType display;
 
     /**
      * Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).
      */
-    protected Boolean primary;
+    protected BooleanType primary;
 
     /**
      * The set of possible coded values this coding was chosen from or constrained by.
@@ -73,7 +73,7 @@ public class Coding extends Type {
      */
     protected ValueSet valueSetTarget;
 
-    private static final long serialVersionUID = 895670592L;
+    private static final long serialVersionUID = -2106166442L;
 
     public Coding() {
       super();
@@ -82,14 +82,14 @@ public class Coding extends Type {
     /**
      * @return {@link #system} (The identification of the code system that defines the meaning of the symbol in the code.)
      */
-    public Uri getSystem() { 
+    public UriType getSystem() { 
       return this.system;
     }
 
     /**
      * @param value {@link #system} (The identification of the code system that defines the meaning of the symbol in the code.)
      */
-    public Coding setSystem(Uri value) { 
+    public Coding setSystem(UriType value) { 
       this.system = value;
       return this;
     }
@@ -109,7 +109,7 @@ public class Coding extends Type {
         this.system = null;
       else {
         if (this.system == null)
-          this.system = new Uri();
+          this.system = new UriType();
         this.system.setValue(value);
       }
       return this;
@@ -118,14 +118,14 @@ public class Coding extends Type {
     /**
      * @return {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.)
      */
-    public String_ getVersion() { 
+    public StringType getVersion() { 
       return this.version;
     }
 
     /**
      * @param value {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.)
      */
-    public Coding setVersion(String_ value) { 
+    public Coding setVersion(StringType value) { 
       this.version = value;
       return this;
     }
@@ -145,7 +145,7 @@ public class Coding extends Type {
         this.version = null;
       else {
         if (this.version == null)
-          this.version = new String_();
+          this.version = new StringType();
         this.version.setValue(value);
       }
       return this;
@@ -154,14 +154,14 @@ public class Coding extends Type {
     /**
      * @return {@link #code} (A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).)
      */
-    public Code getCode() { 
+    public CodeType getCode() { 
       return this.code;
     }
 
     /**
      * @param value {@link #code} (A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).)
      */
-    public Coding setCode(Code value) { 
+    public Coding setCode(CodeType value) { 
       this.code = value;
       return this;
     }
@@ -181,7 +181,7 @@ public class Coding extends Type {
         this.code = null;
       else {
         if (this.code == null)
-          this.code = new Code();
+          this.code = new CodeType();
         this.code.setValue(value);
       }
       return this;
@@ -190,14 +190,14 @@ public class Coding extends Type {
     /**
      * @return {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.)
      */
-    public String_ getDisplay() { 
+    public StringType getDisplay() { 
       return this.display;
     }
 
     /**
      * @param value {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.)
      */
-    public Coding setDisplay(String_ value) { 
+    public Coding setDisplay(StringType value) { 
       this.display = value;
       return this;
     }
@@ -217,7 +217,7 @@ public class Coding extends Type {
         this.display = null;
       else {
         if (this.display == null)
-          this.display = new String_();
+          this.display = new StringType();
         this.display.setValue(value);
       }
       return this;
@@ -226,14 +226,14 @@ public class Coding extends Type {
     /**
      * @return {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).)
      */
-    public Boolean getPrimary() { 
+    public BooleanType getPrimary() { 
       return this.primary;
     }
 
     /**
      * @param value {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).)
      */
-    public Coding setPrimary(Boolean value) { 
+    public Coding setPrimary(BooleanType value) { 
       this.primary = value;
       return this;
     }
@@ -253,7 +253,7 @@ public class Coding extends Type {
         this.primary = null;
       else {
         if (this.primary == null)
-          this.primary = new Boolean();
+          this.primary = new BooleanType();
         this.primary.setValue(value);
       }
       return this;

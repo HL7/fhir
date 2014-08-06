@@ -370,7 +370,7 @@ public class CCDAConverter {
 			pr.getIdentifier().add(convert.makeIdentifierFromII(e));
 		for (Element e : cda.getChildren(aa, "addr"))
 			if (pr.getAddress() == null)
-				pr.setAddress(convert.makeAddressFromAD(e));
+				pr.getAddress().add(convert.makeAddressFromAD(e));
 		for (Element e : cda.getChildren(aa, "telecom"))
 			pr.getTelecom().add(convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(ap, "name"))
@@ -393,7 +393,7 @@ public class CCDAConverter {
 			pr.getIdentifier().add(convert.makeIdentifierFromII(e));
 		for (Element e : cda.getChildren(ass, "addr"))
 			if (pr.getAddress() == null) // just take the first
-				pr.setAddress(convert.makeAddressFromAD(e));
+				pr.getAddress().add(convert.makeAddressFromAD(e));
 		for (Element e : cda.getChildren(ass, "telecom"))
 			pr.getTelecom().add(convert.makeContactFromTEL(e));
 		Element ap = cda.getChild(ass, "assignedPerson");
@@ -572,7 +572,7 @@ public class CCDAConverter {
 	  l.setType(convert.makeCodeableConceptFromCD(cda.getChild(participantRole, "code")));
 	  for (Element id : cda.getChildren(participantRole, "id")) {
 	  	if (l.getIdentifier() == null) 
-	  	  l.setIdentifier(convert.makeIdentifierFromII(id));
+	  	  l.getIdentifier().add(convert.makeIdentifierFromII(id));
 	  }
 	  for (Element addr : cda.getChildren(participantRole, "addr")) {
 	  	if (l.getAddress() == null) 
@@ -657,7 +657,7 @@ public class CCDAConverter {
 		  addToIdList(p.getIdentifier(), convert.makeIdentifierFromII(e));
 		for (Element e : cda.getChildren(assignedEntity, "addr")) 
 		  if (p.getAddress() == null) 
-		    p.setAddress(convert.makeAddressFromAD(e));
+		    p.getAddress().add(convert.makeAddressFromAD(e));
 		for (Element e : cda.getChildren(assignedEntity, "telecom")) 
 		  addToContactList(p.getTelecom(), convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(cda.getChild(assignedEntity, "assignedPerson"), "name")) 

@@ -26,54 +26,49 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-/**
- * 
- */
+
 package org.hl7.fhir.instance.model;
 
 /**
- * Primitive type "instant" in FHIR: a value date time with a known timezone
- * @author Grahame
- *
+ * Primitive type "dateTime" in FHIR: any day in a gregorian calendar, along with the time in a 24hour clock, and possibly a timezone
  */
-public class Instant extends PrimitiveType {
+public class DateTimeType extends PrimitiveType {
 
-  private static final long serialVersionUID = -2336693958779190094L;
+  private static final long serialVersionUID = 7592289953733558372L;
 	/**
-	 * The value for the instant
+	 * The value of the dateTime
 	 */
 	private DateAndTime value;
 
 	/**
-	 * @return the instant
+	 * @return The value of the dateTime
 	 */
 	public DateAndTime getValue() {
 		return value;
 	}
 
 	/**
-	 * @param value the instant
+	 * @param value The value of the dateTime
 	 */
 	public void setValue(DateAndTime value) {
 		this.value = value;
-	} 
+	}
+	
+	@Override
+  public DateTimeType copy() {
+		DateTimeType dst = new DateTimeType();
+		dst.value = value;
+		return dst;
+	}
+	
 	@Override
   protected Type typedCopy() {
 		return copy();
 	}
-	@Override
-  public Instant copy() {
-		Instant dst = new Instant();
-		dst.value = value;
-		return dst;
-	}
-
-	public String getStringValue() {
-	  return value == null ? null : value.toString();
-  }
 
   @Override
   public String asStringValue() {
-    return value.toString();
+    return value.toString();  
   }
+
 }

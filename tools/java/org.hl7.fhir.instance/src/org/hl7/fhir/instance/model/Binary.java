@@ -7,7 +7,7 @@ public class Binary extends Resource {
 
   private static final long serialVersionUID = -5374982878067063027L;
 
-  @Override
+	@Override
   public ResourceType getResourceType() {
     return ResourceType.Binary;
   }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -100,7 +100,7 @@ public class Quantity extends Type {
     /**
      * The value of the measured amount. The value includes an implicit precision in the presentation of the value.
      */
-    protected Decimal value;
+    protected DecimalType value;
 
     /**
      * How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.
@@ -110,19 +110,19 @@ public class Quantity extends Type {
     /**
      * A human-readable form of the units.
      */
-    protected String_ units;
+    protected StringType units;
 
     /**
      * The identification of the system that provides the coded form of the unit.
      */
-    protected Uri system;
+    protected UriType system;
 
     /**
      * A computer processable form of the units in some unit representation system.
      */
-    protected Code code;
+    protected CodeType code;
 
-    private static final long serialVersionUID = 1053308848L;
+    private static final long serialVersionUID = -483422721L;
 
     public Quantity() {
       super();
@@ -131,14 +131,14 @@ public class Quantity extends Type {
     /**
      * @return {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.)
      */
-    public Decimal getValue() { 
+    public DecimalType getValue() { 
       return this.value;
     }
 
     /**
      * @param value {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.)
      */
-    public Quantity setValue(Decimal value) { 
+    public Quantity setValue(DecimalType value) { 
       this.value = value;
       return this;
     }
@@ -158,7 +158,7 @@ public class Quantity extends Type {
         this.value = null;
       else {
         if (this.value == null)
-          this.value = new Decimal();
+          this.value = new DecimalType();
         this.value.setValue(value);
       }
       return this;
@@ -203,14 +203,14 @@ public class Quantity extends Type {
     /**
      * @return {@link #units} (A human-readable form of the units.)
      */
-    public String_ getUnits() { 
+    public StringType getUnits() { 
       return this.units;
     }
 
     /**
      * @param value {@link #units} (A human-readable form of the units.)
      */
-    public Quantity setUnits(String_ value) { 
+    public Quantity setUnits(StringType value) { 
       this.units = value;
       return this;
     }
@@ -230,7 +230,7 @@ public class Quantity extends Type {
         this.units = null;
       else {
         if (this.units == null)
-          this.units = new String_();
+          this.units = new StringType();
         this.units.setValue(value);
       }
       return this;
@@ -239,14 +239,14 @@ public class Quantity extends Type {
     /**
      * @return {@link #system} (The identification of the system that provides the coded form of the unit.)
      */
-    public Uri getSystem() { 
+    public UriType getSystem() { 
       return this.system;
     }
 
     /**
      * @param value {@link #system} (The identification of the system that provides the coded form of the unit.)
      */
-    public Quantity setSystem(Uri value) { 
+    public Quantity setSystem(UriType value) { 
       this.system = value;
       return this;
     }
@@ -266,7 +266,7 @@ public class Quantity extends Type {
         this.system = null;
       else {
         if (this.system == null)
-          this.system = new Uri();
+          this.system = new UriType();
         this.system.setValue(value);
       }
       return this;
@@ -275,14 +275,14 @@ public class Quantity extends Type {
     /**
      * @return {@link #code} (A computer processable form of the units in some unit representation system.)
      */
-    public Code getCode() { 
+    public CodeType getCode() { 
       return this.code;
     }
 
     /**
      * @param value {@link #code} (A computer processable form of the units in some unit representation system.)
      */
-    public Quantity setCode(Code value) { 
+    public Quantity setCode(CodeType value) { 
       this.code = value;
       return this;
     }
@@ -302,7 +302,7 @@ public class Quantity extends Type {
         this.code = null;
       else {
         if (this.code == null)
-          this.code = new Code();
+          this.code = new CodeType();
         this.code.setValue(value);
       }
       return this;

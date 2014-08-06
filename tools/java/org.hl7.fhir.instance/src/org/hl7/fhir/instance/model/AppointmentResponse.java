@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -150,17 +150,17 @@ public class AppointmentResponse extends Resource {
     /**
      * Additional comments about the appointment.
      */
-    protected String_ comment;
+    protected StringType comment;
 
     /**
      * Date/Time that the appointment is to take place.
      */
-    protected Instant start;
+    protected InstantType start;
 
     /**
      * Date/Time that the appointment is to conclude.
      */
-    protected Instant end;
+    protected InstantType end;
 
     /**
      * Who recorded the appointment response.
@@ -175,9 +175,9 @@ public class AppointmentResponse extends Resource {
     /**
      * Date when the response was recorded or last updated.
      */
-    protected DateTime lastModified;
+    protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = -833070985L;
+    private static final long serialVersionUID = -11983044L;
 
     public AppointmentResponse() {
       super();
@@ -312,14 +312,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #comment} (Additional comments about the appointment.)
      */
-    public String_ getComment() { 
+    public StringType getComment() { 
       return this.comment;
     }
 
     /**
      * @param value {@link #comment} (Additional comments about the appointment.)
      */
-    public AppointmentResponse setComment(String_ value) { 
+    public AppointmentResponse setComment(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -339,7 +339,7 @@ public class AppointmentResponse extends Resource {
         this.comment = null;
       else {
         if (this.comment == null)
-          this.comment = new String_();
+          this.comment = new StringType();
         this.comment.setValue(value);
       }
       return this;
@@ -348,14 +348,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #start} (Date/Time that the appointment is to take place.)
      */
-    public Instant getStart() { 
+    public InstantType getStart() { 
       return this.start;
     }
 
     /**
      * @param value {@link #start} (Date/Time that the appointment is to take place.)
      */
-    public AppointmentResponse setStart(Instant value) { 
+    public AppointmentResponse setStart(InstantType value) { 
       this.start = value;
       return this;
     }
@@ -375,7 +375,7 @@ public class AppointmentResponse extends Resource {
         this.start = null;
       else {
         if (this.start == null)
-          this.start = new Instant();
+          this.start = new InstantType();
         this.start.setValue(value);
       }
       return this;
@@ -384,14 +384,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #end} (Date/Time that the appointment is to conclude.)
      */
-    public Instant getEnd() { 
+    public InstantType getEnd() { 
       return this.end;
     }
 
     /**
      * @param value {@link #end} (Date/Time that the appointment is to conclude.)
      */
-    public AppointmentResponse setEnd(Instant value) { 
+    public AppointmentResponse setEnd(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -411,7 +411,7 @@ public class AppointmentResponse extends Resource {
         this.end = null;
       else {
         if (this.end == null)
-          this.end = new Instant();
+          this.end = new InstantType();
         this.end.setValue(value);
       }
       return this;
@@ -450,14 +450,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #lastModified} (Date when the response was recorded or last updated.)
      */
-    public DateTime getLastModified() { 
+    public DateTimeType getLastModified() { 
       return this.lastModified;
     }
 
     /**
      * @param value {@link #lastModified} (Date when the response was recorded or last updated.)
      */
-    public AppointmentResponse setLastModified(DateTime value) { 
+    public AppointmentResponse setLastModified(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }
@@ -477,7 +477,7 @@ public class AppointmentResponse extends Resource {
         this.lastModified = null;
       else {
         if (this.lastModified == null)
-          this.lastModified = new DateTime();
+          this.lastModified = new DateTimeType();
         this.lastModified.setValue(value);
       }
       return this;

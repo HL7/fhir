@@ -28,35 +28,36 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
+import org.hl7.fhir.instance.formats.FormatUtilities;
+
 /**
- * Primitive type "code" in FHIR, when not bound to an enumerated list of codes
+ * Primitive type "base64Binary" in FHIR: a sequence of bytes represented in base64
  */
-public class Code extends PrimitiveType {
+public class Base64BinaryType extends PrimitiveType {
 
-  private static final long serialVersionUID = 5312948828142916756L;
+  private static final long serialVersionUID = 6170198697716842056L;
 	/**
-	 * The value of the code
+	 * The byte content in the base64Binary
 	 */
-	private String value;
+	private byte[] value;
 
 	/**
-	 * @return The value of the code
+	 * @return The byte content in the base64Binary
 	 */
-	public String getValue() {
+	public byte[] getValue() {
 		return value;
 	}
 
 	/**
-	 * @param value The value of the code
+	 * @param value The byte content in the base64Binary
 	 */
-	public Code setValue(String value) {
+	public void setValue(byte[] value) {
 		this.value = value;
-		return this;
 	}
 	
 	@Override
-  public Code copy() {
-		Code dst = new Code();
+  public Base64BinaryType copy() {
+		Base64BinaryType dst = new Base64BinaryType();
 		dst.value = value;
 		return dst;
 	}
@@ -66,9 +67,12 @@ public class Code extends PrimitiveType {
 		return copy();
 	}
 
-  @Override
-  public String asStringValue() {
-    return value;
+	public String getStringValue() {
+	  return FormatUtilities.toString(value);
   }
 
+  @Override
+  public String asStringValue() {
+    return new String(value);
+  }
 }

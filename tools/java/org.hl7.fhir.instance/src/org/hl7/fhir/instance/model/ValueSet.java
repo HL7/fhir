@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -166,30 +166,30 @@ public class ValueSet extends Resource {
         /**
          * URI to identify the code system.
          */
-        protected Uri system;
+        protected UriType system;
 
         /**
          * The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.
          */
-        protected String_ version;
+        protected StringType version;
 
         /**
          * If code comparison is case sensitive when codes within this system are compared to each other.
          */
-        protected Boolean caseSensitive;
+        protected BooleanType caseSensitive;
 
         /**
          * Concepts in the code system.
          */
         protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
 
-        private static final long serialVersionUID = -765551162L;
+        private static final long serialVersionUID = 819436673L;
 
       public ValueSetDefineComponent() {
         super();
       }
 
-      public ValueSetDefineComponent(Uri system) {
+      public ValueSetDefineComponent(UriType system) {
         super();
         this.system = system;
       }
@@ -197,14 +197,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #system} (URI to identify the code system.)
          */
-        public Uri getSystem() { 
+        public UriType getSystem() { 
           return this.system;
         }
 
         /**
          * @param value {@link #system} (URI to identify the code system.)
          */
-        public ValueSetDefineComponent setSystem(Uri value) { 
+        public ValueSetDefineComponent setSystem(UriType value) { 
           this.system = value;
           return this;
         }
@@ -221,7 +221,7 @@ public class ValueSet extends Resource {
          */
         public ValueSetDefineComponent setSystemSimple(String value) { 
             if (this.system == null)
-              this.system = new Uri();
+              this.system = new UriType();
             this.system.setValue(value);
           return this;
         }
@@ -229,14 +229,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #version} (The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.)
          */
-        public String_ getVersion() { 
+        public StringType getVersion() { 
           return this.version;
         }
 
         /**
          * @param value {@link #version} (The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.)
          */
-        public ValueSetDefineComponent setVersion(String_ value) { 
+        public ValueSetDefineComponent setVersion(StringType value) { 
           this.version = value;
           return this;
         }
@@ -256,7 +256,7 @@ public class ValueSet extends Resource {
             this.version = null;
           else {
             if (this.version == null)
-              this.version = new String_();
+              this.version = new StringType();
             this.version.setValue(value);
           }
           return this;
@@ -265,14 +265,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #caseSensitive} (If code comparison is case sensitive when codes within this system are compared to each other.)
          */
-        public Boolean getCaseSensitive() { 
+        public BooleanType getCaseSensitive() { 
           return this.caseSensitive;
         }
 
         /**
          * @param value {@link #caseSensitive} (If code comparison is case sensitive when codes within this system are compared to each other.)
          */
-        public ValueSetDefineComponent setCaseSensitive(Boolean value) { 
+        public ValueSetDefineComponent setCaseSensitive(BooleanType value) { 
           this.caseSensitive = value;
           return this;
         }
@@ -292,7 +292,7 @@ public class ValueSet extends Resource {
             this.caseSensitive = null;
           else {
             if (this.caseSensitive == null)
-              this.caseSensitive = new Boolean();
+              this.caseSensitive = new BooleanType();
             this.caseSensitive.setValue(value);
           }
           return this;
@@ -340,35 +340,35 @@ public class ValueSet extends Resource {
         /**
          * Code that identifies concept.
          */
-        protected Code code;
+        protected CodeType code;
 
         /**
          * If this code is not for use as a real concept.
          */
-        protected Boolean abstract_;
+        protected BooleanType abstract_;
 
         /**
          * Text to Display to the user.
          */
-        protected String_ display;
+        protected StringType display;
 
         /**
          * The formal definition of the concept. Formal definitions are not required, because of the prevalence of legacy systems without them, but they are highly recommended, as without them there is no formal meaning associated with the concept.
          */
-        protected String_ definition;
+        protected StringType definition;
 
         /**
          * Child Concepts (is-a / contains).
          */
         protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
 
-        private static final long serialVersionUID = 1309528529L;
+        private static final long serialVersionUID = -1870725379L;
 
       public ValueSetDefineConceptComponent() {
         super();
       }
 
-      public ValueSetDefineConceptComponent(Code code) {
+      public ValueSetDefineConceptComponent(CodeType code) {
         super();
         this.code = code;
       }
@@ -376,14 +376,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #code} (Code that identifies concept.)
          */
-        public Code getCode() { 
+        public CodeType getCode() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (Code that identifies concept.)
          */
-        public ValueSetDefineConceptComponent setCode(Code value) { 
+        public ValueSetDefineConceptComponent setCode(CodeType value) { 
           this.code = value;
           return this;
         }
@@ -400,7 +400,7 @@ public class ValueSet extends Resource {
          */
         public ValueSetDefineConceptComponent setCodeSimple(String value) { 
             if (this.code == null)
-              this.code = new Code();
+              this.code = new CodeType();
             this.code.setValue(value);
           return this;
         }
@@ -408,14 +408,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #abstract_} (If this code is not for use as a real concept.)
          */
-        public Boolean getAbstract() { 
+        public BooleanType getAbstract() { 
           return this.abstract_;
         }
 
         /**
          * @param value {@link #abstract_} (If this code is not for use as a real concept.)
          */
-        public ValueSetDefineConceptComponent setAbstract(Boolean value) { 
+        public ValueSetDefineConceptComponent setAbstract(BooleanType value) { 
           this.abstract_ = value;
           return this;
         }
@@ -435,7 +435,7 @@ public class ValueSet extends Resource {
             this.abstract_ = null;
           else {
             if (this.abstract_ == null)
-              this.abstract_ = new Boolean();
+              this.abstract_ = new BooleanType();
             this.abstract_.setValue(value);
           }
           return this;
@@ -444,14 +444,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #display} (Text to Display to the user.)
          */
-        public String_ getDisplay() { 
+        public StringType getDisplay() { 
           return this.display;
         }
 
         /**
          * @param value {@link #display} (Text to Display to the user.)
          */
-        public ValueSetDefineConceptComponent setDisplay(String_ value) { 
+        public ValueSetDefineConceptComponent setDisplay(StringType value) { 
           this.display = value;
           return this;
         }
@@ -471,7 +471,7 @@ public class ValueSet extends Resource {
             this.display = null;
           else {
             if (this.display == null)
-              this.display = new String_();
+              this.display = new StringType();
             this.display.setValue(value);
           }
           return this;
@@ -480,14 +480,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #definition} (The formal definition of the concept. Formal definitions are not required, because of the prevalence of legacy systems without them, but they are highly recommended, as without them there is no formal meaning associated with the concept.)
          */
-        public String_ getDefinition() { 
+        public StringType getDefinition() { 
           return this.definition;
         }
 
         /**
          * @param value {@link #definition} (The formal definition of the concept. Formal definitions are not required, because of the prevalence of legacy systems without them, but they are highly recommended, as without them there is no formal meaning associated with the concept.)
          */
-        public ValueSetDefineConceptComponent setDefinition(String_ value) { 
+        public ValueSetDefineConceptComponent setDefinition(StringType value) { 
           this.definition = value;
           return this;
         }
@@ -507,7 +507,7 @@ public class ValueSet extends Resource {
             this.definition = null;
           else {
             if (this.definition == null)
-              this.definition = new String_();
+              this.definition = new StringType();
             this.definition.setValue(value);
           }
           return this;
@@ -557,7 +557,7 @@ public class ValueSet extends Resource {
         /**
          * Includes the contents of the referenced value set as a part of the contents of this value set.
          */
-        protected List<Uri> import_ = new ArrayList<Uri>();
+        protected List<UriType> import_ = new ArrayList<UriType>();
 
         /**
          * Include one or more codes from a code system.
@@ -569,7 +569,7 @@ public class ValueSet extends Resource {
          */
         protected List<ConceptSetComponent> exclude = new ArrayList<ConceptSetComponent>();
 
-        private static final long serialVersionUID = 356024839L;
+        private static final long serialVersionUID = 1784534855L;
 
       public ValueSetComposeComponent() {
         super();
@@ -578,7 +578,7 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
          */
-        public List<Uri> getImport() { 
+        public List<UriType> getImport() { 
           return this.import_;
         }
 
@@ -586,8 +586,8 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
          */
-        public Uri addImport() { 
-          Uri t = new Uri();
+        public UriType addImport() { 
+          UriType t = new UriType();
           this.import_.add(t);
           return t;
         }
@@ -595,8 +595,8 @@ public class ValueSet extends Resource {
         /**
          * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
          */
-        public Uri addImportSimple(String value) { 
-          Uri t = new Uri();
+        public UriType addImportSimple(String value) { 
+          UriType t = new UriType();
           t.setValue(value);
           this.import_.add(t);
           return t;
@@ -606,7 +606,7 @@ public class ValueSet extends Resource {
          * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
          */
         public boolean hasImportSimple(String value) { 
-          for (Uri v : this.import_)
+          for (UriType v : this.import_)
             if (v.getValue().equals(value))
               return true;
           return false;
@@ -655,8 +655,8 @@ public class ValueSet extends Resource {
 
       public ValueSetComposeComponent copy() {
         ValueSetComposeComponent dst = new ValueSetComposeComponent();
-        dst.import_ = new ArrayList<Uri>();
-        for (Uri i : import_)
+        dst.import_ = new ArrayList<UriType>();
+        for (UriType i : import_)
           dst.import_.add(i.copy());
         dst.include = new ArrayList<ConceptSetComponent>();
         for (ConceptSetComponent i : include)
@@ -673,30 +673,30 @@ public class ValueSet extends Resource {
         /**
          * The code system from which the selected codes come from.
          */
-        protected Uri system;
+        protected UriType system;
 
         /**
          * The version of the code system that the codes are selected from.
          */
-        protected String_ version;
+        protected StringType version;
 
         /**
          * Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.
          */
-        protected List<Code> code = new ArrayList<Code>();
+        protected List<CodeType> code = new ArrayList<CodeType>();
 
         /**
          * Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.
          */
         protected List<ConceptSetFilterComponent> filter = new ArrayList<ConceptSetFilterComponent>();
 
-        private static final long serialVersionUID = 1973470338L;
+        private static final long serialVersionUID = -1360238143L;
 
       public ConceptSetComponent() {
         super();
       }
 
-      public ConceptSetComponent(Uri system) {
+      public ConceptSetComponent(UriType system) {
         super();
         this.system = system;
       }
@@ -704,14 +704,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #system} (The code system from which the selected codes come from.)
          */
-        public Uri getSystem() { 
+        public UriType getSystem() { 
           return this.system;
         }
 
         /**
          * @param value {@link #system} (The code system from which the selected codes come from.)
          */
-        public ConceptSetComponent setSystem(Uri value) { 
+        public ConceptSetComponent setSystem(UriType value) { 
           this.system = value;
           return this;
         }
@@ -728,7 +728,7 @@ public class ValueSet extends Resource {
          */
         public ConceptSetComponent setSystemSimple(String value) { 
             if (this.system == null)
-              this.system = new Uri();
+              this.system = new UriType();
             this.system.setValue(value);
           return this;
         }
@@ -736,14 +736,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #version} (The version of the code system that the codes are selected from.)
          */
-        public String_ getVersion() { 
+        public StringType getVersion() { 
           return this.version;
         }
 
         /**
          * @param value {@link #version} (The version of the code system that the codes are selected from.)
          */
-        public ConceptSetComponent setVersion(String_ value) { 
+        public ConceptSetComponent setVersion(StringType value) { 
           this.version = value;
           return this;
         }
@@ -763,7 +763,7 @@ public class ValueSet extends Resource {
             this.version = null;
           else {
             if (this.version == null)
-              this.version = new String_();
+              this.version = new StringType();
             this.version.setValue(value);
           }
           return this;
@@ -772,7 +772,7 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
          */
-        public List<Code> getCode() { 
+        public List<CodeType> getCode() { 
           return this.code;
         }
 
@@ -780,8 +780,8 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
          */
-        public Code addCode() { 
-          Code t = new Code();
+        public CodeType addCode() { 
+          CodeType t = new CodeType();
           this.code.add(t);
           return t;
         }
@@ -789,8 +789,8 @@ public class ValueSet extends Resource {
         /**
          * @param value {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
          */
-        public Code addCodeSimple(String value) { 
-          Code t = new Code();
+        public CodeType addCodeSimple(String value) { 
+          CodeType t = new CodeType();
           t.setValue(value);
           this.code.add(t);
           return t;
@@ -800,7 +800,7 @@ public class ValueSet extends Resource {
          * @param value {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
          */
         public boolean hasCodeSimple(String value) { 
-          for (Code v : this.code)
+          for (CodeType v : this.code)
             if (v.getValue().equals(value))
               return true;
           return false;
@@ -835,8 +835,8 @@ public class ValueSet extends Resource {
         ConceptSetComponent dst = new ConceptSetComponent();
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
-        dst.code = new ArrayList<Code>();
-        for (Code i : code)
+        dst.code = new ArrayList<CodeType>();
+        for (CodeType i : code)
           dst.code.add(i.copy());
         dst.filter = new ArrayList<ConceptSetFilterComponent>();
         for (ConceptSetFilterComponent i : filter)
@@ -850,7 +850,7 @@ public class ValueSet extends Resource {
         /**
          * A code that identifies a property defined in the code system.
          */
-        protected Code property;
+        protected CodeType property;
 
         /**
          * The kind of operation to perform as a part of the filter criteria.
@@ -860,15 +860,15 @@ public class ValueSet extends Resource {
         /**
          * The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.
          */
-        protected Code value;
+        protected CodeType value;
 
-        private static final long serialVersionUID = 858937144L;
+        private static final long serialVersionUID = 1985515000L;
 
       public ConceptSetFilterComponent() {
         super();
       }
 
-      public ConceptSetFilterComponent(Code property, Enumeration<FilterOperator> op, Code value) {
+      public ConceptSetFilterComponent(CodeType property, Enumeration<FilterOperator> op, CodeType value) {
         super();
         this.property = property;
         this.op = op;
@@ -878,14 +878,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #property} (A code that identifies a property defined in the code system.)
          */
-        public Code getProperty() { 
+        public CodeType getProperty() { 
           return this.property;
         }
 
         /**
          * @param value {@link #property} (A code that identifies a property defined in the code system.)
          */
-        public ConceptSetFilterComponent setProperty(Code value) { 
+        public ConceptSetFilterComponent setProperty(CodeType value) { 
           this.property = value;
           return this;
         }
@@ -902,7 +902,7 @@ public class ValueSet extends Resource {
          */
         public ConceptSetFilterComponent setPropertySimple(String value) { 
             if (this.property == null)
-              this.property = new Code();
+              this.property = new CodeType();
             this.property.setValue(value);
           return this;
         }
@@ -942,14 +942,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #value} (The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.)
          */
-        public Code getValue() { 
+        public CodeType getValue() { 
           return this.value;
         }
 
         /**
          * @param value {@link #value} (The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.)
          */
-        public ConceptSetFilterComponent setValue(Code value) { 
+        public ConceptSetFilterComponent setValue(CodeType value) { 
           this.value = value;
           return this;
         }
@@ -966,7 +966,7 @@ public class ValueSet extends Resource {
          */
         public ConceptSetFilterComponent setValueSimple(String value) { 
             if (this.value == null)
-              this.value = new Code();
+              this.value = new CodeType();
             this.value.setValue(value);
           return this;
         }
@@ -997,20 +997,20 @@ public class ValueSet extends Resource {
         /**
          * Time valueset expansion happened.
          */
-        protected Instant timestamp;
+        protected InstantType timestamp;
 
         /**
          * Codes in the value set.
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
-        private static final long serialVersionUID = -812038031L;
+        private static final long serialVersionUID = 1886819543L;
 
       public ValueSetExpansionComponent() {
         super();
       }
 
-      public ValueSetExpansionComponent(Instant timestamp) {
+      public ValueSetExpansionComponent(InstantType timestamp) {
         super();
         this.timestamp = timestamp;
       }
@@ -1033,14 +1033,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #timestamp} (Time valueset expansion happened.)
          */
-        public Instant getTimestamp() { 
+        public InstantType getTimestamp() { 
           return this.timestamp;
         }
 
         /**
          * @param value {@link #timestamp} (Time valueset expansion happened.)
          */
-        public ValueSetExpansionComponent setTimestamp(Instant value) { 
+        public ValueSetExpansionComponent setTimestamp(InstantType value) { 
           this.timestamp = value;
           return this;
         }
@@ -1057,7 +1057,7 @@ public class ValueSet extends Resource {
          */
         public ValueSetExpansionComponent setTimestampSimple(DateAndTime value) { 
             if (this.timestamp == null)
-              this.timestamp = new Instant();
+              this.timestamp = new InstantType();
             this.timestamp.setValue(value);
           return this;
         }
@@ -1102,24 +1102,24 @@ public class ValueSet extends Resource {
         /**
          * System value for the code.
          */
-        protected Uri system;
+        protected UriType system;
 
         /**
          * Code - if blank, this is not a choosable code.
          */
-        protected Code code;
+        protected CodeType code;
 
         /**
          * User display for the concept.
          */
-        protected String_ display;
+        protected StringType display;
 
         /**
          * Codes contained in this concept.
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
-        private static final long serialVersionUID = 856171675L;
+        private static final long serialVersionUID = 1346310636L;
 
       public ValueSetExpansionContainsComponent() {
         super();
@@ -1128,14 +1128,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #system} (System value for the code.)
          */
-        public Uri getSystem() { 
+        public UriType getSystem() { 
           return this.system;
         }
 
         /**
          * @param value {@link #system} (System value for the code.)
          */
-        public ValueSetExpansionContainsComponent setSystem(Uri value) { 
+        public ValueSetExpansionContainsComponent setSystem(UriType value) { 
           this.system = value;
           return this;
         }
@@ -1155,7 +1155,7 @@ public class ValueSet extends Resource {
             this.system = null;
           else {
             if (this.system == null)
-              this.system = new Uri();
+              this.system = new UriType();
             this.system.setValue(value);
           }
           return this;
@@ -1164,14 +1164,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #code} (Code - if blank, this is not a choosable code.)
          */
-        public Code getCode() { 
+        public CodeType getCode() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (Code - if blank, this is not a choosable code.)
          */
-        public ValueSetExpansionContainsComponent setCode(Code value) { 
+        public ValueSetExpansionContainsComponent setCode(CodeType value) { 
           this.code = value;
           return this;
         }
@@ -1191,7 +1191,7 @@ public class ValueSet extends Resource {
             this.code = null;
           else {
             if (this.code == null)
-              this.code = new Code();
+              this.code = new CodeType();
             this.code.setValue(value);
           }
           return this;
@@ -1200,14 +1200,14 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #display} (User display for the concept.)
          */
-        public String_ getDisplay() { 
+        public StringType getDisplay() { 
           return this.display;
         }
 
         /**
          * @param value {@link #display} (User display for the concept.)
          */
-        public ValueSetExpansionContainsComponent setDisplay(String_ value) { 
+        public ValueSetExpansionContainsComponent setDisplay(StringType value) { 
           this.display = value;
           return this;
         }
@@ -1227,7 +1227,7 @@ public class ValueSet extends Resource {
             this.display = null;
           else {
             if (this.display == null)
-              this.display = new String_();
+              this.display = new StringType();
             this.display.setValue(value);
           }
           return this;
@@ -1274,32 +1274,32 @@ public class ValueSet extends Resource {
     /**
      * The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
-    protected String_ identifier;
+    protected StringType identifier;
 
     /**
      * The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    protected String_ version;
+    protected StringType version;
 
     /**
      * A free text natural language name describing the value set.
      */
-    protected String_ name;
+    protected StringType name;
 
     /**
      * This should describe "the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
      */
-    protected String_ purpose;
+    protected StringType purpose;
 
     /**
      * If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
      */
-    protected Boolean immutable;
+    protected BooleanType immutable;
 
     /**
      * The name of the individual or organization that published the value set.
      */
-    protected String_ publisher;
+    protected StringType publisher;
 
     /**
      * Contacts of the publisher to assist a user in finding and communicating with the publisher.
@@ -1309,12 +1309,12 @@ public class ValueSet extends Resource {
     /**
      * A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.
      */
-    protected String_ description;
+    protected StringType description;
 
     /**
      * A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.
      */
-    protected String_ copyright;
+    protected StringType copyright;
 
     /**
      * The status of the value set.
@@ -1324,22 +1324,22 @@ public class ValueSet extends Resource {
     /**
      * This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    protected Boolean experimental;
+    protected BooleanType experimental;
 
     /**
      * Whether this is intended to be used with an extensible binding or not.
      */
-    protected Boolean extensible;
+    protected BooleanType extensible;
 
     /**
      * The date that the value set status was last changed.
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.
      */
-    protected Date stableDate;
+    protected DateType stableDate;
 
     /**
      * When value set defines its own codes.
@@ -1356,13 +1356,13 @@ public class ValueSet extends Resource {
      */
     protected ValueSetExpansionComponent expansion;
 
-    private static final long serialVersionUID = 73381886L;
+    private static final long serialVersionUID = -1172765595L;
 
     public ValueSet() {
       super();
     }
 
-    public ValueSet(String_ name, String_ description, Enumeration<ValuesetStatus> status) {
+    public ValueSet(StringType name, StringType description, Enumeration<ValuesetStatus> status) {
       super();
       this.name = name;
       this.description = description;
@@ -1372,14 +1372,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #identifier} (The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
      */
-    public String_ getIdentifier() { 
+    public StringType getIdentifier() { 
       return this.identifier;
     }
 
     /**
      * @param value {@link #identifier} (The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
      */
-    public ValueSet setIdentifier(String_ value) { 
+    public ValueSet setIdentifier(StringType value) { 
       this.identifier = value;
       return this;
     }
@@ -1399,7 +1399,7 @@ public class ValueSet extends Resource {
         this.identifier = null;
       else {
         if (this.identifier == null)
-          this.identifier = new String_();
+          this.identifier = new StringType();
         this.identifier.setValue(value);
       }
       return this;
@@ -1408,14 +1408,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.)
      */
-    public String_ getVersion() { 
+    public StringType getVersion() { 
       return this.version;
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.)
      */
-    public ValueSet setVersion(String_ value) { 
+    public ValueSet setVersion(StringType value) { 
       this.version = value;
       return this;
     }
@@ -1435,7 +1435,7 @@ public class ValueSet extends Resource {
         this.version = null;
       else {
         if (this.version == null)
-          this.version = new String_();
+          this.version = new StringType();
         this.version.setValue(value);
       }
       return this;
@@ -1444,14 +1444,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #name} (A free text natural language name describing the value set.)
      */
-    public String_ getName() { 
+    public StringType getName() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (A free text natural language name describing the value set.)
      */
-    public ValueSet setName(String_ value) { 
+    public ValueSet setName(StringType value) { 
       this.name = value;
       return this;
     }
@@ -1468,7 +1468,7 @@ public class ValueSet extends Resource {
      */
     public ValueSet setNameSimple(String value) { 
         if (this.name == null)
-          this.name = new String_();
+          this.name = new StringType();
         this.name.setValue(value);
       return this;
     }
@@ -1476,14 +1476,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #purpose} (This should describe "the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.)
      */
-    public String_ getPurpose() { 
+    public StringType getPurpose() { 
       return this.purpose;
     }
 
     /**
      * @param value {@link #purpose} (This should describe "the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.)
      */
-    public ValueSet setPurpose(String_ value) { 
+    public ValueSet setPurpose(StringType value) { 
       this.purpose = value;
       return this;
     }
@@ -1503,7 +1503,7 @@ public class ValueSet extends Resource {
         this.purpose = null;
       else {
         if (this.purpose == null)
-          this.purpose = new String_();
+          this.purpose = new StringType();
         this.purpose.setValue(value);
       }
       return this;
@@ -1512,14 +1512,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #immutable} (If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.)
      */
-    public Boolean getImmutable() { 
+    public BooleanType getImmutable() { 
       return this.immutable;
     }
 
     /**
      * @param value {@link #immutable} (If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.)
      */
-    public ValueSet setImmutable(Boolean value) { 
+    public ValueSet setImmutable(BooleanType value) { 
       this.immutable = value;
       return this;
     }
@@ -1539,7 +1539,7 @@ public class ValueSet extends Resource {
         this.immutable = null;
       else {
         if (this.immutable == null)
-          this.immutable = new Boolean();
+          this.immutable = new BooleanType();
         this.immutable.setValue(value);
       }
       return this;
@@ -1548,14 +1548,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the value set.)
      */
-    public String_ getPublisher() { 
+    public StringType getPublisher() { 
       return this.publisher;
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the value set.)
      */
-    public ValueSet setPublisher(String_ value) { 
+    public ValueSet setPublisher(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -1575,7 +1575,7 @@ public class ValueSet extends Resource {
         this.publisher = null;
       else {
         if (this.publisher == null)
-          this.publisher = new String_();
+          this.publisher = new StringType();
         this.publisher.setValue(value);
       }
       return this;
@@ -1601,14 +1601,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #description} (A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.)
      */
-    public String_ getDescription() { 
+    public StringType getDescription() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.)
      */
-    public ValueSet setDescription(String_ value) { 
+    public ValueSet setDescription(StringType value) { 
       this.description = value;
       return this;
     }
@@ -1625,7 +1625,7 @@ public class ValueSet extends Resource {
      */
     public ValueSet setDescriptionSimple(String value) { 
         if (this.description == null)
-          this.description = new String_();
+          this.description = new StringType();
         this.description.setValue(value);
       return this;
     }
@@ -1633,14 +1633,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #copyright} (A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.)
      */
-    public String_ getCopyright() { 
+    public StringType getCopyright() { 
       return this.copyright;
     }
 
     /**
      * @param value {@link #copyright} (A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.)
      */
-    public ValueSet setCopyright(String_ value) { 
+    public ValueSet setCopyright(StringType value) { 
       this.copyright = value;
       return this;
     }
@@ -1660,7 +1660,7 @@ public class ValueSet extends Resource {
         this.copyright = null;
       else {
         if (this.copyright == null)
-          this.copyright = new String_();
+          this.copyright = new StringType();
         this.copyright.setValue(value);
       }
       return this;
@@ -1701,14 +1701,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #experimental} (This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.)
      */
-    public Boolean getExperimental() { 
+    public BooleanType getExperimental() { 
       return this.experimental;
     }
 
     /**
      * @param value {@link #experimental} (This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.)
      */
-    public ValueSet setExperimental(Boolean value) { 
+    public ValueSet setExperimental(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -1728,7 +1728,7 @@ public class ValueSet extends Resource {
         this.experimental = null;
       else {
         if (this.experimental == null)
-          this.experimental = new Boolean();
+          this.experimental = new BooleanType();
         this.experimental.setValue(value);
       }
       return this;
@@ -1737,14 +1737,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #extensible} (Whether this is intended to be used with an extensible binding or not.)
      */
-    public Boolean getExtensible() { 
+    public BooleanType getExtensible() { 
       return this.extensible;
     }
 
     /**
      * @param value {@link #extensible} (Whether this is intended to be used with an extensible binding or not.)
      */
-    public ValueSet setExtensible(Boolean value) { 
+    public ValueSet setExtensible(BooleanType value) { 
       this.extensible = value;
       return this;
     }
@@ -1764,7 +1764,7 @@ public class ValueSet extends Resource {
         this.extensible = null;
       else {
         if (this.extensible == null)
-          this.extensible = new Boolean();
+          this.extensible = new BooleanType();
         this.extensible.setValue(value);
       }
       return this;
@@ -1773,14 +1773,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #date} (The date that the value set status was last changed.)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date that the value set status was last changed.)
      */
-    public ValueSet setDate(DateTime value) { 
+    public ValueSet setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -1800,7 +1800,7 @@ public class ValueSet extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;
@@ -1809,14 +1809,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #stableDate} (If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.)
      */
-    public Date getStableDate() { 
+    public DateType getStableDate() { 
       return this.stableDate;
     }
 
     /**
      * @param value {@link #stableDate} (If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.)
      */
-    public ValueSet setStableDate(Date value) { 
+    public ValueSet setStableDate(DateType value) { 
       this.stableDate = value;
       return this;
     }
@@ -1836,7 +1836,7 @@ public class ValueSet extends Resource {
         this.stableDate = null;
       else {
         if (this.stableDate == null)
-          this.stableDate = new Date();
+          this.stableDate = new DateType();
         this.stableDate.setValue(value);
       }
       return this;

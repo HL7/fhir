@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -128,34 +128,34 @@ public class HumanName extends Type {
     /**
      * A full text representation of the name.
      */
-    protected String_ text;
+    protected StringType text;
 
     /**
      * The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
      */
-    protected List<String_> family = new ArrayList<String_>();
+    protected List<StringType> family = new ArrayList<StringType>();
 
     /**
      * Given name.
      */
-    protected List<String_> given = new ArrayList<String_>();
+    protected List<StringType> given = new ArrayList<StringType>();
 
     /**
      * Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.
      */
-    protected List<String_> prefix = new ArrayList<String_>();
+    protected List<StringType> prefix = new ArrayList<StringType>();
 
     /**
      * Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.
      */
-    protected List<String_> suffix = new ArrayList<String_>();
+    protected List<StringType> suffix = new ArrayList<StringType>();
 
     /**
      * Indicates the period of time when this name was valid for the named person.
      */
     protected Period period;
 
-    private static final long serialVersionUID = -1691515899L;
+    private static final long serialVersionUID = -512452810L;
 
     public HumanName() {
       super();
@@ -200,14 +200,14 @@ public class HumanName extends Type {
     /**
      * @return {@link #text} (A full text representation of the name.)
      */
-    public String_ getText() { 
+    public StringType getText() { 
       return this.text;
     }
 
     /**
      * @param value {@link #text} (A full text representation of the name.)
      */
-    public HumanName setText(String_ value) { 
+    public HumanName setText(StringType value) { 
       this.text = value;
       return this;
     }
@@ -227,7 +227,7 @@ public class HumanName extends Type {
         this.text = null;
       else {
         if (this.text == null)
-          this.text = new String_();
+          this.text = new StringType();
         this.text.setValue(value);
       }
       return this;
@@ -236,7 +236,7 @@ public class HumanName extends Type {
     /**
      * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
-    public List<String_> getFamily() { 
+    public List<StringType> getFamily() { 
       return this.family;
     }
 
@@ -244,8 +244,8 @@ public class HumanName extends Type {
     /**
      * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
-    public String_ addFamily() { 
-      String_ t = new String_();
+    public StringType addFamily() { 
+      StringType t = new StringType();
       this.family.add(t);
       return t;
     }
@@ -253,8 +253,8 @@ public class HumanName extends Type {
     /**
      * @param value {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
-    public String_ addFamilySimple(String value) { 
-      String_ t = new String_();
+    public StringType addFamilySimple(String value) { 
+      StringType t = new StringType();
       t.setValue(value);
       this.family.add(t);
       return t;
@@ -264,7 +264,7 @@ public class HumanName extends Type {
      * @param value {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
     public boolean hasFamilySimple(String value) { 
-      for (String_ v : this.family)
+      for (StringType v : this.family)
         if (v.getValue().equals(value))
           return true;
       return false;
@@ -273,7 +273,7 @@ public class HumanName extends Type {
     /**
      * @return {@link #given} (Given name.)
      */
-    public List<String_> getGiven() { 
+    public List<StringType> getGiven() { 
       return this.given;
     }
 
@@ -281,8 +281,8 @@ public class HumanName extends Type {
     /**
      * @return {@link #given} (Given name.)
      */
-    public String_ addGiven() { 
-      String_ t = new String_();
+    public StringType addGiven() { 
+      StringType t = new StringType();
       this.given.add(t);
       return t;
     }
@@ -290,8 +290,8 @@ public class HumanName extends Type {
     /**
      * @param value {@link #given} (Given name.)
      */
-    public String_ addGivenSimple(String value) { 
-      String_ t = new String_();
+    public StringType addGivenSimple(String value) { 
+      StringType t = new StringType();
       t.setValue(value);
       this.given.add(t);
       return t;
@@ -301,7 +301,7 @@ public class HumanName extends Type {
      * @param value {@link #given} (Given name.)
      */
     public boolean hasGivenSimple(String value) { 
-      for (String_ v : this.given)
+      for (StringType v : this.given)
         if (v.getValue().equals(value))
           return true;
       return false;
@@ -310,7 +310,7 @@ public class HumanName extends Type {
     /**
      * @return {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
-    public List<String_> getPrefix() { 
+    public List<StringType> getPrefix() { 
       return this.prefix;
     }
 
@@ -318,8 +318,8 @@ public class HumanName extends Type {
     /**
      * @return {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
-    public String_ addPrefix() { 
-      String_ t = new String_();
+    public StringType addPrefix() { 
+      StringType t = new StringType();
       this.prefix.add(t);
       return t;
     }
@@ -327,8 +327,8 @@ public class HumanName extends Type {
     /**
      * @param value {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
-    public String_ addPrefixSimple(String value) { 
-      String_ t = new String_();
+    public StringType addPrefixSimple(String value) { 
+      StringType t = new StringType();
       t.setValue(value);
       this.prefix.add(t);
       return t;
@@ -338,7 +338,7 @@ public class HumanName extends Type {
      * @param value {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
     public boolean hasPrefixSimple(String value) { 
-      for (String_ v : this.prefix)
+      for (StringType v : this.prefix)
         if (v.getValue().equals(value))
           return true;
       return false;
@@ -347,7 +347,7 @@ public class HumanName extends Type {
     /**
      * @return {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
-    public List<String_> getSuffix() { 
+    public List<StringType> getSuffix() { 
       return this.suffix;
     }
 
@@ -355,8 +355,8 @@ public class HumanName extends Type {
     /**
      * @return {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
-    public String_ addSuffix() { 
-      String_ t = new String_();
+    public StringType addSuffix() { 
+      StringType t = new StringType();
       this.suffix.add(t);
       return t;
     }
@@ -364,8 +364,8 @@ public class HumanName extends Type {
     /**
      * @param value {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
-    public String_ addSuffixSimple(String value) { 
-      String_ t = new String_();
+    public StringType addSuffixSimple(String value) { 
+      StringType t = new StringType();
       t.setValue(value);
       this.suffix.add(t);
       return t;
@@ -375,7 +375,7 @@ public class HumanName extends Type {
      * @param value {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
     public boolean hasSuffixSimple(String value) { 
-      for (String_ v : this.suffix)
+      for (StringType v : this.suffix)
         if (v.getValue().equals(value))
           return true;
       return false;
@@ -411,17 +411,17 @@ public class HumanName extends Type {
         HumanName dst = new HumanName();
         dst.use = use == null ? null : use.copy();
         dst.text = text == null ? null : text.copy();
-        dst.family = new ArrayList<String_>();
-        for (String_ i : family)
+        dst.family = new ArrayList<StringType>();
+        for (StringType i : family)
           dst.family.add(i.copy());
-        dst.given = new ArrayList<String_>();
-        for (String_ i : given)
+        dst.given = new ArrayList<StringType>();
+        for (StringType i : given)
           dst.given.add(i.copy());
-        dst.prefix = new ArrayList<String_>();
-        for (String_ i : prefix)
+        dst.prefix = new ArrayList<StringType>();
+        for (StringType i : prefix)
           dst.prefix.add(i.copy());
-        dst.suffix = new ArrayList<String_>();
-        for (String_ i : suffix)
+        dst.suffix = new ArrayList<StringType>();
+        for (StringType i : suffix)
           dst.suffix.add(i.copy());
         dst.period = period == null ? null : period.copy();
         return dst;

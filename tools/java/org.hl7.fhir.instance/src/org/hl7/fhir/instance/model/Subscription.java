@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -171,25 +171,25 @@ public class Subscription extends Resource {
         /**
          * Todo.
          */
-        protected Uri url;
+        protected UriType url;
 
         /**
          * ToDo.
          */
-        protected String_ payload;
+        protected StringType payload;
 
         /**
          * Usage depends on the channel type.
          */
-        protected String_ header;
+        protected StringType header;
 
-        private static final long serialVersionUID = -1450483897L;
+        private static final long serialVersionUID = 904575965L;
 
       public SubscriptionChannelComponent() {
         super();
       }
 
-      public SubscriptionChannelComponent(Enumeration<SubscriptionChannelType> type, String_ payload) {
+      public SubscriptionChannelComponent(Enumeration<SubscriptionChannelType> type, StringType payload) {
         super();
         this.type = type;
         this.payload = payload;
@@ -230,14 +230,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #url} (Todo.)
          */
-        public Uri getUrl() { 
+        public UriType getUrl() { 
           return this.url;
         }
 
         /**
          * @param value {@link #url} (Todo.)
          */
-        public SubscriptionChannelComponent setUrl(Uri value) { 
+        public SubscriptionChannelComponent setUrl(UriType value) { 
           this.url = value;
           return this;
         }
@@ -257,7 +257,7 @@ public class Subscription extends Resource {
             this.url = null;
           else {
             if (this.url == null)
-              this.url = new Uri();
+              this.url = new UriType();
             this.url.setValue(value);
           }
           return this;
@@ -266,14 +266,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #payload} (ToDo.)
          */
-        public String_ getPayload() { 
+        public StringType getPayload() { 
           return this.payload;
         }
 
         /**
          * @param value {@link #payload} (ToDo.)
          */
-        public SubscriptionChannelComponent setPayload(String_ value) { 
+        public SubscriptionChannelComponent setPayload(StringType value) { 
           this.payload = value;
           return this;
         }
@@ -290,7 +290,7 @@ public class Subscription extends Resource {
          */
         public SubscriptionChannelComponent setPayloadSimple(String value) { 
             if (this.payload == null)
-              this.payload = new String_();
+              this.payload = new StringType();
             this.payload.setValue(value);
           return this;
         }
@@ -298,14 +298,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #header} (Usage depends on the channel type.)
          */
-        public String_ getHeader() { 
+        public StringType getHeader() { 
           return this.header;
         }
 
         /**
          * @param value {@link #header} (Usage depends on the channel type.)
          */
-        public SubscriptionChannelComponent setHeader(String_ value) { 
+        public SubscriptionChannelComponent setHeader(StringType value) { 
           this.header = value;
           return this;
         }
@@ -325,7 +325,7 @@ public class Subscription extends Resource {
             this.header = null;
           else {
             if (this.header == null)
-              this.header = new String_();
+              this.header = new StringType();
             this.header.setValue(value);
           }
           return this;
@@ -354,25 +354,25 @@ public class Subscription extends Resource {
         /**
          * Todo.
          */
-        protected Uri term;
+        protected UriType term;
 
         /**
          * Todo.
          */
-        protected Uri scheme;
+        protected UriType scheme;
 
         /**
          * Todo.
          */
-        protected String_ description;
+        protected StringType description;
 
-        private static final long serialVersionUID = 289225799L;
+        private static final long serialVersionUID = 957833176L;
 
       public SubscriptionTagComponent() {
         super();
       }
 
-      public SubscriptionTagComponent(Uri term, Uri scheme) {
+      public SubscriptionTagComponent(UriType term, UriType scheme) {
         super();
         this.term = term;
         this.scheme = scheme;
@@ -381,14 +381,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #term} (Todo.)
          */
-        public Uri getTerm() { 
+        public UriType getTerm() { 
           return this.term;
         }
 
         /**
          * @param value {@link #term} (Todo.)
          */
-        public SubscriptionTagComponent setTerm(Uri value) { 
+        public SubscriptionTagComponent setTerm(UriType value) { 
           this.term = value;
           return this;
         }
@@ -405,7 +405,7 @@ public class Subscription extends Resource {
          */
         public SubscriptionTagComponent setTermSimple(String value) { 
             if (this.term == null)
-              this.term = new Uri();
+              this.term = new UriType();
             this.term.setValue(value);
           return this;
         }
@@ -413,14 +413,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #scheme} (Todo.)
          */
-        public Uri getScheme() { 
+        public UriType getScheme() { 
           return this.scheme;
         }
 
         /**
          * @param value {@link #scheme} (Todo.)
          */
-        public SubscriptionTagComponent setScheme(Uri value) { 
+        public SubscriptionTagComponent setScheme(UriType value) { 
           this.scheme = value;
           return this;
         }
@@ -437,7 +437,7 @@ public class Subscription extends Resource {
          */
         public SubscriptionTagComponent setSchemeSimple(String value) { 
             if (this.scheme == null)
-              this.scheme = new Uri();
+              this.scheme = new UriType();
             this.scheme.setValue(value);
           return this;
         }
@@ -445,14 +445,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #description} (Todo.)
          */
-        public String_ getDescription() { 
+        public StringType getDescription() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Todo.)
          */
-        public SubscriptionTagComponent setDescription(String_ value) { 
+        public SubscriptionTagComponent setDescription(StringType value) { 
           this.description = value;
           return this;
         }
@@ -472,7 +472,7 @@ public class Subscription extends Resource {
             this.description = null;
           else {
             if (this.description == null)
-              this.description = new String_();
+              this.description = new StringType();
             this.description.setValue(value);
           }
           return this;
@@ -498,7 +498,7 @@ public class Subscription extends Resource {
     /**
      * Todo.
      */
-    protected String_ criteria;
+    protected StringType criteria;
 
     /**
      * Todo.
@@ -508,7 +508,7 @@ public class Subscription extends Resource {
     /**
      * Todo.
      */
-    protected String_ reason;
+    protected StringType reason;
 
     /**
      * Todo.
@@ -518,7 +518,7 @@ public class Subscription extends Resource {
     /**
      * Todo.
      */
-    protected String_ error;
+    protected StringType error;
 
     /**
      * Todo.
@@ -528,20 +528,20 @@ public class Subscription extends Resource {
     /**
      * Todo.
      */
-    protected Instant end;
+    protected InstantType end;
 
     /**
      * Todo.
      */
     protected List<SubscriptionTagComponent> tag = new ArrayList<SubscriptionTagComponent>();
 
-    private static final long serialVersionUID = -1645996685L;
+    private static final long serialVersionUID = -831258768L;
 
     public Subscription() {
       super();
     }
 
-    public Subscription(String_ criteria, String_ reason, Enumeration<SubscriptionStatus> status, SubscriptionChannelComponent channel) {
+    public Subscription(StringType criteria, StringType reason, Enumeration<SubscriptionStatus> status, SubscriptionChannelComponent channel) {
       super();
       this.criteria = criteria;
       this.reason = reason;
@@ -552,14 +552,14 @@ public class Subscription extends Resource {
     /**
      * @return {@link #criteria} (Todo.)
      */
-    public String_ getCriteria() { 
+    public StringType getCriteria() { 
       return this.criteria;
     }
 
     /**
      * @param value {@link #criteria} (Todo.)
      */
-    public Subscription setCriteria(String_ value) { 
+    public Subscription setCriteria(StringType value) { 
       this.criteria = value;
       return this;
     }
@@ -576,7 +576,7 @@ public class Subscription extends Resource {
      */
     public Subscription setCriteriaSimple(String value) { 
         if (this.criteria == null)
-          this.criteria = new String_();
+          this.criteria = new StringType();
         this.criteria.setValue(value);
       return this;
     }
@@ -601,14 +601,14 @@ public class Subscription extends Resource {
     /**
      * @return {@link #reason} (Todo.)
      */
-    public String_ getReason() { 
+    public StringType getReason() { 
       return this.reason;
     }
 
     /**
      * @param value {@link #reason} (Todo.)
      */
-    public Subscription setReason(String_ value) { 
+    public Subscription setReason(StringType value) { 
       this.reason = value;
       return this;
     }
@@ -625,7 +625,7 @@ public class Subscription extends Resource {
      */
     public Subscription setReasonSimple(String value) { 
         if (this.reason == null)
-          this.reason = new String_();
+          this.reason = new StringType();
         this.reason.setValue(value);
       return this;
     }
@@ -665,14 +665,14 @@ public class Subscription extends Resource {
     /**
      * @return {@link #error} (Todo.)
      */
-    public String_ getError() { 
+    public StringType getError() { 
       return this.error;
     }
 
     /**
      * @param value {@link #error} (Todo.)
      */
-    public Subscription setError(String_ value) { 
+    public Subscription setError(StringType value) { 
       this.error = value;
       return this;
     }
@@ -692,7 +692,7 @@ public class Subscription extends Resource {
         this.error = null;
       else {
         if (this.error == null)
-          this.error = new String_();
+          this.error = new StringType();
         this.error.setValue(value);
       }
       return this;
@@ -716,14 +716,14 @@ public class Subscription extends Resource {
     /**
      * @return {@link #end} (Todo.)
      */
-    public Instant getEnd() { 
+    public InstantType getEnd() { 
       return this.end;
     }
 
     /**
      * @param value {@link #end} (Todo.)
      */
-    public Subscription setEnd(Instant value) { 
+    public Subscription setEnd(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -743,7 +743,7 @@ public class Subscription extends Resource {
         this.end = null;
       else {
         if (this.end == null)
-          this.end = new Instant();
+          this.end = new InstantType();
         this.end.setValue(value);
       }
       return this;

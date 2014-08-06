@@ -36,7 +36,7 @@ POSSIBILITY OF SUCH DAMAGE.
 public class Enumeration<T extends Enum<?>> extends PrimitiveType {
 
   private static final long serialVersionUID = 5502756236610771914L;
-
+  
 	/**
 	 * the actual value of the enumeration
 	 */

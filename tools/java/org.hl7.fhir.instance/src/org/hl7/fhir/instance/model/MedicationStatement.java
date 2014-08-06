@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -256,7 +256,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * Set this to true if the record is saying that the medication was NOT taken.
      */
-    protected Boolean wasNotGiven;
+    protected BooleanType wasNotGiven;
 
     /**
      * A code indicating why the medication was not taken.
@@ -293,7 +293,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      */
     protected List<MedicationStatementDosageComponent> dosage = new ArrayList<MedicationStatementDosageComponent>();
 
-    private static final long serialVersionUID = -1376288431L;
+    private static final long serialVersionUID = 874621239L;
 
     public MedicationStatement() {
       super();
@@ -349,14 +349,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT taken.)
      */
-    public Boolean getWasNotGiven() { 
+    public BooleanType getWasNotGiven() { 
       return this.wasNotGiven;
     }
 
     /**
      * @param value {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT taken.)
      */
-    public MedicationStatement setWasNotGiven(Boolean value) { 
+    public MedicationStatement setWasNotGiven(BooleanType value) { 
       this.wasNotGiven = value;
       return this;
     }
@@ -376,7 +376,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         this.wasNotGiven = null;
       else {
         if (this.wasNotGiven == null)
-          this.wasNotGiven = new Boolean();
+          this.wasNotGiven = new BooleanType();
         this.wasNotGiven.setValue(value);
       }
       return this;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -296,7 +296,7 @@ public class AdverseReaction extends Resource {
         /**
          * Identifies the initial date of the exposure that is suspected to be related to the reaction.
          */
-        protected DateTime date;
+        protected DateTimeType date;
 
         /**
          * The type of exposure: Drug Administration, Immunization, Coincidental.
@@ -318,7 +318,7 @@ public class AdverseReaction extends Resource {
          */
         protected Substance substanceTarget;
 
-        private static final long serialVersionUID = 520803518L;
+        private static final long serialVersionUID = -1829911400L;
 
       public AdverseReactionExposureComponent() {
         super();
@@ -327,14 +327,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return {@link #date} (Identifies the initial date of the exposure that is suspected to be related to the reaction.)
          */
-        public DateTime getDate() { 
+        public DateTimeType getDate() { 
           return this.date;
         }
 
         /**
          * @param value {@link #date} (Identifies the initial date of the exposure that is suspected to be related to the reaction.)
          */
-        public AdverseReactionExposureComponent setDate(DateTime value) { 
+        public AdverseReactionExposureComponent setDate(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -354,7 +354,7 @@ public class AdverseReaction extends Resource {
             this.date = null;
           else {
             if (this.date == null)
-              this.date = new DateTime();
+              this.date = new DateTimeType();
             this.date.setValue(value);
           }
           return this;
@@ -489,7 +489,7 @@ public class AdverseReaction extends Resource {
     /**
      * The date (and possibly time) when the reaction began.
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * The subject of the adverse reaction.
@@ -504,7 +504,7 @@ public class AdverseReaction extends Resource {
     /**
      * If true, indicates that no reaction occurred.
      */
-    protected Boolean didNotOccurFlag;
+    protected BooleanType didNotOccurFlag;
 
     /**
      * Identifies the individual responsible for the information in the reaction record.
@@ -526,13 +526,13 @@ public class AdverseReaction extends Resource {
      */
     protected List<AdverseReactionExposureComponent> exposure = new ArrayList<AdverseReactionExposureComponent>();
 
-    private static final long serialVersionUID = -1004725142L;
+    private static final long serialVersionUID = -285872214L;
 
     public AdverseReaction() {
       super();
     }
 
-    public AdverseReaction(ResourceReference subject, Boolean didNotOccurFlag) {
+    public AdverseReaction(ResourceReference subject, BooleanType didNotOccurFlag) {
       super();
       this.subject = subject;
       this.didNotOccurFlag = didNotOccurFlag;
@@ -558,14 +558,14 @@ public class AdverseReaction extends Resource {
     /**
      * @return {@link #date} (The date (and possibly time) when the reaction began.)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date (and possibly time) when the reaction began.)
      */
-    public AdverseReaction setDate(DateTime value) { 
+    public AdverseReaction setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -585,7 +585,7 @@ public class AdverseReaction extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;
@@ -624,14 +624,14 @@ public class AdverseReaction extends Resource {
     /**
      * @return {@link #didNotOccurFlag} (If true, indicates that no reaction occurred.)
      */
-    public Boolean getDidNotOccurFlag() { 
+    public BooleanType getDidNotOccurFlag() { 
       return this.didNotOccurFlag;
     }
 
     /**
      * @param value {@link #didNotOccurFlag} (If true, indicates that no reaction occurred.)
      */
-    public AdverseReaction setDidNotOccurFlag(Boolean value) { 
+    public AdverseReaction setDidNotOccurFlag(BooleanType value) { 
       this.didNotOccurFlag = value;
       return this;
     }
@@ -648,7 +648,7 @@ public class AdverseReaction extends Resource {
      */
     public AdverseReaction setDidNotOccurFlagSimple(boolean value) { 
         if (this.didNotOccurFlag == null)
-          this.didNotOccurFlag = new Boolean();
+          this.didNotOccurFlag = new BooleanType();
         this.didNotOccurFlag.setValue(value);
       return this;
     }

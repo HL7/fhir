@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -205,25 +205,25 @@ public class Namespace extends Resource {
         /**
          * The string that should be sent over the wire to identify the code system or identifier system.
          */
-        protected String_ value;
+        protected StringType value;
 
         /**
          * Indicates whether this identifier is the "preferred" identifier of this type.
          */
-        protected Boolean preferred;
+        protected BooleanType preferred;
 
         /**
          * Identifies the period of time over which this identifier is considered appropriate to refer to the namespace.  Outside of this window, the identifier might be non-deterministic.
          */
         protected Period period;
 
-        private static final long serialVersionUID = -1352328709L;
+        private static final long serialVersionUID = 1593171318L;
 
       public NamespaceUniqueIdComponent() {
         super();
       }
 
-      public NamespaceUniqueIdComponent(Enumeration<NamespaceIdentifierType> type, String_ value) {
+      public NamespaceUniqueIdComponent(Enumeration<NamespaceIdentifierType> type, StringType value) {
         super();
         this.type = type;
         this.value = value;
@@ -264,14 +264,14 @@ public class Namespace extends Resource {
         /**
          * @return {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.)
          */
-        public String_ getValue() { 
+        public StringType getValue() { 
           return this.value;
         }
 
         /**
          * @param value {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.)
          */
-        public NamespaceUniqueIdComponent setValue(String_ value) { 
+        public NamespaceUniqueIdComponent setValue(StringType value) { 
           this.value = value;
           return this;
         }
@@ -288,7 +288,7 @@ public class Namespace extends Resource {
          */
         public NamespaceUniqueIdComponent setValueSimple(String value) { 
             if (this.value == null)
-              this.value = new String_();
+              this.value = new StringType();
             this.value.setValue(value);
           return this;
         }
@@ -296,14 +296,14 @@ public class Namespace extends Resource {
         /**
          * @return {@link #preferred} (Indicates whether this identifier is the "preferred" identifier of this type.)
          */
-        public Boolean getPreferred() { 
+        public BooleanType getPreferred() { 
           return this.preferred;
         }
 
         /**
          * @param value {@link #preferred} (Indicates whether this identifier is the "preferred" identifier of this type.)
          */
-        public NamespaceUniqueIdComponent setPreferred(Boolean value) { 
+        public NamespaceUniqueIdComponent setPreferred(BooleanType value) { 
           this.preferred = value;
           return this;
         }
@@ -323,7 +323,7 @@ public class Namespace extends Resource {
             this.preferred = null;
           else {
             if (this.preferred == null)
-              this.preferred = new Boolean();
+              this.preferred = new BooleanType();
             this.preferred.setValue(value);
           }
           return this;
@@ -437,7 +437,7 @@ public class Namespace extends Resource {
     /**
      * The descriptive name of this particular identifier type or code system.
      */
-    protected String_ name;
+    protected StringType name;
 
     /**
      * Indicates whether the namespace is "ready for use" or not.
@@ -447,7 +447,7 @@ public class Namespace extends Resource {
     /**
      * If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.
      */
-    protected Code country;
+    protected CodeType country;
 
     /**
      * Categorizes a namespace for easier search by grouping related namespaces.
@@ -457,17 +457,17 @@ public class Namespace extends Resource {
     /**
      * The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
      */
-    protected String_ responsible;
+    protected StringType responsible;
 
     /**
      * Details about what the namespace identifies including scope, granularity, version labeling, etc.
      */
-    protected String_ description;
+    protected StringType description;
 
     /**
      * Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.
      */
-    protected String_ usage;
+    protected StringType usage;
 
     /**
      * Indicates how the system may be identified when referenced in electronic exchange.
@@ -489,13 +489,13 @@ public class Namespace extends Resource {
      */
     protected Namespace replacedByTarget;
 
-    private static final long serialVersionUID = 1650087846L;
+    private static final long serialVersionUID = -358777936L;
 
     public Namespace() {
       super();
     }
 
-    public Namespace(Enumeration<NamespaceType> type, String_ name, Enumeration<NamespaceStatus> status) {
+    public Namespace(Enumeration<NamespaceType> type, StringType name, Enumeration<NamespaceStatus> status) {
       super();
       this.type = type;
       this.name = name;
@@ -537,14 +537,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #name} (The descriptive name of this particular identifier type or code system.)
      */
-    public String_ getName() { 
+    public StringType getName() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (The descriptive name of this particular identifier type or code system.)
      */
-    public Namespace setName(String_ value) { 
+    public Namespace setName(StringType value) { 
       this.name = value;
       return this;
     }
@@ -561,7 +561,7 @@ public class Namespace extends Resource {
      */
     public Namespace setNameSimple(String value) { 
         if (this.name == null)
-          this.name = new String_();
+          this.name = new StringType();
         this.name.setValue(value);
       return this;
     }
@@ -601,14 +601,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #country} (If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.)
      */
-    public Code getCountry() { 
+    public CodeType getCountry() { 
       return this.country;
     }
 
     /**
      * @param value {@link #country} (If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.)
      */
-    public Namespace setCountry(Code value) { 
+    public Namespace setCountry(CodeType value) { 
       this.country = value;
       return this;
     }
@@ -628,7 +628,7 @@ public class Namespace extends Resource {
         this.country = null;
       else {
         if (this.country == null)
-          this.country = new Code();
+          this.country = new CodeType();
         this.country.setValue(value);
       }
       return this;
@@ -652,14 +652,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.)
      */
-    public String_ getResponsible() { 
+    public StringType getResponsible() { 
       return this.responsible;
     }
 
     /**
      * @param value {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.)
      */
-    public Namespace setResponsible(String_ value) { 
+    public Namespace setResponsible(StringType value) { 
       this.responsible = value;
       return this;
     }
@@ -679,7 +679,7 @@ public class Namespace extends Resource {
         this.responsible = null;
       else {
         if (this.responsible == null)
-          this.responsible = new String_();
+          this.responsible = new StringType();
         this.responsible.setValue(value);
       }
       return this;
@@ -688,14 +688,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.)
      */
-    public String_ getDescription() { 
+    public StringType getDescription() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.)
      */
-    public Namespace setDescription(String_ value) { 
+    public Namespace setDescription(StringType value) { 
       this.description = value;
       return this;
     }
@@ -715,7 +715,7 @@ public class Namespace extends Resource {
         this.description = null;
       else {
         if (this.description == null)
-          this.description = new String_();
+          this.description = new StringType();
         this.description.setValue(value);
       }
       return this;
@@ -724,14 +724,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #usage} (Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.)
      */
-    public String_ getUsage() { 
+    public StringType getUsage() { 
       return this.usage;
     }
 
     /**
      * @param value {@link #usage} (Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.)
      */
-    public Namespace setUsage(String_ value) { 
+    public Namespace setUsage(StringType value) { 
       this.usage = value;
       return this;
     }
@@ -751,7 +751,7 @@ public class Namespace extends Resource {
         this.usage = null;
       else {
         if (this.usage == null)
-          this.usage = new String_();
+          this.usage = new StringType();
         this.usage.setValue(value);
       }
       return this;

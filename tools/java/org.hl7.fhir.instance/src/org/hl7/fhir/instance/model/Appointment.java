@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -343,12 +343,12 @@ public class Appointment extends Resource {
     /**
      * The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept).
      */
-    protected Integer priority;
+    protected IntegerType priority;
 
     /**
      * Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
      */
-    protected Code status;
+    protected CodeType status;
 
     /**
      * The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself).
@@ -363,17 +363,17 @@ public class Appointment extends Resource {
     /**
      * The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.
      */
-    protected String_ description;
+    protected StringType description;
 
     /**
      * Date/Time that the appointment is to take place.
      */
-    protected Instant start;
+    protected InstantType start;
 
     /**
      * Date/Time that the appointment is to conclude.
      */
-    protected Instant end;
+    protected InstantType end;
 
     /**
      * The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.
@@ -398,7 +398,7 @@ public class Appointment extends Resource {
     /**
      * Additional comments about the appointment.
      */
-    protected String_ comment;
+    protected StringType comment;
 
     /**
      * An Order that lead to the creation of this appointment.
@@ -428,15 +428,15 @@ public class Appointment extends Resource {
     /**
      * Date when the appointment was recorded.
      */
-    protected DateTime lastModified;
+    protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = 442672717L;
+    private static final long serialVersionUID = 60096063L;
 
     public Appointment() {
       super();
     }
 
-    public Appointment(Instant start, Instant end) {
+    public Appointment(InstantType start, InstantType end) {
       super();
       this.start = start;
       this.end = end;
@@ -462,14 +462,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #priority} (The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept).)
      */
-    public Integer getPriority() { 
+    public IntegerType getPriority() { 
       return this.priority;
     }
 
     /**
      * @param value {@link #priority} (The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept).)
      */
-    public Appointment setPriority(Integer value) { 
+    public Appointment setPriority(IntegerType value) { 
       this.priority = value;
       return this;
     }
@@ -489,7 +489,7 @@ public class Appointment extends Resource {
         this.priority = null;
       else {
         if (this.priority == null)
-          this.priority = new Integer();
+          this.priority = new IntegerType();
         this.priority.setValue(value);
       }
       return this;
@@ -498,14 +498,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #status} (Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.)
      */
-    public Code getStatus() { 
+    public CodeType getStatus() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.)
      */
-    public Appointment setStatus(Code value) { 
+    public Appointment setStatus(CodeType value) { 
       this.status = value;
       return this;
     }
@@ -525,7 +525,7 @@ public class Appointment extends Resource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Code();
+          this.status = new CodeType();
         this.status.setValue(value);
       }
       return this;
@@ -564,14 +564,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #description} (The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.)
      */
-    public String_ getDescription() { 
+    public StringType getDescription() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.)
      */
-    public Appointment setDescription(String_ value) { 
+    public Appointment setDescription(StringType value) { 
       this.description = value;
       return this;
     }
@@ -591,7 +591,7 @@ public class Appointment extends Resource {
         this.description = null;
       else {
         if (this.description == null)
-          this.description = new String_();
+          this.description = new StringType();
         this.description.setValue(value);
       }
       return this;
@@ -600,14 +600,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #start} (Date/Time that the appointment is to take place.)
      */
-    public Instant getStart() { 
+    public InstantType getStart() { 
       return this.start;
     }
 
     /**
      * @param value {@link #start} (Date/Time that the appointment is to take place.)
      */
-    public Appointment setStart(Instant value) { 
+    public Appointment setStart(InstantType value) { 
       this.start = value;
       return this;
     }
@@ -624,7 +624,7 @@ public class Appointment extends Resource {
      */
     public Appointment setStartSimple(DateAndTime value) { 
         if (this.start == null)
-          this.start = new Instant();
+          this.start = new InstantType();
         this.start.setValue(value);
       return this;
     }
@@ -632,14 +632,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #end} (Date/Time that the appointment is to conclude.)
      */
-    public Instant getEnd() { 
+    public InstantType getEnd() { 
       return this.end;
     }
 
     /**
      * @param value {@link #end} (Date/Time that the appointment is to conclude.)
      */
-    public Appointment setEnd(Instant value) { 
+    public Appointment setEnd(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -656,7 +656,7 @@ public class Appointment extends Resource {
      */
     public Appointment setEndSimple(DateAndTime value) { 
         if (this.end == null)
-          this.end = new Instant();
+          this.end = new InstantType();
         this.end.setValue(value);
       return this;
     }
@@ -728,14 +728,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #comment} (Additional comments about the appointment.)
      */
-    public String_ getComment() { 
+    public StringType getComment() { 
       return this.comment;
     }
 
     /**
      * @param value {@link #comment} (Additional comments about the appointment.)
      */
-    public Appointment setComment(String_ value) { 
+    public Appointment setComment(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -755,7 +755,7 @@ public class Appointment extends Resource {
         this.comment = null;
       else {
         if (this.comment == null)
-          this.comment = new String_();
+          this.comment = new StringType();
         this.comment.setValue(value);
       }
       return this;
@@ -841,14 +841,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #lastModified} (Date when the appointment was recorded.)
      */
-    public DateTime getLastModified() { 
+    public DateTimeType getLastModified() { 
       return this.lastModified;
     }
 
     /**
      * @param value {@link #lastModified} (Date when the appointment was recorded.)
      */
-    public Appointment setLastModified(DateTime value) { 
+    public Appointment setLastModified(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }
@@ -868,7 +868,7 @@ public class Appointment extends Resource {
         this.lastModified = null;
       else {
         if (this.lastModified == null)
-          this.lastModified = new DateTime();
+          this.lastModified = new DateTimeType();
         this.lastModified.setValue(value);
       }
       return this;

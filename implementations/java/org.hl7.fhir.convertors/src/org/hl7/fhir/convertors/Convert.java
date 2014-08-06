@@ -42,15 +42,15 @@ import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Contact.ContactUse;
-import org.hl7.fhir.instance.model.DateTime;
+import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.HumanName.NameUse;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Identifier;
-import org.hl7.fhir.instance.model.Instant;
+import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Address.AddressUse;
 import org.hl7.fhir.instance.model.Period;
-import org.hl7.fhir.instance.model.String_;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.UcumService;
@@ -136,8 +136,8 @@ public class Convert {
 		return r.matches("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}");
 	}
 
-	public Instant makeInstantFromTS(Element child) throws Exception {
-	  Instant i = new Instant();
+	public InstantType makeInstantFromTS(Element child) throws Exception {
+	  InstantType i = new InstantType();
 	  i.setValue(DateAndTime.parseV3(child.getAttribute("value")));
 	  return i;
   }
@@ -254,8 +254,8 @@ public class Convert {
 	  return a;
   }
 
-	public String_ makeString(String v) {
-	  String_ s = new String_();
+	public StringType makeString(String v) {
+	  StringType s = new StringType();
 	  s.setValue(v);
 	  return s;
   }
@@ -329,12 +329,12 @@ public class Convert {
 	  return hn;
   }
 
-	public DateTime makeDateTimeFromTS(Element ts) throws Exception {
+	public DateTimeType makeDateTimeFromTS(Element ts) throws Exception {
 		if (ts == null)
 			return null;
 		
     String v = ts.getAttribute("value");
-    DateTime d = new DateTime();
+    DateTimeType d = new DateTimeType();
 	  d.setValue(DateAndTime.parseV3(v));
     return d;
   }
@@ -357,7 +357,7 @@ public class Convert {
   }
 
 	// this is a weird one - where CDA has an IVL, and FHIR has a date
-	public DateTime makeDateTimeFromIVL(Element ivl) throws Exception {
+	public DateTimeType makeDateTimeFromIVL(Element ivl) throws Exception {
 	  if (ivl == null)
 	  	return null;
 	  if (ivl.hasAttribute("value")) 

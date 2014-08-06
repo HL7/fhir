@@ -28,9 +28,46 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
-public class Uuid extends Uri {
+/**
+ * Primitive type "id" in FHIR: a string from 1 to 36 characters, only containing letters, digits, "-" and "."
+ */
+public class IdType extends PrimitiveType {
 
-  private static final long serialVersionUID = -2355185818258961443L;
+  private static final long serialVersionUID = 8363122970864385593L;
+  
+	/**
+	 * The value of the id
+	 */
+	protected String value;
 
+	/**
+	 * @return the id
+	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * @param value the id
+	 */
+	public void setValue(String value) {
+		this.value = value;
+	}
 	
+	@Override
+  protected Type typedCopy() {
+		return copy();
+	}
+	
+	@Override
+  public IdType copy() {
+		IdType dst = new IdType();
+		dst.value = value;
+		return dst;
+	}
+
+  @Override
+  public String asStringValue() {
+    return value;
+  }
 }

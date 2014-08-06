@@ -28,9 +28,8 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
-public class Uuid extends Uri {
+public class SidType extends UriType {
 
-  private static final long serialVersionUID = -2355185818258961443L;
-
+  private static final long serialVersionUID = 5486832330986493589L;
 	
 }

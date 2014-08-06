@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -92,17 +92,17 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.
          */
-        protected String_ linkId;
+        protected StringType linkId;
 
         /**
          * Text that is displayed above the contents of the group.
          */
-        protected String_ title;
+        protected StringType title;
 
         /**
          * Additional text for the group, used for display purposes.
          */
-        protected String_ text;
+        protected StringType text;
 
         /**
          * More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.
@@ -124,7 +124,7 @@ public class QuestionnaireAnswers extends Resource {
          */
         protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
 
-        private static final long serialVersionUID = -716843023L;
+        private static final long serialVersionUID = -885347240L;
 
       public GroupComponent() {
         super();
@@ -133,14 +133,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #linkId} (Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.)
          */
-        public String_ getLinkId() { 
+        public StringType getLinkId() { 
           return this.linkId;
         }
 
         /**
          * @param value {@link #linkId} (Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.)
          */
-        public GroupComponent setLinkId(String_ value) { 
+        public GroupComponent setLinkId(StringType value) { 
           this.linkId = value;
           return this;
         }
@@ -160,7 +160,7 @@ public class QuestionnaireAnswers extends Resource {
             this.linkId = null;
           else {
             if (this.linkId == null)
-              this.linkId = new String_();
+              this.linkId = new StringType();
             this.linkId.setValue(value);
           }
           return this;
@@ -169,14 +169,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #title} (Text that is displayed above the contents of the group.)
          */
-        public String_ getTitle() { 
+        public StringType getTitle() { 
           return this.title;
         }
 
         /**
          * @param value {@link #title} (Text that is displayed above the contents of the group.)
          */
-        public GroupComponent setTitle(String_ value) { 
+        public GroupComponent setTitle(StringType value) { 
           this.title = value;
           return this;
         }
@@ -196,7 +196,7 @@ public class QuestionnaireAnswers extends Resource {
             this.title = null;
           else {
             if (this.title == null)
-              this.title = new String_();
+              this.title = new StringType();
             this.title.setValue(value);
           }
           return this;
@@ -205,14 +205,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #text} (Additional text for the group, used for display purposes.)
          */
-        public String_ getText() { 
+        public StringType getText() { 
           return this.text;
         }
 
         /**
          * @param value {@link #text} (Additional text for the group, used for display purposes.)
          */
-        public GroupComponent setText(String_ value) { 
+        public GroupComponent setText(StringType value) { 
           this.text = value;
           return this;
         }
@@ -232,7 +232,7 @@ public class QuestionnaireAnswers extends Resource {
             this.text = null;
           else {
             if (this.text == null)
-              this.text = new String_();
+              this.text = new StringType();
             this.text.setValue(value);
           }
           return this;
@@ -333,12 +333,12 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.
          */
-        protected String_ linkId;
+        protected StringType linkId;
 
         /**
          * Text of the question as it is shown to the user.
          */
-        protected String_ text;
+        protected StringType text;
 
         /**
          * The respondant's answer(s) to the question.
@@ -350,7 +350,7 @@ public class QuestionnaireAnswers extends Resource {
          */
         protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 
-        private static final long serialVersionUID = -831149171L;
+        private static final long serialVersionUID = -296697363L;
 
       public QuestionComponent() {
         super();
@@ -359,14 +359,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #linkId} (Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.)
          */
-        public String_ getLinkId() { 
+        public StringType getLinkId() { 
           return this.linkId;
         }
 
         /**
          * @param value {@link #linkId} (Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.)
          */
-        public QuestionComponent setLinkId(String_ value) { 
+        public QuestionComponent setLinkId(StringType value) { 
           this.linkId = value;
           return this;
         }
@@ -386,7 +386,7 @@ public class QuestionnaireAnswers extends Resource {
             this.linkId = null;
           else {
             if (this.linkId == null)
-              this.linkId = new String_();
+              this.linkId = new StringType();
             this.linkId.setValue(value);
           }
           return this;
@@ -395,14 +395,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #text} (Text of the question as it is shown to the user.)
          */
-        public String_ getText() { 
+        public StringType getText() { 
           return this.text;
         }
 
         /**
          * @param value {@link #text} (Text of the question as it is shown to the user.)
          */
-        public QuestionComponent setText(String_ value) { 
+        public QuestionComponent setText(StringType value) { 
           this.text = value;
           return this;
         }
@@ -422,7 +422,7 @@ public class QuestionnaireAnswers extends Resource {
             this.text = null;
           else {
             if (this.text == null)
-              this.text = new String_();
+              this.text = new StringType();
             this.text.setValue(value);
           }
           return this;
@@ -568,7 +568,7 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * The date and/or time that this version of the questionnaire answers was authored.
      */
-    protected DateTime authored;
+    protected DateTimeType authored;
 
     /**
      * The person who answered the questions about the subject. Only used when this is not the subject him/herself.
@@ -595,13 +595,13 @@ public class QuestionnaireAnswers extends Resource {
      */
     protected GroupComponent group;
 
-    private static final long serialVersionUID = -377881841L;
+    private static final long serialVersionUID = 1656433257L;
 
     public QuestionnaireAnswers() {
       super();
     }
 
-    public QuestionnaireAnswers(Enumeration<QuestionnaireAnswersStatus> status, DateTime authored) {
+    public QuestionnaireAnswers(Enumeration<QuestionnaireAnswersStatus> status, DateTimeType authored) {
       super();
       this.status = status;
       this.authored = authored;
@@ -747,14 +747,14 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * @return {@link #authored} (The date and/or time that this version of the questionnaire answers was authored.)
      */
-    public DateTime getAuthored() { 
+    public DateTimeType getAuthored() { 
       return this.authored;
     }
 
     /**
      * @param value {@link #authored} (The date and/or time that this version of the questionnaire answers was authored.)
      */
-    public QuestionnaireAnswers setAuthored(DateTime value) { 
+    public QuestionnaireAnswers setAuthored(DateTimeType value) { 
       this.authored = value;
       return this;
     }
@@ -771,7 +771,7 @@ public class QuestionnaireAnswers extends Resource {
      */
     public QuestionnaireAnswers setAuthoredSimple(DateAndTime value) { 
         if (this.authored == null)
-          this.authored = new DateTime();
+          this.authored = new DateTimeType();
         this.authored.setValue(value);
       return this;
     }

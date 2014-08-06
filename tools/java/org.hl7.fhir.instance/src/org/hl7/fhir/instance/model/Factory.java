@@ -2,6 +2,7 @@ package org.hl7.fhir.instance.model;
 
 import java.net.URISyntaxException;
 import java.text.ParseException;
+
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.utilities.Utilities;
@@ -40,70 +41,70 @@ POSSIBILITY OF SUCH DAMAGE.
 
 public class Factory {
 
-  public static Id newId(String value) {
+  public static IdType newId(String value) {
     if (value == null)
       return null;
-    Id res = new Id();
+    IdType res = new IdType();
     res.setValue(value);
     return res;
 	}
 
-  public static String_ newString_(String value) {
+  public static StringType newString_(String value) {
     if (value == null)
       return null;
-    String_ res = new String_();
+    StringType res = new StringType();
     res.setValue(value);
     return res;
   }
 
-  public static Uri newUri(String value) throws URISyntaxException {
+  public static UriType newUri(String value) throws URISyntaxException {
     if (value == null)
       return null;
-    Uri res = new Uri();
+    UriType res = new UriType();
     res.setValue(value);
     return res;
   }
 
-  public static DateTime newDateTime(String value) throws ParseException {
+  public static DateTimeType newDateTime(String value) throws ParseException {
     if (value == null)
       return null;
-    DateTime res = new DateTime();
+    DateTimeType res = new DateTimeType();
     res.setValue(new DateAndTime(value));
     return res;
   }
 
-  public static Date newDate(String value) throws ParseException {
+  public static DateType newDate(String value) throws ParseException {
     if (value == null)
       return null;
-    Date res = new Date();
+    DateType res = new DateType();
     res.setValue(new DateAndTime(value));
     return res;
   }
 
-  public static Code newCode(String value) {
+  public static CodeType newCode(String value) {
     if (value == null)
       return null;
-    Code res = new Code();
+    CodeType res = new CodeType();
     res.setValue(value);
     return res;
   }
 
-  public static Integer newInteger(int value) {
-    Integer res = new Integer();
+  public static IntegerType newInteger(int value) {
+    IntegerType res = new IntegerType();
     res.setValue(value);
     return res;
   }
   
-  public static Integer newInteger(java.lang.Integer value) {
+  public static IntegerType newInteger(java.lang.Integer value) {
     if (value == null)
       return null;
-    Integer res = new Integer();
+    IntegerType res = new IntegerType();
     res.setValue(value);
     return res;
   }
   
-  public static Boolean newBoolean(boolean value) {
-    Boolean res = new Boolean();
+  public static BooleanType newBoolean(boolean value) {
+    BooleanType res = new BooleanType();
     res.setValue(value);
     return res;
   }
@@ -140,8 +141,8 @@ public class Factory {
 	  return rr;
   }
   
-  public static DateTime nowDateTime() {
-    DateTime dt = new DateTime();
+  public static DateTimeType nowDateTime() {
+    DateTimeType dt = new DateTimeType();
     dt.setValue(DateAndTime.now());
     return dt;
   }
@@ -153,8 +154,8 @@ public class Factory {
     return n;
  }
 
- public Instant nowInstant() {
-	 Instant instant = new Instant();
+ public InstantType nowInstant() {
+	 InstantType instant = new InstantType();
 	 instant.setValue(DateAndTime.now());
 	 return instant;
  }

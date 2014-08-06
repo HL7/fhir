@@ -118,9 +118,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     
     for (DefinedCode cd : definitions.getPrimitives().values()) {
       String n = upFirst(cd.getCode());
-      String t = n;
-      if (n.equals("String")) 
-        t = "String_";
+      String t = upFirst(cd.getCode())+"Type";
       regtn.append("    else if (type instanceof "+t+") {\r\n");
       regtn.append("      compose"+upFirst(n)+"Core(prefix+\""+n+"\", ("+t+") type, false);\r\n");
       regtn.append("      compose"+upFirst(n)+"Extras(prefix+\""+n+"\", ("+t+") type, false);\r\n");
@@ -192,8 +190,8 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     write("import org.hl7.fhir.instance.model.*;\r\n");
-    write("import org.hl7.fhir.instance.model.Integer;\r\n");
-    write("import org.hl7.fhir.instance.model.Boolean;\r\n");
+    write("import org.hl7.fhir.instance.model.IntegerType;\r\n");
+    write("import org.hl7.fhir.instance.model.BooleanType;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
     write("\r\n");
     write("public class JsonComposer extends JsonComposerBase {\r\n");
@@ -222,7 +220,9 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
 
   private String getPrimitiveTypeModelName(String code) {
     if (code.equals("string"))
-      return "String_";
+      return "StringType";
+    if (definitions.hasPrimitiveType(code))
+      return upFirst(code)+"Type";
     return upFirst(code);
   }
 
@@ -393,7 +393,10 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
         write("      if (element.get"+upFirst(name)+"().size() > 0) {\r\n");
   	    if (en == null) {
           if (tn.equals("String"))
-              tn = "String_";
+              tn = "StringType";
+          if (definitions.hasPrimitiveType(tn))
+            tn = upFirst(tn)+"Type";
+
           if (isPrimitive(e) || "idref".equals(e.typeCode())) {
             write("        openArray(\""+name+"\");\r\n");
             write("        for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
@@ -494,7 +497,7 @@ private String leaf(String tn) {
 ////      if (t.equals("idref"))
 ////        return "String";
 ////      else if (t.equals("string"))
-////        return "String_";
+////        return "StringType";
 ////      else
 ////        return upFirst(t);
 //    }  else if (t.equals("xml:lang"))

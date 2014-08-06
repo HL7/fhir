@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -108,7 +108,7 @@ public class Order extends Resource {
     /**
      * When the order was made.
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * Patient this order is about.
@@ -170,7 +170,7 @@ public class Order extends Resource {
     protected List<Resource> detailTarget = new ArrayList<Resource>();
 
 
-    private static final long serialVersionUID = -1072413136L;
+    private static final long serialVersionUID = 156950294L;
 
     public Order() {
       super();
@@ -196,14 +196,14 @@ public class Order extends Resource {
     /**
      * @return {@link #date} (When the order was made.)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (When the order was made.)
      */
-    public Order setDate(DateTime value) { 
+    public Order setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -223,7 +223,7 @@ public class Order extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;

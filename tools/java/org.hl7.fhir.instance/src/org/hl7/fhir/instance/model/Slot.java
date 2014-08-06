@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -124,35 +124,35 @@ public class Slot extends Resource {
     /**
      * Date/Time that the slot is to begin.
      */
-    protected Instant start;
+    protected InstantType start;
 
     /**
      * Date/Time that the slot is to conclude.
      */
-    protected Instant end;
+    protected InstantType end;
 
     /**
      * This slot has already been overbooked, appointments are unlikely to be accepted for this time.
      */
-    protected Boolean overbooked;
+    protected BooleanType overbooked;
 
     /**
      * Comments on the slot to describe any extended information. Such as custom constraints on the slot.
      */
-    protected String_ comment;
+    protected StringType comment;
 
     /**
      * When this slot was created, or last revised.
      */
-    protected DateTime lastModified;
+    protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = 2143293374L;
+    private static final long serialVersionUID = 1753840499L;
 
     public Slot() {
       super();
     }
 
-    public Slot(ResourceReference availability, Enumeration<Slotstatus> freeBusyType, Instant start, Instant end) {
+    public Slot(ResourceReference availability, Enumeration<Slotstatus> freeBusyType, InstantType start, InstantType end) {
       super();
       this.availability = availability;
       this.freeBusyType = freeBusyType;
@@ -257,14 +257,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #start} (Date/Time that the slot is to begin.)
      */
-    public Instant getStart() { 
+    public InstantType getStart() { 
       return this.start;
     }
 
     /**
      * @param value {@link #start} (Date/Time that the slot is to begin.)
      */
-    public Slot setStart(Instant value) { 
+    public Slot setStart(InstantType value) { 
       this.start = value;
       return this;
     }
@@ -281,7 +281,7 @@ public class Slot extends Resource {
      */
     public Slot setStartSimple(DateAndTime value) { 
         if (this.start == null)
-          this.start = new Instant();
+          this.start = new InstantType();
         this.start.setValue(value);
       return this;
     }
@@ -289,14 +289,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #end} (Date/Time that the slot is to conclude.)
      */
-    public Instant getEnd() { 
+    public InstantType getEnd() { 
       return this.end;
     }
 
     /**
      * @param value {@link #end} (Date/Time that the slot is to conclude.)
      */
-    public Slot setEnd(Instant value) { 
+    public Slot setEnd(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -313,7 +313,7 @@ public class Slot extends Resource {
      */
     public Slot setEndSimple(DateAndTime value) { 
         if (this.end == null)
-          this.end = new Instant();
+          this.end = new InstantType();
         this.end.setValue(value);
       return this;
     }
@@ -321,14 +321,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.)
      */
-    public Boolean getOverbooked() { 
+    public BooleanType getOverbooked() { 
       return this.overbooked;
     }
 
     /**
      * @param value {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.)
      */
-    public Slot setOverbooked(Boolean value) { 
+    public Slot setOverbooked(BooleanType value) { 
       this.overbooked = value;
       return this;
     }
@@ -348,7 +348,7 @@ public class Slot extends Resource {
         this.overbooked = null;
       else {
         if (this.overbooked == null)
-          this.overbooked = new Boolean();
+          this.overbooked = new BooleanType();
         this.overbooked.setValue(value);
       }
       return this;
@@ -357,14 +357,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #comment} (Comments on the slot to describe any extended information. Such as custom constraints on the slot.)
      */
-    public String_ getComment() { 
+    public StringType getComment() { 
       return this.comment;
     }
 
     /**
      * @param value {@link #comment} (Comments on the slot to describe any extended information. Such as custom constraints on the slot.)
      */
-    public Slot setComment(String_ value) { 
+    public Slot setComment(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -384,7 +384,7 @@ public class Slot extends Resource {
         this.comment = null;
       else {
         if (this.comment == null)
-          this.comment = new String_();
+          this.comment = new StringType();
         this.comment.setValue(value);
       }
       return this;
@@ -393,14 +393,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #lastModified} (When this slot was created, or last revised.)
      */
-    public DateTime getLastModified() { 
+    public DateTimeType getLastModified() { 
       return this.lastModified;
     }
 
     /**
      * @param value {@link #lastModified} (When this slot was created, or last revised.)
      */
-    public Slot setLastModified(DateTime value) { 
+    public Slot setLastModified(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }
@@ -420,7 +420,7 @@ public class Slot extends Resource {
         this.lastModified = null;
       else {
         if (this.lastModified == null)
-          this.lastModified = new DateTime();
+          this.lastModified = new DateTimeType();
         this.lastModified.setValue(value);
       }
       return this;

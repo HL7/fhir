@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -106,7 +106,7 @@ public class Media extends Resource {
     /**
      * When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.
      */
-    protected DateTime dateTime;
+    protected DateTimeType dateTime;
 
     /**
      * Who/What this Media is a record of.
@@ -136,34 +136,34 @@ public class Media extends Resource {
     /**
      * The name of the device / manufacturer of the device  that was used to make the recording.
      */
-    protected String_ deviceName;
+    protected StringType deviceName;
 
     /**
      * Height of the image in pixels(photo/video).
      */
-    protected Integer height;
+    protected IntegerType height;
 
     /**
      * Width of the image in pixels (photo/video).
      */
-    protected Integer width;
+    protected IntegerType width;
 
     /**
      * The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
-    protected Integer frames;
+    protected IntegerType frames;
 
     /**
      * The length of the recording in seconds - for audio and video.
      */
-    protected Integer length;
+    protected IntegerType length;
 
     /**
      * The actual content of the media - inline or by direct reference to the media source file.
      */
     protected Attachment content;
 
-    private static final long serialVersionUID = 1448386132L;
+    private static final long serialVersionUID = 633107111L;
 
     public Media() {
       super();
@@ -242,14 +242,14 @@ public class Media extends Resource {
     /**
      * @return {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.)
      */
-    public DateTime getDateTime() { 
+    public DateTimeType getDateTime() { 
       return this.dateTime;
     }
 
     /**
      * @param value {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.)
      */
-    public Media setDateTime(DateTime value) { 
+    public Media setDateTime(DateTimeType value) { 
       this.dateTime = value;
       return this;
     }
@@ -269,7 +269,7 @@ public class Media extends Resource {
         this.dateTime = null;
       else {
         if (this.dateTime == null)
-          this.dateTime = new DateTime();
+          this.dateTime = new DateTimeType();
         this.dateTime.setValue(value);
       }
       return this;
@@ -353,14 +353,14 @@ public class Media extends Resource {
     /**
      * @return {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.)
      */
-    public String_ getDeviceName() { 
+    public StringType getDeviceName() { 
       return this.deviceName;
     }
 
     /**
      * @param value {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.)
      */
-    public Media setDeviceName(String_ value) { 
+    public Media setDeviceName(StringType value) { 
       this.deviceName = value;
       return this;
     }
@@ -380,7 +380,7 @@ public class Media extends Resource {
         this.deviceName = null;
       else {
         if (this.deviceName == null)
-          this.deviceName = new String_();
+          this.deviceName = new StringType();
         this.deviceName.setValue(value);
       }
       return this;
@@ -389,14 +389,14 @@ public class Media extends Resource {
     /**
      * @return {@link #height} (Height of the image in pixels(photo/video).)
      */
-    public Integer getHeight() { 
+    public IntegerType getHeight() { 
       return this.height;
     }
 
     /**
      * @param value {@link #height} (Height of the image in pixels(photo/video).)
      */
-    public Media setHeight(Integer value) { 
+    public Media setHeight(IntegerType value) { 
       this.height = value;
       return this;
     }
@@ -416,7 +416,7 @@ public class Media extends Resource {
         this.height = null;
       else {
         if (this.height == null)
-          this.height = new Integer();
+          this.height = new IntegerType();
         this.height.setValue(value);
       }
       return this;
@@ -425,14 +425,14 @@ public class Media extends Resource {
     /**
      * @return {@link #width} (Width of the image in pixels (photo/video).)
      */
-    public Integer getWidth() { 
+    public IntegerType getWidth() { 
       return this.width;
     }
 
     /**
      * @param value {@link #width} (Width of the image in pixels (photo/video).)
      */
-    public Media setWidth(Integer value) { 
+    public Media setWidth(IntegerType value) { 
       this.width = value;
       return this;
     }
@@ -452,7 +452,7 @@ public class Media extends Resource {
         this.width = null;
       else {
         if (this.width == null)
-          this.width = new Integer();
+          this.width = new IntegerType();
         this.width.setValue(value);
       }
       return this;
@@ -461,14 +461,14 @@ public class Media extends Resource {
     /**
      * @return {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.)
      */
-    public Integer getFrames() { 
+    public IntegerType getFrames() { 
       return this.frames;
     }
 
     /**
      * @param value {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.)
      */
-    public Media setFrames(Integer value) { 
+    public Media setFrames(IntegerType value) { 
       this.frames = value;
       return this;
     }
@@ -488,7 +488,7 @@ public class Media extends Resource {
         this.frames = null;
       else {
         if (this.frames == null)
-          this.frames = new Integer();
+          this.frames = new IntegerType();
         this.frames.setValue(value);
       }
       return this;
@@ -497,14 +497,14 @@ public class Media extends Resource {
     /**
      * @return {@link #length} (The length of the recording in seconds - for audio and video.)
      */
-    public Integer getLength() { 
+    public IntegerType getLength() { 
       return this.length;
     }
 
     /**
      * @param value {@link #length} (The length of the recording in seconds - for audio and video.)
      */
-    public Media setLength(Integer value) { 
+    public Media setLength(IntegerType value) { 
       this.length = value;
       return this;
     }
@@ -524,7 +524,7 @@ public class Media extends Resource {
         this.length = null;
       else {
         if (this.length == null)
-          this.length = new Integer();
+          this.length = new IntegerType();
         this.length.setValue(value);
       }
       return this;

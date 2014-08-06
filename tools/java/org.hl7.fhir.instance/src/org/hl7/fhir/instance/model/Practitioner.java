@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -201,7 +201,7 @@ public class Practitioner extends Resource {
     /**
      * The date and time of birth for the practitioner.
      */
-    protected DateTime birthDate;
+    protected DateTimeType birthDate;
 
     /**
      * Image of the person.
@@ -253,7 +253,7 @@ public class Practitioner extends Resource {
      */
     protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
 
-    private static final long serialVersionUID = -1296622364L;
+    private static final long serialVersionUID = 730971326L;
 
     public Practitioner() {
       super();
@@ -343,14 +343,14 @@ public class Practitioner extends Resource {
     /**
      * @return {@link #birthDate} (The date and time of birth for the practitioner.)
      */
-    public DateTime getBirthDate() { 
+    public DateTimeType getBirthDate() { 
       return this.birthDate;
     }
 
     /**
      * @param value {@link #birthDate} (The date and time of birth for the practitioner.)
      */
-    public Practitioner setBirthDate(DateTime value) { 
+    public Practitioner setBirthDate(DateTimeType value) { 
       this.birthDate = value;
       return this;
     }
@@ -370,7 +370,7 @@ public class Practitioner extends Resource {
         this.birthDate = null;
       else {
         if (this.birthDate == null)
-          this.birthDate = new DateTime();
+          this.birthDate = new DateTimeType();
         this.birthDate.setValue(value);
       }
       return this;

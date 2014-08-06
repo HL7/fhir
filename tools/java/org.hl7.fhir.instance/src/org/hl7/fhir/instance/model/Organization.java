@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -178,7 +178,7 @@ public class Organization extends Resource {
     /**
      * A name associated with the organization.
      */
-    protected String_ name;
+    protected StringType name;
 
     /**
      * The kind of organization that this is.
@@ -223,9 +223,9 @@ public class Organization extends Resource {
     /**
      * Whether the organization's record is still in active use.
      */
-    protected Boolean active;
+    protected BooleanType active;
 
-    private static final long serialVersionUID = -789178682L;
+    private static final long serialVersionUID = -603382635L;
 
     public Organization() {
       super();
@@ -251,14 +251,14 @@ public class Organization extends Resource {
     /**
      * @return {@link #name} (A name associated with the organization.)
      */
-    public String_ getName() { 
+    public StringType getName() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (A name associated with the organization.)
      */
-    public Organization setName(String_ value) { 
+    public Organization setName(StringType value) { 
       this.name = value;
       return this;
     }
@@ -278,7 +278,7 @@ public class Organization extends Resource {
         this.name = null;
       else {
         if (this.name == null)
-          this.name = new String_();
+          this.name = new StringType();
         this.name.setValue(value);
       }
       return this;
@@ -417,14 +417,14 @@ public class Organization extends Resource {
     /**
      * @return {@link #active} (Whether the organization's record is still in active use.)
      */
-    public Boolean getActive() { 
+    public BooleanType getActive() { 
       return this.active;
     }
 
     /**
      * @param value {@link #active} (Whether the organization's record is still in active use.)
      */
-    public Organization setActive(Boolean value) { 
+    public Organization setActive(BooleanType value) { 
       this.active = value;
       return this;
     }
@@ -444,7 +444,7 @@ public class Organization extends Resource {
         this.active = null;
       else {
         if (this.active == null)
-          this.active = new Boolean();
+          this.active = new BooleanType();
         this.active.setValue(value);
       }
       return this;

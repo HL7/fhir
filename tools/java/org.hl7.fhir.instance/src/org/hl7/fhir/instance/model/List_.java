@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -97,12 +97,12 @@ public class List_ extends Resource {
         /**
          * True if this item is marked as deleted in the list.
          */
-        protected Boolean deleted;
+        protected BooleanType deleted;
 
         /**
          * When this item was added to the list.
          */
-        protected DateTime date;
+        protected DateTimeType date;
 
         /**
          * A reference to the actual resource from which data was derived.
@@ -114,7 +114,7 @@ public class List_ extends Resource {
          */
         protected Resource itemTarget;
 
-        private static final long serialVersionUID = 2031329135L;
+        private static final long serialVersionUID = -1728647377L;
 
       public ListEntryComponent() {
         super();
@@ -145,14 +145,14 @@ public class List_ extends Resource {
         /**
          * @return {@link #deleted} (True if this item is marked as deleted in the list.)
          */
-        public Boolean getDeleted() { 
+        public BooleanType getDeleted() { 
           return this.deleted;
         }
 
         /**
          * @param value {@link #deleted} (True if this item is marked as deleted in the list.)
          */
-        public ListEntryComponent setDeleted(Boolean value) { 
+        public ListEntryComponent setDeleted(BooleanType value) { 
           this.deleted = value;
           return this;
         }
@@ -172,7 +172,7 @@ public class List_ extends Resource {
             this.deleted = null;
           else {
             if (this.deleted == null)
-              this.deleted = new Boolean();
+              this.deleted = new BooleanType();
             this.deleted.setValue(value);
           }
           return this;
@@ -181,14 +181,14 @@ public class List_ extends Resource {
         /**
          * @return {@link #date} (When this item was added to the list.)
          */
-        public DateTime getDate() { 
+        public DateTimeType getDate() { 
           return this.date;
         }
 
         /**
          * @param value {@link #date} (When this item was added to the list.)
          */
-        public ListEntryComponent setDate(DateTime value) { 
+        public ListEntryComponent setDate(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -208,7 +208,7 @@ public class List_ extends Resource {
             this.date = null;
           else {
             if (this.date == null)
-              this.date = new DateTime();
+              this.date = new DateTimeType();
             this.date.setValue(value);
           }
           return this;
@@ -298,12 +298,12 @@ public class List_ extends Resource {
     /**
      * The date that the list was prepared.
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * Whether items in the list have a meaningful order.
      */
-    protected Boolean ordered;
+    protected BooleanType ordered;
 
     /**
      * How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
@@ -320,7 +320,7 @@ public class List_ extends Resource {
      */
     protected CodeableConcept emptyReason;
 
-    private static final long serialVersionUID = -483434446L;
+    private static final long serialVersionUID = -1401650190L;
 
     public List_() {
       super();
@@ -426,14 +426,14 @@ public class List_ extends Resource {
     /**
      * @return {@link #date} (The date that the list was prepared.)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date that the list was prepared.)
      */
-    public List_ setDate(DateTime value) { 
+    public List_ setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -453,7 +453,7 @@ public class List_ extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;
@@ -462,14 +462,14 @@ public class List_ extends Resource {
     /**
      * @return {@link #ordered} (Whether items in the list have a meaningful order.)
      */
-    public Boolean getOrdered() { 
+    public BooleanType getOrdered() { 
       return this.ordered;
     }
 
     /**
      * @param value {@link #ordered} (Whether items in the list have a meaningful order.)
      */
-    public List_ setOrdered(Boolean value) { 
+    public List_ setOrdered(BooleanType value) { 
       this.ordered = value;
       return this;
     }
@@ -489,7 +489,7 @@ public class List_ extends Resource {
         this.ordered = null;
       else {
         if (this.ordered == null)
-          this.ordered = new Boolean();
+          this.ordered = new BooleanType();
         this.ordered.setValue(value);
       }
       return this;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -208,7 +208,7 @@ public class DiagnosticOrder extends Resource {
         /**
          * The date/time at which the event occurred.
          */
-        protected DateTime dateTime;
+        protected DateTimeType dateTime;
 
         /**
          * The person who was responsible for performing or recording the action.
@@ -220,13 +220,13 @@ public class DiagnosticOrder extends Resource {
          */
         protected Resource actorTarget;
 
-        private static final long serialVersionUID = 2005710129L;
+        private static final long serialVersionUID = -2127877353L;
 
       public DiagnosticOrderEventComponent() {
         super();
       }
 
-      public DiagnosticOrderEventComponent(Enumeration<DiagnosticOrderStatus> status, DateTime dateTime) {
+      public DiagnosticOrderEventComponent(Enumeration<DiagnosticOrderStatus> status, DateTimeType dateTime) {
         super();
         this.status = status;
         this.dateTime = dateTime;
@@ -282,14 +282,14 @@ public class DiagnosticOrder extends Resource {
         /**
          * @return {@link #dateTime} (The date/time at which the event occurred.)
          */
-        public DateTime getDateTime() { 
+        public DateTimeType getDateTime() { 
           return this.dateTime;
         }
 
         /**
          * @param value {@link #dateTime} (The date/time at which the event occurred.)
          */
-        public DiagnosticOrderEventComponent setDateTime(DateTime value) { 
+        public DiagnosticOrderEventComponent setDateTime(DateTimeType value) { 
           this.dateTime = value;
           return this;
         }
@@ -306,7 +306,7 @@ public class DiagnosticOrder extends Resource {
          */
         public DiagnosticOrderEventComponent setDateTimeSimple(DateAndTime value) { 
             if (this.dateTime == null)
-              this.dateTime = new DateTime();
+              this.dateTime = new DateTimeType();
             this.dateTime.setValue(value);
           return this;
         }
@@ -582,7 +582,7 @@ public class DiagnosticOrder extends Resource {
     /**
      * An explanation or justification for why this diagnostic investigation is being requested.
      */
-    protected String_ clinicalNotes;
+    protected StringType clinicalNotes;
 
     /**
      * Additional clinical information about the patient or specimen that may influence test interpretations.
@@ -624,7 +624,7 @@ public class DiagnosticOrder extends Resource {
      */
     protected List<DiagnosticOrderItemComponent> item = new ArrayList<DiagnosticOrderItemComponent>();
 
-    private static final long serialVersionUID = -1608936020L;
+    private static final long serialVersionUID = -417583997L;
 
     public DiagnosticOrder() {
       super();
@@ -745,14 +745,14 @@ public class DiagnosticOrder extends Resource {
     /**
      * @return {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.)
      */
-    public String_ getClinicalNotes() { 
+    public StringType getClinicalNotes() { 
       return this.clinicalNotes;
     }
 
     /**
      * @param value {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.)
      */
-    public DiagnosticOrder setClinicalNotes(String_ value) { 
+    public DiagnosticOrder setClinicalNotes(StringType value) { 
       this.clinicalNotes = value;
       return this;
     }
@@ -772,7 +772,7 @@ public class DiagnosticOrder extends Resource {
         this.clinicalNotes = null;
       else {
         if (this.clinicalNotes == null)
-          this.clinicalNotes = new String_();
+          this.clinicalNotes = new StringType();
         this.clinicalNotes.setValue(value);
       }
       return this;

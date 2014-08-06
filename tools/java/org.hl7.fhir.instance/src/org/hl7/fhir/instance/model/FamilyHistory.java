@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -42,7 +42,7 @@ public class FamilyHistory extends Resource {
         /**
          * This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".
          */
-        protected String_ name;
+        protected StringType name;
 
         /**
          * The type of relationship this person has to the patient (father, mother, brother etc.).
@@ -55,6 +55,11 @@ public class FamilyHistory extends Resource {
         protected Type born;
 
         /**
+         * The actual or approximate age of the relative at the time the family history is recorded.
+         */
+        protected Type age;
+
+        /**
          * If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.
          */
         protected Type deceased;
@@ -62,14 +67,14 @@ public class FamilyHistory extends Resource {
         /**
          * This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
          */
-        protected String_ note;
+        protected StringType note;
 
         /**
          * The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
          */
         protected List<FamilyHistoryRelationConditionComponent> condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
 
-        private static final long serialVersionUID = 482918149L;
+        private static final long serialVersionUID = 555328374L;
 
       public FamilyHistoryRelationComponent() {
         super();
@@ -83,14 +88,14 @@ public class FamilyHistory extends Resource {
         /**
          * @return {@link #name} (This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".)
          */
-        public String_ getName() { 
+        public StringType getName() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".)
          */
-        public FamilyHistoryRelationComponent setName(String_ value) { 
+        public FamilyHistoryRelationComponent setName(StringType value) { 
           this.name = value;
           return this;
         }
@@ -110,7 +115,7 @@ public class FamilyHistory extends Resource {
             this.name = null;
           else {
             if (this.name == null)
-              this.name = new String_();
+              this.name = new StringType();
             this.name.setValue(value);
           }
           return this;
@@ -147,6 +152,21 @@ public class FamilyHistory extends Resource {
         }
 
         /**
+         * @return {@link #age} (The actual or approximate age of the relative at the time the family history is recorded.)
+         */
+        public Type getAge() { 
+          return this.age;
+        }
+
+        /**
+         * @param value {@link #age} (The actual or approximate age of the relative at the time the family history is recorded.)
+         */
+        public FamilyHistoryRelationComponent setAge(Type value) { 
+          this.age = value;
+          return this;
+        }
+
+        /**
          * @return {@link #deceased} (If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.)
          */
         public Type getDeceased() { 
@@ -164,14 +184,14 @@ public class FamilyHistory extends Resource {
         /**
          * @return {@link #note} (This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.)
          */
-        public String_ getNote() { 
+        public StringType getNote() { 
           return this.note;
         }
 
         /**
          * @param value {@link #note} (This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.)
          */
-        public FamilyHistoryRelationComponent setNote(String_ value) { 
+        public FamilyHistoryRelationComponent setNote(StringType value) { 
           this.note = value;
           return this;
         }
@@ -191,7 +211,7 @@ public class FamilyHistory extends Resource {
             this.note = null;
           else {
             if (this.note == null)
-              this.note = new String_();
+              this.note = new StringType();
             this.note.setValue(value);
           }
           return this;
@@ -219,6 +239,7 @@ public class FamilyHistory extends Resource {
           childrenList.add(new Property("name", "string", "This will either be a name or a description.  E.g. 'Aunt Susan', 'my cousin with the red hair'.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("relationship", "CodeableConcept", "The type of relationship this person has to the patient (father, mother, brother etc.).", 0, java.lang.Integer.MAX_VALUE, relationship));
           childrenList.add(new Property("born[x]", "Period|date|string", "The actual or approximate date of birth of the relative.", 0, java.lang.Integer.MAX_VALUE, born));
+          childrenList.add(new Property("age[x]", "Age|Range|string", "The actual or approximate age of the relative at the time the family history is recorded.", 0, java.lang.Integer.MAX_VALUE, age));
           childrenList.add(new Property("deceased[x]", "boolean|Age|Range|date|string", "If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.", 0, java.lang.Integer.MAX_VALUE, deceased));
           childrenList.add(new Property("note", "string", "This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.", 0, java.lang.Integer.MAX_VALUE, note));
           childrenList.add(new Property("condition", "", "The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.", 0, java.lang.Integer.MAX_VALUE, condition));
@@ -229,6 +250,7 @@ public class FamilyHistory extends Resource {
         dst.name = name == null ? null : name.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
         dst.born = born == null ? null : born.copy();
+        dst.age = age == null ? null : age.copy();
         dst.deceased = deceased == null ? null : deceased.copy();
         dst.note = note == null ? null : note.copy();
         dst.condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
@@ -258,9 +280,9 @@ public class FamilyHistory extends Resource {
         /**
          * An area where general notes can be placed about this specific condition.
          */
-        protected String_ note;
+        protected StringType note;
 
-        private static final long serialVersionUID = 196636125L;
+        private static final long serialVersionUID = -1664709272L;
 
       public FamilyHistoryRelationConditionComponent() {
         super();
@@ -319,14 +341,14 @@ public class FamilyHistory extends Resource {
         /**
          * @return {@link #note} (An area where general notes can be placed about this specific condition.)
          */
-        public String_ getNote() { 
+        public StringType getNote() { 
           return this.note;
         }
 
         /**
          * @param value {@link #note} (An area where general notes can be placed about this specific condition.)
          */
-        public FamilyHistoryRelationConditionComponent setNote(String_ value) { 
+        public FamilyHistoryRelationConditionComponent setNote(StringType value) { 
           this.note = value;
           return this;
         }
@@ -346,7 +368,7 @@ public class FamilyHistory extends Resource {
             this.note = null;
           else {
             if (this.note == null)
-              this.note = new String_();
+              this.note = new StringType();
             this.note.setValue(value);
           }
           return this;
@@ -389,19 +411,19 @@ public class FamilyHistory extends Resource {
     /**
      * The date (and possibly time) when the family history was taken.
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * Conveys information about family history not specific to individual relations.
      */
-    protected String_ note;
+    protected StringType note;
 
     /**
      * The related person. Each FamilyHistory resource contains the entire family history for a single person.
      */
     protected List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
 
-    private static final long serialVersionUID = -851296977L;
+    private static final long serialVersionUID = -1348395138L;
 
     public FamilyHistory() {
       super();
@@ -462,14 +484,14 @@ public class FamilyHistory extends Resource {
     /**
      * @return {@link #date} (The date (and possibly time) when the family history was taken.)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date (and possibly time) when the family history was taken.)
      */
-    public FamilyHistory setDate(DateTime value) { 
+    public FamilyHistory setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -489,7 +511,7 @@ public class FamilyHistory extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;
@@ -498,14 +520,14 @@ public class FamilyHistory extends Resource {
     /**
      * @return {@link #note} (Conveys information about family history not specific to individual relations.)
      */
-    public String_ getNote() { 
+    public StringType getNote() { 
       return this.note;
     }
 
     /**
      * @param value {@link #note} (Conveys information about family history not specific to individual relations.)
      */
-    public FamilyHistory setNote(String_ value) { 
+    public FamilyHistory setNote(StringType value) { 
       this.note = value;
       return this;
     }
@@ -525,7 +547,7 @@ public class FamilyHistory extends Resource {
         this.note = null;
       else {
         if (this.note == null)
-          this.note = new String_();
+          this.note = new StringType();
         this.note.setValue(value);
       }
       return this;

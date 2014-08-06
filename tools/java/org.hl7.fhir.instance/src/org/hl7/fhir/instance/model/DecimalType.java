@@ -36,7 +36,7 @@ import java.math.BigDecimal;
 /**
  * Primitive type "decimal" in FHIR: A rational number
  */
-public class Decimal extends Type {
+public class DecimalType extends Type {
 
   private static final long serialVersionUID = 2006555241525096267L;
 
@@ -80,8 +80,8 @@ public class Decimal extends Type {
   } 
 
 	@Override
-  public Decimal copy() {
-		Decimal dst = new Decimal();
+  public DecimalType copy() {
+		DecimalType dst = new DecimalType();
 		dst.value = value;
 		dst.original = original;
 		return dst;

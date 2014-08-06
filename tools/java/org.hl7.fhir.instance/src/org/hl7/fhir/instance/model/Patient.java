@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -483,7 +483,7 @@ public class Patient extends Resource {
     /**
      * The date and time of birth for the individual.
      */
-    protected DateTime birthDate;
+    protected DateTimeType birthDate;
 
     /**
      * Indicates if the individual is deceased or not.
@@ -553,9 +553,9 @@ public class Patient extends Resource {
     /**
      * Whether this patient record is in active use.
      */
-    protected Boolean active;
+    protected BooleanType active;
 
-    private static final long serialVersionUID = 1622992530L;
+    private static final long serialVersionUID = -19272494L;
 
     public Patient() {
       super();
@@ -630,14 +630,14 @@ public class Patient extends Resource {
     /**
      * @return {@link #birthDate} (The date and time of birth for the individual.)
      */
-    public DateTime getBirthDate() { 
+    public DateTimeType getBirthDate() { 
       return this.birthDate;
     }
 
     /**
      * @param value {@link #birthDate} (The date and time of birth for the individual.)
      */
-    public Patient setBirthDate(DateTime value) { 
+    public Patient setBirthDate(DateTimeType value) { 
       this.birthDate = value;
       return this;
     }
@@ -657,7 +657,7 @@ public class Patient extends Resource {
         this.birthDate = null;
       else {
         if (this.birthDate == null)
-          this.birthDate = new DateTime();
+          this.birthDate = new DateTimeType();
         this.birthDate.setValue(value);
       }
       return this;
@@ -865,14 +865,14 @@ public class Patient extends Resource {
     /**
      * @return {@link #active} (Whether this patient record is in active use.)
      */
-    public Boolean getActive() { 
+    public BooleanType getActive() { 
       return this.active;
     }
 
     /**
      * @param value {@link #active} (Whether this patient record is in active use.)
      */
-    public Patient setActive(Boolean value) { 
+    public Patient setActive(BooleanType value) { 
       this.active = value;
       return this;
     }
@@ -892,7 +892,7 @@ public class Patient extends Resource {
         this.active = null;
       else {
         if (this.active == null)
-          this.active = new Boolean();
+          this.active = new BooleanType();
         this.active.setValue(value);
       }
       return this;

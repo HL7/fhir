@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -303,9 +303,9 @@ public class Condition extends Resource {
         /**
          * Detailed anatomical location information.
          */
-        protected String_ detail;
+        protected StringType detail;
 
-        private static final long serialVersionUID = -1468883543L;
+        private static final long serialVersionUID = -406205954L;
 
       public ConditionLocationComponent() {
         super();
@@ -329,14 +329,14 @@ public class Condition extends Resource {
         /**
          * @return {@link #detail} (Detailed anatomical location information.)
          */
-        public String_ getDetail() { 
+        public StringType getDetail() { 
           return this.detail;
         }
 
         /**
          * @param value {@link #detail} (Detailed anatomical location information.)
          */
-        public ConditionLocationComponent setDetail(String_ value) { 
+        public ConditionLocationComponent setDetail(StringType value) { 
           this.detail = value;
           return this;
         }
@@ -356,7 +356,7 @@ public class Condition extends Resource {
             this.detail = null;
           else {
             if (this.detail == null)
-              this.detail = new String_();
+              this.detail = new StringType();
             this.detail.setValue(value);
           }
           return this;
@@ -541,7 +541,7 @@ public class Condition extends Resource {
     /**
      * Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
      */
-    protected Date dateAsserted;
+    protected DateType dateAsserted;
 
     /**
      * Identification of the condition, problem or diagnosis.
@@ -601,9 +601,9 @@ public class Condition extends Resource {
     /**
      * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
-    protected String_ notes;
+    protected StringType notes;
 
-    private static final long serialVersionUID = -1164607486L;
+    private static final long serialVersionUID = 1246565689L;
 
     public Condition() {
       super();
@@ -726,14 +726,14 @@ public class Condition extends Resource {
     /**
      * @return {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.)
      */
-    public Date getDateAsserted() { 
+    public DateType getDateAsserted() { 
       return this.dateAsserted;
     }
 
     /**
      * @param value {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.)
      */
-    public Condition setDateAsserted(Date value) { 
+    public Condition setDateAsserted(DateType value) { 
       this.dateAsserted = value;
       return this;
     }
@@ -753,7 +753,7 @@ public class Condition extends Resource {
         this.dateAsserted = null;
       else {
         if (this.dateAsserted == null)
-          this.dateAsserted = new Date();
+          this.dateAsserted = new DateType();
         this.dateAsserted.setValue(value);
       }
       return this;
@@ -950,14 +950,14 @@ public class Condition extends Resource {
     /**
      * @return {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.)
      */
-    public String_ getNotes() { 
+    public StringType getNotes() { 
       return this.notes;
     }
 
     /**
      * @param value {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.)
      */
-    public Condition setNotes(String_ value) { 
+    public Condition setNotes(StringType value) { 
       this.notes = value;
       return this;
     }
@@ -977,7 +977,7 @@ public class Condition extends Resource {
         this.notes = null;
       else {
         if (this.notes == null)
-          this.notes = new String_();
+          this.notes = new StringType();
         this.notes.setValue(value);
       }
       return this;

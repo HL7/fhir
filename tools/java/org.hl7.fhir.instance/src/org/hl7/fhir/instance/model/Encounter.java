@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -354,9 +354,9 @@ public class Encounter extends Resource {
         /**
          * Whether this hospitalization is a readmission.
          */
-        protected Boolean reAdmission;
+        protected BooleanType reAdmission;
 
-        private static final long serialVersionUID = -392075448L;
+        private static final long serialVersionUID = -521461330L;
 
       public EncounterHospitalizationComponent() {
         super();
@@ -581,14 +581,14 @@ public class Encounter extends Resource {
         /**
          * @return {@link #reAdmission} (Whether this hospitalization is a readmission.)
          */
-        public Boolean getReAdmission() { 
+        public BooleanType getReAdmission() { 
           return this.reAdmission;
         }
 
         /**
          * @param value {@link #reAdmission} (Whether this hospitalization is a readmission.)
          */
-        public EncounterHospitalizationComponent setReAdmission(Boolean value) { 
+        public EncounterHospitalizationComponent setReAdmission(BooleanType value) { 
           this.reAdmission = value;
           return this;
         }
@@ -608,7 +608,7 @@ public class Encounter extends Resource {
             this.reAdmission = null;
           else {
             if (this.reAdmission == null)
-              this.reAdmission = new Boolean();
+              this.reAdmission = new BooleanType();
             this.reAdmission.setValue(value);
           }
           return this;

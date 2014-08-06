@@ -26,38 +26,63 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-
+/**
+ * 
+ */
 package org.hl7.fhir.instance.model;
 
 /**
- * Primitive type "dateTime" in FHIR: any day in a gregorian calendar, along with the time in a 24hour clock, and possibly a timezone
+ * Primitive type "integer" in FHIR: A signed 32-bit integer 
+ * @author Grahame
+ *
  */
-public class DateTime extends PrimitiveType {
+public class IntegerType extends PrimitiveType {
 
-  private static final long serialVersionUID = 7592289953733558372L;
+  private static final long serialVersionUID = -553171308047944356L;
 	/**
-	 * The value of the dateTime
+	 * the actual value of the number
 	 */
-	private DateAndTime value;
-
+	private int value;
 	/**
-	 * @return The value of the dateTime
+	 * The exact representation of the number on the wire. i.e. does it have leading zeros. 
+	 * This SHOULD not be used, but is provided in case it's absolutely needed
 	 */
-	public DateAndTime getValue() {
+	private String original;
+	
+	/**
+	 * @return the integer value
+	 */
+	public int getValue() {
 		return value;
 	}
 
 	/**
-	 * @param value The value of the dateTime
+	 * @param value the integer value
 	 */
-	public void setValue(DateAndTime value) {
+	public void setValue(int value) {
 		this.value = value;
+		this.original = null;
 	}
+
+	/**
+	 * @return The exact representation of the number on the wire
+	 */
+  public String getOriginal() {
+    return original;
+  }
+
+  /**
+   * @param original The exact representation of the number on the wire
+   */
+  public void setOriginal(String original) {
+    this.original = original;
+  } 
 	
 	@Override
-  public DateTime copy() {
-		DateTime dst = new DateTime();
+  public IntegerType copy() {
+		IntegerType dst = new IntegerType();
 		dst.value = value;
+		dst.original = original;
 		return dst;
 	}
 	
@@ -66,9 +91,13 @@ public class DateTime extends PrimitiveType {
 		return copy();
 	}
 
+	public String getStringValue() {
+	  return java.lang.Integer.toString(value);
+  }
+
   @Override
   public String asStringValue() {
-    return value.toString();  
+    return original != null ? original : java.lang.Integer.toString(value);
   }
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -53,7 +53,7 @@ public class RiskAssessment extends Resource {
         /**
          * Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).
          */
-        protected Decimal relativeRisk;
+        protected DecimalType relativeRisk;
 
         /**
          * Indicates the period of time or age range of the subject to which the specified probability applies.
@@ -63,9 +63,9 @@ public class RiskAssessment extends Resource {
         /**
          * Additional information explaining the basis for the prediction.
          */
-        protected String_ rationale;
+        protected StringType rationale;
 
-        private static final long serialVersionUID = -596192725L;
+        private static final long serialVersionUID = 647967428L;
 
       public RiskAssessmentPredictionComponent() {
         super();
@@ -109,14 +109,14 @@ public class RiskAssessment extends Resource {
         /**
          * @return {@link #relativeRisk} (Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).)
          */
-        public Decimal getRelativeRisk() { 
+        public DecimalType getRelativeRisk() { 
           return this.relativeRisk;
         }
 
         /**
          * @param value {@link #relativeRisk} (Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).)
          */
-        public RiskAssessmentPredictionComponent setRelativeRisk(Decimal value) { 
+        public RiskAssessmentPredictionComponent setRelativeRisk(DecimalType value) { 
           this.relativeRisk = value;
           return this;
         }
@@ -136,7 +136,7 @@ public class RiskAssessment extends Resource {
             this.relativeRisk = null;
           else {
             if (this.relativeRisk == null)
-              this.relativeRisk = new Decimal();
+              this.relativeRisk = new DecimalType();
             this.relativeRisk.setValue(value);
           }
           return this;
@@ -160,14 +160,14 @@ public class RiskAssessment extends Resource {
         /**
          * @return {@link #rationale} (Additional information explaining the basis for the prediction.)
          */
-        public String_ getRationale() { 
+        public StringType getRationale() { 
           return this.rationale;
         }
 
         /**
          * @param value {@link #rationale} (Additional information explaining the basis for the prediction.)
          */
-        public RiskAssessmentPredictionComponent setRationale(String_ value) { 
+        public RiskAssessmentPredictionComponent setRationale(StringType value) { 
           this.rationale = value;
           return this;
         }
@@ -187,7 +187,7 @@ public class RiskAssessment extends Resource {
             this.rationale = null;
           else {
             if (this.rationale == null)
-              this.rationale = new String_();
+              this.rationale = new StringType();
             this.rationale.setValue(value);
           }
           return this;
@@ -227,7 +227,7 @@ public class RiskAssessment extends Resource {
     /**
      * The date (and possibly time) the risk assessment was performed.
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
@@ -277,9 +277,9 @@ public class RiskAssessment extends Resource {
     /**
      * A description of the steps that might be taken to reduce the identified risk(s).
      */
-    protected String_ mitigation;
+    protected StringType mitigation;
 
-    private static final long serialVersionUID = 410590778L;
+    private static final long serialVersionUID = -1398763765L;
 
     public RiskAssessment() {
       super();
@@ -318,14 +318,14 @@ public class RiskAssessment extends Resource {
     /**
      * @return {@link #date} (The date (and possibly time) the risk assessment was performed.)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date (and possibly time) the risk assessment was performed.)
      */
-    public RiskAssessment setDate(DateTime value) { 
+    public RiskAssessment setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -345,7 +345,7 @@ public class RiskAssessment extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;
@@ -485,14 +485,14 @@ public class RiskAssessment extends Resource {
     /**
      * @return {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).)
      */
-    public String_ getMitigation() { 
+    public StringType getMitigation() { 
       return this.mitigation;
     }
 
     /**
      * @param value {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).)
      */
-    public RiskAssessment setMitigation(String_ value) { 
+    public RiskAssessment setMitigation(StringType value) { 
       this.mitigation = value;
       return this;
     }
@@ -512,7 +512,7 @@ public class RiskAssessment extends Resource {
         this.mitigation = null;
       else {
         if (this.mitigation == null)
-          this.mitigation = new String_();
+          this.mitigation = new StringType();
         this.mitigation.setValue(value);
       }
       return this;

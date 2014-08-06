@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -136,12 +136,12 @@ public class DocumentManifest extends Resource {
     /**
      * When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).
      */
-    protected DateTime created;
+    protected DateTimeType created;
 
     /**
      * Identifies the source system, application, or software that produced the document manifest.
      */
-    protected Uri source;
+    protected UriType source;
 
     /**
      * The status of this document manifest.
@@ -161,7 +161,7 @@ public class DocumentManifest extends Resource {
     /**
      * Human-readable description of the source document. This is sometimes known as the "title".
      */
-    protected String_ description;
+    protected StringType description;
 
     /**
      * A code specifying the level of confidentiality of this set of Documents.
@@ -178,7 +178,7 @@ public class DocumentManifest extends Resource {
     protected List<Resource> contentTarget = new ArrayList<Resource>();
 
 
-    private static final long serialVersionUID = 1557669925L;
+    private static final long serialVersionUID = -1745022706L;
 
     public DocumentManifest() {
       super();
@@ -312,14 +312,14 @@ public class DocumentManifest extends Resource {
     /**
      * @return {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).)
      */
-    public DateTime getCreated() { 
+    public DateTimeType getCreated() { 
       return this.created;
     }
 
     /**
      * @param value {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).)
      */
-    public DocumentManifest setCreated(DateTime value) { 
+    public DocumentManifest setCreated(DateTimeType value) { 
       this.created = value;
       return this;
     }
@@ -339,7 +339,7 @@ public class DocumentManifest extends Resource {
         this.created = null;
       else {
         if (this.created == null)
-          this.created = new DateTime();
+          this.created = new DateTimeType();
         this.created.setValue(value);
       }
       return this;
@@ -348,14 +348,14 @@ public class DocumentManifest extends Resource {
     /**
      * @return {@link #source} (Identifies the source system, application, or software that produced the document manifest.)
      */
-    public Uri getSource() { 
+    public UriType getSource() { 
       return this.source;
     }
 
     /**
      * @param value {@link #source} (Identifies the source system, application, or software that produced the document manifest.)
      */
-    public DocumentManifest setSource(Uri value) { 
+    public DocumentManifest setSource(UriType value) { 
       this.source = value;
       return this;
     }
@@ -375,7 +375,7 @@ public class DocumentManifest extends Resource {
         this.source = null;
       else {
         if (this.source == null)
-          this.source = new Uri();
+          this.source = new UriType();
         this.source.setValue(value);
       }
       return this;
@@ -446,14 +446,14 @@ public class DocumentManifest extends Resource {
     /**
      * @return {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".)
      */
-    public String_ getDescription() { 
+    public StringType getDescription() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".)
      */
-    public DocumentManifest setDescription(String_ value) { 
+    public DocumentManifest setDescription(StringType value) { 
       this.description = value;
       return this;
     }
@@ -473,7 +473,7 @@ public class DocumentManifest extends Resource {
         this.description = null;
       else {
         if (this.description == null)
-          this.description = new String_();
+          this.description = new StringType();
         this.description.setValue(value);
       }
       return this;

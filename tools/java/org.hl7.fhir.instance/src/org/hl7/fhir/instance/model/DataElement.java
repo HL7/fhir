@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -142,7 +142,7 @@ public class DataElement extends Resource {
         /**
          * If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
          */
-        protected Boolean isExtensible;
+        protected BooleanType isExtensible;
 
         /**
          * Indicates the degree of conformance expectations associated with this binding.
@@ -152,7 +152,7 @@ public class DataElement extends Resource {
         /**
          * Describes the intended use of this particular set of codes.
          */
-        protected String_ description;
+        protected StringType description;
 
         /**
          * Points to the value set that identifies the set of codes to be used.
@@ -164,13 +164,13 @@ public class DataElement extends Resource {
          */
         protected ValueSet valueSetTarget;
 
-        private static final long serialVersionUID = 1873055942L;
+        private static final long serialVersionUID = -445833557L;
 
       public DataElementBindingComponent() {
         super();
       }
 
-      public DataElementBindingComponent(Boolean isExtensible) {
+      public DataElementBindingComponent(BooleanType isExtensible) {
         super();
         this.isExtensible = isExtensible;
       }
@@ -178,14 +178,14 @@ public class DataElement extends Resource {
         /**
          * @return {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.)
          */
-        public Boolean getIsExtensible() { 
+        public BooleanType getIsExtensible() { 
           return this.isExtensible;
         }
 
         /**
          * @param value {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.)
          */
-        public DataElementBindingComponent setIsExtensible(Boolean value) { 
+        public DataElementBindingComponent setIsExtensible(BooleanType value) { 
           this.isExtensible = value;
           return this;
         }
@@ -202,7 +202,7 @@ public class DataElement extends Resource {
          */
         public DataElementBindingComponent setIsExtensibleSimple(boolean value) { 
             if (this.isExtensible == null)
-              this.isExtensible = new Boolean();
+              this.isExtensible = new BooleanType();
             this.isExtensible.setValue(value);
           return this;
         }
@@ -246,14 +246,14 @@ public class DataElement extends Resource {
         /**
          * @return {@link #description} (Describes the intended use of this particular set of codes.)
          */
-        public String_ getDescription() { 
+        public StringType getDescription() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Describes the intended use of this particular set of codes.)
          */
-        public DataElementBindingComponent setDescription(String_ value) { 
+        public DataElementBindingComponent setDescription(StringType value) { 
           this.description = value;
           return this;
         }
@@ -273,7 +273,7 @@ public class DataElement extends Resource {
             this.description = null;
           else {
             if (this.description == null)
-              this.description = new String_();
+              this.description = new StringType();
             this.description.setValue(value);
           }
           return this;
@@ -332,30 +332,30 @@ public class DataElement extends Resource {
         /**
          * A URI that identifies the specification that this mapping is expressed to.
          */
-        protected Uri uri;
+        protected UriType uri;
 
         /**
          * A name for the specification that is being mapped to.
          */
-        protected String_ name;
+        protected StringType name;
 
         /**
          * Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        protected String_ comments;
+        protected StringType comments;
 
         /**
          * Expresses what part of the target specification corresponds to this element.
          */
-        protected String_ map;
+        protected StringType map;
 
-        private static final long serialVersionUID = 884283977L;
+        private static final long serialVersionUID = -229299076L;
 
       public DataElementMappingComponent() {
         super();
       }
 
-      public DataElementMappingComponent(String_ map) {
+      public DataElementMappingComponent(StringType map) {
         super();
         this.map = map;
       }
@@ -363,14 +363,14 @@ public class DataElement extends Resource {
         /**
          * @return {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
          */
-        public Uri getUri() { 
+        public UriType getUri() { 
           return this.uri;
         }
 
         /**
          * @param value {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
          */
-        public DataElementMappingComponent setUri(Uri value) { 
+        public DataElementMappingComponent setUri(UriType value) { 
           this.uri = value;
           return this;
         }
@@ -390,7 +390,7 @@ public class DataElement extends Resource {
             this.uri = null;
           else {
             if (this.uri == null)
-              this.uri = new Uri();
+              this.uri = new UriType();
             this.uri.setValue(value);
           }
           return this;
@@ -399,14 +399,14 @@ public class DataElement extends Resource {
         /**
          * @return {@link #name} (A name for the specification that is being mapped to.)
          */
-        public String_ getName() { 
+        public StringType getName() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (A name for the specification that is being mapped to.)
          */
-        public DataElementMappingComponent setName(String_ value) { 
+        public DataElementMappingComponent setName(StringType value) { 
           this.name = value;
           return this;
         }
@@ -426,7 +426,7 @@ public class DataElement extends Resource {
             this.name = null;
           else {
             if (this.name == null)
-              this.name = new String_();
+              this.name = new StringType();
             this.name.setValue(value);
           }
           return this;
@@ -435,14 +435,14 @@ public class DataElement extends Resource {
         /**
          * @return {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.)
          */
-        public String_ getComments() { 
+        public StringType getComments() { 
           return this.comments;
         }
 
         /**
          * @param value {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.)
          */
-        public DataElementMappingComponent setComments(String_ value) { 
+        public DataElementMappingComponent setComments(StringType value) { 
           this.comments = value;
           return this;
         }
@@ -462,7 +462,7 @@ public class DataElement extends Resource {
             this.comments = null;
           else {
             if (this.comments == null)
-              this.comments = new String_();
+              this.comments = new StringType();
             this.comments.setValue(value);
           }
           return this;
@@ -471,14 +471,14 @@ public class DataElement extends Resource {
         /**
          * @return {@link #map} (Expresses what part of the target specification corresponds to this element.)
          */
-        public String_ getMap() { 
+        public StringType getMap() { 
           return this.map;
         }
 
         /**
          * @param value {@link #map} (Expresses what part of the target specification corresponds to this element.)
          */
-        public DataElementMappingComponent setMap(String_ value) { 
+        public DataElementMappingComponent setMap(StringType value) { 
           this.map = value;
           return this;
         }
@@ -495,7 +495,7 @@ public class DataElement extends Resource {
          */
         public DataElementMappingComponent setMapSimple(String value) { 
             if (this.map == null)
-              this.map = new String_();
+              this.map = new StringType();
             this.map.setValue(value);
           return this;
         }
@@ -527,12 +527,12 @@ public class DataElement extends Resource {
     /**
      * The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
      */
-    protected String_ version;
+    protected StringType version;
 
     /**
      * Details of the individual or organization who accepts responsibility for publishing the data element.
      */
-    protected String_ publisher;
+    protected StringType publisher;
 
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
@@ -547,12 +547,12 @@ public class DataElement extends Resource {
     /**
      * The date that this version of the data element was published.
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
      */
-    protected String_ name;
+    protected StringType name;
 
     /**
      * A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.
@@ -567,32 +567,32 @@ public class DataElement extends Resource {
     /**
      * The default/suggested phrasing to use when prompting a human to capture the data element.
      */
-    protected String_ question;
+    protected StringType question;
 
     /**
      * Provides a complete explanation of the meaning of the data element for human readability.
      */
-    protected String_ definition;
+    protected StringType definition;
 
     /**
      * Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
-    protected String_ comments;
+    protected StringType comments;
 
     /**
      * Explains why this element is needed and why it's been constrained as it has.
      */
-    protected String_ requirements;
+    protected StringType requirements;
 
     /**
      * Identifies additional names by which this element might also be known.
      */
-    protected List<String_> synonym = new ArrayList<String_>();
+    protected List<StringType> synonym = new ArrayList<StringType>();
 
     /**
      * The FHIR data type that is the type for this element.
      */
-    protected Code type;
+    protected CodeType type;
 
     /**
      * An example value for this element.
@@ -602,7 +602,7 @@ public class DataElement extends Resource {
     /**
      * Indicates the shortest length that SHALL be supported by conformant instances without truncation.
      */
-    protected Integer maxLength;
+    protected IntegerType maxLength;
 
     /**
      * Identifies the units of measure in which the data element should be captured or expressed.
@@ -619,7 +619,7 @@ public class DataElement extends Resource {
      */
     protected List<DataElementMappingComponent> mapping = new ArrayList<DataElementMappingComponent>();
 
-    private static final long serialVersionUID = 1512979501L;
+    private static final long serialVersionUID = 461036308L;
 
     public DataElement() {
       super();
@@ -648,14 +648,14 @@ public class DataElement extends Resource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.)
      */
-    public String_ getVersion() { 
+    public StringType getVersion() { 
       return this.version;
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.)
      */
-    public DataElement setVersion(String_ value) { 
+    public DataElement setVersion(StringType value) { 
       this.version = value;
       return this;
     }
@@ -675,7 +675,7 @@ public class DataElement extends Resource {
         this.version = null;
       else {
         if (this.version == null)
-          this.version = new String_();
+          this.version = new StringType();
         this.version.setValue(value);
       }
       return this;
@@ -684,14 +684,14 @@ public class DataElement extends Resource {
     /**
      * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the data element.)
      */
-    public String_ getPublisher() { 
+    public StringType getPublisher() { 
       return this.publisher;
     }
 
     /**
      * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the data element.)
      */
-    public DataElement setPublisher(String_ value) { 
+    public DataElement setPublisher(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -711,7 +711,7 @@ public class DataElement extends Resource {
         this.publisher = null;
       else {
         if (this.publisher == null)
-          this.publisher = new String_();
+          this.publisher = new StringType();
         this.publisher.setValue(value);
       }
       return this;
@@ -769,14 +769,14 @@ public class DataElement extends Resource {
     /**
      * @return {@link #date} (The date that this version of the data element was published.)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date that this version of the data element was published.)
      */
-    public DataElement setDate(DateTime value) { 
+    public DataElement setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -796,7 +796,7 @@ public class DataElement extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;
@@ -805,14 +805,14 @@ public class DataElement extends Resource {
     /**
      * @return {@link #name} (The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.)
      */
-    public String_ getName() { 
+    public StringType getName() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.)
      */
-    public DataElement setName(String_ value) { 
+    public DataElement setName(StringType value) { 
       this.name = value;
       return this;
     }
@@ -832,7 +832,7 @@ public class DataElement extends Resource {
         this.name = null;
       else {
         if (this.name == null)
-          this.name = new String_();
+          this.name = new StringType();
         this.name.setValue(value);
       }
       return this;
@@ -875,14 +875,14 @@ public class DataElement extends Resource {
     /**
      * @return {@link #question} (The default/suggested phrasing to use when prompting a human to capture the data element.)
      */
-    public String_ getQuestion() { 
+    public StringType getQuestion() { 
       return this.question;
     }
 
     /**
      * @param value {@link #question} (The default/suggested phrasing to use when prompting a human to capture the data element.)
      */
-    public DataElement setQuestion(String_ value) { 
+    public DataElement setQuestion(StringType value) { 
       this.question = value;
       return this;
     }
@@ -902,7 +902,7 @@ public class DataElement extends Resource {
         this.question = null;
       else {
         if (this.question == null)
-          this.question = new String_();
+          this.question = new StringType();
         this.question.setValue(value);
       }
       return this;
@@ -911,14 +911,14 @@ public class DataElement extends Resource {
     /**
      * @return {@link #definition} (Provides a complete explanation of the meaning of the data element for human readability.)
      */
-    public String_ getDefinition() { 
+    public StringType getDefinition() { 
       return this.definition;
     }
 
     /**
      * @param value {@link #definition} (Provides a complete explanation of the meaning of the data element for human readability.)
      */
-    public DataElement setDefinition(String_ value) { 
+    public DataElement setDefinition(StringType value) { 
       this.definition = value;
       return this;
     }
@@ -938,7 +938,7 @@ public class DataElement extends Resource {
         this.definition = null;
       else {
         if (this.definition == null)
-          this.definition = new String_();
+          this.definition = new StringType();
         this.definition.setValue(value);
       }
       return this;
@@ -947,14 +947,14 @@ public class DataElement extends Resource {
     /**
      * @return {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.)
      */
-    public String_ getComments() { 
+    public StringType getComments() { 
       return this.comments;
     }
 
     /**
      * @param value {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.)
      */
-    public DataElement setComments(String_ value) { 
+    public DataElement setComments(StringType value) { 
       this.comments = value;
       return this;
     }
@@ -974,7 +974,7 @@ public class DataElement extends Resource {
         this.comments = null;
       else {
         if (this.comments == null)
-          this.comments = new String_();
+          this.comments = new StringType();
         this.comments.setValue(value);
       }
       return this;
@@ -983,14 +983,14 @@ public class DataElement extends Resource {
     /**
      * @return {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.)
      */
-    public String_ getRequirements() { 
+    public StringType getRequirements() { 
       return this.requirements;
     }
 
     /**
      * @param value {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.)
      */
-    public DataElement setRequirements(String_ value) { 
+    public DataElement setRequirements(StringType value) { 
       this.requirements = value;
       return this;
     }
@@ -1010,7 +1010,7 @@ public class DataElement extends Resource {
         this.requirements = null;
       else {
         if (this.requirements == null)
-          this.requirements = new String_();
+          this.requirements = new StringType();
         this.requirements.setValue(value);
       }
       return this;
@@ -1019,7 +1019,7 @@ public class DataElement extends Resource {
     /**
      * @return {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
-    public List<String_> getSynonym() { 
+    public List<StringType> getSynonym() { 
       return this.synonym;
     }
 
@@ -1027,8 +1027,8 @@ public class DataElement extends Resource {
     /**
      * @return {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
-    public String_ addSynonym() { 
-      String_ t = new String_();
+    public StringType addSynonym() { 
+      StringType t = new StringType();
       this.synonym.add(t);
       return t;
     }
@@ -1036,8 +1036,8 @@ public class DataElement extends Resource {
     /**
      * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
-    public String_ addSynonymSimple(String value) { 
-      String_ t = new String_();
+    public StringType addSynonymSimple(String value) { 
+      StringType t = new StringType();
       t.setValue(value);
       this.synonym.add(t);
       return t;
@@ -1047,7 +1047,7 @@ public class DataElement extends Resource {
      * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
     public boolean hasSynonymSimple(String value) { 
-      for (String_ v : this.synonym)
+      for (StringType v : this.synonym)
         if (v.getValue().equals(value))
           return true;
       return false;
@@ -1056,14 +1056,14 @@ public class DataElement extends Resource {
     /**
      * @return {@link #type} (The FHIR data type that is the type for this element.)
      */
-    public Code getType() { 
+    public CodeType getType() { 
       return this.type;
     }
 
     /**
      * @param value {@link #type} (The FHIR data type that is the type for this element.)
      */
-    public DataElement setType(Code value) { 
+    public DataElement setType(CodeType value) { 
       this.type = value;
       return this;
     }
@@ -1083,7 +1083,7 @@ public class DataElement extends Resource {
         this.type = null;
       else {
         if (this.type == null)
-          this.type = new Code();
+          this.type = new CodeType();
         this.type.setValue(value);
       }
       return this;
@@ -1107,14 +1107,14 @@ public class DataElement extends Resource {
     /**
      * @return {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.)
      */
-    public Integer getMaxLength() { 
+    public IntegerType getMaxLength() { 
       return this.maxLength;
     }
 
     /**
      * @param value {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.)
      */
-    public DataElement setMaxLength(Integer value) { 
+    public DataElement setMaxLength(IntegerType value) { 
       this.maxLength = value;
       return this;
     }
@@ -1134,7 +1134,7 @@ public class DataElement extends Resource {
         this.maxLength = null;
       else {
         if (this.maxLength == null)
-          this.maxLength = new Integer();
+          this.maxLength = new IntegerType();
         this.maxLength.setValue(value);
       }
       return this;
@@ -1232,8 +1232,8 @@ public class DataElement extends Resource {
         dst.definition = definition == null ? null : definition.copy();
         dst.comments = comments == null ? null : comments.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
-        dst.synonym = new ArrayList<String_>();
-        for (String_ i : synonym)
+        dst.synonym = new ArrayList<StringType>();
+        for (StringType i : synonym)
           dst.synonym.add(i.copy());
         dst.type = type == null ? null : type.copy();
         dst.example = example == null ? null : example.copy();

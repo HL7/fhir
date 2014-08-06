@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -110,14 +110,14 @@ public class OperationOutcome extends Resource {
         /**
          * Additional description of the issue.
          */
-        protected String_ details;
+        protected StringType details;
 
         /**
          * A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
          */
-        protected List<String_> location = new ArrayList<String_>();
+        protected List<StringType> location = new ArrayList<StringType>();
 
-        private static final long serialVersionUID = -1630124586L;
+        private static final long serialVersionUID = 1582980307L;
 
       public OperationOutcomeIssueComponent() {
         super();
@@ -178,14 +178,14 @@ public class OperationOutcome extends Resource {
         /**
          * @return {@link #details} (Additional description of the issue.)
          */
-        public String_ getDetails() { 
+        public StringType getDetails() { 
           return this.details;
         }
 
         /**
          * @param value {@link #details} (Additional description of the issue.)
          */
-        public OperationOutcomeIssueComponent setDetails(String_ value) { 
+        public OperationOutcomeIssueComponent setDetails(StringType value) { 
           this.details = value;
           return this;
         }
@@ -205,7 +205,7 @@ public class OperationOutcome extends Resource {
             this.details = null;
           else {
             if (this.details == null)
-              this.details = new String_();
+              this.details = new StringType();
             this.details.setValue(value);
           }
           return this;
@@ -214,7 +214,7 @@ public class OperationOutcome extends Resource {
         /**
          * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
-        public List<String_> getLocation() { 
+        public List<StringType> getLocation() { 
           return this.location;
         }
 
@@ -222,8 +222,8 @@ public class OperationOutcome extends Resource {
         /**
          * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
-        public String_ addLocation() { 
-          String_ t = new String_();
+        public StringType addLocation() { 
+          StringType t = new StringType();
           this.location.add(t);
           return t;
         }
@@ -231,8 +231,8 @@ public class OperationOutcome extends Resource {
         /**
          * @param value {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
-        public String_ addLocationSimple(String value) { 
-          String_ t = new String_();
+        public StringType addLocationSimple(String value) { 
+          StringType t = new StringType();
           t.setValue(value);
           this.location.add(t);
           return t;
@@ -242,7 +242,7 @@ public class OperationOutcome extends Resource {
          * @param value {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
         public boolean hasLocationSimple(String value) { 
-          for (String_ v : this.location)
+          for (StringType v : this.location)
             if (v.getValue().equals(value))
               return true;
           return false;
@@ -261,8 +261,8 @@ public class OperationOutcome extends Resource {
         dst.severity = severity == null ? null : severity.copy();
         dst.type = type == null ? null : type.copy();
         dst.details = details == null ? null : details.copy();
-        dst.location = new ArrayList<String_>();
-        for (String_ i : location)
+        dst.location = new ArrayList<StringType>();
+        for (StringType i : location)
           dst.location.add(i.copy());
         return dst;
       }

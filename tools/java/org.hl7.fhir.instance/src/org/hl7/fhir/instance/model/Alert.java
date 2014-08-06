@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -126,15 +126,15 @@ public class Alert extends Resource {
     /**
      * The textual component of the alert to display to the user.
      */
-    protected String_ note;
+    protected StringType note;
 
-    private static final long serialVersionUID = 1246454451L;
+    private static final long serialVersionUID = 1816158418L;
 
     public Alert() {
       super();
     }
 
-    public Alert(Enumeration<AlertStatus> status, ResourceReference subject, String_ note) {
+    public Alert(Enumeration<AlertStatus> status, ResourceReference subject, StringType note) {
       super();
       this.status = status;
       this.subject = subject;
@@ -268,14 +268,14 @@ public class Alert extends Resource {
     /**
      * @return {@link #note} (The textual component of the alert to display to the user.)
      */
-    public String_ getNote() { 
+    public StringType getNote() { 
       return this.note;
     }
 
     /**
      * @param value {@link #note} (The textual component of the alert to display to the user.)
      */
-    public Alert setNote(String_ value) { 
+    public Alert setNote(StringType value) { 
       this.note = value;
       return this;
     }
@@ -292,7 +292,7 @@ public class Alert extends Resource {
      */
     public Alert setNoteSimple(String value) { 
         if (this.note == null)
-          this.note = new String_();
+          this.note = new StringType();
         this.note.setValue(value);
       return this;
     }

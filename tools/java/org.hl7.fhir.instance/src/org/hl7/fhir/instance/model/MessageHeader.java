@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -92,7 +92,7 @@ public class MessageHeader extends Resource {
         /**
          * The id of the message that this message is a response to.
          */
-        protected Id identifier;
+        protected IdType identifier;
 
         /**
          * Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
@@ -109,13 +109,13 @@ public class MessageHeader extends Resource {
          */
         protected OperationOutcome detailsTarget;
 
-        private static final long serialVersionUID = 902866821L;
+        private static final long serialVersionUID = -1631054369L;
 
       public MessageHeaderResponseComponent() {
         super();
       }
 
-      public MessageHeaderResponseComponent(Id identifier, Enumeration<ResponseCode> code) {
+      public MessageHeaderResponseComponent(IdType identifier, Enumeration<ResponseCode> code) {
         super();
         this.identifier = identifier;
         this.code = code;
@@ -124,14 +124,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #identifier} (The id of the message that this message is a response to.)
          */
-        public Id getIdentifier() { 
+        public IdType getIdentifier() { 
           return this.identifier;
         }
 
         /**
          * @param value {@link #identifier} (The id of the message that this message is a response to.)
          */
-        public MessageHeaderResponseComponent setIdentifier(Id value) { 
+        public MessageHeaderResponseComponent setIdentifier(IdType value) { 
           this.identifier = value;
           return this;
         }
@@ -148,7 +148,7 @@ public class MessageHeader extends Resource {
          */
         public MessageHeaderResponseComponent setIdentifierSimple(String value) { 
             if (this.identifier == null)
-              this.identifier = new Id();
+              this.identifier = new IdType();
             this.identifier.setValue(value);
           return this;
         }
@@ -236,17 +236,17 @@ public class MessageHeader extends Resource {
         /**
          * Human-readable name for the target system.
          */
-        protected String_ name;
+        protected StringType name;
 
         /**
          * May include configuration or other information useful in debugging.
          */
-        protected String_ software;
+        protected StringType software;
 
         /**
          * Can convey versions of multiple systems in situations where a message passes through multiple hands.
          */
-        protected String_ version;
+        protected StringType version;
 
         /**
          * An e-mail, phone, website or other contact point to use to resolve issues with message communications.
@@ -256,15 +256,15 @@ public class MessageHeader extends Resource {
         /**
          * Identifies the routing target to send acknowledgements to.
          */
-        protected Uri endpoint;
+        protected UriType endpoint;
 
-        private static final long serialVersionUID = -186111349L;
+        private static final long serialVersionUID = 2095309634L;
 
       public MessageSourceComponent() {
         super();
       }
 
-      public MessageSourceComponent(String_ software, Uri endpoint) {
+      public MessageSourceComponent(StringType software, UriType endpoint) {
         super();
         this.software = software;
         this.endpoint = endpoint;
@@ -273,14 +273,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #name} (Human-readable name for the target system.)
          */
-        public String_ getName() { 
+        public StringType getName() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (Human-readable name for the target system.)
          */
-        public MessageSourceComponent setName(String_ value) { 
+        public MessageSourceComponent setName(StringType value) { 
           this.name = value;
           return this;
         }
@@ -300,7 +300,7 @@ public class MessageHeader extends Resource {
             this.name = null;
           else {
             if (this.name == null)
-              this.name = new String_();
+              this.name = new StringType();
             this.name.setValue(value);
           }
           return this;
@@ -309,14 +309,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #software} (May include configuration or other information useful in debugging.)
          */
-        public String_ getSoftware() { 
+        public StringType getSoftware() { 
           return this.software;
         }
 
         /**
          * @param value {@link #software} (May include configuration or other information useful in debugging.)
          */
-        public MessageSourceComponent setSoftware(String_ value) { 
+        public MessageSourceComponent setSoftware(StringType value) { 
           this.software = value;
           return this;
         }
@@ -333,7 +333,7 @@ public class MessageHeader extends Resource {
          */
         public MessageSourceComponent setSoftwareSimple(String value) { 
             if (this.software == null)
-              this.software = new String_();
+              this.software = new StringType();
             this.software.setValue(value);
           return this;
         }
@@ -341,14 +341,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.)
          */
-        public String_ getVersion() { 
+        public StringType getVersion() { 
           return this.version;
         }
 
         /**
          * @param value {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.)
          */
-        public MessageSourceComponent setVersion(String_ value) { 
+        public MessageSourceComponent setVersion(StringType value) { 
           this.version = value;
           return this;
         }
@@ -368,7 +368,7 @@ public class MessageHeader extends Resource {
             this.version = null;
           else {
             if (this.version == null)
-              this.version = new String_();
+              this.version = new StringType();
             this.version.setValue(value);
           }
           return this;
@@ -392,14 +392,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #endpoint} (Identifies the routing target to send acknowledgements to.)
          */
-        public Uri getEndpoint() { 
+        public UriType getEndpoint() { 
           return this.endpoint;
         }
 
         /**
          * @param value {@link #endpoint} (Identifies the routing target to send acknowledgements to.)
          */
-        public MessageSourceComponent setEndpoint(Uri value) { 
+        public MessageSourceComponent setEndpoint(UriType value) { 
           this.endpoint = value;
           return this;
         }
@@ -416,7 +416,7 @@ public class MessageHeader extends Resource {
          */
         public MessageSourceComponent setEndpointSimple(String value) { 
             if (this.endpoint == null)
-              this.endpoint = new Uri();
+              this.endpoint = new UriType();
             this.endpoint.setValue(value);
           return this;
         }
@@ -446,7 +446,7 @@ public class MessageHeader extends Resource {
         /**
          * Human-readable name for the source system.
          */
-        protected String_ name;
+        protected StringType name;
 
         /**
          * Identifies the target end system in situations where the initial message transmission is to an intermediary system.
@@ -461,15 +461,15 @@ public class MessageHeader extends Resource {
         /**
          * Indicates where the message should be routed to.
          */
-        protected Uri endpoint;
+        protected UriType endpoint;
 
-        private static final long serialVersionUID = 346560150L;
+        private static final long serialVersionUID = 1209429009L;
 
       public MessageDestinationComponent() {
         super();
       }
 
-      public MessageDestinationComponent(Uri endpoint) {
+      public MessageDestinationComponent(UriType endpoint) {
         super();
         this.endpoint = endpoint;
       }
@@ -477,14 +477,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #name} (Human-readable name for the source system.)
          */
-        public String_ getName() { 
+        public StringType getName() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (Human-readable name for the source system.)
          */
-        public MessageDestinationComponent setName(String_ value) { 
+        public MessageDestinationComponent setName(StringType value) { 
           this.name = value;
           return this;
         }
@@ -504,7 +504,7 @@ public class MessageHeader extends Resource {
             this.name = null;
           else {
             if (this.name == null)
-              this.name = new String_();
+              this.name = new StringType();
             this.name.setValue(value);
           }
           return this;
@@ -543,14 +543,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #endpoint} (Indicates where the message should be routed to.)
          */
-        public Uri getEndpoint() { 
+        public UriType getEndpoint() { 
           return this.endpoint;
         }
 
         /**
          * @param value {@link #endpoint} (Indicates where the message should be routed to.)
          */
-        public MessageDestinationComponent setEndpoint(Uri value) { 
+        public MessageDestinationComponent setEndpoint(UriType value) { 
           this.endpoint = value;
           return this;
         }
@@ -567,7 +567,7 @@ public class MessageHeader extends Resource {
          */
         public MessageDestinationComponent setEndpointSimple(String value) { 
             if (this.endpoint == null)
-              this.endpoint = new Uri();
+              this.endpoint = new UriType();
             this.endpoint.setValue(value);
           return this;
         }
@@ -592,12 +592,12 @@ public class MessageHeader extends Resource {
     /**
      * The identifier of this message.
      */
-    protected Id identifier;
+    protected IdType identifier;
 
     /**
      * The time that the message was sent.
      */
-    protected Instant timestamp;
+    protected InstantType timestamp;
 
     /**
      * Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".
@@ -674,13 +674,13 @@ public class MessageHeader extends Resource {
     protected List<Resource> dataTarget = new ArrayList<Resource>();
 
 
-    private static final long serialVersionUID = -1894921749L;
+    private static final long serialVersionUID = 75462059L;
 
     public MessageHeader() {
       super();
     }
 
-    public MessageHeader(Id identifier, Instant timestamp, Coding event, MessageSourceComponent source) {
+    public MessageHeader(IdType identifier, InstantType timestamp, Coding event, MessageSourceComponent source) {
       super();
       this.identifier = identifier;
       this.timestamp = timestamp;
@@ -691,14 +691,14 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #identifier} (The identifier of this message.)
      */
-    public Id getIdentifier() { 
+    public IdType getIdentifier() { 
       return this.identifier;
     }
 
     /**
      * @param value {@link #identifier} (The identifier of this message.)
      */
-    public MessageHeader setIdentifier(Id value) { 
+    public MessageHeader setIdentifier(IdType value) { 
       this.identifier = value;
       return this;
     }
@@ -715,7 +715,7 @@ public class MessageHeader extends Resource {
      */
     public MessageHeader setIdentifierSimple(String value) { 
         if (this.identifier == null)
-          this.identifier = new Id();
+          this.identifier = new IdType();
         this.identifier.setValue(value);
       return this;
     }
@@ -723,14 +723,14 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #timestamp} (The time that the message was sent.)
      */
-    public Instant getTimestamp() { 
+    public InstantType getTimestamp() { 
       return this.timestamp;
     }
 
     /**
      * @param value {@link #timestamp} (The time that the message was sent.)
      */
-    public MessageHeader setTimestamp(Instant value) { 
+    public MessageHeader setTimestamp(InstantType value) { 
       this.timestamp = value;
       return this;
     }
@@ -747,7 +747,7 @@ public class MessageHeader extends Resource {
      */
     public MessageHeader setTimestampSimple(DateAndTime value) { 
         if (this.timestamp == null)
-          this.timestamp = new Instant();
+          this.timestamp = new InstantType();
         this.timestamp.setValue(value);
       return this;
     }

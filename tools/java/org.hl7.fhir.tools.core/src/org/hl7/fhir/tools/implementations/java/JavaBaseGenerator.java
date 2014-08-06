@@ -31,6 +31,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
+import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
@@ -38,7 +39,9 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class JavaBaseGenerator extends OutputStreamWriter {
 
-	public JavaBaseGenerator(OutputStream out) throws UnsupportedEncodingException {
+  protected Definitions definitions;
+
+  public JavaBaseGenerator(OutputStream out) throws UnsupportedEncodingException {
 		super(out, "UTF-8");
 	}
 
@@ -84,9 +87,11 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 
 	protected String getTypeName(String tn) {
 		if (tn.equals("string")) {
-			return "String_";
+			return "StringType";
 		} else if (tn.equals("Any")) {
 			return "Resource";
+    } else if (definitions.hasPrimitiveType(tn)) {
+      return getTitle(tn)+"Type";
 		} else {
 			return getTitle(tn);
 		}

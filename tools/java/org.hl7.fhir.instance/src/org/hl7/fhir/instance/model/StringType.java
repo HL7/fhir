@@ -26,37 +26,38 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-
 package org.hl7.fhir.instance.model;
 
 /**
- * Primitive type "dateTime" in FHIR: any day in a gregorian calendar, along with the time in a 24hour clock, and possibly a timezone
+ * Primitive type "string" in FHIR - any sequence of unicode characters less than 1MB in length
  */
-public class DateTime extends PrimitiveType {
 
-  private static final long serialVersionUID = 7592289953733558372L;
+public class StringType extends PrimitiveType {
+
+  private static final long serialVersionUID = 4115820767194238069L;
 	/**
-	 * The value of the dateTime
+	 * The string value
 	 */
-	private DateAndTime value;
+	private String value;
 
 	/**
-	 * @return The value of the dateTime
+	 * @return the string value
 	 */
-	public DateAndTime getValue() {
+	public String getValue() {
 		return value;
 	}
 
 	/**
-	 * @param value The value of the dateTime
+	 * @param value the value of the string
 	 */
-	public void setValue(DateAndTime value) {
+	public StringType setValue(String value) {
 		this.value = value;
+		return this;
 	}
 	
 	@Override
-  public DateTime copy() {
-		DateTime dst = new DateTime();
+  public StringType copy() {
+		StringType dst = new StringType();
 		dst.value = value;
 		return dst;
 	}
@@ -68,7 +69,8 @@ public class DateTime extends PrimitiveType {
 
   @Override
   public String asStringValue() {
-    return value.toString();  
+    return value;
   }
 
+	
 }

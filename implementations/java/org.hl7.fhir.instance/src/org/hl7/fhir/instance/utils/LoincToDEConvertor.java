@@ -17,7 +17,7 @@ import org.hl7.fhir.instance.model.DataElement;
 import org.hl7.fhir.instance.model.DataElement.ResourceObservationDefStatus;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Identifier;
-import org.hl7.fhir.instance.model.String_;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
@@ -165,7 +165,7 @@ public class LoincToDEConvertor {
 				// CHNG_TYPE	
 				cde.setCommentsSimple(col(row , "COMMENTS"));
 				if (hasCol(row, "CONSUMER_NAME"))
-					cde.getSynonym().add(new String_().setValue(col(row, "CONSUMER_NAME")));	
+					cde.getSynonym().add(new StringType().setValue(col(row, "CONSUMER_NAME")));	
 				// MOLAR_MASS	
 				// CLASSTYPE	
 				// FORMULA	
@@ -181,10 +181,10 @@ public class LoincToDEConvertor {
 	        String n = col(row, "RELATEDNAMES2");
 	        for (String s : n.split(";")) {
 						if (!Utilities.noString(s))
-							cde.getSynonym().add(new String_().setValue(s));	
+							cde.getSynonym().add(new StringType().setValue(s));	
 					}
         }
-				cde.getSynonym().add(new String_().setValue(col(row, "SHORTNAME")));	
+				cde.getSynonym().add(new StringType().setValue(col(row, "SHORTNAME")));	
 				// ORDER_OBS	
 				// CDISC Code	
 				// HL7_FIELD_SUBFIELD_ID	

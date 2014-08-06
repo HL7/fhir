@@ -26,50 +26,24 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-
 package org.hl7.fhir.instance.model;
 
 /**
- * Primitive type "time" in FHIR: a time of the day, with no fixed day
+ * Primitive type "oid" in FHIR: an OID represented as urn:oid:0.1.2.3.4...
  */
-public class Time extends PrimitiveType {
+public class OidType extends UriType {
 
-  private static final long serialVersionUID = 7376728289385943383L;
-  
-	/**
-	 * The value of the dateTime
-	 */
-	private String value;
+  private static final long serialVersionUID = -6684415951360862202L;
 
-	/**
-	 * @return The value of the dateTime
-	 */
-	public String getValue() {
-		return value;
-	}
-
-	/**
-	 * @param value The value of the dateTime
-	 */
-	public void setValue(String value) {
-		this.value = value;
-	}
-	
-	@Override
-  public Time copy() {
-		Time dst = new Time();
-		dst.value = value;
-		return dst;
-	}
-	
 	@Override
   protected Type typedCopy() {
 		return copy();
 	}
-
-  @Override
-  public String asStringValue() {
-    return value;  
-  }
-
+	
+	@Override
+  public OidType copy() {
+		OidType dst = new OidType();
+		dst.value = value;
+		return dst;
+	}
 }

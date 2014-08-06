@@ -205,7 +205,7 @@ public class DateAndTime {
 		return cal;
 	}
 
-	public Date toDate() {
+	public DateType toDate() {
 		return null;
 	}
 

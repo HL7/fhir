@@ -44,7 +44,7 @@ import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.Id;
+import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
@@ -54,7 +54,7 @@ import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
-import org.hl7.fhir.instance.model.String_;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -250,9 +250,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     return null;
   }
 
-  private String describeAliases(List<String_> synonym) {
+  private String describeAliases(List<StringType> synonym) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-    for (String_ s : synonym) 
+    for (StringType s : synonym) 
       b.append(s.getValue());
     return b.toString();
   }
@@ -272,7 +272,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     return null;
   }
 
-  private String summariseConditions(List<Id> conditions) {
+  private String summariseConditions(List<IdType> conditions) {
     if (conditions.isEmpty())
       return "";
     else

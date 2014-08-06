@@ -1,190 +1,190 @@
 package org.hl7.fhir.instance.model;
 
 public enum ResourceType {
-    Appointment,
-    ReferralRequest,
-    Provenance,
-    Questionnaire,
-    Query,
-    DocumentManifest,
-    Specimen,
-    AllergyIntolerance,
-    CarePlan,
-    MedicationPrescription,
-    OperationOutcome,
-    FamilyHistory,
-    Medication,
-    Procedure,
-    List,
-    ConceptMap,
-    Subscription,
+    Condition,
+    Supply,
+    Organization,
+    Group,
     ValueSet,
-    OperationDefinition,
-    DocumentReference,
-    Order,
-    Availability,
-    Immunization,
-    SecurityEvent,
-    Device,
-    Media,
-    Conformance,
-    RelatedPerson,
-    Namespace,
-    Practitioner,
-    AppointmentResponse,
-    Observation,
-    MedicationAdministration,
-    DeviceObservationReport,
+    ImmunizationRecommendation,
+    Appointment,
+    MedicationDispense,
+    MedicationPrescription,
     Slot,
     Contraindication,
+    AppointmentResponse,
     MedicationStatement,
-    RiskAssessment,
-    Group,
-    Organization,
-    MedicationDispense,
-    Supply,
-    DiagnosticReport,
-    ImagingStudy,
-    Profile,
-    DataElement,
-    QuestionnaireAnswers,
-    AdverseReaction,
-    Encounter,
-    Substance,
-    Condition,
     Composition,
-    DiagnosticOrder,
-    Patient,
-    OrderResponse,
-    Alert,
-    MessageHeader,
-    ImmunizationRecommendation,
-    Location,
+    Questionnaire,
+    OperationOutcome,
+    Conformance,
+    Media,
     Other,
+    Profile,
+    DocumentReference,
+    Immunization,
+    Subscription,
+    OrderResponse,
+    ConceptMap,
+    ImagingStudy,
+    Practitioner,
+    CarePlan,
+    Provenance,
+    Device,
+    Query,
+    Order,
+    Procedure,
+    Substance,
+    DiagnosticReport,
+    Medication,
+    MessageHeader,
+    DocumentManifest,
+    DataElement,
+    Availability,
+    MedicationAdministration,
+    QuestionnaireAnswers,
+    Encounter,
+    SecurityEvent,
+    List,
+    OperationDefinition,
+    DeviceObservationReport,
+    ReferralRequest,
+    RiskAssessment,
+    FamilyHistory,
+    Location,
+    AllergyIntolerance,
+    Observation,
+    RelatedPerson,
+    Specimen,
+    Alert,
+    Namespace,
+    Patient,
+    AdverseReaction,
+    DiagnosticOrder,
     Binary;
 
     public String getPath() {;
       switch (this) {
-    case Appointment:
-      return "appointment";
-    case ReferralRequest:
-      return "referralrequest";
-    case Provenance:
-      return "provenance";
-    case Questionnaire:
-      return "questionnaire";
-    case Query:
-      return "query";
-    case DocumentManifest:
-      return "documentmanifest";
-    case Specimen:
-      return "specimen";
-    case AllergyIntolerance:
-      return "allergyintolerance";
-    case CarePlan:
-      return "careplan";
-    case MedicationPrescription:
-      return "medicationprescription";
-    case OperationOutcome:
-      return "operationoutcome";
-    case FamilyHistory:
-      return "familyhistory";
-    case Medication:
-      return "medication";
-    case Procedure:
-      return "procedure";
-    case List:
-      return "list";
-    case ConceptMap:
-      return "conceptmap";
-    case Subscription:
-      return "subscription";
+    case Condition:
+      return "condition";
+    case Supply:
+      return "supply";
+    case Organization:
+      return "organization";
+    case Group:
+      return "group";
     case ValueSet:
       return "valueset";
-    case OperationDefinition:
-      return "operationdefinition";
-    case DocumentReference:
-      return "documentreference";
-    case Order:
-      return "order";
-    case Availability:
-      return "availability";
-    case Immunization:
-      return "immunization";
-    case SecurityEvent:
-      return "securityevent";
-    case Device:
-      return "device";
-    case Media:
-      return "media";
-    case Conformance:
-      return "conformance";
-    case RelatedPerson:
-      return "relatedperson";
-    case Namespace:
-      return "namespace";
-    case Practitioner:
-      return "practitioner";
-    case AppointmentResponse:
-      return "appointmentresponse";
-    case Observation:
-      return "observation";
-    case MedicationAdministration:
-      return "medicationadministration";
-    case DeviceObservationReport:
-      return "deviceobservationreport";
+    case ImmunizationRecommendation:
+      return "immunizationrecommendation";
+    case Appointment:
+      return "appointment";
+    case MedicationDispense:
+      return "medicationdispense";
+    case MedicationPrescription:
+      return "medicationprescription";
     case Slot:
       return "slot";
     case Contraindication:
       return "contraindication";
+    case AppointmentResponse:
+      return "appointmentresponse";
     case MedicationStatement:
       return "medicationstatement";
-    case RiskAssessment:
-      return "riskassessment";
-    case Group:
-      return "group";
-    case Organization:
-      return "organization";
-    case MedicationDispense:
-      return "medicationdispense";
-    case Supply:
-      return "supply";
-    case DiagnosticReport:
-      return "diagnosticreport";
-    case ImagingStudy:
-      return "imagingstudy";
-    case Profile:
-      return "profile";
-    case DataElement:
-      return "dataelement";
-    case QuestionnaireAnswers:
-      return "questionnaireanswers";
-    case AdverseReaction:
-      return "adversereaction";
-    case Encounter:
-      return "encounter";
-    case Substance:
-      return "substance";
-    case Condition:
-      return "condition";
     case Composition:
       return "composition";
-    case DiagnosticOrder:
-      return "diagnosticorder";
-    case Patient:
-      return "patient";
-    case OrderResponse:
-      return "orderresponse";
-    case Alert:
-      return "alert";
-    case MessageHeader:
-      return "messageheader";
-    case ImmunizationRecommendation:
-      return "immunizationrecommendation";
-    case Location:
-      return "location";
+    case Questionnaire:
+      return "questionnaire";
+    case OperationOutcome:
+      return "operationoutcome";
+    case Conformance:
+      return "conformance";
+    case Media:
+      return "media";
     case Other:
       return "other";
+    case Profile:
+      return "profile";
+    case DocumentReference:
+      return "documentreference";
+    case Immunization:
+      return "immunization";
+    case Subscription:
+      return "subscription";
+    case OrderResponse:
+      return "orderresponse";
+    case ConceptMap:
+      return "conceptmap";
+    case ImagingStudy:
+      return "imagingstudy";
+    case Practitioner:
+      return "practitioner";
+    case CarePlan:
+      return "careplan";
+    case Provenance:
+      return "provenance";
+    case Device:
+      return "device";
+    case Query:
+      return "query";
+    case Order:
+      return "order";
+    case Procedure:
+      return "procedure";
+    case Substance:
+      return "substance";
+    case DiagnosticReport:
+      return "diagnosticreport";
+    case Medication:
+      return "medication";
+    case MessageHeader:
+      return "messageheader";
+    case DocumentManifest:
+      return "documentmanifest";
+    case DataElement:
+      return "dataelement";
+    case Availability:
+      return "availability";
+    case MedicationAdministration:
+      return "medicationadministration";
+    case QuestionnaireAnswers:
+      return "questionnaireanswers";
+    case Encounter:
+      return "encounter";
+    case SecurityEvent:
+      return "securityevent";
+    case List:
+      return "list";
+    case OperationDefinition:
+      return "operationdefinition";
+    case DeviceObservationReport:
+      return "deviceobservationreport";
+    case ReferralRequest:
+      return "referralrequest";
+    case RiskAssessment:
+      return "riskassessment";
+    case FamilyHistory:
+      return "familyhistory";
+    case Location:
+      return "location";
+    case AllergyIntolerance:
+      return "allergyintolerance";
+    case Observation:
+      return "observation";
+    case RelatedPerson:
+      return "relatedperson";
+    case Specimen:
+      return "specimen";
+    case Alert:
+      return "alert";
+    case Namespace:
+      return "namespace";
+    case Patient:
+      return "patient";
+    case AdverseReaction:
+      return "adversereaction";
+    case DiagnosticOrder:
+      return "diagnosticorder";
     case Binary:
       return "binary";
     }

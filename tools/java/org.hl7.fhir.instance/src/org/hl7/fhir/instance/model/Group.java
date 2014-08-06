@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -126,15 +126,15 @@ public class Group extends Resource {
         /**
          * If true, indicates the characteristic is one that is NOT held by members of the group.
          */
-        protected Boolean exclude;
+        protected BooleanType exclude;
 
-        private static final long serialVersionUID = 1508824873L;
+        private static final long serialVersionUID = 803478031L;
 
       public GroupCharacteristicComponent() {
         super();
       }
 
-      public GroupCharacteristicComponent(CodeableConcept code, Type value, Boolean exclude) {
+      public GroupCharacteristicComponent(CodeableConcept code, Type value, BooleanType exclude) {
         super();
         this.code = code;
         this.value = value;
@@ -174,14 +174,14 @@ public class Group extends Resource {
         /**
          * @return {@link #exclude} (If true, indicates the characteristic is one that is NOT held by members of the group.)
          */
-        public Boolean getExclude() { 
+        public BooleanType getExclude() { 
           return this.exclude;
         }
 
         /**
          * @param value {@link #exclude} (If true, indicates the characteristic is one that is NOT held by members of the group.)
          */
-        public GroupCharacteristicComponent setExclude(Boolean value) { 
+        public GroupCharacteristicComponent setExclude(BooleanType value) { 
           this.exclude = value;
           return this;
         }
@@ -198,7 +198,7 @@ public class Group extends Resource {
          */
         public GroupCharacteristicComponent setExcludeSimple(boolean value) { 
             if (this.exclude == null)
-              this.exclude = new Boolean();
+              this.exclude = new BooleanType();
             this.exclude.setValue(value);
           return this;
         }
@@ -233,7 +233,7 @@ public class Group extends Resource {
     /**
      * If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.
      */
-    protected Boolean actual;
+    protected BooleanType actual;
 
     /**
      * Provides a specific type of resource the group includes.  E.g. "cow", "syringe", etc.
@@ -243,12 +243,12 @@ public class Group extends Resource {
     /**
      * A label assigned to the group for human identification and communication.
      */
-    protected String_ name;
+    protected StringType name;
 
     /**
      * A count of the number of resource instances that are part of the group.
      */
-    protected Integer quantity;
+    protected IntegerType quantity;
 
     /**
      * Identifies the traits shared by members of the group.
@@ -265,13 +265,13 @@ public class Group extends Resource {
     protected List<Resource> memberTarget = new ArrayList<Resource>();
 
 
-    private static final long serialVersionUID = 121382617L;
+    private static final long serialVersionUID = -1925725072L;
 
     public Group() {
       super();
     }
 
-    public Group(Enumeration<GroupType> type, Boolean actual) {
+    public Group(Enumeration<GroupType> type, BooleanType actual) {
       super();
       this.type = type;
       this.actual = actual;
@@ -327,14 +327,14 @@ public class Group extends Resource {
     /**
      * @return {@link #actual} (If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.)
      */
-    public Boolean getActual() { 
+    public BooleanType getActual() { 
       return this.actual;
     }
 
     /**
      * @param value {@link #actual} (If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.)
      */
-    public Group setActual(Boolean value) { 
+    public Group setActual(BooleanType value) { 
       this.actual = value;
       return this;
     }
@@ -351,7 +351,7 @@ public class Group extends Resource {
      */
     public Group setActualSimple(boolean value) { 
         if (this.actual == null)
-          this.actual = new Boolean();
+          this.actual = new BooleanType();
         this.actual.setValue(value);
       return this;
     }
@@ -374,14 +374,14 @@ public class Group extends Resource {
     /**
      * @return {@link #name} (A label assigned to the group for human identification and communication.)
      */
-    public String_ getName() { 
+    public StringType getName() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (A label assigned to the group for human identification and communication.)
      */
-    public Group setName(String_ value) { 
+    public Group setName(StringType value) { 
       this.name = value;
       return this;
     }
@@ -401,7 +401,7 @@ public class Group extends Resource {
         this.name = null;
       else {
         if (this.name == null)
-          this.name = new String_();
+          this.name = new StringType();
         this.name.setValue(value);
       }
       return this;
@@ -410,14 +410,14 @@ public class Group extends Resource {
     /**
      * @return {@link #quantity} (A count of the number of resource instances that are part of the group.)
      */
-    public Integer getQuantity() { 
+    public IntegerType getQuantity() { 
       return this.quantity;
     }
 
     /**
      * @param value {@link #quantity} (A count of the number of resource instances that are part of the group.)
      */
-    public Group setQuantity(Integer value) { 
+    public Group setQuantity(IntegerType value) { 
       this.quantity = value;
       return this;
     }
@@ -437,7 +437,7 @@ public class Group extends Resource {
         this.quantity = null;
       else {
         if (this.quantity == null)
-          this.quantity = new Integer();
+          this.quantity = new IntegerType();
         this.quantity.setValue(value);
       }
       return this;

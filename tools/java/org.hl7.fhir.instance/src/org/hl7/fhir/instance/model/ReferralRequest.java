@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -180,7 +180,7 @@ public class ReferralRequest extends Resource {
     /**
      * Date/DateTime the request for referral or transfer of care is sent by the author.
      */
-    protected DateTime dateSent;
+    protected DateTimeType dateSent;
 
     /**
      * Description of clinical condition indicating why referral/transfer of care is requested.
@@ -190,7 +190,7 @@ public class ReferralRequest extends Resource {
     /**
      * The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.
      */
-    protected String_ description;
+    protected StringType description;
 
     /**
      * The service(s) that is/are requested to be provided to the patient.
@@ -212,7 +212,7 @@ public class ReferralRequest extends Resource {
      */
     protected Period fulfillmentTime;
 
-    private static final long serialVersionUID = 985481263L;
+    private static final long serialVersionUID = -464748626L;
 
     public ReferralRequest() {
       super();
@@ -434,14 +434,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #dateSent} (Date/DateTime the request for referral or transfer of care is sent by the author.)
      */
-    public DateTime getDateSent() { 
+    public DateTimeType getDateSent() { 
       return this.dateSent;
     }
 
     /**
      * @param value {@link #dateSent} (Date/DateTime the request for referral or transfer of care is sent by the author.)
      */
-    public ReferralRequest setDateSent(DateTime value) { 
+    public ReferralRequest setDateSent(DateTimeType value) { 
       this.dateSent = value;
       return this;
     }
@@ -461,7 +461,7 @@ public class ReferralRequest extends Resource {
         this.dateSent = null;
       else {
         if (this.dateSent == null)
-          this.dateSent = new DateTime();
+          this.dateSent = new DateTimeType();
         this.dateSent.setValue(value);
       }
       return this;
@@ -485,14 +485,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #description} (The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.)
      */
-    public String_ getDescription() { 
+    public StringType getDescription() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.)
      */
-    public ReferralRequest setDescription(String_ value) { 
+    public ReferralRequest setDescription(StringType value) { 
       this.description = value;
       return this;
     }
@@ -512,7 +512,7 @@ public class ReferralRequest extends Resource {
         this.description = null;
       else {
         if (this.description == null)
-          this.description = new String_();
+          this.description = new StringType();
         this.description.setValue(value);
       }
       return this;

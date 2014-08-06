@@ -50,7 +50,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	public enum JavaGenClass { Structure, Type, Resource, BackboneElement, Constraint }
 	private JavaGenClass clss;
 
-	private Definitions definitions;
 	
 	public JavaResourceGenerator(OutputStream out, Definitions definitions) throws UnsupportedEncodingException {
 		super(out);
@@ -550,7 +549,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 //					else if (tn.equals("decimal")) tn = "Decimal";
 //					else if (tn.equals("base64Binary")) tn = "Base64Binary";
 //					else if (tn.equals("instant")) tn = "Instant";
-//					else if (tn.equals("string")) tn = "String_";
+//					else if (tn.equals("string")) tn = "StringType";
 //          else if (tn.equals("uri")) tn = "Uri";
 //          else if (tn.equals("xml:lang")) tn = "Code";
 //					else if (tn.equals("code")) tn = "Code";
@@ -566,15 +565,17 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 //				} else 
 				tn = getTypeName(e);
 				if (e.typeCode().equals("xml:lang"))
-				  tn = "Code";
+				  tn = "CodeType";
 				if (e.getTypes().get(0).isUnboundGenericParam())
 					tn = "T";
 				else if (e.getTypes().get(0).isIdRef())
-					tn ="String_";
+					tn ="StringType";
 				else if (e.isXhtmlElement()) 
 					tn = "XhtmlNode";
 				else if (e.getTypes().get(0).isWildcardType())
 					tn ="org.hl7.fhir.instance.model.Type";
+				else if (definitions.hasPrimitiveType(tn))
+				  tn = upFirst(tn)+"Type";
 
 				typeNames.put(e,  tn);
 			} else {
@@ -695,29 +696,31 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   }
 
   private String getSimpleType(String n) {
-    if (n.equals("String_"))
+    if (n.equals("StringType"))
       return "String";
-    if (n.equals("Code"))
+    if (n.equals("CodeType"))
       return "String";
-    if (n.equals("Base64Binary"))
+    if (n.equals("Base64BinaryType"))
       return "byte[]";
-    if (n.equals("Uri"))
+    if (n.equals("UriType"))
       return "String";
-    if (n.equals("Oid"))
+    if (n.equals("OidType"))
       return "String";
-    if (n.equals("Integer"))
+    if (n.equals("IntegerType"))
       return "int";
-    if (n.equals("Boolean"))
+    if (n.equals("BooleanType"))
       return "boolean";
-    if (n.equals("Decimal"))
+    if (n.equals("DecimalType"))
       return "BigDecimal";
-    if (n.equals("DateTime"))
+    if (n.equals("DateTimeType"))
       return "DateAndTime";
-    if (n.equals("Date"))
+    if (n.equals("DateType"))
       return "DateAndTime";
-    if (n.equals("Id"))
+    if (n.equals("IdType"))
       return "String";
-    if (n.equals("Instant"))
+    if (n.equals("InstantType"))
+      return "DateAndTime";
+    if (n.equals("TimeType"))
       return "DateAndTime";
     
     String tns = null;
@@ -804,7 +807,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       write(indent+"  return this;\r\n");
 			write(indent+"}\r\n");
 			write("\r\n");
-			if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.getTypes().get(0).isIdRef() || e.typeCode().equals("xml:lang"))) {
+			if (e.getTypes().size() == 1 && (isPrimitive(e.typeCode()) || e.getTypes().get(0).isIdRef() || e.typeCode().equals("xml:lang"))) {
 	      jdoc(indent, "@return "+e.getDefinition());
 	      write(indent+"public "+getSimpleType(tn)+" get"+getTitle(getElementName(e.getName(), false))+"Simple() { \r\n");
 	      write(indent+"  return this."+getElementName(e.getName(), true)+" == null ? "+(e.typeCode().equals("boolean") ? "false" : "null")+" : this."+getElementName(e.getName(), true)+".getValue();\r\n");
@@ -813,9 +816,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	      jdoc(indent, "@param value "+e.getDefinition());
 	      write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"Simple("+getSimpleType(tn)+" value) { \r\n");
 	      if (e.getMinCardinality() == 0) {
-	        if (tn.equals("Integer"))
+	        if (tn.equals("IntegerType"))
 	          write(indent+"  if (value == -1)\r\n");
-	        else if (tn.equals("Boolean"))
+	        else if (tn.equals("BooleanType"))
 	          write(indent+"  if (value == false)\r\n");
 	        else
 	          write(indent+"  if (value == null)\r\n");
@@ -854,6 +857,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		}
 
 	}
+
+  private boolean isPrimitive(String name) {
+    return definitions.hasPrimitiveType(name) || (name.endsWith("Type") && definitions.getPrimitives().containsKey(name.substring(0, name.length()-4)));
+  }
 
   public long getHashSum() {
     return hashSum;

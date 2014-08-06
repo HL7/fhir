@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -260,14 +260,14 @@ public class DocumentReference extends Resource {
         /**
          * Where the service end-point is located.
          */
-        protected String_ address;
+        protected StringType address;
 
         /**
          * A list of named parameters that is used in the service call.
          */
         protected List<DocumentReferenceServiceParameterComponent> parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
 
-        private static final long serialVersionUID = 785696451L;
+        private static final long serialVersionUID = 1809166750L;
 
       public DocumentReferenceServiceComponent() {
         super();
@@ -296,14 +296,14 @@ public class DocumentReference extends Resource {
         /**
          * @return {@link #address} (Where the service end-point is located.)
          */
-        public String_ getAddress() { 
+        public StringType getAddress() { 
           return this.address;
         }
 
         /**
          * @param value {@link #address} (Where the service end-point is located.)
          */
-        public DocumentReferenceServiceComponent setAddress(String_ value) { 
+        public DocumentReferenceServiceComponent setAddress(StringType value) { 
           this.address = value;
           return this;
         }
@@ -323,7 +323,7 @@ public class DocumentReference extends Resource {
             this.address = null;
           else {
             if (this.address == null)
-              this.address = new String_();
+              this.address = new StringType();
             this.address.setValue(value);
           }
           return this;
@@ -369,20 +369,20 @@ public class DocumentReference extends Resource {
         /**
          * The name of a parameter.
          */
-        protected String_ name;
+        protected StringType name;
 
         /**
          * The value of the named parameter.
          */
-        protected String_ value;
+        protected StringType value;
 
-        private static final long serialVersionUID = -1028555276L;
+        private static final long serialVersionUID = 395259392L;
 
       public DocumentReferenceServiceParameterComponent() {
         super();
       }
 
-      public DocumentReferenceServiceParameterComponent(String_ name) {
+      public DocumentReferenceServiceParameterComponent(StringType name) {
         super();
         this.name = name;
       }
@@ -390,14 +390,14 @@ public class DocumentReference extends Resource {
         /**
          * @return {@link #name} (The name of a parameter.)
          */
-        public String_ getName() { 
+        public StringType getName() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (The name of a parameter.)
          */
-        public DocumentReferenceServiceParameterComponent setName(String_ value) { 
+        public DocumentReferenceServiceParameterComponent setName(StringType value) { 
           this.name = value;
           return this;
         }
@@ -414,7 +414,7 @@ public class DocumentReference extends Resource {
          */
         public DocumentReferenceServiceParameterComponent setNameSimple(String value) { 
             if (this.name == null)
-              this.name = new String_();
+              this.name = new StringType();
             this.name.setValue(value);
           return this;
         }
@@ -422,14 +422,14 @@ public class DocumentReference extends Resource {
         /**
          * @return {@link #value} (The value of the named parameter.)
          */
-        public String_ getValue() { 
+        public StringType getValue() { 
           return this.value;
         }
 
         /**
          * @param value {@link #value} (The value of the named parameter.)
          */
-        public DocumentReferenceServiceParameterComponent setValue(String_ value) { 
+        public DocumentReferenceServiceParameterComponent setValue(StringType value) { 
           this.value = value;
           return this;
         }
@@ -449,7 +449,7 @@ public class DocumentReference extends Resource {
             this.value = null;
           else {
             if (this.value == null)
-              this.value = new String_();
+              this.value = new StringType();
             this.value.setValue(value);
           }
           return this;
@@ -611,7 +611,7 @@ public class DocumentReference extends Resource {
     /**
      * A reference to a domain or server that manages policies under which the document is accessed and/or made available.
      */
-    protected Uri policyManager;
+    protected UriType policyManager;
 
     /**
      * Which person or organization authenticates that this document is valid.
@@ -626,12 +626,12 @@ public class DocumentReference extends Resource {
     /**
      * When the document was created.
      */
-    protected DateTime created;
+    protected DateTimeType created;
 
     /**
      * When the document reference was created.
      */
-    protected Instant indexed;
+    protected InstantType indexed;
 
     /**
      * The status of this document reference.
@@ -651,7 +651,7 @@ public class DocumentReference extends Resource {
     /**
      * Human-readable description of the source document. This is sometimes known as the "title".
      */
-    protected String_ description;
+    protected StringType description;
 
     /**
      * A code specifying the level of confidentiality of the XDS Document.
@@ -661,32 +661,32 @@ public class DocumentReference extends Resource {
     /**
      * The primary language in which the source document is written.
      */
-    protected Code primaryLanguage;
+    protected CodeType primaryLanguage;
 
     /**
      * The mime type of the source document.
      */
-    protected Code mimeType;
+    protected CodeType mimeType;
 
     /**
      * An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.
      */
-    protected List<Uri> format = new ArrayList<Uri>();
+    protected List<UriType> format = new ArrayList<UriType>();
 
     /**
      * The size of the source document this reference refers to in bytes.
      */
-    protected Integer size;
+    protected IntegerType size;
 
     /**
      * A hash of the source document to ensure that changes have not occurred.
      */
-    protected String_ hash;
+    protected StringType hash;
 
     /**
      * A url at which the document can be accessed.
      */
-    protected Uri location;
+    protected UriType location;
 
     /**
      * A description of a service call that can be used to retrieve the document.
@@ -698,13 +698,13 @@ public class DocumentReference extends Resource {
      */
     protected DocumentReferenceContextComponent context;
 
-    private static final long serialVersionUID = -1610833494L;
+    private static final long serialVersionUID = -1872142526L;
 
     public DocumentReference() {
       super();
     }
 
-    public DocumentReference(Identifier masterIdentifier, ResourceReference subject, CodeableConcept type, Instant indexed, Enumeration<DocumentReferenceStatus> status, Code mimeType) {
+    public DocumentReference(Identifier masterIdentifier, ResourceReference subject, CodeableConcept type, InstantType indexed, Enumeration<DocumentReferenceStatus> status, CodeType mimeType) {
       super();
       this.masterIdentifier = masterIdentifier;
       this.subject = subject;
@@ -863,14 +863,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #policyManager} (A reference to a domain or server that manages policies under which the document is accessed and/or made available.)
      */
-    public Uri getPolicyManager() { 
+    public UriType getPolicyManager() { 
       return this.policyManager;
     }
 
     /**
      * @param value {@link #policyManager} (A reference to a domain or server that manages policies under which the document is accessed and/or made available.)
      */
-    public DocumentReference setPolicyManager(Uri value) { 
+    public DocumentReference setPolicyManager(UriType value) { 
       this.policyManager = value;
       return this;
     }
@@ -890,7 +890,7 @@ public class DocumentReference extends Resource {
         this.policyManager = null;
       else {
         if (this.policyManager == null)
-          this.policyManager = new Uri();
+          this.policyManager = new UriType();
         this.policyManager.setValue(value);
       }
       return this;
@@ -929,14 +929,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #created} (When the document was created.)
      */
-    public DateTime getCreated() { 
+    public DateTimeType getCreated() { 
       return this.created;
     }
 
     /**
      * @param value {@link #created} (When the document was created.)
      */
-    public DocumentReference setCreated(DateTime value) { 
+    public DocumentReference setCreated(DateTimeType value) { 
       this.created = value;
       return this;
     }
@@ -956,7 +956,7 @@ public class DocumentReference extends Resource {
         this.created = null;
       else {
         if (this.created == null)
-          this.created = new DateTime();
+          this.created = new DateTimeType();
         this.created.setValue(value);
       }
       return this;
@@ -965,14 +965,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #indexed} (When the document reference was created.)
      */
-    public Instant getIndexed() { 
+    public InstantType getIndexed() { 
       return this.indexed;
     }
 
     /**
      * @param value {@link #indexed} (When the document reference was created.)
      */
-    public DocumentReference setIndexed(Instant value) { 
+    public DocumentReference setIndexed(InstantType value) { 
       this.indexed = value;
       return this;
     }
@@ -989,7 +989,7 @@ public class DocumentReference extends Resource {
      */
     public DocumentReference setIndexedSimple(DateAndTime value) { 
         if (this.indexed == null)
-          this.indexed = new Instant();
+          this.indexed = new InstantType();
         this.indexed.setValue(value);
       return this;
     }
@@ -1061,14 +1061,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".)
      */
-    public String_ getDescription() { 
+    public StringType getDescription() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".)
      */
-    public DocumentReference setDescription(String_ value) { 
+    public DocumentReference setDescription(StringType value) { 
       this.description = value;
       return this;
     }
@@ -1088,7 +1088,7 @@ public class DocumentReference extends Resource {
         this.description = null;
       else {
         if (this.description == null)
-          this.description = new String_();
+          this.description = new StringType();
         this.description.setValue(value);
       }
       return this;
@@ -1114,14 +1114,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #primaryLanguage} (The primary language in which the source document is written.)
      */
-    public Code getPrimaryLanguage() { 
+    public CodeType getPrimaryLanguage() { 
       return this.primaryLanguage;
     }
 
     /**
      * @param value {@link #primaryLanguage} (The primary language in which the source document is written.)
      */
-    public DocumentReference setPrimaryLanguage(Code value) { 
+    public DocumentReference setPrimaryLanguage(CodeType value) { 
       this.primaryLanguage = value;
       return this;
     }
@@ -1141,7 +1141,7 @@ public class DocumentReference extends Resource {
         this.primaryLanguage = null;
       else {
         if (this.primaryLanguage == null)
-          this.primaryLanguage = new Code();
+          this.primaryLanguage = new CodeType();
         this.primaryLanguage.setValue(value);
       }
       return this;
@@ -1150,14 +1150,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #mimeType} (The mime type of the source document.)
      */
-    public Code getMimeType() { 
+    public CodeType getMimeType() { 
       return this.mimeType;
     }
 
     /**
      * @param value {@link #mimeType} (The mime type of the source document.)
      */
-    public DocumentReference setMimeType(Code value) { 
+    public DocumentReference setMimeType(CodeType value) { 
       this.mimeType = value;
       return this;
     }
@@ -1174,7 +1174,7 @@ public class DocumentReference extends Resource {
      */
     public DocumentReference setMimeTypeSimple(String value) { 
         if (this.mimeType == null)
-          this.mimeType = new Code();
+          this.mimeType = new CodeType();
         this.mimeType.setValue(value);
       return this;
     }
@@ -1182,7 +1182,7 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
-    public List<Uri> getFormat() { 
+    public List<UriType> getFormat() { 
       return this.format;
     }
 
@@ -1190,8 +1190,8 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
-    public Uri addFormat() { 
-      Uri t = new Uri();
+    public UriType addFormat() { 
+      UriType t = new UriType();
       this.format.add(t);
       return t;
     }
@@ -1199,8 +1199,8 @@ public class DocumentReference extends Resource {
     /**
      * @param value {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
-    public Uri addFormatSimple(String value) { 
-      Uri t = new Uri();
+    public UriType addFormatSimple(String value) { 
+      UriType t = new UriType();
       t.setValue(value);
       this.format.add(t);
       return t;
@@ -1210,7 +1210,7 @@ public class DocumentReference extends Resource {
      * @param value {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
     public boolean hasFormatSimple(String value) { 
-      for (Uri v : this.format)
+      for (UriType v : this.format)
         if (v.getValue().equals(value))
           return true;
       return false;
@@ -1219,14 +1219,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #size} (The size of the source document this reference refers to in bytes.)
      */
-    public Integer getSize() { 
+    public IntegerType getSize() { 
       return this.size;
     }
 
     /**
      * @param value {@link #size} (The size of the source document this reference refers to in bytes.)
      */
-    public DocumentReference setSize(Integer value) { 
+    public DocumentReference setSize(IntegerType value) { 
       this.size = value;
       return this;
     }
@@ -1246,7 +1246,7 @@ public class DocumentReference extends Resource {
         this.size = null;
       else {
         if (this.size == null)
-          this.size = new Integer();
+          this.size = new IntegerType();
         this.size.setValue(value);
       }
       return this;
@@ -1255,14 +1255,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #hash} (A hash of the source document to ensure that changes have not occurred.)
      */
-    public String_ getHash() { 
+    public StringType getHash() { 
       return this.hash;
     }
 
     /**
      * @param value {@link #hash} (A hash of the source document to ensure that changes have not occurred.)
      */
-    public DocumentReference setHash(String_ value) { 
+    public DocumentReference setHash(StringType value) { 
       this.hash = value;
       return this;
     }
@@ -1282,7 +1282,7 @@ public class DocumentReference extends Resource {
         this.hash = null;
       else {
         if (this.hash == null)
-          this.hash = new String_();
+          this.hash = new StringType();
         this.hash.setValue(value);
       }
       return this;
@@ -1291,14 +1291,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #location} (A url at which the document can be accessed.)
      */
-    public Uri getLocation() { 
+    public UriType getLocation() { 
       return this.location;
     }
 
     /**
      * @param value {@link #location} (A url at which the document can be accessed.)
      */
-    public DocumentReference setLocation(Uri value) { 
+    public DocumentReference setLocation(UriType value) { 
       this.location = value;
       return this;
     }
@@ -1318,7 +1318,7 @@ public class DocumentReference extends Resource {
         this.location = null;
       else {
         if (this.location == null)
-          this.location = new Uri();
+          this.location = new UriType();
         this.location.setValue(value);
       }
       return this;
@@ -1410,8 +1410,8 @@ public class DocumentReference extends Resource {
           dst.confidentiality.add(i.copy());
         dst.primaryLanguage = primaryLanguage == null ? null : primaryLanguage.copy();
         dst.mimeType = mimeType == null ? null : mimeType.copy();
-        dst.format = new ArrayList<Uri>();
-        for (Uri i : format)
+        dst.format = new ArrayList<UriType>();
+        for (UriType i : format)
           dst.format.add(i.copy());
         dst.size = size == null ? null : size.copy();
         dst.hash = hash == null ? null : hash.copy();

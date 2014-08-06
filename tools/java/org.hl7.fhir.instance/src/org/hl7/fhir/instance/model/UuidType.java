@@ -26,55 +26,11 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-/**
- * 
- */
 package org.hl7.fhir.instance.model;
 
-/**
- * Primitive type "boolean" in FHIR "true" or "false"
- */
-public class Boolean extends PrimitiveType {
+public class UuidType extends UriType {
 
-  private static final long serialVersionUID = 2983474044199586731L;
-	/**
-	 * The value of the boolean
-	 */
-	private java.lang.Boolean value;
-	
-	/**
-	 * @return The value of the boolean
-	 */
-	public java.lang.Boolean getValue() {
-		return value;
-	}
+  private static final long serialVersionUID = -2355185818258961443L;
 
-	/**
-	 * @param value The value of the boolean
-	 */
-	public void setValue(java.lang.Boolean value) {
-	  this.value = value;
-	}
-
-	@Override
-  public Boolean copy() {
-		Boolean dst = new Boolean();
-		dst.value = value;
-		return dst;
-	}
-	
-	@Override
-  protected Type typedCopy() {
-		return copy();
-	}
-
-	public String getStringValue() {
-		return value == null ? null : value.toString();
-	}
-
-  @Override
-  public String asStringValue() {
-    return value.toString();
-  }
 	
 }

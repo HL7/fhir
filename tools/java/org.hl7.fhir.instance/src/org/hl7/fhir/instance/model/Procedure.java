@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -318,7 +318,7 @@ public class Procedure extends Resource {
     /**
      * What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.
      */
-    protected String_ outcome;
+    protected StringType outcome;
 
     /**
      * This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.
@@ -338,7 +338,7 @@ public class Procedure extends Resource {
     /**
      * If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.
      */
-    protected String_ followUp;
+    protected StringType followUp;
 
     /**
      * Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure.
@@ -348,9 +348,9 @@ public class Procedure extends Resource {
     /**
      * Any other notes about the procedure - e.g. the operative notes.
      */
-    protected String_ notes;
+    protected StringType notes;
 
-    private static final long serialVersionUID = 1314586946L;
+    private static final long serialVersionUID = 1630894875L;
 
     public Procedure() {
       super();
@@ -523,14 +523,14 @@ public class Procedure extends Resource {
     /**
      * @return {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.)
      */
-    public String_ getOutcome() { 
+    public StringType getOutcome() { 
       return this.outcome;
     }
 
     /**
      * @param value {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.)
      */
-    public Procedure setOutcome(String_ value) { 
+    public Procedure setOutcome(StringType value) { 
       this.outcome = value;
       return this;
     }
@@ -550,7 +550,7 @@ public class Procedure extends Resource {
         this.outcome = null;
       else {
         if (this.outcome == null)
-          this.outcome = new String_();
+          this.outcome = new StringType();
         this.outcome.setValue(value);
       }
       return this;
@@ -610,14 +610,14 @@ public class Procedure extends Resource {
     /**
      * @return {@link #followUp} (If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.)
      */
-    public String_ getFollowUp() { 
+    public StringType getFollowUp() { 
       return this.followUp;
     }
 
     /**
      * @param value {@link #followUp} (If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.)
      */
-    public Procedure setFollowUp(String_ value) { 
+    public Procedure setFollowUp(StringType value) { 
       this.followUp = value;
       return this;
     }
@@ -637,7 +637,7 @@ public class Procedure extends Resource {
         this.followUp = null;
       else {
         if (this.followUp == null)
-          this.followUp = new String_();
+          this.followUp = new StringType();
         this.followUp.setValue(value);
       }
       return this;
@@ -663,14 +663,14 @@ public class Procedure extends Resource {
     /**
      * @return {@link #notes} (Any other notes about the procedure - e.g. the operative notes.)
      */
-    public String_ getNotes() { 
+    public StringType getNotes() { 
       return this.notes;
     }
 
     /**
      * @param value {@link #notes} (Any other notes about the procedure - e.g. the operative notes.)
      */
-    public Procedure setNotes(String_ value) { 
+    public Procedure setNotes(StringType value) { 
       this.notes = value;
       return this;
     }
@@ -690,7 +690,7 @@ public class Procedure extends Resource {
         this.notes = null;
       else {
         if (this.notes == null)
-          this.notes = new String_();
+          this.notes = new StringType();
         this.notes.setValue(value);
       }
       return this;

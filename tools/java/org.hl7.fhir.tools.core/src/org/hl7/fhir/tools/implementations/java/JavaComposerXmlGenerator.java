@@ -134,9 +134,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     
     for (DefinedCode cd : definitions.getPrimitives().values()) {
       String n = upFirst(cd.getCode());
-      String t = n;
-      if (n.equals("String")) 
-        t = "String_";
+      String t = upFirst(cd.getCode())+"Type";
       
 //      if (n.equals("Uri"))
 //        t = "Uri";
@@ -200,7 +198,9 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
 
   private String getPrimitiveTypeModelName(String code) {
     if (code.equals("string"))
-      return "String_";
+      return "StringType";
+    if (definitions.hasPrimitiveType(code))
+      return upFirst(code)+"Type";
     return upFirst(code);
   }
 
@@ -237,8 +237,8 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     write("import org.hl7.fhir.instance.model.*;\r\n");
-    write("import org.hl7.fhir.instance.model.Integer;\r\n");
-    write("import org.hl7.fhir.instance.model.Boolean;\r\n");
+    write("import org.hl7.fhir.instance.model.IntegerType;\r\n");
+    write("import org.hl7.fhir.instance.model.BooleanType;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
     write("\r\n");
     write("public class XmlComposer extends XmlComposerBase {\r\n");
@@ -414,7 +414,10 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
         };
   	    if (en == null) {
           if (tn.equalsIgnoreCase("string"))
-            tn = "String_";
+            tn = "StringType";
+          if (definitions.hasPrimitiveType(tn))
+            tn = upFirst(tn)+"Type";
+
           write("      for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
           write("        "+comp+"(\""+name+"\", e);\r\n");
   	    } else {
@@ -473,9 +476,9 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
 //      else 
 //        return "String";
       if (t.equals("idref"))
-        return "String_";
+        return "StringType";
 //      else if (t.equals("string"))
-//        return "String_";
+//        return "StringType";
       else
         return upFirst(t);
     } else if (elem.usesCompositeType()) { 
@@ -566,7 +569,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
         else if (tr.isWildcardType())
           tn ="Type";
 //        else if (tn.equals("string"))
-//          tn = "String_";
+//          tn = "StringType";
         if (tn.contains("<"))
           tn = tn.substring(0, tn.indexOf('<')+1)+tn.substring(tn.indexOf('<')+1, tn.indexOf('<')+2).toUpperCase()+tn.substring(tn.indexOf('<')+2);
         typeNames.put(e,  tn);

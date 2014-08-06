@@ -25,74 +25,50 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
- */
-/**
- * 
- */
+*/
+
 package org.hl7.fhir.instance.model;
 
-import java.math.BigDecimal;
-
 /**
- * Primitive type "decimal" in FHIR: A rational number
+ * Primitive type "date" in FHIR: any day in a gregorian calendar
  */
-public class Decimal extends Type {
+public class DateType extends PrimitiveType {
 
-  private static final long serialVersionUID = 2006555241525096267L;
+  private static final long serialVersionUID = 9219236095594689166L;
+	/**
+	 * The value of the date
+	 */
+	private DateAndTime value;
 
 	/**
-	 * The actual value of the decimal
+	 * @return The value of the date
 	 */
-  private BigDecimal value;
-  
-  /**
-   * The exact way to represent this on the wire. In the absent of a specified representation, the natural representation of the BigDecimal value will be used.
-   */
-  private String original;
-
-  /**
-   * @return the value of the decimal
-   */
-  public BigDecimal getValue() {
-    return value;
-  }
-
-  /**
-   * @param value the value of the decimal
-   */
-  public void setValue(BigDecimal value) {
-    this.value = value;
-    this.original = null;
-  } 
-
-  /**
-   * @return the exact representation of the decimal
-   */
-  public String getOriginal() {
-    return original;
-  }
-
-  /**
-   * @param original the exact representation of the decimal
-   */
-  public void setOriginal(String original) {
-    this.original = original;
-  } 
-
-	@Override
-  public Decimal copy() {
-		Decimal dst = new Decimal();
-		dst.value = value;
-		dst.original = original;
-		return dst;
+	public DateAndTime getValue() {
+		return value;
 	}
+
+	/**
+	 * @param value The value of the date
+	 */
+	public void setValue(DateAndTime value) {
+		this.value = value;
+	}
+	
 	@Override
   protected Type typedCopy() {
 		return copy();
 	}
 
-	public String getStringValue() {
-	  return value == null ? null : value.toString();
+	@Override
+  public DateType copy() {
+		DateType dst = new DateType();
+		dst.value = value;
+		return dst;
+	}
+
+  @Override
+  public String asStringValue() {
+    return value.toString();  
   }
 
 }

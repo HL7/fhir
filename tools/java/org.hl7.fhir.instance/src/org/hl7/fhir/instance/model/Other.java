@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -71,9 +71,9 @@ public class Other extends Resource {
     /**
      * Identifies when the resource was first created.
      */
-    protected Date created;
+    protected DateType created;
 
-    private static final long serialVersionUID = -1284008922L;
+    private static final long serialVersionUID = -1949730420L;
 
     public Other() {
       super();
@@ -179,14 +179,14 @@ public class Other extends Resource {
     /**
      * @return {@link #created} (Identifies when the resource was first created.)
      */
-    public Date getCreated() { 
+    public DateType getCreated() { 
       return this.created;
     }
 
     /**
      * @param value {@link #created} (Identifies when the resource was first created.)
      */
-    public Other setCreated(Date value) { 
+    public Other setCreated(DateType value) { 
       this.created = value;
       return this;
     }
@@ -206,7 +206,7 @@ public class Other extends Resource {
         this.created = null;
       else {
         if (this.created == null)
-          this.created = new Date();
+          this.created = new DateType();
         this.created.setValue(value);
       }
       return this;

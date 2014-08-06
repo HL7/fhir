@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -176,7 +176,7 @@ public class OperationDefinition extends Resource {
         /**
          * The name of used to identify the parameter.
          */
-        protected Code name;
+        protected CodeType name;
 
         /**
          * Whether this is an input or an output parameter.
@@ -186,17 +186,17 @@ public class OperationDefinition extends Resource {
         /**
          * The minimum number of times this parameter SHALL appear in the request or response.
          */
-        protected Integer min;
+        protected IntegerType min;
 
         /**
          * The maximum number of times this element is permitted to appear in the request or response.
          */
-        protected String_ max;
+        protected StringType max;
 
         /**
          * Describes the meaning or use of this parameter.
          */
-        protected String_ documentation;
+        protected StringType documentation;
 
         /**
          * The type for this parameter.
@@ -213,13 +213,13 @@ public class OperationDefinition extends Resource {
          */
         protected Profile profileTarget;
 
-        private static final long serialVersionUID = 896662526L;
+        private static final long serialVersionUID = 1779939130L;
 
       public OperationDefinitionParameterComponent() {
         super();
       }
 
-      public OperationDefinitionParameterComponent(Code name, Enumeration<OperationParameterUse> use, Integer min, String_ max, Coding type) {
+      public OperationDefinitionParameterComponent(CodeType name, Enumeration<OperationParameterUse> use, IntegerType min, StringType max, Coding type) {
         super();
         this.name = name;
         this.use = use;
@@ -231,14 +231,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return {@link #name} (The name of used to identify the parameter.)
          */
-        public Code getName() { 
+        public CodeType getName() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (The name of used to identify the parameter.)
          */
-        public OperationDefinitionParameterComponent setName(Code value) { 
+        public OperationDefinitionParameterComponent setName(CodeType value) { 
           this.name = value;
           return this;
         }
@@ -255,7 +255,7 @@ public class OperationDefinition extends Resource {
          */
         public OperationDefinitionParameterComponent setNameSimple(String value) { 
             if (this.name == null)
-              this.name = new Code();
+              this.name = new CodeType();
             this.name.setValue(value);
           return this;
         }
@@ -295,14 +295,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.)
          */
-        public Integer getMin() { 
+        public IntegerType getMin() { 
           return this.min;
         }
 
         /**
          * @param value {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.)
          */
-        public OperationDefinitionParameterComponent setMin(Integer value) { 
+        public OperationDefinitionParameterComponent setMin(IntegerType value) { 
           this.min = value;
           return this;
         }
@@ -319,7 +319,7 @@ public class OperationDefinition extends Resource {
          */
         public OperationDefinitionParameterComponent setMinSimple(int value) { 
             if (this.min == null)
-              this.min = new Integer();
+              this.min = new IntegerType();
             this.min.setValue(value);
           return this;
         }
@@ -327,14 +327,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return {@link #max} (The maximum number of times this element is permitted to appear in the request or response.)
          */
-        public String_ getMax() { 
+        public StringType getMax() { 
           return this.max;
         }
 
         /**
          * @param value {@link #max} (The maximum number of times this element is permitted to appear in the request or response.)
          */
-        public OperationDefinitionParameterComponent setMax(String_ value) { 
+        public OperationDefinitionParameterComponent setMax(StringType value) { 
           this.max = value;
           return this;
         }
@@ -351,7 +351,7 @@ public class OperationDefinition extends Resource {
          */
         public OperationDefinitionParameterComponent setMaxSimple(String value) { 
             if (this.max == null)
-              this.max = new String_();
+              this.max = new StringType();
             this.max.setValue(value);
           return this;
         }
@@ -359,14 +359,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return {@link #documentation} (Describes the meaning or use of this parameter.)
          */
-        public String_ getDocumentation() { 
+        public StringType getDocumentation() { 
           return this.documentation;
         }
 
         /**
          * @param value {@link #documentation} (Describes the meaning or use of this parameter.)
          */
-        public OperationDefinitionParameterComponent setDocumentation(String_ value) { 
+        public OperationDefinitionParameterComponent setDocumentation(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -386,7 +386,7 @@ public class OperationDefinition extends Resource {
             this.documentation = null;
           else {
             if (this.documentation == null)
-              this.documentation = new String_();
+              this.documentation = new StringType();
             this.documentation.setValue(value);
           }
           return this;
@@ -465,22 +465,22 @@ public class OperationDefinition extends Resource {
     /**
      * The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
-    protected Uri identifier;
+    protected UriType identifier;
 
     /**
      * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    protected String_ version;
+    protected StringType version;
 
     /**
      * A free text natural language name identifying the Profile.
      */
-    protected String_ title;
+    protected StringType title;
 
     /**
      * Details of the individual or organization who accepts responsibility for publishing the profile.
      */
-    protected String_ publisher;
+    protected StringType publisher;
 
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
@@ -490,7 +490,7 @@ public class OperationDefinition extends Resource {
     /**
      * A free text natural language description of the profile and its use.
      */
-    protected String_ description;
+    protected StringType description;
 
     /**
      * A set of terms from external terminologies that may be used to assist with indexing and searching of templates.
@@ -505,12 +505,12 @@ public class OperationDefinition extends Resource {
     /**
      * This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    protected Boolean experimental;
+    protected BooleanType experimental;
 
     /**
      * The date that this version of the profile was published.
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * Whether this is operation or named query.
@@ -520,12 +520,12 @@ public class OperationDefinition extends Resource {
     /**
      * The name used to invoke the operation.
      */
-    protected Code name;
+    protected CodeType name;
 
     /**
      * Additional information about how to use this operation or named query.
      */
-    protected String_ notes;
+    protected StringType notes;
 
     /**
      * Indicates that this operation definition is a constraining profile on the base.
@@ -540,30 +540,30 @@ public class OperationDefinition extends Resource {
     /**
      * Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
-    protected Boolean system;
+    protected BooleanType system;
 
     /**
      * Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).
      */
-    protected List<Code> type = new ArrayList<Code>();
+    protected List<CodeType> type = new ArrayList<CodeType>();
 
     /**
      * Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
-    protected Boolean instance;
+    protected BooleanType instance;
 
     /**
      * Parameters for the operation/query.
      */
     protected List<OperationDefinitionParameterComponent> parameter = new ArrayList<OperationDefinitionParameterComponent>();
 
-    private static final long serialVersionUID = -1336048022L;
+    private static final long serialVersionUID = 418692053L;
 
     public OperationDefinition() {
       super();
     }
 
-    public OperationDefinition(String_ title, Enumeration<ResourceProfileStatus> status, Enumeration<OperationKind> kind, Code name, Boolean system, Boolean instance) {
+    public OperationDefinition(StringType title, Enumeration<ResourceProfileStatus> status, Enumeration<OperationKind> kind, CodeType name, BooleanType system, BooleanType instance) {
       super();
       this.title = title;
       this.status = status;
@@ -576,14 +576,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
      */
-    public Uri getIdentifier() { 
+    public UriType getIdentifier() { 
       return this.identifier;
     }
 
     /**
      * @param value {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
      */
-    public OperationDefinition setIdentifier(Uri value) { 
+    public OperationDefinition setIdentifier(UriType value) { 
       this.identifier = value;
       return this;
     }
@@ -603,7 +603,7 @@ public class OperationDefinition extends Resource {
         this.identifier = null;
       else {
         if (this.identifier == null)
-          this.identifier = new Uri();
+          this.identifier = new UriType();
         this.identifier.setValue(value);
       }
       return this;
@@ -612,14 +612,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.)
      */
-    public String_ getVersion() { 
+    public StringType getVersion() { 
       return this.version;
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.)
      */
-    public OperationDefinition setVersion(String_ value) { 
+    public OperationDefinition setVersion(StringType value) { 
       this.version = value;
       return this;
     }
@@ -639,7 +639,7 @@ public class OperationDefinition extends Resource {
         this.version = null;
       else {
         if (this.version == null)
-          this.version = new String_();
+          this.version = new StringType();
         this.version.setValue(value);
       }
       return this;
@@ -648,14 +648,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #title} (A free text natural language name identifying the Profile.)
      */
-    public String_ getTitle() { 
+    public StringType getTitle() { 
       return this.title;
     }
 
     /**
      * @param value {@link #title} (A free text natural language name identifying the Profile.)
      */
-    public OperationDefinition setTitle(String_ value) { 
+    public OperationDefinition setTitle(StringType value) { 
       this.title = value;
       return this;
     }
@@ -672,7 +672,7 @@ public class OperationDefinition extends Resource {
      */
     public OperationDefinition setTitleSimple(String value) { 
         if (this.title == null)
-          this.title = new String_();
+          this.title = new StringType();
         this.title.setValue(value);
       return this;
     }
@@ -680,14 +680,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.)
      */
-    public String_ getPublisher() { 
+    public StringType getPublisher() { 
       return this.publisher;
     }
 
     /**
      * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.)
      */
-    public OperationDefinition setPublisher(String_ value) { 
+    public OperationDefinition setPublisher(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -707,7 +707,7 @@ public class OperationDefinition extends Resource {
         this.publisher = null;
       else {
         if (this.publisher == null)
-          this.publisher = new String_();
+          this.publisher = new StringType();
         this.publisher.setValue(value);
       }
       return this;
@@ -733,14 +733,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #description} (A free text natural language description of the profile and its use.)
      */
-    public String_ getDescription() { 
+    public StringType getDescription() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the profile and its use.)
      */
-    public OperationDefinition setDescription(String_ value) { 
+    public OperationDefinition setDescription(StringType value) { 
       this.description = value;
       return this;
     }
@@ -760,7 +760,7 @@ public class OperationDefinition extends Resource {
         this.description = null;
       else {
         if (this.description == null)
-          this.description = new String_();
+          this.description = new StringType();
         this.description.setValue(value);
       }
       return this;
@@ -818,14 +818,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.)
      */
-    public Boolean getExperimental() { 
+    public BooleanType getExperimental() { 
       return this.experimental;
     }
 
     /**
      * @param value {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.)
      */
-    public OperationDefinition setExperimental(Boolean value) { 
+    public OperationDefinition setExperimental(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -845,7 +845,7 @@ public class OperationDefinition extends Resource {
         this.experimental = null;
       else {
         if (this.experimental == null)
-          this.experimental = new Boolean();
+          this.experimental = new BooleanType();
         this.experimental.setValue(value);
       }
       return this;
@@ -854,14 +854,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #date} (The date that this version of the profile was published.)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date that this version of the profile was published.)
      */
-    public OperationDefinition setDate(DateTime value) { 
+    public OperationDefinition setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -881,7 +881,7 @@ public class OperationDefinition extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;
@@ -922,14 +922,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #name} (The name used to invoke the operation.)
      */
-    public Code getName() { 
+    public CodeType getName() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (The name used to invoke the operation.)
      */
-    public OperationDefinition setName(Code value) { 
+    public OperationDefinition setName(CodeType value) { 
       this.name = value;
       return this;
     }
@@ -946,7 +946,7 @@ public class OperationDefinition extends Resource {
      */
     public OperationDefinition setNameSimple(String value) { 
         if (this.name == null)
-          this.name = new Code();
+          this.name = new CodeType();
         this.name.setValue(value);
       return this;
     }
@@ -954,14 +954,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #notes} (Additional information about how to use this operation or named query.)
      */
-    public String_ getNotes() { 
+    public StringType getNotes() { 
       return this.notes;
     }
 
     /**
      * @param value {@link #notes} (Additional information about how to use this operation or named query.)
      */
-    public OperationDefinition setNotes(String_ value) { 
+    public OperationDefinition setNotes(StringType value) { 
       this.notes = value;
       return this;
     }
@@ -981,7 +981,7 @@ public class OperationDefinition extends Resource {
         this.notes = null;
       else {
         if (this.notes == null)
-          this.notes = new String_();
+          this.notes = new StringType();
         this.notes.setValue(value);
       }
       return this;
@@ -1020,14 +1020,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).)
      */
-    public Boolean getSystem() { 
+    public BooleanType getSystem() { 
       return this.system;
     }
 
     /**
      * @param value {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).)
      */
-    public OperationDefinition setSystem(Boolean value) { 
+    public OperationDefinition setSystem(BooleanType value) { 
       this.system = value;
       return this;
     }
@@ -1044,7 +1044,7 @@ public class OperationDefinition extends Resource {
      */
     public OperationDefinition setSystemSimple(boolean value) { 
         if (this.system == null)
-          this.system = new Boolean();
+          this.system = new BooleanType();
         this.system.setValue(value);
       return this;
     }
@@ -1052,7 +1052,7 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    public List<Code> getType() { 
+    public List<CodeType> getType() { 
       return this.type;
     }
 
@@ -1060,8 +1060,8 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    public Code addType() { 
-      Code t = new Code();
+    public CodeType addType() { 
+      CodeType t = new CodeType();
       this.type.add(t);
       return t;
     }
@@ -1069,8 +1069,8 @@ public class OperationDefinition extends Resource {
     /**
      * @param value {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    public Code addTypeSimple(String value) { 
-      Code t = new Code();
+    public CodeType addTypeSimple(String value) { 
+      CodeType t = new CodeType();
       t.setValue(value);
       this.type.add(t);
       return t;
@@ -1080,7 +1080,7 @@ public class OperationDefinition extends Resource {
      * @param value {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
     public boolean hasTypeSimple(String value) { 
-      for (Code v : this.type)
+      for (CodeType v : this.type)
         if (v.getValue().equals(value))
           return true;
       return false;
@@ -1089,14 +1089,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.)
      */
-    public Boolean getInstance() { 
+    public BooleanType getInstance() { 
       return this.instance;
     }
 
     /**
      * @param value {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.)
      */
-    public OperationDefinition setInstance(Boolean value) { 
+    public OperationDefinition setInstance(BooleanType value) { 
       this.instance = value;
       return this;
     }
@@ -1113,7 +1113,7 @@ public class OperationDefinition extends Resource {
      */
     public OperationDefinition setInstanceSimple(boolean value) { 
         if (this.instance == null)
-          this.instance = new Boolean();
+          this.instance = new BooleanType();
         this.instance.setValue(value);
       return this;
     }
@@ -1178,8 +1178,8 @@ public class OperationDefinition extends Resource {
         dst.notes = notes == null ? null : notes.copy();
         dst.base = base == null ? null : base.copy();
         dst.system = system == null ? null : system.copy();
-        dst.type = new ArrayList<Code>();
-        for (Code i : type)
+        dst.type = new ArrayList<CodeType>();
+        for (CodeType i : type)
           dst.type.add(i.copy());
         dst.instance = instance == null ? null : instance.copy();
         dst.parameter = new ArrayList<OperationDefinitionParameterComponent>();

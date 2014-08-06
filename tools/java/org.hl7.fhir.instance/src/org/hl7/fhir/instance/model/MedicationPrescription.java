@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -116,7 +116,7 @@ public class MedicationPrescription extends Resource {
         /**
          * Free text dosage instructions for cases where the instructions are too complex to code.
          */
-        protected String_ text;
+        protected StringType text;
 
         /**
          * Additional instructions such as "Swallow with plenty of water" which may or may not be coded.
@@ -165,7 +165,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          */
         protected Ratio maxDosePerPeriod;
 
-        private static final long serialVersionUID = 1413384161L;
+        private static final long serialVersionUID = 2050594784L;
 
       public MedicationPrescriptionDosageInstructionComponent() {
         super();
@@ -174,14 +174,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * @return {@link #text} (Free text dosage instructions for cases where the instructions are too complex to code.)
          */
-        public String_ getText() { 
+        public StringType getText() { 
           return this.text;
         }
 
         /**
          * @param value {@link #text} (Free text dosage instructions for cases where the instructions are too complex to code.)
          */
-        public MedicationPrescriptionDosageInstructionComponent setText(String_ value) { 
+        public MedicationPrescriptionDosageInstructionComponent setText(StringType value) { 
           this.text = value;
           return this;
         }
@@ -201,7 +201,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             this.text = null;
           else {
             if (this.text == null)
-              this.text = new String_();
+              this.text = new StringType();
             this.text.setValue(value);
           }
           return this;
@@ -399,7 +399,7 @@ Rationale: Indicates when the Prescription becomes valid, and when it ceases to 
          * An integer indicating the number of repeats of the Dispense. 
 UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
          */
-        protected Integer numberOfRepeatsAllowed;
+        protected IntegerType numberOfRepeatsAllowed;
 
         /**
          * The amount that is to be dispensed.
@@ -412,7 +412,7 @@ In some situations, this attribute may be used instead of quantity to identify t
          */
         protected Duration expectedSupplyDuration;
 
-        private static final long serialVersionUID = 763971836L;
+        private static final long serialVersionUID = 1342523350L;
 
       public MedicationPrescriptionDispenseComponent() {
         super();
@@ -471,7 +471,7 @@ Rationale: Indicates when the Prescription becomes valid, and when it ceases to 
          * @return {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense. 
 UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.)
          */
-        public Integer getNumberOfRepeatsAllowed() { 
+        public IntegerType getNumberOfRepeatsAllowed() { 
           return this.numberOfRepeatsAllowed;
         }
 
@@ -479,7 +479,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
          * @param value {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense. 
 UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.)
          */
-        public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowed(Integer value) { 
+        public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowed(IntegerType value) { 
           this.numberOfRepeatsAllowed = value;
           return this;
         }
@@ -501,7 +501,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
             this.numberOfRepeatsAllowed = null;
           else {
             if (this.numberOfRepeatsAllowed == null)
-              this.numberOfRepeatsAllowed = new Integer();
+              this.numberOfRepeatsAllowed = new IntegerType();
             this.numberOfRepeatsAllowed.setValue(value);
           }
           return this;
@@ -635,7 +635,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * The date (and perhaps time) when the prescription was written.
      */
-    protected DateTime dateWritten;
+    protected DateTimeType dateWritten;
 
     /**
      * A code specifying the state of the order.  Generally this will be active or completed state.
@@ -702,7 +702,7 @@ In some situations, this attribute may be used instead of quantity to identify t
      */
     protected MedicationPrescriptionSubstitutionComponent substitution;
 
-    private static final long serialVersionUID = -1812163359L;
+    private static final long serialVersionUID = 1303224135L;
 
     public MedicationPrescription() {
       super();
@@ -728,14 +728,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return {@link #dateWritten} (The date (and perhaps time) when the prescription was written.)
      */
-    public DateTime getDateWritten() { 
+    public DateTimeType getDateWritten() { 
       return this.dateWritten;
     }
 
     /**
      * @param value {@link #dateWritten} (The date (and perhaps time) when the prescription was written.)
      */
-    public MedicationPrescription setDateWritten(DateTime value) { 
+    public MedicationPrescription setDateWritten(DateTimeType value) { 
       this.dateWritten = value;
       return this;
     }
@@ -755,7 +755,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         this.dateWritten = null;
       else {
         if (this.dateWritten == null)
-          this.dateWritten = new DateTime();
+          this.dateWritten = new DateTimeType();
         this.dateWritten.setValue(value);
       }
       return this;

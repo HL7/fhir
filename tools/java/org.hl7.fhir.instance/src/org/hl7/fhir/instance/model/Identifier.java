@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -104,17 +104,17 @@ public class Identifier extends Type {
     /**
      * A text string for the identifier that can be displayed to a human so they can recognize the identifier.
      */
-    protected String_ label;
+    protected StringType label;
 
     /**
      * Establishes the namespace in which set of possible id values is unique.
      */
-    protected Uri system;
+    protected UriType system;
 
     /**
      * The portion of the identifier typically displayed to the user and which is unique within the context of the system.
      */
-    protected String_ value;
+    protected StringType value;
 
     /**
      * Time period during which identifier is/was valid for use.
@@ -131,7 +131,7 @@ public class Identifier extends Type {
      */
     protected Organization assignerTarget;
 
-    private static final long serialVersionUID = 1232091569L;
+    private static final long serialVersionUID = -892620253L;
 
     public Identifier() {
       super();
@@ -176,14 +176,14 @@ public class Identifier extends Type {
     /**
      * @return {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.)
      */
-    public String_ getLabel() { 
+    public StringType getLabel() { 
       return this.label;
     }
 
     /**
      * @param value {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.)
      */
-    public Identifier setLabel(String_ value) { 
+    public Identifier setLabel(StringType value) { 
       this.label = value;
       return this;
     }
@@ -203,7 +203,7 @@ public class Identifier extends Type {
         this.label = null;
       else {
         if (this.label == null)
-          this.label = new String_();
+          this.label = new StringType();
         this.label.setValue(value);
       }
       return this;
@@ -212,14 +212,14 @@ public class Identifier extends Type {
     /**
      * @return {@link #system} (Establishes the namespace in which set of possible id values is unique.)
      */
-    public Uri getSystem() { 
+    public UriType getSystem() { 
       return this.system;
     }
 
     /**
      * @param value {@link #system} (Establishes the namespace in which set of possible id values is unique.)
      */
-    public Identifier setSystem(Uri value) { 
+    public Identifier setSystem(UriType value) { 
       this.system = value;
       return this;
     }
@@ -239,7 +239,7 @@ public class Identifier extends Type {
         this.system = null;
       else {
         if (this.system == null)
-          this.system = new Uri();
+          this.system = new UriType();
         this.system.setValue(value);
       }
       return this;
@@ -248,14 +248,14 @@ public class Identifier extends Type {
     /**
      * @return {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.)
      */
-    public String_ getValue() { 
+    public StringType getValue() { 
       return this.value;
     }
 
     /**
      * @param value {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.)
      */
-    public Identifier setValue(String_ value) { 
+    public Identifier setValue(StringType value) { 
       this.value = value;
       return this;
     }
@@ -275,7 +275,7 @@ public class Identifier extends Type {
         this.value = null;
       else {
         if (this.value == null)
-          this.value = new String_();
+          this.value = new StringType();
         this.value.setValue(value);
       }
       return this;

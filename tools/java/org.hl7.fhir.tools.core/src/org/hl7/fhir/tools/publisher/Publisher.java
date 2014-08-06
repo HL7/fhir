@@ -83,6 +83,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
+import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
@@ -111,7 +112,7 @@ import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
-import org.hl7.fhir.instance.model.Code;
+import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Identifier;
@@ -557,6 +558,8 @@ public class Publisher {
     for (DefinedCode t : page.getDefinitions().getPrimitives().values()) {
       if (t instanceof PrimitiveType)
         genPrimitiveTypeProfile((PrimitiveType) t);
+      else
+        genPrimitiveTypeProfile((DefinedStringPattern) t);
     }
     for (TypeDefn t : page.getDefinitions().getTypes().values())
       genTypeProfile(t);
@@ -618,6 +621,16 @@ public class Publisher {
   }
 
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
+    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
+    page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
+//    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
+//    t.setProfile(profile);
+//    t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
+//    t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
+  }
+
+
+  private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
     Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
     page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
 //    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
@@ -2671,7 +2684,7 @@ public class Publisher {
     opd.setNotesSimple(op.getFooter());
     opd.setSystemSimple(op.isSystem());
     if (op.isType())
-      opd.getType().add(new Code().setValue(r.getName()));
+      opd.getType().add(new CodeType().setValue(r.getName()));
     opd.setInstanceSimple(op.isInstance());
     for (OperationParameter p : op.getParameters()) {
       OperationDefinitionParameterComponent pp = new OperationDefinitionParameterComponent();
@@ -4066,7 +4079,7 @@ public class Publisher {
         cc.setSystemSimple(n);
         for (DefinedCode c : cd.getCodes()) {
           if (n.equals(c.getSystem())) {
-            Code nc = org.hl7.fhir.instance.model.Factory.newCode(c.getCode());
+            CodeType nc = org.hl7.fhir.instance.model.Factory.newCode(c.getCode());
             cc.getCode().add(nc);
             if (!Utilities.noString(c.getComment()))
               ToolingExtensions.addComment(nc, c.getComment());

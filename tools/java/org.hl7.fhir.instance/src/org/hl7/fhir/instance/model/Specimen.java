@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -204,7 +204,7 @@ public class Specimen extends Resource {
         /**
          * To communicate any details or issues encountered during the specimen collection procedure.
          */
-        protected List<String_> comment = new ArrayList<String_>();
+        protected List<StringType> comment = new ArrayList<StringType>();
 
         /**
          * Time when specimen was collected from subject - the physiologically relevant time.
@@ -226,7 +226,7 @@ public class Specimen extends Resource {
          */
         protected CodeableConcept sourceSite;
 
-        private static final long serialVersionUID = -558642016L;
+        private static final long serialVersionUID = -850785324L;
 
       public SpecimenCollectionComponent() {
         super();
@@ -265,7 +265,7 @@ public class Specimen extends Resource {
         /**
          * @return {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public List<String_> getComment() { 
+        public List<StringType> getComment() { 
           return this.comment;
         }
 
@@ -273,8 +273,8 @@ public class Specimen extends Resource {
         /**
          * @return {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public String_ addComment() { 
-          String_ t = new String_();
+        public StringType addComment() { 
+          StringType t = new StringType();
           this.comment.add(t);
           return t;
         }
@@ -282,8 +282,8 @@ public class Specimen extends Resource {
         /**
          * @param value {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public String_ addCommentSimple(String value) { 
-          String_ t = new String_();
+        public StringType addCommentSimple(String value) { 
+          StringType t = new StringType();
           t.setValue(value);
           this.comment.add(t);
           return t;
@@ -293,7 +293,7 @@ public class Specimen extends Resource {
          * @param value {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
         public boolean hasCommentSimple(String value) { 
-          for (String_ v : this.comment)
+          for (StringType v : this.comment)
             if (v.getValue().equals(value))
               return true;
           return false;
@@ -372,8 +372,8 @@ public class Specimen extends Resource {
       public SpecimenCollectionComponent copy() {
         SpecimenCollectionComponent dst = new SpecimenCollectionComponent();
         dst.collector = collector == null ? null : collector.copy();
-        dst.comment = new ArrayList<String_>();
-        for (String_ i : comment)
+        dst.comment = new ArrayList<StringType>();
+        for (StringType i : comment)
           dst.comment.add(i.copy());
         dst.collected = collected == null ? null : collected.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
@@ -388,7 +388,7 @@ public class Specimen extends Resource {
         /**
          * Textual description of procedure.
          */
-        protected String_ description;
+        protected StringType description;
 
         /**
          * A coded value specifying the procedure used to process the specimen.
@@ -405,7 +405,7 @@ public class Specimen extends Resource {
         protected List<Substance> additiveTarget = new ArrayList<Substance>();
 
 
-        private static final long serialVersionUID = -889950937L;
+        private static final long serialVersionUID = 349457190L;
 
       public SpecimenTreatmentComponent() {
         super();
@@ -414,14 +414,14 @@ public class Specimen extends Resource {
         /**
          * @return {@link #description} (Textual description of procedure.)
          */
-        public String_ getDescription() { 
+        public StringType getDescription() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Textual description of procedure.)
          */
-        public SpecimenTreatmentComponent setDescription(String_ value) { 
+        public SpecimenTreatmentComponent setDescription(StringType value) { 
           this.description = value;
           return this;
         }
@@ -441,7 +441,7 @@ public class Specimen extends Resource {
             this.description = null;
           else {
             if (this.description == null)
-              this.description = new String_();
+              this.description = new StringType();
             this.description.setValue(value);
           }
           return this;
@@ -524,7 +524,7 @@ public class Specimen extends Resource {
         /**
          * Textual description of the container.
          */
-        protected String_ description;
+        protected StringType description;
 
         /**
          * The type of container associated with the specimen (e.g. slide, aliquot, etc).
@@ -551,7 +551,7 @@ public class Specimen extends Resource {
          */
         protected Substance additiveTarget;
 
-        private static final long serialVersionUID = -1340176830L;
+        private static final long serialVersionUID = 794189367L;
 
       public SpecimenContainerComponent() {
         super();
@@ -577,14 +577,14 @@ public class Specimen extends Resource {
         /**
          * @return {@link #description} (Textual description of the container.)
          */
-        public String_ getDescription() { 
+        public StringType getDescription() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Textual description of the container.)
          */
-        public SpecimenContainerComponent setDescription(String_ value) { 
+        public SpecimenContainerComponent setDescription(StringType value) { 
           this.description = value;
           return this;
         }
@@ -604,7 +604,7 @@ public class Specimen extends Resource {
             this.description = null;
           else {
             if (this.description == null)
-              this.description = new String_();
+              this.description = new StringType();
             this.description.setValue(value);
           }
           return this;
@@ -743,7 +743,7 @@ public class Specimen extends Resource {
     /**
      * Time when specimen was received for processing or testing.
      */
-    protected DateTime receivedTime;
+    protected DateTimeType receivedTime;
 
     /**
      * Details concerning the specimen collection.
@@ -760,7 +760,7 @@ public class Specimen extends Resource {
      */
     protected List<SpecimenContainerComponent> container = new ArrayList<SpecimenContainerComponent>();
 
-    private static final long serialVersionUID = 1782045310L;
+    private static final long serialVersionUID = 1171226212L;
 
     public Specimen() {
       super();
@@ -869,14 +869,14 @@ public class Specimen extends Resource {
     /**
      * @return {@link #receivedTime} (Time when specimen was received for processing or testing.)
      */
-    public DateTime getReceivedTime() { 
+    public DateTimeType getReceivedTime() { 
       return this.receivedTime;
     }
 
     /**
      * @param value {@link #receivedTime} (Time when specimen was received for processing or testing.)
      */
-    public Specimen setReceivedTime(DateTime value) { 
+    public Specimen setReceivedTime(DateTimeType value) { 
       this.receivedTime = value;
       return this;
     }
@@ -896,7 +896,7 @@ public class Specimen extends Resource {
         this.receivedTime = null;
       else {
         if (this.receivedTime == null)
-          this.receivedTime = new DateTime();
+          this.receivedTime = new DateTimeType();
         this.receivedTime.setValue(value);
       }
       return this;

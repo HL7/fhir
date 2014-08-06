@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -389,7 +389,7 @@ public class Medication extends Resource {
     /**
      * The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.
      */
-    protected String_ name;
+    protected StringType name;
 
     /**
      * A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED CT code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes.
@@ -399,7 +399,7 @@ public class Medication extends Resource {
     /**
      * Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).
      */
-    protected Boolean isBrand;
+    protected BooleanType isBrand;
 
     /**
      * Describes the details of the manufacturer.
@@ -426,7 +426,7 @@ public class Medication extends Resource {
      */
     protected MedicationPackageComponent package_;
 
-    private static final long serialVersionUID = 1411342864L;
+    private static final long serialVersionUID = -1406021045L;
 
     public Medication() {
       super();
@@ -435,14 +435,14 @@ public class Medication extends Resource {
     /**
      * @return {@link #name} (The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.)
      */
-    public String_ getName() { 
+    public StringType getName() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.)
      */
-    public Medication setName(String_ value) { 
+    public Medication setName(StringType value) { 
       this.name = value;
       return this;
     }
@@ -462,7 +462,7 @@ public class Medication extends Resource {
         this.name = null;
       else {
         if (this.name == null)
-          this.name = new String_();
+          this.name = new StringType();
         this.name.setValue(value);
       }
       return this;
@@ -486,14 +486,14 @@ public class Medication extends Resource {
     /**
      * @return {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).)
      */
-    public Boolean getIsBrand() { 
+    public BooleanType getIsBrand() { 
       return this.isBrand;
     }
 
     /**
      * @param value {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).)
      */
-    public Medication setIsBrand(Boolean value) { 
+    public Medication setIsBrand(BooleanType value) { 
       this.isBrand = value;
       return this;
     }
@@ -513,7 +513,7 @@ public class Medication extends Resource {
         this.isBrand = null;
       else {
         if (this.isBrand == null)
-          this.isBrand = new Boolean();
+          this.isBrand = new BooleanType();
         this.isBrand.setValue(value);
       }
       return this;

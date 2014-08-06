@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -66,14 +66,14 @@ public class Availability extends Resource {
     /**
      * Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.
      */
-    protected String_ comment;
+    protected StringType comment;
 
     /**
      * When this availability was created, or last revised.
      */
-    protected DateTime lastModified;
+    protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = -1764152897L;
+    private static final long serialVersionUID = 143757728L;
 
     public Availability() {
       super();
@@ -166,14 +166,14 @@ public class Availability extends Resource {
     /**
      * @return {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.)
      */
-    public String_ getComment() { 
+    public StringType getComment() { 
       return this.comment;
     }
 
     /**
      * @param value {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.)
      */
-    public Availability setComment(String_ value) { 
+    public Availability setComment(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -193,7 +193,7 @@ public class Availability extends Resource {
         this.comment = null;
       else {
         if (this.comment == null)
-          this.comment = new String_();
+          this.comment = new StringType();
         this.comment.setValue(value);
       }
       return this;
@@ -202,14 +202,14 @@ public class Availability extends Resource {
     /**
      * @return {@link #lastModified} (When this availability was created, or last revised.)
      */
-    public DateTime getLastModified() { 
+    public DateTimeType getLastModified() { 
       return this.lastModified;
     }
 
     /**
      * @param value {@link #lastModified} (When this availability was created, or last revised.)
      */
-    public Availability setLastModified(DateTime value) { 
+    public Availability setLastModified(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }
@@ -229,7 +229,7 @@ public class Availability extends Resource {
         this.lastModified = null;
       else {
         if (this.lastModified == null)
-          this.lastModified = new DateTime();
+          this.lastModified = new DateTimeType();
         this.lastModified.setValue(value);
       }
       return this;

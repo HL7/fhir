@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -238,7 +238,7 @@ public class DeviceObservationReport extends Resource {
     /**
      * The point in time that the values are reported.
      */
-    protected Instant instant;
+    protected InstantType instant;
 
     /**
      * An identifier assigned to this observation bu the source device that made the observation.
@@ -270,13 +270,13 @@ public class DeviceObservationReport extends Resource {
      */
     protected List<DeviceObservationReportVirtualDeviceComponent> virtualDevice = new ArrayList<DeviceObservationReportVirtualDeviceComponent>();
 
-    private static final long serialVersionUID = 2089986348L;
+    private static final long serialVersionUID = -1068505466L;
 
     public DeviceObservationReport() {
       super();
     }
 
-    public DeviceObservationReport(Instant instant, ResourceReference source) {
+    public DeviceObservationReport(InstantType instant, ResourceReference source) {
       super();
       this.instant = instant;
       this.source = source;
@@ -285,14 +285,14 @@ public class DeviceObservationReport extends Resource {
     /**
      * @return {@link #instant} (The point in time that the values are reported.)
      */
-    public Instant getInstant() { 
+    public InstantType getInstant() { 
       return this.instant;
     }
 
     /**
      * @param value {@link #instant} (The point in time that the values are reported.)
      */
-    public DeviceObservationReport setInstant(Instant value) { 
+    public DeviceObservationReport setInstant(InstantType value) { 
       this.instant = value;
       return this;
     }
@@ -309,7 +309,7 @@ public class DeviceObservationReport extends Resource {
      */
     public DeviceObservationReport setInstantSimple(DateAndTime value) { 
         if (this.instant == null)
-          this.instant = new Instant();
+          this.instant = new InstantType();
         this.instant.setValue(value);
       return this;
     }

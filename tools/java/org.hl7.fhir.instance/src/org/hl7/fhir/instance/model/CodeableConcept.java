@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -46,9 +46,9 @@ public class CodeableConcept extends Type {
     /**
      * A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.
      */
-    protected String_ text;
+    protected StringType text;
 
-    private static final long serialVersionUID = 1029898174L;
+    private static final long serialVersionUID = -642628655L;
 
     public CodeableConcept() {
       super();
@@ -74,14 +74,14 @@ public class CodeableConcept extends Type {
     /**
      * @return {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.)
      */
-    public String_ getText() { 
+    public StringType getText() { 
       return this.text;
     }
 
     /**
      * @param value {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.)
      */
-    public CodeableConcept setText(String_ value) { 
+    public CodeableConcept setText(StringType value) { 
       this.text = value;
       return this;
     }
@@ -101,7 +101,7 @@ public class CodeableConcept extends Type {
         this.text = null;
       else {
         if (this.text == null)
-          this.text = new String_();
+          this.text = new StringType();
         this.text.setValue(value);
       }
       return this;

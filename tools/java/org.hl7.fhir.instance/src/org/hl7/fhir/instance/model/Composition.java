@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -171,7 +171,7 @@ public class Composition extends Resource {
         /**
          * When composition was attested by the party.
          */
-        protected DateTime time;
+        protected DateTimeType time;
 
         /**
          * Who attested the composition in the specified way.
@@ -183,7 +183,7 @@ public class Composition extends Resource {
          */
         protected Resource partyTarget;
 
-        private static final long serialVersionUID = -2138287752L;
+        private static final long serialVersionUID = 2056316894L;
 
       public CompositionAttesterComponent() {
         super();
@@ -229,14 +229,14 @@ public class Composition extends Resource {
         /**
          * @return {@link #time} (When composition was attested by the party.)
          */
-        public DateTime getTime() { 
+        public DateTimeType getTime() { 
           return this.time;
         }
 
         /**
          * @param value {@link #time} (When composition was attested by the party.)
          */
-        public CompositionAttesterComponent setTime(DateTime value) { 
+        public CompositionAttesterComponent setTime(DateTimeType value) { 
           this.time = value;
           return this;
         }
@@ -256,7 +256,7 @@ public class Composition extends Resource {
             this.time = null;
           else {
             if (this.time == null)
-              this.time = new DateTime();
+              this.time = new DateTimeType();
             this.time.setValue(value);
           }
           return this;
@@ -419,7 +419,7 @@ public class Composition extends Resource {
         /**
          * The heading for this particular section.  This will be part of the rendered content for the document.
          */
-        protected String_ title;
+        protected StringType title;
 
         /**
          * A code identifying the kind of content contained within the section.
@@ -451,7 +451,7 @@ public class Composition extends Resource {
          */
         protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
-        private static final long serialVersionUID = 1320269444L;
+        private static final long serialVersionUID = -904255741L;
 
       public SectionComponent() {
         super();
@@ -460,14 +460,14 @@ public class Composition extends Resource {
         /**
          * @return {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.)
          */
-        public String_ getTitle() { 
+        public StringType getTitle() { 
           return this.title;
         }
 
         /**
          * @param value {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.)
          */
-        public SectionComponent setTitle(String_ value) { 
+        public SectionComponent setTitle(StringType value) { 
           this.title = value;
           return this;
         }
@@ -487,7 +487,7 @@ public class Composition extends Resource {
             this.title = null;
           else {
             if (this.title == null)
-              this.title = new String_();
+              this.title = new StringType();
             this.title.setValue(value);
           }
           return this;
@@ -616,7 +616,7 @@ public class Composition extends Resource {
     /**
      * The composition editing time, when the composition was last logically changed by the author.
      */
-    protected DateTime date;
+    protected DateTimeType date;
 
     /**
      * Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition.
@@ -631,7 +631,7 @@ public class Composition extends Resource {
     /**
      * Official human-readable label for the composition.
      */
-    protected String_ title;
+    protected StringType title;
 
     /**
      * The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
@@ -698,13 +698,13 @@ public class Composition extends Resource {
      */
     protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
-    private static final long serialVersionUID = 1651702084L;
+    private static final long serialVersionUID = 665135617L;
 
     public Composition() {
       super();
     }
 
-    public Composition(DateTime date, CodeableConcept type, Enumeration<CompositionStatus> status, Coding confidentiality, ResourceReference subject) {
+    public Composition(DateTimeType date, CodeableConcept type, Enumeration<CompositionStatus> status, Coding confidentiality, ResourceReference subject) {
       super();
       this.date = date;
       this.type = type;
@@ -731,14 +731,14 @@ public class Composition extends Resource {
     /**
      * @return {@link #date} (The composition editing time, when the composition was last logically changed by the author.)
      */
-    public DateTime getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The composition editing time, when the composition was last logically changed by the author.)
      */
-    public Composition setDate(DateTime value) { 
+    public Composition setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -755,7 +755,7 @@ public class Composition extends Resource {
      */
     public Composition setDateSimple(DateAndTime value) { 
         if (this.date == null)
-          this.date = new DateTime();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       return this;
     }
@@ -793,14 +793,14 @@ public class Composition extends Resource {
     /**
      * @return {@link #title} (Official human-readable label for the composition.)
      */
-    public String_ getTitle() { 
+    public StringType getTitle() { 
       return this.title;
     }
 
     /**
      * @param value {@link #title} (Official human-readable label for the composition.)
      */
-    public Composition setTitle(String_ value) { 
+    public Composition setTitle(StringType value) { 
       this.title = value;
       return this;
     }
@@ -820,7 +820,7 @@ public class Composition extends Resource {
         this.title = null;
       else {
         if (this.title == null)
-          this.title = new String_();
+          this.title = new StringType();
         this.title.setValue(value);
       }
       return this;

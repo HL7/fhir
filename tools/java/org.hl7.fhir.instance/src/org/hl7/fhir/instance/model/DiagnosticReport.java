@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -132,7 +132,7 @@ public class DiagnosticReport extends Resource {
         /**
          * A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
-        protected String_ comment;
+        protected StringType comment;
 
         /**
          * Reference to the image source.
@@ -144,7 +144,7 @@ public class DiagnosticReport extends Resource {
          */
         protected Media linkTarget;
 
-        private static final long serialVersionUID = -1174289293L;
+        private static final long serialVersionUID = -910272270L;
 
       public DiagnosticReportImageComponent() {
         super();
@@ -158,14 +158,14 @@ public class DiagnosticReport extends Resource {
         /**
          * @return {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.)
          */
-        public String_ getComment() { 
+        public StringType getComment() { 
           return this.comment;
         }
 
         /**
          * @param value {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.)
          */
-        public DiagnosticReportImageComponent setComment(String_ value) { 
+        public DiagnosticReportImageComponent setComment(StringType value) { 
           this.comment = value;
           return this;
         }
@@ -185,7 +185,7 @@ public class DiagnosticReport extends Resource {
             this.comment = null;
           else {
             if (this.comment == null)
-              this.comment = new String_();
+              this.comment = new StringType();
             this.comment.setValue(value);
           }
           return this;
@@ -249,7 +249,7 @@ public class DiagnosticReport extends Resource {
     /**
      * The date and/or time that this version of the report was released from the source diagnostic service.
      */
-    protected DateTime issued;
+    protected DateTimeType issued;
 
     /**
      * The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
@@ -334,7 +334,7 @@ public class DiagnosticReport extends Resource {
     /**
      * Concise and clinically contextualized narrative interpretation of the diagnostic report.
      */
-    protected String_ conclusion;
+    protected StringType conclusion;
 
     /**
      * Codes for the conclusion.
@@ -346,13 +346,13 @@ public class DiagnosticReport extends Resource {
      */
     protected List<Attachment> presentedForm = new ArrayList<Attachment>();
 
-    private static final long serialVersionUID = -1798641536L;
+    private static final long serialVersionUID = -117351753L;
 
     public DiagnosticReport() {
       super();
     }
 
-    public DiagnosticReport(CodeableConcept name, Enumeration<DiagnosticReportStatus> status, DateTime issued, ResourceReference subject, ResourceReference performer, Type diagnostic) {
+    public DiagnosticReport(CodeableConcept name, Enumeration<DiagnosticReportStatus> status, DateTimeType issued, ResourceReference subject, ResourceReference performer, Type diagnostic) {
       super();
       this.name = name;
       this.status = status;
@@ -412,14 +412,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #issued} (The date and/or time that this version of the report was released from the source diagnostic service.)
      */
-    public DateTime getIssued() { 
+    public DateTimeType getIssued() { 
       return this.issued;
     }
 
     /**
      * @param value {@link #issued} (The date and/or time that this version of the report was released from the source diagnostic service.)
      */
-    public DiagnosticReport setIssued(DateTime value) { 
+    public DiagnosticReport setIssued(DateTimeType value) { 
       this.issued = value;
       return this;
     }
@@ -436,7 +436,7 @@ public class DiagnosticReport extends Resource {
      */
     public DiagnosticReport setIssuedSimple(DateAndTime value) { 
         if (this.issued == null)
-          this.issued = new DateTime();
+          this.issued = new DateTimeType();
         this.issued.setValue(value);
       return this;
     }
@@ -702,14 +702,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.)
      */
-    public String_ getConclusion() { 
+    public StringType getConclusion() { 
       return this.conclusion;
     }
 
     /**
      * @param value {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.)
      */
-    public DiagnosticReport setConclusion(String_ value) { 
+    public DiagnosticReport setConclusion(StringType value) { 
       this.conclusion = value;
       return this;
     }
@@ -729,7 +729,7 @@ public class DiagnosticReport extends Resource {
         this.conclusion = null;
       else {
         if (this.conclusion == null)
-          this.conclusion = new String_();
+          this.conclusion = new StringType();
         this.conclusion.setValue(value);
       }
       return this;

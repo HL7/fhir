@@ -17,7 +17,7 @@ import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionnaireStatus;
 import org.hl7.fhir.instance.model.ResourceReference;
-import org.hl7.fhir.instance.model.Uri;
+import org.hl7.fhir.instance.model.UriType;
 
 
 
@@ -395,7 +395,7 @@ public class QuestionnaireBuilder {
   }
 
 	private ResourceReference getValueSet(ElementComponent element) {
-	  if (element == null|| element.getDefinition() == null || element.getDefinition().getBinding() == null || element.getDefinition().getBinding().getReference() instanceof Uri)
+	  if (element == null|| element.getDefinition() == null || element.getDefinition().getBinding() == null || element.getDefinition().getBinding().getReference() instanceof UriType)
 	    return null;
 	  else
 	    return (ResourceReference) element.getDefinition().getBinding().getReference();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -300,9 +300,9 @@ public class Observation extends Resource {
         /**
          * Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.
          */
-        protected String_ text;
+        protected StringType text;
 
-        private static final long serialVersionUID = 801418099L;
+        private static final long serialVersionUID = 230621180L;
 
       public ObservationReferenceRangeComponent() {
         super();
@@ -371,14 +371,14 @@ public class Observation extends Resource {
         /**
          * @return {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.)
          */
-        public String_ getText() { 
+        public StringType getText() { 
           return this.text;
         }
 
         /**
          * @param value {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.)
          */
-        public ObservationReferenceRangeComponent setText(String_ value) { 
+        public ObservationReferenceRangeComponent setText(StringType value) { 
           this.text = value;
           return this;
         }
@@ -398,7 +398,7 @@ public class Observation extends Resource {
             this.text = null;
           else {
             if (this.text == null)
-              this.text = new String_();
+              this.text = new StringType();
             this.text.setValue(value);
           }
           return this;
@@ -551,7 +551,7 @@ public class Observation extends Resource {
     /**
      * May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
      */
-    protected String_ comments;
+    protected StringType comments;
 
     /**
      * The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.
@@ -561,7 +561,7 @@ public class Observation extends Resource {
     /**
      * Date/Time this was made available.
      */
-    protected Instant issued;
+    protected InstantType issued;
 
     /**
      * The status of the result value.
@@ -638,7 +638,7 @@ public class Observation extends Resource {
      */
     protected List<ObservationRelatedComponent> related = new ArrayList<ObservationRelatedComponent>();
 
-    private static final long serialVersionUID = -1933525237L;
+    private static final long serialVersionUID = -1164054480L;
 
     public Observation() {
       super();
@@ -699,14 +699,14 @@ public class Observation extends Resource {
     /**
      * @return {@link #comments} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.)
      */
-    public String_ getComments() { 
+    public StringType getComments() { 
       return this.comments;
     }
 
     /**
      * @param value {@link #comments} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.)
      */
-    public Observation setComments(String_ value) { 
+    public Observation setComments(StringType value) { 
       this.comments = value;
       return this;
     }
@@ -726,7 +726,7 @@ public class Observation extends Resource {
         this.comments = null;
       else {
         if (this.comments == null)
-          this.comments = new String_();
+          this.comments = new StringType();
         this.comments.setValue(value);
       }
       return this;
@@ -750,14 +750,14 @@ public class Observation extends Resource {
     /**
      * @return {@link #issued} (Date/Time this was made available.)
      */
-    public Instant getIssued() { 
+    public InstantType getIssued() { 
       return this.issued;
     }
 
     /**
      * @param value {@link #issued} (Date/Time this was made available.)
      */
-    public Observation setIssued(Instant value) { 
+    public Observation setIssued(InstantType value) { 
       this.issued = value;
       return this;
     }
@@ -777,7 +777,7 @@ public class Observation extends Resource {
         this.issued = null;
       else {
         if (this.issued == null)
-          this.issued = new Instant();
+          this.issued = new InstantType();
         this.issued.setValue(value);
       }
       return this;

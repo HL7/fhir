@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Aug 3, 2014 22:02-0600 for FHIR v0.2.1
+// Generated on Thu, Aug 7, 2014 00:33+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -100,7 +100,7 @@ public class Query extends Resource {
         /**
          * Links response to source query.
          */
-        protected Uri identifier;
+        protected UriType identifier;
 
         /**
          * Outcome of processing the query.
@@ -110,7 +110,7 @@ public class Query extends Resource {
         /**
          * Total number of matching records.
          */
-        protected Integer total;
+        protected IntegerType total;
 
         /**
          * Parameters server used.
@@ -147,13 +147,13 @@ public class Query extends Resource {
         protected List<Resource> referenceTarget = new ArrayList<Resource>();
 
 
-        private static final long serialVersionUID = 841399625L;
+        private static final long serialVersionUID = -1700337143L;
 
       public QueryResponseComponent() {
         super();
       }
 
-      public QueryResponseComponent(Uri identifier, Enumeration<QueryOutcome> outcome) {
+      public QueryResponseComponent(UriType identifier, Enumeration<QueryOutcome> outcome) {
         super();
         this.identifier = identifier;
         this.outcome = outcome;
@@ -162,14 +162,14 @@ public class Query extends Resource {
         /**
          * @return {@link #identifier} (Links response to source query.)
          */
-        public Uri getIdentifier() { 
+        public UriType getIdentifier() { 
           return this.identifier;
         }
 
         /**
          * @param value {@link #identifier} (Links response to source query.)
          */
-        public QueryResponseComponent setIdentifier(Uri value) { 
+        public QueryResponseComponent setIdentifier(UriType value) { 
           this.identifier = value;
           return this;
         }
@@ -186,7 +186,7 @@ public class Query extends Resource {
          */
         public QueryResponseComponent setIdentifierSimple(String value) { 
             if (this.identifier == null)
-              this.identifier = new Uri();
+              this.identifier = new UriType();
             this.identifier.setValue(value);
           return this;
         }
@@ -226,14 +226,14 @@ public class Query extends Resource {
         /**
          * @return {@link #total} (Total number of matching records.)
          */
-        public Integer getTotal() { 
+        public IntegerType getTotal() { 
           return this.total;
         }
 
         /**
          * @param value {@link #total} (Total number of matching records.)
          */
-        public QueryResponseComponent setTotal(Integer value) { 
+        public QueryResponseComponent setTotal(IntegerType value) { 
           this.total = value;
           return this;
         }
@@ -253,7 +253,7 @@ public class Query extends Resource {
             this.total = null;
           else {
             if (this.total == null)
-              this.total = new Integer();
+              this.total = new IntegerType();
             this.total.setValue(value);
           }
           return this;
@@ -412,7 +412,7 @@ public class Query extends Resource {
     /**
      * Links query and its response(s).
      */
-    protected Uri identifier;
+    protected UriType identifier;
 
     /**
      * Set of query parameters with values.
@@ -424,13 +424,13 @@ public class Query extends Resource {
      */
     protected QueryResponseComponent response;
 
-    private static final long serialVersionUID = -1622604040L;
+    private static final long serialVersionUID = 1612122334L;
 
     public Query() {
       super();
     }
 
-    public Query(Uri identifier) {
+    public Query(UriType identifier) {
       super();
       this.identifier = identifier;
     }
@@ -438,14 +438,14 @@ public class Query extends Resource {
     /**
      * @return {@link #identifier} (Links query and its response(s).)
      */
-    public Uri getIdentifier() { 
+    public UriType getIdentifier() { 
       return this.identifier;
     }
 
     /**
      * @param value {@link #identifier} (Links query and its response(s).)
      */
-    public Query setIdentifier(Uri value) { 
+    public Query setIdentifier(UriType value) { 
       this.identifier = value;
       return this;
     }
@@ -462,7 +462,7 @@ public class Query extends Resource {
      */
     public Query setIdentifierSimple(String value) { 
         if (this.identifier == null)
-          this.identifier = new Uri();
+          this.identifier = new UriType();
         this.identifier.setValue(value);
       return this;
     }

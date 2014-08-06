@@ -123,7 +123,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       String n = upFirst(cd.getCode());
       String t = n;
 //      if (n.equals("String"))
-//        t = "String_";
+//        t = "StringType";
 //      if (n.equals("Uri"))
 //        t = "URI";
       regt.append("    else if (xpp.getName().equals(prefix+\""+n+"\"))\r\n      return parse"+t+"(xpp);\r\n");
@@ -201,7 +201,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 
   private String getPrimitiveTypeModelName(String code) {
     if (code.equals("string"))
-      return "String_";
+      return "StringType";
+    if (definitions.hasPrimitiveType(code))
+      return upFirst(code)+"Type";
     return upFirst(code);
   }
 
