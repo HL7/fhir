@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T09:39:52Z</Created>
-  <LastSaved>2014-07-07T01:38:40Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-08-06T07:36:21Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,7 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>150</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -96,9 +97,6 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s77">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s134">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -107,9 +105,12 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s135">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -210,7 +211,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -394,11 +394,27 @@
     <Cell><Data ss:Type="String">Flags the question as comparable to other questions mapped to the same DE.  Also allows systems that have  mapped the DE to auto-populate or auto-extract information captured for the question.</Data></Cell>
     <Cell><Data ss:Type="String">./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s70"/>
+   <Row ss:Height="60">
+    <Cell><Data ss:Type="String">mimeType</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">MimeType</Data></Cell>
+    <Cell><Data ss:Type="String">Type of attachment</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the kind(s) of [[[Attachment]]] allowed to be sent in answer to the question.</Data></Cell>
+    <Cell><Data ss:Type="String">This extension only has meaning if the question.type = Attachment</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s70"/>
+   <Row ss:Height="75">
+    <Cell><Data ss:Type="String">maxSize</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">decimal</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Max size in MB</Data></Cell>
+    <Cell><Data ss:Type="String">For attachment answers, indicates the maximum size an attachment provided in response to a question can be.</Data></Cell>
+    <Cell><Data ss:Type="String">This extension only has meaning if the question.type = Attachment</Data></Cell>
+    <Cell><Data ss:Type="String">Ensures servers aren't overwhelmed with attachments that are too large to transmit/persist</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -414,10 +430,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -430,12 +447,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -443,26 +457,26 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="886.5" ss:DefaultRowHeight="15">
    <Column ss:Width="65.25"/>
    <Column ss:Width="387.75"/>
    <Column ss:Width="32.25"/>
    <Column ss:Width="117"/>
-   <Row>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Path</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Path</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">deReference</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">A data element referenced by one of the questions in the questionnaire</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">#deReference</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">#deReference</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:Index="4" ss:StyleID="s135"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -471,6 +485,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -497,7 +512,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s70"><Data ss:Type="String">QuestionnaireCategory</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Classifications for questionnaires.  Can include such concepts as &quot;intake form&quot;, &quot;opinion survey&quot;, &quot;clinical research questionnaire&quot;, &quot;pediatric&quot;, etc.</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MaxOccurs</Data></Cell>

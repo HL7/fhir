@@ -78,13 +78,13 @@ The SDC specification consists of the following components:
 <a name="population"> </a>
 <h3>Pre-population service</h3>
 <p>
-The <a href="questionnaire.html">Questionnaire</a> resource defines a custom operation called <a href="questionnaire-operations.html">populate</a>.
+The <a href="questionnaire.html">Questionnaire</a> resource defines a custom operation called <a href="questionnaire-operations.html#populate">populate</a>.
 This operation supports generating a "blank" <a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance based on a specified
 <a href="questionnaire.html">Questionnaire</a>.  It also allows for the returned questionnaire to be partially or even fully completed based
 on data passed in to the operation or data already available to the server on which the operation is invoked.
 </p>
 <p>
-For SDC purposes, server systems claiming to support roles that require support for the ''populate'' operation (
+For SDC purposes, server systems claiming to support roles that require support for the <code>populate</code> operation (
 <a href="conformance-sdc-form-manager.html">SDC Form Manager</a>) SHALL, at minimum:
 </p>
 <ul>
@@ -94,7 +94,7 @@ For SDC purposes, server systems claiming to support roles that require support 
   <a href="dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
 </ul>
 <p>
-Similarly, client systems claiming to support the ''populate'' operation (<a href="conformance-sdc-form-filler.html">SDC Form Filler</a>)
+Similarly, client systems claiming to support the <code>populate</code> operation (<a href="conformance-sdc-form-filler.html">SDC Form Filler</a>)
 SHALL, at a minimum:
 </p>
 <ul>

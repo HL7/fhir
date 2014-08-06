@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T09:39:52Z</Created>
   <LastSaved>2014-05-10T17:22:42Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,7 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>210</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -175,7 +176,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
@@ -268,24 +268,24 @@
     <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">N/A (MIF-level)</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">minValue</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">DataElement;Questionnaire.group.question;Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="String">date|dateTime|decimal|integer</Data></Cell>
+    <Cell><Data ss:Type="String">date|dateTime|time|instant|decimal|integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Must be &gt;= this value</Data></Cell>
     <Cell><Data ss:Type="String">The inclusive lower bound on the range of allowed values for the data element</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Data type specified must be the same as the data type for the data element.</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">N/A (MIF-level)</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">maxValue</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">DataElement;Questionnaire.group.question;Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="String">date|dateTime|decimal|integer</Data></Cell>
+    <Cell><Data ss:Type="String">date|dateTime|time|instant|decimal|integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Must be &lt;= this value</Data></Cell>
     <Cell><Data ss:Type="String">The inclusive upper bound on the range of allowed values for the data element</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Data type specified must be the same as the data type for the data element.</Data></Cell>
@@ -318,6 +318,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -337,8 +338,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

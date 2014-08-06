@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2014-07-24T04:43:35Z</LastSaved>
+  <LastSaved>2014-08-06T05:17:51Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -115,22 +115,22 @@
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s84" ss:Parent="s62">
+  <Style ss:ID="s82" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s85" ss:Parent="s62">
+  <Style ss:ID="s83" ss:Parent="s62">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s86">
+  <Style ss:ID="s84">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s87">
+  <Style ss:ID="s85">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s88">
+  <Style ss:ID="s86">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -794,8 +794,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">SDCObjectClass</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -846,8 +846,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">SDCObjectClassProperty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -865,9 +865,9 @@
     <Cell ss:Index="5" ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">uri</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85" ss:HRef="http://healthit.gov/sdc/objectclassproperty"><Data
+    <Cell ss:Index="9" ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83" ss:HRef="http://healthit.gov/sdc/objectclassproperty"><Data
       ss:Type="String">http://healthit.gov/sdc/objectclassproperty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -919,7 +919,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>28</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -932,9 +932,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>43</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -960,10 +963,10 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">XPath</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s86"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s80"><Data ss:Type="String">DataElement.mapping</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Property extension can only be specified if ObjectClass extension is present</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s87"><Data ss:Type="String">exists(f:extension[@url='http://hl7.org/fhir/Profile/dataelement-11179#objectClass']) or not(exists(f:extension[@url='http://hl7.org/fhir/Profile/dataelement-11179#property']))</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">exists(f:extension[@url='http://hl7.org/fhir/Profile/dataelement-11179#objectClass']) or not(exists(f:extension[@url='http://hl7.org/fhir/Profile/dataelement-11179#property']))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -1006,7 +1009,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SDCObjectClass</Data></Cell>

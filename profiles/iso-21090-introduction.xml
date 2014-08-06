@@ -22,7 +22,7 @@ to be used in a different manner.  Where necessary, guidance is included in this
 <div>
 <h3>Any (ANY)</h3>
 <p>These extensions may apply to any of the FHIR data types (complex or primitive).  It can also appear on any resource element.</p>
-<h4><a name="nullFlavor">nullFlavor</a></h4>
+<h4><a href="#nullFlavor">nullFlavor</a></h4>
 <p>
 This extension allows exceptional values to be conveyed, as well as for data to be flagged as "missing" for some reason.
 </p>
@@ -43,7 +43,7 @@ This approach is preferred over referencing the full null flavor specification. 
 <h3>Entity Name (EN)</h3>
 <p>These extensions apply to the <a href="http://www.hl7.org/fhir/datatypes.html#humanname">HumanName</a> data type.</p>
 <ul>
-  <li><a name="name-qualifier"><b>name-qualifier</b></a> - This extension to <code><a href="datatypes.html#humanname">HumanName</a>.part</code> allows distinguishing initials, middle names, call-me names and other types of names</li>
+  <li><a href="#name-qualifier"><b>name-qualifier</b></a> - This extension to <code><a href="datatypes.html#humanname">HumanName</a>.part</code> allows distinguishing initials, middle names, call-me names and other types of names</li>
 </ul>
 </div>
 
@@ -51,8 +51,8 @@ This approach is preferred over referencing the full null flavor specification. 
 <h3>Parametric Probability Distribution of a Physical Quantity (PPD&lt;PQ&gt;)</h3>
 <p>These extensions provide support for the probability distributions for the <a href="datatypes.html#quantity">Quantity</a> data type.  There are two properties:</p>
 <ul>
-  <li><a name="uncertainty"><b>uncertainty</b></a> - Indicates the standard deviation associated with the extended quantity.</li>
-  <li><a name="uncertainty-type"><b>uncertainty</b></a> - Identifies the probability distribution associated with the uncertainty of the extended quantity.</li>
+  <li><a href="#uncertainty"><b>uncertainty</b></a> - Indicates the standard deviation associated with the extended quantity.</li>
+  <li><a href="#uncertaintyType"><b>uncertaintyType</b></a> - Identifies the probability distribution associated with the uncertainty of the extended quantity.</li>
 </ul>
 </div>
 
@@ -60,32 +60,32 @@ This approach is preferred over referencing the full null flavor specification. 
 <h3>Address (AD)</h3>
 <p>These extensions provide support for various additional properties of the <a href="datatypes.html#address">Address</a> data type.  There are kinds of properties:</p>
 <ul>
-  <li><a name="address-use"><b>address-use</b></a> - Identifies additional usages not supported by the <code>Address.use</code> property</li>
+  <li><a href="#address-use"><b>address-use</b></a> - Identifies additional usages not supported by the <code>Address.use</code> property</li>
   <li>Additional address parts not broken out as distinct elements in the <a href="datatypes.html#address">Address</a> data type, including:
     <ul>
-      <li><a name="address-part-additionalLocator">address-part-additionalLocator</a> - Additional information beyond the street number.  E.g. apartment number</li>
-      <li><a name="address-part-unitID">address-part-unitID</a> - Number of a unit within a building</li>
-      <li><a name="address-part-unitType">address-part-unitType</a> - Type of unit.  E.g. appartment, floor</li>
-      <li><a name="address-part-deliveryAddressLine">address-part-deliveryAddressLine</a> - Delivery to an installation rather than a physical address.  E.g. PO box, depot, station</li>
-      <li><a name="address-part-deliveryInstallationType">address-part-deliveryInstallationType</a> - Lype of delivery site (PO Box, depot, station)</li>
-      <li><a name="address-part-deliveryInstallationArea">address-part-deliveryInstallationArea</a> - The jurisdiction in which the delivery address is located</li>
-      <li><a name="address-part-deliveryInstallationQualifier">address-part-deliveryInstallationQualifier</a> - A number or letter identifying the delivery site.  E.g. Station "A", Rural Route "104" </li>
-      <li><a name="address-part-deliveryMode">address-part-deliveryMode</a> - Type of delivery.  E.g. rural route, post office box</li>
-      <li><a name="address-part-deliveryModeIdentifier">address-part-deliveryModeIdentifier</a> - Routing information such as route number, box number</li>
-      <li><a name="address-part-streetAddressLine">address-part-streetAddressLine</a> - A type of address identifying a building located by street name</li>
-      <li><a name="address-part-houseNumber">address-part-houseNumber</a> - The number of the building on the street</li>
-      <li><a name="address-part-buildingNumberSuffix">address-part-buildingNumberSuffix</a> - The non-numeric portion of a building number.  E.g. "A" in 103A Some Street</li>
-      <li><a name="address-part-postBox">address-part-postBox</a> - A post office box number</li>
-      <li><a name="address-part-houseNumberNumeric">address-part-houseNumberNumeric</a> -The numeric portion of a building number.  E.g. "103" in 103A Some Street</li>
-      <li><a name="address-part-streetName">address-part-streetName</a> - The name of a street (distinct from the building number)</li>
-      <li><a name="address-part-streetNameBase">address-part-streetNameBase</a> - The name of a street excluding type and direction.  E.g. "Main" in Main Street NW</li>
-      <li><a name="address-part-streetNameType">address-part-streetNameType</a> - The type of a street.  E.g. "Street" in Main Street NW</li>
-      <li><a name="address-part-direction">address-part-direction</a> - The direction of a street.  E.g. "NW" in Main Street NW</li>
-      <li><a name="address-part-careOf">address-part-careOf</a> - The name of a person to take receipt at the specified address who is responsible for ensuring final deliver</li>
-      <li><a name="address-part-censusTract">address-part-censusTract</a> - A geographic region delineated for demographic purposes</li>
-      <li><a name="address-part-county">address-part-county</a> - A sub-unit of a state or province</li>
-      <li><a name="address-part-delimiter">address-part-delimiter</a> - A separator such as a carrage return, dash, comma, etc.</li>
-      <li><a name="address-part-precinct">address-part-precinct</a> - A subsection of a municipality</li>
+      <li><a href="#address-part-additionalLocator">address-part-additionalLocator</a> - Additional information beyond the street number.  E.g. apartment number</li>
+      <li><a href="#address-part-unitID">address-part-unitID</a> - Number of a unit within a building</li>
+      <li><a href="#address-part-unitType">address-part-unitType</a> - Type of unit.  E.g. appartment, floor</li>
+      <li><a href="#address-part-deliveryAddressLine">address-part-deliveryAddressLine</a> - Delivery to an installation rather than a physical address.  E.g. PO box, depot, station</li>
+      <li><a href="#address-part-deliveryInstallationType">address-part-deliveryInstallationType</a> - Lype of delivery site (PO Box, depot, station)</li>
+      <li><a href="#address-part-deliveryInstallationArea">address-part-deliveryInstallationArea</a> - The jurisdiction in which the delivery address is located</li>
+      <li><a href="#address-part-deliveryInstallationQualifier">address-part-deliveryInstallationQualifier</a> - A number or letter identifying the delivery site.  E.g. Station "A", Rural Route "104" </li>
+      <li><a href="#address-part-deliveryMode">address-part-deliveryMode</a> - Type of delivery.  E.g. rural route, post office box</li>
+      <li><a href="#address-part-deliveryModeIdentifier">address-part-deliveryModeIdentifier</a> - Routing information such as route number, box number</li>
+      <li><a href="#address-part-streetAddressLine">address-part-streetAddressLine</a> - A type of address identifying a building located by street name</li>
+      <li><a href="#address-part-houseNumber">address-part-houseNumber</a> - The number of the building on the street</li>
+      <li><a href="#address-part-buildingNumberSuffix">address-part-buildingNumberSuffix</a> - The non-numeric portion of a building number.  E.g. "A" in 103A Some Street</li>
+      <li><a href="#address-part-postBox">address-part-postBox</a> - A post office box number</li>
+      <li><a href="#address-part-houseNumberNumeric">address-part-houseNumberNumeric</a> -The numeric portion of a building number.  E.g. "103" in 103A Some Street</li>
+      <li><a href="#address-part-streetName">address-part-streetName</a> - The name of a street (distinct from the building number)</li>
+      <li><a href="#address-part-streetNameBase">address-part-streetNameBase</a> - The name of a street excluding type and direction.  E.g. "Main" in Main Street NW</li>
+      <li><a href="#address-part-streetNameType">address-part-streetNameType</a> - The type of a street.  E.g. "Street" in Main Street NW</li>
+      <li><a href="#address-part-direction">address-part-direction</a> - The direction of a street.  E.g. "NW" in Main Street NW</li>
+      <li><a href="#address-part-careOf">address-part-careOf</a> - The name of a person to take receipt at the specified address who is responsible for ensuring final deliver</li>
+      <li><a href="#address-part-censusTract">address-part-censusTract</a> - A geographic region delineated for demographic purposes</li>
+      <li><a href="#address-part-county">address-part-county</a> - A sub-unit of a state or province</li>
+      <li><a href="#address-part-delimiter">address-part-delimiter</a> - A separator such as a carrage return, dash, comma, etc.</li>
+      <li><a href="#address-part-precinct">address-part-precinct</a> - A subsection of a municipality</li>
     </ul>
   </li>
 </ul>
@@ -95,8 +95,8 @@ This approach is preferred over referencing the full null flavor specification. 
 <h3>String (ST)</h3>
 <p>These extensions provide support for the probability distributions for the <a href="datatypes.html#string">string</a> data type.  There are two properties:</p>
 <ul>
-  <li><a name="string-translation"><b>string-translation</b></a> - Provides an alternate expression of the string in a different language.  (May have more than one occurrence)</li>
-  <li><a name="language"><b>language</b></a> - Indicates the language of the extended string.  (May also appear on the string-translation extension)</li>
+  <li><a href="#string-translation"><b>string-translation</b></a> - Provides an alternate expression of the string in a different language.  (May have more than one occurrence)</li>
+  <li><a href="#language"><b>language</b></a> - Indicates the language of the extended string.  (May also appear on the string-translation extension)</li>
 </ul>
 </div>
 

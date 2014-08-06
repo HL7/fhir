@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T09:39:52Z</Created>
   <LastSaved>2014-04-28T04:34:03Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -33,14 +33,14 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s57" ss:Name="Hyperlink">
+  <Style ss:ID="s62" ss:Name="Hyperlink">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
     ss:Underline="Single"/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -49,31 +49,31 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s73" ss:Parent="s57">
+  <Style ss:ID="s66" ss:Parent="s62">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s67">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
    <NumberFormat ss:Format="Short Date"/>
   </Style>
-  <Style ss:ID="s75" ss:Parent="s57">
+  <Style ss:ID="s68" ss:Parent="s62">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s69">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s70">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s71">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -83,16 +83,16 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="21" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="108"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="789.75"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s72">
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="108"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="789.75"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Value</Data></Cell>
    </Row>
@@ -110,7 +110,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">author.reference</Data></Cell>
-    <Cell ss:StyleID="s73" ss:HRef="http://hl7.org/fhir"><Data ss:Type="String">http://hl7.org/fhir</Data></Cell>
+    <Cell ss:StyleID="s66" ss:HRef="http://hl7.org/fhir"><Data ss:Type="String">http://hl7.org/fhir</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">intention</Data></Cell>
@@ -134,14 +134,14 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="DateTime">2014-04-23T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2014-04-23T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">endorser.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">endorser.reference</Data></Cell>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">changes</Data></Cell>
@@ -157,7 +157,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s75" ss:HRef="http://hl7.org/fhir/Profile/rendering-extensions"><Data
+    <Cell ss:StyleID="s68" ss:HRef="http://hl7.org/fhir/Profile/rendering-extensions"><Data
       ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -186,21 +186,21 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Extensions">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="3" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="192.75"/>
-   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="77.25"/>
-   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="150.75"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="56.25"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="73.5"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="105.75"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="61.5"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="159"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="213.75"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
-   <Column ss:Index="12" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="4" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="192.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="150.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="56.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="73.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="105.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="159"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="213.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
+   <Column ss:Index="12" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s71">
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Context Type</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -220,14 +220,14 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">style</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:Index="8"><Data ss:Type="String">Html style value</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Identifies how the specified element should be rendered when displayed.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s79"><Data ss:Type="String">This extension would be equivalent to setting the HTML &quot;style&quot; attribute on the root element for the element containing the extension.</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Identifies how the specified element should be rendered when displayed.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s72"><Data ss:Type="String">This extension would be equivalent to setting the HTML &quot;style&quot; attribute on the root element for the element containing the extension.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">markup</Data></Cell>
@@ -237,8 +237,19 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">String equivalent with html markup</Data></Cell>
     <Cell><Data ss:Type="String">This is an equivalent of the string on which the extension is sent, but includes additional xhtml markup, such as bold, italics, styles, tables, etc.</Data></Cell>
-    <Cell><Data ss:Type="String">This allows portions of the string to be formatted with italics, bold, special colors, </Data></Cell>
+    <Cell><Data ss:Type="String">This allows portions of the string to be formatted with italics, bold, special colors, etc.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">ED can be XHTML content</Data></Cell>
+   </Row>
+   <Row ss:Height="195">
+    <Cell><Data ss:Type="String">styleSensitive</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Are styles important for processing?</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates that the style extensions in this resource are essential to the interpretation of the styled text and that it cannot be rendered without the style without losing essential information</Data></Cell>
+    <Cell><Data ss:Type="String">Some mark-up can affect meaning.  E.g. Subscripts, superscripts, introduction of italics, alignment requirements, etc.</Data></Cell>
+    <Cell><Data ss:Type="String">If set to true, all systems that claim to support this extension and which render elements of the resource containing this extension SHALL either render the content as required by the style extensions defined by this profile that are present in the resource or shall (if safe to do so based on their own rules), omit entirely the styled content they cannot render in accordance with the extensions.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -255,6 +266,27 @@
     <VerticalResolution>300</VerticalResolution>
    </Print>
    <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -269,12 +301,12 @@
    <Column ss:AutoFitWidth="0" ss:Width="168"/>
    <Column ss:AutoFitWidth="0" ss:Width="158.25"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Binding Strength</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Binding Strength</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Description</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

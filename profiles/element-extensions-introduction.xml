@@ -20,40 +20,14 @@ to most or all of these:
 the resource that declared the extension.
 </p>
 
-<div>
-<h3>Length extensions</h3>
 <p>
-These extensions govern the length of most of the simple data types.  Some data types are excluded because their lengths are already fixed and cannot be
-further constrained.
+The extensions provided here fall into several categories:
 </p>
 <ul>
-<li><a name="minLength"> </a><b>minLength</b> - (0..1) Establishes a lower bound for the character length for the element</li>
-<li><a name="maxLength"> </a><b>minLength</b> - (0..1) Establishes an upper bound for the character length for the element</li>
+  <li>Length-related (govern allowed length of an element): <a href="#minLength">minLength</a>, <a href="#maxLength">maxLength</a></li>
+  <li>Format (govern the appearance of string and string-like simple data types): <a href="#regex">regex</a>, <a href="#entryFormat">entryFormat</a></li>
+  <li>Numeric/date (govern the allowed range of numeric, date or time data types):  <a href="#minValue">minValue</a>, <a href="#maxValue">maxValue</a>, <a href="#maxDecimalPlaces">maxDecimalPlaces</a></li>
 </ul>
-</div>
-
-<div>
-<h3>Format extensions</h3>
-<p>
-These extensions govern the appearance of string and string-like simple data types.
-</p>
-<ul>
-<li><a name="regex"> </a><b>regex</b> - (0..1) Expresses a "regular expression" that computably defines the permitted syntax for a string</li>
-<li><a name="entryFormat"> </a><b>entryFormat</b> - (0..1) Provides human-readable guidance for the desired syntax for a string</li>
-</ul>
-</div>
-
-<div>
-<h3>Numeric and range extensions</h3>
-<p>
-These extensions govern the allowed range of numeric and date or time data types.
-</p>
-<ul>
-<li><a name="minValue"> </a><b>minValue</b> - (0..1) Identifies the lowest value allowed for a numeric or date element</li>
-<li><a name="maxValue"> </a><b>maxValue</b> - (0..1) Identifies the highest value allowed for a numeric or date element</li>
-<li><a name="maxDecimalPlaces"> </a><b>maxDecimalPlaces</b> - (0..1) Identifies the number of decimal places allowed for decimal elements</li>
-</ul>
-</div>
 
 </div>
 
