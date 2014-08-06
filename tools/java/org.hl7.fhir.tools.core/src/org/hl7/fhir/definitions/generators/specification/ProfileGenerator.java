@@ -611,6 +611,7 @@ public class ProfileGenerator {
       if ("".equals(e.getShortDefn()))
         ce.getDefinition().setShort(Factory.newString_(e.getDefinition()));
     }
+    ce.getDefinition().setMustSupport(Factory.newBoolean(e.isMustSupport()));
 
 
     // no purpose here
