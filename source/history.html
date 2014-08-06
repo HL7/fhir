@@ -46,7 +46,7 @@ some differences due to fact that FHIR is a specification, not a software API.
 <p>
 There is a single development version of FHIR. This undergoes cycles of development as 
 managed by HL7. Each major cycle of development is concluded by a formal ballot, and then 
-a new specification is published. in version control terms, each specification is a 
+a new specification is published. In version control terms, each published specification is a 
 branch off the development trunk, which may then itself undergo further change as 
 HL7 maintains the published specification. 
 </p>
@@ -57,12 +57,19 @@ The following kinds of changes may be made to the specification:
  <li>Non-substantiative changes do not cause changes in any conformant application. For example, section renumbering, 
    broken links, style corrections, typos, and clarifications that do not change the meaning. Some corrections may 
    be judged not to create any expectation of change to a conformant application</li>
- <li>New functionality - changes to the specification that create new capabilities, but would not render existing applications non-conformant if they do note change</li>
+ <li>Substantiative changes that are not breaking. These introduce new functionality - changes to the specification that create new capabilities, but would not render existing applications non-conformant if they do not change</li>
  <li>Breaking changes would mean that previously conformant applications are not longer conformant</li>
 </ul>
 <p>
-Note that the following are, by definition, considered non-breading changes: creation of new resources or new elements in an existing resource, or new datatypes, or new API operations, even though some implementations may not accept these without error.
-Also, examples are never substantiative - every effort is made to ensure that they are correct, but changes to the examples are not considered substantiative.
+Note that the following are, by definition, considered non-breaking changes, even though some implementations (including the reference implementations) may not be able to handle these changes without error:</p>
+<ul>
+ <li>creation of new resources</li>
+ <li>adding new elements in an existing resource</li>
+ <li>defining new datatypes</li>
+ <li>Adding new API operations</li>
+<ul>
+<p>
+Also, the examples are never substantiative - every effort is made to ensure that they are correct, but changes to the examples in the specification are not considered substantiative.
 </p>
 
 <p>
@@ -85,7 +92,7 @@ Each FHIR version is identified by a string composed from 4 parts: publication.m
      <ul>
        <li>Increments every time a breaking change is made</li>
        <li>When a new publication is made, this is reset to 0 in the publication, and 1 in the development branch</li>
-       <li>Since HL7 does not make breaking changes as technical corrections to a published specification, formally published version of FHIR always have a version number X.0.n.r</li>
+       <li>Since HL7 does not make breaking changes as technical corrections to a published specification, these versions of FHIR always have a version number X.0.n.r</li>
        <li>Because the development version is the subject of ongoing analysis, debate, ballot and repeated alterations, breaking changes are to be expected</li>
      </ul>
    </td>
@@ -117,8 +124,9 @@ Additional notes:
  <li>Changes to a formally published specification (except for minor publishing corrections, such as correcting broken links) are only made via announced technical corrections</li>
  <li>The reference implementations have 2 versions - the version of the specification that they implement, and their own version. Consult the reference implementation documentation for policy regarding this version number</li>
  <li>The specification published by the continuous integration service (<a href="http://hl7-fhir.github.io/">http://hl7-fhir.github.io/</a>) build may not conform to this version policy, 
-   but the version published on the HL7 web site will (<a href="http://hl7.org/implement/standards/FHIR-Develop/">http://hl7.org/implement/standards/FHIR-Develop/</a>)</li>
- <li>The first DSTU was published prior to these rules being agreed as v0.80-2286. This will be updated to 0.0.81.[svn] as a technical correction to align with this policy</li>
+   but the versions published on the HL7 web site will (Current published specification at <a href="http://hl7.org/implement/standards/FHIR/">http://hl7.org/implement/standards/FHIR/</a>) 
+     and current development version at <a href="http://hl7.org/implement/standards/FHIR-Develop/">http://hl7.org/implement/standards/FHIR-Develop/</a>)</li>
+ <li>The first DSTU was published prior to these rules being agreed as v0.80-2286. This has been updated to 0.0.81.2382 as a technical correction to align with this policy on 9-May 2014</li>
 </ul>
 
 <a name="history"> </a>
