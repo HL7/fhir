@@ -127,6 +127,13 @@
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s79">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s80">
    <Alignment ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -134,7 +141,7 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s81">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -143,13 +150,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s82">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -984,7 +984,7 @@
     ss:Span="1"/>
    <Column ss:Index="7" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="354.75"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="312"/>
-   <Row ss:StyleID="s82">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s79">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Use</Data></Cell>
     <Cell><Data ss:Type="String">Min</Data></Cell>
@@ -994,14 +994,14 @@
     <Cell><Data ss:Type="String">Documentation</Data></Cell>
     <Cell><Data ss:Type="String">Footer</Data></Cell>
    </Row>
-   <Row ss:Height="330">
+   <Row ss:AutoFitHeight="0" ss:Height="330">
     <Cell><Data ss:Type="String">populate</Data></Cell>
     <Cell><Data ss:Type="String">Resource | Instance</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Populate Questionnaire</Data></Cell>
-    <Cell><Data ss:Type="String">Generates a [[[QuestionnaireAnswers]]] instance  based on a specified [[[Questionnaire]]], filling in answers to questions where possible based on information provided as part of the operation or already known by the server about the subject of the [[[Questionnaire]]].&#10;&#10;If the operation is not called at the instance level, one of the identifier or questionnaire 'in' parameters must be provided.  (If called at the instance level, these parameters will be ignored.)&#10;&#10;The response will contain a [[[QuestionnaireAnswers]]] instance based on the specified [[[Questionnaire]]] and/or an [[[OperationOutcome]]] resource with errors or warnings.&#10;&#10;The [[[QuestionnaireAnswers]]] instance will be populated with an unanswered set of questions following the group and question structure of the specified [[[Questionnaire]]].  If  ''content'' parameters were specified or the ''local'' parameter was set to true, some of the questions may have answers filled in as well.  In the case of repeating questions or groups, typically only one repetition will be provided unless answer values exist that would support populating multiple repetitions.&#10;&#10;Population of the [[[QuestionnareAnswers]]] with appropriate data is dependent on the questions and/or groups in the [[[Questionnaire]]] having metadata that allows the server to recognize the questions.  This might be through ''Questionnaire.group.question.code'' or through extensions such as the [[http://hl7.org/fhir/Profile/questionnaire-extensions#deReference|deReference]] extension.</Data></Cell>
-    <Cell><Data ss:Type="String">While it is theoretically possible for a [[[QuestionnaireAnswers]]] instance to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  A client '''SHOULD''' ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.&#10;&#10;Complex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondant, answering only those questions that are enabled based on previously answered questions.  However doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  It will be up to the client to appropriately prune the final populated questionnaire once human review has taken place.</Data></Cell>
+    <Cell><Data ss:Type="String">Generates a [[[QuestionnaireAnswers]]] instance  based on a specified [[[Questionnaire]]], filling in answers to questions where possible based on information provided as part of the operation or already known by the server about the subject of the [[[Questionnaire]]].&#10;&#10;If the operation is not called at the instance level, one of the identifier or questionnaire 'in' parameters must be provided.  (If called at the instance level, these parameters will be ignored.)&#10;&#10;The response will contain a [[[QuestionnaireAnswers]]] instance based on the specified [[[Questionnaire]]] and/or an [[[OperationOutcome]]] resource with errors or warnings.&#10;&#10;The [[[QuestionnaireAnswers]]] instance will be populated with an unanswered set of questions following the group and question structure of the specified [[[Questionnaire]]].  If  *content* parameters were specified or the *local* parameter was set to true, some of the questions may have answers filled in as well.  In the case of repeating questions or groups, typically only one repetition will be provided unless answer values exist that would support populating multiple repetitions.&#10;&#10;Population of the [[[QuestionnareAnswers]]] with appropriate data is dependent on the questions and/or groups in the [[[Questionnaire]]] having metadata that allows the server to recognize the questions.  This might be through *Questionnaire.group.question.code* or through extensions such as the [[http://hl7.org/fhir/Profile/questionnaire-extensions#deReference|deReference]] extension.</Data></Cell>
+    <Cell><Data ss:Type="String">While it is theoretically possible for a [[[QuestionnaireAnswers]]] instance to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  A client **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.&#10;&#10;Complex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondant, answering only those questions that are enabled based on previously answered questions.  However doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  It will be up to the client to appropriately prune the final populated questionnaire once human review has taken place.</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">populate.identifier</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1009,7 +1009,7 @@
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">A logical questionnaire identifier (i.e. ''Questionnaire.identifier''). The server must know the questionnaire or be able to retrieve it from other known repositories.</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">populate.questionnaire</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1017,15 +1017,15 @@
     <Cell><Data ss:Type="String">Questionnaire</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">The [[[Questionnaire]]] is provided directly as part of the request. Servers may choose not to accept questionnaires in this fashion</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">populate.subject</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Any</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">The resource that is to be the ''QuestionnaireAnswers.subject''. The [[[QuestionnaireAnswers]]] instance will reference the provided subject.  In addition, if the 'local' parameter is set to true, server information about the specified subject will be used to populate the instance.</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The resource that is to be the *QuestionnaireAnswers.subject*. The [[[QuestionnaireAnswers]]] instance will reference the provided subject.  In addition, if the *local* parameter is set to true, server information about the specified subject will be used to populate the instance.</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">populate.content</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1033,7 +1033,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Resources containing information to be used to help populate the [[[QuestionnaireAnswers]]].  These may be FHIR resources or may be Binaries containing FHIR documents, CDA documents or other source materials.  Servers may not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">populate.local</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1041,7 +1041,7 @@
     <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">If specified and set to 'true' (and the server is capable), the server should use what resources and other knowledge it has about the referenced subject when pre-populating answers to questions.</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">populate.answers</Data></Cell>
     <Cell><Data ss:Type="String">out</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1056,6 +1056,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -1076,8 +1077,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1091,10 +1090,10 @@
    <Column ss:AutoFitWidth="0" ss:Width="93" ss:Span="1"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="299.25"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Display</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Display</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="Number">1</Data></Cell>

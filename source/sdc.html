@@ -75,7 +75,7 @@ The SDC specification consists of the following components:
     </ul>
   </li>
 </ul>
-<a id="population"/>
+<a name="population"> </a>
 <h3>Pre-population service</h3>
 <p>
 The <a href="questionnaire.html">Questionnaire</a> resource defines a custom operation called <a href="questionnaire-operations.html">populate</a>.
@@ -89,7 +89,7 @@ For SDC purposes, server systems claiming to support roles that require support 
 </p>
 <ul>
   <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>subject</code> and <code>content</code></li>
-  <li>Support <code>content</code> parameters consisting of a Binary resource containing a C-CDA document</li>
+  <li>Support <code>content</code> parameters consisting of a <a href="http.html#binary">Binary</a> resource containing a C-CDA document</li>
   <li>Populate the returned <a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance for all questions referencing
   <a href="dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
 </ul>
@@ -100,7 +100,7 @@ SHALL, at a minimum:
 <ul>
   <li>Be capable of invoking the operation on a selected questionnaire both directly (<code>Questionnaire/[identifier]/$populate</code>)
 as well as indirectly either by <code>identifier</code> or <code>questionnaire</code></li>
-  <li>Support passing a single C-CDA document as a <a href="binary.html">Binary</a> resource using the <code>content</code> parameter</li>
+  <li>Support passing a single C-CDA document as a <a href="http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
 </ul>
 
 </div>

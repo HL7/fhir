@@ -3983,18 +3983,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     text = text.replace("||", "\r\n\r\n");
     while (text.contains("[[[")) {
       String left = text.substring(0, text.indexOf("[[["));
-      String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
+      String linkText = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
       String right = text.substring(text.indexOf("]]]")+3);
-      String actual = "";
-      String[] parts = url.split("\\#");
+      String url = "";
+      String[] parts = linkText.split("\\#");
       Profile p = definitions.getProfileByURL(parts[0].toLowerCase());
       if (p != null)
-        actual = p.getTag("filename")+".html";
-      else {
+        url = p.getTag("filename")+".html";
+      else if (linkText.matches("[a-zA-Z]+")) {
+      	// This is likely a resource or a data type (if not, it'll get picked up as a broken link)      	actual = url;
+      	url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+url;
+      } else {
       	System.out.println("Error: Unresolved logical URL "+url);
 //        throw new Exception("Unresolved logical URL "+url);
       }
-      text = left+"["+url+"]("+actual+")"+right;
+      text = left+"["+linkText+"]("+url+")"+right;
     }
     
     // 2. markdown

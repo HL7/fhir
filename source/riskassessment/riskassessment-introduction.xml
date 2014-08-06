@@ -35,7 +35,7 @@ Because so many resources can potentially be used, no limit is placed on what re
 <div>
 <h2>Background and Context</h2>
 <p>
-Risk Assessments can be determined manually by health-care providers based on their professional expertise, by using an algorithmic scoring system or through a combination.  Risk assessments can also be computed by decision support systems.  <a href="operation.html">Operations</a> may be defined by servers to generate risk assessments based on particular combinations of source resources or other inputs.
+Risk Assessments can be determined manually by health-care providers based on their professional expertise, by using an algorithmic scoring system or through a combination.  Risk assessments can also be computed by decision support systems.  <a href="operationdefinition.html">OperationDefinitions</a> may be defined by servers to generate risk assessments based on particular combinations of source resources or other inputs.
 </p>
 </div>
 
