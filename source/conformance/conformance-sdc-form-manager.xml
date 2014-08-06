@@ -105,86 +105,104 @@
       <p>
         <b>Operations:</b>
         <a title="Populate Questionnaire" href="http://hl7.org/fhir/OperationDefinition#questionnaire-populate">populate</a>(SHALL)</p>
+      <br/>
+      <br/>
       <h3>
         <a href="questionnaire.html">Questionnaire</a>
       </h3>
+      <h4>Interactions</h4>
       <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>
-              <a id="Questionnaire-search-type"/>
-              <b>search-type(SHALL)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-search-type"> </a>
+              <span>search-type</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows a user to search for existing forms</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Questionnaire-read"/>
-              <b>read(SHALL)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-read"> </a>
+              <span>read</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows retrieval of a specific known form</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Questionnaire-vread"/>
-              <b>vread(SHALL)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-vread"> </a>
+              <span>vread</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows retrieval of a specific version of a form</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Questionnaire-history-instance"/>
-              <b>history-instance(SHALL)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-history-instance"> </a>
+              <span>history-instance</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows review of changes to a form over time</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Questionnaire-create"/>
-              <b>create(SHALL)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-create"> </a>
+              <span>create</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Questionnaire-update"/>
-              <b>update(SHALL)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-update"> </a>
+              <span>update</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Questionnaire-validate"/>
-              <b>validate(SHOULD)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-validate"> </a>
+              <span>validate</span>
+            </th>
+            <td>(SHOULD)</td>
             <td>
               <p>SHOULD. Allows a client to verify whether a particular new form or revision of an existing form would be accepted based on validation and other business rules.  Useful for some workflows</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Questionnaire-delete"/>
-              <b>delete</b>
-            </td>
+            <th>
+              <a name="Questionnaire-delete"> </a>
+              <span>delete</span>
+            </th>
+            <td/>
             <td>
               <p>MAY. Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc.</p>
             </td>
           </tr>
         </tbody>
       </table>
-      <b>Search</b>
+      <h4>Search</h4>
       <p>Supported Includes: Questionnaire.group.question.options</p>
       <table class="list">
         <thead>
@@ -262,86 +280,104 @@
           </tr>
         </tbody>
       </table>
+      <br/>
+      <br/>
       <h3>
         <a href="valueset.html">ValueSet</a>
       </h3>
+      <h4>Interactions</h4>
       <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>
-              <a id="ValueSet-search-type"/>
-              <b>search-type(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-search-type"> </a>
+              <span>search-type</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows discovery of existing value sets for use in authoring questionnaires</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-read"/>
-              <b>read(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-read"> </a>
+              <span>read</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows retrieval of a specific value set referenced within a questionnaire</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-vread"/>
-              <b>vread(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-vread"> </a>
+              <span>vread</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows retrieval of a historical version of a value set as referenced within a questionnaire</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-history-instance"/>
-              <b>history-instance(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-history-instance"> </a>
+              <span>history-instance</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows review of changes to a value set over time</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-create"/>
-              <b>create(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-create"> </a>
+              <span>create</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows definition of a new value set used by one or more questionnaires</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-update"/>
-              <b>update(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-update"> </a>
+              <span>update</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows existing value sets referenced by one or more questionnaires to be maintained</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-validate"/>
-              <b>validate(SHOULD)</b>
-            </td>
+            <th>
+              <a name="ValueSet-validate"> </a>
+              <span>validate</span>
+            </th>
+            <td>(SHOULD)</td>
             <td>
               <p>Allows verification that a value set is valid prior to submission - useful for some workflows.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-delete"/>
-              <b>delete(MAY)</b>
-            </td>
+            <th>
+              <a name="ValueSet-delete"> </a>
+              <span>delete</span>
+            </th>
+            <td>(MAY)</td>
             <td>
               <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
             </td>
           </tr>
         </tbody>
       </table>
-      <b>Search</b>
+      <h4>Search</h4>
       <p>Supported Includes: ValueSet.compose.import</p>
       <table class="list">
         <thead>

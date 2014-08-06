@@ -69,68 +69,84 @@
           </tr>
         </tbody>
       </table>
+      <br/>
+      <br/>
       <h3>
         <a href="questionnaireanswers.html">QuestionnaireAnswers</a>
       </h3>
+      <h4>Interactions</h4>
       <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-search-type"/>
-              <b>search-type(SHALL)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-search-type"> </a>
+              <span>search-type</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-create"/>
-              <b>create(SHALL)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-create"> </a>
+              <span>create</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows recording a completed or partially-completed form</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-update"/>
-              <b>update(SHALL)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-update"> </a>
+              <span>update</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows updating an existing completed or partially-completed form.  (Systems may place rules on who can update forms and under what circumstances.)</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-delete"/>
-              <b>delete(SHALL)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-delete"> </a>
+              <span>delete</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows removal of a completed form from a repository.  Note that the removal may be logical rather than physical.  Some systems may have rules for who can remove a completed form and under what circumstances.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-history-instance"/>
-              <b>history-instance(SHALL)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-history-instance"> </a>
+              <span>history-instance</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows review of prior versions of an answer set - allows reversion to previously recorded versions</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-validate"/>
-              <b>validate(SHALL)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-validate"> </a>
+              <span>validate</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows checking an answer set for validity against submission rules without persisting any data</p>
             </td>
           </tr>
         </tbody>
       </table>
-      <b>Search</b>
+      <h4>Search</h4>
       <p>Supported Includes: QuestionnaireAnswers.questionnaire Questionnaire.group.question.options</p>
       <table class="list">
         <thead>

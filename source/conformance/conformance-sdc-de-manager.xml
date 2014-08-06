@@ -102,86 +102,104 @@
           </tr>
         </tbody>
       </table>
+      <br/>
+      <br/>
       <h3>
         <a href="dataelement.html">DataElement</a>
       </h3>
+      <h4>Interactions</h4>
       <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>
-              <a id="DataElement-search-type"/>
-              <b>search-type(SHALL)</b>
-            </td>
+            <th>
+              <a name="DataElement-search-type"> </a>
+              <span>search-type</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows a user to search for existing data elements</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="DataElement-read"/>
-              <b>read(SHALL)</b>
-            </td>
+            <th>
+              <a name="DataElement-read"> </a>
+              <span>read</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows retrieval of a specific known data element</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="DataElement-vread"/>
-              <b>vread(SHALL)</b>
-            </td>
+            <th>
+              <a name="DataElement-vread"> </a>
+              <span>vread</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows retrieval of a specific version of a data element</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="DataElement-history-instance"/>
-              <b>history-instance(SHALL)</b>
-            </td>
+            <th>
+              <a name="DataElement-history-instance"> </a>
+              <span>history-instance</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows review of changes to a data element over time</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="DataElement-create"/>
-              <b>create(SHALL)</b>
-            </td>
+            <th>
+              <a name="DataElement-create"> </a>
+              <span>create</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="DataElement-update"/>
-              <b>update(SHALL)</b>
-            </td>
+            <th>
+              <a name="DataElement-update"> </a>
+              <span>update</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="DataElement-validate"/>
-              <b>validate(SHOULD)</b>
-            </td>
+            <th>
+              <a name="DataElement-validate"> </a>
+              <span>validate</span>
+            </th>
+            <td>(SHOULD)</td>
             <td>
               <p>Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="DataElement-delete"/>
-              <b>delete(MAY)</b>
-            </td>
+            <th>
+              <a name="DataElement-delete"> </a>
+              <span>delete</span>
+            </th>
+            <td>(MAY)</td>
             <td>
               <p>Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc.</p>
             </td>
           </tr>
         </tbody>
       </table>
-      <b>Search</b>
+      <h4>Search</h4>
       <p>Supported Includes: DataElement.binding.valueSet</p>
       <table class="list">
         <thead>
@@ -291,86 +309,104 @@
           </tr>
         </tbody>
       </table>
+      <br/>
+      <br/>
       <h3>
         <a href="valueset.html">ValueSet</a>
       </h3>
+      <h4>Interactions</h4>
       <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>
-              <a id="ValueSet-search-type"/>
-              <b>search-type(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-search-type"> </a>
+              <span>search-type</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows discovery of existing value sets for use in authoring data elements</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-read"/>
-              <b>read(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-read"> </a>
+              <span>read</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows retrieval of a specific value set referenced within a data element</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-vread"/>
-              <b>vread(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-vread"> </a>
+              <span>vread</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows retrieval of a historical version of a value set as referenced within a data element</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-history-instance"/>
-              <b>history-instance(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-history-instance"> </a>
+              <span>history-instance</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows review of changes to a value set over time</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-create"/>
-              <b>create(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-create"> </a>
+              <span>create</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows definition of a new value set used by one or more data elements</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-update"/>
-              <b>update(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-update"> </a>
+              <span>update</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows existing value sets referenced by one or more data elements to be maintained</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-validate"/>
-              <b>validate(SHOULD)</b>
-            </td>
+            <th>
+              <a name="ValueSet-validate"> </a>
+              <span>validate</span>
+            </th>
+            <td>(SHOULD)</td>
             <td>
               <p>Allows verification that a value set is valid prior to submission - useful for some workflows.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-delete"/>
-              <b>delete(MAY)</b>
-            </td>
+            <th>
+              <a name="ValueSet-delete"> </a>
+              <span>delete</span>
+            </th>
+            <td>(MAY)</td>
             <td>
               <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
             </td>
           </tr>
         </tbody>
       </table>
-      <b>Search</b>
+      <h4>Search</h4>
       <p>Supported Includes: ValueSet.compose.import</p>
       <table class="list">
         <thead>

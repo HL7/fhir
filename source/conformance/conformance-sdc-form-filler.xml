@@ -141,190 +141,256 @@
       <p>
         <b>Operations:</b>
         <a title="Populate Questionnaire" href="http://hl7.org/fhir/OperationDefinition#questionnaire-populate">populate</a>(SHALL)</p>
+      <br/>
+      <br/>
       <h3>
         <a href="questionnaire.html">Questionnaire</a>
       </h3>
+      <h4>Interactions</h4>
       <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>
-              <a id="Questionnaire-search-type"/>
-              <b>search-type(SHALL)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-search-type"> </a>
+              <span>search-type</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows discovery of existing questionnaires to be completed</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Questionnaire-read"/>
-              <b>read(SHOULD)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-read"> </a>
+              <span>read</span>
+            </th>
+            <td>(SHOULD)</td>
             <td>
               <p>Allows retrieval of a specific questionnaire by id.  Allows systems to maintain a 'favorites' list of forms and retrieve them by id.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Questionnaire-history-instance"/>
-              <b>history-instance(MAY)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-history-instance"> </a>
+              <span>history-instance</span>
+            </th>
+            <td>(MAY)</td>
             <td>
               <p>Allows review of changes made to a questionnaire over time.  Of interest to some systems, but probably not most.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Questionnaire-vread"/>
-              <b>vread(MAY)</b>
-            </td>
+            <th>
+              <a name="Questionnaire-vread"> </a>
+              <span>vread</span>
+            </th>
+            <td>(MAY)</td>
             <td>
               <p>Allows retrieval of a historical version of a questionnaire.  Most systems will make use of the current version only.</p>
             </td>
           </tr>
         </tbody>
       </table>
-      <b>Search</b>
+      <h4>Search</h4>
+      <br/>
+      <br/>
       <h3>
         <a href="valueset.html">ValueSet</a>
       </h3>
+      <h4>Interactions</h4>
       <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>
-              <a id="ValueSet-read"/>
-              <b>read(SHALL)</b>
-            </td>
+            <th>
+              <a name="ValueSet-read"> </a>
+              <span>read</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows retrieval of a specific value set by id (as referenced in a Questionnaire)</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-vread"/>
-              <b>vread(SHOULD)</b>
-            </td>
+            <th>
+              <a name="ValueSet-vread"> </a>
+              <span>vread</span>
+            </th>
+            <td>(SHOULD)</td>
             <td>
               <p>Allows retrieval of a specific version of a value set (as referenced in a Questionnaire)</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="ValueSet-history-instance"/>
-              <b>history-instance(MAY)</b>
-            </td>
+            <th>
+              <a name="ValueSet-history-instance"> </a>
+              <span>history-instance</span>
+            </th>
+            <td>(MAY)</td>
             <td>
               <p>Allows review of changes to a value set over time.  Of interest to some systems, but probably not most.</p>
             </td>
           </tr>
         </tbody>
       </table>
-      <b>Search</b>
+      <h4>Search</h4>
+      <br/>
+      <br/>
       <h3>
         <a href="questionnaireanswers.html">QuestionnaireAnswers</a>
       </h3>
+      <h4>Interactions</h4>
       <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-search-type"/>
-              <b>search-type(SHALL)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-search-type"> </a>
+              <span>search-type</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-create"/>
-              <b>create(SHALL)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-create"> </a>
+              <span>create</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows recording a completed or partially-completed form</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-update"/>
-              <b>update(SHALL)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-update"> </a>
+              <span>update</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows updating an existing completed or partially-completed form.  (Systems may place rules on who can update forms and under what circumstances.)</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-delete"/>
-              <b>delete(SHALL)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-delete"> </a>
+              <span>delete</span>
+            </th>
+            <td>(SHALL)</td>
             <td>
               <p>Allows removal of a completed form from a repository.  Note that the removal may be logical rather than physical.  Some systems may have rules for who can remove a completed form and under what circumstances.</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-history-instance"/>
-              <b>history-instance(SHOULD)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-history-instance"> </a>
+              <span>history-instance</span>
+            </th>
+            <td>(SHOULD)</td>
             <td>
               <p>Allows review of prior versions of an answer set - allows reversion to previously recorded versions</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="QuestionnaireAnswers-validate"/>
-              <b>validate(SHOULD)</b>
-            </td>
+            <th>
+              <a name="QuestionnaireAnswers-validate"> </a>
+              <span>validate</span>
+            </th>
+            <td>(SHOULD)</td>
             <td>
               <p>Allows checking an answer set for validity against submission rules without persisting any data</p>
             </td>
           </tr>
         </tbody>
       </table>
-      <b>Search</b>
+      <h4>Search</h4>
+      <br/>
+      <br/>
       <h3>
         <a href="documentreference.html">DocumentReference</a>
       </h3>
+      <h4>Interactions</h4>
       <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>
-              <a id="DocumentReference-search-type"/>
-              <b>search-type(SHOULD)</b>
-            </td>
+            <th>
+              <a name="DocumentReference-search-type"> </a>
+              <span>search-type</span>
+            </th>
+            <td>(SHOULD)</td>
             <td>
               <p>Allows discovery of existing documents that may be included in a form pre-population request</p>
             </td>
           </tr>
         </tbody>
       </table>
-      <b>Search</b>
+      <h4>Search</h4>
+      <br/>
+      <br/>
       <h3>
         <a href="binary.html">Binary</a>
       </h3>
+      <h4>Interactions</h4>
       <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>
-              <a id="Binary-read"/>
-              <b>read(SHOULD)</b>
-            </td>
+            <th>
+              <a name="Binary-read"> </a>
+              <span>read</span>
+            </th>
+            <td>(SHOULD)</td>
             <td>
               <p>Allows retrieval of a specific binary (as pointed to by a DocumentReference)</p>
             </td>
           </tr>
           <tr>
-            <td>
-              <a id="Binary-vread"/>
-              <b>vread(MAY)</b>
-            </td>
+            <th>
+              <a name="Binary-vread"> </a>
+              <span>vread</span>
+            </th>
+            <td>(MAY)</td>
             <td>
               <p>Allows retrieval of a historical version of a binary.  In general, the most recent version would be appropriate, but some may prefer to use the specific version referenced by a DocumentReference.</p>
             </td>
           </tr>
         </tbody>
       </table>
-      <b>Search</b>
+      <h4>Search</h4>
     </div>
   </text>
   <name value="SDC Form Filler"/>

@@ -249,6 +249,8 @@
               </table>
             </xsl:if>
             <xsl:for-each select="resource">
+              <br/>
+              <br/>
               <h3>
                 <a href="{lower-case(type/@value)}.html">
                   <xsl:value-of select="type/@value"/>
@@ -265,12 +267,25 @@
               <xsl:copy-of select="fn:handleMarkdownLines(description/@value)">
                 <!-- This doesn't exist yet -->
               </xsl:copy-of>
+              <h4>Interactions</h4>
               <table class="list">
+                <xsl:variable name="doConformance" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value)"/>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <xsl:if test="$doConformance">
+                      <th>Conformance</th>
+                    </xsl:if>
+                    <th>Description</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <xsl:apply-templates select="interaction[documentation]"/>
+                  <xsl:apply-templates select="interaction[documentation]">
+                    <xsl:with-param name="doConformance" select="$doConformance"/>
+                  </xsl:apply-templates>
                 </tbody>
               </table>
-              <b>Search</b>
+              <h4>Search</h4>
               <xsl:if test="searchInclude">
                 <p>
                   <xsl:text>Supported Includes: </xsl:text>
@@ -282,6 +297,8 @@
               </xsl:if>
             </xsl:for-each>
             <xsl:if test="query">
+              <br/>
+              <br/>
               <h3>Queries</h3>
               <xsl:for-each select="query">
                 <b>
@@ -295,6 +312,8 @@
             </xsl:if>
           </xsl:for-each>
           <xsl:for-each select="messaging">
+            <br/>
+            <br/>
             <h2>Messaging</h2>
             <p>
               <b>End point: </b>
@@ -355,6 +374,8 @@
             </table>
           </xsl:for-each>
           <xsl:if test="document">
+            <br/>
+            <br/>
             <h2>Documents</h2>
             <xsl:for-each select="rest/documentMailbox/@value">
               <xsl:value-of select="concat('Mailbox: ', .)"/>
@@ -444,16 +465,24 @@
     </table>
   </xsl:template>
   <xsl:template match="interaction">
+    <xsl:param name="doConformance" as="xs:boolean" required="yes"/>
     <tr>
-      <td>
-        <a id="{ancestor::resource/type/@value}-{code/@value}"/>
-        <b>
+      <th>
+        <a name="{ancestor::resource/type/@value}-{code/@value}">
+          <!-- To get around browser issue -->
+          <xsl:text>&#xA0;</xsl:text>
+        </a>
+        <span>
           <xsl:value-of select="code/@value"/>
+        </span>
+      </th>
+      <xsl:if test="$doConformance">
+        <td>
           <xsl:for-each select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value">
             <xsl:value-of select="concat('(', ., ')')"/>
           </xsl:for-each>
-        </b>
-      </td>
+        </td>
+      </xsl:if>
       <td>
         <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
       </td>
