@@ -659,7 +659,8 @@ public class SpreadsheetParser {
 					String desc = sheet.getColumn(row, "Description");
 					if (desc == null || desc.equals(""))
 						throw new Exception("Example " + name + " has no description parsing " + this.name);
-					File file = new CSFile(folder + sheet.getColumn(row, "Filename"));
+					String filename = sheet.getColumn(row, "Filename");
+					File file = new CSFile(folder + filename);
 					String type = sheet.getColumn(row, "Type");
 					if (!file.exists() && !("tool".equals(type) || isSpecialType(type)))
 						throw new Exception("Example " + name + " file '" + file.getAbsolutePath() + "' not found parsing " + this.name);
@@ -676,7 +677,7 @@ public class SpreadsheetParser {
 					  }
 					  if (rp == null)
               throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
-					  rp.getExamples().put(id, new Example(name, id, desc, file, parseExampleType(type, row), parseBoolean(sheet.getColumn(row, "In Book"), row, false)));
+					  rp.getExamples().put(filename, new Example(filename, id, desc, file, parseExampleType(type, row), parseBoolean(sheet.getColumn(row, "In Book"), row, false)));
 					}
 				}
 			}
