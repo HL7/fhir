@@ -166,9 +166,6 @@ todo: compartments
     <page type="resource" resource="Subscription"/>
     
     <page type="resource" resource="SecurityEvent"/>
-    <page type="resource" resource="SecurityPrincipal"/>
-    <page type="resource" resource="SecurityGroup"/>
-    <page type="resource" resource="SecurityClaim"/>
 
     <page type="resource" resource="Conformance"/>
     <page type="resource" resource="Profile"/>

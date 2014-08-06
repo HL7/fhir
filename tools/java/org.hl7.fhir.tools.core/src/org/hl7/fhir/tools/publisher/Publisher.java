@@ -551,6 +551,7 @@ public class Publisher {
   }
 
   private void processProfiles() throws Exception {
+    page.log(" ...process profiles", LogMessageType.Process);
     // first, for each type and resource, we build it's master profile
     for (TypeDefn t : page.getDefinitions().getTypes().values())
       genTypeProfile(t);
@@ -560,7 +561,7 @@ public class Publisher {
       genTypeProfile(t);
     
     for (ResourceDefn r : page.getDefinitions().getResources().values()) { 
-      r.setProfile(new ProfileGenerator(page.getDefinitions()).generate(r, page.getGenDate()));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(r, page.getGenDate()));
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
       r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot()));
@@ -598,7 +599,7 @@ public class Publisher {
   }
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
-    Profile profile = new ProfileGenerator(page.getDefinitions()).generate(pt, page.getGenDate());
+    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(pt, page.getGenDate());
     page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
     pt.setProfile(profile);
     // todo: what to do in the narrative?
@@ -612,7 +613,7 @@ public class Publisher {
   }
 
   private void genTypeProfile(TypeDefn t) throws Exception {
-    Profile profile = new ProfileGenerator(page.getDefinitions()).generate(t, page.getGenDate());
+    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
     page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
     t.setProfile(profile);
     DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
@@ -625,7 +626,7 @@ public class Publisher {
     // what we're going to do:
     //  create Profile structures if needed (create differential definitions from spreadsheets)
     if (profile.getSource() == null) {
-      Profile p = new ProfileGenerator(page.getDefinitions()).generate(profile, profile.metadata("id"), page.getGenDate());
+      Profile p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(profile, profile.metadata("id"), page.getGenDate());
       profile.setSource(p);
       page.getProfiles().put(p.getUrlSimple(), genWrapper(p));
     } else {
@@ -636,7 +637,7 @@ public class Publisher {
         if (c.getBase() != null && !hasSnapshot(profile.getSource(), c)) {
           // cause it probably doesn't, coming from the profile directly
           ProfileStructureComponent base = page.getDefinitions().getSnapShotForProfile(c.getBaseSimple());
-          new ProfileUtilities().generateSnapshot(base, c, c.getBaseSimple().split("#")[0]);
+          new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, c, c.getBaseSimple().split("#")[0], profile.getSource().getNameSimple());
         }
         page.getProfiles().put(profile.getSource().getUrlSimple(), genWrapper(profile.getSource()));
       }
@@ -654,7 +655,7 @@ public class Publisher {
         base = getIgProfile(c.getBaseSimple());
         if (base == null)
           base = page.getDefinitions().getSnapShotForProfile(c.getBaseSimple());
-        new ProfileUtilities().generateSnapshot(base, c, c.getBaseSimple().split("#")[0]);
+        new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, c, c.getBaseSimple().split("#")[0], ae.getResource().getNameSimple());
       }
       page.getProfiles().put(ae.getResource().getUrlSimple(), ae);
     }
@@ -3093,7 +3094,7 @@ public class Publisher {
     gen.close();
     String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
-    ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
+    ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext());
     Profile p = pgen.generate(profile, title, xml, page.getGenDate());
     XmlComposer comp = new XmlComposer();
     comp.compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.xml"), p, true, false);

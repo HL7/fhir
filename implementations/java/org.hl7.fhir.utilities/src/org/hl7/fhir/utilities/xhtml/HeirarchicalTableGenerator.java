@@ -40,6 +40,9 @@ public class HeirarchicalTableGenerator  {
     public String getReference() {
       return reference;
     }
+    public void setReference(String value) {
+      reference = value;
+    }
     public String getText() {
       return text;
     }

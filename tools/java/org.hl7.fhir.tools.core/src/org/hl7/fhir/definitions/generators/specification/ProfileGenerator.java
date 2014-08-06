@@ -82,6 +82,7 @@ import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
+import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -95,6 +96,7 @@ public class ProfileGenerator {
     DataType
   }
 
+  private WorkerContext context;
   private Definitions definitions;
   private Set<String> bindings = new HashSet<String>();
 
@@ -107,9 +109,10 @@ public class ProfileGenerator {
     private Map<String, Profile.ElementComponent> paths = new HashMap<String, Profile.ElementComponent>();
   }
 
-  public ProfileGenerator(Definitions definitions) {
+  public ProfileGenerator(Definitions definitions, WorkerContext context) {
     super();
     this.definitions = definitions;
+    this.context = context;
   }
 
   public Profile generate(TypeDefn t, Calendar genDate) throws Exception {
@@ -193,7 +196,7 @@ public class ProfileGenerator {
     
     // now, the snapshot
     ProfileStructureComponent base = getTypeSnapshot(pt.getBaseType());
-    new ProfileUtilities().generateSnapshot(base, cd, "http://hl7.org/fhir/Profile/"+pt.getBaseType());
+    new ProfileUtilities(context).generateSnapshot(base, cd, "http://hl7.org/fhir/Profile/"+pt.getBaseType(), p.getNameSimple());
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addTag("h2").addText("Data type "+pt.getName());
@@ -316,7 +319,7 @@ public class ProfileGenerator {
       reset();
       // ok, c is the differential. now we make the snapshot
       ProfileStructureComponent base = definitions.getSnapShotForType(c.getTypeSimple());
-      new ProfileUtilities().generateSnapshot(base, c, "http://hl7.org/fhir/Profile/"+c.getTypeSimple());
+      new ProfileUtilities(context).generateSnapshot(base, c, "http://hl7.org/fhir/Profile/"+c.getTypeSimple(), p.getNameSimple());
       reset();
     }
    
