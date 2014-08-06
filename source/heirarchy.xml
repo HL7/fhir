@@ -156,16 +156,20 @@ todo: compartments
     <page type="resource" resource="Media"/>
     <page type="resource" resource="Other"/>
     <page type="resource" resource="Provenance"/>
+    <page type="resource" resource="SecurityEvent"/>
 
     <page type="resource" resource="Composition"/>
     <page type="resource" resource="DocumentReference"/>
     <page type="resource" resource="DocumentManifest"/>
+
     <page type="resource" resource="MessageHeader"/>
     <page type="resource" resource="OperationOutcome"/>
     <page type="resource" resource="Query"/>
     <page type="resource" resource="Subscription"/>
     
-    <page type="resource" resource="SecurityEvent"/>
+<!--    <page type="resource" resource="SecurityPrincipal"/>
+    <page type="resource" resource="SecurityGroup"/>
+    <page type="resource" resource="SecurityClaim"/>-->
 
     <page type="resource" resource="Conformance"/>
     <page type="resource" resource="Profile"/>
