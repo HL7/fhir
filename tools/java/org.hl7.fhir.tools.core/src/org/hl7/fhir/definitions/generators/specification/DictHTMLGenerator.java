@@ -43,6 +43,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.XmlComposer;
+import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Id;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
@@ -87,14 +88,54 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       write("<table class=\"dict\">\r\n");
       
       for (ElementComponent ec : s.getSnapshot().getElement()) {
-        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+s.getNameSimple()+"."+ec.getPathSimple()+"\"> </a><b>"+ec.getPathSimple()+"</b></td></tr>\r\n");
-        generateElementInner(profile, ec.getDefinition());
+        if (isProfiledExtension(ec)) {
+          String name = s.getNameSimple()+"."+ makePathLink(ec);
+          String title = ec.getPathSimple() + " ("+(ec.getDefinition().getType().get(0).getProfileSimple().startsWith("#") ? profile.getUrlSimple() : "")+ec.getDefinition().getType().get(0).getProfileSimple()+")";
+          write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
+          ElementDefinitionComponent extDefn = getExtensionDefinition(profile, ec.getDefinition().getType().get(0).getProfileSimple(), ec.getDefinition());
+          generateElementInner(profile, extDefn);
+        } else {
+          String name = s.getNameSimple()+"."+ makePathLink(ec);
+          String title = ec.getPathSimple() + (ec.getNameSimple() == null ? "" : "(" +ec.getNameSimple() +")");
+          write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
+          generateElementInner(profile, ec.getDefinition());
+        }
       }
       write("</table>\r\n");
       i++;      
     }
     flush();
     close();
+  }
+
+  private String makePathLink(ElementComponent element) {
+    if (element.getName() == null)
+      return element.getPathSimple();
+    if (!element.getPathSimple().contains("."))
+      return element.getNameSimple();
+    return element.getPathSimple().substring(0, element.getPathSimple().lastIndexOf("."))+"."+element.getNameSimple();
+  }
+  
+  private ElementDefinitionComponent getExtensionDefinition(Profile context, String url, ElementDefinitionComponent defaultDefn) {
+    String code;
+    if (url.startsWith("#")) {
+      code = url.substring(1);
+    } else {
+      String[] parts = url.split("\\#");
+      code = parts[1];
+      context = definitions.getProfileByURL(parts[0]);
+    }
+    
+    for (ProfileExtensionDefnComponent ext : context.getExtensionDefn()) {
+      if (ext.getCodeSimple().equals(code))
+        return ext.getElement().get(0).getDefinition();
+    }
+
+    return defaultDefn;
+  }
+
+  private boolean isProfiledExtension(ElementComponent ec) {
+    return ec.getDefinition().getType().size() == 1 && ec.getDefinition().getType().get(0).getCodeSimple().equals("Extension") && ec.getDefinition().getType().get(0).getProfile() != null;
   }
 
   private void generateExtension(Profile profile, ProfileExtensionDefnComponent e) throws Exception {

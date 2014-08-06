@@ -20,7 +20,8 @@
   <WindowWidth>15570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -118,21 +119,21 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
   </Style>
   <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
    <Interior/>
   </Style>
   <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
-   <Interior/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -330,11 +331,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -528,8 +528,8 @@
     <Cell ss:StyleID="s77"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s77">
-    <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.related</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s78"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -540,7 +540,7 @@
    </PageSetup>
    <Unsynced/>
    <SplitHorizontal>1320</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>0</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -603,7 +603,7 @@
     <Cell><Data ss:Type="String">Triglyceride</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.value[x]</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
@@ -710,8 +710,8 @@
     <Cell ss:StyleID="s77"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.related</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s78"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -724,9 +724,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>1</ActiveCol>
-     <RangeSelection>R13C2:R13C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -797,7 +796,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.value[x]</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -958,8 +957,8 @@
     <Cell ss:StyleID="s77"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.related</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s78"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -972,9 +971,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>1</ActiveCol>
-     <RangeSelection>R13C2:R13C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1066,7 +1064,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.value[x]</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -1234,8 +1232,8 @@
     <Cell ss:StyleID="s77"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.related</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s78"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1245,12 +1243,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>1</ActiveCol>
-     <RangeSelection>R14C2:R14C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1297,7 +1295,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell ss:StyleID="s67"><Data ss:Type="String">calculated</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Observation</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Observation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">LDL is Calculated</Data></Cell>

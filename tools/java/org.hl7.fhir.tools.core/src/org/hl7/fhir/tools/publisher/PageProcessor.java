@@ -3987,14 +3987,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String right = text.substring(text.indexOf("]]]")+3);
       String url = "";
       String[] parts = linkText.split("\\#");
-      Profile p = definitions.getProfileByURL(parts[0].toLowerCase());
+      Profile p = definitions.getProfileByURL(parts[0]);
       if (p != null)
         url = p.getTag("filename")+".html";
-      else if (linkText.matches("[a-zA-Z]+")) {
-      	// This is likely a resource or a data type (if not, it'll get picked up as a broken link)      	actual = url;
-      	url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+url;
+      else if (definitions.hasResource(linkText)) {
+        url = linkText.toLowerCase()+".html#";
+      } else if (definitions.hasElementDefn(linkText)) {
+      	url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;
+      } else if (definitions.hasPrimitiveType(linkText)) {
+        url = "datatypes.html#"+linkText;
       } else {
-      	System.out.println("Error: Unresolved logical URL "+url);
+      	System.out.println("Error: Unresolved logical URL "+linkText);
 //        throw new Exception("Unresolved logical URL "+url);
       }
       text = left+"["+linkText+"]("+url+")"+right;

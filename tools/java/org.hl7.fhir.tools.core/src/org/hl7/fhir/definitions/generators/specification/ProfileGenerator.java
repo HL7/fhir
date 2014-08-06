@@ -549,7 +549,10 @@ public class ProfileGenerator {
         if (e.getTypes().size() != 1)
           throw new Exception("mismatched type count");
         TypeRefComponent type = new Profile.TypeRefComponent();
-        type.setCodeSimple("ResourceReference");
+        if (e.getTypes().get(0).getName().equals("Resource"))
+          type.setCodeSimple("ResourceReference");
+        else
+          type.setCodeSimple(e.getTypes().get(0).getName());
         type.setProfileSimple(e.getStatedProfile());
         ce.getDefinition().getType().add(type);
       } else {

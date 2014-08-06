@@ -231,7 +231,7 @@ public class ProfileUtilities {
           outcome.setNameSimple(diffMatches.get(0).getNameSimple());
           outcome.setSlicing(null);
           updateFromDefinition(outcome, diffMatches.get(0));
-          if (outcome.getPathSimple().endsWith("[x]") && outcome.getDefinition().getType().size() == 1) // if the base profile allows multiple types, but the profile only allows one, rename it 
+          if (outcome.getPathSimple().endsWith("[x]") && outcome.getDefinition().getType().size() == 1 && !outcome.getDefinition().getType().get(0).getCodeSimple().equals("*")) // if the base profile allows multiple types, but the profile only allows one, rename it 
             outcome.setPathSimple(outcome.getPathSimple().substring(0, outcome.getPathSimple().length()-3)+Utilities.capitalize(outcome.getDefinition().getType().get(0).getCodeSimple()));
           result.getElement().add(outcome);
           baseCursor++;
@@ -723,11 +723,11 @@ public class ProfileUtilities {
       row.setIcon("icon_datatype.gif");
     else
       row.setIcon("icon_resource.png");
-      String ref = defPath == null ? null : defPath + element.getPathSimple();
-      UnusedTracker used = new UnusedTracker();
-      used.used = true;
-      Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getDefinition().getFormalSimple(), null);
-      row.getCells().add(left);
+    String ref = defPath == null ? null : defPath + makePathLink(element);
+    UnusedTracker used = new UnusedTracker();
+    used.used = true;
+    Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getDefinition().getFormalSimple(), null);
+    row.getCells().add(left);
     if (ext) {
       if (element.getDefinition() != null && element.getDefinition().getType().size() == 1 && element.getDefinition().getType().get(0).getProfile() != null) {
         ExtensionDefinition extDefn = pkp.getExtensionDefinition(profile, element.getDefinition().getType().get(0).getProfileSimple());
@@ -780,6 +780,15 @@ public class ProfileUtilities {
           genElement(defPath, gen, row.getSubRows(), child, all, profile, pkp, showMissing, profileBaseFileName);
       }
     }
+  }
+
+
+  private String makePathLink(ElementComponent element) {
+    if (element.getName() == null)
+      return element.getPathSimple();
+    if (!element.getPathSimple().contains("."))
+      return element.getNameSimple();
+    return element.getPathSimple().substring(0, element.getPathSimple().lastIndexOf("."))+"."+element.getNameSimple();
   }
 
   private void generateDescription(HeirarchicalTableGenerator gen, Row row, ElementComponent definition, ElementComponent fallback, boolean used, String baseURL, String url) {
