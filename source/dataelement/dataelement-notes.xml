@@ -41,9 +41,12 @@ starter <a href="dataelement-11179.html">ISO 11179 profile</a> that defines exte
 <a href="dataelement-sdc.html">SDC DataElement</a> profile.  If there is sufficient interest, the existing starter set may be
 enhanced to contain a complete set of extensions and a full 11179 in a future release of the specification.
 </p>
-	<h3>Data Elements vs. Terminologies</h3>
+	<h3>Data Elements vs. Code Systems</h3>
 	<p>
-Data elements can be thought of as being codes in a code system.  One of their purposes is to define types of observations or questions
+Data elements and codes in code systems serve different purposes.  Data elements describe the characteristics of a piece of
+data while codes describe a particular concept (often in relation to other concepts).  However, because data elements provide
+a definition of the meaning of a particular element, they can be 
+ can be thought of as being codes in a code system.  One of their purposes is to define types of observations or questions
 that can be answered.  This function is typically done by code sytems such as <a href="http://loinc.org">LOINC</a> and
 <a href="http://www.ihtsdo.org/snomed-ct/">SNOMED</a>.  It would be possible to treat a registry of data elements using a common
 identifier system/namespace as a code system.  Similarly, data elements can be mapped to each other (and to codes) in the same manner as 

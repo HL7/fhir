@@ -22,6 +22,7 @@ This profile relies on the use of a number of other profiles, some required, oth
   <li><a href="questionnaire-extensions.html">questionnaire-extensions</a> which defines a number of less common properties for questionnaire, group and question, several of which are mandated for this profile.</li>
   <li><a href="element-extensions.html">element-extensions</a> which defines extensions describing constraints on the values for data elements.  There are used here to constrain the allowed values for questions.</li>
   <li><a href="iso-21090.html">iso-21090</a> provides extensions for strings allowing the conveying of language and translation extensions which may be relevant in some environment</li>
+  <li><a href="rendering-extensions.html">rendering-extensions</a> which defines properties to give fine-grained control over how questions, labels and other strings are rendered</li>
 </ul>
 </div>
 
