@@ -159,7 +159,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     else
       tableRowNE("Type", "datatypes.html", describeTypes(d.getType()));
     tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifierSimple()));
-    tableRow("Must Support", "conformance-rules.html#mustsupport", displayBoolean(d.getMustSupportSimple()));
+    tableRow("Must Support", "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupportSimple()));
     tableRow("Requirements", null, d.getRequirementsSimple());
     tableRow("Aliases", null, describeAliases(d.getSynonym()));
     tableRow("Comments", null, d.getCommentsSimple());
