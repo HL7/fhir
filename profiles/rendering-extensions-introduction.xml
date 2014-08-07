@@ -8,17 +8,17 @@ This profile defines extensions governing how data elements should be rendered w
 <h3>XHTML-based extensions</h3>
 <p>
 These extensions make use of XHTML capabilities to influence the rendering of data elements.  In theory, systems displaying data using a technology
-other than xhtml could parse the information in the style string and attempt to map it to their own internal display syntax.  However, it is likely that 
+other than XHTML could parse the information in the style string and attempt to map it to their own internal display syntax.  However, it is likely that 
 not all of the markup instructions would map well.  Support for these extensions by software using mechanisms other than XHTML for rendering is therefore
 unlikely.
 </p>
 <p>
 When generating narrative that includes elements with one of these extensions, the narrative covering these elements SHOULD apply the guidance provided
-by these extensions to how the element appers in the narrative.
+by these extensions to how the element appears in the narrative.
 </p>
 <p>
-<b>Note:</b> Implementers should be cautious around the use of sophisticated formatting capabilities.  Not all browsers and other xhtml rendering tools
-support all styles and xhtml capabilities, or at least don't support them well.  This is particularly true for mobile solutions.  Limiting to simple
+<b>Note:</b> Implementers should be cautious around the use of sophisticated formatting capabilities.  Not all browsers and other XHTML rendering tools
+support all styles and XHTML capabilities, or at least don't support them well.  This is particularly true for mobile solutions.  Limiting to simple
 capabilities increases the likelihood of interoperability and consistent rendering across devices.
 </p>
 

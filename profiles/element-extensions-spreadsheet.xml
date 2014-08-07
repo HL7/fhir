@@ -263,12 +263,12 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">User prompt for format</Data></Cell>
-    <Cell><Data ss:Type="String">A syntax intended for display to the user to guide their input (i.e. a human readable version of a rgular expression).  For example &quot;nnn-nnn-nnn&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">A syntax intended for display to the user to guide their input (i.e. a human readable version of a regular expression).  For example &quot;nnn-nnn-nnn&quot;</Data></Cell>
     <Cell><Data ss:Type="String">It's sometimes useful to prompt humans for the proper syntax for a data element</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">N/A (MIF-level)</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">minValue</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">DataElement;Questionnaire.group.question;Profile.structure.element.definition</Data></Cell>
@@ -280,7 +280,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">N/A (MIF-level)</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">maxValue</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">DataElement;Questionnaire.group.question;Profile.structure.element.definition</Data></Cell>
@@ -324,7 +324,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -332,12 +332,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

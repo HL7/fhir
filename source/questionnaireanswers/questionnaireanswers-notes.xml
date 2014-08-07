@@ -4,7 +4,7 @@
 Notes
 </h2>
 <ul>
-<li>Questionnaires can be authored by clinicians, the patient his/herself or a patients relatives (or even owner in the case of animals). Clinicians
+<li>Questionnaires can be authored by clinicians, the patient his/herself or a patient's relatives (or even owner in the case of animals). Clinicians
 may author questionnaires, where the answers are provided by others on behalf of the patient his/herself. Additionally, information gathered for the
 purpose of a patient may be about the patient's relatives (e.g. in family anamnesis). Therefore, Questionnaire makes a distinction between the author,
 the subject and the source of information.</li>

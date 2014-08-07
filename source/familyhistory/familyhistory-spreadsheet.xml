@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-10-04T04:04:31Z</LastSaved>
+  <LastSaved>2014-08-06T15:54:56Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,7 +21,6 @@
   <WindowTopX>1500</WindowTopX>
   <WindowTopY>3615</WindowTopY>
   <TabRatio>705</TabRatio>
-  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -149,10 +148,10 @@
   <Style ss:ID="s84">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s86">
+  <Style ss:ID="s85">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s87">
+  <Style ss:ID="s86">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
@@ -323,6 +322,7 @@
     <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">While age can be calculated from date of birth, sometimes recording age directly is more natureal for clinicians.</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=&quot;age&quot;].value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">FamilyHistory.relation.deceased[x]</Data></Cell>
@@ -432,10 +432,11 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -448,12 +449,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -845,20 +843,18 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s77" ss:Width="101.25"/>
    <Column ss:StyleID="s77" ss:Width="223.5" ss:Span="1"/>
    <Column ss:Index="4" ss:StyleID="s77" ss:Width="192.75"/>
    <Column ss:StyleID="s77" ss:Width="63"/>
-   <Column ss:StyleID="s77" ss:Width="174.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s83"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Source</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Filename</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Examplefoo</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">GeneticPedigree</Data></Cell>
@@ -866,7 +862,6 @@
     <Cell><Data ss:Type="String">familyhistory-genetics-profile-spreadsheet.xml</Data></Cell>
     <Cell><Data ss:Type="String">familyhistory-genetics-pedigree.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">familyhistory-genetics-profile-example.xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -880,6 +875,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -892,7 +888,7 @@
    <Column ss:Width="69"/>
    <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="300.75"/>
    <Column ss:Width="50.25"/>
-   <Column ss:Width="181.5"/>
+   <Column ss:Width="246"/>
    <Column ss:Width="27.75"/>
    <Column ss:Width="84"/>
    <Column ss:Width="39.75"/>
@@ -915,7 +911,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="56.0625">
     <Cell><Data ss:Type="String">Mother</Data></Cell>
     <Cell><Data ss:Type="String">Mother died from a stroke aged 56. Brother with diabetes.</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">mother</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">mother</Data></Cell>
     <Cell><Data ss:Type="String">familyhistory-example-mother.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -927,20 +923,20 @@
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">genetic</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Simple genetic family history</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">genetic</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">familyhistory-genetics-profile-example.xml</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">genetic</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Simple genetic family history</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">genetic</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">familyhistory-genetics-profile-example.xml</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s77"><Data ss:Type="String">GeneticPedigree</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">annie</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Example for risk assessment</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">prognosis</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">familyhistory-genetics-profile-annie-example.xml</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">annie</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Example for risk assessment</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">prognosis</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">familyhistory-genetics-profile-annie-example.xml</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s77"><Data ss:Type="String">GeneticPedigree</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">y</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -951,11 +947,10 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>1</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

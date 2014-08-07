@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2014-08-02T20:26:46Z</LastSaved>
+  <LastSaved>2014-08-06T21:37:15Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,8 +20,6 @@
   <WindowWidth>18435</WindowWidth>
   <WindowTopX>405</WindowTopX>
   <WindowTopY>855</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
-  <FirstVisibleSheet>3</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -258,7 +256,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Indicates whether or not any change to the content logical definition may occur</Data></Cell>
     <Cell><Data ss:Type="String">If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Normally immutability is set to 'false', which is the default assumption if it is not populated.  Note that the implication is that if this is set to ‘true’, there may be only one Value Set Version for this Definition. Immutability tends to be set to ‘true’ in one of two cases:&#10;- Where the value set, by the nature of its usage, cannot change.  For example &quot;All specializations of ACT in ActClassCode&quot;&#10;- Where there's no safe way to express the &quot;Purpose&quot; such that someone else could safely make changes to the value set definition&#10;Source workflow control must guarantee that the same URI always yields the same definition&#10;</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Normally immutability is set to 'false', which is the default assumption if it is not populated.  Note that the implication is that if this is set to 'true', there may be only one Value Set Version for this Definition. Immutability tends to be set to 'true' in one of two cases:&#10;- Where the value set, by the nature of its usage, cannot change.  For example &quot;All specializations of ACT in ActClassCode&quot;&#10;- Where there's no safe way to express the &quot;Purpose&quot; such that someone else could safely make changes to the value set definition&#10;Source workflow control must guarantee that the same URI always yields the same definition&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">ValueSet.publisher</Data></Cell>
@@ -485,7 +483,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">The system the codes come from</Data></Cell>
     <Cell><Data ss:Type="String">The code system from which the selected codes come from</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">See [[Coding.system]] for further documentation</Data></Cell>
+    <Cell><Data ss:Type="String">See *Coding.system* for further documentation</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:Index="16" ss:StyleID="s75" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Href"><Data
       ss:Type="String">ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Href</Data></Cell>
@@ -644,12 +642,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>26</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -657,14 +656,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>31</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1097,7 +1098,7 @@
    <Column ss:Index="4" ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="179.25"/>
    <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="99"/>
    <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="258.75"/>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Source</Data></Cell>
@@ -1105,21 +1106,21 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Example</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet Extensions</Data></Cell>
     <Cell><Data ss:Type="String">HL7 Defined ValueSet resource extensions</Data></Cell>
     <Cell><Data ss:Type="String">valueset-extensions-spreadsheet.xml</Data></Cell>
     <Cell><Data ss:Type="String">valueset-extensions.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Shareable Value Set</Data></Cell>
     <Cell><Data ss:Type="String">Expresses the basic rules for a value set to be published through the HL7 context</Data></Cell>
     <Cell><Data ss:Type="String">valueset-shareable-spreadsheet.xml</Data></Cell>
     <Cell><Data ss:Type="String">valueset-shareable.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SDC Value Set</Data></Cell>
     <Cell><Data ss:Type="String">Extensions and constraints on ValueSet for use with the Structured Data Capture (SDC) implementation guide</Data></Cell>
     <Cell><Data ss:Type="String">valueset-sdc-profile-spreadsheet.xml</Data></Cell>
@@ -1133,7 +1134,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1153,7 +1154,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -1162,18 +1163,20 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="66.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:Width="166.5"/>
    <Column ss:Width="183"/>
+   <Column ss:Index="6" ss:Width="70.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Identity</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Filename</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Profile</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1181,27 +1184,32 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">General ValueSet Example</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="Number">101</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-example.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s79"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s79"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s79"><Data ss:Type="String">DICOM DICM</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Codes defined by DICOM</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-dicom-dcim</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-dicom-dcim.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s79"/>
+    <Cell ss:Index="7" ss:StyleID="s79"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s79"><Data ss:Type="String">Systems</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">A list of all the URIs defined in the FHIR spec</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-systems</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-systems.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s79"/>
+    <Cell ss:Index="7" ss:StyleID="s79"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s79"><Data ss:Type="String">Security Labels</Data></Cell>
     <Cell><Data ss:Type="String">All Security Labels</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">security-labels</Data></Cell>
     <Cell><Data ss:Type="String">valueset-security-labels.xml</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="3" ss:StyleID="s79"><Data ss:Type="String">sdc</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-example-sdc.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s79"><Data ss:Type="String">SDC Value Set</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1214,8 +1222,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

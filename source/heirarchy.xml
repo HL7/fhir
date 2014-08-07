@@ -87,7 +87,10 @@ todo: compartments
     </page>
     <page title="Integrated Examples" filename="integrated-examples.html"/>
     <page title="Implementation Guides" filename="iglist.html">
-      <page title="Structured Data Capture" filename="sdc.html"/>
+      <page title="Structured Data Capture" filename="sdc.html">
+        <page title="SDC Introduction" filename="sdc-intro.html"/>
+        <page title="SDC Security" filename="sdc-security.html"/>
+      </page>
     </page>
   </page>
 

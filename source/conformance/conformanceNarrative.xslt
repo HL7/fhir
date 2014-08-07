@@ -44,11 +44,11 @@
           </p>
           <xsl:variable name="firstTelecom" as="xs:string?">
             <xsl:choose>
-              <xsl:when test="telecom[use/@value='url']">
-                <xsl:value-of select="telecom[use/@value='url'][1]/value/@value"/>
+              <xsl:when test="telecom[system/@value='url']">
+                <xsl:value-of select="telecom[system/@value='url'][1]/value/@value"/>
               </xsl:when>
-              <xsl:when test="telecom[use/@value='email']">
-                <xsl:value-of select="concat('mailto:', telecom[use/@value='email'][1]/value/@value)"/>
+              <xsl:when test="telecom[system/@value='email']">
+                <xsl:value-of select="concat('mailto:', telecom[system/@value='email'][1]/value/@value)"/>
               </xsl:when>
             </xsl:choose>
           </xsl:variable>
@@ -66,9 +66,12 @@
                 </xsl:otherwise>
               </xsl:choose>
             </b>
-            <xsl:variable name="telecoms" as="xs:string+">
+            <xsl:variable name="telecoms" as="xs:string*">
               <xsl:for-each select="telecom[not(starts-with($firstTelecom, value/@value))]">
-                <xsl:value-of select="concat(use/@value, ': ', value/@value)"/>
+                <xsl:if test="system/@value">
+                  <xsl:value-of select="concat(system/@value, ': ')"/>
+                </xsl:if>
+                <xsl:value-of select="value/@value"/>
               </xsl:for-each>
             </xsl:variable>
             <xsl:value-of select="string-join($telecoms, ' ')"/>
@@ -234,9 +237,7 @@
                   <a title="{definition/display/@value}" href="{definition/reference/@value}">
                     <xsl:value-of select="name/@value"/>
                   </a>
-                  <xsl:for-each select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value">
-                    <xsl:value-of select="concat('(', ., ')')"/>
-                  </xsl:for-each>
+                  <xsl:value-of select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value"/>
                 </xsl:for-each>
               </p>
             </xsl:if>
@@ -285,15 +286,17 @@
                   </xsl:apply-templates>
                 </tbody>
               </table>
-              <h4>Search</h4>
-              <xsl:if test="searchInclude">
-                <p>
-                  <xsl:text>Supported Includes: </xsl:text>
-                  <xsl:value-of select="string-join(searchInclude/@value, ' ')"/>
-                </p>
-              </xsl:if>
-              <xsl:if test="searchParam">
-                <xsl:call-template name="doParams"/>
+              <xsl:if test="searchInclude or searchParam">
+                <h4>Search</h4>
+                <xsl:if test="searchInclude">
+                  <p>
+                    <xsl:text>Supported Includes: </xsl:text>
+                    <xsl:value-of select="string-join(searchInclude/@value, ' ')"/>
+                  </p>
+                </xsl:if>
+                <xsl:if test="searchParam">
+                  <xsl:call-template name="doParams"/>
+                </xsl:if>
               </xsl:if>
             </xsl:for-each>
             <xsl:if test="query">
@@ -478,9 +481,7 @@
       </th>
       <xsl:if test="$doConformance">
         <td>
-          <xsl:for-each select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value">
-            <xsl:value-of select="concat('(', ., ')')"/>
-          </xsl:for-each>
+          <xsl:value-of select="extension[@url='http://hl7.org/fhir/Profile/conformance-common#expectation']/valueCode/@value"/>
         </td>
       </xsl:if>
       <td>

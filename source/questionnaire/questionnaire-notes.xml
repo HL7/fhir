@@ -4,8 +4,7 @@
 Notes:
 </h2>
 <ul>
-<li>Questionnaires may be used to represent predefined forms, named using Questionnaire.name. Questionnaires.identifier identify a specific
-set of answers to the questions on these forms.</li>
+<li>Questionnaires may be used to represent predefined forms, named using Questionnaire.name.</li>
 <li>A Questionnaire's contents are placed inside its single nested Group, which may contain Questions or subgroups with Questions.</li>
 <li>Groups and Questions may have linkIds allowing groups and question answers captured in a <a href="questionnaireanswers.html">QuestionnaireAnswers</a>
 to be associated with their corresponding group or question.</li>
@@ -40,11 +39,11 @@ A Questionnaire is built out of three components:</p>
 <ul>
   <li>The main component is Questionnaire, which holds information <em>about</em> the Questionnaire, 
   like the identifier, publisher, date authored, etc. The Questionnaire contains one "main" Group, which contains all the content of the questionnaire.</li>
-  <li>This Group, can contain <em>either</em> nested Groups (to represent sections and subsections on a questionnaire form) or Questions.
+  <li>This Group can contain <em>either</em> nested Groups (to represent sections and subsections on a questionnaire form) or Questions.
   This way, any form containing sections or subsections can be represented, down to the actual questions.</li>
-  <li>The Questions themselves may be simple questions with a promp text and one expected answer, but they may also contain nested groups, 
+  <li>The Questions themselves may be simple questions with a prompt text and one expected answer, but they may also contain nested groups, 
 each containing sets of nested questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
-depending on the answers of a parent question, e.g. a Question "Did the patient receive treatment in the past six months?", would contain a nested
+depending on the answers of a parent question. E.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
 group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from 
 the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian NSW blue book</a></li>
 <li>Specific controls on dynamic display of groups, questions, etc. based on the answers to other questions is outside the scope of the base resource and

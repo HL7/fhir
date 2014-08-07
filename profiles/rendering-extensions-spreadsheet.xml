@@ -236,11 +236,11 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">String equivalent with html markup</Data></Cell>
-    <Cell><Data ss:Type="String">This is an equivalent of the string on which the extension is sent, but includes additional xhtml markup, such as bold, italics, styles, tables, etc.</Data></Cell>
+    <Cell><Data ss:Type="String">This is an equivalent of the string on which the extension is sent, but includes additional XHTML markup, such as bold, italics, styles, tables, etc.</Data></Cell>
     <Cell><Data ss:Type="String">This allows portions of the string to be formatted with italics, bold, special colors, etc.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">ED can be XHTML content</Data></Cell>
    </Row>
-   <Row ss:Height="195">
+   <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell><Data ss:Type="String">styleSensitive</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>

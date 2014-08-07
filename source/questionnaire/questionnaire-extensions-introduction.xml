@@ -25,7 +25,7 @@ There are two extensions that provide precise control over the number of repetit
 </p>
 <ul>
   <li><a href="#minOccurs"><b>minOccurs</b></a> establishes a minimum number of group repetitions or minimum number of question answers for "required" groups/questions where the minimum number is greater than 1</li>
-  <li><a href="#maxOccurs"><b>minOccurs</b></a> establishes a maximum number of group repetitions or maximum number of question answers for "repeating" groups/questions where the maximum number is not unlimited</li>
+  <li><a href="#maxOccurs"><b>maxOccurs</b></a> establishes a maximum number of group repetitions or maximum number of question answers for "repeating" groups/questions where the maximum number is not unlimited</li>
 </ul>
 
 <h3>Visibility</h3>
@@ -64,8 +64,8 @@ must still be explicitly declared.
 These extensions constrain the attachments that can be returned as the answer to a question
 </p>
 <ul>
-  <li><a href="#mimeType"><b>mimeType</b> - Identifies the type of allowed attachment (multiple repetitions for multiple types)</a></li>
-  <li><a href="#maxSize"><b>maxSize</b> - Identifies the maximum number of megabytes an attachment can be</a></li>
+  <li><a href="#mimeType"><b>mimeType</b></a> - Identifies the type of allowed attachment (multiple repetitions for multiple types)</li>
+  <li><a href="#maxSize"><b>maxSize</b></a> - Identifies the maximum number of megabytes an attachment can be</li>
 </ul>
 
 </div>

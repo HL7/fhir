@@ -10,8 +10,8 @@ well as sufficient local information to allow rendering of the questionnaire.
 </p>
 <p>
 Questionnaires cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full
-clinical speciality records. In many systems this data is collected using user-defined screens and forms. Questionnaires record specifics about data capture -
-exactly what questions were asked, in what order, what choices for answers were, etc. Each of these questions are part of the Questionnaire, 
+clinical specialty records. In many systems this data is collected using user-defined screens and forms. Questionnaires record specifics about data capture -
+exactly what questions were asked, in what order, what choices for answers were, etc. Each of these questions is part of the Questionnaire, 
 and as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.
 </p>
 <p>
@@ -39,8 +39,8 @@ the definition of the questionnaire form, including what questions are asked, ho
 <p>
 While <a href="observation.html">Observation</a>, with its nested <code>relatedObservation</code> structure, can create complex hierarchies of 
 questions and answers, the focus is different.  First, <a href="observation.html">Observation</a> is used primarily for capturing data elements that
-are "true" observations - lab measurements, vital signs, social asssessments, etc.  On the other hand, <b>QuestionnaireAnswers</b> can be used to capture
-any types of data, including data that would typically map to other resources (<a href="procedure.html">Provedure</a>, <a href="patient.html">Patient</a>,
+are "true" observations - lab measurements, vital signs, social assessments, etc.  On the other hand, <b>QuestionnaireAnswers</b> can be used to capture
+any types of data, including data that would typically map to other resources (<a href="procedure.html">Procedure</a>, <a href="patient.html">Patient</a>,
 <a href="medicationstatement.html">MedicationStatement</a>, etc.)  In addition, the focus of <b>QuestionnaireAnswers</b> includes the specific phrasing
 and organization of the questions.  All data must be explicitly captured as a question.  With <a href="observation.html">Observation</a>, the focus is
 only on the meaning of the answer, not what question was asked (assuming a question was even asked at all).  Additional information such as normal

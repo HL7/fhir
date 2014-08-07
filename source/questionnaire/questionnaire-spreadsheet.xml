@@ -20,7 +20,6 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>45</WindowTopX>
   <WindowTopY>2085</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -114,26 +113,16 @@
    <Protection/>
   </Style>
   <Style ss:ID="s77">
-   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
   <Style ss:ID="s78">
-   <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s79">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s79">
    <Alignment ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -141,7 +130,7 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -174,7 +163,7 @@
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="17" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="164.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="722.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
+   <Row ss:StyleID="s64">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Inv.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -202,7 +191,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Notes on mapping</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">Questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -223,7 +212,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">Questionnaire.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -242,7 +231,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">Questionnaire.version</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -261,7 +250,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -280,7 +269,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.date</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -297,7 +286,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s63"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.publisher</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -314,7 +303,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -330,12 +319,12 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Need to be able to logically group answers to grouped questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The Questionnaire itself has one &quot;root&quot; group with the actual contents of the Questionnaire.  Inquestionnaireation on this root group applies to the questionnaire as a whole</Data><NamedCell
+    <Cell><Data ss:Type="String">The Questionnaire itself has one &quot;root&quot; group with the actual contents of the Questionnaire.  Information on this root group applies to the questionnaire as a whole</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">Questionnaire.group.linkId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -345,13 +334,13 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">QuestionnaireData does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">[[[QuestionnaireAnswers]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">May be omitted if there is no expectation to link answers back to a questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.id</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.title</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -367,7 +356,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.title</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.concept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -379,13 +368,13 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies a how this group of questions is known in a particular terminology such as LOINC.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Allows linking of groups questions (and complete questionnaires) to formal terminologies</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">Allows linking of groups of questions (and complete questionnaires) to formal terminologies</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The code(s) for the &quot;root&quot; group apply to the questionnaire as a whole.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -400,7 +389,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Questionnaire.group.required</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -413,7 +402,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">Not supported - MIF/templating layer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.repeats</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -425,12 +414,12 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Groups may be used to create set of (related) questions that can be repeated to give multiple answers to such a set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">When repeats is not given, false is assumed</Data><NamedCell
+    <Cell><Data ss:Type="String">When *repeats* is not specified, false is assumed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not supported - MIF/templating layer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -446,7 +435,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -459,17 +448,17 @@
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN or DEF]</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">Questionnaire.group.question.linkId</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">To link questionnaire with questionnaire answers</Data></Cell>
-    <Cell><Data ss:Type="String">A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">QuestionnaireData does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.</Data></Cell>
+    <Cell><Data ss:Type="String">A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">[[[QuestionnaireAnswers]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.</Data></Cell>
     <Cell><Data ss:Type="String">May be omitted if there is no expectation to link answers back to a questionnaire</Data></Cell>
     <Cell><Data ss:Type="String">.id</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.question.concept</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Coding</Data></Cell>
@@ -479,7 +468,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.question.text</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">string</Data></Cell>
@@ -489,20 +478,20 @@
     <Cell ss:Index="14"><Data ss:Type="String">.code.display</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.question.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s70"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">AnswerFormat</Data></Cell>
     <Cell><Data ss:Type="String">boolean | decimal | integer | date | dateTime +</Data></Cell>
-    <Cell><Data ss:Type="String">The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple)choice is expected</Data></Cell>
+    <Cell><Data ss:Type="String">The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="12"><Data ss:Type="String">Defines the format in which the user is to be prompted for the answer</Data></Cell>
     <Cell><Data ss:Type="String">Additional constraints on the type of answer can be conveyed by extensions</Data></Cell>
     <Cell><Data ss:Type="String">N/A - MIF rather than RIM level</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Questionnaire.group.question.required</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
@@ -510,17 +499,17 @@
     <Cell><Data ss:Type="String">If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Not supported - MIF/templating layer</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.question.repeats</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Whether the group may repeat</Data></Cell>
     <Cell><Data ss:Type="String">Whether the group may occur multiple times in the instance, containing multiple sets of answers</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Groups may be used to create set of (related) questions that can be repeated to give multiple answers to such a set</Data></Cell>
-    <Cell><Data ss:Type="String">When repeats is not given, false is assumed</Data></Cell>
+    <Cell><Data ss:Type="String">When *repeats* is not specified, false is assumed</Data></Cell>
     <Cell><Data ss:Type="String">Not supported - MIF/templating layer</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.question.options</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Resource(ValueSet)</Data></Cell>
@@ -529,7 +518,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">Not supported - MIF/templating layer to capture value set</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.question.group</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group</Data></Cell>
@@ -545,18 +534,18 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -564,6 +553,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -571,8 +561,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -855,19 +845,21 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="76.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="351"/>
    <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="44.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="228"/>
    <Column ss:AutoFitWidth="0" ss:Width="68.25"/>
+   <Column ss:Width="90.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Identity</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Filename</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Profile</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -875,21 +867,37 @@
     <Cell><Data ss:Type="String">General questionnaire example</Data></Cell>
     <Cell><Data ss:Type="Number">3141</Data></Cell>
     <Cell><Data ss:Type="String">questionnaire-example.xml</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Lifelines</Data></Cell>
     <Cell><Data ss:Type="String">Real-world lifelines questionnaire (fictively taken from the patient)</Data></Cell>
     <Cell><Data ss:Type="String">f201</Data></Cell>
     <Cell><Data ss:Type="String">questionnaire-example-f201-lifelines.xml</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BlueBook</Data></Cell>
     <Cell><Data ss:Type="String">Real-world NSW My Personal Health Record example</Data></Cell>
     <Cell><Data ss:Type="String">bb</Data></Cell>
     <Cell><Data ss:Type="String">questionnaire-example-bluebook.xml</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SDC</Data></Cell>
+    <Cell><Data ss:Type="String">Set of several examples - medication, AHRQ and NCI forms</Data></Cell>
+    <Cell><Data ss:Type="String">sdc</Data></Cell>
+    <Cell><Data ss:Type="String">questionnaire-sdc-profile-example.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">sdc-questionnaire</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SDC-LOINC</Data></Cell>
+    <Cell><Data ss:Type="String">SDC medication example with LOINC codes populated</Data></Cell>
+    <Cell><Data ss:Type="String">sdc-loinc</Data></Cell>
+    <Cell><Data ss:Type="String">questionnaire-sdc-profile-example-LOINC.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">sdc-questionnaire</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -899,11 +907,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -939,7 +948,6 @@
     <Cell><Data ss:Type="String">questionnaire-sdc-profile-spreadsheet.xml</Data></Cell>
     <Cell><Data ss:Type="String">questionnaire-sdc.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">questionnaire-sdc-profile-example.xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -954,7 +962,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -962,12 +970,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -984,7 +995,7 @@
     ss:Span="1"/>
    <Column ss:Index="7" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="354.75"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="312"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s79">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Use</Data></Cell>
     <Cell><Data ss:Type="String">Min</Data></Cell>
@@ -1057,7 +1068,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1092,10 +1102,10 @@
    <Column ss:AutoFitWidth="0" ss:Width="93" ss:Span="1"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="299.25"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Display</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Display</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="Number">1</Data></Cell>

@@ -6,7 +6,7 @@
 This resource covers two major use-cases: 
 </p>
 <ol>
-  <li>Definitions of types of measurements or observations that may requested or performed.  In HL7, these are sometimes referred to as service, test or observation "master files"</li>
+  <li>Definitions of types of measurements or observations that may be requested or performed.  In HL7, these are sometimes referred to as service, test or observation "master files"</li>
   <li>Definitions of "data elements" (DEs) that may be used in <a href="questionnaire.html">questionnaires</a> (survey instruments and data collection forms) and <a href="profile.html">profiles</a> and potentially mapped to elements in other resources and profiles</li>
 </ol>
 <p>
@@ -35,10 +35,10 @@ patient gender, practitioner address and other data elements that would not typi
 This resource has significant overlap with <a href="profile.html">Profile</a> and <a href="questionnaire.html">Questionnaire</a>.
 </p>
 <p>
-Profile also defines data elements, however
+Profile also defines data elements.  However,
 it does so only in the context of constraints or extensions on FHIR resources.  As well, <a href="profile.html">Profile</a> typically identifies a number of data elements
 together in context.  <b>DataElement</b> defines only a single data element and it does so in a manner that is not directly tied to FHIR.  Data elements
-might define the value of an <a href="observation.html">Observation</a>, the constrain allowed answer to a question in a <a href="questionnaire.html">Questionnaire</a>
+might define the value of an <a href="observation.html">Observation</a>, constrain the allowed answer to a question in a <a href="questionnaire.html">Questionnaire</a>
 (including providing a list of permitted answers), describe the permitted value captured of an element in some
 other resource (<a href="patient.html">Patient</a>, <a href="familyhistory.html">FamilyHistory</a>, etc.) or even used outside FHIR entirely in a CDA document or HL7 v2
 specification.  Authors of <a href="profile.html">Profile</a>s may leverage (and reference) <b>DataElement</b>s when defining the data elements with the Profile.
@@ -59,7 +59,7 @@ ElementDefinition and <a href="questionnaire.html">Questionnaire</a>'s Question 
 </p>
 <p>
 <b>Ballot Issue</b>: Should a shared structure be used in <a href="profile.html">Profile</a>, <a href="questionnaire.html">Questionnaire</a> and <b>DataElement</b>
-to capture constraints on data elements, or is it acceptable for them to containue to be maintained in a separate, but "similar" manner?
+to capture constraints on data elements, or is it acceptable for them to continue to be maintained in a separate, but "similar" manner?
 </p>
 <p>
 <b>DataElement</b> differs from <a href="observation.html">Observation</a> in that it describes what kind of observations <b>can</b> occur, while 

@@ -18,7 +18,7 @@ the data types or any other resource.  The base string should be the primary lan
 not support the translation extension or by systems whose language preference is other than one of the languages provided.
 </p>
 <p>
-The ISO 19763 specification permits declaring language on questionnaire titles, descriptions, display names for codesand many other strings.  It also supports
+The ISO 19763 specification permits declaring language on questionnaire titles, descriptions, display names for codes and many other strings.  It also supports
 capturing multiple variants of these strings with distinct languages.  These capabilities can be mirrored using the above extensions.
 </p>
 <p>
@@ -35,7 +35,7 @@ This FHIR profile is partially based on the IHE <a href="http://ihe.net/uploaded
 Technical Framework Supplement.  While largely aligned, there are differences between them, driven in part by their different technologies.
 (FHIR tends to nail things down and only include those data elements that are essential to the use-case, while the IHE specification is somewhat looser in the content it 
 supports.  As the content of both specifications stabilizes, the project team intends to develop a set of XSLT transforms to support translation between the two syntaxes.  
-These transforms should provide seemless conversion in the majority of circumstances and will be designed to raise warning messages where some content could not be safely 
+These transforms should provide seamless conversion in the majority of circumstances and will be designed to raise warning messages where some content could not be safely 
 converted.
 </p>
 <p>

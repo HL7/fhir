@@ -12,8 +12,6 @@ profile for 11179-conformant systems may be developed.
 The list of defined extensions is as follows:
 </p>
 <ul>
-  <li><a name="meaning"></a><b>meaning</b> - Allows a <a href="dataelement.html">DataElement</a> representing an ISO Data_Element to 
-    reference the <a href="dataelement.html">DataElement</a> resource that represents the Concept_Element for that Data_Element</li>
   <li><a name="objectClass"></a><b>objectClass</b> - specifies the Object_Class for a Concept_Element or the meaning of a Data_Element</li>
   <li><a name="property"></a><b>property</b> - specifies the Object_Class Property for a Concept_Element or the meaning of a Data_Element</li>
 </ul>

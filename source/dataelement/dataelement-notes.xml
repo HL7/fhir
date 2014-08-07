@@ -7,7 +7,7 @@ Data Elements, Data Element Concepts and their associated Value and Conceptual D
 	<p>
 The <b>DataElement</b> resource can be used to represent both Data_Element and Data_Element_Concept in the ISO logical model.
 (The <a href="valueset.html">ValueSet</a> resource provides the details for Value_Domain and Conceptual_Domain for enumerated elements.)
-The determination of whether a <b>DataElement</b>resource instance is an ISO 11179 Data_Element or Data_Element_Concept is determined by 
+The determination of whether a <b>DataElement</b> resource instance is an ISO 11179 Data_Element or Data_Element_Concept is determined by 
 whether the <code>type</code> property is specified - which corresponds to the ISO property Data_Element.domain.datatype which is required 
 for Data_Elements.  I.e. If DataElement.type is present, the instance represents a 11179 data element.  If DataElement.type is absent, the
 instance represents a 11179 data element concept.
@@ -35,7 +35,7 @@ codes and/or mappings, the "authoritative" mapping (the one formally defining th
 on the code or by specifying the "primary mapping" ISO 11179 extension.
     </p>
 	<p>
-It is possible to create instances that are "conforming", or even "strictly conforming" to the 11179 specification, however doing
+It is possible to create instances that are "conforming", or even "strictly conforming" to the 11179 specification. However, doing
 so will require the use of extensions to convey certain properties that are not part of the core resource and data types.  An initial
 starter <a href="dataelement-11179.html">ISO 11179 profile</a> that defines extensions that are relevant to the 
 <a href="dataelement-sdc.html">SDC DataElement</a> profile.  If there is sufficient interest, the existing starter set may be
@@ -45,9 +45,9 @@ enhanced to contain a complete set of extensions and a full 11179 in a future re
 	<p>
 Data elements and codes in code systems serve different purposes.  Data elements describe the characteristics of a piece of
 data while codes describe a particular concept (often in relation to other concepts).  However, because data elements provide
-a definition of the meaning of a particular element, they can be 
+a definition of the meaning of a particular element, they  
  can be thought of as being codes in a code system.  One of their purposes is to define types of observations or questions
-that can be answered.  This function is typically done by code sytems such as <a href="http://loinc.org">LOINC</a> and
+that can be answered.  This function is typically done by code systems such as <a href="http://loinc.org">LOINC</a> and
 <a href="http://www.ihtsdo.org/snomed-ct/">SNOMED</a>.  It would be possible to treat a registry of data elements using a common
 identifier system/namespace as a code system.  Similarly, data elements can be mapped to each other (and to codes) in the same manner as 
 codes can be mapped by making use of the <a href="conceptmap.html">ConceptMap</a> resource.
@@ -63,7 +63,7 @@ for data elements may not align well with the maintenance and versioning process
 	<p>
 As noted in the introduction, one of the main purposes for the use of data elements is 'standardization' - gaining consistent
 (and thus comparable) data capture of data in <a href="questionnaire.html">questionnaires</a>, <a href="observation.html">observations</a>
-and within other resources.  However, merely defining data elements is not, in itself, sufficent to improve standardization.  To
+and within other resources.  However, merely defining data elements is not, in itself, sufficient to improve standardization.  To
 ensure consistency of data, there needs to be several additional things:
 </p>
 	<ul>
@@ -74,7 +74,7 @@ ensure consistency of data, there needs to be several additional things:
     designing questionnaires, profiles, etc. need to be able to find the appropriate data element easily within the repository and there
     should ideally only be one data element for a given purpose.  If a repository accepts 15 data elements defining different ways of
     capturing the same piece of information, there will be no improvement in interoperability.</li>
-		<li>There must be incentives or governence processes in place that encourage or require the use of data elements from the shared
+		<li>There must be incentives or governance processes in place that encourage or require the use of data elements from the shared
     repository when defining forms, profiles and other structures where improved interoperability is desired.</li>
 		<li>There must be allowance for (and a transition path for) legacy systems that capture data or have existing data that is not in
     alignment with the approved data elements.</li>

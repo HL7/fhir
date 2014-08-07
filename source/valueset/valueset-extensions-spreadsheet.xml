@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2014-08-06T09:12:52Z</LastSaved>
+  <LastSaved>2014-08-07T04:54:48Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -83,16 +83,16 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
   </Style>
   <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s74">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s74">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s75">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
@@ -110,6 +110,22 @@
   </Style>
   <Style ss:ID="s78">
    <Alignment ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -209,14 +225,16 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"/>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">ValueSetCategory</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Classifications for valuesets.  Can include such concepts as &quot;demographics&quot;, &quot;lab&quot;, &quot;clinical research&quot;.  Might also be used to tie a value set to particular usage projects</Data></Cell>
+    <Cell><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s73"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -235,7 +253,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <RangeSelection>R2C1:R2C5</RangeSelection>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -244,9 +262,9 @@
  </Worksheet>
  <Worksheet ss:Name="Extensions">
   <Names>
-   <NamedRange ss:Name="_Toc253739461" ss:RefersTo="=Extensions!R6C1"/>
+   <NamedRange ss:Name="_Toc253739461" ss:RefersTo="=Extensions!R7C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="30" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="31" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="112.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="102.75"/>
@@ -259,7 +277,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="171"/>
    <Column ss:AutoFitWidth="0" ss:Width="126.75"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="187.5"/>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Context Type</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Context</Data></Cell>
@@ -276,311 +294,324 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">To Do</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">otherName</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Alternative names</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Human readable names for the valueset</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Alternative names</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Human readable names for the valueset</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s75"><Data ss:Type="String">otherName.name</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Human readable, short and specific</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">This name is intended to be human readable, short and as specific as possible and to convey the purpose of the value set.  It is considered to be the name of the value set</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s74"><Data ss:Type="String">This need not be unique. However some use cases require uniqueness within a namespace and therefore best practice would be to make the name unique</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Human readable, short and specific</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">This name is intended to be human readable, short and as specific as possible and to convey the purpose of the value set.  It is considered to be the name of the value set</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">This need not be unique. However some use cases require uniqueness within a namespace and therefore best practice would be to make the name unique</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s75"><Data ss:Type="String">otherName.preferred</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Which name is preferred for this language</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Flag that this Name in this Name Language is the preferred human-readable signifier in this language</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Which name is preferred for this language</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Flag that this Name in this Name Language is the preferred human-readable signifier in this language</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">There may be multiple human readable names in a given language, and this flag indicates which of them is preferred for the given language</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s75"><Data ss:Type="String">sourceReference</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Where did this content come from</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">This text is intended to act as a citation to work done elsewhere that is not part of the current stewarding process where the referenced source is in some way a basis of the current value set definition</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s74"><Data ss:Type="String">This is not intended to be a direct link to another value set. It is only intended to support a link or textual description that indicates related material for the value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Where did this content come from</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">This text is intended to act as a citation to work done elsewhere that is not part of the current stewarding process where the referenced source is in some way a basis of the current value set definition</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">This is not intended to be a direct link to another value set. It is only intended to support a link or textual description that indicates related material for the value set</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell ss:StyleID="s75"><Data ss:Type="String">category</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSetCategory</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Kind of value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Identifies the value set as belonging to a particular set.  For example &quot;demographics&quot;, &quot;lab&quot;, &quot;clinical research&quot;, etc.  Might also be used to tie a value set to particular usage projects</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Used for discovery and selecting a subset of relevant value sets</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">The categories chosen will vary widely depending on the purpose of the value set repository</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s75"><Data ss:Type="String">keyWord</Data><NamedCell
       ss:Name="_Toc253739461"/></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Descriptors and key terms for search</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Word or words used in an information retrieval system to indicate the content of the value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Descriptors and key terms for search</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Word or words used in an information retrieval system to indicate the content of the value set</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s75"><Data ss:Type="String">usage</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Who has used and how?</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Consumers of the value set and the implementations, projects or standards that the author has utilized the value set in. </Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Value sets that share the same Use information can be grouped together by that information for implementation purposes</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">This is likely to be a “point in time” view and should not be considered an authoritative listing of all uses of the value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Who has used and how?</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Consumers of the value set and the implementations, projects or standards that the author has utilized the value set in. </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Value sets that share the same Use information can be grouped together by that information for implementation purposes</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">This is likely to be a “point in time” view and should not be considered an authoritative listing of all uses of the value set</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s75"><Data ss:Type="String">usage.user</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">A consumer of or client for the value set</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">This is most likely to be an organization but can be an individual. It would not be a program, that information should be recorded in the Usage.</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">A consumer of or client for the value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">This is most likely to be an organization but can be an individual. It would not be a program, that information should be recorded in the Usage.</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">usage.use</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Implementation/project/standard that uses value set</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">A descriptive name of the project or standard in which the value set is used</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Implementation/project/standard that uses value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">A descriptive name of the project or standard in which the value set is used</Data></Cell>
    </Row>
-   <Row ss:Height="210">
+   <Row ss:AutoFitHeight="0" ss:Height="210">
     <Cell ss:StyleID="s75"><Data ss:Type="String">workflowStatus</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Indicates the state of development of the value set </Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Workflow Status is used to represent details of the value set development process while the value set has an Activity Status of Preliminary. The development of a value set often follows a formal workflow process from initiation to completion, and this element carries the state variable for this state machine. The assumption is that when first created a value set would have a workflow state of Draft. Additional workflow states may be used</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s74"><Data ss:Type="String">The values that this element may assume include phrases that capture various stages in review and approval. In addition to the minimum of “Draft”,  these include “Proposed”, “Approved”, “Ready to Publish”.  There may be additional states defined by different developers. This is an optional element because the use of Activity Status “Preliminary” may be sufficient for some implementations</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Indicates the state of development of the value set </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Workflow Status is used to represent details of the value set development process while the value set has an Activity Status of Preliminary. The development of a value set often follows a formal workflow process from initiation to completion, and this element carries the state variable for this state machine. The assumption is that when first created a value set would have a workflow state of Draft. Additional workflow states may be used</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">The values that this element may assume include phrases that capture various stages in review and approval. In addition to the minimum of “Draft”,  these include “Proposed”, “Approved”, “Ready to Publish”.  There may be additional states defined by different developers. This is an optional element because the use of Activity Status “Preliminary” may be sufficient for some implementations</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s75"><Data ss:Type="String">effectiveDate</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">When the value set version becomes Active and is available for use</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">This is the first date-time when the value set version becomes active, so this value is present on Inactive value set versions as well. The start Date_time is expected to be as of 0001 UTC of the Effective Date</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">When the value set version becomes Active and is available for use</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">This is the first date-time when the value set version becomes active, so this value is present on Inactive value set versions as well. The start Date_time is expected to be as of 0001 UTC of the Effective Date</Data></Cell>
    </Row>
-   <Row ss:Height="165">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell ss:StyleID="s75"><Data ss:Type="String">expirationDate</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">When the value set version should no longer be used</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">When the value set version should no longer be used</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">The date when the value set version is no longer expected to be used to create new content. This is the first date-time when the value set version becomes Inactive, so this value MUST present on all Inactive value set versions. The start Date_time is expected to be as of 0001 UTC of the Expiration Date&#10;</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Upon reaching the Expiration Date, the value set Activity Status should be consdiered as inactive. An Inactive value set version may no longer be used to create new content, but it may be used to evaluate content created prior to the Expiration Date</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">author</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">User or Org actually involved in creating the value set content</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">User or Org actually involved in creating the value set content</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s75"><Data ss:Type="String">comment</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Human-specified notes and other documentation</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Each comment is a time-stamped entry of arbitrary length that is not editable except by anyone in the author group</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Human-specified notes and other documentation</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Each comment is a time-stamped entry of arbitrary length that is not editable except by anyone in the author group</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s75"><Data ss:Type="String">comment.content</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Remarks or other text</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Comments created about the value set</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Remarks or other text</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Comments created about the value set</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s77"><Data ss:Type="String">Should generalize this to all resources and types</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">comment.timestamp</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">instant</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">When the comment was created</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Time the comment was recorded</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">instant</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">When the comment was created</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Time the comment was recorded</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">trusted-expansion</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Reference to a trusted expansion</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Indicates an authoritative source for performing value set expansions</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Reference to a trusted expansion</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Indicates an authoritative source for performing value set expansions</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">What has happened over time</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Information on changes made to the Value Set Definition over time, and also has a contained audit trail of all such changes</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">What has happened over time</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Information on changes made to the Value Set Definition over time, and also has a contained audit trail of all such changes</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s77"><Data ss:Type="String">Should generalize this to all resources </Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.name</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The name of this set of history entries</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Label for a set of entries, such as a version</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">The name of this set of history entries</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Label for a set of entries, such as a version</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Typically, a value set will have a set of history entries for each major publication milestone</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Audit of all changes for a history entry</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">A list of specific changes, who made them and when</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Audit of all changes for a history entry</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">A list of specific changes, who made them and when</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.date</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Date the change was made</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Date the change took place</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Date the change was made</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Date the change took place</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.id</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Version marker after the change was made</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Unique id for the specific change</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Version marker after the change was made</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Unique id for the specific change</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.author</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Who made the change</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Person or device responsible for the change</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Who made the change</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Person or device responsible for the change</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.notes</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Information about the change</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Description of exactly what was changed and how</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Information about the change</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Description of exactly what was changed and how</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s75"><Data ss:Type="String">label</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include.code;ValueSet.define.concept;ValueSet.expansion.contains</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.compose.include.code;ValueSet.define.concept;ValueSet.expansion.contains</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">E.g. &quot;(a)&quot;, &quot;1.&quot;, etc.</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s75"><Data ss:Type="String">ordinalValue</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include.code;ValueSet.define.concept;ValueSet.expansion.contains</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Comparison value for ordinal codes</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score)</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.compose.include.code;ValueSet.define.concept;ValueSet.expansion.contains</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">integer</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Comparison value for ordinal codes</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score)</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">conceptOrder</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include.code;ValueSet.define.concept;ValueSet.expansion.contains</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Appearance order for user selection</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Identifies the relative order in which concepts within the value set should be presented to a user</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.compose.include.code;ValueSet.define.concept;ValueSet.expansion.contains</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">integer</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Appearance order for user selection</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Identifies the relative order in which concepts within the value set should be presented to a user</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s75"><Data ss:Type="String">display</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Display value for the code</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The display name for the code.  I.e. ValueSet.define.concept.display (or its equivalent)</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Not strictly necessary as it can be looked up from the code system, but often convenient for publication reasons</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Display value for the code</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">The display name for the code.  I.e. ValueSet.define.concept.display (or its equivalent)</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Not strictly necessary as it can be looked up from the code system, but often convenient for publication reasons</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s75"><Data ss:Type="String">systemName</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Code system name</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The human-readable name for the code system</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Not strictly necessary as it can be looked up from the code system, but often convenient for publication reasons</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Code system name</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">The human-readable name for the code system</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Not strictly necessary as it can be looked up from the code system, but often convenient for publication reasons</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s75"><Data ss:Type="String">systemRef</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Where to find code system</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The formal URI for the code system.  I.e. ValueSet.define.system (or its equivalent)</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Not strictly necessary as it can be looked up from the code system, but often convenient for publication reasons</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s73"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Where to find code system</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">The formal URI for the code system.  I.e. ValueSet.define.system (or its equivalent)</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Not strictly necessary as it can be looked up from the code system, but often convenient for publication reasons</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -589,6 +620,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -599,9 +631,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>18</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -609,7 +641,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -618,7 +649,89 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>30</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="search">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="487.5" ss:DefaultRowHeight="15">
+   <Column ss:Width="78.75"/>
+   <Column ss:Width="387.75"/>
+   <Column ss:Width="32.25"/>
+   <Column ss:Width="117"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Path</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">otherName</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">#otherName.name</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">category</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">#category</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">keyword</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">#keyword</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">user</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">#usage.user</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">workflow</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">#workflowStatus</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">effective</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">#effectiveDate</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">end</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">#expiryDate</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">author</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">#author</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s81"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>9</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

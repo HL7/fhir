@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2014-08-06T09:26:20Z</LastSaved>
+  <LastSaved>2014-08-06T11:14:29Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -357,6 +357,27 @@
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s76">
+    <Cell><Data ss:Type="String">category</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ValueSet.extension</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">http://hl7.org/fhir/Profile/valueset-extensions#category</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">N/A (new requirement)</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -655,14 +676,6 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2"><Data ss:Type="String">!ValueSet.compose.include.mode</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
-    <Cell><Data ss:Type="String">code</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -935,7 +948,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>45</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -948,12 +961,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>67</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

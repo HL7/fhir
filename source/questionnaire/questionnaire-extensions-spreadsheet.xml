@@ -110,6 +110,9 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s79">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s80">
    <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
@@ -223,7 +226,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Extensions">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="154.5"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="77.25"/>
@@ -249,7 +252,7 @@
     <Cell><Data ss:Type="String">Short Name</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
-    <Cell><Data ss:Type="String">Rationale</Data></Cell>
+    <Cell><Data ss:Type="String">Requirements</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
@@ -275,7 +278,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">E.g. &quot;1(a)&quot;, &quot;2.5.3&quot;</Data></Cell>
     <Cell><Data ss:Type="String">A label for a particular group or question within the questionnaire</Data></Cell>
-    <Cell><Data ss:Type="String">These are generally unique within a questionnaire, though this is not guaranteed (some questionnaires may have multiple questions with the same label with logic to control which gets exposed)</Data></Cell>
+    <Cell><Data ss:Type="String">These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed</Data></Cell>
     <Cell><Data ss:Type="String">Separating the label from the question text allows improved rendering.  Note that if separated from the question, no labeling will be applied by systems that do not understand the extension.</Data></Cell>
     <Cell><Data ss:Type="String">Not supported</Data></Cell>
    </Row>
@@ -372,10 +375,9 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Treat default as fixed value?</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">If true, the default value is set as a fixed &quot;answer&quot; for the question.</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Allows certain inquestionnaireation to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s75"><Data ss:Type="String">Allows certain inquestionnaireation to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire.</Data></Cell>
     <Cell><Data ss:Type="String">N/A - MIF rather than RIM level</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -394,7 +396,18 @@
     <Cell><Data ss:Type="String">Flags the question as comparable to other questions mapped to the same DE.  Also allows systems that have  mapped the DE to auto-populate or auto-extract information captured for the question.</Data></Cell>
     <Cell><Data ss:Type="String">./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
+    <Cell><Data ss:Type="String">allowedResource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">ResourceType</Data></Cell>
+    <Cell><Data ss:Type="String">Allowed resource for reference</Data></Cell>
+    <Cell><Data ss:Type="String">Where the type for a question is &quot;Reference&quot;, indicates a type of resource that is permitted</Data></Cell>
+    <Cell><Data ss:Type="String">This extension only has meaning if the question.type = Reference.  If no allowedResource extensions are present, the presumption is that any type of resource is permitted.  If multiple are present, then any of the specified types are permitted.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">mimeType</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
@@ -405,7 +418,7 @@
     <Cell><Data ss:Type="String">Identifies the kind(s) of [[[Attachment]]] allowed to be sent in answer to the question.</Data></Cell>
     <Cell><Data ss:Type="String">This extension only has meaning if the question.type = Attachment</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">maxSize</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
@@ -476,7 +489,10 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">#deReference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s78"/>
+    <Cell><Data ss:Type="String">category</Data></Cell>
+    <Cell><Data ss:Type="String">Code categorizing the questionnaire</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">#category</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -486,6 +502,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -512,7 +535,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s70"><Data ss:Type="String">QuestionnaireCategory</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Classifications for questionnaires.  Can include such concepts as &quot;intake form&quot;, &quot;opinion survey&quot;, &quot;clinical research questionnaire&quot;, &quot;pediatric&quot;, etc.</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MaxOccurs</Data></Cell>

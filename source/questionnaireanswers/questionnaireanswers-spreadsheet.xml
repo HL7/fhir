@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2014-07-31T19:27:02Z</LastSaved>
+  <LastSaved>2014-08-07T03:45:21Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -256,7 +256,7 @@
     <Cell><Data ss:Type="String">The lifecycle status of the questionnaire answers as a whole.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">The information on questionnaires  may possibly gathered during multiple sessions and altered after considered being finished. Questionnaires with just questions may serve as template forms, with the applicable publication statuses</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">The information on questionnaires  may possibly be gathered during multiple sessions and altered after considered being finished. Questionnaires with just questions may serve as template forms, with the applicable publication statuses</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s67"><Data ss:Type="String">.statusCode (also whether there's a revisionControlAct - and possibly mood to distinguish &quot;in progress&quot; from &quot;published)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -338,7 +338,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.participation[typeCode=INF].role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">source should be a reference to a Person resource too</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Source should be a reference to a Person resource too</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -390,7 +390,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring corrrespondence by id.</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by id.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -488,7 +488,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring corrrespondence by id.</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by id.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -515,7 +515,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The response(s) to the question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The respondant's answer(s) to the question</Data><NamedCell
+    <Cell><Data ss:Type="String">The respondent's answer(s) to the question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">We nest the value because we can't have a repeating structure that has variable type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -523,7 +523,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">QuestionnaireAnswers.group.question.answer.value[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -535,7 +535,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Need to be able to retain a single-valued answer to a question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">More complex structures (Attachment, Resource, Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.</Data><NamedCell
+    <Cell><Data ss:Type="String">More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.item</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -572,9 +572,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>11</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -582,15 +582,12 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -805,19 +802,20 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="76.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="351"/>
    <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="44.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="228"/>
-   <Column ss:AutoFitWidth="0" ss:Width="68.25"/>
+   <Column ss:Width="245.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="68.25" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">Identity</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Filename</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Profile</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -825,21 +823,29 @@
     <Cell><Data ss:Type="String">General questionnaire answers example</Data></Cell>
     <Cell><Data ss:Type="Number">3141</Data></Cell>
     <Cell><Data ss:Type="String">questionnaireanswers-example.xml</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Lifelines</Data></Cell>
     <Cell><Data ss:Type="String">Real-world lifelines questionnaire answers (fictively taken from the patient)</Data></Cell>
     <Cell><Data ss:Type="String">f201</Data></Cell>
     <Cell><Data ss:Type="String">questionnaireanswers-example-f201-lifelines.xml</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BlueBook</Data></Cell>
     <Cell><Data ss:Type="String">Real-world NSW My Personal Health Record example</Data></Cell>
     <Cell><Data ss:Type="String">bb</Data></Cell>
     <Cell><Data ss:Type="String">questionnaireanswers-example-bluebook.xml</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SDC</Data></Cell>
+    <Cell><Data ss:Type="String">Stand-alone answer set</Data></Cell>
+    <Cell><Data ss:Type="String">sdc</Data></Cell>
+    <Cell><Data ss:Type="String">questionnaireanswers-sdc-profile-example.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">sdc-answers</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -852,8 +858,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -883,7 +889,6 @@
     <Cell><Data ss:Type="String">questionnaireanswers-sdc-profile-spreadsheet.xml</Data></Cell>
     <Cell><Data ss:Type="String">questionnaireanswers-sdc.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">questionnaireanswers-sdc-profile-example.xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -896,8 +901,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>1</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
