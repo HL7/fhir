@@ -60,6 +60,8 @@ import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
+import com.github.rjeschke.txtmark.Processor;
+
 public class DictHTMLGenerator  extends OutputStreamWriter {
 
 	private Definitions definitions;
@@ -151,7 +153,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
     
   private void generateElementInner(Profile profile, ElementDefinitionComponent d) throws Exception {
-    tableRow("Definition", null, d.getFormalSimple());
+    tableRowMarkdown("Definition", d.getFormalSimple());
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
     tableRowNE("Binding", "terminologies.html", describeBinding(d));
     if (d.getNameReference() != null)
@@ -160,9 +162,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       tableRowNE("Type", "datatypes.html", describeTypes(d.getType()));
     tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifierSimple()));
     tableRow("Must Support", "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupportSimple()));
-    tableRow("Requirements", null, d.getRequirementsSimple());
+    tableRowMarkdown("Requirements", d.getRequirementsSimple());
     tableRow("Aliases", null, describeAliases(d.getSynonym()));
-    tableRow("Comments", null, d.getCommentsSimple());
+    tableRowMarkdown("Comments", d.getCommentsSimple());
     tableRow("Max Length", null, d.getMaxLength() == null ? null : Integer.toString(d.getMaxLengthSimple()));
     tableRow("Fixed Value", null, encodeValue(d.getValue()));
     tableRow("Example", null, encodeValue(d.getExample()));
@@ -429,6 +431,36 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 			return null;
 	}
 
+  private void tableRowMarkdown(String name, String value) throws Exception {
+    String text;
+    if (value == null)
+      text = "";
+    else {
+      text = value.replace("||", "\r\n\r\n");
+      while (text.contains("[[[")) {
+        String left = text.substring(0, text.indexOf("[[["));
+        String linkText = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
+        String right = text.substring(text.indexOf("]]]")+3);
+        String url = "";
+        String[] parts = linkText.split("\\#");
+        Profile p = definitions.getProfileByURL(parts[0]);
+        if (p != null)
+          url = p.getTag("filename")+".html";
+        else if (definitions.hasResource(linkText)) {
+          url = linkText.toLowerCase()+".html#";
+        } else if (definitions.hasElementDefn(linkText)) {
+          url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;
+        } else if (definitions.hasPrimitiveType(linkText)) {
+          url = "datatypes.html#"+linkText;
+        } else {
+          System.out.println("Error: Unresolved logical URL "+linkText);
+          //        throw new Exception("Unresolved logical URL "+url);
+        }
+        text = left+"["+linkText+"]("+url+")"+right;
+      }
+    }
+    write("  <tr><td>"+name+"</td><td>"+Processor.process(Utilities.escapeXml(text))+"</td></tr>\r\n");
+  }
 	private void tableRow(String name, String defRef, String value) throws IOException {
 		if (value != null && !"".equals(value)) {
 		  if (defRef != null) 
