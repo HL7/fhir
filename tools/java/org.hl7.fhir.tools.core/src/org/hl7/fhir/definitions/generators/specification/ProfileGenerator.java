@@ -698,7 +698,7 @@ public class ProfileGenerator {
     } else {
       if (!Utilities.noString(e.getStatedProfile())) {
         if (e.getTypes().size() != 1)
-          throw new Exception("mismatched type count");
+          throw new Exception("mismatched type count for path " + path + " in profile " + p.getNameSimple());
         TypeRefComponent type = new Profile.TypeRefComponent();
         if (e.getTypes().get(0).getName().equals("Resource"))
           type.setCodeSimple("ResourceReference");
