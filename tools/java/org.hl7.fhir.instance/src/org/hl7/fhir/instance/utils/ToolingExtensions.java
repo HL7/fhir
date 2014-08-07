@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeType;
+import org.hl7.fhir.instance.model.DataElement;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Factory;
@@ -24,7 +25,8 @@ public class ToolingExtensions {
   public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/Profile/tools-extensions#issue-source";
   public static final String EXT_SUBSUMES = "http://hl7.org/fhir/Profile/tools-extensions#subsumes";
   public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/Profile/tools-extensions#display-hint";
-
+  public static final String EXT_UNIT_VALUESET = "http://fhir.hspc.org/fhir/Profile/metadata#units-valuesets";
+  
   public static Extension makeIssueSource(Source source) {
     Extension ex = new Extension();
     // todo: write this up and get it published with the pack (and handle the redirect?)
@@ -131,6 +133,11 @@ public class ToolingExtensions {
         res.add((CodeType) e.getValue());
     }
     return res;
+  }
+
+  public static void addUnitValueset(DataElement de, String vs) throws Exception {
+    if (!Utilities.noString(vs))
+      de.getExtensions().add(Factory.newExtension(EXT_UNIT_VALUESET, Factory.newString_(vs), true));   
   }
 
 }

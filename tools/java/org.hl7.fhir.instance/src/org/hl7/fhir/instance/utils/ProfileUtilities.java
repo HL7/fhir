@@ -362,7 +362,7 @@ public class ProfileUtilities {
           }
           // finally, we process any remaining entries in diff, which are new (and which are only allowed if the base wasn't closed
           if (closed && diffpos < diffMatches.size()) 
-            throw new Exception("The base snapshot marks a slicing as closed, but the differential tries to extend it");
+            throw new Exception("The base snapshot marks a slicing as closed, but the differential tries to extend it in "+profileName+" at "+path+" ("+cpath+")");
           while (diffpos < diffMatches.size()) {
             ElementComponent diffItem = diffMatches.get(diffpos); 
             for (ElementComponent baseItem : baseMatches) 
@@ -383,6 +383,10 @@ public class ProfileUtilities {
   
   private boolean pathStartsWith(String p1, String p2) {
     return p1.startsWith(p2);
+  }
+
+  private boolean pathMatches(String p1, String p2) {
+    return p1.equals(p2) || (p2.endsWith("[x]") && p1.startsWith(p2.substring(0, p2.length()-3)) && !p1.substring(p2.length()-3).contains("."));
   }
 
 
@@ -455,7 +459,7 @@ public class ProfileUtilities {
     String path = current.getPathSimple();
     int cursor = list.indexOf(current)+1;
     while (cursor < list.size() && list.get(cursor).getPathSimple().length() >= path.length()) {
-      if (list.get(cursor).getPathSimple().equals(path))
+      if (pathMatches(list.get(cursor).getPathSimple(), path))
         result.add(list.get(cursor));
       cursor++;
     }

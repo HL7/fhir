@@ -74,6 +74,12 @@ public class XLSXmlParser {
       else
         return rows.get(row).get(c).trim();
     }
+
+    public List<Row> getRows() {
+      return rows;
+    }
+    
+    
   }
   
   private Map<String, Sheet> sheets;

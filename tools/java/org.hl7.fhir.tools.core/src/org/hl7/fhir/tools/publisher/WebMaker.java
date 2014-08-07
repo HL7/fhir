@@ -118,7 +118,7 @@ public class WebMaker {
           throw new Exception("exception processing: "+src+": "+e.getMessage());
         }
       } else if (f.endsWith(".chm") || f.endsWith(".eap") || f.endsWith(".zip")) {
-        if (!f.equals("fhir-spec.zip"))
+//        if (!f.equals("fhir-spec.zip"))
           Utilities.copyFile(new CSFile(folders.dstDir+f), new CSFile(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload"+File.separator+f));
       } else if (!f.matches(Config.VERSION_REGEX) && !f.equals("html") && !f.equals("examples") ) {
         if (new CSFile(folders.dstDir+f).isDirectory()) {
