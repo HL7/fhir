@@ -2646,7 +2646,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Operations">
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="127.5"/>
    <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="92.25"/>
@@ -2669,7 +2669,7 @@
     <Cell><Data ss:Type="String">questionnaire</Data></Cell>
     <Cell><Data ss:Type="String">Resource | Instance</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Populate Questionnaire</Data></Cell>
-    <Cell><Data ss:Type="String">Generates a [[[Questionnaire]]] instance  based on a specified [[[Profile]]], creating questions for each core or extension element found in the profile.  &#10;&#10;If the operation is not called at the instance level, one of the *identifier* or *profile* 'in' parameters must be provided.  (If called at the instance level, these parameters will be ignored.)&#10;&#10;The response will contain a [[[Questionnaire]]] instance based on the specified [[[Profile]]] and/or an [[[OperationOutcome]]] resource with errors or warnings.&#10;&#10;Nested groups are used to handle complex structures and data types.  If the 'supportedOnly' parameter is set to true, only those elements marked as &quot;must support&quot; will be included.&#10;&#10;This operation is intended to enable auto-generation of simple interfaces for arbitrary profiles.  The 'questionnaire' approach to data entry has limitations that will make it less optimal than custom-defined interfaces.  However, this function may be useful for simple applications or for systems that wish to support &quot;non-core&quot; resources with minimal development effort.</Data></Cell>
+    <Cell><Data ss:Type="String">Generates a [[[Questionnaire]]] instance  based on a specified [[[Profile]]], creating questions for each core or extension element found in the profile.  &#10;&#10;If the operation is not called at the instance level, one of the *identifier*, *profile* or *url* 'in' parameters must be provided.  (If called at the instance level, these parameters will be ignored.  If more than one is specified, servers may raise an error or may resolve with the parameter of their choice.)&#10;&#10;The response will contain a [[[Questionnaire]]] instance based on the specified [[[Profile]]] and/or an [[[OperationOutcome]]] resource with errors or warnings.&#10;&#10;Nested groups are used to handle complex structures and data types.  If the 'supportedOnly' parameter is set to true, only those elements marked as &quot;must support&quot; will be included.&#10;&#10;This operation is intended to enable auto-generation of simple interfaces for arbitrary profiles.  The 'questionnaire' approach to data entry has limitations that will make it less optimal than custom-defined interfaces.  However, this function may be useful for simple applications or for systems that wish to support &quot;non-core&quot; resources with minimal development effort.</Data></Cell>
     <Cell><Data ss:Type="String">**Open Issue**: Ideally, extensions should be populated in the generated [[[Questionnaire]]] that will support taking [[[QuestionnaireAnswers]]] resources generated from the Questionnaire and turning them back into the appropriate resources.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -2685,8 +2685,16 @@
     <Cell><Data ss:Type="String">in</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">Profile</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">The [[[Profile]]] is provided directly as part of the request. Servers may choose not to accept profiles in this fashion</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">questionnaire.url</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The profile's official url (i.e. 'Profile.url'). The server must know the profile or be able to retrieve it from other known repositories.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">questionnaire.supportedOnly</Data></Cell>
@@ -2711,12 +2719,13 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
