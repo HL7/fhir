@@ -103,6 +103,17 @@ as well as indirectly either by <code>identifier</code> or <code>questionnaire</
   <li>Support passing a single C-CDA document as a <a href="http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
 </ul>
 
+<p>
+<b>IMPORTANT:</b>
+</p>
+<p>
+Not all <a href="dataelement.html">DataElements</a> will be appropriate or safe to reference in a Questionnaire.  It is important that the definition
+associated with the data element fully reflects the context of the question in the questionnaire.  For example, "gender" would not be a safe data element
+because it would not be clear whether the gender was that of the patient or a fetus of the patient.  It must be clear from the data element definition
+exactly what piece of information should be extracted from a source system, CCDA document or other data source.  (Inclusion of mappings to specifications
+such as CCDA is recommended practice whenever possible.)
+</p>
+
 </div>
 
 [%file newfooter%]
