@@ -138,5 +138,12 @@
     <id>ihesdc</id>
     <sort>16</sort>
   </space>
+  <space>
+    <url>http://wiki.siframework.org/CQF</url>
+    <columnName>QUICK mapping</columnName>
+    <title>Quality Improvement and Clinical Knowledge (QUICK)</title>
+    <id>quick</id>
+    <sort>17</sort>
+  </space>
   
 </mappingSpaces>
