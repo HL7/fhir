@@ -11,20 +11,43 @@
 
 package org.hl7.fhir.utilities.ucum;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Canonical {
 
+	public static class CanonicalUnit {
+    private BaseUnit base;
+    private int exponent;
+		protected CanonicalUnit(BaseUnit base, int exponent) {
+	    super();
+	    this.base = base;
+	    this.exponent = exponent;
+    }
+		public BaseUnit getBase() {
+			return base;
+		}
+		public int getExponent() {
+			return exponent;
+		}
+		public void setExponent(int exponent) {
+			this.exponent = exponent;
+		}
+    
+    
+  }
+
 	private Decimal value;
-	private Term unit;
+	private List<CanonicalUnit> units = new ArrayList<CanonicalUnit>();
 	
 	/**
 	 * @param value
 	 * @param unit
 	 */
-	public Canonical(Decimal value, Term unit) {
+	public Canonical(Decimal value) {
 		super();
 		this.value = value;
-		this.unit = unit;
 	}
 
 	/**
@@ -37,8 +60,8 @@ public class Canonical {
 	/**
 	 * @return the unit
 	 */
-	public Term getUnit() {
-		return unit;
+	public List<CanonicalUnit> getUnits() {
+		return units;
 	}
 
 	/**
@@ -56,21 +79,14 @@ public class Canonical {
 		value = value.multiply(new Decimal(multiplicand));		
 	}
 
-	public boolean hasUnit() {
-		return unit != null;
-	}
-
-	/**
-	 * @param unit the unit to set
-	 */
-	public void setUnit(Term unit) {
-		this.unit = unit;
-	}
-
+	
 	public void divideValue(Decimal divisor) throws Exception {
 		value = value.divide(divisor);		
 	}
 	
-	
+	public void divideValue(int divisor) throws Exception {
+		value = value.divide(new Decimal(divisor));		
+	}
+
 	
 }

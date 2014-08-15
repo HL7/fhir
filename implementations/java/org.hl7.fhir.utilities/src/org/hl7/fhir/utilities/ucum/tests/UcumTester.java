@@ -525,7 +525,7 @@ public class UcumTester {
 	  String srcUnit = xpp.getAttributeValue(null, "srcUnit");
 	  String dstUnit = xpp.getAttributeValue(null, "dstUnit");
 	  String outcome = xpp.getAttributeValue(null, "outcome");
-	  
+	  System.out.println("case "+id+": "+value+" "+srcUnit+" -> "+outcome+" "+dstUnit);
 	  Decimal res = ucumSvc.convert(new Decimal(value), srcUnit, dstUnit);
 		debug("Convert Test "+id+": the value '"+value+" "+srcUnit+"' ==> "+res.toString()+" "+dstUnit);
 
@@ -541,7 +541,7 @@ public class UcumTester {
 	
 	
 	private void debug(String string) {
-		//System.out.println(string);
+		System.out.println(string);
 	  
   }
 	private void runDisplayNameGeneration(XmlPullParser xpp) throws Exception {

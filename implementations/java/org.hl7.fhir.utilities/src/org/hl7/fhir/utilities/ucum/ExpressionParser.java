@@ -25,21 +25,26 @@ public class ExpressionParser {
 
 	public Term parse(String code) throws Exception {
 		Lexer lexer = new Lexer(code);
-		return parseTerm(lexer, true);
+		Term res = parseTerm(lexer, true);
+		if (!lexer.finished())
+			throw new Exception("Expression was not parsed completely. Syntax Error?");
+		return res;
 	}
 	
 	private Term parseTerm(Lexer lexer, boolean first) throws Exception {
 		Term res = new Term();
 		if (first && lexer.getType() == TokenType.NONE) {
 			res.setComp(new Factor(1));
-		}  else if (lexer.getType() == TokenType.ANNOTATION) {
-      res.setComp(new Factor(1)); // still lose the annotation
 		} else if (lexer.getType() == TokenType.SOLIDUS) {
 			res.setOp(Operator.DIVISION);
 			lexer.consume();
 			res.setTerm(parseTerm(lexer, false));
 		} else {
-			res.setComp(parseComp(lexer));
+		  if (lexer.getType() == TokenType.ANNOTATION) {
+         res.setComp(new Factor(1)); // still lose the annotation
+         lexer.consume();
+		} else
+      	 res.setComp(parseComp(lexer));
 			if (lexer.getType() != TokenType.NONE && lexer.getType() != TokenType.CLOSE) {
 				if (lexer.getType() == TokenType.SOLIDUS) {
 					res.setOp(Operator.DIVISION);

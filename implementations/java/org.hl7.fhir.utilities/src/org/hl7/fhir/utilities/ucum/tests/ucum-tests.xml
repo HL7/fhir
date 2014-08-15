@@ -32,11 +32,14 @@
   
 -->
   <history>
+     <entry date="18-June 2014" author="gdg">Fixees for various issues, including trac #159 </entry>
      <entry date="31-May 2010" author="gdg">updated with fixes to a couple of original conversion tests (Thanks to Christof Gessner). Extended the conversion tests considerably - should be easier to track down conversion issues</entry>
      <entry date="10-Feb 2009" author="gdg">First created. Ucum validation Tests, display name generation tests, conversion tests, and multiplication tests</entry>
   </history>
+
   <!-- Note: all tests use case sensitive codes -->
   <validation>
+
     <!-- 
 	  These tests check that ucum validation code is working correctly. 
 	  Each case has a unit, and whether the specified unit is valid or not
@@ -45,7 +48,13 @@
 	 -->
     <case id="1-101" unit="m" valid="true"/>
 	<case id="1-102" unit="m/" valid="false" reason="/ is not followed by a term"/>
-	<case id="1-103" unit="" valid="true"/>
+<!--
+  strictly, "" is not a valid unit expression. But the v3 data types say 
+  it is the default to use if not units are provided. Testing this isn't 
+  really a parser test, so it's commented out
+  
+	<case id="1-103" unit="" valid="false" reason="empty string is not a valid term"/>
+-->  
 	<case id="1-104" unit="/m" valid="true"/>
 	<case id="1-105" unit="10*3/ul" valid="true"/>
 	<case id="1-106" unit="10*-3/ul" valid="true"/>
@@ -59,11 +68,11 @@
 	<case id="1-114" unit="4.[pi].10*-7.N/A2" valid="true"/>
 	<!-- test that the parser supports both {} inserts, but not unicode characters too, while we're at it -->
   <case id="1-115" unit="rad2{a}" valid="true"/>
-  <case id="1-115a" unit="rad2{錠}" valid="false"/>
+  <case id="1-115a" unit="rad2{錠}" valid="false" reason="Unicode is not allowed"/>
   <case id="1-116" unit="{a}.rad2{b}" valid="true"/>    
-  <case id="1-116a" unit="{a}rad2{b}" valid="false"/>    
+  <case id="1-116a" unit="{a}rad2{b}" valid="false" reason="Cannot start a symbol with an annodation"/>    
 	<case id="1-117" unit="1{c}" valid="true"/>
-	<case id="1-118" unit="{|}1" valid="false"/>
+	<case id="1-118" unit="{|}1" valid="false" reason="Cannot start a symbol with an annodation"/>
 	<case id="1-119" unit="{e}" valid="true"/>
 	<case id="1-120" unit="%" valid="true"/>
 	
@@ -362,7 +371,7 @@
     <case id="k=1=046" unit="meq/(8.h)" valid="true"/>
     <case id="k=1=047" unit="osm" valid="true"/>
     <case id="k=1=048" unit="[mclg'U]" valid="true"/>
-    <case id="k=1=049" unit="g.m/{hb}m2" valid="true"/>
+    <case id="k=1=049" unit="g.m/m2{hb}" valid="true"/>
     <case id="k=1=050" unit="meq/(8.h.kg)" valid="true"/>
     <case id="k=1=051" unit="osm/kg" valid="true"/>
     <case id="k=1=052" unit="{od}" valid="true"/>
@@ -618,7 +627,6 @@
 	  of the precision for [pi] given in the ucum definitions. Implementations do not need
 	  to maintain this precision
 	-->
-   
 	<case id="3-101"  value="6.3"      srcUnit="m"           dstUnit="m"             outcome="6.3"/>
     <case id="3-102"  value="6.3"      srcUnit="mm"          dstUnit="m"             outcome="0.0063"/>
     <case id="3-103"  value="6.3"      srcUnit="mm"          dstUnit="cm"            outcome="0.63"/>
@@ -629,20 +637,21 @@
     <case id="3-108" value="6.3"      srcUnit="s/m/g"       dstUnit="s.m-1.g-1"       outcome="6.3"/>
     <case id="3-109" value="6.3"      srcUnit="ms/m/g"      dstUnit="s.m-1.g-1"       outcome="0.0063"/>
     <case id="3-110" value="6.3"      srcUnit="s/mm/g"      dstUnit="s.m-1.g-1"       outcome="6300"/>
-    <case id="3-111" value="6.3"      srcUnit="s/m/mg"      dstUnit="s.m-1.g-1"       outcome="0.0063"/>
+    <case id="3-111" value="6.3"      srcUnit="s/m/mg"      dstUnit="s.m-1.g-1"       outcome="6300"/>
+    <case id="3-111a" value="6.3"      srcUnit="s/m.mg"      dstUnit="s.m-1.g"       outcome="0.0063"/>
     <case id="3-112" value="6.3"      srcUnit="ms/m"        dstUnit="s/m"           outcome="0.0063"/> 
     <case id="3-113" value="6.3"      srcUnit="4.s/m"       dstUnit="s/m"           outcome="25"/>
     <case id="3-114" value="6.30"     srcUnit="4.s/m"       dstUnit="s/m"           outcome="25.2"/>
-    <case id="3-115" value="6.3"      srcUnit="s/4.m"       dstUnit="s/m"           outcome="1.6"/>
+    <case id="3-115" value="6.3"      srcUnit="s/4/m"       dstUnit="s/m"           outcome="1.6"/>
     <case id="3-116"  value="6.3"      srcUnit="s/mm"        dstUnit="s/m"           outcome="6300"/>
     <case id="3-117"  value="6.3"      srcUnit="ms/mm"       dstUnit="s/m"           outcome="6.3"/>
 	<case id="3-118"  value="6.30"     srcUnit="[in_i]"      dstUnit="m"             outcome="0.160"/>
 	<case id="3-119"  value="6.300"    srcUnit="[in_i]"      dstUnit="cm"            outcome="16.0"/> 
-	<case id="3-120" value="6.3"      srcUnit="g.m.s-2.A-2" dstUnit="g.m.C-2"       outcome="6.3"/> 
+	<case id="3-120" value="6.3"      srcUnit="g.m.s-2.A-2" dstUnit="g.m.C-2"       outcome="6.3"/>
 	<case id="3-121" value="1"      srcUnit="10*-7.s"       dstUnit="s"       outcome="1e-7"/> 
-	<case id="3-122" value="1"      srcUnit="4.[pi].10*-7.s"  dstUnit="s"       outcome="0.00000125663706143591729538505735331180115367886775975004232838997783692"/> 
-	<case id="3-123" value="1"      srcUnit="4.[pi].10*-7.N"  dstUnit="N"       outcome="1.25663706143591729538505735331180115367886775975004232838997783692e-6"/> 
-	<case id="3-124" value="1"      srcUnit="[mu_0]" dstUnit="g.m.C-2"       outcome="1.2566370614359172953850573533118011536788677597500423283899778369e-3"/> 	
+	<case id="3-122" value="1"      srcUnit="4.[pi].10*-7.s"  dstUnit="s"       outcome="0.00000125663706143591729538506"/>
+	<case id="3-123" value="1"      srcUnit="4.[pi].10*-7.N"  dstUnit="N"       outcome="0.00000125663706143591729538506"/> 
+	<case id="3-124" value="1"      srcUnit="[mu_0]" dstUnit="g.m.C-2"       outcome="0.00125663706143591729538506"/> 	
 	<case id="3-125"  value="1"      srcUnit="m[Hg]"  dstUnit="g.s-2.m-1"     outcome="133322000"/>
 	<case id="3-126"  value="1"      srcUnit="S"      dstUnit="g-1.m-2.C2.s"  outcome="0.001"/> 
 	<!--
@@ -665,7 +674,7 @@
       C2.g-1.m-2.s	(alphabetical)    0.001
 	-->
 	<case id="3-127" value="1"   srcUnit="[ly]"     dstUnit="cm"            outcome="946073047258080000"/>
-	<case id="3-128" value="1"   srcUnit="1/[ly]"   dstUnit="cm-1"          outcome="1.0570008340246e-18"/>
+	<case id="3-128" value="1"   srcUnit="1/[ly]"   dstUnit="cm-1"          outcome="1.05700083402461546370946e-18"/>
 	<case id="3-129"  value="1.2" srcUnit="g.m"      dstUnit="m.g"           outcome="1.2"/>
    <!-- <case id="3-130"  value="0.02502"      srcUnit="[oz_av]/[gal_us]"       dstUnit="g/L"           outcome="0.1877"/> -->
   </conversion>
@@ -681,6 +690,6 @@
     <case id="4-102" v2="1.5" u2="g" v1="2" u1="m" vRes="3.0" uRes="g.m"/>
   </multiplication>
   
-  
+    
 </ucumTests>
   

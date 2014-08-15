@@ -771,5 +771,16 @@ public class Decimal {
 	  return subtract(t2);
 	}
 
+	public boolean equals(Decimal value, Decimal maxDifference) {
+	  Decimal diff = this.subtract(value).absolute();
+	  return diff.comparesTo(maxDifference) <= 0;
+  }
+
+	private Decimal absolute() {
+	  Decimal d = copy();
+	  d.negative = false;
+	  return d;
+  }
+
 
 }

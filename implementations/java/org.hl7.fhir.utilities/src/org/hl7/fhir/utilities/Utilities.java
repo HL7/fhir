@@ -609,5 +609,10 @@ public class Utilities {
     file.deleteOnExit();
     return file;
   }
+
+
+	public static boolean isAsciiChar(char ch) {
+		return ch >= ' ' && ch <= '~'; 
+  }
   
 }

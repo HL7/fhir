@@ -11,6 +11,8 @@
 
 package org.hl7.fhir.utilities.ucum;
 
+import org.hl7.fhir.utilities.ucum.Canonical.CanonicalUnit;
+
 public class ExpressionComposer {
 
 
@@ -65,5 +67,23 @@ public class ExpressionComposer {
 		else
 			bldr.append(".");
 	}
+
+	public String compose(Canonical can) {
+		return compose(can, true);
+	}
+	
+	public String compose(Canonical can, boolean value) {
+	  StringBuilder b = new StringBuilder();
+	  if (value)
+	  	b.append(can.getValue().asDecimal());
+	  boolean first = true;
+	  for (CanonicalUnit c : can.getUnits()) {
+	  	if (first) first = false; else b.append(".");
+	  	b.append(c.getBase().getCode());
+	  	if (c.getExponent() != 1)
+	  		b.append(c.getExponent());
+	  }
+	  return b.toString();
+  }
 
 }

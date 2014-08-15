@@ -60,7 +60,7 @@ public class UcumValidator {
 			String c = new ExpressionComposer().compose(term);
 			if (!c.equals(code))
 				result.add("Round trip failed: "+code+" -> "+c);
-			term = new Converter(model, handlers).convert(term).getUnit();			
+			new Converter(model, handlers).convert(term);			
 		} catch (Exception e) {
 			result.add(code+": "+e.getMessage());
 		}

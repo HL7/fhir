@@ -148,17 +148,12 @@ public class UcumEssenceService implements UcumService {
 		try {
 			Term term = new ExpressionParser(model).parse(unit);
 			Canonical can = new Converter(model, handlers).convert(term);
-			term = can.getUnit();
-			String cu = new ExpressionComposer().compose(term);
-			if (term.hasComp() && !term.hasOp() && term.getComp() instanceof Symbol) {
-				Symbol sym = (Symbol) term.getComp();
-				if (sym.getExponent() == 1 && sym.getUnit() instanceof BaseUnit) {
-					BaseUnit b = (BaseUnit) sym.getUnit();
-					if (property.equals(b.getProperty()))
+			String cu = new ExpressionComposer().compose(can, false);
+			if (can.getUnits().size() == 1) {
+					if (property.equals(can.getUnits().get(0).getBase().getProperty()))
 						return null;
 					else
-						return "unit "+unit+" is of the property type "+b.getProperty()+" ("+cu+"), not "+property+" as required.";
-				}
+						return "unit "+unit+" is of the property type "+can.getUnits().get(0).getBase().getProperty()+" ("+cu+"), not "+property+" as required.";
 			}
 			// defined special case
 			if ("concentration".equals(property) && ("g/L".equals(cu) || "mol/L".equals(cu)))
@@ -180,8 +175,7 @@ public class UcumEssenceService implements UcumService {
 		try {
 			Term term = new ExpressionParser(model).parse(unit);
 			Canonical can = new Converter(model, handlers).convert(term);
-			term = can.getUnit();
-			String cu = new ExpressionComposer().compose(term);
+			String cu = new ExpressionComposer().compose(can, false);
 			if (!canonical.equals(cu))
 				return "unit "+unit+" has the base units "+cu+", not "+canonical+" as required.";
 			return null;
@@ -214,8 +208,7 @@ public class UcumEssenceService implements UcumService {
 		assert checkStringParam(unit) : paramError("getCanonicalUnits", "unit", "must not be null or empty");
 		try {
 			Term term = new ExpressionParser(model).parse(unit);
-			term = new Converter(model, handlers).convert(term).getUnit();
-			return new ExpressionComposer().compose(term);	
+			return new ExpressionComposer().compose(new Converter(model, handlers).convert(term), false);	
 		} catch (Exception e) {
 			throw new Exception("Error processing "+unit+": "+e.getMessage(), e);
 		}
@@ -254,9 +247,9 @@ public class UcumEssenceService implements UcumService {
 		Term term = new ExpressionParser(model).parse(value.getCode());
 		Canonical c = new Converter(model, handlers).convert(term);
 		if (value.getValue() == null)
-			return new Pair(null, new ExpressionComposer().compose(c.getUnit()));
+			return new Pair(null, new ExpressionComposer().compose(c, false));
 		else
-			return new Pair(value.getValue().multiply(c.getValue()), new ExpressionComposer().compose(c.getUnit()));
+			return new Pair(value.getValue().multiply(c.getValue()), new ExpressionComposer().compose(c, false));
 	}
 	
 	/* (non-Javadoc)
@@ -273,8 +266,8 @@ public class UcumEssenceService implements UcumService {
 			
 		Canonical src = new Converter(model, handlers).convert(new ExpressionParser(model).parse(sourceUnit));
 		Canonical dst = new Converter(model, handlers).convert(new ExpressionParser(model).parse(destUnit));
-		String s = new ExpressionComposer().compose(src.getUnit());
-		String d = new ExpressionComposer().compose(dst.getUnit());
+		String s = new ExpressionComposer().compose(src, false);
+		String d = new ExpressionComposer().compose(dst, false);
 		if (!s.equals(d))
 			throw new Exception("Unable to convert between units "+sourceUnit+" and "+destUnit+" as they do not have matching canonical forms ("+s+" and "+d+" respectively)");
 		Decimal canValue = value.multiply(src.getValue());

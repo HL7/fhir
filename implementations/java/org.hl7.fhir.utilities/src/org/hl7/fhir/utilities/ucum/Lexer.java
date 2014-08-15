@@ -11,6 +11,8 @@
 
 package org.hl7.fhir.utilities.ucum;
 
+import org.hl7.fhir.utilities.Utilities;
+
 public class Lexer {
 
 	private static final char NO_CHAR = Character.UNASSIGNED;
@@ -120,6 +122,8 @@ public class Lexer {
 			StringBuilder b = new StringBuilder();
 			while (ch != '}') {
 				ch = nextChar();
+				if (!Utilities.isAsciiChar(ch))
+					throw new Exception("Error processing unit'"+source+"': Annotation contains non-ascii characters");
 				if (ch == 0) 
 					throw new Exception("Error processing unit'"+source+"': unterminated annotation");
 				b.append(ch);
@@ -172,6 +176,10 @@ public class Lexer {
 
 	public int getTokenAsInt() {
 		return token.charAt(0) == '+' ? Integer.parseInt(token.substring(1)) : Integer.parseInt(token);
+	}
+
+	public boolean finished() {
+		return index == source.length();
 	}
 
 
