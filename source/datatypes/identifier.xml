@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:22:02Z</Created>
   <LastSaved>2014-01-15T11:58:34Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -96,6 +96,14 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="8" x:FullColumns="1"
@@ -112,7 +120,7 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"
     ss:Span="2"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+   <Row ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -130,7 +138,7 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="180">
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -139,11 +147,11 @@
     <Cell ss:Index="7"><Data ss:Type="String">An identifier intended for computation</Data></Cell>
     <Cell><Data ss:Type="String">A technical identifier - identifies some entity uniquely and unambiguously</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Need to be able to identify things with confidence and be sure that the identification is not subject to misinterpretation</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">II - see see identifier pattern at http://wiki.hl7.org/index.php?title=Common_Design_Patterns#Identifier_Pattern for relevant discussion. The Identifier class is a little looser than the v3 type II because it allows URIs as well as registered OIDs or GUIDs</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">II - see see identifier pattern at http://wiki.hl7.org/index.php?title=Common_Design_Patterns#Identifier_Pattern for relevant discussion. The Identifier class is a little looser than the v3 type II because it allows URIs as well as registered OIDs or GUIDs.  Also maps to Role[classCode=IDENT]</Data></Cell>
     <Cell><Data ss:Type="String">CX / EI (occasionally, more often EI maps to a resource id or a URL)</Data></Cell>
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Identifier.use</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -154,14 +162,14 @@
     <Cell><Data ss:Type="String">The purpose of this identifier</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers</Data></Cell>
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Role.code or implied by context</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">CX.5</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Identifier.label</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -173,14 +181,14 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Allows humans to make use of identifiers when the identifier system is not known</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Role.title or implied by context</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Identifier.system</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">uri</Data></Cell>
@@ -188,11 +196,11 @@
     <Cell><Data ss:Type="String">Establishes the namespace in which set of possible id values is unique.</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the id itself is a full uri</Data></Cell>
     <Cell><Data ss:Type="String">There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with. The system identifies a particular sequence or set of unique identifiers</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">II.root</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">II.root or Role.id.root</Data></Cell>
     <Cell><Data ss:Type="String">CX.4 / EI-2-4</Data></Cell>
     <Cell><Data ss:Type="String">./IdentifierType</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">Identifier.value</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
@@ -200,11 +208,11 @@
     <Cell><Data ss:Type="String">The portion of the identifier typically displayed to the user and which is unique within the context of the system.</Data></Cell>
     <Cell><Data ss:Type="Number">123456</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986</Data></Cell>
-    <Cell><Data ss:Type="String">II.extension or II.root if system indicates OID or GUID</Data></Cell>
+    <Cell><Data ss:Type="String">II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)</Data></Cell>
     <Cell><Data ss:Type="String">CX.1 / EI.1</Data></Cell>
     <Cell><Data ss:Type="String">./Value</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Identifier.period</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -216,13 +224,13 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Role.effectiveTime or implied by context</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">CX.7 + CX.8</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./StartDate and ./EndDate</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Identifier.assigner</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -234,7 +242,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The reference may be just a text description of the assigner</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">II.assigningAuthorityName but note that this is an improper use by the definition of the field</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">CX.4 / (CX.4,CX.9,CX.10)</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">./IdentifierIssuingAuthority</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -247,13 +255,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Selected/>
    <FreezePanes/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -269,8 +276,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
