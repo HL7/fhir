@@ -1,0 +1,401 @@
+<!DOCTYPE HTML>
+      
+[%settitle FHIR Overview - Developers%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<h2>FHIR Overview - Developers</h2>
+
+<p>
+FHIR (Fast Health Interoperability Resources) is designed to 
+enable the information exchange that supports the provision
+of healthcare in a wide variety of processes. The specification
+builds on and adapts standard industry RESTful practices
+to enable the provision of integrated healthcare across a 
+wide range of teams.
+</p>
+
+<h3>Framework</h3>
+<p>
+FHIR is based on "Resources" which are the common building block
+for all exchanges.  Each resource has the following <a href="resources.html">common features</a>:
+</p>
+<ul>
+ <li>A URL that identifies it</li>
+ <li>A set of defined common data elements</li>
+ <li>A <a href="narrative.html">human-readable XHTML summary</a></li>
+ <li>An <a href="extensibility.html">extensibility framework</a> to support variation in healthcare</li>
+</ul>
+<p>
+Resources are represented as either <a href="xml.html">XML</a> or <a href="json.html">JSON</a>. There are <%resourcecount%> 
+different <a href="resourcelist.html">resource types defined</a> in the FHIR specification. 
+</p>
+
+<h3>Example Patient</h3>
+<p>
+This is an example of how a <a href="patient.html">patient</a> is represented as a FHIR object in JSON. XML encoding is also defined in the specification.
+</p>
+
+<div class="example">
+<pre class="json">
+{
+  &quot;resourceType&quot;: &quot;Patient&quot;,
+  &quot;extension&quot;: [
+    {
+      &quot;url&quot;: &quot;http://example.org/consent#trials&quot;,
+      &quot;valueCode&quot;: &quot;renal&quot;
+    }
+  ],
+  &quot;text&quot;: {
+    &quot;status&quot;: &quot;generated&quot;,
+    &quot;div&quot;: &quot;&lt;div&gt;!-- Snipped for Brevity --&gt;&lt;/div&gt;&quot;
+  },
+  &quot;identifier&quot;: [
+    {
+      &quot;use&quot;: &quot;usual&quot;,
+      &quot;label&quot;: &quot;MRN&quot;,
+      &quot;system&quot;: &quot;http://www.goodhealth.org/identifiers/mrn&quot;,
+      &quot;value&quot;: &quot;123456&quot;
+    }
+  ],
+  &quot;name&quot;: [
+    {
+      &quot;family&quot;: [
+        &quot;Levin&quot;
+      ],
+      &quot;given&quot;: [
+        &quot;Henry&quot;
+      ],
+      &quot;suffix&quot;: [
+        &quot;The 7th&quot;
+      ]
+    }
+  ],
+  &quot;gender&quot;: {
+    &quot;text&quot;: &quot;Male&quot;
+  },
+  &quot;birthDate&quot;: &quot;1932-09-24&quot;,
+  &quot;managingOrganization&quot;: {
+    &quot;reference&quot;: &quot;Organization/2&quot;,
+    &quot;display&quot;: &quot;Good Health Clinic&quot;
+  },
+  &quot;active&quot;: true
+}
+</pre>
+</div>
+
+<h3>Interactions</h3>
+<p>
+For manipulation of resources, FHIR provides a <a href="http.html">REST API</a> with a
+rich but simple set of interactions:
+</p>
+<ul>
+<li>Create = POST https://example.com/path/{resourceType}</li>
+<li>Read = GET https://example.com/path/{resourceType}/{id}</li>
+<li>Update = PUT https://example.com/path/{resourceType}/{id}</li>
+<li>Delete = DELETE https://example.com/path/{resourceType}/{id}</li>
+<li>Search = GET https://example.com/path/{resourceType}?search parameters...</li>
+<li>History = GET https://example.com/path/{resourceType}/{id}/_history</li>
+<li>Transaction = POST https://example.com/path/</li>
+<li>Operation = GET https://example.com/path/{resourceType}/{id}/${opname}</li>
+</ul>
+<p>
+The FHIR specification describes other kinds of exchanges beyond the simple 
+API outlined above, including exchange of groups of resources as <a href="documents.html">Documents</a>,
+<a href="messaging.html">Messages</a>, and by using other kinds of <a href="services.html">services</a>. 
+</p>
+
+<h3>Managing Variability</h3>
+<p>
+One feature of the healthcare industry is that there is a wide variation
+between different jurisdictions and sections of the industry, and no 
+central authority to impose common business practices. Because of this, 
+the FHIR specification defines a <a href="extensibility.html">common extension framework</a>, and defines
+several resources for managing this variability:
+</p>
+<ul>
+  <li><a href="conformance.html">Conformance</a> (OPTIONS https://example.com/path/) <p>Get a conformance statement that describes the capabilities of the system</p></li>
+  <li><a href="profile.html">Profile</a> (GET /Profile) <p>Descriptions of the how the system uses resources for a specific purposes.</p></li>
+  <li><a href="valueset.html">Value Sets</a> (GET /ValueSet) <p>Formal description of how Terminologies and Codes systems are used with resources</p></li>
+  <li><a href="operationdefinition.html">Operation definitions</a>  (GET /OperationDefinition) <p>Introspection of additional RPC-like operations the system offers in addition to the basic RESTful API operations</p></li> 
+</ul>
+
+<h3>Create Request</h3>
+<p>
+To <a href="http.html#create">create a resource</a>, send an HTTP POST request to the resource's respective end
+point. In the example below we see the creation of a Patient.
+</p>
+
+<div class="example">
+<pre class="http">
+POST /Patient HTTP/1.1
+Accept: application/json+fhir
+Authorization: Bearer 37CC0B0E-C15B-4578-9AC1-D83DCED2B2F9
+Host: example.com
+Content-Length: 1198
+Content-Type: application/json+fhir
+
+{
+  &quot;resourceType&quot;: &quot;Patient&quot;,
+  &quot;extension&quot;: [
+    {
+      &quot;url&quot;: &quot;http://example.org/consent#trials&quot;,
+      &quot;valueCode&quot;: &quot;renal&quot;
+    }
+  ],
+  &quot;text&quot;: {
+    &quot;status&quot;: &quot;generated&quot;,
+    &quot;div&quot;: &quot;&lt;div&gt;!-- Snipped for Brevity --&gt;&lt;/div&gt;&quot;
+  },
+  &quot;identifier&quot;: [
+    {
+      &quot;use&quot;: &quot;usual&quot;,
+      &quot;label&quot;: &quot;MRN&quot;,
+      &quot;system&quot;: &quot;http://www.goodhealth.org/identifiers/mrn&quot;,
+      &quot;value&quot;: &quot;123456&quot;
+    }
+  ],
+  &quot;name&quot;: [
+    {
+      &quot;family&quot;: [
+        &quot;Levin&quot;
+      ],
+      &quot;given&quot;: [
+        &quot;Henry&quot;
+      ],
+      &quot;suffix&quot;: [
+        &quot;The 7th&quot;
+      ]
+    }
+  ],
+  &quot;gender&quot;: {
+    &quot;text&quot;: &quot;Male&quot;
+  },
+  &quot;birthDate&quot;: &quot;1932-09-24&quot;,
+  &quot;managingOrganization&quot;: {
+    &quot;reference&quot;: &quot;Organization/2&quot;,
+    &quot;display&quot;: &quot;Good Health Clinic&quot;
+  },
+  &quot;active&quot;: true
+}
+</pre>
+</div>
+
+<h3>Create Response</h3>
+<p>
+A response contains an HTTP code 201 to indicate that the
+Resource has been created successfully. A location header 
+indicates where the resource can be fetched in subsequent requests.
+The server may choose to return the created resource (which 
+may differ from what was submitted), but is not required to
+do so.
+</p>
+
+<div class="example">
+<pre class="http">
+HTTP/1.1 201 Created
+Content-Length: 161
+Content-Type: application/json+fhir; charset=UTF-8
+Date: Mon, 18 Aug 2014 01:43:30 GMT
+ETag: 1
+Location: http://example.com/Patient/347
+
+{
+  &quot;resourceType&quot;: &quot;OperationOutcome&quot;,
+  &quot;text&quot;: {
+    &quot;status&quot;: &quot;generated&quot;,
+    &quot;div&quot;: &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;The operation was succesful&lt;/div&gt;&quot;
+  }
+}
+</pre>
+</div>
+
+<h3>Get Request</h3>
+<p>
+<a href="http.html#read">Reading a resource</a> is done by sending HTTP GET requests to the desired Resource
+end point, as in this example. Note the use of _format=xml - this is another method for clients to indicate the desired response format, in addition to using the accept header, and is useful for clients that don't have access to the HTTP Headers.
+</p>
+<div class="example">
+<pre class="http">
+GET /Patient/347?_format=xml HTTP/1.1
+Host: example.com
+Accept: application/xml+fhir
+Cache-Control: no-cache
+
+</pre>
+</div>
+
+<h3>Get Response</h3>
+<p>
+The response to a GET contains the Resource. The content location can be used for version aware updates. 
+</p>
+
+<div class="example">
+<pre class="http">
+HTTP/1.1 200 OK
+Content-Length: 729
+Content-Location: http://example.com/Patient/347/_history/1
+Content-Type: application/xml+fhir; charset=UTF-8
+Last-Modified: Sun, 17 Aug 2014 15:43:30 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Patient 
+    xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+    &lt;extension url=&quot;http://example.org/consent#trials&quot;&gt;
+        &lt;valueCode value=&quot;renal&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;text&gt;
+        &lt;status value=&quot;generated&quot;/&gt;
+        &lt;div 
+            xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;!-- Snipped for Brevity --&amp;gt;
+        &lt;/div&gt;
+    &lt;/text&gt;
+    &lt;identifier&gt;
+        &lt;use value=&quot;usual&quot;/&gt;
+        &lt;label value=&quot;MRN&quot;/&gt;
+        &lt;system value=&quot;http://www.goodhealth.org/identifiers/mrn&quot;/&gt;
+        &lt;value value=&quot;123456&quot;/&gt;
+    &lt;/identifier&gt;
+    &lt;name&gt;
+        &lt;family value=&quot;Levin&quot;/&gt;
+        &lt;given value=&quot;Henry&quot;/&gt;
+        &lt;suffix value=&quot;The 7th&quot;/&gt;
+    &lt;/name&gt;
+    &lt;gender&gt;
+        &lt;text value=&quot;Male&quot;/&gt;
+    &lt;/gender&gt;
+    &lt;birthDate value=&quot;1932-09-24&quot;/&gt;
+    &lt;managingOrganization&gt;
+        &lt;reference value=&quot;Organization/2&quot;/&gt;
+        &lt;display value=&quot;Good Health Clinic&quot;/&gt;
+    &lt;/managingOrganization&gt;
+    &lt;active value=&quot;true&quot;/&gt;
+&lt;/Patient&gt;
+</pre>
+</div>
+
+
+<h3>Search Request</h3>
+<p>
+In addition to getting single Resources it is possible to fetch
+sets of Resources by <a href="http.html#search">searching the resource end point</a> with a <a href="search.html">set of 
+criteria</a> describing the set of resources that should be retrieved,
+and their order. In addition, the search operation is also able to 
+return additional related resources as well. 
+</p>
+<ul>
+<li>https://example.com/{resourceType}?criteria</li>
+<li>https://example.com/MedicationPrescription?patient=347 - return all the prescriptions for the patient created above</li>
+</ul>
+
+<h3>Search Response</h3>
+<p>
+The response to a search request is a list of matching resources in an ATOM feed. For JSON, a simple equivalent representation is used:
+</p>
+
+<div class="example">
+<pre class="json">
+
+{
+    &quot;resourceType&quot;: &quot;Bundle&quot;,
+    &quot;title&quot;: &quot;Search results for resource type MedicationPrescription&quot;,
+    &quot;id&quot;: &quot;urn:uuid:4df76a74-d744-4dce-9e00-add8740da0&quot;,
+    &quot;link&quot;: [
+        {
+            &quot;href&quot;: &quot;http://example.com/&quot;,
+            &quot;rel&quot;: &quot;fhir-base&quot;
+        },
+        {
+            &quot;href&quot;: &quot;http://example.com/MedicationPrescription/_search?_format=application/json+fhir&amp;search-id=1692a87b-3ca9-46a2-9778-3657651ef5&amp;&amp;patient=347&amp;search-sort=_id&quot;,
+            &quot;rel&quot;: &quot;self&quot;
+        }
+    ],
+    &quot;updated&quot;: &quot;2014-08-18T01:58:00Z&quot;,
+    &quot;totalResults&quot;: &quot;3&quot;,
+    &quot;entry&quot;: [
+        {
+            &quot;title&quot;: &quot;MedicationPrescription \&quot;347\&quot; Version \&quot;1\&quot;&quot;,
+            &quot;id&quot;: &quot;http://example.com/MedicationPrescription/347&quot;,
+            &quot;link&quot;: [
+                {
+                    &quot;href&quot;: &quot;http://example.com/MedicationPrescription/347/_history/1&quot;,
+                    &quot;rel&quot;: &quot;self&quot;
+                }
+            ],
+            &quot;updated&quot;: &quot;2014-08-16T05:31:17Z&quot;,
+            &quot;author&quot;: [
+                {
+                    &quot;name&quot;: &quot;Anonymous (service)&quot;
+                }
+            ],
+            &quot;published&quot;: &quot;2014-08-18T01:58:00Z&quot;,
+            &quot;content&quot;: {
+                &quot;resourceType&quot;: &quot;MedicationPrescription&quot;,
+                ...etc
+            },
+            &quot;summary&quot;: &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;...narative...&lt;/div&gt;&quot;
+        },
+        {
+            &quot;title&quot;: &quot;MedicationPrescription \&quot;f202\&quot; Version \&quot;1\&quot;&quot;,
+            &quot;id&quot;: &quot;http://example.com/MedicationPrescription/f202&quot;,
+            &quot;link&quot;: [
+                {
+                    &quot;href&quot;: &quot;http://example.com/MedicationPrescription/f202/_history/1&quot;,
+                    &quot;rel&quot;: &quot;self&quot;
+                }
+            ],
+            &quot;updated&quot;: &quot;2014-08-16T05:31:17Z&quot;,
+            &quot;author&quot;: [
+                {
+                    &quot;name&quot;: &quot;Anonymous (service)&quot;
+                }
+            ],
+            &quot;published&quot;: &quot;2014-08-18T01:58:00Z&quot;,
+            &quot;content&quot;: {
+                &quot;resourceType&quot;: &quot;MedicationPrescription&quot;,
+                ...etc
+            },
+            &quot;summary&quot;: &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;...narative...&lt;/div&gt;&quot;
+        },
+        {
+            &quot;title&quot;: &quot;MedicationPrescription \&quot;f203\&quot; Version \&quot;1\&quot;&quot;,
+            &quot;id&quot;: &quot;http://example.com/MedicationPrescription/f203&quot;,
+            &quot;link&quot;: [
+                {
+                    &quot;href&quot;: &quot;http://example.com/MedicationPrescription/f203/_history/1&quot;,
+                    &quot;rel&quot;: &quot;self&quot;
+                }
+            ],
+            &quot;updated&quot;: &quot;2014-08-16T05:31:17Z&quot;,
+            &quot;author&quot;: [
+                {
+                    &quot;name&quot;: &quot;Anonymous (service)&quot;
+                }
+            ],
+            &quot;published&quot;: &quot;2014-08-18T01:58:00Z&quot;,
+            &quot;content&quot;: {
+                &quot;resourceType&quot;: &quot;MedicationPrescription&quot;,
+                ...etc
+            },
+            &quot;summary&quot;: &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;...narative...&lt;/div&gt;&quot;
+        }
+    ]
+}
+
+</pre>
+</div>
+
+</div>
+
+[%file newfooter%]
+    
+    
+</body>
+</html>

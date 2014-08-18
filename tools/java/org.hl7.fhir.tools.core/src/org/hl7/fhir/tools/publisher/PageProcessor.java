@@ -611,6 +611,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genIGProfilelist() + s3;  
       else if (com[0].equals("operationslist"))
         src = s1 + genOperationList() + s3;  
+      else if (com[0].equals("resourcecount"))
+        src = s1 + Integer.toString(definitions.getResources().size()) + s3;  
       else if (others != null && others.containsKey(com[0]))  
         src = s1 + others.get(com[0]) + s3; 
       else 
@@ -2809,6 +2811,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genIGProfilelist() + s3;  
       else if (com[0].equals("operationslist"))
         src = s1 + genOperationList() + s3;  
+      else if (com[0].equals("resourcecount"))
+        src = s1 + Integer.toString(definitions.getResources().size()) + s3;  
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
