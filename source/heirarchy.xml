@@ -14,7 +14,7 @@ todo: compartments
     <page title="Outstanding Issues" filename="todo.html"/>
     <page title="Summary" filename="summary.html"/>
     <page title="Introduction" filename="overview.html">
-      <page title="Developer Introduction" filename="overview-dev.html">
+      <page title="Developer Introduction" filename="overview-dev.html"/>
     </page>
     <page title="Comparison" filename="comparison.html">
       <page title="v2 Messaging" filename="comparison-v2.html"/>
