@@ -16,6 +16,12 @@
   <xsl:param name="enableReset" select="'false'">
     <!-- If set to 'true', this will display a reset button on sections to remove data -->
   </xsl:param>
+  <xsl:param name="expansionServer" select="'http://fhir.healthintersections.com.au/open'">
+    <!-- The base URI of the server to use for value set expansions -->
+  </xsl:param>
+  <xsl:param name="iconPath" select="'http://fhir.healthintersections.com.au'">
+    <!-- The path at which the html-form-add.png and html-form-delete.png icons can be found.  If not present, text will be used -->
+  </xsl:param>
   <xsl:variable name="htmlNamespace" select="'http://www.w3.org/1999/xhtml'"/>
   <xsl:variable name="phrases">
     <!-- These are words that will be embedded within the generated HTML.  Captured as a variable to allow overriding in downstream transforms -->
@@ -293,15 +299,23 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:message>
-    </xsl:message>
-    <xsl:call-template name="groupDiv">
-      <xsl:with-param name="level" select="$level"/>
-      <xsl:with-param name="hierarchy" select="$hierarchy"/>
-      <xsl:with-param name="totalRepetitions" select="$repetitions"/>
-    </xsl:call-template>
+    <xsl:choose>
+      <xsl:when test="normalize-space($label)!='' or count(f:question)&gt;1 or f:_maxOccurs!=1">
+        <xsl:call-template name="groupDiv">
+          <xsl:with-param name="level" select="$level"/>
+          <xsl:with-param name="hierarchy" select="$hierarchy"/>
+          <xsl:with-param name="totalRepetitions" select="$repetitions"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="f:group|f:question">
+          <xsl:with-param name="level" select="$level"/>
+          <xsl:with-param name="hierarchy" select="concat($hierarchy, '.1')"/>
+        </xsl:apply-templates>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:if test="$repetitions!=1">
-      <button type="button" onclick="addGroup('{generate-id()}{$hierarchy}', this)">Add section</button>
+      <button style="margin:0em 2em" type="button" onclick="addGroup('{generate-id()}{$hierarchy}', this)">Add section</button>
     </xsl:if>
   </xsl:template>
   <xsl:template name="groupDiv">
@@ -351,7 +365,7 @@
     <xsl:param name="hierarchy"/>
     <xsl:variable name="id" select="generate-id()"/>
     <p>
-      <b>
+      <xsl:variable name="label">
         <xsl:choose>
           <xsl:when test="f:label">
             <xsl:value-of select="f:label"/>
@@ -361,7 +375,17 @@
           </xsl:when>
         </xsl:choose>
         <xsl:value-of select="concat(' ', f:text/@value)"/>
-      </b>
+      </xsl:variable>
+      <xsl:choose>
+        <xsl:when test="f:required/@value='true'">
+          <b>
+            <xsl:value-of select="$label"/>
+          </b>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$label"/>
+        </xsl:otherwise>
+      </xsl:choose>
       <xsl:variable name="answerType" select="f:type/@value"/>
       <xsl:variable name="answerControl">
         <xsl:choose>
@@ -565,11 +589,59 @@
       <xsl:when test="ancestor::atom:feed/atom:entry[atom:id=current()/@value]">
         <xsl:copy-of select="ancestor::atom:feed/atom:entry[atom:id=current()/@value]/atom:content/f:*"/>
       </xsl:when>
+      <xsl:when test="$expansionServer!=''">
+        <xsl:variable name="encodedValuesetURL">
+          <xsl:call-template name="encodeURL">
+            <xsl:with-param name="url" select="@value"/>
+          </xsl:call-template>
+        </xsl:variable>
+        <xsl:variable name="url" select="concat($expansionServer, '/ValueSet/$expand?_format=xml&amp;identifier=', $encodedValuesetURL)"/>
+        <xsl:copy-of select="document($url)"/>
+      </xsl:when>
       <xsl:otherwise>
+        
 <!-- Need to suppress this until HL7 starts returning proper resources
         <xsl:copy-of select="document(concat(@value, '?_format=application/xml+fhir'), /)"/>
 -->
         <!-- Todo: Is there a way to set HTTP headers in a retrieval? -->
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <xsl:template name="encodeURL">
+    <xsl:param name="url"/>
+    <xsl:variable name="pass1">
+      <xsl:call-template name="replace">
+        <xsl:with-param name="input" select="$url"/>
+        <xsl:with-param name="pattern" select="':'"/>
+        <xsl:with-param name="replacement" select="'%3A'"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:variable name="pass2">
+      <xsl:call-template name="replace">
+        <xsl:with-param name="input" select="$pass1"/>
+        <xsl:with-param name="pattern" select="':'"/>
+        <xsl:with-param name="replacement" select="'%2F'"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:value-of select="$pass2"/>
+  </xsl:template>
+  <xsl:template name="replace">
+    <xsl:param name="input"/>
+    <xsl:param name="pattern"/>
+    <xsl:param name="replacement"/>
+    <xsl:choose>
+      <xsl:when test="contains($input, $pattern)">
+        <xsl:variable name="remainder">
+          <xsl:call-template name="replace">
+            <xsl:with-param name="input" select="substring-after($input, $pattern)"/>
+            <xsl:with-param name="pattern" select="$pattern"/>
+            <xsl:with-param name="replacement" select="$replacement"/>
+          </xsl:call-template>
+        </xsl:variable>
+        <xsl:value-of select="concat(substring-before($input, $pattern), $replacement, $remainder)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$input"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
