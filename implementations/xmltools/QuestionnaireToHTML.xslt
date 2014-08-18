@@ -25,17 +25,10 @@
     <xsl:if test="not(f:Questionnaire)">
       <xsl:message terminate="yes">ERROR: This transform only works on FHIR Questionnaires.  Terminating.</xsl:message>
     </xsl:if>
-    <xsl:choose>
-      <xsl:when test="f:Questionnaire/f:name or descendant::*[self::f:group or self::f:question]/f:name">
-        <xsl:variable name="newQuestionnaire">
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="."/>
-        </xsl:variable>
-        <xsl:apply-templates select="$newQuestionnaire/f:Questionnaire"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="f:Questionnaire"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:variable name="newQuestionnaire">
+      <xsl:apply-templates mode="upgradeQuestionnaire" select="."/>
+    </xsl:variable>
+    <xsl:apply-templates select="$newQuestionnaire/f:Questionnaire"/>
   </xsl:template>
   <!-- ===============================================
      - = Convert old-style questionnaire to new style
@@ -46,12 +39,27 @@
       <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
-  <xsl:template mode="upgradeQuestionnaire" match="f:extension[starts-with(@url, 'http://hl7.org/fhir/questionnaire-extensions#additionalAnswer')]"/>
-  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#answerFormat']"/>
-  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#label']"/>
-  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#mayRepeat']"/>
-  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#minCardinality']"/>
-  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxCardinality']"/>
+  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#minOccurs']"/>
+  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxOccurs']"/>
+  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-sdc#additionalGroupText']"/>
+  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-sdc#additionalQuestionText']"/>
+  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#enableWhen']"/>
+
+  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#label']/f:valueString|
+                                                   f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#hidden']/f:valueBoolean|
+                                                   f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#defaultValue']/f:valueString|
+                                                   f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#defaultAsFixed']/f:valueBoolean|
+                                                   f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#allowedResource']/f:valueCode|
+                                                   f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#mimeType']/f:valueCode|
+                                                   f:extension[@url='http://hl7.org/fhir/questionnaire-sdc#endpoint']/f:valueUri|
+                                                   f:extension[@url='http://hl7.org/fhir/questionnaire-sdc#specialGroup']/valueCode|
+                                                   f:extension[@url='http://hl7.org/fhir/questionnaire-sdc#optionalDisplay']/valueBoolean|
+                                                   f:extension[@url='http://www.healthintersections.com.au/fhir/Profile/metadata#reference']/valueUri">
+    <xsl:variable name="name" select="concat('_', substring-after(parent::f:extension/@url, '#'))"/>
+    <xsl:element name="{$name}" namespace="http://hl7.org/fhir">
+      <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
+    </xsl:element>  
+  </xsl:template>
   <xsl:template mode="upgradeQuestionnaire" match="f:Questionnaire/f:name">
     <xsl:variable name="title">
       <xsl:choose>
@@ -73,31 +81,46 @@
   <xsl:template mode="upgradeQuestionnaire" match="f:group">
     <xsl:copy>
       <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
-      <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#label']/f:valueString">
-        <f:label>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-        </f:label>
-      </xsl:for-each>
-      <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#minCardinaility']/f:valueInteger">
-        <f:minOccurs>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-        </f:minOccurs>
-      </xsl:for-each>
-      <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxCardinaility']/f:valueInteger">
-        <f:maxOccursInteger>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-        </f:maxOccursInteger>
-      </xsl:for-each>
-      <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxCardinaility']/f:valueCode">
-        <f:maxOccursCode>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-        </f:maxOccursCode>
-      </xsl:for-each>
-      <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#mayRepeat'][f:valueBoolean/@value='true']">
-        <f:maxOccursCode value="*"/>
-      </xsl:for-each>
+      <xsl:call-template name="upgradeCardinality"/>
       <xsl:apply-templates mode="upgradeQuestionnaire" select="node()"/>
     </xsl:copy>
+  </xsl:template>
+  <xsl:template name="upgradeCardinality">
+    <f:_minOccurs>
+      <xsl:choose>
+        <xsl:when test="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#minOccurs']">
+          <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#minOccurs']/f:valueInteger">
+            <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:when test="f:required/@value='true'">
+          <xsl:attribute name="value">1</xsl:attribute>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:attribute name="value">0</xsl:attribute>
+        </xsl:otherwise>
+      </xsl:choose>
+    </f:_minOccurs>
+    <xsl:choose>
+      <xsl:when test="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxOccurs']/f:valueCode or
+                    (not(f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxOccurs']/f:valueInteger) and f:repeats/@value='true')">
+        <f:_maxOccursCode value="*"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <f:_maxOccursInteger>
+          <xsl:choose>
+            <xsl:when test="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxOccurs']/f:valueInteger">
+              <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxOccurs']/f:valueInteger">
+                <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
+              </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:attribute name="value">1</xsl:attribute>
+            </xsl:otherwise>
+          </xsl:choose>
+        </f:_maxOccursInteger>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <xsl:template mode="upgradeQuestionnaire" match="f:header">
     <f:title>
@@ -107,54 +130,9 @@
   <xsl:template mode="upgradeQuestionnaire" match="f:question">
     <xsl:copy>
       <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
-      <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#answerFormat']/f:valueCode">
-        <f:type>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-        </f:type>
-      </xsl:for-each>
-      <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#label']/f:valueString">
-        <f:label>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-        </f:label>
-      </xsl:for-each>
-      <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#minCardinaility']/f:valueInteger">
-        <f:minOccurs>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-        </f:minOccurs>
-      </xsl:for-each>
-      <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxCardinaility']/f:valueInteger">
-        <f:maxOccursInteger>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-        </f:maxOccursInteger>
-      </xsl:for-each>
-      <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxCardinaility']/f:valueCode">
-        <f:maxOccursCode>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-        </f:maxOccursCode>
-      </xsl:for-each>
+      <xsl:call-template name="upgradeCardinality"/>
       <xsl:apply-templates mode="upgradeQuestionnaire" select="node()"/>
     </xsl:copy>
-  </xsl:template>
-  <xsl:template mode="upgradeQuestionnaire" match="f:question/*[starts-with(local-name(.), 'answer')]">
-    <f:answer>
-      <xsl:element name="value{substring-after(local-name(.), 'answer')}" namespace="http://hl7.org/fhir">
-        <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-      </xsl:element>
-    </f:answer>
-    <xsl:for-each select="preceding-sibling::f:extension[starts-with(@url,'http://hl7.org/fhir/questionnaire-extensions#additionalAnswer')]|f:extension[starts-with(@url,'http://hl7.org/fhir/questionnaire-extensions#additionalAnswer')]">
-      <f:answer>
-        <xsl:element name="value{substring-after(@url, 'additionalAnswer')}" namespace="http://hl7.org/fhir">
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-        </xsl:element>
-      </f:answer>
-    </xsl:for-each>
-  </xsl:template>
-  <xsl:template mode="upgradeQuestionnaire" match="f:choice">
-    <f:answer>
-      <xsl:element name="valueCoding" namespace="http://hl7.org/fhir">
-        <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
-      </xsl:element>
-    </f:answer>
   </xsl:template>
   <!-- ====================================
      - = Questionnaire to HTML
@@ -248,6 +226,9 @@
       function checkDateTime(input) {
         checkDateValue(input, "^([1-9][0-9]{3}|0[0-9]{3})([-/](0[1-9]|1[0-2])([-/](0[1-9]|[12][0-9]|3[01])(\s+(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)(\s+(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?$", "Invalid date-time value - must be yyyy-mm-dd hh:mm:ss.sss +/-zz:zz")
       }
+      function checkTime(input) {
+        checkDateValue(input, "^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)$", "Invalid time value - must be hh:mm:ss.sss")
+      }
       function checkInstant(input) {
         checkDateValue(input, "^([1-9][0-9]{3}|0[0-9]{3})[/-](0[1-9]|1[0-2])[-/](0[1-9]|[12][0-9]|3[01])\s+(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)\s+(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)$", "Invalid date-time value - must be yyyy-mm-dd hh:mm:ss.sss +/-zz:zz")
       }
@@ -301,18 +282,19 @@
     </xsl:if>
     <xsl:variable name="repetitions">
       <xsl:choose>
-        <xsl:when test="not(f:maxOccursCode/@value or f:maxOccursInteger/@value)">1</xsl:when>
-        <xsl:when test="f:minOccurs/@value">
-          <xsl:value-of select="f:minOccurs/@value"/>
+        <xsl:when test="f:_minOccurs[@value&gt;1]">
+          <xsl:value-of select="f:_minOccurs/@value"/>
         </xsl:when>
-        <xsl:when test="f:maxOccursCode/@value='*' or f:maxOccursInteger/@value &gt; $defaultGroupRepetitions">
+        <xsl:when test="f:_maxOccursCode/@value='*' or f:_maxOccursInteger/@value &gt; $defaultGroupRepetitions">
           <xsl:value-of select="$defaultGroupRepetitions"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="f:maxOccursInteger/@value"/>
+          <xsl:value-of select="f:_maxOccursInteger/@value"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
+    <xsl:message>
+    </xsl:message>
     <xsl:call-template name="groupDiv">
       <xsl:with-param name="level" select="$level"/>
       <xsl:with-param name="hierarchy" select="$hierarchy"/>
@@ -342,12 +324,14 @@
       <xsl:if test="$enableReset='true'">
         <button type="button" onclick="resetGroup(this)">Reset</button>
       </xsl:if>
-      <button type="button" onclick="deleteGroup(this)">
-        <xsl:if test="not((f:minOccurs/@value=0 and $currentRepetition=1) or (not(f:minOccurs/@value) and $currentRepetition&gt;1) or $currentRepetition &gt; f:minOccurs/@value)">
-          <xsl:attribute name="style">display:none</xsl:attribute>
-        </xsl:if>
-        <xsl:text>Remove</xsl:text>
-      </button>
+      <xsl:if test="$totalRepetitions &gt; 1">
+        <button type="button" onclick="deleteGroup(this)">
+          <xsl:if test="not((f:_minOccurs/@value=0 and $currentRepetition=1) or (not(f:_minOccurs/@value) and $currentRepetition&gt;1) or $currentRepetition &gt; f:_minOccurs/@value)">
+            <xsl:attribute name="style">display:none</xsl:attribute>
+          </xsl:if>
+          <xsl:text>Remove</xsl:text>
+        </button>
+      </xsl:if>
       <xsl:apply-templates select="f:group|f:question">
         <xsl:with-param name="level" select="$level + 1"/>
         <xsl:with-param name="hierarchy" select="concat($hierarchy, '.', $currentRepetition)"/>
@@ -395,6 +379,9 @@
           </xsl:when>
           <xsl:when test="$answerType='dateTime'">
             <input type="text" onblur="checkDateTime(this)" maxlength="26"/>
+          </xsl:when>
+          <xsl:when test="$answerType='time'">
+            <input type="text" onblur="time(this)" maxlength="26"/>
           </xsl:when>
           <xsl:when test="$answerType='instant'">
             <input type="text" onblur="checkInstant(this)" maxlength="30"/>
@@ -488,9 +475,9 @@
         <xsl:apply-templates mode="adjustInput" select="$answerControl"/>
       </xsl:variable>
       <xsl:choose>
-        <xsl:when test="not(contains($answerType, 'choice')) and f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxCardinality']/@valueInteger">
+        <xsl:when test="not(contains($answerType, 'choice')) and _maxOccursInteger/@value">
           <xsl:call-template name="repeatAnswer">
-            <xsl:with-param name="totalRepetitions" select="f:extension[@url='http://hl7.org/fhir/questionnaire-extensions#maxCardinality']/@valueInteger"/>
+            <xsl:with-param name="totalRepetitions" select="_maxOccursInteger/@value"/>
             <xsl:with-param name="input" select="$adjustedInput"/>
             <xsl:with-param name="answers" select="f:answer"/>
           </xsl:call-template>
