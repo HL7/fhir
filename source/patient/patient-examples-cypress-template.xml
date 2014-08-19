@@ -30,13 +30,7 @@
             <family value="[%last name%]"/>
             <given value="[%first name%]"/>
           </name>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="[%gender%]"/>
-            <display value="[%gender display%]"/>
-          </coding>
-        </gender>
+        <gender value="[%gender%]" />
         <birthDate value="[%birthdate%]"/>
         <managingOrganization>
           <reference value="Organization/[%organization%]"/>

@@ -28,14 +28,8 @@
     <value value="p.heuvel@gmail.com"/>
     <use value="home"/>
   </telecom>
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="M"/>
-      <display value="Male"/>
-    </coding>
-  </gender>
-  <birthDate value="1944-11-17"/>
+	<gender value="M" />
+	<birthDate value="1944-11-17"/>
   <deceasedBoolean value="false"/>
   <address>
       <use value="home"/>

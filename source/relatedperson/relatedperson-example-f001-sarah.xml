@@ -42,12 +42,6 @@
     <value value="s.abels@kpn.nl"/>
     <use value="home"/>
   </telecom>
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="F"/>
-      <display value="Female"/>
-    </coding>
-  </gender>
+  <gender value="F" />
   
 </RelatedPerson>

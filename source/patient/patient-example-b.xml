@@ -21,12 +21,16 @@
     <given value="Duck"/>
     <given value="D"/>
   </name>
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="M"/>
-      <display value="Male"/>
-    </coding>
+  <gender value="O">
+    <extension url="http://example.org/Profile/administrative-status">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0001"/>
+              <code value="A"/>
+              <display value="Ambiguous"/>
+            </coding>
+          </valueCodeableConcept>
+    </extension>
   </gender>
   <photo>
     <contentType value="image/gif"/>

@@ -32,16 +32,13 @@
   <name>
     <family value="MINT_TEST"/>
   </name>
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="M"/>
-    </coding>
-    <coding id="nemagender">
-      <system value="http://nema.org/examples/gender"/>
-      <code value="M"/>
-    </coding>
-    <!--   <primary value="nemagender" /> -->
+	<gender value="M">
+		<extension url="http://nema.org/examples/extensions#gender">
+			<valueCoding>
+				<system value="http://nema.org/examples/gender"/>
+				<code value="M"/>
+			</valueCoding>
+		</extension>
   </gender>
 
 

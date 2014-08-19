@@ -47,13 +47,7 @@
     <use value="work"/>
   </telecom>
 
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="M"/>
-      <display value="Male"/>
-    </coding>
-  </gender>
+  <gender value="M" />
 
   <address>
     <use value="home"/>

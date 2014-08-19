@@ -361,13 +361,7 @@
             <value value="555-555-2003"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
+          <gender value="F" />
           <birthDate value="1955-01-06"/>
           <address>
             <use value="home"/>
@@ -419,13 +413,7 @@
             <value value="555-555-2008"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
+          <gender value="M" />
           <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
@@ -468,13 +456,7 @@
             <family value="Garrett"/>
             <given value="Gordon"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
+          <gender value="M" />
           <birthDate value="1935-05-08"/>
         
         <managingOrganization>
@@ -514,13 +496,7 @@
             <family value="Lamb"/>
             <given value="Greg"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
+          <gender value="M" />
           <birthDate value="1938-08-29"/>
         
         <managingOrganization>
@@ -560,13 +536,7 @@
             <family value="Garcia"/>
             <given value="Jessie"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
+          <gender value="F" />
           <birthDate value="1949-05-08"/>
         
         <managingOrganization>
@@ -606,14 +576,8 @@
             <family value="Christensen"/>
             <given value="Donald"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1933-03-02"/>
+        <gender value="M" />
+        <birthDate value="1933-03-02"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -652,13 +616,7 @@
             <family value="Hughes"/>
             <given value="Teresa"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
+          <gender value="F" />
           <birthDate value="1988-05-22"/>
         
         <managingOrganization>
@@ -698,14 +656,8 @@
             <family value="Houston"/>
             <given value="Daryl"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1937-02-14"/>
+        <gender value="M" />
+        <birthDate value="1937-02-14"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -749,14 +701,8 @@
             <family value="West"/>
             <given value="Jim"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1946-06-08"/>
+        <gender value="M" />
+        <birthDate value="1946-06-08"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -795,13 +741,7 @@
             <family value="Nguyen"/>
             <given value="Glenda"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
+          <gender value="F" />
           <birthDate value="1945-02-15"/>
         
         <managingOrganization>
@@ -841,14 +781,8 @@
             <family value="Swanson"/>
             <given value="Nathaniel"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1940-01-08"/>
+        <gender value="M" />
+        <birthDate value="1940-01-08"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -887,13 +821,7 @@
             <family value="Powers"/>
             <given value="Vera"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
+          <gender value="F" />
           <birthDate value="1945-06-11"/>
         
         <managingOrganization>
@@ -938,13 +866,8 @@
             <value value="555-555-2009"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-            </coding>
-          </gender>
-          <address>
+        <gender value="M" />
+        <address>
             <use value="home"/>
             <line value="4444 Home Street"/>
           </address>
@@ -986,14 +909,8 @@
             <family value="Chandler"/>
             <given value="Perry"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1960-01-12"/>
+        <gender value="M" />
+        <birthDate value="1960-01-12"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1032,14 +949,8 @@
             <family value="Carroll"/>
             <given value="Alvin"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1945-06-04"/>
+        <gender value="M" />
+        <birthDate value="1945-06-04"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1078,14 +989,8 @@
             <family value="Matthews"/>
             <given value="Florence"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1995-01-06"/>
+          <gender value="F" />
+        <birthDate value="1995-01-06"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1124,14 +1029,8 @@
             <family value="Frazier"/>
             <given value="Jordan"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1943-02-08"/>
+        <gender value="M" />
+        <birthDate value="1943-02-08"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1170,14 +1069,8 @@
             <family value="Patrick"/>
             <given value="Beth"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1990-08-11"/>
+        <gender value="F" />
+        <birthDate value="1990-08-11"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1216,14 +1109,8 @@
             <family value="Fleming"/>
             <given value="Christopher"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1939-03-08"/>
+        <gender value="M" />
+        <birthDate value="1939-03-08"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1262,14 +1149,8 @@
             <family value="Marshall"/>
             <given value="Howard"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1960-06-08"/>
+        <gender value="M" />
+        <birthDate value="1960-06-08"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1308,14 +1189,8 @@
             <family value="Larson"/>
             <given value="Erika"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1935-06-05"/>
+        <gender value="F" />
+        <birthDate value="1935-06-05"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1354,14 +1229,8 @@
             <family value="Day"/>
             <given value="Carol"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1963-06-08"/>
+        <gender value="F" />
+        <birthDate value="1963-06-08"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1400,13 +1269,7 @@
             <family value="Strickland"/>
             <given value="Veronica"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
+          <gender value="F" />
           <birthDate value="1963-02-08"/>
         
         <managingOrganization>
@@ -1447,14 +1310,8 @@
             <family value="everyperson"/>
             <given value="dave  "/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1945-01-01"/>
+        <gender value="M" />
+        <birthDate value="1945-01-01"/>
         
         <active value="true"/>
       </Patient>
@@ -1497,13 +1354,8 @@
             <value value="555-555-2010"/>
             <use value="work"/>
           </telecom>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-            </coding>
-          </gender>
-          <address>
+        <gender value="F" />
+        <address>
             <use value="home"/>
             <line value="5555 Home Street"/>
           </address>
@@ -1545,14 +1397,8 @@
             <family value="Mckinney"/>
             <given value="Valerie"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1960-06-08"/>
+        <gender value="F" />
+        <birthDate value="1960-06-08"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1591,14 +1437,8 @@
             <family value="Ortiz"/>
             <given value="Lucille"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1930-04-02"/>
+        <gender value="F" />
+        <birthDate value="1930-04-02"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1637,14 +1477,8 @@
             <family value="Alvarez"/>
             <given value="Mitchell"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1980-04-08"/>
+        <gender value="M" />
+        <birthDate value="1980-04-08"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1683,14 +1517,8 @@
             <family value="Dennis"/>
             <given value="Charles"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1976-06-01"/>
+        <gender value="M" />
+        <birthDate value="1976-06-01"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1729,14 +1557,8 @@
             <family value="Schmidt"/>
             <given value="Lewis"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1963-02-12"/>
+        <gender value="M" />
+        <birthDate value="1963-02-12"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1775,14 +1597,8 @@
             <family value="Carr"/>
             <given value="Rebecca"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1943-09-18"/>
+        <gender value="F" />
+        <birthDate value="1943-09-18"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1821,14 +1637,8 @@
             <family value="Greer"/>
             <given value="Esther"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1952-03-26"/>
+        <gender value="F" />
+        <birthDate value="1952-03-26"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1867,14 +1677,8 @@
             <family value="Phillips"/>
             <given value="Eddie"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1942-04-24"/>
+        <gender value="M" />
+        <birthDate value="1942-04-24"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1913,14 +1717,8 @@
             <family value="Sparks"/>
             <given value="Louise"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1968-11-27"/>
+        <gender value="F" />
+        <birthDate value="1968-11-27"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -1959,14 +1757,8 @@
             <family value="Holloway"/>
             <given value="Willie"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1959-08-02"/>
+        <gender value="F" />
+        <birthDate value="1959-08-02"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2005,14 +1797,8 @@
             <family value="Foster"/>
             <given value="Gabriel"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1967-12-29"/>
+        <gender value="M" />
+        <birthDate value="1967-12-29"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2051,14 +1837,8 @@
             <family value="Hodges"/>
             <given value="Sarah"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1964-07-18"/>
+        <gender value="F" />
+        <birthDate value="1964-07-18"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2097,14 +1877,8 @@
             <family value="White"/>
             <given value="Wilma"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1968-07-10"/>
+        <gender value="F" />
+        <birthDate value="1968-07-10"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2143,14 +1917,8 @@
             <family value="Drake"/>
             <given value="Ronald"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1979-07-18"/>
+        <gender value="M" />
+        <birthDate value="1979-07-18"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2189,14 +1957,8 @@
             <family value="Phillips"/>
             <given value="Wanda"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1980-04-23"/>
+        <gender value="F" />
+        <birthDate value="1980-04-23"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2235,14 +1997,8 @@
             <family value="Hansen"/>
             <given value="Chris"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1956-11-28"/>
+        <gender value="M" />
+        <birthDate value="1956-11-28"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2281,14 +2037,8 @@
             <family value="Reynolds"/>
             <given value="Julio"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1970-04-13"/>
+        <gender value="M" />
+        <birthDate value="1970-04-13"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2327,14 +2077,8 @@
             <family value="Roberson"/>
             <given value="Jonathan"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1945-10-01"/>
+        <gender value="M" />
+        <birthDate value="1945-10-01"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2373,14 +2117,8 @@
             <family value="Crawford"/>
             <given value="Carla"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1969-02-03"/>
+        <gender value="F" />
+        <birthDate value="1969-02-03"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2419,14 +2157,8 @@
             <family value="Hicks"/>
             <given value="Ronald"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1942-09-28"/>
+        <gender value="M" />
+        <birthDate value="1942-09-28"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2465,14 +2197,8 @@
             <family value="Hughes"/>
             <given value="Mae"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1958-05-14"/>
+        <gender value="F" />
+        <birthDate value="1958-05-14"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2511,14 +2237,8 @@
             <family value="Rice"/>
             <given value="Loretta"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1952-08-19"/>
+        <gender value="F" />
+        <birthDate value="1952-08-19"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2557,14 +2277,8 @@
             <family value="Reese"/>
             <given value="Naomi"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="F"/>
-              <display value="Female"/>
-            </coding>
-          </gender>
-          <birthDate value="1996-03-31"/>
+        <gender value="F" />
+        <birthDate value="1996-03-31"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2603,14 +2317,8 @@
             <family value="Cox"/>
             <given value="Jesse"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1993-12-02"/>
+        <gender value="M" />
+        <birthDate value="1993-12-02"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>
@@ -2649,14 +2357,8 @@
             <family value="Mccoy"/>
             <given value="Virgil"/>
           </name>
-          <gender>
-            <coding>
-              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-              <code value="M"/>
-              <display value="Male"/>
-            </coding>
-          </gender>
-          <birthDate value="1997-06-17"/>
+        <gender value="M" />
+        <birthDate value="1997-06-17"/>
         
         <managingOrganization>
           <reference value="Organization/1"/>

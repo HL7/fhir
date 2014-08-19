@@ -29,13 +29,7 @@
         <country value="NLD"/><!--ISO 3166 3 letter code-->
     </address>   
     
-    <gender><!--The practitioner's administrative gender-->
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="248153007"/>
-        <display value="Male"/>
-      </coding>  
-    </gender>
+    <gender value="M" /><!--The practitioner's administrative gender-->
     <birthDate value="1983-04-20"/>
 <!--    <photo>    
         <reference value="picture/@JvG-203.bmp"/>

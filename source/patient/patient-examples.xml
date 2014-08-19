@@ -37,12 +37,7 @@
           <value value="555-555-2003"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="F"/>
-          </coding>
-        </gender>
+        <gender value="F" />
         <birthDate value="1973-05-31"/>
         <address>
             <use value="home"/>
@@ -91,12 +86,7 @@
           <value value="555-555-2004"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="M"/>
-          </coding>
-        </gender>
+        <gender value="M" />
         <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
@@ -144,12 +134,7 @@
           <value value="555-555-2005"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="F"/>
-          </coding>
-        </gender>
+        <gender value="F" />
         <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
@@ -196,12 +181,7 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="F"/>
-          </coding>
-        </gender>
+        <gender value="F" />
         <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
@@ -249,12 +229,7 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="M"/>
-          </coding>
-        </gender>
+        <gender value="M" />
         <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
@@ -302,12 +277,7 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="M"/>
-          </coding>
-        </gender>
+        <gender value="M" />
         <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
@@ -354,12 +324,7 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="F"/>
-          </coding>
-        </gender>
+        <gender value="F" />
         <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
@@ -407,12 +372,7 @@
           <value value="555-555-2006"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="F"/>
-          </coding>
-        </gender>
+        <gender value="F" />
         <address>
             <use value="home"/>
             <line value="4444 Home Street"/>
@@ -459,12 +419,16 @@
           <value value="555-555-2007"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="M"/>
-          </coding>
-        </gender>
+        <gender value="O" >
+          <extension url="http://example.org/Profile/administrative-status">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://example.org/fhir/v2/administrative-status"/>
+                <code value="FTM"/>
+                <display value="female-to-male"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>        </gender>
         <deceasedDateTime value="2002-08-24"/>
         <address>
             <use value="home"/>
@@ -513,12 +477,7 @@
           <value value="555-555-2008"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="M"/>
-          </coding>
-        </gender>
+        <gender value="M" />
         <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
@@ -566,12 +525,7 @@
           <value value="555-555-2009"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="M"/>
-          </coding>
-        </gender>
+        <gender value="M" />
         <address>
             <use value="home"/>
             <line value="4444 Home Street"/>
@@ -619,12 +573,7 @@
           <value value="555-555-2010"/>
           <use value="work"/>
         </telecom>
-        <gender>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="F"/>
-          </coding>
-        </gender>
+        <gender value="F" />
         <address>
             <use value="home"/>
             <line value="5555 Home Street"/>

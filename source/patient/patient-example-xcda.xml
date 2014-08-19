@@ -16,12 +16,7 @@
     <family value="Levin"/>
     <given value="Henry"/>
   </name>
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="M"/>
-    </coding>
-  </gender>
+  <gender value="M" />
   <birthDate value="1932-09-24"/>
 
   <managingOrganization>

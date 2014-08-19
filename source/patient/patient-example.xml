@@ -64,13 +64,7 @@
   </telecom>
 
   <!-- use FHIR code system for male / female -->
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="M"/>
-      <display value="Male"/>
-    </coding>
-  </gender>
+  <gender value="M" />
   <birthDate value="1974-12-25"/>
   <deceasedBoolean value="false"/>
 

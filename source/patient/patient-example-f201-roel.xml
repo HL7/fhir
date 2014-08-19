@@ -37,20 +37,8 @@
         <value value="+31201234567"/>
         <use value="home"/>
     </telecom>
-    <gender>
-        <!--The gender for administrative purposes-->
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="248153007"/>
-            <display value="Male"/>
-        </coding>
-        <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="M"/>
-            <display value="Male"/>
-        </coding>
-    </gender>
-    <birthDate value="1960-03-13"/>
+	<gender value="M" />
+	<birthDate value="1960-03-13"/>
     <!--The date and time of birth for the individual -->
     <deceasedBoolean value="false"/>
     <!--Indicates that the individual is not deceased-->

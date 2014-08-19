@@ -21,9 +21,7 @@
     <given value="Henry"/>
     <suffix value="The 7th"/>
   </name>
-  <gender>
-    <text value="Male"/>
-  </gender>
+  <gender value="M" />
   <birthDate value="1932-09-24"/>
   <managingOrganization>
     <reference value="Organization/2"/>

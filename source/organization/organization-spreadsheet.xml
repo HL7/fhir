@@ -10,16 +10,17 @@
   <LastAuthor>Camiel Tromp</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
   <LastSaved>2013-06-26T11:32:54Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6345</WindowHeight>
-  <WindowWidth>17490</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6075</WindowTopY>
+  <WindowHeight>7740</WindowHeight>
+  <WindowWidth>19350</WindowWidth>
+  <WindowTopX>1140</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -413,9 +414,9 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">AdministrativeGender</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Gender for administrative purposes</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">M | F | O | U - Gender for administrative purposes</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes. </Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Needed to address the person correctly</Data></Cell>
     <Cell ss:StyleID="s76"/>
@@ -425,7 +426,7 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
    </Row>
-   <Row ss:Height="31.5">
+   <Row ss:AutoFitHeight="0" ss:Height="31.5">
     <Cell><Data ss:Type="String">Organization.location</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s76"/>
@@ -466,6 +467,7 @@
    </PageSetup>
    <Unsynced/>
    <Selected/>
+   <TopRowVisible>12</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -477,6 +479,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

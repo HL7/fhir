@@ -41,14 +41,7 @@
             <zip value="1105 AZ"/>
             <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
         </address>
-    <gender>
-        <coding>
-            <system value="urn:oid:2.16.840.1.113883.4.642.1.24"/>
-            <!-- OID gender =2.16.840.1.113883.4.642.1.24 -->
-            <code value="M"/>
-            <display value="Male"/>
-        </coding>
-    </gender>
+    <gender value="M" />
     <birthDate value="1963-07-01"/>
 
 

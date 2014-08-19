@@ -29,12 +29,7 @@
         <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
         <value value="188912345"/>
       </identifier>
-      <gender>
-        <coding>
-          <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-          <code value="M"/>
-        </coding>
-      </gender>
+      <gender value="M" />
       <birthDate value="1972-11-30"/>
 
     </Patient>

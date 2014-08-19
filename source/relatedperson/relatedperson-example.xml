@@ -61,14 +61,8 @@
     <system value="phone"/>
     <value value="+33 (237) 998327"/>
   </telecom>
-  
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="F"/>
-      <display value="Female"/>
-    </coding>
-  </gender>
+
+	<gender value="F" />
  
   <address>
     <line value="43, Place du Marché Sainte Catherine" />

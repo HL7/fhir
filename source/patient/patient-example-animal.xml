@@ -45,12 +45,7 @@
     <use value="usual"/>
     <given value="Kenzi"/>
   </name>
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="F"/>
-    </coding>
-  </gender>
+  <gender value="F" />
   <birthDate value="2010-03-23"/>
 
   <contact>

@@ -26,12 +26,7 @@
       <display value="Boston Massachesetts General Hospital"/>
     </assigner>
   </identifier>
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="F"/>
-    </coding>
-  </gender>
+  <gender value="F" />
   <birthDate value="1966-04-04"/>
   <deceasedBoolean value="false"/>
   <active value="true"/>

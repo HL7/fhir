@@ -16,9 +16,9 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>3255</WindowHeight>
-  <WindowWidth>10050</WindowWidth>
-  <WindowTopX>0</WindowTopX>
+  <WindowHeight>7740</WindowHeight>
+  <WindowWidth>19350</WindowWidth>
+  <WindowTopX>1140</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -255,9 +255,9 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">AdministrativeGender</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Gender for administrative purposes</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">M | F | O | U - Gender for administrative purposes</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes. </Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Needed to address the person correctly</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -468,8 +468,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

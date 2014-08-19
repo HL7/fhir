@@ -17,12 +17,7 @@
     <family value="Doe"/>
     <given value="John"/>
   </name>
-  <gender>
-    <coding>
-      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="M"/>
-    </coding>
-  </gender>
+  <gender value="M" />
   <birthDate value="1956-05-27"/>
   <address>
       <line value="100 Main St"/>

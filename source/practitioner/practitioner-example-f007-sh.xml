@@ -43,13 +43,7 @@
         <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
     </address>
     
-    <gender>
-        <coding>
-            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="F"/>
-            <display value="Female"/>
-        </coding>
-    </gender>
+    <gender value="F" />
     <birthDate value="1971-11-07"/>
     
     <organization>

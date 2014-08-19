@@ -163,13 +163,7 @@
                     <value value="555-555-2003"/>
                     <use value="work"/>
                 </telecom>
-                <gender>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-                        <code value="F"/>
-                        <display value="Female"/>
-                    </coding>
-                </gender>
+                <gender value="F" />
                 <birthDate value="1955-01-06"/>
                 <address>
                         <use value="home"/>

@@ -7,19 +7,21 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
-  <LastSaved>2013-10-09T21:07:24Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-08-19T07:10:17Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12240</WindowHeight>
-  <WindowWidth>17490</WindowWidth>
-  <WindowTopX>480</WindowTopX>
-  <WindowTopY>105</WindowTopY>
+  <WindowHeight>3255</WindowHeight>
+  <WindowWidth>6330</WindowWidth>
+  <WindowTopX>1140</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <TabRatio>632</TabRatio>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -32,7 +34,11 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s62" ss:Name="Normal 2">
+  <Style ss:ID="s62" ss:Name="Hyperlink">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0066CC"
+    ss:Underline="Single"/>
+  </Style>
+  <Style ss:ID="s63" ss:Name="Normal 2">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -40,10 +46,10 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s63">
+  <Style ss:ID="s64">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s64">
+  <Style ss:ID="s65">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -53,7 +59,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s65">
+  <Style ss:ID="s66">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -61,17 +67,17 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s67">
+  <Style ss:ID="s68">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s68">
+  <Style ss:ID="s69">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s69">
+  <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s73">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
@@ -79,10 +85,10 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s75">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s76">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -92,25 +98,48 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s79">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s80">
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s81">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s82">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="14" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="157.5"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="229.5"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="64.5"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="219"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="245.25"/>
-   <Column ss:StyleID="s63" ss:Width="113.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="14" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="157.5"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="229.5"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="64.5"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="219"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="245.25"/>
+   <Column ss:StyleID="s64" ss:Width="113.25"/>
+   <Column ss:Index="8" ss:StyleID="s64" ss:Width="233.25"/>
+   <Column ss:StyleID="s64" ss:Width="147.75"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Binding</Data></Cell>
     <Cell><Data ss:Type="String">Example</Data></Cell>
     <Cell><Data ss:Type="String">Reference</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Comments</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">v3</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">v3</Data></Cell>
+    <Cell><Data ss:Type="String">v2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">DataAbsentReason</Data></Cell>
@@ -145,8 +174,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">!ObservationBodySite</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Codes for human and animal body sites</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Codes for human and animal body sites</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">SNOMED CT body sites</Data></Cell>
    </Row>
@@ -159,18 +188,21 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AdministrativeGender</Data></Cell>
     <Cell><Data ss:Type="String">The gender of a person used for administrative purposes  </Data></Cell>
-    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">valueset-administrative-gender</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">#administrative-gender</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/AdministrativeGender</Data></Cell>
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/v2/vs/0001"><Data
+      ss:Type="String">http://hl7.org/fhir/v2/vs/0001</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MaritalStatus</Data></Cell>
     <Cell><Data ss:Type="String">The domestic partnership status of a person</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">valueset-marital-status</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">valueset-marital-status</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -179,15 +211,15 @@
     <Cell><Data ss:Type="String">A value representing the person's method of expression of this language</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/LanguageAbilityMode</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/LanguageAbilityMode</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">!LanguageAbilityProficiency</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">A code that describes how well the language is spoken</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">!LanguageAbilityProficiency</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">A code that describes how well the language is spoken</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/LanguageAbilityProficiency</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/LanguageAbilityProficiency</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -211,10 +243,12 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
+   <LeftColumnVisible>4</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -227,7 +261,7 @@
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="63.75"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="75.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="78.75"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s73">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Display</Data></Cell>
@@ -238,38 +272,38 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">true</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">true</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Boolean true</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Boolean true</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">false</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">false</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Boolean false</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Boolean false</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">trace</Data></Cell>
     <Cell><Data ss:Type="String">Trace Amount Detected</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The content is greater than zero, but too small to be quantified</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The content is greater than zero, but too small to be quantified</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">sufficient</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">sufficient</Data></Cell>
     <Cell><Data ss:Type="String">Sufficient Quantity</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">used in formulations (e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' This code would be used to express the quantity of water. )</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">used in formulations (e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' This code would be used to express the quantity of water. )</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">withdrawn</Data></Cell>
     <Cell><Data ss:Type="String">Value Withdrawn</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The value is no longer available</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The value is no longer available</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">nil known</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">nil known</Data></Cell>
     <Cell><Data ss:Type="String">Nil Known</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The are no known applicable values in this context</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The are no known applicable values in this context</Data></Cell>
     <Cell><Data ss:Type="String">The existence of this subject to review</Data></Cell>
    </Row>
   </Table>
@@ -301,7 +335,7 @@
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="64.5" ss:DefaultRowHeight="15">
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="436.5"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s73">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s76">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Parent</Data></Cell>
@@ -309,15 +343,15 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">read</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Read the current state of the resource</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">read</Data></Cell>
+    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Read the current state of the resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">vread</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Read the state of a specific version of the resource</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">vread</Data></Cell>
+    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Read the state of a specific version of the resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -473,8 +507,80 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>4</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="administrative-gender">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:Width="48.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="58.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="407.25"/>
+   <Column ss:Width="140.25"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Comment</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">v3</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">v2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">M</Data></Cell>
+    <Cell><Data ss:Type="String">Male</Data></Cell>
+    <Cell><Data ss:Type="String">Male</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.M</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=0001.M</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">F</Data></Cell>
+    <Cell><Data ss:Type="String">Female</Data></Cell>
+    <Cell><Data ss:Type="String">Female</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.F</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=0001.F</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">O</Data></Cell>
+    <Cell><Data ss:Type="String">Other</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The gender of a person could not be uniquely defined as male or female, such as hermaphrodite</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">&lt;AdministrativeGender.UN</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">&gt;0001.A,&gt;0001.O</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="114">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">U</Data></Cell>
+    <Cell><Data ss:Type="String">Unknown</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Description:A proper value is applicable, but not known.&#10; Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:&#10; Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.UNK</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=0001.U</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

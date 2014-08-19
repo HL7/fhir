@@ -25,13 +25,7 @@
             <zip value="2333ZA"/>
             <country value="NLD"/>
         </address>
-        <gender>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="248152002"/>
-                <display value="Female"/>
-            </coding>
-        </gender>
+        <gender value="F" />
         <birthDate value="1967-11-05"/>
         <!--    <photo>    
         <reference value="picture/@CE-204.bmp"/>

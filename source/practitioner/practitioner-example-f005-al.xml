@@ -42,14 +42,7 @@
             <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
         </address>
     
-    <gender>
-            <coding>
-                <system value="urn:oid:2.16.840.1.113883.4.642.1.24"/>
-                <!-- OID gender -->
-                <code value="F"/>
-                <display value="Female"/>
-            </coding>
-        </gender>
+        <gender value="F" />
         <birthDate value="1959-03-11"/>
     
     <organization>
