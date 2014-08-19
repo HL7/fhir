@@ -596,7 +596,7 @@
           </xsl:call-template>
         </xsl:variable>
         <xsl:variable name="url" select="concat($expansionServer, '/ValueSet/$expand?_format=xml&amp;identifier=', $encodedValuesetURL)"/>
-        <xsl:copy-of select="document($url)"/>
+        <xsl:copy-of select="document($url, /)"/>
       </xsl:when>
       <xsl:otherwise>
         
@@ -619,7 +619,7 @@
     <xsl:variable name="pass2">
       <xsl:call-template name="replace">
         <xsl:with-param name="input" select="$pass1"/>
-        <xsl:with-param name="pattern" select="':'"/>
+        <xsl:with-param name="pattern" select="'/'"/>
         <xsl:with-param name="replacement" select="'%2F'"/>
       </xsl:call-template>
     </xsl:variable>
