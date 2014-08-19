@@ -181,7 +181,7 @@ begin
     else
       comp := TFHIRXmlComposer.create('en');
     try
-      comp.Compose(result, '', '', resource, false);
+      comp.Compose(result, '', '', '', resource, false);
     finally
       comp.free;
     end;

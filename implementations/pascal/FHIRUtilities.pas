@@ -116,7 +116,7 @@ type
 
   TFhirConformanceRestResourceHelper = class helper (TFHIRElementHelper) for TFhirConformanceRestResource
   public
-    function operation(type_ : TFhirTypeRestfulOperation) : TFhirConformanceRestResourceOperation;
+    function interaction(type_ : TFhirTypeRestfulInteraction) : TFhirConformanceRestResourceInteraction;
   end;
 
   TFhirContactListHelper = class helper for TFhirContactList
@@ -1241,14 +1241,14 @@ end;
 
 { TFhirConformanceRestResourceHelper }
 
-function TFhirConformanceRestResourceHelper.operation(type_: TFhirTypeRestfulOperation): TFhirConformanceRestResourceOperation;
+function TFhirConformanceRestResourceHelper.interaction(type_: TFhirTypeRestfulInteraction): TFhirConformanceRestResourceInteraction;
 var
   i : integer;
 begin
   result := nil;
-  for i := 0 to self.operationList.count - 1 do
-    if (self.operationList[i].codeST = type_) then
-      result := self.operationList[i];
+  for i := 0 to self.interactionList.count - 1 do
+    if (self.interactionList[i].codeST = type_) then
+      result := self.interactionList[i];
 
 
 

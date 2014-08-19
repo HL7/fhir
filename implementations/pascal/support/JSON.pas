@@ -92,6 +92,7 @@ Type
 
     function add(value : String): TJsonArray; overload;
     function add(value : TJsonObject): TJsonArray; overload;
+    function addObject : TJsonObject; overload;
   end;
 
   TJsonNull = class (TJsonNode);
@@ -127,12 +128,14 @@ Type
     function GetForcedObject(name: String): TJsonObject;
     procedure SetArray(name: String; const Value: TJsonArray);
     procedure SetObject(name: String; const Value: TJsonObject);
+    function GetForcedArray(name: String): TJsonArray;
   public
     constructor Create; override;
     destructor Destroy; override;
     Function Link : TJsonObject; Overload;
 
     Function has(name : String) : Boolean;
+    Function isNull(name : String) : Boolean;
 
     Property str[name : String] : String read GetString write SetString; default;
     Property bool[name : String] : boolean read GetBool write SetBool;
@@ -146,6 +149,7 @@ Type
     Property vObj[name : String] : TJsonObject read GetObject write SetObject;
 
     Property forceObj[name : String] : TJsonObject read GetForcedObject;
+    Property forceArr[name : String] : TJsonArray read GetForcedArray;
     procedure clear(name : String = '');
 
     Property name : String read FName write FName;
@@ -494,10 +498,14 @@ begin
         WriteArray(n, v as TJsonArray)
       else if v is TJsonNull then
         ValueNull(n)
+      else if v is TJsonBoolean then
+        Value(n, TJsonBoolean(v).FValue)
       else if v is TJsonValue then
         Value(n, (v as TJsonValue).FValue)
-      else // TJsonObject
-        WriteObject(n, v as TJsonObject);
+      else if v is  TJsonObject then
+        WriteObject(n, v as TJsonObject)
+      else
+        raise Exception.Create('Unexpected object type '+v.ClassName);
     end;
   finally
     names.free;
@@ -1173,6 +1181,12 @@ begin
   result := self;
 end;
 
+function TJsonArray.addObject: TJsonObject;
+begin
+  result := TJsonObject.Create;
+  add(result);
+end;
+
 constructor TJsonArray.create;
 begin
   inherited Create;
@@ -1317,6 +1331,13 @@ begin
     result := false;
 end;
 
+function TJsonObject.GetForcedArray(name: String): TJsonArray;
+begin
+  if not properties.ExistsByKey(name) or not (properties[name] is TJsonArray) then
+    arr[name] := TJsonArray.Create;
+  result := arr[name];
+end;
+
 function TJsonObject.GetForcedObject(name: String): TJsonObject;
 begin
   if not properties.ExistsByKey(name) or not (properties[name] is TJsonObject) then
@@ -1346,6 +1367,10 @@ function TJsonObject.GetString(name: String): String;
 var
   node : TJsonNode;
 begin
+  if self = nil then
+    result := ''
+  else
+  begin
   if has(name) then
   begin
     node := FProperties[name];
@@ -1364,10 +1389,16 @@ begin
   else
     result := '';
 end;
+end;
 
 function TJsonObject.has(name: String): Boolean;
 begin
   result := FProperties.ExistsByKey(name);
+end;
+
+function TJsonObject.isNull(name: String): Boolean;
+begin
+  result := has(name) and (FProperties.Prop[name] is TJsonNull);
 end;
 
 function TJsonObject.Link: TJsonObject;

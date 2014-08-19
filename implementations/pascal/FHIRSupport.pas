@@ -749,7 +749,7 @@ begin
       if Feed <> nil then
         comp.Compose(stream, Feed, true)
       else if Resource <> nil then
-        comp.Compose(stream, id, subId, resource, true)
+        comp.Compose(stream, CODES_TFHIRResourceType[ResourceType], id, subId, resource, true)
     finally
       comp.free;
     end;
