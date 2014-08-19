@@ -9,19 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-01-21T00:36:01Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-05-06T17:28:08Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9030</WindowHeight>
-  <WindowWidth>19290</WindowWidth>
-  <WindowTopX>1200</WindowTopX>
+  <WindowHeight>3855</WindowHeight>
+  <WindowWidth>14490</WindowWidth>
+  <WindowTopX>1140</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>683</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -34,7 +33,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s63" ss:Name="Normal 3">
+  <Style ss:ID="s62" ss:Name="Normal 3">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -42,17 +41,17 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s64">
+  <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s65">
+  <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s66">
+  <Style ss:ID="s65">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -62,12 +61,12 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s67">
+  <Style ss:ID="s66">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s68">
+  <Style ss:ID="s67">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -75,7 +74,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s69">
+  <Style ss:ID="s68">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -83,14 +82,14 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s69">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s72">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s74" ss:Parent="s63">
+  <Style ss:ID="s73" ss:Parent="s62">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -98,13 +97,13 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s74">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -112,33 +111,33 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s81">
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s83">
+  <Style ss:ID="s78">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s79">
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="8" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s65" ss:Width="198"/>
-   <Column ss:StyleID="s64" ss:Width="29.25"/>
-   <Column ss:StyleID="s64" ss:Width="23.25"/>
-   <Column ss:StyleID="s64" ss:Width="60"/>
-   <Column ss:StyleID="s64" ss:Width="27"/>
-   <Column ss:StyleID="s64" ss:Width="303"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="66.75"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="503.25"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="155.25"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="77.25"/>
-   <Column ss:StyleID="s64" ss:Width="72"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="344.25"/>
-   <Column ss:Index="16" ss:StyleID="s64" ss:Width="89.25"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="87.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
+   <Column ss:StyleID="s64" ss:Width="198"/>
+   <Column ss:StyleID="s63" ss:Width="29.25"/>
+   <Column ss:StyleID="s63" ss:Width="23.25"/>
+   <Column ss:StyleID="s63" ss:Width="60"/>
+   <Column ss:StyleID="s63" ss:Width="27"/>
+   <Column ss:StyleID="s63" ss:Width="303"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="66.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="503.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s63" ss:Width="72"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="344.25"/>
+   <Column ss:Index="16" ss:StyleID="s63" ss:Width="89.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="87.75"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -159,52 +158,53 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Availability</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">(informative) A container for slot(s) of time that may be available for booking appointments</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s69"/>
-    <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">BEGIN:VFREEBUSY  …  END:VFREEBUSY&#10;(If your fhir server provides this information via calDAV, then you may want to include addressing information in a URL section, and with the search, a DTSTART and DTEND component can be included to indicate the range of time that has been covered in the collection of slots, where these overlap the resources period values. For all slots that reference this resource, include a FREEBUSY row for each slot)</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:Index="17" ss:StyleID="s68"/>
+    <Cell ss:Index="10"><Data ss:Type="String">Schedule</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">BEGIN:VFREEBUSY  …  END:VFREEBUSY&#10;(If your fhir server provides this information via calDAV, then you may want to include addressing information in a URL section, and with the search, a DTSTART and DTEND component can be included to indicate the range of time that has been covered in the collection of slots, where these overlap the resources period values. For all slots that reference this resource, include a FREEBUSY row for each slot)</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:Index="17" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Availability.identifier</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">External Ids for this item</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">UID</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">External Ids for this item</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">.id</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">UID</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:Index="17" ss:StyleID="s68"/>
+    <Cell ss:Index="17" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.75">
     <Cell><Data ss:Type="String">Availability.type</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ActType</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">The type(s) of appointments that can be booked into slots attached to this availability resource (ideally this would be an identifiable service - which is at a location, rather than the location itself). (This may be over-ridden by a slot itself)</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">n/a</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:Index="17" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ActType</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The schedule type can be used for the categorization of healthcare services or other appointment types</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">n/a</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:Index="17" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Availability.individual</Data></Cell>
+    <Cell><Data ss:Type="String">Availability.actor</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">ATTENDEE:MAILTO:john_public@host2.com&#10;This can be populated with a value from the referenced resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -212,7 +212,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The period of time that the slots that are attached to this availability resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a &quot;template&quot; for planning outside these dates</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">DTSTART:20131201T003000Z&#10;DTEND:2014030101T003000Z</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s73"><Data ss:Type="String">DTSTART:20131201T003000Z&#10;DTEND:2014030101T003000Z</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Availability.comment</Data></Cell>
@@ -224,17 +224,17 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Availability.lastModified</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">When this availability was created, or last revised</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s69"/>
-    <Cell ss:Index="13" ss:StyleID="s69"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">DTSTAMP:19970901T083000Z&#10;(Server may consider updating this date to the latest date on the slots)</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:Index="17" ss:StyleID="s68"/>
+    <Cell ss:Index="11" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">DTSTAMP:19970901T083000Z&#10;(Server may consider updating this date to the latest date on the slots)</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:Index="17" ss:StyleID="s67"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -249,12 +249,13 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -262,13 +263,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -279,15 +281,15 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s74" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s75" ss:Width="14.25"/>
-   <Column ss:StyleID="s75" ss:Width="126"/>
-   <Column ss:StyleID="s75" ss:Width="96"/>
-   <Column ss:StyleID="s75" ss:Width="234.75"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="140.25"/>
-   <Column ss:StyleID="s75" ss:Width="320.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
+   <Column ss:StyleID="s74" ss:Width="14.25"/>
+   <Column ss:StyleID="s74" ss:Width="126"/>
+   <Column ss:StyleID="s74" ss:Width="96"/>
+   <Column ss:StyleID="s74" ss:Width="234.75"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="140.25"/>
+   <Column ss:StyleID="s74" ss:Width="320.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -298,7 +300,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -306,7 +308,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -314,7 +316,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -322,7 +324,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -378,20 +380,20 @@
    <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="195.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="33">
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Event Code</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Notes</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Request Resources</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Request Aggregations</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Response Resources</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Follow Ups</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Notes</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Request Resources</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Request Aggregations</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Response Resources</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="4" ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:Index="4" ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -435,101 +437,101 @@
    <Column ss:AutoFitWidth="0" ss:Width="71.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="383.25"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="189.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s66">
+   <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">individual</Data></Cell>
-    <Cell><Data ss:Type="String">The individual to find an availability for</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
+    <Cell><Data ss:Type="String">The individual(HealthcareService, Practitioner, Location, ...) to find an availability for</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell><Data ss:Type="String">Availability.individual</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell><Data ss:Type="String">Availability.actor</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">type</Data></Cell>
     <Cell><Data ss:Type="String">The type of appointments that can be booked into associated slot(s)</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">Availability.type</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">Search for availability resources that have a period that contains this date specified</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">Availability.planningHorizon</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -564,7 +566,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -582,18 +584,18 @@
    <Column ss:AutoFitWidth="0" ss:Width="264.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">ActType</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">The type of appointments that can be booked on the slots that are associated with this availability resource (however the slot can over-ride this value)</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActCode</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ActType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The schedule type can be used for the categorization of healthcare services or other appointment types&#10;(This is an example set, not an incomplete - TO BE UDPATED)</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActCode</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -608,7 +610,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -628,8 +629,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -646,11 +645,11 @@
    <Column ss:AutoFitWidth="0" ss:Width="99"/>
    <Column ss:AutoFitWidth="0" ss:Width="258.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -679,18 +678,18 @@
    <Column ss:Width="356.25"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="273.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Physio Example</Data></Cell>
     <Cell><Data ss:Type="String">Example of an availability resource</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">availability-example.xml</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">availability-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
   </Table>
@@ -704,8 +703,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

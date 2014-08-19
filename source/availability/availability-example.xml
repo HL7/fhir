@@ -13,10 +13,10 @@
 			<display value="Physiotherapy" />
 		</coding>
 	</type>
-	<individual>
+	<actor>
 		<reference value="Location/1" />
 		<display value="Burgers UMC, South Wing, second floor" />
-	</individual>
+	</actor>
 	<planningHorizon>
 		<start value="2013-12-25T09:15:00Z" />
 		<end value="2013-12-25T09:30:00Z" />

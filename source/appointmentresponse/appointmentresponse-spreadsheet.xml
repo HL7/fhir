@@ -16,9 +16,9 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9030</WindowHeight>
-  <WindowWidth>19290</WindowWidth>
-  <WindowTopX>1200</WindowTopX>
+  <WindowHeight>7440</WindowHeight>
+  <WindowWidth>19350</WindowWidth>
+  <WindowTopX>1140</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>683</TabRatio>
   <ProtectStructure>False</ProtectStructure>
@@ -164,7 +164,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">(informative) A response to a scheduled appointment for a patient and/or practitioner(s)</Data></Cell>
+    <Cell><Data ss:Type="String">A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
     <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -335,7 +335,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -343,14 +343,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

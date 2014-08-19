@@ -21,10 +21,10 @@
 	</location>
 	<comment value="Further expand on the results of the MRI and determine the next actions that may be appropriate." />
 	<participant>
-		<individual>
+		<actor>
 			<reference value="Patient/example" />
 			<display value="Peter James Chalmers" />
-		</individual>
+		</actor>
 		<required value="required" />
 		<status value="accepted" />
 	</participant>
@@ -34,10 +34,10 @@
 				<code value="attending"/>
 			</coding>
 		</type>
-		<individual>
+		<actor>
 			<reference value="Practitioner/example" />
 			<display value="Dr Adam Careful" />
-		</individual>
+		</actor>
 		<required value="required" />
 		<status value="accepted" />
 	</participant>

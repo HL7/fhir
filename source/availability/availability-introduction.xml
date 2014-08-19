@@ -3,6 +3,16 @@
 	<div>
 		<h2>Scope and Usage</h2>
 		<p>
+			Need to describe Searching for "Schedule's" that belong to a HealthcareService using Categories, or 
+			where using pracitioners or locations as the actor, then the "type" field is expected to be used to store the
+			service categories.
+			Advice to use as an actor.
+		</p>
+		<p>
+			Also consider 
+		</p>
+		<h2>Scope and Usage</h2>
+		<p>
 			Availability resources provide a container for time-slots that can be booked using an appointment,
 			It provides the window of time (period) that slots are defined for and what type of appointments can be booked.
 			They do not provide any information about actual appointments.

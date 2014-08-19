@@ -9,20 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-01-21T20:22:21Z</LastSaved>
+  <LastSaved>2014-05-05T23:45:53Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11925</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
-  <WindowTopX>0</WindowTopX>
+  <WindowHeight>1665</WindowHeight>
+  <WindowWidth>6330</WindowWidth>
+  <WindowTopX>1140</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>683</TabRatio>
-  <ActiveSheet>7</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -153,9 +151,9 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="328.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="255.75"
-    ss:Span="1"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="231"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="255.75" ss:Span="1"/>
    <Column ss:Index="17" ss:StyleID="s63" ss:Width="89.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -187,7 +185,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">(informative) A scheduled appointment for a patient and/or practitioner(s) where a service may take place</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">Act (ActMood = ActMoodAppointment or ActMoodAppointmentRequest) </Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">VEVENT</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -215,20 +213,21 @@
     <Cell ss:Index="6" ss:StyleID="s72"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept)</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.priorityCode</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">PRIORITY</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Appointment.status</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">ActStatus</Data></Cell>
     <Cell><Data ss:Type="String">The overall status of the Appointment</Data></Cell>
     <Cell><Data ss:Type="String">Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">.statusCode</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"/>
@@ -243,7 +242,7 @@
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself)</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:Index="17" ss:StyleID="s67"/>
@@ -258,7 +257,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">ApptReason</Data></Cell>
     <Cell><Data ss:Type="String">The reason that this appointment is being scheduled, this is more clinical than administrative</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">(encounter appointment).reason</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"/>
@@ -269,6 +268,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.text</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">DESCRIPTION</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.75">
@@ -276,18 +276,21 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">instant</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Date/Time that the appointment is to take place</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.effectiveTime.low</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment.end</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">instant</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Date/Time that the appointment is to conclude</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.effectiveTime.high</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!Appointment.minutesDuration</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate)</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Removed when taking out the recurrence fields</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!Appointment.recurrence</Data></Cell>
@@ -307,12 +310,14 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Slot)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Schedule-Slot (classCode=ACT, moodCode = SLOT)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment.location</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The primary location that this appointment is to take place</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.location</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment.comment</Data></Cell>
@@ -321,11 +326,13 @@
     <Cell ss:Index="8"><Data ss:Type="String">Additional comments about the appointment</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">COMMENT</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Appointment.order</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Order)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">An Order that lead to the creation of this appointment</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.referencedOrder</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">The Supply Order from the V3 DMIM was discussed and decided outside 80%, permit via extensions where required</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Appointment.participant</Data></Cell>
@@ -336,8 +343,7 @@
     <Cell ss:Index="7" ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">List of participants involved in the appointment</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:Index="14" ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ATTENDEE component to be created</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:Index="18" ss:StyleID="s67"/>
@@ -359,7 +365,7 @@
     <Cell ss:Index="18" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Appointment.participant.individual</Data></Cell>
+    <Cell><Data ss:Type="String">Appointment.participant.actor</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -368,7 +374,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Should this be multiple? And move to a child enitity</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">performer | reusableDevice | subject | location</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -385,7 +391,7 @@
     <Cell><Data ss:Type="String">required | optional | information-only</Data></Cell>
     <Cell><Data ss:Type="String">Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">performer.performIndicator</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">ROLE=REQ-PARTICIPANT (roleparam)</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -429,6 +435,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The location that this appointment is to take place</Data></Cell>
     <Cell><Data ss:Type="String">If this location is defined, this is where this participant is expected to be, otherwise the location in the appointment is used. This covers use-cases where teleconferencing is used, and some participants are in a different location.</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">(wrapper)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment.lastModifiedBy</Data></Cell>
@@ -440,7 +447,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Who recorded the appointment</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">.author</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">IAM-14-Reported By (if patient) / IAM-18-Statused By Person (if practitioner)&#10;</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -475,12 +482,13 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>17</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -488,16 +496,12 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>25</ActiveRow>
-     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -687,7 +691,7 @@
     <Cell><Data ss:Type="String">individual</Data></Cell>
     <Cell><Data ss:Type="String">Any one of the individuals participating in the appointment</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell><Data ss:Type="String">Appointment.participant.individual</Data></Cell>
+    <Cell><Data ss:Type="String">Appointment.participant.actor</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -815,7 +819,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1067,7 +1072,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
