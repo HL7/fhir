@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
@@ -9,19 +8,18 @@
   <Author>Grahame</Author>
   <LastAuthor>David Hay</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-08-03T02:35:35Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-08-20T05:13:46Z</LastSaved>
+  <Version>14.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11415</WindowHeight>
-  <WindowWidth>27555</WindowWidth>
+  <WindowHeight>10040</WindowHeight>
+  <WindowWidth>27700</WindowWidth>
   <WindowTopX>540</WindowTopX>
   <WindowTopY>360</WindowTopY>
   <ActiveSheet>3</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -101,24 +99,29 @@
   <Style ss:ID="s73">
    <Alignment ss:Vertical="Top"/>
   </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="17" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="180"/>
-   <Column ss:StyleID="s62" ss:Width="29.25"/>
-   <Column ss:StyleID="s62" ss:Width="23.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="207"/>
+   <Column ss:StyleID="s62" ss:Width="29"/>
+   <Column ss:StyleID="s62" ss:Width="23"/>
    <Column ss:StyleID="s62" ss:Width="60"/>
    <Column ss:StyleID="s62" ss:Width="27"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="84.75"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="120.75"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="87.75"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="63.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="85"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="121"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="199"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="88"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="64"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="165.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="166"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -139,7 +142,7 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="91">
     <Cell><Data ss:Type="String">ReferralRequest</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -234,7 +237,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="54.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell><Data ss:Type="String">ReferralRequest.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">N</Data></Cell>
@@ -303,10 +306,12 @@
     <Cell ss:Index="8"><Data ss:Type="String">Reason for referral / Transfer of care request</Data></Cell>
     <Cell><Data ss:Type="String">Description of clinical condition indicating why referral/transfer of care is requested</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="13"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Examples:&#13;&quot;2nd degree AV block&quot;&#13;&#13;Oral Health</Font><B><Font
-        html:Color="#000000"> </Font></B><Font html:Color="#000000">example</Font><B><Font
-        html:Color="#000000"> ReferralReasonCode</Font></B><Font html:Color="#000000">:&#13;01 = Pathological Anomalies&#13;02 = Disabled (physical or mental)&#13;03 = Complexity of Treatment&#13;04 = Seizure Disorders&#13;05 = Extensive Surgery&#13;06 = Surgical Complexity&#13;07 = Rampant decay&#13;08 = Medical History (to provide details upon request)&#13;09 = Temporal Mandibular Joint Anomalies&#13;10 = Accidental Injury&#13;11 = Anaesthesia complications (local or general)&#13;12 = Developmental Anomalies&#13;13 = Behavioral Management &#13;</Font></ss:Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">Examples:&#13;&quot;2nd degree AV block&quot;&#13;&#13;Oral Health</Font><B
+       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000"> </Font></B><Font
+       html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40">example</Font><B
+       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000"> ReferralReasonCode</Font></B><Font
+       html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40">:&#13;01 = Pathological Anomalies&#13;02 = Disabled (physical or mental)&#13;03 = Complexity of Treatment&#13;04 = Seizure Disorders&#13;05 = Extensive Surgery&#13;06 = Surgical Complexity&#13;07 = Rampant decay&#13;08 = Medical History (to provide details upon request)&#13;09 = Temporal Mandibular Joint Anomalies&#13;10 = Accidental Injury&#13;11 = Anaesthesia complications (local or general)&#13;12 = Developmental Anomalies&#13;13 = Behavioral Management &#13;</Font></Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="54">
     <Cell><Data ss:Type="String">ReferralRequest.description</Data></Cell>
@@ -368,12 +373,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -381,30 +387,30 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>9</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s71" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s71" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="116.25"/>
+   <Column ss:Index="2" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="116"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="205"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="199"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="188"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -467,6 +473,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -490,18 +497,17 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="83.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="158.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="162.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="195.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="74.25"/>
+   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="83"/>
+   <Column ss:AutoFitWidth="0" ss:Width="199"/>
+   <Column ss:AutoFitWidth="0" ss:Width="158"/>
+   <Column ss:AutoFitWidth="0" ss:Width="163"/>
+   <Column ss:AutoFitWidth="0" ss:Width="196"/>
+   <Column ss:AutoFitWidth="0" ss:Width="74"/>
    <Row ss:AutoFitHeight="0" ss:Height="33">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Event Code</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
@@ -524,6 +530,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -547,15 +554,16 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="41" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="71.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="383.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s64">
+   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="71"/>
+   <Column ss:AutoFitWidth="0" ss:Width="383"/>
+   <Column ss:AutoFitWidth="0" ss:Width="78"/>
+   <Column ss:AutoFitWidth="0" ss:Width="222"/>
+   <Row ss:AutoFitHeight="0" ss:Height="16" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
@@ -567,11 +575,35 @@
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">ReferralRequest.subject</Data></Cell>
    </Row>
-   <Row ss:Index="6" ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell><Data ss:Type="String">status</Data></Cell>
+    <Cell><Data ss:Type="String">The status of the referral</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">ReferralRequest.status</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell><Data ss:Type="String">type</Data></Cell>
+    <Cell><Data ss:Type="String">The type of the referral</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">ReferralRequest.type</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell><Data ss:Type="String">specialty</Data></Cell>
+    <Cell><Data ss:Type="String">The specialty that the referral is for</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">ReferralRequest.specialty</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell><Data ss:Type="String">priority</Data></Cell>
+    <Cell><Data ss:Type="String">The priority assigned to the referral</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">ReferralRequest.priority</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="9" ss:StyleID="s63"/>
+    <Cell><Data ss:Type="String">recipient</Data></Cell>
+    <Cell><Data ss:Type="String">The person that the referral was sent to</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">ReferralRequest.recipient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="9" ss:StyleID="s63"/>
@@ -683,6 +715,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-4</HorizontalResolution>
+    <VerticalResolution>-4</VerticalResolution>
+   </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -703,23 +742,22 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
+   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="93"/>
-   <Column ss:AutoFitWidth="0" ss:Width="221.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="81.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="107.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="221"/>
+   <Column ss:AutoFitWidth="0" ss:Width="82"/>
+   <Column ss:AutoFitWidth="0" ss:Width="107"/>
+   <Column ss:AutoFitWidth="0" ss:Width="275"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
@@ -753,6 +791,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -777,12 +816,11 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="referralstatus">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="7" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="14.0625">
+   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="14">
    <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
@@ -821,6 +859,7 @@
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <Unsynced/>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -830,7 +869,6 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
 </Workbook>

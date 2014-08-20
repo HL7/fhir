@@ -1,39 +1,32 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<div>
-<h2>Scope and Usage</h2>
-    <p>
-        A referral is a common clinical task where one clinician asks another to manage some aspect
-        of a patients care. This can either be part of a patients care, or a complete transfer of the care.
+    
+    <div>
+        <h2>Scope and Usage</h2>
+        <p>
+             This resource is used to record relevant information required to support a referral request or a transfer of care request from one provider or provider organisation to another.
+            It is intended for use when a patient is required to be referred to another provider (e.g. a specialist) for a consultation/second opinion, for short term or longer term management of one or more health issues or problems.
+            It is also intended for use when a complete and more permanent transfer of care responsibility from one provider/organization to another. For example as in the case of requesting the transfer of care for a patient from acute care setting to rehabilitation, aged care, or skilled nursing facility.
         </p>
-    <p>It is also possible for a patient to make a referral directly (often termed a 'self referral')
-    </p>
-    <p>
-        The workflow around the referral is managed by the Order/OrderResponce resources, with the 
-        ReferralRequest containing the clincial details. 
-    </p>
-<p>
-Todo
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-</p>
-</div>
+    </div>
+    
 
-<!-- (recommended): 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
-</p>
+    The Referral Request resource references or includes a number of other resources including Practitioner, Organization, Condition, Family History, Allergy/Intolerance, Alerts, Medication, Diagnostic Reports, Care Plan, etc   
+    </p>
+    <p>
+        This resource is referenced by Care Plan (for example, a rheumatoid arthritis care plan may include referrals to rheumatologist, physiotherapist, occupational therapist).   
+    </p>
 </div>
--->
 
-<!-- (optional):
+
 <div>
 <h2>Background and Context</h2>
 <p>
 Provides additional detail on exactly how the resource is to be used
 </p>
 </div>
--->
+
 
 </div>
