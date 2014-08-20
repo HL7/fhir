@@ -34,6 +34,7 @@ import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Patient;
+import org.hl7.fhir.instance.model.Patient.AdministrativeGender;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceReference;
 import org.junit.After;
@@ -699,14 +700,7 @@ public class FHIRSimpleClientTest {
 			DateTimeType birthday = new DateTimeType();
 			birthday.setValue(new DateAndTime("2008-08-08"));
 			patient.setBirthDate(birthday);
-			CodeType genderCode = new CodeType();
-			genderCode.setValue("F");
-			Coding genderCoding = new Coding();
-			genderCoding.setCode(genderCode);
-			genderCoding.setSystemSimple("http://hl7.org/fhir/v3/AdministrativeGender");
-			CodeableConcept female = new CodeableConcept();
-			female.getCoding().add(genderCoding);
-			patient.setGender(female);
+			patient.setGenderSimple(AdministrativeGender.F); // This is now a Simple code value
 		} catch (ParseException e) {
 			e.printStackTrace();
 			fail();

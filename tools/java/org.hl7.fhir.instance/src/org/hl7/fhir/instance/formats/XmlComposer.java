@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -685,7 +685,7 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       for (CodeableConcept e : element.getType()) 
         composeCodeableConcept("type", e);
-      composeResourceReference("individual", element.getIndividual());
+      composeResourceReference("actor", element.getActor());
       if (element.getRequired() != null)
         composeEnumeration("required", element.getRequired(), new Appointment.ParticipantrequiredEnumFactory());
       if (element.getStatus() != null)
@@ -726,7 +726,7 @@ public class XmlComposer extends XmlComposerBase {
         composeIdentifier("identifier", e);
       for (CodeableConcept e : element.getType()) 
         composeCodeableConcept("type", e);
-      composeResourceReference("individual", element.getIndividual());
+      composeResourceReference("actor", element.getActor());
       composePeriod("planningHorizon", element.getPlanningHorizon());
       composeString("comment", element.getComment());
       composeDateTime("lastModified", element.getLastModified());
@@ -2724,7 +2724,8 @@ public class XmlComposer extends XmlComposerBase {
       for (Contact e : element.getTelecom()) 
         composeContact("telecom", e);
       composeAddress("address", element.getAddress());
-      composeCodeableConcept("gender", element.getGender());
+      if (element.getGender() != null)
+        composeEnumeration("gender", element.getGender(), new Organization.AdministrativeGenderEnumFactory());
       xml.close(FHIR_NS, name);
     }
   }
@@ -2755,7 +2756,8 @@ public class XmlComposer extends XmlComposerBase {
         composeHumanName("name", e);
       for (Contact e : element.getTelecom()) 
         composeContact("telecom", e);
-      composeCodeableConcept("gender", element.getGender());
+      if (element.getGender() != null)
+        composeEnumeration("gender", element.getGender(), new Patient.AdministrativeGenderEnumFactory());
       composeDateTime("birthDate", element.getBirthDate());
       composeType("deceased", element.getDeceased());
       for (Address e : element.getAddress()) 
@@ -2790,7 +2792,8 @@ public class XmlComposer extends XmlComposerBase {
       for (Contact e : element.getTelecom()) 
         composeContact("telecom", e);
       composeAddress("address", element.getAddress());
-      composeCodeableConcept("gender", element.getGender());
+      if (element.getGender() != null)
+        composeEnumeration("gender", element.getGender(), new Patient.AdministrativeGenderEnumFactory());
       composeResourceReference("organization", element.getOrganization());
       xml.close(FHIR_NS, name);
     }
@@ -2832,7 +2835,8 @@ public class XmlComposer extends XmlComposerBase {
         composeContact("telecom", e);
       for (Address e : element.getAddress()) 
         composeAddress("address", e);
-      composeCodeableConcept("gender", element.getGender());
+      if (element.getGender() != null)
+        composeEnumeration("gender", element.getGender(), new Practitioner.AdministrativeGenderEnumFactory());
       composeDateTime("birthDate", element.getBirthDate());
       for (Attachment e : element.getPhoto()) 
         composeAttachment("photo", e);
@@ -3387,7 +3391,8 @@ public class XmlComposer extends XmlComposerBase {
       composeHumanName("name", element.getName());
       for (Contact e : element.getTelecom()) 
         composeContact("telecom", e);
-      composeCodeableConcept("gender", element.getGender());
+      if (element.getGender() != null)
+        composeEnumeration("gender", element.getGender(), new RelatedPerson.AdministrativeGenderEnumFactory());
       composeAddress("address", element.getAddress());
       for (Attachment e : element.getPhoto()) 
         composeAttachment("photo", e);

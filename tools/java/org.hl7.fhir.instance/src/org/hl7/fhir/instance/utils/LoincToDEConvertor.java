@@ -73,17 +73,33 @@ public class LoincToDEConvertor {
 	private AtomFeed feed;
 	private DateAndTime now;
 
+  public AtomFeed process(String sourceFile) throws Exception {
+    this.definitions = sourceFile;
+    log("Begin. Produce Loinc CDEs in "+dest+" from "+definitions);
+    loadLoinc();
+    log("LOINC loaded");
+
+    now = DateAndTime.today();
+
+    feed = new AtomFeed();
+    feed.setId("http://hl7.org/fhir/commondataelement/loinc");
+    feed.setUpdated(now);
+    feed.setAuthorName("FHIR Core Team, in association with Regenstrief");
+
+    processLoincCodes();
+    return feed;
+  }
 	public void process() throws Exception {
 		log("Begin. Produce Loinc CDEs in "+dest+" from "+definitions);
 		loadLoinc();
 		log("LOINC loaded");
 
-		now = DateAndTime.now();
+		now = DateAndTime.today();
 
 		feed = new AtomFeed();
 		feed.setId("http://hl7.org/fhir/commondataelement/loinc");
 		feed.setUpdated(now);
-		feed.setAuthorName("FHIR Core Team");
+    feed.setAuthorName("FHIR Core Team, in association with Regenstrief");
 
 		processLoincCodes();
 		if (dest != null) {
@@ -143,13 +159,13 @@ public class LoincToDEConvertor {
 				id.setSystemSimple("http://hl7.org/fhir/commondataelement/loinc");
 				id.setValueSimple(code);
 				cde.setIdentifier(id);
-				cde.setPublisherSimple("HL7 FHIR Project Team / LOINC");
-				cde.getTelecom().add(new Contact().setSystemSimple(ContactSystem.url).setValueSimple("http://hl7.org/fhir"));
-				cde.getTelecom().add(new Contact().setSystemSimple(ContactSystem.url).setValueSimple("http://loinc.org"));
+				cde.setPublisherSimple("Regenstrief + FHIR Project Team");
+//				cde.getTelecom().add(new Contact().setSystemSimple(ContactSystem.url).setValueSimple("http://hl7.org/fhir"));
+//				cde.getTelecom().add(new Contact().setSystemSimple(ContactSystem.url).setValueSimple("http://loinc.org"));
 				if (!col(row, "STATUS").equals("ACTIVE"))
 	 				cde.setStatusSimple(ResourceObservationDefStatus.draft); // till we get good at this
 				else
-					cde.setStatusSimple(ResourceObservationDefStatus.retired); // till we get good at this
+					cde.setStatusSimple(ResourceObservationDefStatus.retired);
 				cde.setDateSimple(now);
 				cde.setNameSimple(comp);
 				ae.setResource(cde);
@@ -179,7 +195,7 @@ public class LoincToDEConvertor {
 				// SURVEY_QUEST_SRC	
 				if (hasCol(row, "RELATEDNAMES2")) {
 	        String n = col(row, "RELATEDNAMES2");
-	        for (String s : n.split(";")) {
+	        for (String s : n.split("\\;")) {
 						if (!Utilities.noString(s))
 							cde.getSynonym().add(new StringType().setValue(s));	
 					}

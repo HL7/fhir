@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,6 +37,64 @@ import java.util.*;
  * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
  */
 public class RelatedPerson extends Resource {
+
+    public enum AdministrativeGender {
+        M, // Male
+        F, // Female
+        O, // Other
+        U, // Unknown
+        Null; // added to help the parsers
+        public static AdministrativeGender fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("M".equals(codeString))
+          return M;
+        if ("F".equals(codeString))
+          return F;
+        if ("O".equals(codeString))
+          return O;
+        if ("U".equals(codeString))
+          return U;
+        throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case M: return "M";
+            case F: return "F";
+            case O: return "O";
+            case U: return "U";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class AdministrativeGenderEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("M".equals(codeString))
+          return AdministrativeGender.M;
+        if ("F".equals(codeString))
+          return AdministrativeGender.F;
+        if ("O".equals(codeString))
+          return AdministrativeGender.O;
+        if ("U".equals(codeString))
+          return AdministrativeGender.U;
+        throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == AdministrativeGender.M)
+        return "M";
+      if (code == AdministrativeGender.F)
+        return "F";
+      if (code == AdministrativeGender.O)
+        return "O";
+      if (code == AdministrativeGender.U)
+        return "U";
+      return "?";
+      }
+    }
 
     /**
      * Identifier for a person within a particular scope.
@@ -71,7 +129,7 @@ public class RelatedPerson extends Resource {
     /**
      * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
      */
-    protected CodeableConcept gender;
+    protected Enumeration<AdministrativeGender> gender;
 
     /**
      * Address where the related person can be contacted or visited.
@@ -83,7 +141,7 @@ public class RelatedPerson extends Resource {
      */
     protected List<Attachment> photo = new ArrayList<Attachment>();
 
-    private static final long serialVersionUID = -995377560L;
+    private static final long serialVersionUID = 879148655L;
 
     public RelatedPerson() {
       super();
@@ -191,15 +249,36 @@ public class RelatedPerson extends Resource {
     /**
      * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
      */
-    public CodeableConcept getGender() { 
+    public Enumeration<AdministrativeGender> getGender() { 
       return this.gender;
     }
 
     /**
      * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
      */
-    public RelatedPerson setGender(CodeableConcept value) { 
+    public RelatedPerson setGender(Enumeration<AdministrativeGender> value) { 
       this.gender = value;
+      return this;
+    }
+
+    /**
+     * @return Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+     */
+    public AdministrativeGender getGenderSimple() { 
+      return this.gender == null ? null : this.gender.getValue();
+    }
+
+    /**
+     * @param value Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+     */
+    public RelatedPerson setGenderSimple(AdministrativeGender value) { 
+      if (value == null)
+        this.gender = null;
+      else {
+        if (this.gender == null)
+          this.gender = new Enumeration<AdministrativeGender>();
+        this.gender.setValue(value);
+      }
       return this;
     }
 
@@ -242,7 +321,7 @@ public class RelatedPerson extends Resource {
         childrenList.add(new Property("relationship", "CodeableConcept", "The nature of the relationship between a patient and the related person.", 0, java.lang.Integer.MAX_VALUE, relationship));
         childrenList.add(new Property("name", "HumanName", "A name associated with the person.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("telecom", "Contact", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
-        childrenList.add(new Property("gender", "CodeableConcept", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
+        childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         childrenList.add(new Property("address", "Address", "Address where the related person can be contacted or visited.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
       }

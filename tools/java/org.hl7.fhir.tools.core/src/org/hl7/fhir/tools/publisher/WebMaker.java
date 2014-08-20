@@ -103,8 +103,10 @@ public class WebMaker {
           src = src.replace(SEARCH_FORM_HOLDER, googleSearch());
         if (src.contains(SEARCH_LINK)) 
           src = src.replace(SEARCH_LINK, googleSearchLink(0));
-        if (src.contains(DISQUS_COMMMENT)) 
-          src = src.replace(DISQUS_COMMMENT, disqusScript());
+        // not for the DSTU
+//        if (src.contains(DISQUS_COMMMENT)) 
+//          src = src.replace(DISQUS_COMMMENT, disqusScript());
+        // done
         int i = src.indexOf("</body>");
         if (i > 0)
           src = src.substring(0, i) + google()+src.substring(i);

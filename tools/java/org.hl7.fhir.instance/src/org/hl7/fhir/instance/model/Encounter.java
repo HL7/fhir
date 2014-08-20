@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -759,10 +759,9 @@ public class Encounter extends Resource {
         super();
       }
 
-      public EncounterLocationComponent(ResourceReference location, Period period) {
+      public EncounterLocationComponent(ResourceReference location) {
         super();
         this.location = location;
-        this.period = period;
       }
 
         /**

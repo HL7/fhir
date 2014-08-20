@@ -552,6 +552,7 @@ public class Publisher {
       page.getProfiles().put(ae.getId(), (AtomEntry<Profile>) ae);
   }
 
+  @SuppressWarnings("unchecked")
   private void processProfiles() throws Exception {
     page.log(" ...process profiles", LogMessageType.Process);
     // first, for each type and resource, we build it's master profile
@@ -579,6 +580,15 @@ public class Publisher {
       genProfiledTypeProfile(pt);
     }
     
+    if (page.hasIG()) {
+      for (AtomEntry<? extends Resource> rd : page.getIgResources().values()) {
+        if (rd.getResource() instanceof Profile) {
+          ProfileDefn pd = new ProfileDefn();
+          pd.setSource((Profile) rd.getResource());
+          page.getDefinitions().getProfiles().put(pd.getSource().getUrlSimple(), pd);
+        }
+      }
+    }
     // we have profiles scoped by resources, and stand alone profiles
     for (ProfileDefn p : page.getDefinitions().getProfiles().values())
       processProfile(p, p.metadata("id"));
@@ -586,13 +596,29 @@ public class Publisher {
       for (RegisteredProfile p : r.getProfiles())      
         processProfile(p.getProfile(), p.getDestFilenameNoExt());
                                        
-                                       
     // now, validate the profiles
     for (ProfileDefn p : page.getDefinitions().getProfiles().values())
       validateProfile(p);
     for (ResourceDefn r : page.getDefinitions().getResources().values())       
       for (RegisteredProfile p : r.getProfiles())      
         validateProfile(p.getProfile());
+    if (page.hasIG()) 
+      for (AtomEntry<? extends Resource> rd : page.getIgResources().values()) {
+        if (rd.getResource() instanceof Profile) {
+          validateProfile((AtomEntry<Profile>) rd);
+        }
+      } 
+  }
+
+  private void validateProfile(AtomEntry<Profile> rd) throws Exception {
+    ProfileValidator pv = new ProfileValidator();
+    pv.setProfiles(page.getProfiles());
+    List<String> errors = pv.validate(rd.getResource());
+    if (errors.size() > 0) {
+      for (String e : errors)
+        page.log(e, LogMessageType.Error);
+      throw new Exception("Error validating " + rd.getTitle());
+    }
   }
 
   private void validateProfile(ProfileDefn p) throws Exception {
@@ -664,15 +690,53 @@ public class Publisher {
       for (ProfileStructureComponent c : profile.getSource().getStructure()) {
         if (c.getBase() != null && !hasSnapshot(profile.getSource(), c)) {
           // cause it probably doesn't, coming from the profile directly
-          ProfileStructureComponent base = page.getDefinitions().getSnapShotForProfile(c.getBaseSimple());
+          ProfileStructureComponent base = getSnapShotForProfile(c.getBaseSimple());
           new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, c, c.getBaseSimple().split("#")[0], profile.getSource().getNameSimple());
         }
         page.getProfiles().put(profile.getSource().getUrlSimple(), genWrapper(profile.getSource()));
       }
     }
-    profile.getSource().setTag("filename", filename);
+    if (!Utilities.noString(filename))
+      profile.getSource().setTag("filename", filename);
   }
 
+  public ProfileStructureComponent getSnapShotForProfile(String base) throws Exception {
+    String[] parts = base.split("#");
+    if (parts[0].startsWith("http://hl7.org/fhir/Profile/") && parts.length == 1) {
+      String name = base.substring(28);
+      if (page.getDefinitions().hasResource(name)) 
+        return page.getDefinitions().getSnapShotForType(name);
+      else if (page.getDefinitions().hasType(name)) {
+        TypeDefn t = page.getDefinitions().getElementDefn(name);
+        for (ProfileStructureComponent s : t.getProfile().getStructure())
+          if (s.getSnapshot() != null)
+            return s;
+        throw new Exception("unable to find snapshot for "+name);
+      } else
+        throw new Exception("unable to find base definition for "+name);
+    }
+    Profile p = page.getDefinitions().getProfileByURL(parts[0]);
+    if (p == null)
+      throw new Exception("unable to find base definition for "+base);
+    if (parts.length == 1) {
+      if (p.getStructure().size() != 1)
+        throw new Exception("Profile "+base+" has multiple structures");
+      if (p.getStructure().get(0).getSnapshot() == null)
+        throw new Exception("Profile "+base+" has no snapshot"); // or else we could fill it in? 
+      return p.getStructure().get(0);
+    }
+    for (ProfileStructureComponent s : p.getStructure()) {
+      if (s.getSnapshot() == null && p.getNameSimple().equals(parts[1])) {
+        ProfileDefn profile = page.getDefinitions().getProfiles().get(parts[0]);
+        processProfile(profile, null);
+      }
+      if (s.getSnapshot() != null && p.getNameSimple().equals(parts[1]))
+        return s;
+    }
+    throw new Exception("Unable to find snapshot for "+base);
+  }
+
+  
   private void processProfile(AtomEntry<Profile> ae) throws Exception {
     if (ae.getResource().getDate() == null)
       ae.getResource().setDateSimple(new DateAndTime(page.getGenDate()));
@@ -1494,8 +1558,24 @@ public class Publisher {
       page.log(" ...check Fragments", LogMessageType.Process);
       checkFragments();
       for (String n : page.getDefinitions().getProfiles().keySet()) {
-        page.log(" ...profile " + n, LogMessageType.Process);
-        produceProfile(n, page.getDefinitions().getProfiles().get(n), null, null, null);
+        if (!n.startsWith("http://")) {
+          page.log(" ...profile " + n, LogMessageType.Process);
+          produceProfile(n, page.getDefinitions().getProfiles().get(n), null, null, null);
+        }
+      }
+      if (page.hasIG()) {
+        for (AtomEntry<? extends Resource> ae: page.getIgResources().values()) {
+          if (ae.getResource() instanceof Profile) {
+            String n = Utilities.fileTitle(ae.getLinks().get("path")).replace(".xml", "");
+            Profile p = (Profile) ae.getResource();
+            ProfileDefn pd = new ProfileDefn();
+            pd.setSource(p);
+
+
+            page.log(" ...profile " + n, LogMessageType.Process);
+            produceProfile(n, pd, null, null, null);
+          }
+        }
       }
 
       produceV2();
@@ -1615,6 +1695,7 @@ public class Publisher {
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
   }
+
 
   private void copyStaticContent() throws IOException, Exception {
     if (page.getIni().getPropertyNames("support") != null)

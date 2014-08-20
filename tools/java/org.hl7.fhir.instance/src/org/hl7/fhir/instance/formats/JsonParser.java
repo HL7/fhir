@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -961,8 +961,8 @@ public class JsonParser extends JsonParserBase {
         res.getType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("individual"))
-      res.setIndividual(parseResourceReference(json.getAsJsonObject("individual")));
+    if (json.has("actor"))
+      res.setActor(parseResourceReference(json.getAsJsonObject("actor")));
     if (json.has("required"))
       res.setRequired(parseEnumeration(json.get("required").getAsString(), Appointment.Participantrequired.Null, new Appointment.ParticipantrequiredEnumFactory()));
     if (json.has("_required"))
@@ -1037,8 +1037,8 @@ public class JsonParser extends JsonParserBase {
         res.getType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("individual"))
-      res.setIndividual(parseResourceReference(json.getAsJsonObject("individual")));
+    if (json.has("actor"))
+      res.setActor(parseResourceReference(json.getAsJsonObject("actor")));
     if (json.has("planningHorizon"))
       res.setPlanningHorizon(parsePeriod(json.getAsJsonObject("planningHorizon")));
     if (json.has("comment"))
@@ -4556,7 +4556,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("address"))
       res.setAddress(parseAddress(json.getAsJsonObject("address")));
     if (json.has("gender"))
-      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
+      res.setGender(parseEnumeration(json.get("gender").getAsString(), Organization.AdministrativeGender.Null, new Organization.AdministrativeGenderEnumFactory()));
+    if (json.has("_gender"))
+      parseElementProperties(json.getAsJsonObject("_gender"), res.getGender());
     return res;
   }
 
@@ -4604,7 +4606,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("gender"))
-      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
+      res.setGender(parseEnumeration(json.get("gender").getAsString(), Patient.AdministrativeGender.Null, new Patient.AdministrativeGenderEnumFactory()));
+    if (json.has("_gender"))
+      parseElementProperties(json.getAsJsonObject("_gender"), res.getGender());
     if (json.has("birthDate"))
       res.setBirthDate(parseDateTime(json.get("birthDate").getAsString()));
     if (json.has("_birthDate"))
@@ -4684,7 +4688,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("address"))
       res.setAddress(parseAddress(json.getAsJsonObject("address")));
     if (json.has("gender"))
-      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
+      res.setGender(parseEnumeration(json.get("gender").getAsString(), Patient.AdministrativeGender.Null, new Patient.AdministrativeGenderEnumFactory()));
+    if (json.has("_gender"))
+      parseElementProperties(json.getAsJsonObject("_gender"), res.getGender());
     if (json.has("organization"))
       res.setOrganization(parseResourceReference(json.getAsJsonObject("organization")));
     return res;
@@ -4738,7 +4744,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("gender"))
-      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
+      res.setGender(parseEnumeration(json.get("gender").getAsString(), Practitioner.AdministrativeGender.Null, new Practitioner.AdministrativeGenderEnumFactory()));
+    if (json.has("_gender"))
+      parseElementProperties(json.getAsJsonObject("_gender"), res.getGender());
     if (json.has("birthDate"))
       res.setBirthDate(parseDateTime(json.get("birthDate").getAsString()));
     if (json.has("_birthDate"))
@@ -5823,7 +5831,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("gender"))
-      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
+      res.setGender(parseEnumeration(json.get("gender").getAsString(), RelatedPerson.AdministrativeGender.Null, new RelatedPerson.AdministrativeGenderEnumFactory()));
+    if (json.has("_gender"))
+      parseElementProperties(json.getAsJsonObject("_gender"), res.getGender());
     if (json.has("address"))
       res.setAddress(parseAddress(json.getAsJsonObject("address")));
     if (json.has("photo")) {

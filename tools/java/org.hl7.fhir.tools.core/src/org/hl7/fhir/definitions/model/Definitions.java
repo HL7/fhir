@@ -360,7 +360,7 @@ public class Definitions {
     if (url.contains("#"))
       url = url.substring(0, url.indexOf('#'));
     for (ProfileDefn p : profiles.values())
-      if (p.getSource().getUrlSimple().equals(url))
+      if (p.getSource() != null && p.getSource().getUrlSimple().equals(url))
         return p.getSource();
     for (ResourceDefn rd : resources.values()) {
       for (RegisteredProfile p : rd.getProfiles()) {

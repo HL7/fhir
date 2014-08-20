@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import java.util.*;
 
 /**
- * (informative) A response to a scheduled appointment for a patient and/or practitioner(s).
+ * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
  */
 public class AppointmentResponse extends Resource {
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -171,12 +171,12 @@ public class Appointment extends Resource {
         /**
          * A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.
          */
-        protected ResourceReference individual;
+        protected ResourceReference actor;
 
         /**
          * The actual object that is the target of the reference (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
          */
-        protected Resource individualTarget;
+        protected Resource actorTarget;
 
         /**
          * Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
@@ -188,7 +188,7 @@ public class Appointment extends Resource {
          */
         protected Enumeration<Participationstatus> status;
 
-        private static final long serialVersionUID = -1722013543L;
+        private static final long serialVersionUID = -1080184197L;
 
       public AppointmentParticipantComponent() {
         super();
@@ -217,32 +217,32 @@ public class Appointment extends Resource {
         }
 
         /**
-         * @return {@link #individual} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
+         * @return {@link #actor} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
          */
-        public ResourceReference getIndividual() { 
-          return this.individual;
+        public ResourceReference getActor() { 
+          return this.actor;
         }
 
         /**
-         * @param value {@link #individual} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
+         * @param value {@link #actor} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
          */
-        public AppointmentParticipantComponent setIndividual(ResourceReference value) { 
-          this.individual = value;
+        public AppointmentParticipantComponent setActor(ResourceReference value) { 
+          this.actor = value;
           return this;
         }
 
         /**
-         * @return {@link #individual} (The actual object that is the target of the reference. A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
+         * @return {@link #actor} (The actual object that is the target of the reference. A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
          */
-        public Resource getIndividualTarget() { 
-          return this.individualTarget;
+        public Resource getActorTarget() { 
+          return this.actorTarget;
         }
 
         /**
-         * @param value {@link #individual} (The actual object that is the target of the reference. A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
+         * @param value {@link #actor} (The actual object that is the target of the reference. A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
          */
-        public AppointmentParticipantComponent setIndividualTarget(Resource value) { 
-          this.individualTarget = value;
+        public AppointmentParticipantComponent setActorTarget(Resource value) { 
+          this.actorTarget = value;
           return this;
         }
 
@@ -317,7 +317,7 @@ public class Appointment extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Role of participant in the appointment.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("individual", "Resource(Any)", "A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.", 0, java.lang.Integer.MAX_VALUE, individual));
+          childrenList.add(new Property("actor", "Resource(Any)", "A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.", 0, java.lang.Integer.MAX_VALUE, actor));
           childrenList.add(new Property("required", "code", "Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.", 0, java.lang.Integer.MAX_VALUE, required));
           childrenList.add(new Property("status", "code", "Participation status of the Patient.", 0, java.lang.Integer.MAX_VALUE, status));
         }
@@ -327,7 +327,7 @@ public class Appointment extends Resource {
         dst.type = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : type)
           dst.type.add(i.copy());
-        dst.individual = individual == null ? null : individual.copy();
+        dst.actor = actor == null ? null : actor.copy();
         dst.required = required == null ? null : required.copy();
         dst.status = status == null ? null : status.copy();
         return dst;

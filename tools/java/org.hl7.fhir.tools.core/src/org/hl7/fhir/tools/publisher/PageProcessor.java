@@ -88,6 +88,7 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
@@ -641,7 +642,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       @SuppressWarnings("unchecked")
       AtomEntry<Profile> ae  = (AtomEntry<Profile>) igResources.get(s);
       b.append("  <tr>\r\n");
-      b.append("    <td><a href=\""+ae.getLinks().get("path")+"\">"+Utilities.escapeXml(ae.getResource().getNameSimple())+"</a></td>\r\n");
+      b.append("    <td><a href=\""+ae.getLinks().get("path").replace(".xml", ".html")+"\">"+Utilities.escapeXml(ae.getResource().getNameSimple())+"</a></td>\r\n");
       b.append("    <td>"+describeProfileType(ae.getResource())+"</td>\r\n");
       b.append("    <td>"+Utilities.escapeXml(ae.getResource().getDescriptionSimple())+"</td>\r\n");
       b.append(" </tr>\r\n");
@@ -3644,14 +3645,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (ProfileStructureComponent s : profile.getSource().getStructure()) {
       b.append("<tr>");
       b.append("<td><a href=\""+Utilities.changeFileExt(filename, "."+Utilities.getFileNameForName(s.getNameSimple()))+".html\">"+Utilities.escapeXml(s.getNameSimple())+"</a></td>");
-      if (s.getBaseSimple().startsWith("http://hl7.org/fhir/Profile/")) {
-        String type = s.getBaseSimple().substring(28);
+      String base = s.getBaseSimple();
+      if (base.startsWith("http://hl7.org/fhir/Profile/")) {
+        String type = base.substring(28);
         if (hasLinkFor(type)) 
           b.append("<td><a href=\""+getLinkFor(type)+"\">"+type+"</a></td>");
         else
           b.append("<td>"+type+"</td>");
-      } else 
-        b.append("<td><a href=\""+Utilities.escapeXml(s.getBaseSimple())+"\">"+Utilities.escapeXml(s.getBaseSimple())+"</a></td>");
+      } else {
+        if (base.contains("#")) 
+          base = base.substring(0, base.indexOf("#"));
+        if (definitions.getProfiles().containsKey(base)) {
+          ProfileDefn p = definitions.getProfiles().get(base);
+          b.append("<td><a href=\""+Utilities.changeFileExt(p.getSource().getTag("filename"), ".html")+"\">"+Utilities.escapeXml(s.getBaseSimple())+"</a></td>");
+        } else {
+          b.append("<td><a href=\""+Utilities.escapeXml(s.getBaseSimple())+"\">"+Utilities.escapeXml(s.getBaseSimple())+"</a></td>");
+        }
+      }
       b.append("<td>"+Utilities.escapeXml(s.getPurposeSimple())+"</td>");
       b.append("</tr>");
     }
@@ -4030,6 +4040,54 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public Map<String, AtomEntry<? extends Resource>> getIgResources() {
     return igResources;
+  }
+
+  @Override
+  public String getLinkForExtension(Profile profile, String url) {
+    String fn;
+    String code;
+    if (url.startsWith("#")) {
+      code = url.substring(1);
+    } else {
+      String[] path = url.split("#");
+      code = path[1];
+      profile = definitions.getProfileByURL(path[0]);
+    }
+    if (profile != null) {
+      fn = profile.getTag("filename");
+      return Utilities.changeFileExt(fn, ".html");
+    }
+    return null;
+  }
+
+  @Override
+  public String resolveBinding(ElementDefinitionBindingComponent binding) {
+    if (binding.getReference() == null)
+      return null;
+    if (binding.getReference() instanceof UriType) {
+      String ref = ((UriType) binding.getReference()).getValue();
+      if (ref.startsWith("http://hl7.org/fhir/v3/vs/"))
+        return "v3/"+ref.substring(26)+"/index.html";
+      else
+        return ref;
+    } else {
+      String ref = ((ResourceReference) binding.getReference()).getReferenceSimple();
+      if (ref.startsWith("ValueSet/")) {
+        ValueSet vs = definitions.getValuesets().get(ref.substring(8));
+        if (vs == null)
+          return ref.substring(9)+".html";
+        else
+          return vs.getTag("filename");
+      } else if (ref.startsWith("http://hl7.org/fhir/vs/")) {
+        if (new File(Utilities.path(folders.dstDir, "valueset-"+ref.substring(23)+".html")).exists())
+          return "valueset-"+ref.substring(23)+".html";
+        else
+          return ref.substring(23)+".html";
+      }  else if (ref.startsWith("http://hl7.org/fhir/v3/vs/"))
+        return "v3/"+ref.substring(26)+"/index.html"; 
+      else
+        return ref;
+    }
   }
 
   

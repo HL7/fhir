@@ -289,4 +289,16 @@ public class UcumEssenceService implements UcumService {
 	  return code.replace("[", "").replace("]", "");
   }
 
+  @Override
+  public boolean isComparable(String units1, String units2) throws Exception {
+    if (units1 == null)
+      return false;
+    if (units2 == null)
+      return false;
+    
+    String u1 = getCanonicalUnits(units1);
+    String u2 = getCanonicalUnits(units2);
+    return u1.equals(u2);
+  }
+
 }

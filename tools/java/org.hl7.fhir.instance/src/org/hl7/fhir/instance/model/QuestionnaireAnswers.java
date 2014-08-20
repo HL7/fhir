@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -341,7 +341,7 @@ public class QuestionnaireAnswers extends Resource {
         protected StringType text;
 
         /**
-         * The respondant's answer(s) to the question.
+         * The respondent's answer(s) to the question.
          */
         protected List<QuestionAnswerComponent> answer = new ArrayList<QuestionAnswerComponent>();
 
@@ -429,7 +429,7 @@ public class QuestionnaireAnswers extends Resource {
         }
 
         /**
-         * @return {@link #answer} (The respondant's answer(s) to the question.)
+         * @return {@link #answer} (The respondent's answer(s) to the question.)
          */
         public List<QuestionAnswerComponent> getAnswer() { 
           return this.answer;
@@ -437,7 +437,7 @@ public class QuestionnaireAnswers extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #answer} (The respondant's answer(s) to the question.)
+         * @return {@link #answer} (The respondent's answer(s) to the question.)
          */
         public QuestionAnswerComponent addAnswer() { 
           QuestionAnswerComponent t = new QuestionAnswerComponent();
@@ -466,7 +466,7 @@ public class QuestionnaireAnswers extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("linkId", "string", "Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
           childrenList.add(new Property("text", "string", "Text of the question as it is shown to the user.", 0, java.lang.Integer.MAX_VALUE, text));
-          childrenList.add(new Property("answer", "", "The respondant's answer(s) to the question.", 0, java.lang.Integer.MAX_VALUE, answer));
+          childrenList.add(new Property("answer", "", "The respondent's answer(s) to the question.", 0, java.lang.Integer.MAX_VALUE, answer));
           childrenList.add(new Property("group", "@QuestionnaireAnswers.group", "Nested group, containing nested question for this question. The order of groups within the question is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
         }
 

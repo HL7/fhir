@@ -185,6 +185,8 @@ public class XLSXmlParser {
       return d.getTextContent();
     } else if ("DateTime".equals(type)) {
       return d.getTextContent();
+    } else if ("Error".equals(type)) {
+      return null;
     } else 
       throw new Exception("Cell Type is not known ("+d.getAttributeNodeNS(XLS_NS, "Type")+") in "+getLocation());
   }

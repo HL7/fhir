@@ -145,6 +145,16 @@ public interface UcumService {
 	 */
 	public abstract String getCanonicalUnits(String unit) throws Exception;
 
+  /**
+   * given two pairs of units, return true if they sahre the same canonical base
+   * 
+   * @param units1
+   * @param units2
+   * @return
+   * @throws Exception 
+   */
+  public abstract boolean isComparable(String units1, String units2) throws Exception;
+  
 	/**
 	 * for a given canonical unit, return all the defined units that have the 
 	 * same canonical unit. 
@@ -199,5 +209,7 @@ public interface UcumService {
 	 * @return the preferred human display form
 	 */
 	public abstract String getCommonDisplay(String code);
+
+
 
 }

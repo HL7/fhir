@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -967,7 +967,7 @@ public class JsonComposer extends JsonComposerBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      composeResourceReference("individual", element.getIndividual());
+      composeResourceReference("actor", element.getActor());
       if (element.getRequired() != null) {
         composeEnumerationCore("required", element.getRequired(), new Appointment.ParticipantrequiredEnumFactory(), false);
         composeEnumerationExtras("required", element.getRequired(), new Appointment.ParticipantrequiredEnumFactory(), false);
@@ -1035,7 +1035,7 @@ public class JsonComposer extends JsonComposerBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      composeResourceReference("individual", element.getIndividual());
+      composeResourceReference("actor", element.getActor());
       composePeriod("planningHorizon", element.getPlanningHorizon());
       composeStringCore("comment", element.getComment(), false);
       composeStringExtras("comment", element.getComment(), false);
@@ -3927,7 +3927,10 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composeAddress("address", element.getAddress());
-      composeCodeableConcept("gender", element.getGender());
+      if (element.getGender() != null) {
+        composeEnumerationCore("gender", element.getGender(), new Organization.AdministrativeGenderEnumFactory(), false);
+        composeEnumerationExtras("gender", element.getGender(), new Organization.AdministrativeGenderEnumFactory(), false);
+      }
       close();
     }
   }
@@ -3972,7 +3975,10 @@ public class JsonComposer extends JsonComposerBase {
           composeContact(null, e);
         closeArray();
       };
-      composeCodeableConcept("gender", element.getGender());
+      if (element.getGender() != null) {
+        composeEnumerationCore("gender", element.getGender(), new Patient.AdministrativeGenderEnumFactory(), false);
+        composeEnumerationExtras("gender", element.getGender(), new Patient.AdministrativeGenderEnumFactory(), false);
+      }
       composeDateTimeCore("birthDate", element.getBirthDate(), false);
       composeDateTimeExtras("birthDate", element.getBirthDate(), false);
       composeType("deceased", element.getDeceased());
@@ -4039,7 +4045,10 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composeAddress("address", element.getAddress());
-      composeCodeableConcept("gender", element.getGender());
+      if (element.getGender() != null) {
+        composeEnumerationCore("gender", element.getGender(), new Patient.AdministrativeGenderEnumFactory(), false);
+        composeEnumerationExtras("gender", element.getGender(), new Patient.AdministrativeGenderEnumFactory(), false);
+      }
       composeResourceReference("organization", element.getOrganization());
       close();
     }
@@ -4092,7 +4101,10 @@ public class JsonComposer extends JsonComposerBase {
           composeAddress(null, e);
         closeArray();
       };
-      composeCodeableConcept("gender", element.getGender());
+      if (element.getGender() != null) {
+        composeEnumerationCore("gender", element.getGender(), new Practitioner.AdministrativeGenderEnumFactory(), false);
+        composeEnumerationExtras("gender", element.getGender(), new Practitioner.AdministrativeGenderEnumFactory(), false);
+      }
       composeDateTimeCore("birthDate", element.getBirthDate(), false);
       composeDateTimeExtras("birthDate", element.getBirthDate(), false);
       if (element.getPhoto().size() > 0) {
@@ -4993,7 +5005,10 @@ public class JsonComposer extends JsonComposerBase {
           composeContact(null, e);
         closeArray();
       };
-      composeCodeableConcept("gender", element.getGender());
+      if (element.getGender() != null) {
+        composeEnumerationCore("gender", element.getGender(), new RelatedPerson.AdministrativeGenderEnumFactory(), false);
+        composeEnumerationExtras("gender", element.getGender(), new RelatedPerson.AdministrativeGenderEnumFactory(), false);
+      }
       composeAddress("address", element.getAddress());
       if (element.getPhoto().size() > 0) {
         openArray("photo");

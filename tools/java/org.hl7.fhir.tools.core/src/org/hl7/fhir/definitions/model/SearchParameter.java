@@ -78,6 +78,11 @@ public class SearchParameter {
     this.type = type;
   }
   
+  public SearchParameter addPath(String value) {
+    paths.add(value);
+    return this;
+  }
+  
   public List<String> getPaths() {
     return paths;
   }

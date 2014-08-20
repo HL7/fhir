@@ -333,6 +333,12 @@ public class DateAndTime {
 		return dt;
 	}
 
+  public static DateAndTime today() {
+    DateAndTime dt = new DateAndTime(Calendar.getInstance());
+    dt.setTime(false);
+    return dt;
+  }
+
 	public static DateAndTime parseV3(String xDate) throws ParseException {
 
 		DateAndTime res = new DateAndTime();

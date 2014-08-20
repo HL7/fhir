@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -539,7 +539,7 @@ public class Questionnaire extends Resource {
 
     public static class QuestionComponent extends BackboneElement {
         /**
-         * A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.
+         * A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
          */
         protected StringType linkId;
 
@@ -554,7 +554,7 @@ public class Questionnaire extends Resource {
         protected StringType text;
 
         /**
-         * The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple)choice is expected.
+         * The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.
          */
         protected Enumeration<AnswerFormat> type;
 
@@ -590,14 +590,14 @@ public class Questionnaire extends Resource {
       }
 
         /**
-         * @return {@link #linkId} (A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.)
+         * @return {@link #linkId} (A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.)
          */
         public StringType getLinkId() { 
           return this.linkId;
         }
 
         /**
-         * @param value {@link #linkId} (A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.)
+         * @param value {@link #linkId} (A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.)
          */
         public QuestionComponent setLinkId(StringType value) { 
           this.linkId = value;
@@ -605,14 +605,14 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.
+         * @return A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
          */
         public String getLinkIdSimple() { 
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
-         * @param value A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.
+         * @param value A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
          */
         public QuestionComponent setLinkIdSimple(String value) { 
           if (value == null)
@@ -679,14 +679,14 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #type} (The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple)choice is expected.)
+         * @return {@link #type} (The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.)
          */
         public Enumeration<AnswerFormat> getType() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple)choice is expected.)
+         * @param value {@link #type} (The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.)
          */
         public QuestionComponent setType(Enumeration<AnswerFormat> value) { 
           this.type = value;
@@ -694,14 +694,14 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple)choice is expected.
+         * @return The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.
          */
         public AnswerFormat getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
-         * @param value The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple)choice is expected.
+         * @param value The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.
          */
         public QuestionComponent setTypeSimple(AnswerFormat value) { 
           if (value == null)
@@ -835,10 +835,10 @@ public class Questionnaire extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("linkId", "string", "A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
+          childrenList.add(new Property("linkId", "string", "A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
           childrenList.add(new Property("concept", "Coding", "Identifies a how this group of questions is known in a particular terminology such as LOINC.", 0, java.lang.Integer.MAX_VALUE, concept));
           childrenList.add(new Property("text", "string", "Text of the question as it is shown to the user.", 0, java.lang.Integer.MAX_VALUE, text));
-          childrenList.add(new Property("type", "code", "The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple)choice is expected.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("type", "code", "The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("required", "boolean", "If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.", 0, java.lang.Integer.MAX_VALUE, required));
           childrenList.add(new Property("repeats", "boolean", "Whether the group may occur multiple times in the instance, containing multiple sets of answers.", 0, java.lang.Integer.MAX_VALUE, repeats));
           childrenList.add(new Property("options", "Resource(ValueSet)", "Reference to a valueset containing the possible options.", 0, java.lang.Integer.MAX_VALUE, options));

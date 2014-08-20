@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,6 +37,64 @@ import java.util.*;
  * A person who is directly or indirectly involved in the provisioning of healthcare.
  */
 public class Practitioner extends Resource {
+
+    public enum AdministrativeGender {
+        M, // Male
+        F, // Female
+        O, // Other
+        U, // Unknown
+        Null; // added to help the parsers
+        public static AdministrativeGender fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("M".equals(codeString))
+          return M;
+        if ("F".equals(codeString))
+          return F;
+        if ("O".equals(codeString))
+          return O;
+        if ("U".equals(codeString))
+          return U;
+        throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case M: return "M";
+            case F: return "F";
+            case O: return "O";
+            case U: return "U";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class AdministrativeGenderEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("M".equals(codeString))
+          return AdministrativeGender.M;
+        if ("F".equals(codeString))
+          return AdministrativeGender.F;
+        if ("O".equals(codeString))
+          return AdministrativeGender.O;
+        if ("U".equals(codeString))
+          return AdministrativeGender.U;
+        throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == AdministrativeGender.M)
+        return "M";
+      if (code == AdministrativeGender.F)
+        return "F";
+      if (code == AdministrativeGender.O)
+        return "O";
+      if (code == AdministrativeGender.U)
+        return "U";
+      return "?";
+      }
+    }
 
     public static class PractitionerQualificationComponent extends BackboneElement {
         /**
@@ -196,7 +254,7 @@ public class Practitioner extends Resource {
     /**
      * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
      */
-    protected CodeableConcept gender;
+    protected Enumeration<AdministrativeGender> gender;
 
     /**
      * The date and time of birth for the practitioner.
@@ -253,7 +311,7 @@ public class Practitioner extends Resource {
      */
     protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
 
-    private static final long serialVersionUID = 730971326L;
+    private static final long serialVersionUID = 26275543L;
 
     public Practitioner() {
       super();
@@ -328,15 +386,36 @@ public class Practitioner extends Resource {
     /**
      * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
      */
-    public CodeableConcept getGender() { 
+    public Enumeration<AdministrativeGender> getGender() { 
       return this.gender;
     }
 
     /**
      * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
      */
-    public Practitioner setGender(CodeableConcept value) { 
+    public Practitioner setGender(Enumeration<AdministrativeGender> value) { 
       this.gender = value;
+      return this;
+    }
+
+    /**
+     * @return Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+     */
+    public AdministrativeGender getGenderSimple() { 
+      return this.gender == null ? null : this.gender.getValue();
+    }
+
+    /**
+     * @param value Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
+     */
+    public Practitioner setGenderSimple(AdministrativeGender value) { 
+      if (value == null)
+        this.gender = null;
+      else {
+        if (this.gender == null)
+          this.gender = new Enumeration<AdministrativeGender>();
+        this.gender.setValue(value);
+      }
       return this;
     }
 
@@ -546,7 +625,7 @@ public class Practitioner extends Resource {
         childrenList.add(new Property("name", "HumanName", "A name associated with the person.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("telecom", "Contact", "A contact detail for the practitioner, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("address", "Address", "The postal address where the practitioner can be found or visited or to which mail can be delivered.", 0, java.lang.Integer.MAX_VALUE, address));
-        childrenList.add(new Property("gender", "CodeableConcept", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
+        childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         childrenList.add(new Property("birthDate", "dateTime", "The date and time of birth for the practitioner.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("organization", "Resource(Organization)", "The organization that the practitioner represents.", 0, java.lang.Integer.MAX_VALUE, organization));

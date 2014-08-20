@@ -822,6 +822,12 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 			 i--;
 		write(content.substring(0, i));
 	}
+
+  public void processingInstruction(String value) throws IOException {
+    write("<?"+value+"?>");
+    if (isPrettyHeader())
+      write("\r\n");
+  }
 	
 	
 }

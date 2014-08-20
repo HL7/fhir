@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Aug 7, 2014 08:17+1000 for FHIR v0.3.0
+// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -44,19 +44,19 @@ public class Availability extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * The type(s) of appointments that can be booked into slots attached to this availability resource (ideally this would be an identifiable service - which is at a location, rather than the location itself). (This may be over-ridden by a slot itself).
+     * The schedule type can be used for the categorization of healthcare services or other appointment types.
      */
     protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
 
     /**
-     * The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.
+     * The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.
      */
-    protected ResourceReference individual;
+    protected ResourceReference actor;
 
     /**
-     * The actual object that is the target of the reference (The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.)
+     * The actual object that is the target of the reference (The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
      */
-    protected Resource individualTarget;
+    protected Resource actorTarget;
 
     /**
      * The period of time that the slots that are attached to this availability resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a "template" for planning outside these dates.
@@ -73,15 +73,15 @@ public class Availability extends Resource {
      */
     protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = 143757728L;
+    private static final long serialVersionUID = 901197698L;
 
     public Availability() {
       super();
     }
 
-    public Availability(ResourceReference individual) {
+    public Availability(ResourceReference actor) {
       super();
-      this.individual = individual;
+      this.actor = actor;
     }
 
     /**
@@ -102,7 +102,7 @@ public class Availability extends Resource {
     }
 
     /**
-     * @return {@link #type} (The type(s) of appointments that can be booked into slots attached to this availability resource (ideally this would be an identifiable service - which is at a location, rather than the location itself). (This may be over-ridden by a slot itself).)
+     * @return {@link #type} (The schedule type can be used for the categorization of healthcare services or other appointment types.)
      */
     public List<CodeableConcept> getType() { 
       return this.type;
@@ -110,7 +110,7 @@ public class Availability extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #type} (The type(s) of appointments that can be booked into slots attached to this availability resource (ideally this would be an identifiable service - which is at a location, rather than the location itself). (This may be over-ridden by a slot itself).)
+     * @return {@link #type} (The schedule type can be used for the categorization of healthcare services or other appointment types.)
      */
     public CodeableConcept addType() { 
       CodeableConcept t = new CodeableConcept();
@@ -119,32 +119,32 @@ public class Availability extends Resource {
     }
 
     /**
-     * @return {@link #individual} (The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.)
+     * @return {@link #actor} (The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
      */
-    public ResourceReference getIndividual() { 
-      return this.individual;
+    public ResourceReference getActor() { 
+      return this.actor;
     }
 
     /**
-     * @param value {@link #individual} (The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.)
+     * @param value {@link #actor} (The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
      */
-    public Availability setIndividual(ResourceReference value) { 
-      this.individual = value;
+    public Availability setActor(ResourceReference value) { 
+      this.actor = value;
       return this;
     }
 
     /**
-     * @return {@link #individual} (The actual object that is the target of the reference. The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.)
+     * @return {@link #actor} (The actual object that is the target of the reference. The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
      */
-    public Resource getIndividualTarget() { 
-      return this.individualTarget;
+    public Resource getActorTarget() { 
+      return this.actorTarget;
     }
 
     /**
-     * @param value {@link #individual} (The actual object that is the target of the reference. The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.)
+     * @param value {@link #actor} (The actual object that is the target of the reference. The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
      */
-    public Availability setIndividualTarget(Resource value) { 
-      this.individualTarget = value;
+    public Availability setActorTarget(Resource value) { 
+      this.actorTarget = value;
       return this;
     }
 
@@ -238,8 +238,8 @@ public class Availability extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("type", "CodeableConcept", "The type(s) of appointments that can be booked into slots attached to this availability resource (ideally this would be an identifiable service - which is at a location, rather than the location itself). (This may be over-ridden by a slot itself).", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("individual", "Resource(Any)", "The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.", 0, java.lang.Integer.MAX_VALUE, individual));
+        childrenList.add(new Property("type", "CodeableConcept", "The schedule type can be used for the categorization of healthcare services or other appointment types.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("actor", "Resource(Any)", "The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.", 0, java.lang.Integer.MAX_VALUE, actor));
         childrenList.add(new Property("planningHorizon", "Period", "The period of time that the slots that are attached to this availability resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a 'template' for planning outside these dates.", 0, java.lang.Integer.MAX_VALUE, planningHorizon));
         childrenList.add(new Property("comment", "string", "Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("lastModified", "dateTime", "When this availability was created, or last revised.", 0, java.lang.Integer.MAX_VALUE, lastModified));
@@ -253,7 +253,7 @@ public class Availability extends Resource {
         dst.type = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : type)
           dst.type.add(i.copy());
-        dst.individual = individual == null ? null : individual.copy();
+        dst.actor = actor == null ? null : actor.copy();
         dst.planningHorizon = planningHorizon == null ? null : planningHorizon.copy();
         dst.comment = comment == null ? null : comment.copy();
         dst.lastModified = lastModified == null ? null : lastModified.copy();
