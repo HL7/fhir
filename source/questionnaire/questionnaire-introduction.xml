@@ -10,7 +10,7 @@ the constraints are on the allowed answers.  The results of a <b>Questionnaire</
 </p>
 <p>
 Questionnaires cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full
-clinical specialty records. In many systems this data is collected using user-defined screens and forms. Questionnaires record specifics about data capture -
+clinical specialty records. In many systems this data is collected using user-defined screens and forms. Questionnaires define specifics about data capture -
 exactly what questions were asked, in what order, what choices for answers were, etc. Each of these questions is part of the Questionnaire, 
 and as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.
 </p>
