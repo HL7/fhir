@@ -2,7 +2,7 @@
 <!--
   - (c) 2014 Lloyd McKenzie & Associates Consulting Ltd.  All rights reserved
   -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="http://hl7.org/fhir" xmlns:atom="http://www.w3.org/2005/Atom" exclude-result-prefixes="f atom">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="http://hl7.org/fhir" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:saxon="http://saxon.sf.net/" exclude-result-prefixes="f atom saxon">
   <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
   <xsl:param name="numberSections" select="'false'">
     <!-- If set to true, will auto-generate labels for sections if labels are not present -->
@@ -19,7 +19,7 @@
   <xsl:param name="expansionServer" select="'http://fhir.healthintersections.com.au/open'">
     <!-- The base URI of the server to use for value set expansions -->
   </xsl:param>
-  <xsl:param name="iconPath" select="'http://fhir.healthintersections.com.au'">
+  <xsl:param name="iconPath" select="'http://fhir-dev.healthintersections.com.au'">
     <!-- The path at which the html-form-add.png and html-form-delete.png icons can be found.  If not present, text will be used -->
   </xsl:param>
   <xsl:variable name="htmlNamespace" select="'http://www.w3.org/1999/xhtml'"/>
@@ -85,11 +85,18 @@
     </f:code>
   </xsl:template>
   <xsl:template mode="upgradeQuestionnaire" match="f:group">
-    <xsl:copy>
-      <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
-      <xsl:call-template name="upgradeCardinality"/>
-      <xsl:apply-templates mode="upgradeQuestionnaire" select="node()"/>
-    </xsl:copy>
+    <xsl:choose>
+      <xsl:when test="f:text!='' or f:group or count(f:question)&gt;1 or f:_maxOccurs!=1">
+        <xsl:copy>
+          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
+          <xsl:call-template name="upgradeCardinality"/>
+          <xsl:apply-templates mode="upgradeQuestionnaire" select="node()"/>
+        </xsl:copy>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates mode="upgradeQuestionnaire" select="f:question"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <xsl:template name="upgradeCardinality">
     <f:_minOccurs>
@@ -299,23 +306,30 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:choose>
-      <xsl:when test="normalize-space($label)!='' or count(f:question)&gt;1 or f:_maxOccurs!=1">
+<!--    <xsl:choose>
+      <xsl:when test="normalize-space($label)!='' or count(f:question)&gt;1 or f:_maxOccurs!=1">-->
         <xsl:call-template name="groupDiv">
           <xsl:with-param name="level" select="$level"/>
           <xsl:with-param name="hierarchy" select="$hierarchy"/>
           <xsl:with-param name="totalRepetitions" select="$repetitions"/>
         </xsl:call-template>
-      </xsl:when>
+<!--      </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="f:group|f:question">
           <xsl:with-param name="level" select="$level"/>
           <xsl:with-param name="hierarchy" select="concat($hierarchy, '.1')"/>
         </xsl:apply-templates>
       </xsl:otherwise>
-    </xsl:choose>
+    </xsl:choose>-->
     <xsl:if test="$repetitions!=1">
-      <button style="margin:0em 2em" type="button" onclick="addGroup('{generate-id()}{$hierarchy}', this)">Add section</button>
+      <xsl:choose>
+        <xsl:when test="$iconPath=''">
+          <button style="margin:0em 2em" type="button" onclick="addGroup('{generate-id()}{$hierarchy}', this)">Add section</button>
+        </xsl:when>
+        <xsl:otherwise>
+          <input style="margin:0em 2em" type="image" onclick="addGroup('{generate-id()}{$hierarchy}', this)" src="{$iconPath}/html-form-add.png" alt="Add section" width="20" height="20"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:if>
   </xsl:template>
   <xsl:template name="groupDiv">
@@ -339,12 +353,19 @@
         <button type="button" onclick="resetGroup(this)">Reset</button>
       </xsl:if>
       <xsl:if test="$totalRepetitions &gt; 1">
-        <button type="button" onclick="deleteGroup(this)">
-          <xsl:if test="not((f:_minOccurs/@value=0 and $currentRepetition=1) or (not(f:_minOccurs/@value) and $currentRepetition&gt;1) or $currentRepetition &gt; f:_minOccurs/@value)">
-            <xsl:attribute name="style">display:none</xsl:attribute>
-          </xsl:if>
-          <xsl:text>Remove</xsl:text>
-        </button>
+        <xsl:choose>
+          <xsl:when test="$iconPath=''">
+            <button type="button" onclick="deleteGroup(this)">
+              <xsl:if test="not((f:_minOccurs/@value=0 and $currentRepetition=1) or (not(f:_minOccurs/@value) and $currentRepetition&gt;1) or $currentRepetition &gt; f:_minOccurs/@value)">
+                <xsl:attribute name="style">display:none</xsl:attribute>
+              </xsl:if>
+              <xsl:text>Remove</xsl:text>
+            </button>
+          </xsl:when>
+          <xsl:otherwise>
+            <input type="image" onclick="deleteGroup(this)" src="{$iconPath}/html-form-delete.png" alt="Remove" width="20" height="20"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:if>
       <xsl:apply-templates select="f:group|f:question">
         <xsl:with-param name="level" select="$level + 1"/>
@@ -360,11 +381,9 @@
       </xsl:call-template>
     </xsl:if>
   </xsl:template>
-  <xsl:template match="f:question">
-    <xsl:param name="level"/>
-    <xsl:param name="hierarchy"/>
+  <xsl:template name="questionRow">
     <xsl:variable name="id" select="generate-id()"/>
-    <p>
+    <xsl:variable name="formattedLabel">
       <xsl:variable name="label">
         <xsl:choose>
           <xsl:when test="f:label">
@@ -386,134 +405,173 @@
           <xsl:value-of select="$label"/>
         </xsl:otherwise>
       </xsl:choose>
-      <xsl:variable name="answerType" select="f:type/@value"/>
-      <xsl:variable name="answerControl">
-        <xsl:choose>
-          <xsl:when test="$answerType='decimal'">
-            <input type="text" onblur="checkDecimal(this)"/>
-          </xsl:when>
-          <xsl:when test="$answerType='integer'">
-            <input type="text" onblur="checkInteger(this)"/>
-          </xsl:when>
-          <xsl:when test="$answerType='boolean'">
-            <input type="checkbox"/>
-          </xsl:when>
-          <xsl:when test="$answerType='date'">
-            <input type="text" onblur="checkDate(this)" maxlength="10"/>
-          </xsl:when>
-          <xsl:when test="$answerType='dateTime'">
-            <input type="text" onblur="checkDateTime(this)" maxlength="26"/>
-          </xsl:when>
-          <xsl:when test="$answerType='time'">
-            <input type="text" onblur="time(this)" maxlength="26"/>
-          </xsl:when>
-          <xsl:when test="$answerType='instant'">
-            <input type="text" onblur="checkInstant(this)" maxlength="30"/>
-          </xsl:when>
-          <xsl:when test="$answerType='text'">
-            <textarea rows="4" cols="50">&#xA0;</textarea>
-          </xsl:when>
-          <xsl:when test="$answerType='choice' or $answerType='open-choice'">
-            <xsl:choose>
-              <xsl:when test="not(f:options/f:reference/@value)">
-                <xsl:message>
-                  <xsl:value-of select="concat('WARNING: A question was defined as requiring a coded answer, but no set of allowed values was declared so unable to expose code choices for question: ', f:text/@value)"/>
-                </xsl:message>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:variable name="valueset">
-                  <xsl:apply-templates mode="resolveReference" select="f:options/f:reference"/>
-                </xsl:variable>
-                <xsl:variable name="valuesetCodings">
-                  <xsl:apply-templates mode="valueSetToCodings" select="$valueset"/>
-                </xsl:variable>
-                <xsl:choose>
-                  <xsl:when test="count($valuesetCodings/f:coding)=0">
-                    <xsl:message>
-                      <xsl:value-of select="concat('WARNING: Unable to resolve value set reference ', f:options/f:reference/@value, ' so unable to expose code choices for question: ', f:text/@value)"/>
-                    </xsl:message>
-                  </xsl:when>
-                  <xsl:when test="count($valuesetCodings/f:coding)&gt;$maxCodings">
-                    <xsl:value-of select="concat('WARNING: Question has value set with more than ', $maxCodings, ' options.  No proper interface could be provided.&#x0a;', f:text/@value)"/>
-                  </xsl:when>
-                  <xsl:when test="f:repeats/@value='true'">
-                    <br/>
-                    <xsl:for-each select="$valuesetCodings/f:coding">
-                      <xsl:if test="f:system">
-                        <input type="radio" name="{$id}" value="{f:code/@value}"/>
-                      </xsl:if>
-                      <xsl:choose>
-                        <xsl:when test="f:display/@value">
-                          <xsl:value-of select="concat(' ', f:display/@value)"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                          <xsl:value-of select="concat(' ', f:code/@value)"/>
-                        </xsl:otherwise>
-                      </xsl:choose>
-                      <br/>
-                    </xsl:for-each>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <br/>
-                    <xsl:for-each select="$valuesetCodings/f:coding">
-                      <xsl:if test="f:system">
-                        <input type="checkbox" name="{$id}" value="{f:code/@value}"/>
-                      </xsl:if>
-                      <xsl:choose>
-                        <xsl:when test="f:display/@value">
-                          <xsl:value-of select="concat(' ', f:display/@value)"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                          <xsl:value-of select="concat(' ', f:code/@value)"/>
-                        </xsl:otherwise>
-                      </xsl:choose>
-                      <br/>
-                    </xsl:for-each>
-                  </xsl:otherwise>
-                </xsl:choose>
-                <xsl:if test="$answerType='open-choice'">
-                  <xsl:text>Other:</xsl:text>
-                  <input type="text"/>
-                </xsl:if>
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:choose>
-              <xsl:when test="normalize-space($answerType)=''">
-                <xsl:message>
-                  <xsl:value-of select="concat('WARNING: Answer format was not declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>
-                </xsl:message>
-              </xsl:when>
-              <xsl:when test="not($answerType='string')">
-                <xsl:message>
-                  <xsl:value-of select="concat('WARNING: Unrecognized answer format ', $answerType, ' was declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>
-                </xsl:message>
-              </xsl:when>
-            </xsl:choose>
-            <input type="text"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:variable>
-      <xsl:variable name="adjustedInput">
-        <xsl:apply-templates mode="adjustInput" select="$answerControl"/>
-      </xsl:variable>
+    </xsl:variable>
+    <xsl:variable name="answerType" select="f:type/@value"/>
+    <xsl:variable name="answerControl">
       <xsl:choose>
-        <xsl:when test="not(contains($answerType, 'choice')) and _maxOccursInteger/@value">
-          <xsl:call-template name="repeatAnswer">
-            <xsl:with-param name="totalRepetitions" select="_maxOccursInteger/@value"/>
-            <xsl:with-param name="input" select="$adjustedInput"/>
-            <xsl:with-param name="answers" select="f:answer"/>
-          </xsl:call-template>
+        <xsl:when test="$answerType='decimal'">
+          <input type="text" onblur="checkDecimal(this)"/>
+        </xsl:when>
+        <xsl:when test="$answerType='integer'">
+          <input type="text" onblur="checkInteger(this)"/>
+        </xsl:when>
+        <xsl:when test="$answerType='boolean'">
+          <input type="checkbox"/>
+        </xsl:when>
+        <xsl:when test="$answerType='date'">
+          <input type="text" onblur="checkDate(this)" maxlength="10"/>
+        </xsl:when>
+        <xsl:when test="$answerType='dateTime'">
+          <input type="text" onblur="checkDateTime(this)" maxlength="26"/>
+        </xsl:when>
+        <xsl:when test="$answerType='time'">
+          <input type="text" onblur="time(this)" maxlength="26"/>
+        </xsl:when>
+        <xsl:when test="$answerType='instant'">
+          <input type="text" onblur="checkInstant(this)" maxlength="30"/>
+        </xsl:when>
+        <xsl:when test="$answerType='text'">
+          <textarea rows="4" cols="50">&#xA0;</textarea>
+        </xsl:when>
+        <xsl:when test="$answerType='choice' or $answerType='open-choice'">
+          <xsl:choose>
+            <xsl:when test="not(f:options/f:reference/@value)">
+              <xsl:message>
+                <xsl:value-of select="concat('WARNING: A question was defined as requiring a coded answer, but no set of allowed values was declared so unable to expose code choices for question: ', f:text/@value)"/>
+              </xsl:message>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:variable name="valueset">
+                <xsl:apply-templates mode="resolveReference" select="f:options/f:reference"/>
+              </xsl:variable>
+              <xsl:variable name="valuesetCodings">
+                <xsl:apply-templates mode="valueSetToCodings" select="$valueset"/>
+              </xsl:variable>
+              <xsl:choose>
+                <xsl:when test="count($valuesetCodings/f:coding)=0">
+                  <xsl:message>
+                    <xsl:value-of select="concat('WARNING: Unable to resolve value set reference ', f:options/f:reference/@value, ' so unable to expose code choices for question: ', f:text/@value)"/>
+                  </xsl:message>
+                </xsl:when>
+                <xsl:when test="count($valuesetCodings/f:coding)&gt;$maxCodings">
+                  <xsl:value-of select="concat('WARNING: Question has value set with more than ', $maxCodings, ' options.  No proper interface could be provided.&#x0a;', f:text/@value)"/>
+                </xsl:when>
+                <xsl:when test="f:repeats/@value='true'">
+                  <br/>
+                  <xsl:for-each select="$valuesetCodings/f:coding">
+                    <xsl:if test="f:system">
+                      <input type="radio" name="{$id}" value="{f:code/@value}"/>
+                    </xsl:if>
+                    <xsl:choose>
+                      <xsl:when test="f:display/@value">
+                        <xsl:value-of select="concat(' ', f:display/@value)"/>
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <xsl:value-of select="concat(' ', f:code/@value)"/>
+                      </xsl:otherwise>
+                    </xsl:choose>
+                    <br/>
+                  </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                  <br/>
+                  <xsl:for-each select="$valuesetCodings/f:coding">
+                    <xsl:if test="f:system">
+                      <input type="checkbox" name="{$id}" value="{f:code/@value}"/>
+                    </xsl:if>
+                    <xsl:choose>
+                      <xsl:when test="f:display/@value">
+                        <xsl:value-of select="concat(' ', f:display/@value)"/>
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <xsl:value-of select="concat(' ', f:code/@value)"/>
+                      </xsl:otherwise>
+                    </xsl:choose>
+                    <br/>
+                  </xsl:for-each>
+                </xsl:otherwise>
+              </xsl:choose>
+              <xsl:if test="$answerType='open-choice'">
+                <xsl:text>Other:</xsl:text>
+                <input type="text"/>
+              </xsl:if>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:when>
+        <xsl:when test="$answerType='reference'">
+          <xsl:message>WARNING: Reference is not yet a supported type - treating as string</xsl:message>
+          <input tabindex="text"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:call-template name="repeatAnswer">
-            <xsl:with-param name="input" select="$adjustedInput"/>
-            <xsl:with-param name="answers" select="f:answer"/>
-          </xsl:call-template>
+          <xsl:choose>
+            <xsl:when test="normalize-space($answerType)=''">
+              <xsl:message>
+                <xsl:value-of select="concat('WARNING: Answer format was not declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>
+              </xsl:message>
+            </xsl:when>
+            <xsl:when test="not($answerType='string')">
+              <xsl:message>
+                <xsl:value-of select="concat('WARNING: Unrecognized answer format ', $answerType, ' was declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>
+              </xsl:message>
+            </xsl:when>
+          </xsl:choose>
+          <input type="text"/>
         </xsl:otherwise>
       </xsl:choose>
-    </p>
+    </xsl:variable>
+    <xsl:variable name="adjustedInput">
+      <xsl:apply-templates mode="adjustInput" select="$answerControl"/>
+    </xsl:variable>
+    <tr>
+      <td>
+        <xsl:copy-of select="$formattedLabel"/>
+      </td>
+      <td>
+        <xsl:choose>
+          <xsl:when test="not(contains($answerType, 'choice')) and _maxOccursInteger/@value">
+            <xsl:call-template name="repeatAnswer">
+              <xsl:with-param name="totalRepetitions" select="_maxOccursInteger/@value"/>
+              <xsl:with-param name="input" select="$adjustedInput"/>
+              <xsl:with-param name="answers" select="f:answer"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="repeatAnswer">
+              <xsl:with-param name="input" select="$adjustedInput"/>
+              <xsl:with-param name="answers" select="f:answer"/>
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
+      </td>
+    </tr>
+  </xsl:template>
+  <xsl:template match="f:question">
+    <xsl:param name="level"/>
+    <xsl:param name="hierarchy"/>
+    <xsl:choose>
+      <xsl:when test="preceding-sibling::*[self::f:question]">
+        <!-- We're already inside a table, so the table will contain this question -->
+      </xsl:when>
+      <xsl:when test="following-sibling::*[self::f:question]">
+        <table>
+          <tbody>
+            <xsl:call-template name="questionRow"/>
+            <xsl:variable name="precedingGroups" select="count(preceding-sibling::f:group)"/>
+            <xsl:for-each select="following-sibling::f:question[count(preceding-sibling::f:group)=$precedingGroups]">
+              <xsl:call-template name="questionRow"/>
+            </xsl:for-each>
+          </tbody>
+        </table>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="row">
+          <xsl:call-template name="questionRow"/>
+        </xsl:variable>
+        <p>
+          <xsl:copy-of select="$row/td/node()"/>
+        </p>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:apply-templates select="f:group">
       <xsl:with-param name="level" select="$level + 1"/>
       <xsl:with-param name="hierarchy" select="$hierarchy"/>
