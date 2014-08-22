@@ -52,6 +52,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import javax.lang.model.util.ElementFilter;
 import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
@@ -73,6 +74,7 @@ import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
+import org.hl7.fhir.definitions.generators.specification.ReviewSpreadsheetGenerator;
 import org.hl7.fhir.definitions.generators.specification.SchematronGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
@@ -141,6 +143,8 @@ import org.hl7.fhir.instance.model.OperationDefinition.OperationParameterUse;
 import org.hl7.fhir.instance.model.OperationDefinition.ResourceProfileStatus;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.Profile.ElementComponent;
+import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Resource;
@@ -176,6 +180,8 @@ import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.XLSXmlGenerator;
+import org.hl7.fhir.utilities.XLSXmlGenerator.SimpleSheet;
 import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -449,13 +455,13 @@ public class Publisher {
       }
       defineSpecialValues();     
       loadValueSets1();
-      processProfiles();
-      if (page.hasIG()) {
-        processIGFiles();
-      }
 
 
       if (validate()) {
+        processProfiles();
+        if (page.hasIG()) {
+          processIGFiles();
+        }
         if (isGenerate) {
           page.log("Clear Directory", LogMessageType.Process);
           if (buildFlags.get("all"))
@@ -495,6 +501,7 @@ public class Publisher {
               AtomEntry<org.hl7.fhir.instance.model.Resource> ae = new AtomEntry<org.hl7.fhir.instance.model.Resource>();
               ae.setId(page.getIg().getBaseUri()+rf.getResource().getResourceType().toString()+"/"+Utilities.fileTitle(f.getAbsolutePath()));
               ae.setResource(rf.getResource());
+              ae.setTitle(f.getName());
               ae.getLinks().put("path", page.getIg().getFilePrefix()+f.getName());
               ae.getResource().setTag("filename", ae.getLinks().get("path"));
               loadIgResource(ae);
@@ -3313,6 +3320,8 @@ public class Publisher {
     page.getEpub().registerFile(title + "-definitions.html", "Definitions for Profile " + profile.getSource().getNameSimple(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-definitions.html");
     
+    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + title + "-review.xmlss", "HL7 FHIR Project", page.getGenDate(), profile.getSource());
+    
     //
     // src = Utilities.fileToString(page.getFolders().srcDir +
     // "template-print.html").replace("<body>",
@@ -3378,6 +3387,8 @@ public class Publisher {
   // ElementDefn e = new ElementDefn();
   // e.setName(page.getIni().getStringProperty("future-resources", n));
   // }
+
+
 
   private Profile loadResourceProfile(String name) throws FileNotFoundException, Exception {
     XmlParser xml = new XmlParser();

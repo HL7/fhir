@@ -26,7 +26,9 @@ public class ProfileValidator {
       for (ElementComponent ec : sc.getDifferential().getElement()) {
         checkExtensions(profile, errors, sc, "differential", ec);
       }
-      for (ElementComponent ec : sc.getSnapshot().getElement()) {
+      if (sc.getSnapshot() == null)
+        errors.add("missing Snapshot at "+profile.getNameSimple()+"."+sc.getNameSimple());
+      else for (ElementComponent ec : sc.getSnapshot().getElement()) {
         checkExtensions(profile, errors, sc, "snapshot", ec);
       }
     }

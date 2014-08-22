@@ -42,6 +42,8 @@ import net.sf.saxon.value.YearMonthDurationValue;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingExtensibility;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
+import org.hl7.fhir.definitions.model.BindingSpecification.ElementType;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -518,11 +520,30 @@ public class ProfileGenerator {
     BindingSpecification src = definitions.getBindingByName(bn);
     if (src == null)
       return null;
-    
+
     ElementDefinitionBindingComponent dst = new Profile.ElementDefinitionBindingComponent();
     dst.setName(Factory.newString_(src.getName()));
-    dst.setConformanceSimple(convert(src.getBindingStrength()));
-    dst.setIsExtensibleSimple(src.getExtensibility() == BindingExtensibility.Extensible);
+    if (src.getBindingStrength() != null) {
+      dst.setConformanceSimple(convert(src.getBindingStrength()));
+      dst.setIsExtensibleSimple(src.getExtensibility() == BindingExtensibility.Extensible);
+    } else {
+      if (src.getElementType() == ElementType.Simple) {
+        dst.setConformanceSimple(convert(BindingStrength.Required));
+        dst.setIsExtensibleSimple(false);
+      }
+      else if (src.getElementType() == ElementType.Complex) {
+        dst.setIsExtensibleSimple(true);
+        if (src.isExample()) {
+          dst.setConformanceSimple(convert(BindingStrength.Example));
+        } else {
+          dst.setConformanceSimple(convert(BindingStrength.Preferred));
+        }
+      }
+      else {
+        dst.setConformanceSimple(convert(BindingStrength.Unstated));
+        dst.setIsExtensibleSimple(true);
+      }
+    }
     dst.setDescription(Factory.newString_(src.getDefinition()));
     if (src.getBinding() != Binding.Unbound)
       dst.setReference(buildReference(src));    

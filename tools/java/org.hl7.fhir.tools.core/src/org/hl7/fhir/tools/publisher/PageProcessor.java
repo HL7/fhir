@@ -3545,12 +3545,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+definitionsProfile(profile.getSource())+s3;
       else if (com[0].equals("profile-examples"))
         src = s1+profileExampleList(profile, examples, example)+s3;
+      else if (com[0].equals("profile.review"))
+        src = s1+profileReviewLink(profile)+s3;
       else if (com[0].equals("resurl")) {
           src = s1+"The id of this profile is "+profile.metadata("id")+s3;
       } else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String profileReviewLink(ProfileDefn profile) {
+    return Utilities.changeFileExt(profile.getSource().getTag("filename"), "-review.xmlss");
   }
 
   private String profileExampleList(ProfileDefn profile, Map<String, Example> examples, String example) {
@@ -4088,6 +4094,22 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else
         return ref;
     }
+  }
+
+  @Override
+  public String getLinkForProfile(Profile profile, String url) {
+    String fn;
+    if (!url.startsWith("#")) {
+      String[] path = url.split("#");
+      profile = definitions.getProfileByURL(path[0]);
+      if (profile == null && url.startsWith("Profile/"))
+        return "hspc-"+url.substring(8)+".html|"+url.substring(8);
+    }
+    if (profile != null) {
+      fn = profile.getTag("filename")+"|"+profile.getNameSimple();
+      return Utilities.changeFileExt(fn, ".html");
+    }
+    return null;
   }
 
   
