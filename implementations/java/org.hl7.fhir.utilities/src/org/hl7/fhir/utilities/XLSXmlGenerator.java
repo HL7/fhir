@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.utilities.xml.XMLWriter;
@@ -12,6 +13,14 @@ public class XLSXmlGenerator {
 
   private XMLWriter source;
 
+  public class SimpleSheet extends ArrayList<List<String>> {
+    public void addRow(String... args) {
+      ArrayList<String> row = new ArrayList<String>();
+      for (String s : args)
+        row.add(s);
+      add(row);
+    }
+  }
   public XLSXmlGenerator(String filename, String author, String genDate) throws Exception {
     super();
     this.source = new XMLWriter(new FileOutputStream(filename), "UTF-8");
