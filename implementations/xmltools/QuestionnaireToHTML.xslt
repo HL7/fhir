@@ -2,7 +2,7 @@
 <!--
   - (c) 2014 Lloyd McKenzie & Associates Consulting Ltd.  All rights reserved
   -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="http://hl7.org/fhir" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:saxon="http://saxon.sf.net/" exclude-result-prefixes="f atom saxon">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="http://hl7.org/fhir" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:saxon="http://saxon.sf.net/" exclude-result-prefixes="f atom saxon html">
   <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
   <xsl:param name="numberSections" select="'false'">
     <!-- If set to true, will auto-generate labels for sections if labels are not present -->
@@ -10,8 +10,11 @@
   <xsl:param name="defaultGroupRepetitions" select="2">
     <!-- This is the number of times repeating groups will be included by default if they don't have a declared minimum number of repetitions -->
   </xsl:param>
-  <xsl:param name="maxCodings" select="20">
-    <!-- This is the maximum number of check boxes or radio buttons that will be permitted for coded elements -->
+  <xsl:param name="maxCheckboxCodings" select="6">
+    <!-- This is the maximum number of check boxes or radio buttons that will be permitted for coded elements before going to list box -->
+  </xsl:param>
+  <xsl:param name="maxListboxCodings" select="20">
+    <!-- This is the maximum number of list box entries that will be permitted for coded elements before going to dialog box -->
   </xsl:param>
   <xsl:param name="enableReset" select="'false'">
     <!-- If set to 'true', this will display a reset button on sections to remove data -->
@@ -21,6 +24,9 @@
   </xsl:param>
   <xsl:param name="iconPath" select="'http://fhir-dev.healthintersections.com.au'">
     <!-- The path at which the html-form-add.png and html-form-delete.png icons can be found.  If not present, text will be used -->
+  </xsl:param>
+  <xsl:param name="jQueryPath" select="'http://fhir-dev.healthintersections.com.au/js'">
+    <!-- The path at which the various jQuery plugins can be found.  If not present, large code lookups cannot be performed -->
   </xsl:param>
   <xsl:variable name="htmlNamespace" select="'http://www.w3.org/1999/xhtml'"/>
   <xsl:variable name="phrases">
@@ -153,6 +159,7 @@
   <xsl:template match="f:Questionnaire">
     <html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
       <head>
+        <xsl:call-template name="scripts"/>
         <title>
           <xsl:choose>
             <xsl:when test="f:title/@value">
@@ -169,16 +176,398 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
       </head>
       <body>
-        <div>
+        <div id="div-cnt">
           <xsl:apply-templates select="f:group"/>
         </div>
-        <xsl:call-template name="scripts"/>
       </body>
     </html>
   </xsl:template>
   <xsl:template name="scripts">
+    <xsl:if test="$jQueryPath!=''">
+      <script type="text/javascript" src="{$jQueryPath}/json2.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/statuspage.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/jquery-1.6.2.min.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/jquery-ui-1.8.16.custom.min.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/jquery-1.6.2.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/jquery.ui.core.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/jquery.ui.widget.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/jquery.ui.mouse.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/jquery.ui.resizable.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/jquery.ui.draggable.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/jtip.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/jcookie.js">&#xA0;</script>
+      <script type="text/javascript" src="{$jQueryPath}/hl7connect.js">&#xA0;</script>
+      <script type="text/javascript">
+        <xsl:comment>
+          <xsl:text>&#x0a;</xsl:text>
+          <xsl:value-of select="concat('var expansionUri = &quot;', $expansionServer, '&quot;&#x0a;')"/>
+          <xsl:choose>
+            <xsl:when test="$iconPath!=''">
+              <xsl:text disable-output-escaping="yes">var removeButton = "&lt;input type=\"image\" alt=\"Remove\" onclick=\"deleteRow(this)\" style=\"width:10;height:10\" src=\"</xsl:text>
+              <xsl:value-of select="concat($iconPath, '/html-form-delete.png\&quot;/&gt;&quot;;')"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:text disable-output-escaping="yes">var removeButton = "&lt;button onclick=\"deleteRow(this)\"&gt;X&lt;/button&gt;";</xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
+          <xsl:text>&#x0a;</xsl:text>
+        </xsl:comment>
+      </script>
+      <script type="text/javascript">
+        <xsl:comment>
+var fhirValuesetUrl = null;
+var fhirCodeMax = null;
+var fhirCodeExtensible = null;
+var fhirCodeSourceTable = null;
+
+var selectedSystem = "";
+var selectedCode = "";
+var selectedDisplay = "";
+var selectedDefinition = "";
+
+var selectionTable;
+var codes;
+var addButton;
+var doneButton;
+var codeSelection;
+
+
+function combo(id,h,l) 
+{
+  var self = this; 
+  self.h = h; 
+  self.l = l; 
+  self.inp = document.getElementById(id); 
+  self.hasfocus = false; 
+  self.sel = -1; 
+  self.ul = self.inp.nextSibling; 
+  while (self.ul.nodeType == 3) 
+    self.ul = self.ul.nextSibling; 
+  self.ul.onmouseover = function() {
+    self.ul.className = '';
+  }; 
+  self.ul.onmouseout = function() {
+    self.ul.className = 'focused'; 
+    if (!self.hasfocus) 
+      self.ul.style.display = 'none';
+  }; 
+  self.list = self.ul.getElementsByTagName('li'); 
+  selectedSystem = ""
+  selectedCode = ""
+  selectedDisplay = ""
+  selectedDefinition = ""
+  for (var i=self.list.length - 1; i >= 0; i=i-1) {
+    self.list[i].onclick = function() {
+      if (this.id != null) {
+        self.inp.value = this.firstChild.data;  
+        for (var i = 0; i &lt; codes.length; i++) { 
+          if (codes[i].system+"||"+codes[i].code == this.id) {
+            selectedSystem = codes[i].system;
+            selectedCode = codes[i].code;
+            selectedDisplay = codes[i].display;
+            currentCodeDefinition = ""
+            if (codes[i].extension != null) {
+              for (var j = 0; j &lt; codes[i].extension.length; j++) {
+                if (codes[i].extension[j].url == "http:\/\/hl7.org\/fhir\/Profile\/tools-extensions#definition")
+                  selectedDefinition = codes[i].extension[j].valueString;
+              }
+            }
+            checkMaxRows()
+          }
+        }        
+        self.rset(self);
+      }
+    }
+  } 
+  self.inp.onfocus = function() {
+    self.ul.style.display = 'block'; 
+    self.ul.className = 'focused'; 
+    self.hasfocus = true; 
+    self.sel = -1;
+  }; 
+  self.inp.onblur = function() {
+    if (self.ul.className=='focused') {
+      self.rset(self);
+    } 
+    self.ul.className = ''; 
+    self.hasfocus = false;
+  }; 
+  self.inp.onkeyup = function(e) {
+    var k = (e)? e.keyCode : event.keyCode; 
+    if (k == 40 || k == 13) {
+      if (self.sel == self.list.length-1) {
+        self.list[self.sel].style.backgroundColor = self.l; 
+        self.sel = -1;
+      } 
+      if (self.sel > -1)
+        self.list[self.sel].style.backgroundColor = self.l; 
+      self.inp.value = self.list[++self.sel].firstChild.data; 
+      self.list[self.sel].style.backgroundColor = self.h;
+    } 
+    else if (k == 38 &amp;&amp; self.sel > 0) {
+      self.list[self.sel].style.backgroundColor = self.l;
+      self.sel = self.sel -1
+      self.inp.value = self.list[self.sel].firstChild.data; 
+      self.list[self.sel].style.backgroundColor = self.h;
+    }
+    return false;
+  };
+} 
+  
+combo.prototype.rset = function(self) {
+  self.ul.style.display = 'none'; 
+  self.sel = -1; 
+  for (var i=self.list.length - 1; i >= 0; i=i-1) {
+    self.list[i].style.backgroundColor = self.l;
+  }  
+  return false;
+};
+
+function codeBuildForm()
+{
+  var d = document.getElementById("fhir-code-form");
+  if (d == null)
+  {
+    d = document.createElement("div");
+    d.id = "fhir-code-form";
+  }
+
+  d.innerHTML = "&lt;span id=\"fhir-code-label\">Code:&lt;/span>&lt;table>&lt;tbody>&lt;tr>&lt;td class=\"combo\">&lt;input id=\"fhir-code-input\" type=\"text\" name=\"codeChoice\" title=\"Type text to filter list\" size=\"100%\" onInput=\"reload(this)\"/>"+
+                "&lt;ul id=\"fhir-code-ul\" style=\"display:none;\" class=\"\">&lt;/ul>&lt;/td>&lt;td>&lt;button id=\"fhir-code-select\" onClick='addRow()' style=\"display:none;\">Add&lt;/button>&lt;/td>&lt;/tr>&lt;tr>&lt;td>"+
+                "&lt;button id=\"fhir-code-commit\" onClick='commitCodes()' style=\"display:none;\">Apply&lt;/button>&lt;/td>&lt;td>"+
+                "&lt;button onClick='closeCodeSelect()'>Cancel&lt;/button>&lt;/td>&lt;/tr>&lt;/tbody>&lt;/table>&lt;div id=\"fhir-code-selections\"/>";
+  d.className = "fhir-code-form";
+	document.getElementById("div-cnt").appendChild(d);
+  $('.fhir-code-form').css('left', fhirCodeSourceTable.offsetLeft+fhirCodeSourceTable.offsetWidth);
+  $('.fhir-code-form').css('top', fhirCodeSourceTable.offsetTop+fhirCodeSourceTable.offsetHeight);
+}
+
+function init(valueset, sourceTable, extensible, max) {
+  fhirValuesetUrl = valueset;
+  fhirCodeMax = max;
+  fhirCodeExtensible = extensible;
+  fhirCodeSourceTable = sourceTable
+
+  codeBuildForm();
+
+  var inputLabel = document.getElementById("fhir-code-label");
+  var targetDiv = document.getElementById("fhir-code-selections");
+  codeSelection = document.getElementById("fhir-code-input");
+  addButton = document.getElementById("fhir-code-select");
+  doneButton = document.getElementById("fhir-code-commit");
+
+  if (max==1) {
+    targetDiv.style.display="none";
+    addButton.style.display = "none";
+    if (extensible)
+      inputLabel.innerHTML="Select code/Enter value:"
+    else
+      inputLabel.innerHTML="Select code:";
+
+  } else {
+    targetDiv.style.display="inherit";
+    addButton.style.display = "inherit";
+    if (extensible)
+      inputLabel.innerHTML="Select code(s)/Enter value(s):"
+    else
+      inputLabel.innerHTML="Select code(s):";
+  }
+  if (targetDiv.table)
+    targetDiv.removeChild(targetDiv.table);
+
+  selectionTable = sourceTable.cloneNode(true);
+  targetDiv.appendChild(selectionTable);
+
+  for (var i = 0; i &lt; selectionTable.rows.length; i++) {
+    setRowId(selectionTable.rows[i])
+  }
+
+  checkMaxRows()
+
+  load();
+}
+
+function reload(edit) {
+  getCodes(fhirValuesetUrl, edit.value);
+  checkMaxRows()
+}
+
+function load() {
+  new combo('fhir-code-input','#9c9','#fff');
+  getCodes(fhirValuesetUrl, "");
+}
+
+function processExpansion(data)
+{
+  var source = "";
+//  codes = data.entry[0].content.expansion.contains;
+  codes = data.expansion.contains;
+  if (codes != null) {
+    for (var i = 0; i &lt; codes.length; i++) {
+      var definition = ""
+      if (codes[i].extension != null) {
+        for (var j = 0; j &lt; codes[i].extension.length; j++) {
+          if (codes[i].extension[j].url == "http:\/\/hl7.org\/fhir\/Profile\/tools-extensions#definition")
+            definition = codes[i].extension[j].valueString;
+        }
+      }
+      source = source + "&lt;li id=\""+codes[i].system+"||"+codes[i].code+"\" title=\""+definition+"\">"+codes[i].display+"&lt;/li>";
+    }
+  }
+  document.getElementById("fhir-code-ul").innerHTML = source;  
+  new combo('fhir-code-input','#9c9','#fff'); 
+}
+
+function getCodes(id, text)
+{
+    try
+    {
+      var uri = expansionUri+"/ValueSet/$expand?_format=json&amp;identifier="+id+"&amp;filter="+text;
+      $.ajax({
+        url: uri,
+        cache: false,
+        dataType: "json",
+        success: function(data){
+          processExpansion(data);
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+          try {
+            var oo = jQuery.parseJSON(jqXHR.responseText);
+            document.getElementById("fhir-tag-ul").innerHTML = "&lt;li>"+processNarrative(oo.text.div)+"&lt;/li>";  
+          } catch (err) {
+            alert("System Error: "+textStatus);
+          }
+        }
+      });
+    }
+    catch (err)
+    {
+      alert("System Error: "+err);
+    }
+}
+
+function deleteRow(control) {
+  var row = control.parentNode.parentNode;
+  if (confirm("Remove this entry?")) {
+    row.parentNode.deleteRow(row.rowIndex);
+    checkMaxRows()
+  }
+}
+
+function setRowId(row) {
+  row.id = getRowId(row.children[2].innerHTML, row.children[3].innerHTML, row.children[1].innerHTML);
+}
+
+function getRowId(system, code, display) {
+  return system.trim()+"||"+code.trim()+"||"+display.trim().toUpperCase();
+}
+
+function addRow() {
+  var selectionText = codeSelection.value;
+  var addCode = (selectionText == selectedDisplay);
+  if (addCode)
+    var newRowId = getRowId(selectedSystem, selectedCode, selectedDisplay)
+  else if (fhirCodeExtensible)
+    var newRowId = getRowId("", "", selectionText)
+  else
+    return; // No code selected an not extensible binding
+    
+  var currentRow = document.getElementById(newRowId);
+
+  if (currentRow != null) {
+    alert("Already exists");
+    return;
+  }
+
+  currentRow = selectionTable.insertRow(-1);
+  currentRow.insertCell(0).innerHTML = removeButton;
+  // Todo: make the URL a variable
+  var aCell = currentRow.insertCell(1);
+  aCell.innerHTML = addCode ? selectedDisplay : selectionText;
+  aCell.title = addCode ? selectedDefinition : "";
+  if (addCode) {
+    aCell = currentRow.insertCell(2);
+    aCell.innerHTML = selectedSystem;
+    aCell.style.fontSize="0px";
+    aCell = currentRow.insertCell(3);
+    aCell.innerHTML = selectedCode;
+    aCell.style.fontSize="0px";
+  } else {
+    currentRow.insertCell(2).style.fontSize = "0px"
+    currentRow.insertCell(3).style.fontSize = "0px"
+  }
+  setRowId(currentRow);
+  checkMaxRows();
+}
+
+function checkMaxRows() {
+  if ((fhirCodeMax == null || selectionTable.rows.length &lt; fhirCodeMax)
+  &amp;&amp; codeSelection.value != "" 
+  &amp;&amp; (codeSelection.value == selectedDisplay || fhirCodeExtensible))
+    addButton.style.display = "inherit"
+  else
+    addButton.style.display = "none";
+
+  if (fhirCodeMax == 1) {
+    if (codeSelection.value != ""
+    &amp;&amp; (codeSelection.value == selectedDisplay || fhirCodeExtensible))
+      doneButton.style.display = "inherit"
+    else
+      doneButton.style.display = "none";
+  } else
+      doneButton.style.display = "inherit";
+}
+
+function commitCodes() {
+  if (fhirCodeMax == 1) {
+    for (var i=selectionTable.rows.length - 1; i >= 0; i=i-1) {
+      selectionTable.deleteRow(i);
+    }
+    addRow();
+  }
+
+  var dataTable = selectionTable.cloneNode(true);
+  for (var i = 0; i &lt; dataTable.rows.length; i++) {
+    dataTable.rows[i].removeAttribute("id");
+  }
+  var parent = fhirCodeSourceTable.parentNode;
+  parent.removeChild(fhirCodeSourceTable);
+  parent.insertBefore(dataTable, parent.children[0]);
+  closeCodeSelect();
+}
+
+function closeCodeSelect() {
+	document.getElementById("div-cnt").removeChild(document.getElementById("fhir-code-form"));
+}
+        </xsl:comment>
+      </script>
+      <style type="">
+      div.fhir-code-form {
+       background-color: Lemonchiffon; 
+       border-bottom: 1px solid #778899;
+       border-right: 1px solid #778899;
+       padding: 10px 10px 0px 10px;
+       margin: 0px 0px 0px 0px;
+       position: fixed;
+       width: 520px;
+       top: 0;
+       left: 0;
+       opacity: 1.0;
+       z-order: 50;
+      }
+      .combo {position:relative;width:310px;text-align:left;padding:0;margin:0;}
+      .combo * {padding:0;margin:0;}
+      .combo label {display:block;float:left;width:92px;text-align:right;}
+      .combo input {width:300px; height:1.5em;z-index:50;}
+      .combo ul {padding:1px;border:2px solid #ccc;width: 300px;background-color:#fff;position:absolute;right:3px;top:1.8em;display:none;z-index:51;}
+      .combo li {display:block; width: 100%;}
+      </style>
+    </xsl:if>
     <script type="text/javascript">
       <xsl:comment>
+      //
+      // Scripts for managing groups
+      //
       function addGroup(groupId, button){
         group = document.getElementById(groupId)
         if (group.style.display=="none") {
@@ -266,7 +655,7 @@
           }
         }
       }
-      //</xsl:comment>
+      </xsl:comment>
     </script>
   </xsl:template>
   <xsl:template match="f:group">
@@ -285,6 +674,11 @@
     </xsl:variable>
     <xsl:if test="normalize-space($label)!=''">
       <xsl:element name="h{$level}" namespace="{$htmlNamespace}">
+        <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/Profile/questionnaire-extensions#flyover']/stringValue/@value">
+          <xsl:attribute name="title">
+            <xsl:value-of select="."/>
+          </xsl:attribute>
+        </xsl:for-each>
         <xsl:value-of select="$label"/>
       </xsl:element>
     </xsl:if>
@@ -327,7 +721,7 @@
           <button style="margin:0em 2em" type="button" onclick="addGroup('{generate-id()}{$hierarchy}', this)">Add section</button>
         </xsl:when>
         <xsl:otherwise>
-          <input style="margin:0em 2em" type="image" onclick="addGroup('{generate-id()}{$hierarchy}', this)" src="{$iconPath}/html-form-add.png" alt="Add section" width="20" height="20"/>
+          <input style="margin:0em 2em" type="image" onclick="addGroup('{generate-id()}{$hierarchy}', this)" src="{$iconPath}/html-form-add.png" alt="Add section" width="10" height="10"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:if>
@@ -363,7 +757,7 @@
             </button>
           </xsl:when>
           <xsl:otherwise>
-            <input type="image" onclick="deleteGroup(this)" src="{$iconPath}/html-form-delete.png" alt="Remove" width="20" height="20"/>
+            <input type="image" onclick="deleteGroup(this)" src="{$iconPath}/html-form-delete.png" alt="Remove" width="10" height="10"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:if>
@@ -448,19 +842,82 @@
                 <xsl:apply-templates mode="valueSetToCodings" select="$valueset"/>
               </xsl:variable>
               <xsl:choose>
-                <xsl:when test="count($valuesetCodings/f:coding)=0">
+                <xsl:when test="count($valuesetCodings/f:coding)=0">                
                   <xsl:message>
                     <xsl:value-of select="concat('WARNING: Unable to resolve value set reference ', f:options/f:reference/@value, ' so unable to expose code choices for question: ', f:text/@value)"/>
                   </xsl:message>
                 </xsl:when>
-                <xsl:when test="count($valuesetCodings/f:coding)&gt;$maxCodings">
-                  <xsl:value-of select="concat('WARNING: Question has value set with more than ', $maxCodings, ' options.  No proper interface could be provided.&#x0a;', f:text/@value)"/>
+                <xsl:when test="count($valuesetCodings/f:coding)&gt;$maxListboxCodings and $expansionServer!='' and $jQueryPath!=''">
+                  <!-- Lookup -->
+                  <table style="table-layout:fixed;width=100%">
+                    <col style="width:20px"/>
+                    <col style="width:auto"/>
+                    <col span="2" style="width:0px;visibility:collapse;"/>
+                  </table>
+                  <xsl:variable name="encodedValuesetURL">
+                    <xsl:call-template name="encodeURL">
+                      <xsl:with-param name="url" select="f:options/f:reference/@value"/>
+                    </xsl:call-template>
+                  </xsl:variable>
+                  <xsl:variable name="extensible">
+                    <xsl:choose>
+                      <xsl:when test="$answerType='choice'">false</xsl:when>
+                      <xsl:otherwise>true</xsl:otherwise>
+                    </xsl:choose>
+                  </xsl:variable>
+                  <xsl:variable name="max">
+                    <xsl:choose>
+                      <xsl:when test="f:_maxOccurs">
+                        <xsl:value-of select="f:_maxOccurs"/>
+                      </xsl:when>
+                      <xsl:otherwise>1</xsl:otherwise>
+                    </xsl:choose>
+                  </xsl:variable>
+                  <button onclick="javascript:init('{$encodedValuesetURL}', this.previousElementSibling, {$extensible}, {$max})">Edit</button>
                 </xsl:when>
-                <xsl:when test="f:repeats/@value='true'">
-                  <br/>
+                <xsl:when test="count($valuesetCodings/f:coding)&gt;$maxListboxCodings">
+                  <!-- Can't Lookup -->
+                  <xsl:value-of select="concat('WARNING: Question has value set with more than ', $maxListboxCodings, ' options.  No proper interface could be provided.&#x0a;', f:text/@value)"/>
+                </xsl:when>
+                <xsl:when test="count($valuesetCodings/f:coding)&gt;$maxCheckboxCodings">
+                  <!-- List box -->
+                  <select>
+                    <xsl:if test="f:_maxOccurs!=1">
+                      <xsl:attribute name="multiple">true</xsl:attribute>
+                    </xsl:if>
+                    <xsl:for-each select="$valuesetCodings/f:coding">
+                      <xsl:variable name="name">
+                        <xsl:choose>
+                          <xsl:when test="f:display/@value">
+                            <xsl:value-of select="concat(' ', f:display/@value)"/>
+                          </xsl:when>
+                          <xsl:otherwise>
+                            <xsl:value-of select="concat(' ', f:code/@value)"/>
+                          </xsl:otherwise>
+                        </xsl:choose>
+                      </xsl:variable>
+                      <option value="{f:code/@value}">
+                        <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/Profile/tools-extensions#definition']/f:valueString/@value">
+                          <xsl:attribute name="title">
+                            <xsl:value-of select="."/>
+                          </xsl:attribute>
+                        </xsl:for-each>
+                        <xsl:value-of select="$name"/>
+                      </option>
+                    </xsl:for-each>
+                  </select>
+                </xsl:when>
+                <xsl:when test="f:_maxOccurs=1">
+                  <!-- Radio buttons -->
                   <xsl:for-each select="$valuesetCodings/f:coding">
                     <xsl:if test="f:system">
-                      <input type="radio" name="{$id}" value="{f:code/@value}"/>
+                      <input type="checkbox" name="{$id}" value="{f:code/@value}">
+                        <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/Profile/tools-extensions#definition']/f:valueString/@value">
+                          <xsl:attribute name="title">
+                            <xsl:value-of select="."/>
+                          </xsl:attribute>
+                        </xsl:for-each>
+                      </input>
                     </xsl:if>
                     <xsl:choose>
                       <xsl:when test="f:display/@value">
@@ -472,12 +929,22 @@
                     </xsl:choose>
                     <br/>
                   </xsl:for-each>
+                  <xsl:if test="$answerType='open-choice'">
+                    <xsl:text>Other:</xsl:text>
+                    <input type="text"/>
+                  </xsl:if>
                 </xsl:when>
                 <xsl:otherwise>
-                  <br/>
+                  <!-- Check boxes -->
                   <xsl:for-each select="$valuesetCodings/f:coding">
                     <xsl:if test="f:system">
-                      <input type="checkbox" name="{$id}" value="{f:code/@value}"/>
+                      <input type="radio" name="{$id}" value="{f:code/@value}">
+                        <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/Profile/tools-extensions#definition']/f:valueString/@value">
+                          <xsl:attribute name="title">
+                            <xsl:value-of select="."/>
+                          </xsl:attribute>
+                        </xsl:for-each>
+                      </input>
                     </xsl:if>
                     <xsl:choose>
                       <xsl:when test="f:display/@value">
@@ -489,12 +956,12 @@
                     </xsl:choose>
                     <br/>
                   </xsl:for-each>
+                  <xsl:if test="$answerType='open-choice'">
+                    <xsl:text>Other:</xsl:text>
+                    <input type="text"/>
+                  </xsl:if>
                 </xsl:otherwise>
               </xsl:choose>
-              <xsl:if test="$answerType='open-choice'">
-                <xsl:text>Other:</xsl:text>
-                <input type="text"/>
-              </xsl:if>
             </xsl:otherwise>
           </xsl:choose>
         </xsl:when>
@@ -523,7 +990,12 @@
       <xsl:apply-templates mode="adjustInput" select="$answerControl"/>
     </xsl:variable>
     <tr>
-      <td>
+      <td style="vertical-align:top">
+        <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/Profile/questionnaire-extensions#flyover']/stringValue/@value">
+          <xsl:attribute name="title">
+            <xsl:value-of select="."/>
+          </xsl:attribute>
+        </xsl:for-each>
         <xsl:copy-of select="$formattedLabel"/>
       </td>
       <td>
