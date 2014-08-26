@@ -295,7 +295,7 @@ public class QuestionnaireBuilder {
     else
       ToolingExtensions.addFlyOver(group, element.getDefinition().getFormalSimple());
     
-    if (!element.getDefinition().getType().isEmpty() || element.getDefinition().getType().get(0).getCodeSimple().equals("*")) {
+    if (element.getDefinition().getType().size() > 1 || element.getDefinition().getType().get(0).getCodeSimple().equals("*")) {
       // todo
       QuestionComponent q = addQuestion(group, AnswerFormat.choice, element.getPathSimple(), "_type", "type");
       List<TypeRefComponent> types = expandTypeList(element.getDefinition().getType());
