@@ -52,7 +52,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       }
       return new ValueSetExpansionOutcome(focus, null);
     } catch (Exception e) {
-      // well, we couldn't expand, so we'll return an interface to a checked that can check membership of the set
+      // well, we couldn't expand, so we'll return an interface to a checker that can check membership of the set
       // that might fail too, but it might not, later.
       return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage());
     }

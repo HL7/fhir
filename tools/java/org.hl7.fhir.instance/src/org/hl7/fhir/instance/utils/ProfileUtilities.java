@@ -44,6 +44,47 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  */
 public class ProfileUtilities {
 
+  public class StrucResult {
+
+    private Profile profile;
+    private ProfileStructureComponent structure;
+
+    public StrucResult(Profile profile, ProfileStructureComponent structure) {
+      this.profile = profile;
+      this.structure = structure;
+    }
+
+    public Profile getProfile() {
+      return profile;
+    }
+
+    public ProfileStructureComponent getStructure() {
+      return structure;
+    }
+
+  }
+
+  public class ExtensionResult {
+
+    private Profile profile;
+    private ProfileExtensionDefnComponent extension;
+
+    public ExtensionResult(Profile profile, ProfileExtensionDefnComponent extension) {
+      this.profile = profile;
+      this.extension = extension;
+    }
+
+    public Profile getProfile() {
+      return profile;
+    }
+
+    public ProfileExtensionDefnComponent getExtension() {
+      return extension;
+    }
+
+  }
+
+
   private WorkerContext context;
   
   public ProfileUtilities(WorkerContext context) {
@@ -948,6 +989,55 @@ public class ProfileUtilities {
         b.append(s.getTypeSimple());
     }
     return b.toString();
+  }
+
+
+  public StrucResult getStructure(Profile source, String url) {
+    Profile profile;
+    String code;
+    if (url.startsWith("#")) {
+      profile = source;
+      code = url.substring(1);
+    } else {
+      String[] parts = url.split("\\#");
+      profile = context.getProfiles().get(parts[0]).getResource();
+      code = parts[1];
+    }
+
+    if (profile != null) {
+      ProfileStructureComponent structure = null;
+      for (ProfileStructureComponent s : profile.getStructure()) {
+        if (s.getNameSimple().equals(code)) 
+          structure = s;
+      }
+      if (structure != null)
+        return new StrucResult(profile, structure);
+    }
+    return null;
+  }
+
+  public ExtensionResult getExtensionDefn(Profile source, String url) {
+    Profile profile;
+    String code;
+    if (url.startsWith("#")) {
+      profile = source;
+      code = url.substring(1);
+    } else {
+      String[] parts = url.split("\\#");
+      profile = context.getProfiles().get(parts[0]).getResource();
+      code = parts[1];
+    }
+
+    if (profile != null) {
+      ProfileExtensionDefnComponent defn = null;
+      for (ProfileExtensionDefnComponent s : profile.getExtensionDefn()) {
+        if (s.getCodeSimple().equals(code)) 
+          defn = s;
+      }
+      if (defn != null)
+        return new ExtensionResult(profile, defn);
+    }
+    return null;
   }
 
 }

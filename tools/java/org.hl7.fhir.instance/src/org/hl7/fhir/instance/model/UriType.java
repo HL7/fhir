@@ -39,7 +39,14 @@ public class UriType extends PrimitiveType {
 	 */
 	protected String value;
 
-	/**
+  public UriType() {
+  }
+
+  public UriType(String uri) {
+    this.value = uri;
+  }
+
+  /**
 	 * @return - the URI value
 	 */
 	public String getValue() {

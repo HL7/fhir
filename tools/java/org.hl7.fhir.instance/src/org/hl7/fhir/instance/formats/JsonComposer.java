@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
+// Generated on Tue, Aug 26, 2014 16:54+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -40,7 +40,7 @@ public class JsonComposer extends JsonComposerBase {
 
   private void composeElement(Element element) throws Exception {
     if (element.getXmlId() != null)
-      prop("_id", element.getXmlId());
+      prop("id", element.getXmlId());
     if (element.getExtensions().size() > 0) {
       openArray("extension");
       for (Extension ex : element.getExtensions())
@@ -4782,8 +4782,8 @@ public class JsonComposer extends JsonComposerBase {
         composeEnumerationCore("status", element.getStatus(), new Questionnaire.QuestionnaireStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatus(), new Questionnaire.QuestionnaireStatusEnumFactory(), false);
       }
-      composeDateCore("date", element.getDate(), false);
-      composeDateExtras("date", element.getDate(), false);
+      composeDateTimeCore("date", element.getDate(), false);
+      composeDateTimeExtras("date", element.getDate(), false);
       composeStringCore("publisher", element.getPublisher(), false);
       composeStringExtras("publisher", element.getPublisher(), false);
       composeQuestionnaireGroupComponent("group", element.getGroup());

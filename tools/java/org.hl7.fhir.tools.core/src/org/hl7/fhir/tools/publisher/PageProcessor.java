@@ -33,6 +33,7 @@ import java.io.FileOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
+import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -81,6 +82,7 @@ import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
 import org.hl7.fhir.definitions.parsers.TypeParser;
+import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -162,7 +164,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private EPubManager epub;
   private String baseURL = "http://hl7.org/implement/standards/FHIR-Develop/";
   private SpecificationTerminologyServices terminologyServices;
-  private WorkerContext workerContext = new WorkerContext(null, null, null, codeSystems, valueSets, conceptMaps, profiles);
+  private WorkerContext workerContext;
+  
+  public PageProcessor() throws URISyntaxException {
+    super();
+    workerContext  = new WorkerContext(null, null, new FHIRSimpleClient().initialize("http://local.healthintersections.com.au:960/open"), codeSystems, valueSets, conceptMaps, profiles);
+  }
 
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
@@ -2485,8 +2492,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (!hasDynamicContent(vs))
       return "";
     try {
-      ValueSetExpansionCache cache = new ValueSetExpansionCache(workerContext);
-      ValueSetExpansionOutcome result = cache.getExpander().expand(vs);
+      if (expandedVSCache == null)
+        expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
+      ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
       if (result.getError() != null)
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+result.getError()+"</div>";
       ValueSet exp = result.getValueset();
@@ -2516,12 +2524,22 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return expandVS(vs, "../../../");
   }
   
-  private String expandVS(ValueSet vs, String prefix) {
+  public ValueSet expandValueSet(ValueSet vs) throws Exception {
+    if (expandedVSCache == null)
+      expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
+    ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
+    if (result.getError() != null)
+      return null;
+    else
+      return result.getValueset();
+  }
+  public String expandVS(ValueSet vs, String prefix) {
     if (!hasDynamicContent(vs))
       return "";
     try {
-      ValueSetExpansionCache cache = new ValueSetExpansionCache(workerContext);
-      ValueSetExpansionOutcome result = cache.getExpander().expand(vs);
+      if (expandedVSCache == null)
+        expandedVSCache = new ValueSetExpansionCache(workerContext, Utilities.path(folders.srcDir, "vscache"));
+      ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
       if (result.getError() != null)
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+result.getError()+"</div>";
       ValueSet exp = result.getValueset();
@@ -3285,6 +3303,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private static final String HTML_PREFIX1 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_PREFIX2 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_SUFFIX = "</div>\r\n";
+  private ValueSetExpansionCache expandedVSCache;
   
   public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition, ResourceDefn r) throws Exception {
     if (!new CSFile(filename).exists()) {

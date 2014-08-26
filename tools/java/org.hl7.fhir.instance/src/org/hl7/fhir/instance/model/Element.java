@@ -116,6 +116,13 @@ public abstract class Element implements Serializable {
     return null;
   }
   
+  public void setStringExtension(String uri, String value) {
+    Extension ext = getExtension(uri);
+    if (ext != null)
+      ext.setValue(new StringType(value));
+    else
+      extensions.add(new Extension(new UriType(uri)).setValue(new StringType(value)));
+  }
   /**
    * Supports iterating the children elements in some generic processor or browser
    * All defined children will be listed, even if they have no value on this instance

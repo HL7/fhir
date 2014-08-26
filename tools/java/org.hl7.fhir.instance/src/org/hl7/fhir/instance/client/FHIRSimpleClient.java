@@ -49,6 +49,7 @@ import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.Version;
 //import org.hl7.fhir.instance.formats.AtomComposer;
 
@@ -102,8 +103,9 @@ public class FHIRSimpleClient implements FHIRClient {
 	//public void configure() throws new not implemented exception - constrain using conformance.
 	
 	@Override
-	public void initialize(String baseServiceUrl)  throws URISyntaxException {
+	public FHIRClient initialize(String baseServiceUrl)  throws URISyntaxException {
 		initialize(baseServiceUrl, -1);
+		return this;
 	}
 	
 	@Override
@@ -630,6 +632,13 @@ public class FHIRSimpleClient implements FHIRClient {
 		if (conf.getSoftware() != null)
 		  vinfo.fhirServerSoftware = conf.getSoftware().getVersionSimple();
 		return vinfo;
+  }
+
+  @Override
+  public ValueSet expandValueset(ValueSet source) throws Exception {
+    AtomFeed searchResults = null;
+    searchResults = ClientUtils.issuePostFeedRequest(resourceAddress.resolveOperationUri(ValueSet.class, "expand"), new HashMap<String, String>(), "valueSet", source, getPreferredFeedFormat());
+    return (ValueSet) searchResults.getEntryList().get(0).getResource();
   }
 
 }

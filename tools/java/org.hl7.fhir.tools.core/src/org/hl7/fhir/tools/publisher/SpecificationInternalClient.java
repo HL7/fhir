@@ -19,6 +19,7 @@ import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ValueSet;
 
 public class SpecificationInternalClient implements FHIRClient {
 
@@ -31,7 +32,7 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public void initialize(String baseServiceUrl) throws URISyntaxException {
+  public FHIRClient initialize(String baseServiceUrl) throws URISyntaxException {
     throw new Error("initialize not supported by the internal specification client");
 
   }
@@ -246,8 +247,12 @@ public class SpecificationInternalClient implements FHIRClient {
 
   @Override
   public <T extends Resource> AtomFeed history(Class<T> resourceClass) {
-    // TODO Auto-generated method stub
-    return null;
+    throw new Error("history not supported by the internal specification client");
+  }
+
+  @Override
+  public ValueSet expandValueset(ValueSet source) throws Exception {
+    throw new Error("expandValueset not supported by the internal specification client");
   }
 
 

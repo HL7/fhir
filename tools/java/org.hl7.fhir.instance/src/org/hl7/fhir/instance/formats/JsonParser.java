@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
+// Generated on Tue, Aug 26, 2014 16:54+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -5560,7 +5560,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_status"))
       parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
     if (json.has("date"))
-      res.setDate(parseDate(json.get("date").getAsString()));
+      res.setDate(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
       parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
     if (json.has("publisher"))

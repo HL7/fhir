@@ -2571,7 +2571,9 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrImpl.append("begin\r\n");
     prsrImpl.append("  parseComments(element, jsn);\r\n\r\n");
     prsrImpl.append("  if jsn.has('id') then\r\n");
-    prsrImpl.append("    element.xmlId:= jsn['id'];\r\n");
+    prsrImpl.append("    element.xmlId:= jsn['id']\r\n");
+    prsrImpl.append("  else if jsn.has('_id') then\r\n");
+    prsrImpl.append("    element.xmlId:= jsn['_id'];\r\n");
     prsrImpl.append("  if jsn.has('extension') then\r\n");
     prsrImpl.append("    iterateArray(jsn.vArr['extension'], element.extensionList, parseExtension)\r\n");
     prsrImpl.append("end;\r\n\r\n");

@@ -77,6 +77,10 @@ public class ResourceAddress {
 		return appendHttpParameters(baseServiceUri.resolve(nameForClass(resourceClass) +"/_search"), parameters);
 	}
 	
+  public <T extends Resource> URI resolveOperationUri(Class<T> resourceClass, String opName) {
+    return baseServiceUri.resolve(nameForClass(resourceClass) +"/$"+opName);
+  }
+  
 	public <T extends Resource> URI resolveValidateUri(Class<T> resourceClass, String id) {
 		return baseServiceUri.resolve(nameForClass(resourceClass) +"/_validate/"+id);
 	}

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
+// Generated on Tue, Aug 26, 2014 16:54+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -3242,7 +3242,7 @@ public class XmlComposer extends XmlComposerBase {
       composeString("version", element.getVersion());
       if (element.getStatus() != null)
         composeEnumeration("status", element.getStatus(), new Questionnaire.QuestionnaireStatusEnumFactory());
-      composeDate("date", element.getDate());
+      composeDateTime("date", element.getDate());
       composeString("publisher", element.getPublisher());
       composeQuestionnaireGroupComponent("group", element.getGroup());
       xml.close(FHIR_NS, name);

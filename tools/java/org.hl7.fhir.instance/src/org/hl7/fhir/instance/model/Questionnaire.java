@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Aug 20, 2014 09:23+1000 for FHIR v0.3.0
+// Generated on Tue, Aug 26, 2014 16:54+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -228,7 +228,7 @@ public class Questionnaire extends Resource {
 
     public static class GroupComponent extends BackboneElement {
         /**
-         * A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
+         * A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
         protected StringType linkId;
 
@@ -274,14 +274,14 @@ public class Questionnaire extends Resource {
       }
 
         /**
-         * @return {@link #linkId} (A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.)
+         * @return {@link #linkId} (A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.)
          */
         public StringType getLinkId() { 
           return this.linkId;
         }
 
         /**
-         * @param value {@link #linkId} (A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.)
+         * @param value {@link #linkId} (A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.)
          */
         public GroupComponent setLinkId(StringType value) { 
           this.linkId = value;
@@ -289,14 +289,14 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
+         * @return A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
         public String getLinkIdSimple() { 
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
-         * @param value A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
+         * @param value A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
         public GroupComponent setLinkIdSimple(String value) { 
           if (value == null)
@@ -506,7 +506,7 @@ public class Questionnaire extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("linkId", "string", "A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
+          childrenList.add(new Property("linkId", "string", "A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
           childrenList.add(new Property("title", "string", "The human-readable name for this section of the questionnaire.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("concept", "Coding", "Identifies a how this group of questions is known in a particular terminology such as LOINC.", 0, java.lang.Integer.MAX_VALUE, concept));
           childrenList.add(new Property("text", "string", "Additional text for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, text));
@@ -539,7 +539,7 @@ public class Questionnaire extends Resource {
 
     public static class QuestionComponent extends BackboneElement {
         /**
-         * A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
+         * An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
          */
         protected StringType linkId;
 
@@ -590,14 +590,14 @@ public class Questionnaire extends Resource {
       }
 
         /**
-         * @return {@link #linkId} (A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.)
+         * @return {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.)
          */
         public StringType getLinkId() { 
           return this.linkId;
         }
 
         /**
-         * @param value {@link #linkId} (A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.)
+         * @param value {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.)
          */
         public QuestionComponent setLinkId(StringType value) { 
           this.linkId = value;
@@ -605,14 +605,14 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
+         * @return An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
          */
         public String getLinkIdSimple() { 
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
-         * @param value A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
+         * @param value An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
          */
         public QuestionComponent setLinkIdSimple(String value) { 
           if (value == null)
@@ -835,7 +835,7 @@ public class Questionnaire extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("linkId", "string", "A unique identifier within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
+          childrenList.add(new Property("linkId", "string", "An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
           childrenList.add(new Property("concept", "Coding", "Identifies a how this group of questions is known in a particular terminology such as LOINC.", 0, java.lang.Integer.MAX_VALUE, concept));
           childrenList.add(new Property("text", "string", "Text of the question as it is shown to the user.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("type", "code", "The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -882,7 +882,7 @@ public class Questionnaire extends Resource {
     /**
      * The date that this version of the questionnaire was authored.
      */
-    protected DateType date;
+    protected DateTimeType date;
 
     /**
      * Organization responsible for developing and maintaining the questionnaire.
@@ -894,7 +894,7 @@ public class Questionnaire extends Resource {
      */
     protected GroupComponent group;
 
-    private static final long serialVersionUID = 17724285L;
+    private static final long serialVersionUID = -891710678L;
 
     public Questionnaire() {
       super();
@@ -994,14 +994,14 @@ public class Questionnaire extends Resource {
     /**
      * @return {@link #date} (The date that this version of the questionnaire was authored.)
      */
-    public DateType getDate() { 
+    public DateTimeType getDate() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date that this version of the questionnaire was authored.)
      */
-    public Questionnaire setDate(DateType value) { 
+    public Questionnaire setDate(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -1021,7 +1021,7 @@ public class Questionnaire extends Resource {
         this.date = null;
       else {
         if (this.date == null)
-          this.date = new DateType();
+          this.date = new DateTimeType();
         this.date.setValue(value);
       }
       return this;
@@ -1083,7 +1083,7 @@ public class Questionnaire extends Resource {
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this question set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("status", "code", "The lifecycle status of the questionnaire as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("date", "date", "The date that this version of the questionnaire was authored.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("date", "dateTime", "The date that this version of the questionnaire was authored.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "Organization responsible for developing and maintaining the questionnaire.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("group", "", "A collection of related questions (or further groupings of questions).", 0, java.lang.Integer.MAX_VALUE, group));
       }

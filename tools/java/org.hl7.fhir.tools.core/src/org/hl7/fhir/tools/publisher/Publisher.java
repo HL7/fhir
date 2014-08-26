@@ -40,6 +40,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -47,6 +51,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -57,6 +63,8 @@ import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -217,7 +225,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
  * @author Grahame
  * 
  */
-public class Publisher {
+public class Publisher implements URIResolver {
 
   public class Fragment {
     private String type;
@@ -281,7 +289,7 @@ public class Publisher {
   }
 
   private SourceParser prsr;
-  private PageProcessor page = new PageProcessor();
+  private PageProcessor page;
   // private BookMaker book;
 
   private JavaGenerator javaReferencePlatform;
@@ -307,7 +315,7 @@ public class Publisher {
     //
    
     Publisher pub = new Publisher();
-
+    pub.page = new PageProcessor();
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
     pub.noArchive = (args.length > 1 && hasParam(args, "-noarchive"));
     pub.web = (args.length > 1 && hasParam(args, "-web"));
@@ -2876,7 +2884,8 @@ public class Publisher {
           Utilities.path(page.getFolders().rootDir, "implementations", "xmltools"), // directory for xslt references  
           page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml",  // source to run xslt on 
           Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "QuestionnaireToHTML.xslt"), // xslt file to run 
-          tmpTransform.getAbsolutePath() // file to produce
+          tmpTransform.getAbsolutePath(), // file to produce
+          this // handle to self to implement URI resolver for terminology fetching
     );
        
     // now, generate the form
@@ -3786,9 +3795,9 @@ public class Publisher {
 
     try {
       Utilities.saxonTransform(page.getFolders().rootDir + "tools" + sc + "schematron" + sc, page.getFolders().dstDir + sch + ".sch", page.getFolders().rootDir
-          + "tools" + sc + "schematron" + sc + "iso_svrl_for_xslt2.xsl", tmpTransform.getAbsolutePath());
+          + "tools" + sc + "schematron" + sc + "iso_svrl_for_xslt2.xsl", tmpTransform.getAbsolutePath(), null);
       Utilities.saxonTransform(page.getFolders().rootDir + "tools" + sc + "schematron" + sc, page.getFolders().dstDir + n + ".xml",
-          tmpTransform.getAbsolutePath(), tmpOutput.getAbsolutePath());
+          tmpTransform.getAbsolutePath(), tmpOutput.getAbsolutePath(), null);
     } catch (Throwable t) {
 //      throw new Exception("Error validating " + page.getFolders().dstDir + n + ".xml with schematrons", t);
     }
@@ -4407,6 +4416,40 @@ public class Publisher {
       d.setDefinitionSimple(c.getDefinition());
     for (DefinedCode g : c.getChildCodes()) {
       addCode(vs, d.getConcept(), g);
+    }
+  }
+
+  public static Map<String, String> splitQuery(URL url) throws UnsupportedEncodingException {
+    Map<String, String> query_pairs = new LinkedHashMap<String, String>();
+    String query = url.getQuery();
+    String[] pairs = query.split("&");
+    for (String pair : pairs) {
+        int idx = pair.indexOf("=");
+        query_pairs.put(URLDecoder.decode(pair.substring(0, idx), "UTF-8"), URLDecoder.decode(pair.substring(idx + 1), "UTF-8"));
+    }
+    return query_pairs;
+}
+  @Override
+  public javax.xml.transform.Source resolve(String href, String base) throws TransformerException {
+    if (!href.startsWith("http://fhir.healthintersections.com.au/open/ValueSet/$expand"))
+      return null;
+    try {
+      Map<String, String> params = splitQuery(new URL(href));
+      ValueSet vs = page.getValueSets().get(params.get("identifier")).getResource();
+      if (vs == null) {
+        page.log("unable to resolve "+params.get("identifier"), LogMessageType.Process);
+        return null;
+      }
+      vs = page.expandValueSet(vs);
+      if (vs == null) {
+        page.log("unable to expand "+params.get("identifier"), LogMessageType.Process);
+        return null;
+      }
+      ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+      new XmlComposer().compose(bytes, vs, false);
+      return new StreamSource(new ByteArrayInputStream(bytes.toByteArray()));
+    } catch (Exception e) {
+      throw new TransformerException(e);
     }
   }
 

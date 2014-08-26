@@ -9,6 +9,7 @@ import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
+import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -24,6 +25,9 @@ public class ToolingExtensions {
   public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/Profile/tools-extensions#issue-source";
   public static final String EXT_SUBSUMES = "http://hl7.org/fhir/Profile/tools-extensions#subsumes";
   public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/Profile/tools-extensions#display-hint";
+  public static final String EXT_FLYOVER = "http://hl7.org/fhir/Profile/questionnaire-extensions#flyover";
+  private static final String EXT_QTYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
+  private static final String EXT_QREF = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
   
   public static Extension makeIssueSource(Source source) {
     Extension ex = new Extension();
@@ -131,6 +135,22 @@ public class ToolingExtensions {
         res.add((CodeType) e.getValue());
     }
     return res;
+  }
+
+  public static void addFlyOver(GroupComponent group, String text) throws Exception {
+    if (!Utilities.noString(text))
+      group.getExtensions().add(Factory.newExtension(EXT_FLYOVER, Factory.newString_(text), true));   
+    
+  }
+
+  public static void setQuestionType(GroupComponent group, String text) throws Exception {
+    if (!Utilities.noString(text))
+      group.getExtensions().add(Factory.newExtension(EXT_QTYPE, Factory.newString_(text), true));   
+  }
+
+  public static void setQuestionReference(GroupComponent group, String text) throws Exception {
+    if (!Utilities.noString(text))
+      group.getExtensions().add(Factory.newExtension(EXT_QREF, Factory.newString_(text), true));   
   }
 
 }
