@@ -272,7 +272,7 @@ function combo(id,h,l)
                   selectedDefinition = codes[i].extension[j].valueString;
               }
             }
-            checkMaxRows()
+            checkMaxCodeRows()
           }
         }        
         self.rset(self);
@@ -342,7 +342,7 @@ function codeBuildForm()
   $('.fhir-code-form').css('top', fhirCodeSourceTable.offsetTop+fhirCodeSourceTable.offsetHeight);
 }
 
-function init(valueset, sourceTable, extensible, max) {
+function initCodeLookup(valueset, sourceTable, extensible, max) {
   fhirValuesetUrl = valueset;
   fhirCodeMax = max;
   fhirCodeExtensible = extensible;
@@ -382,14 +382,14 @@ function init(valueset, sourceTable, extensible, max) {
     setRowId(selectionTable.rows[i])
   }
 
-  checkMaxRows()
+  checkMaxCodeRows()
 
   load();
 }
 
 function reload(edit) {
   getCodes(fhirValuesetUrl, edit.value);
-  checkMaxRows()
+  checkMaxCodeRows()
 }
 
 function load() {
@@ -450,7 +450,7 @@ function deleteRow(control) {
   var row = control.parentNode.parentNode;
   if (confirm("Remove this entry?")) {
     row.parentNode.deleteRow(row.rowIndex);
-    checkMaxRows()
+    checkMaxCodeRows()
   }
 }
 
@@ -497,10 +497,10 @@ function addRow() {
     currentRow.insertCell(3).style.fontSize = "0px"
   }
   setRowId(currentRow);
-  checkMaxRows();
+  checkMaxCodeRows();
 }
 
-function checkMaxRows() {
+function checkMaxCodeRows() {
   if ((fhirCodeMax == null || selectionTable.rows.length &lt; fhirCodeMax)
   &amp;&amp; codeSelection.value != "" 
   &amp;&amp; (codeSelection.value == selectedDisplay || fhirCodeExtensible))
@@ -831,7 +831,7 @@ function closeCodeSelect() {
           <xsl:choose>
             <xsl:when test="not(f:options/f:reference/@value)">
               <xsl:message>
-                <xsl:value-of select="concat('WARNING: A question was defined as requiring a coded answer, but no set of allowed values was declared so unable to expose code choices for question: ', f:text/@value)"/>
+                <xsl:value-of select="concat('WARNING: A question was defined as requiring a coded answer, but no set of allowed values was declared so unable to expose code choices for question: ', f:linkId/@value, ' &quot;', f:text/@value, '&quot;')"/>
               </xsl:message>
             </xsl:when>
             <xsl:otherwise>
@@ -842,12 +842,13 @@ function closeCodeSelect() {
                 <xsl:apply-templates mode="valueSetToCodings" select="$valueset"/>
               </xsl:variable>
               <xsl:choose>
-                <xsl:when test="count($valuesetCodings/f:coding)=0">                
+                <xsl:when test="count($valuesetCodings/f:coding)=0 
+                      and not($valueset/f:OperationOutcome[count(f:issue)=1]/f:issue/f:type[f:system/@value='http://hl7.org/fhir/issue-type ' and f:code='too-costly'])">                
                   <xsl:message>
                     <xsl:value-of select="concat('WARNING: Unable to resolve value set reference ', f:options/f:reference/@value, ' so unable to expose code choices for question: ', f:text/@value)"/>
                   </xsl:message>
                 </xsl:when>
-                <xsl:when test="count($valuesetCodings/f:coding)&gt;$maxListboxCodings and $expansionServer!='' and $jQueryPath!=''">
+                <xsl:when test="(count($valuesetCodings/f:coding)&gt;$maxListboxCodings or $valueset/f:OperationOutcome) and $expansionServer!='' and $jQueryPath!=''">
                   <!-- Lookup -->
                   <table style="table-layout:fixed;width=100%">
                     <col style="width:20px"/>
@@ -873,7 +874,7 @@ function closeCodeSelect() {
                       <xsl:otherwise>1</xsl:otherwise>
                     </xsl:choose>
                   </xsl:variable>
-                  <button onclick="javascript:init('{$encodedValuesetURL}', this.previousElementSibling, {$extensible}, {$max})">Edit</button>
+                  <button onclick="javascript:initCodeLookup('{$encodedValuesetURL}', this.previousElementSibling, {$extensible}, {$max})">Edit</button>
                 </xsl:when>
                 <xsl:when test="count($valuesetCodings/f:coding)&gt;$maxListboxCodings">
                   <!-- Can't Lookup -->
