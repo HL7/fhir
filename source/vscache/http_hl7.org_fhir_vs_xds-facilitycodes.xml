@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationOutcome xmlns="http://hl7.org/fhir">
+  <extension url="http://tools/cache">
+    <valueString value="http://hl7.org/fhir/vs/xds-facilitycodes"/>
+  </extension>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Unable to find 394802001 in http://hl7.org/fhir/v3/HealthcareProviderTaxonomyHIPAA</p>
+    </div>
+  </text>
+  <issue>
+    <severity value="error"/>
+    <details value="Unable to find 394802001 in http://hl7.org/fhir/v3/HealthcareProviderTaxonomyHIPAA"/>
+  </issue>
+</OperationOutcome>

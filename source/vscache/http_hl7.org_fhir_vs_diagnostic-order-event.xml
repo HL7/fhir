@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationOutcome xmlns="http://hl7.org/fhir">
+  <extension url="http://tools/cache">
+    <valueString value="http://hl7.org/fhir/vs/diagnostic-order-event"/>
+  </extension>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>unable to find 440622005 in http://loinc.org</p>
+    </div>
+  </text>
+  <issue>
+    <severity value="error"/>
+    <details value="unable to find 440622005 in http://loinc.org"/>
+  </issue>
+</OperationOutcome>

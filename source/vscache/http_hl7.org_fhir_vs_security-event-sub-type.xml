@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationOutcome xmlns="http://hl7.org/fhir">
+  <extension url="http://tools/cache">
+    <valueString value="http://hl7.org/fhir/vs/security-event-sub-type"/>
+  </extension>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>unable to provide support for code system http://hl7.org/fhir/restful-interaction</p>
+    </div>
+  </text>
+  <issue>
+    <severity value="error"/>
+    <details value="unable to provide support for code system http://hl7.org/fhir/restful-interaction"/>
+  </issue>
+</OperationOutcome>
