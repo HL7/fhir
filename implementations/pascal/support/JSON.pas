@@ -1307,7 +1307,7 @@ begin
     else if node is TJsonNull then
       result := nil
     else
-      raise Exception.Create('Found a '+nodeType+' looking for an array at '+path);
+      raise Exception.Create('Found a '+nodeType+' looking for an array at '+path+'.'+name);
   end
   else
     result := nil;

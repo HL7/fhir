@@ -41,7 +41,7 @@ uses
   Parsemap, TextUtilities,
   StringSupport, DecimalSupport, GuidSupport,
   AdvObjects, AdvBuffers, AdvStringLists,
-  DateAndTime, JWT,
+  DateAndTime, JWT, SCIMObjects,
   FHirBase, FHirResources, FHIRConstants, FHIRComponents, FHIRTypes, FHIRAtomFeed;
 
 Const
@@ -68,39 +68,6 @@ Const
 
 Type
   {$M+}
-  TFHIRUser = class (TAdvObject)
-  private
-    Fname: String;
-    Femail: String;
-    Fpassword: String;
-    Flogin: String;
-    FPatientList: TAdvStringList;
-    FsessionLength: String;
-  public
-    constructor Create; Override;
-    destructor Destroy; Override;
-    function Link : TFHIRUser; overload;
-    property login : String read Flogin write Flogin;
-    property email : String read Femail write Femail;
-    property name : String read Fname write Fname;
-    property password : String read Fpassword write Fpassword;
-    property sessionLength : String read FsessionLength write FsessionLength;
-
-    property PatientList : TAdvStringList read FPatientList;
-  end;
-
-  TFhirUserStructure = class (TAdvObject)
-  private
-    FDetails : TFHIRUser;
-    FTaggedCompartments : TStringList;
-    procedure SetDetails(const Value: TFHIRUser);
-  public
-    Constructor Create; Override;
-    Destructor Destroy; Override;
-
-    property Resource : TFHIRUser read FDetails write SetDetails;
-    property TaggedCompartments : TStringList read FTaggedCompartments;
-  end;
 
 
   {@Class TFhirSession
@@ -125,14 +92,19 @@ Type
     FEmail: String;
     FInnerToken, FOuterToken: String;
     FNextTokenCheck: TDateTime;
-    FUser: TFhirUserStructure;
     FUseCount: integer;
     FRights: TStringList;
     FFirstCreated: TDateTime;
     FJwt : TJWT;
     FJwtPacked : String;
-    procedure SetUser(const Value: TFhirUserStructure);
+    FTaggedCompartments : TStringList;
+    FPatientList: TStringList;
+    FsessionLength: String;
+    FUser : TSCIMUser;
+    Fanonymous : boolean;
+
     procedure SetJwt(const Value: TJWT);
+    procedure SetUser(const Value: TSCIMUser);
   public
     Constructor Create; Override;
     destructor Destroy; Override;
@@ -199,7 +171,7 @@ Type
     {@member User
       User resource associated with this session (if a matching one exists)
     }
-    Property User : TFhirUserStructure read FUser write SetUser;
+    Property User : TSCIMUser read FUser write SetUser;
 
     {@member JWT
       The JWT token (Open ID Connect token) associated with this session
@@ -214,6 +186,10 @@ Type
     Property useCount : integer read FUseCount write FUseCount;
     Property rights : TStringList read FRights;
     function HasRight(code : String):boolean;
+    property TaggedCompartments : TStringList read FTaggedCompartments;
+    property sessionLength : String read FsessionLength write FsessionLength;
+    property PatientList : TStringList read FPatientList;
+    Property anonymous : boolean read Fanonymous write Fanonymous;
   end;
 
   {@Class TFHIRRequest
@@ -1291,12 +1267,16 @@ begin
   inherited;
   FRights := TStringList.Create;
   FFirstCreated := now;
+  FTaggedCompartments := TStringList.create;
+  FPatientList := TStringList.create;
 end;
 
 destructor TFhirSession.Destroy;
 begin
   FJwt.free;
   FRights.Free;
+  FTaggedCompartments.Free;
+  FPatientList.Free;
   FUser.Free;
   inherited;
 end;
@@ -1318,50 +1298,11 @@ begin
   FJwt := Value;
 end;
 
-procedure TFhirSession.SetUser(const Value: TFhirUserStructure);
+procedure TFhirSession.SetUser(const Value: TSCIMUser);
 begin
   FUser.Free;
   FUser := Value;
 end;
 
-{ TFhirUserStructure }
-
-constructor TFhirUserStructure.Create;
-begin
-  inherited;
-  FTaggedCompartments := TStringList.create;
-end;
-
-destructor TFhirUserStructure.Destroy;
-begin
-  FTaggedCompartments.Free;
-  FDetails.Free;
-  inherited;
-end;
-
-procedure TFhirUserStructure.SetDetails(const Value: TFHIRUser);
-begin
-  FDetails.Free;
-  FDetails := Value;
-end;
-
-{ TFHIRUser }
-
-constructor TFHIRUser.create;
-begin
-  inherited;
-  FPatientList := TAdvStringList.Create;
-end;
-
-destructor TFHIRUser.destroy;
-begin
-  FPatientList.Free;
-  inherited;
-end;
-
-function TFHIRUser.Link: TFHIRUser;
-begin
-  result := TFHIRUser(inherited Link);
-end;
 
 end.
