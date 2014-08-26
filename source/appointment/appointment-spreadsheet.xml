@@ -16,11 +16,13 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>1665</WindowHeight>
-  <WindowWidth>6330</WindowWidth>
+  <WindowHeight>9030</WindowHeight>
+  <WindowWidth>19350</WindowWidth>
   <WindowTopX>1140</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>683</TabRatio>
+  <ActiveSheet>3</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -482,7 +484,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -688,7 +689,7 @@
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">individual</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
     <Cell><Data ss:Type="String">Any one of the individuals participating in the appointment</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">Appointment.participant.actor</Data></Cell>
@@ -800,6 +801,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -819,8 +821,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>6</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
