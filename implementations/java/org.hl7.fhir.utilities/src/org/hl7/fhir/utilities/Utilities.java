@@ -41,9 +41,11 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
@@ -289,19 +291,19 @@ public class Utilities {
   }
 
 
-  public static void saxonTransform(String xsltDir, String source, String xslt, String dest) throws Exception {
+  public static void saxonTransform(String xsltDir, String source, String xslt, String dest, URIResolver alt) throws Exception {
     TransformerFactoryImpl f = new net.sf.saxon.TransformerFactoryImpl();
     StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
-    f.setURIResolver(new MyURIResolver(xsltDir));
+    f.setURIResolver(new MyURIResolver(xsltDir, alt));
     Transformer t = f.newTransformer(xsrc);
     
-    t.setURIResolver(new MyURIResolver(xsltDir));
+    t.setURIResolver(new MyURIResolver(xsltDir, alt));
     StreamSource src = new StreamSource(new FileInputStream(source));
     StreamResult res = new StreamResult(new FileOutputStream(dest));
     t.transform(src, res);    
   }
   
-  public static void transform(String xsltDir, String source, String xslt, String dest) throws Exception {
+  public static void transform(String xsltDir, String source, String xslt, String dest, URIResolver alt) throws Exception {
     /* default java approach, but this doesn't support xslt2
     TransformerFactory f = TransformerFactory.newInstance();
     StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
@@ -315,10 +317,10 @@ public class Utilities {
     */
     TransformerFactory f = TransformerFactory.newInstance();
     StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
-    f.setURIResolver(new MyURIResolver(xsltDir));
+    f.setURIResolver(new MyURIResolver(xsltDir, alt));
     Transformer t = f.newTransformer(xsrc);
 
-    t.setURIResolver(new MyURIResolver(xsltDir));
+    t.setURIResolver(new MyURIResolver(xsltDir, alt));
     StreamSource src = new StreamSource(new FileInputStream(source));
     StreamResult res = new StreamResult(new FileOutputStream(dest));
     t.transform(src, res);
@@ -613,6 +615,11 @@ public class Utilities {
 
 	public static boolean isAsciiChar(char ch) {
 		return ch >= ' ' && ch <= '~'; 
+  }
+
+
+  public static String makeUuidUrn() {
+    return "urn:uuid:"+UUID.randomUUID().toString().toLowerCase();
   }
   
 }

@@ -41,6 +41,7 @@ import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ValueSet;
 
 /*
 Copyright (c) 2011-2014, HL7, Inc
@@ -106,9 +107,10 @@ public interface FHIRClient {
 	 * Invalid base server URLs will result in a URISyntaxException being thrown.
 	 * 
 	 * @param baseServiceUrl Base service URL for FHIR Service.
+	 * @return 
 	 * @throws URISyntaxException
 	 */
-	public void initialize(String baseServiceUrl)  throws URISyntaxException;
+	public FHIRClient initialize(String baseServiceUrl)  throws URISyntaxException;
 	
 	/**
 	 * 
@@ -417,4 +419,14 @@ public interface FHIRClient {
 	 * @return the feed the server returns
 	 */
 	public AtomFeed fetchFeed(String url);
+
+
+	/**
+	 *  invoke the expand operation and pass the value set for expansion
+	 * 
+	 * @param source
+	 * @return
+	 * @throws Exception 
+	 */
+  public ValueSet expandValueset(ValueSet source) throws Exception;
 }

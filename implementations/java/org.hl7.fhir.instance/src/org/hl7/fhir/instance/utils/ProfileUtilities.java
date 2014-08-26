@@ -44,6 +44,47 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  */
 public class ProfileUtilities {
 
+  public class StrucResult {
+
+    private Profile profile;
+    private ProfileStructureComponent structure;
+
+    public StrucResult(Profile profile, ProfileStructureComponent structure) {
+      this.profile = profile;
+      this.structure = structure;
+    }
+
+    public Profile getProfile() {
+      return profile;
+    }
+
+    public ProfileStructureComponent getStructure() {
+      return structure;
+    }
+
+  }
+
+  public class ExtensionResult {
+
+    private Profile profile;
+    private ProfileExtensionDefnComponent extension;
+
+    public ExtensionResult(Profile profile, ProfileExtensionDefnComponent extension) {
+      this.profile = profile;
+      this.extension = extension;
+    }
+
+    public Profile getProfile() {
+      return profile;
+    }
+
+    public ProfileExtensionDefnComponent getExtension() {
+      return extension;
+    }
+
+  }
+
+
   private WorkerContext context;
   
   public ProfileUtilities(WorkerContext context) {
@@ -80,6 +121,7 @@ public class ProfileUtilities {
     ExtensionDefinition getExtensionDefinition(Profile profile, String profileReference);
     String getLinkForExtension(Profile profile, String url);
     String resolveBinding(ElementDefinitionBindingComponent binding);
+    String getLinkForProfile(Profile profile, String url);
   }
 
 
@@ -630,7 +672,7 @@ public class ProfileUtilities {
     r.getCells().add(gen.new Cell(null, null, describeCardinality(e.getDefinition(), null, new UnusedTracker()), null, null));
     if (ext.getElement().size() == 1) {
       r.setIcon("icon_extension_simple.png");
-      genTypes(gen, pkp, r, e, profileBaseFileName);
+      genTypes(gen, pkp, r, e, profileBaseFileName, profile);
     } else {
       r.setIcon("icon_extension_complex.png");
       r.getCells().add(gen.new Cell());
@@ -644,7 +686,7 @@ public class ProfileUtilities {
       genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profile, pkp, true, profileBaseFileName);
   }
 
-  private void genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementComponent e, String profileBaseFileName) throws Exception {
+  private void genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementComponent e, String profileBaseFileName, Profile profile) throws Exception {
     Cell c = gen.new Cell();
     r.getCells().add(c);
     boolean first = true;
@@ -653,7 +695,7 @@ public class ProfileUtilities {
         first = false; 
       else 
         c.addPiece(gen.new Piece(null,", ", null));
-      if (t.getCodeSimple().equals("ResourceReference")) {
+      if (t.getCodeSimple().equals("ResourceReference") || (t.getCodeSimple().equals("Resource") && t.getProfile() != null)) {
         if (t.getProfileSimple().startsWith("http://hl7.org/fhir/Profile/")) {
           String rn = t.getProfileSimple().substring(28);
           c.addPiece(gen.new Piece(pkp.getLinkFor(rn), rn, null));
@@ -661,6 +703,14 @@ public class ProfileUtilities {
           c.addPiece(gen.new Piece(profileBaseFileName+"."+t.getProfileSimple().substring(1).toLowerCase()+".html", t.getProfileSimple(), null));
         else
           c.addPiece(gen.new Piece(t.getProfileSimple(), t.getProfileSimple(), null));
+      } else if (t.getProfile() != null) { // a profiled type
+        String ref;
+        ref = pkp.getLinkForProfile(profile, t.getProfileSimple());
+        if (ref != null) {
+          String[] parts = ref.split("\\|");
+          c.addPiece(gen.new Piece(parts[0], parts[1], t.getCodeSimple()));
+        } else
+          c.addPiece(gen.new Piece(ref, t.getCodeSimple(), null));
       } else if (pkp.hasLinkFor(t.getCodeSimple())) {
         c.addPiece(gen.new Piece(pkp.getLinkFor(t.getCodeSimple()), t.getCodeSimple(), null));
       } else
@@ -747,12 +797,12 @@ public class ProfileUtilities {
             generateDescription(gen, row, element, null, used.used, profile.getUrlSimple(), element.getDefinition().getType().get(0).getProfileSimple(), pkp, profile);
           } else {
             row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), extDefn.getDefn().getElement().get(0).getDefinition(), used), null, null));
-            genTypes(gen, pkp, row, extDefn.getDefn().getElement().get(0), profileBaseFileName);
+            genTypes(gen, pkp, row, extDefn.getDefn().getElement().get(0), profileBaseFileName, profile);
             generateDescription(gen, row, element, extDefn.getDefn().getElement().get(0), used.used, profile.getUrlSimple(), element.getDefinition().getType().get(0).getProfileSimple(), pkp, profile);
         }
       } else if (element.getDefinition() != null) {
           row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
-          genTypes(gen, pkp, row, element, profileBaseFileName);
+          genTypes(gen, pkp, row, element, profileBaseFileName, profile);
           generateDescription(gen, row, element, null, used.used, null, null, pkp, profile);
       } else {
           row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
@@ -762,7 +812,7 @@ public class ProfileUtilities {
     } else {
         row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
         if (hasDef)
-          genTypes(gen, pkp, row, element, profileBaseFileName);
+          genTypes(gen, pkp, row, element, profileBaseFileName, profile);
         else
           row.getCells().add(gen.new Cell());
         generateDescription(gen, row, element, null, used.used, null, null, pkp, profile);
@@ -940,6 +990,55 @@ public class ProfileUtilities {
         b.append(s.getTypeSimple());
     }
     return b.toString();
+  }
+
+
+  public StrucResult getStructure(Profile source, String url) {
+    Profile profile;
+    String code;
+    if (url.startsWith("#")) {
+      profile = source;
+      code = url.substring(1);
+    } else {
+      String[] parts = url.split("\\#");
+      profile = context.getProfiles().get(parts[0]).getResource();
+      code = parts[1];
+    }
+
+    if (profile != null) {
+      ProfileStructureComponent structure = null;
+      for (ProfileStructureComponent s : profile.getStructure()) {
+        if (s.getNameSimple().equals(code)) 
+          structure = s;
+      }
+      if (structure != null)
+        return new StrucResult(profile, structure);
+    }
+    return null;
+  }
+
+  public ExtensionResult getExtensionDefn(Profile source, String url) {
+    Profile profile;
+    String code;
+    if (url.startsWith("#")) {
+      profile = source;
+      code = url.substring(1);
+    } else {
+      String[] parts = url.split("\\#");
+      profile = context.getProfiles().get(parts[0]).getResource();
+      code = parts[1];
+    }
+
+    if (profile != null) {
+      ProfileExtensionDefnComponent defn = null;
+      for (ProfileExtensionDefnComponent s : profile.getExtensionDefn()) {
+        if (s.getCodeSimple().equals(code)) 
+          defn = s;
+      }
+      if (defn != null)
+        return new ExtensionResult(profile, defn);
+    }
+    return null;
   }
 
 }

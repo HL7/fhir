@@ -166,7 +166,7 @@ public class InstanceValidator extends BaseValidator {
   public InstanceValidator(WorkerContext context) throws Exception {
     super();
     source = Source.InstanceValidator;
-    cache = new ValueSetExpansionCache(context);
+    cache = new ValueSetExpansionCache(context, null);
     }
 
   public class ChildIterator {

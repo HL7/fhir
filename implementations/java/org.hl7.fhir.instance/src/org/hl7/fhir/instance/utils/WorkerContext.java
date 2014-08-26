@@ -244,7 +244,7 @@ public class WorkerContext {
 	  }
 
 	  @Override
-	  public void initialize(String baseServiceUrl) throws URISyntaxException {
+	  public FHIRClient initialize(String baseServiceUrl) throws URISyntaxException {
       throw new Error("call to NullClient");
 	  }
 
@@ -432,6 +432,11 @@ public class WorkerContext {
 	  public AtomFeed fetchFeed(String url) {
       throw new Error("call to NullClient");
 	  }
+
+    @Override
+    public ValueSet expandValueset(ValueSet source) throws Exception {
+      throw new Error("call to NullClient");
+    }
 
   }
 

@@ -25,6 +25,11 @@ public interface ValueSetExpander {
 	     this.service = service;
        this.error = error;
 	   }
+	   public ValueSetExpansionOutcome(String error) {
+       this.valueset = null;
+       this.service = null;
+       this.error = error;
+    }
 	   public ValueSet getValueset() {
 	     return valueset;
 	   }

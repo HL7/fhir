@@ -233,8 +233,11 @@ public class ClientUtils {
 	 */
 		protected static void configureFhirRequest(HttpRequest request, String format, List<Header> headers) {
 		request.addHeader("User-Agent", "Java FHIR Client for FHIR");
+
+		if (format != null) {		
 		request.addHeader("Accept",format);
 		request.addHeader("Content-Type", format + ";charset=" + DEFAULT_CHARSET);
+		}
 		request.addHeader("Accept-Charset", DEFAULT_CHARSET);
 		if(headers != null) {
 			for(Header header : headers) {
@@ -591,10 +594,10 @@ public class ClientUtils {
 	
   public static AtomFeed issuePostFeedRequest(URI resourceUri, Map<String, String> parameters, String resourceName, Resource resource, String feedFormat) throws Exception {
     HttpPost httppost = new HttpPost(resourceUri);
-    configureFhirRequest(httppost, null);
     String boundary = "----WebKitFormBoundarykbMUo6H8QaUnYtRy";
     httppost.addHeader("Content-Type", "multipart/form-data; boundary="+boundary);
     httppost.addHeader("Accept", feedFormat);
+    configureFhirRequest(httppost, null);
     HttpResponse response = sendPayload(httppost, encodeFormSubmission(parameters, resourceName, resource, boundary));
     return unmarshalFeed(response, feedFormat);
   }
@@ -635,7 +638,7 @@ public class ClientUtils {
       request.setEntity(new ByteArrayEntity(payload));
       response = httpclient.execute(request);
     } catch(IOException ioe) {
-      throw new EFhirClientException("Error sending HTTP Post/Put Payload", ioe);
+      throw new EFhirClientException("Error sending HTTP Post/Put Payload: "+ioe.getMessage(), ioe);
     }
     return response;
   }

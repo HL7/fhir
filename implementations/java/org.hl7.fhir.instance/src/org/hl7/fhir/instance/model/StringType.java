@@ -40,6 +40,13 @@ public class StringType extends PrimitiveType {
 	 */
 	private String value;
 
+  public StringType() {
+  }
+
+  public StringType(String value) {
+    this.value = value;
+  }
+
 	/**
 	 * @return the string value
 	 */
