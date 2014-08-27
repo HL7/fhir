@@ -28,7 +28,7 @@
     <value value="p.heuvel@gmail.com"/>
     <use value="home"/>
   </telecom>
-	<gender value="M" />
+	<gender value="male" />
 	<birthDate value="1944-11-17"/>
   <deceasedBoolean value="false"/>
   <address>

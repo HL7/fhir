@@ -47,7 +47,7 @@
     <use value="work"/>
   </telecom>
 
-  <gender value="M" />
+  <gender value="male" />
 
   <address>
     <use value="home"/>

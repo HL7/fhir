@@ -16,7 +16,7 @@
     <family value="Levin"/>
     <given value="Henry"/>
   </name>
-  <gender value="M" />
+  <gender value="male" />
   <birthDate value="1932-09-24"/>
 
   <managingOrganization>

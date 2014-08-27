@@ -42,7 +42,7 @@
         <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
     </address>
 
-    <gender value="M" />
+    <gender value="male" />
     <birthDate value="1980-02-04"/>
 
     <organization>

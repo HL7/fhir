@@ -42,7 +42,7 @@
             <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
         </address>
     
-        <gender value="F" />
+        <gender value="female" />
         <birthDate value="1959-03-11"/>
     
     <organization>

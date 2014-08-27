@@ -32,7 +32,7 @@
             <country value="NLD"/><!--ISO 3166 3 letter code-->
         </address>
     
-        <gender value="M" />
+        <gender value="male" />
         <birthDate value="1956-12-24"/>
         <!--Fortunately, the doctor is still alive!-->
 <!--        <photo>

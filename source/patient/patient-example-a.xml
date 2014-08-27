@@ -21,7 +21,7 @@
     <family value="Donald"/>
     <given value="Duck"/>
   </name>
-  <gender value="M"/>
+  <gender value="male" />
 
   <photo>
     <contentType value="image/gif"/>

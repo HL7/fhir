@@ -25,7 +25,7 @@
             <zip value="2333ZA"/>
             <country value="NLD"/>
         </address>
-        <gender value="F" />
+        <gender value="female" />
         <birthDate value="1967-11-05"/>
         <!--    <photo>    
         <reference value="picture/@CE-204.bmp"/>

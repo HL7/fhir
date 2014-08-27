@@ -21,7 +21,7 @@
     <given value="Duck"/>
     <given value="D"/>
   </name>
-  <gender value="O">
+  <gender value="other">
     <extension url="http://example.org/Profile/administrative-status">
           <valueCodeableConcept>
             <coding>

@@ -26,7 +26,7 @@
       <display value="Boston Massachesetts General Hospital"/>
     </assigner>
   </identifier>
-  <gender value="F" />
+  <gender value="female" />
   <birthDate value="1966-04-04"/>
   <deceasedBoolean value="false"/>
   <active value="true"/>

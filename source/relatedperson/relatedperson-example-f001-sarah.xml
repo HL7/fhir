@@ -42,6 +42,6 @@
     <value value="s.abels@kpn.nl"/>
     <use value="home"/>
   </telecom>
-  <gender value="F" />
+  <gender value="female" />
   
 </RelatedPerson>

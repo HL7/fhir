@@ -37,7 +37,7 @@
         <value value="+31201234567"/>
         <use value="home"/>
     </telecom>
-	<gender value="M" />
+	<gender value="male" />
 	<birthDate value="1960-03-13"/>
     <!--The date and time of birth for the individual -->
     <deceasedBoolean value="false"/>

@@ -37,7 +37,7 @@
           <value value="555-555-2003"/>
           <use value="work"/>
         </telecom>
-        <gender value="F" />
+        <gender value="female" />
         <birthDate value="1973-05-31"/>
         <address>
             <use value="home"/>
@@ -86,7 +86,7 @@
           <value value="555-555-2004"/>
           <use value="work"/>
         </telecom>
-        <gender value="M" />
+        <gender value="male" />
         <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
@@ -134,7 +134,7 @@
           <value value="555-555-2005"/>
           <use value="work"/>
         </telecom>
-        <gender value="F" />
+        <gender value="female" />
         <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
@@ -181,7 +181,7 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender value="F" />
+        <gender value="female" />
         <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
@@ -229,7 +229,7 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender value="M" />
+        <gender value="male" />
         <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
@@ -277,7 +277,7 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender value="M" />
+        <gender value="male" />
         <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
@@ -324,7 +324,7 @@
           <value value="555-555-5001"/>
           <use value="work"/>
         </telecom>
-        <gender value="F" />
+        <gender value="female" />
         <address>
             <use value="home"/>
             <line value="6666 Home Street"/>
@@ -372,7 +372,7 @@
           <value value="555-555-2006"/>
           <use value="work"/>
         </telecom>
-        <gender value="F" />
+        <gender value="female" />
         <address>
             <use value="home"/>
             <line value="4444 Home Street"/>
@@ -419,7 +419,7 @@
           <value value="555-555-2007"/>
           <use value="work"/>
         </telecom>
-        <gender value="O" >
+        <gender value="other" >
           <extension url="http://example.org/Profile/administrative-status">
             <valueCodeableConcept>
               <coding>
@@ -477,7 +477,7 @@
           <value value="555-555-2008"/>
           <use value="work"/>
         </telecom>
-        <gender value="M" />
+        <gender value="male" />
         <address>
             <use value="home"/>
             <line value="2222 Home Street"/>
@@ -525,7 +525,7 @@
           <value value="555-555-2009"/>
           <use value="work"/>
         </telecom>
-        <gender value="M" />
+        <gender value="male" />
         <address>
             <use value="home"/>
             <line value="4444 Home Street"/>
@@ -573,7 +573,7 @@
           <value value="555-555-2010"/>
           <use value="work"/>
         </telecom>
-        <gender value="F" />
+        <gender value="female" />
         <address>
             <use value="home"/>
             <line value="5555 Home Street"/>

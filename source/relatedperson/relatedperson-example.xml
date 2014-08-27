@@ -62,7 +62,7 @@
     <value value="+33 (237) 998327"/>
   </telecom>
 
-	<gender value="F" />
+	<gender value="female" />
  
   <address>
     <line value="43, Place du Marché Sainte Catherine" />

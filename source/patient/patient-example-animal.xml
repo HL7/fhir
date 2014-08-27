@@ -45,7 +45,7 @@
     <use value="usual"/>
     <given value="Kenzi"/>
   </name>
-  <gender value="F" />
+  <gender value="female" />
   <birthDate value="2010-03-23"/>
 
   <contact>

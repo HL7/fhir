@@ -64,7 +64,7 @@
   </telecom>
 
   <!-- use FHIR code system for male / female -->
-  <gender value="M" />
+  <gender value="male" />
   <birthDate value="1974-12-25"/>
   <deceasedBoolean value="false"/>
 

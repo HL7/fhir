@@ -33,7 +33,7 @@
         <country value="NLD"/><!--ISO 3166 3 letter code-->
     </address>   
     
-    <gender value="M" /><!--The practitioner's administrative gender-->
+    <gender value="male" /><!--The practitioner's administrative gender-->
     <birthDate value="1960-06-12"/>
 <!--    <photo>    
         <reference value="picture/@LM-203.bmp"/>

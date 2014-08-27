@@ -16,9 +16,9 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8445</WindowHeight>
-  <WindowWidth>20490</WindowWidth>
-  <WindowTopX>0</WindowTopX>
+  <WindowHeight>9030</WindowHeight>
+  <WindowWidth>19350</WindowWidth>
+  <WindowTopX>1140</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -262,7 +262,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">AdministrativeGender</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Gender for administrative purposes</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">male | female | other | unknown</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes. </Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Needed for identification of the person, in combination with (at least) name and birth date. </Data></Cell>
     <Cell ss:StyleID="s68"/>

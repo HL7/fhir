@@ -41,7 +41,7 @@
             <zip value="1105 AZ"/>
             <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
         </address>
-    <gender value="M" />
+    <gender value="male" />
     <birthDate value="1963-07-01"/>
 
 

@@ -16,11 +16,13 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>3255</WindowHeight>
-  <WindowWidth>6330</WindowWidth>
+  <WindowHeight>9030</WindowHeight>
+  <WindowWidth>19350</WindowWidth>
   <WindowTopX>1140</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>632</TabRatio>
+  <ActiveSheet>4</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -242,7 +244,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <LeftColumnVisible>4</LeftColumnVisible>
    <Panes>
     <Pane>
@@ -532,7 +533,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">M</Data></Cell>
+    <Cell><Data ss:Type="String">male</Data></Cell>
     <Cell><Data ss:Type="String">Male</Data></Cell>
     <Cell><Data ss:Type="String">Male</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.M</Data></Cell>
@@ -540,7 +541,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">F</Data></Cell>
+    <Cell><Data ss:Type="String">female</Data></Cell>
     <Cell><Data ss:Type="String">Female</Data></Cell>
     <Cell><Data ss:Type="String">Female</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.F</Data></Cell>
@@ -548,7 +549,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">O</Data></Cell>
+    <Cell><Data ss:Type="String">other</Data></Cell>
     <Cell><Data ss:Type="String">Other</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">The gender of a person could not be uniquely defined as male or female, such as hermaphrodite</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&lt;AdministrativeGender.UN</Data></Cell>
@@ -556,7 +557,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="114">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">U</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
     <Cell><Data ss:Type="String">Unknown</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Description:A proper value is applicable, but not known.&#10; Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:&#10; Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.UNK</Data></Cell>
@@ -576,11 +577,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

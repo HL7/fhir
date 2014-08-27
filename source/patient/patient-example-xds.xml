@@ -17,7 +17,7 @@
     <family value="Doe"/>
     <given value="John"/>
   </name>
-  <gender value="M" />
+  <gender value="male" />
   <birthDate value="1956-05-27"/>
   <address>
       <line value="100 Main St"/>

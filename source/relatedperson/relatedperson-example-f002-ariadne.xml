@@ -32,6 +32,6 @@
     <use value="home"/>
   </telecom>
 
-  <gender value="F" />
+  <gender value="female" />
 
 </RelatedPerson>

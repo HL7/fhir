@@ -32,7 +32,7 @@
   <name>
     <family value="MINT_TEST"/>
   </name>
-	<gender value="M">
+	<gender value="male">
 		<extension url="http://nema.org/examples/extensions#gender">
 			<valueCoding>
 				<system value="http://nema.org/examples/gender"/>
