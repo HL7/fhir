@@ -41,6 +41,7 @@ uses
   FHIRResources,
   DateAndTime,
   AdvMemories,
+  AdvStringBuilders,
   AdvObjects,
   AdvObjectLists;
 
@@ -58,6 +59,7 @@ type
     procedure Assign(oSource : TAdvObject); override;
     function Link : TFHIRAtomLink; overload;
     function Clone : TFHIRAtomLink; overload;
+    procedure AsHeader(b : TAdvStringBuilder);
     {!script show}
 
   published
@@ -88,6 +90,7 @@ type
     Function Link : TFHIRAtomLinkList; Overload;
     Function Clone : TFHIRAtomLinkList; Overload;
     Function GetItemN(index : Integer) : TFHIRAtomLink;
+    Function AsHeader : String;
     {!script show}
     {@member GetRel
       Get the url for a given rel type (or blank)
@@ -747,6 +750,15 @@ end;
 
 { TFHIRAtomLink }
 
+procedure TFHIRAtomLink.AsHeader(b: TAdvStringBuilder);
+begin
+  b.Append('<');
+  b.Append(FURL);
+  b.Append('>; rel="');
+  b.Append(FRel);
+  b.Append('"');
+end;
+
 procedure TFHIRAtomLink.Assign(oSource: TAdvObject);
 begin
   inherited;
@@ -792,6 +804,25 @@ begin
     add(result.Link);
   finally
     result.free;
+  end;
+end;
+
+function TFHIRAtomLinkList.AsHeader: String;
+var
+  b : TAdvStringBuilder;
+  i : integer;
+begin
+  b := TAdvStringBuilder.Create;
+  try
+    for i := 0 to Count - 1 do
+    begin
+      if (i > 0) then
+        b.Append(',');
+      Item(i).AsHeader(b);
+    end;
+    result := b.ToString;
+  finally
+    b.Free;
   end;
 end;
 

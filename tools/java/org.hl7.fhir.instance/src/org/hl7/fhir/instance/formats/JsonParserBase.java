@@ -72,9 +72,9 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     
     String rt = json.get("resourceType").getAsString();
 		if ("Bundle".equals(rt))
-      r.feed = parseAtom(json);
+      r.setFeed(parseAtom(json));
     else  
-      r.resource = parseResource(json);
+      r.setResource(parseResource(json));
     return r;    
   }
 

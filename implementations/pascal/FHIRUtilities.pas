@@ -51,6 +51,9 @@ uses
   FHIRResources,
   FHIRConstants;
 
+Type
+  ETooCostly = class (Exception);
+
 const
   MIN_DATE = DATETIME_MIN;
   MAX_DATE = DATETIME_MAX;
@@ -868,6 +871,7 @@ var
 begin
   parser := nil;
   try
+    part.content.position := 0;
     // first, figure out the format
     ct := part.Headers.Values['Content-Type'];
     if ct <> '' then
@@ -1308,7 +1312,7 @@ begin
   {$IFDEF WIN64}
   ZDecompress(s, result);
   {$ELSE}
-  ZDecompress(Pointer(s[0]),Length(s),buffer,size);
+  ZDecompress(@s[0],Length(s),buffer,size);
 
   SetLength(result,size);
   Move(buffer^,result[0],size);

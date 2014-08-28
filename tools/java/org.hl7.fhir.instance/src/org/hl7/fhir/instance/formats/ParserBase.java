@@ -46,23 +46,6 @@ import org.hl7.fhir.utilities.Utilities;
 
 public abstract class ParserBase extends FormatUtilities {
 
-  public class ResourceOrFeed {
-    protected Resource resource;
-    protected AtomFeed feed;
-    protected List<AtomCategory> taglist;
-    
-    public Resource getResource() {
-      return resource;
-    }
-    public AtomFeed getFeed() {
-      return feed;
-    }
-		public List<AtomCategory> getTaglist() {
-			return taglist;
-		}
-    
-  }
-  
 
   protected Map<String, Object> idMap = new HashMap<String, Object>();
 

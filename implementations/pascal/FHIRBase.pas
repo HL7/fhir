@@ -181,6 +181,7 @@ type
   public
     Destructor Destroy; override;
     function createIterator(bInheritedProperties : Boolean) : TFHIRPropertyIterator;
+    procedure ListChildrenByName(name : string; list : TFHIRObjectList);
     Function PerformQuery(path : String):TFHIRObjectList;
     property Tag : TAdvObject read FTag write SetTag;
     property TagValue : String read FTagValue write FTagValue;
@@ -1341,6 +1342,12 @@ end;
 procedure TFHIRObject.GetChildrenByName(name: string; list: TFHIRObjectList);
 begin
   // nothing to add here
+end;
+
+procedure TFHIRObject.ListChildrenByName(name: string; list: TFHIRObjectList);
+begin
+  if self <> nil then
+    GetChildrenByName(name, list);
 end;
 
 procedure TFHIRObject.ListProperties(oList: TFHIRPropertyList; bInheritedProperties: Boolean);

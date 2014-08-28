@@ -72,7 +72,7 @@ RFC 3881 directly, the code system cannot be a URI, so use the OID 2.16.840.1.11
 Things to note about the current design:
 </p>
 <ul>
-  <li>In this resource, the Participant Object Detail from <a href="http://www.rfc3881.net">RFC 3881</a> is handled as standard FHIR extensions to the <i>object</i> element</li>
+  <li>In this resource, the Participant Object Detail from <a href="http://tools.ietf.org/html/rfc3881">RFC 3881</a> is handled as standard FHIR extensions to the <i>object</i> element</li>
 </ul>
 
 -->

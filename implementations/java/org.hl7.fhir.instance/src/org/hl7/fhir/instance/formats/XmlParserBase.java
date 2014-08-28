@@ -178,11 +178,11 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     ResourceOrFeed r = new ResourceOrFeed();
     
     if (xpp.getNamespace().equals(FHIR_NS) && !xpp.getName().equalsIgnoreCase("Taglist"))
-      r.resource = parseResource(xpp);
+      r.setResource(parseResource(xpp));
     else if (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("Taglist"))
-        r.taglist = parseTagList(xpp);
+        r.setTaglist(parseTagList(xpp));
     else if (xpp.getNamespace().equals(ATOM_NS)) 
-      r.feed = parseFeed(xpp);
+      r.setFeed(parseFeed(xpp));
     else
     	throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
     return r;    

@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-The security event is based on the ATNA Audit record definitions, originally from <a href="http://www.rfc3881.net">RFC 3881</a>, and now managed by
+The security event is based on the ATNA Audit record definitions, originally from <a href="http://tools.ietf.org/html/rfc3881">RFC 3881</a>, and now managed by
 DICOM (see <a href="http://medical.nema.org/DICOM/2011/11_15pu.pdf">DICOM Part 15 Annex A5</a>). This resource is managed collaboratively between HL7, DICOM,
 and IHE for the MHD/mHealth initiatives. 
 </p>
