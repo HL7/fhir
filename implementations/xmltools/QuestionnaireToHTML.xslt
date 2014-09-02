@@ -169,6 +169,8 @@
   <xsl:template match="f:Questionnaire">
     <html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
       <head>
+        <!-- Insertion points allow "extra" stuff to be introduced by post-processing through string substitution -->
+        <xsl:comment>Header insertion point</xsl:comment>
         <xsl:call-template name="scripts"/>
         <xsl:if test="$jQueryPath!=''">
           <script type="text/javascript">
@@ -206,6 +208,7 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
       </head>
       <body onload="loadAnswers()">
+        <xsl:comment>body top insertion point</xsl:comment>
         <div id="div-cnt">
           <xsl:apply-templates select="f:group"/>
         </div>
@@ -221,6 +224,7 @@
             </tr>
           </tbody>
         </table>
+        <xsl:comment>body bottom insertion point</xsl:comment>
       </body>
     </html>
   </xsl:template>
@@ -1313,7 +1317,7 @@ function closeCodeSelect() {
         <xsl:variable name="url">
           <xsl:choose>
             <xsl:when test="$useMicrosoft='true'">
-              <xsl:value-of select="concat($expansionServer, '/ValueSet/$expand?_format=xml&amp;nohttperr=1&amp;identifier=', $encodedValuesetURL)"/>
+              <xsl:value-of select="concat($expansionServer, '/ValueSet/$expand?_format=xml&amp;_nohttperr=1&amp;identifier=', $encodedValuesetURL)"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="concat($expansionServer, '/ValueSet/$expand?_format=xml&amp;identifier=', $encodedValuesetURL)"/>
