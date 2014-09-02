@@ -170,7 +170,7 @@
     <html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
       <head>
         <!-- Insertion points allow "extra" stuff to be introduced by post-processing through string substitution -->
-        <xsl:comment>Header insertion point</xsl:comment>
+        <xsl:comment>header insertion point</xsl:comment>
         <xsl:call-template name="scripts"/>
         <xsl:if test="$jQueryPath!=''">
           <script type="text/javascript">
