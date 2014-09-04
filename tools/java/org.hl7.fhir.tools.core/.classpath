@@ -20,7 +20,7 @@
 	<classpathentry kind="lib" path="../imports/svnkit-javahl16-1.8.5.jar"/>
 	<classpathentry kind="lib" path="../imports/antlr-runtime-3.4.jar"/>
 	<classpathentry kind="lib" path="../imports/gson-2.2.4.jar"/>
-	<classpathentry kind="lib" path="../imports/Saxon-HE-9.5.1-5.jar"/>
+	<classpathentry kind="lib" path="../imports/Saxon-B-9.0.jar"/>
 	<classpathentry kind="lib" path="../imports/httpclient-4.2.3.jar"/>
 	<classpathentry kind="lib" path="../imports/httpcore-4.2.2.jar"/>
 	<classpathentry kind="lib" path="../imports/httpmime-4.2.3.jar"/>
