@@ -2683,7 +2683,11 @@ public class Publisher implements URIResolver {
         // throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
       }
     }
-    processQuestionnaire(resource, profile);
+    try {
+      processQuestionnaire(resource, profile);
+    } catch (Exception e) {
+      page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
+    }
 
     String prefix = page.getBreadCrumbManager().getIndexPrefixForResource(resource.getName());
     SectionTracker st = new SectionTracker(prefix);
@@ -2898,8 +2902,9 @@ public class Publisher implements URIResolver {
   
   private String loadHtmlForm(String path) throws Exception {
     String form = TextFile.fileToString(path);
-    form = form.substring(form.indexOf("<body>")+6);
-    form = form.substring(0, form.lastIndexOf("</body>"));
+    form = form.replace("<!--header insertion point-->", "\r\n"+TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "newheader.html"))+"\r\n");
+    form = form.replace("<!--body top insertion point-->", "\r\n"+TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "newnavbar.html"))+"<p>\r\nThis is an example form generated from the questionnaire. See also the <a href=\"<%name%>.xml.html\">XML</a> or <a href=\"<%name%>.json.html\">JSON</a> format\r\n</p>\r\n");
+    form = form.replace("<!--body bottom insertion point-->", "\r\n"+TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "newfooter.html"))+"\r\n");
     return form;
   }
 
@@ -2991,17 +2996,20 @@ public class Publisher implements URIResolver {
         new ValueSetValidator(page.getWorkerContext()).validate(vs, false);
         if (vs.getIdentifier() == null)
           throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
+        AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
+        ae.getLinks().put("self", n + ".html");
+        ae.getLinks().put("path", n + ".html");
+        ae.setResource(vs);
+        if (vs.getIdentifierSimple().startsWith("http:"))
+          page.getValueSets().put(vs.getIdentifierSimple(), ae);
         if (vs.getDefine() != null) {
-          AtomEntry ae = new AtomEntry();
-          ae.getLinks().put("self", n + ".html");
-          ae.getLinks().put("path", n + ".html");
-          ae.setResource(vs);
           page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
         }
         addToResourceFeed(vs, vs.getIdentifierSimple(), valueSetsFeed);
         page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
-        if (vs.getDefine() != null)
+        if (vs.getDefine() != null) {
           page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
+        }
       } else if (r instanceof ConceptMap) {
         ConceptMap cm = (ConceptMap) r;
         new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);

@@ -271,6 +271,7 @@ public class Utilities {
 
   public static byte[] transform(Map<String, byte[]> files, byte[] source, byte[] xslt) throws Exception {
     TransformerFactory f = TransformerFactory.newInstance();
+    f.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
     StreamSource xsrc = new StreamSource(new ByteArrayInputStream(xslt));
     f.setURIResolver(new ZipURIResolver(files));
     Transformer t = f.newTransformer(xsrc);

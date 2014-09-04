@@ -27,6 +27,7 @@ public class ToolingExtensions {
   public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/Profile/tools-extensions#display-hint";
   public static final String EXT_FLYOVER = "http://hl7.org/fhir/Profile/questionnaire-extensions#flyover";
   private static final String EXT_QTYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
+  private static final String EXT_EXPANSION_CLOSED = "http://hl7.org/fhir/Profile/questionnaire-extensions#closed";
   private static final String EXT_QREF = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
   
   public static Extension makeIssueSource(Source source) {

@@ -46,7 +46,6 @@ import org.hl7.fhir.utilities.Utilities;
 
 public abstract class ParserBase extends FormatUtilities {
 
-
   protected Map<String, Object> idMap = new HashMap<String, Object>();
 
 //protected Element resolveElement(String id) {
