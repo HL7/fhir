@@ -78,7 +78,7 @@ implementation
 
 Procedure TAdvXmlBuilder.Start;
 var
-  i: Integer; 
+  i: Integer;
 begin
   buf := TAdvBuffer.Create;
   mem := TAdvMemoryStream.Create;
@@ -88,8 +88,8 @@ begin
   xml.Stream := mem.Link;
   if not NoHeader then
   begin
-  xml.AddAttribute('encoding', 'UTF-8');
-  xml.ProduceHeader;
+    xml.AddAttribute('encoding', 'UTF-8');
+    xml.ProduceHeader;
   end;
   wantDefineNS := Namespace <> '';
   for i := 0 to namespaces.Count - 1 do

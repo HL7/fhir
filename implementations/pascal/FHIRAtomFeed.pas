@@ -92,6 +92,7 @@ type
     Function GetItemN(index : Integer) : TFHIRAtomLink;
     Function AsHeader : String;
     {!script show}
+
     {@member GetRel
       Get the url for a given rel type (or blank)
     }
@@ -794,7 +795,6 @@ begin
   finally
     link.free;
   end;
-
 end;
 
 function TFHIRAtomLinkList.Append: TFHIRAtomLink;

@@ -8,6 +8,7 @@ Uses
   GuidSupport,
   AdvObjects,
   Json,
+  libeay32,
   JWT;
 
 Type
@@ -155,6 +156,7 @@ class procedure TJWTTests.runTests;
 var
   this : TJWTTests;
 begin
+  LoadEAYExtensions;
   this := TJWTTests.Create;
   try
     this.TestPacking;
@@ -162,6 +164,7 @@ begin
   finally
     this.Free;
   end;
+  UnloadEAYExtensions;
 end;
 
 End.

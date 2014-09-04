@@ -21,10 +21,10 @@ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 }
 
@@ -1371,24 +1371,24 @@ begin
     result := ''
   else
   begin
-  if has(name) then
-  begin
-    node := FProperties[name];
-    if node is TJsonValue then
-      result := TJsonValue(node).FValue
-    else if node is TJsonNull then
-      result := ''
-    else if node is TJsonBoolean then
-      if (node as TJsonBoolean).FValue then
-        result := 'true'
+    if has(name) then
+    begin
+      node := FProperties[name];
+      if node is TJsonValue then
+        result := TJsonValue(node).FValue
+      else if node is TJsonNull then
+        result := ''
+      else if node is TJsonBoolean then
+        if (node as TJsonBoolean).FValue then
+          result := 'true'
+        else
+          result := 'false'
       else
-        result := 'false'
+        raise Exception.Create('Found a '+node.ClassName+' looking for a string');
+    end
     else
-      raise Exception.Create('Found a '+node.ClassName+' looking for a string');
-  end
-  else
-    result := '';
-end;
+      result := '';
+  end;
 end;
 
 function TJsonObject.has(name: String): Boolean;

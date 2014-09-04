@@ -4,7 +4,7 @@ unit FHIRUtilities;
 Copyright (c) 2011-2014, HL7, Inc
 All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification, 
+Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
  * Redistributions of source code must retain the above copyright notice, this 
@@ -112,9 +112,22 @@ type
     procedure setExtensionString(url, value : String);
   end;
 
+  TFhirProfileStructureSnapshotElementDefinitionTypeListHelper = class helper for TFhirProfileStructureSnapshotElementDefinitionTypeList
+  public
+    function summary : String;
+  end;
+
   TFHIRConformanceHelper = class helper (TFHIRElementHelper) for TFHIRConformance
   public
     function rest(type_ : TFhirResourceType) : TFhirConformanceRestResource;
+  end;
+
+  TFHIRResourceHelper = class helper (TFHIRElementHelper) for TFHIRResource
+  private
+    function GetContained(id: String): TFhirResource;
+  public
+    property Contained[id : String] : TFhirResource read GetContained; default;
+    procedure collapseAllContained;
   end;
 
   TFhirConformanceRestResourceHelper = class helper (TFHIRElementHelper) for TFhirConformanceRestResource
@@ -993,7 +1006,7 @@ end;
     if (code.equals(c.CodeST)) then
       return c;
     for (ValueSetDefineConceptComponent cc : c.Concept) begin
-      ValueSetDefineConceptComponent v := getConceptForCode(cc, code);   
+      ValueSetDefineConceptComponent v := getConceptForCode(cc, code);
       if (v <> nil) then
         return v;
     end;
@@ -1366,6 +1379,44 @@ begin
 end;
 {$ENDIF}
 
+
+{ TFHIRResourceHelper }
+
+procedure TFHIRResourceHelper.collapseAllContained;
+var
+  i : integer;
+begin
+  i := 0;
+  while (i < ContainedList.Count) do
+  begin
+    containedList.AddAll(containedList[i].containedList);
+    containedList[i].containedList.Clear;
+    inc(i);
+  end;
+end;
+
+function TFHIRResourceHelper.GetContained(id: String): TFhirResource;
+var
+  i : integer;
+begin
+  result := nil;
+  for i := 0 to containedList.Count - 1 do
+    if containedList[i].xmlId = id then
+      result := containedList[i];
+end;
+
+{ TFhirProfileStructureSnapshotElementDefinitionTypeListHelper }
+
+function TFhirProfileStructureSnapshotElementDefinitionTypeListHelper.summary: string;
+var
+  i : integer;
+begin
+  result := '';
+  for i := 0 to Count - 1 do
+    result := result + ','+Item(i).codeST;
+  if result <> '' then
+    result := result.Substring(1);
+end;
 
 end.
 

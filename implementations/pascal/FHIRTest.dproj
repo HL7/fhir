@@ -205,6 +205,7 @@
         <DCCReference Include="support\JWT.pas"/>
         <DCCReference Include="support\HMAC.pas"/>
         <DCCReference Include="support\libeay32.pas"/>
+        <DCCReference Include="SCIMObjects.pas"/>
         <None Include="Profiling\AQtimeModule1.aqt"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>

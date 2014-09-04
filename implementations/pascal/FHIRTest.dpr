@@ -94,7 +94,8 @@ uses
   AdvStringObjectMatches in 'support\AdvStringObjectMatches.pas',
   JWT in 'support\JWT.pas',
   HMAC in 'support\HMAC.pas',
-  libeay32 in 'support\libeay32.pas';
+  libeay32 in 'support\libeay32.pas',
+  SCIMObjects in 'SCIMObjects.pas';
 
 procedure SaveStringToFile(s : AnsiString; fn : String);
 var
@@ -139,7 +140,7 @@ begin
       try
         TFHIRJsonComposer(c).Comments := true;
         if r <> nil then
-          c.Compose(m, '', '', r, true)
+          c.Compose(m, '', '', '', r, true, nil)
         else
           c.Compose(m, a, true);
       finally
@@ -169,7 +170,7 @@ begin
       c := TFHIRXMLComposer.Create('en');
       try
         if r <> nil then
-          c.Compose(f, '', '', r, true)
+          c.Compose(f, '', '', '', r, true, nil)
         else
           c.Compose(f, a, true);
       finally
