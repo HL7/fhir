@@ -3,12 +3,15 @@
   - (c) 2014 Lloyd McKenzie & Associates Consulting Ltd.  All rights reserved
   -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="http://hl7.org/fhir" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:saxon="http://saxon.sf.net/" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:common="http://exslt.org/common" exclude-result-prefixes="f atom saxon msxsl common html">
-  <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+  <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
   <xsl:param name="useMicrosoft" select="'false'">
     <!-- If set to true, will use microsoft XML conventions -->
   </xsl:param>
   <xsl:param name="numberSections" select="'false'">
     <!-- If set to true, will auto-generate labels for sections if labels are not present -->
+  </xsl:param>
+  <xsl:param name="defaultAnswerRepetitions" select="2">
+    <!-- This is the number of times repeating answers will be included by default if they don't have a declared minimum number of repetitions -->
   </xsl:param>
   <xsl:param name="defaultGroupRepetitions" select="2">
     <!-- This is the number of times repeating groups will be included by default if they don't have a declared minimum number of repetitions -->
@@ -30,6 +33,9 @@
   </xsl:param>
   <xsl:param name="jQueryPath" select="'http://fhir-dev.healthintersections.com.au/js'">
     <!-- The path at which the various jQuery plugins can be found.  If not present, large code lookups cannot be performed -->
+  </xsl:param>
+  <xsl:param name="saveOnly" select="'false'">
+    <!-- If true, the "draft" save will be disabled -->
   </xsl:param>
   <xsl:variable name="htmlNamespace" select="'http://www.w3.org/1999/xhtml'"/>
   <xsl:variable name="phrases">
@@ -102,7 +108,7 @@
   </xsl:template>
   <xsl:template mode="upgradeQuestionnaire" match="f:group">
     <xsl:choose>
-      <xsl:when test="f:text!='' or f:group or count(f:question)&gt;1 or f:_maxOccurs!=1">
+      <xsl:when test="f:text!='' or f:group or count(f:question)&gt;1 or f:repeats/@value='true'">
         <xsl:copy>
           <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
           <xsl:call-template name="upgradeCardinality"/>
@@ -110,7 +116,9 @@
         </xsl:copy>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates mode="upgradeQuestionnaire" select="f:question"/>
+        <xsl:apply-templates mode="upgradeQuestionnaire" select="f:question">
+          <xsl:with-param name="additionalPrefix" select="concat(f:linkId/@value, '[1]')"/>
+        </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -157,35 +165,86 @@
     </f:title>
   </xsl:template>
   <xsl:template mode="upgradeQuestionnaire" match="f:question">
+    <xsl:param name="additionalPrefix"/>
     <xsl:copy>
       <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
       <xsl:call-template name="upgradeCardinality"/>
-      <xsl:apply-templates mode="upgradeQuestionnaire" select="node()"/>
+      <xsl:apply-templates mode="upgradeQuestionnaire" select="node()">
+        <xsl:with-param name="additionalPrefix" select="$additionalPrefix"/>
+      </xsl:apply-templates>
     </xsl:copy>
+  </xsl:template>
+  <xsl:template mode="upgradeQuestionnaire" match="f:linkId">
+    <xsl:param name="additionalPrefix"/>
+    <xsl:variable name="functionSafeId">
+      <xsl:call-template name="makeFunctionSafeId">
+        <xsl:with-param name="value" select="@value"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:copy>
+      <xsl:attribute name="value">
+        <xsl:value-of select="concat($additionalPrefix, @value)"/>
+      </xsl:attribute>
+      <xsl:attribute name="safeValue">
+        <xsl:value-of select="$functionSafeId"/>
+      </xsl:attribute>
+    </xsl:copy>
+  </xsl:template>
+  <xsl:template name="makeFunctionSafeId">
+    <xsl:param name="value"/>
+    <xsl:variable name="pass1">
+      <xsl:call-template name="replace">
+        <xsl:with-param name="input" select="$value"/>
+        <xsl:with-param name="pattern" select="'.'"/>
+        <xsl:with-param name="replacement" select="'_'"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:variable name="pass2">
+      <xsl:call-template name="replace">
+        <xsl:with-param name="input" select="$pass1"/>
+        <xsl:with-param name="pattern" select="'['"/>
+        <xsl:with-param name="replacement" select="'_'"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:variable name="pass3">
+      <xsl:call-template name="replace">
+        <xsl:with-param name="input" select="$pass2"/>
+        <xsl:with-param name="pattern" select="']'"/>
+        <xsl:with-param name="replacement" select="''"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:value-of select="$pass3"/>
   </xsl:template>
   <!-- ====================================
      - = Questionnaire to HTML
      - ==================================== -->
   <xsl:template match="f:Questionnaire">
-    <html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+    <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html></xsl:text>
+    <html>
       <head>
         <!-- Insertion points allow "extra" stuff to be introduced by post-processing through string substitution -->
         <xsl:comment>header insertion point</xsl:comment>
-        <xsl:call-template name="scripts"/>
         <xsl:if test="$jQueryPath!=''">
           <script type="text/javascript">
-            <xsl:text>var questionnaireAnswers = null;&#x0a;</xsl:text>
-            <xsl:apply-templates mode="script" select="f:group"/>
-            <xsl:text>function validateQuestionnaire(document) {&#x0a;</xsl:text>
-            <xsl:for-each select="f:group">
-            </xsl:for-each>
-            <xsl:text>}&#x0a;&#x0a;</xsl:text>
-            <xsl:text>function populateQuestionnaire() {&#x0a;</xsl:text>
-            <xsl:text>}&#x0a;&#x0a;</xsl:text>
-            <xsl:text>function parseQuestionnaire() {&#x0a;</xsl:text>
-            <xsl:text>}&#x0a;&#x0a;</xsl:text>
+            <xsl:comment>
+              <xsl:text>var questionnaireAnswers = null;&#x0a;</xsl:text>
+              <xsl:text>var questionnaireAnswersId = null;&#x0a;</xsl:text>
+              <xsl:text>var questionnaireAnswersVersion = null;&#x0a;</xsl:text>
+              <xsl:text>var questionnaireAnswersEndpoint = null;&#x0a;</xsl:text>
+              <xsl:apply-templates mode="validateScript" select="//f:group|//f:question"/>
+              <xsl:text>function validateQuestionnaire(document) {&#x0a;</xsl:text>
+              <xsl:value-of select="concat('  return validate', f:group/f:linkId/@safeValue, '(document.getElementById(&quot;div-cnt&quot;));&#x0a;')"/>
+              <xsl:text>}&#x0a;&#x0a;</xsl:text>
+              <xsl:text>function populateQuestionnaire() {&#x0a;</xsl:text>
+              <xsl:text>  return null;&#x0a;</xsl:text>
+              <xsl:text>}&#x0a;&#x0a;</xsl:text>
+              <xsl:text>function parseQuestionnaire() {&#x0a;</xsl:text>
+              <xsl:text>  return null;&#x0a;</xsl:text>
+              <xsl:text>}&#x0a;&#x0a;</xsl:text>
+            </xsl:comment>
           </script>
         </xsl:if>
+        <xsl:call-template name="scripts"/>
         <title>
           <xsl:choose>
             <xsl:when test="f:title/@value">
@@ -210,14 +269,18 @@
       <body onload="loadAnswers()">
         <xsl:comment>body top insertion point</xsl:comment>
         <div id="div-cnt">
-          <xsl:apply-templates select="f:group"/>
+          <xsl:apply-templates select="f:group">
+            <xsl:with-param name="path" select="'Path:'"/>
+          </xsl:apply-templates>
         </div>
         <table>
           <tbody>
             <tr>
-              <td>
-                <button onclick="saveDraft()">Save as Draft</button>
-              </td>
+              <xsl:if test="not($saveOnly='true')">
+                <td>
+                  <button onclick="saveDraft()">Save as Draft</button>
+                </td>
+              </xsl:if>
               <td>
                 <button onclick="safeFinal()">Save as Complete</button>
               </td>
@@ -235,6 +298,22 @@
     <xsl:text>}&#x0a;&#x0a;</xsl:text>
     <xsl:value-of select="concat('function parse', generate-id(), '(node) {&#x0a;')"/>
     <xsl:text>}&#x0a;&#x0a;</xsl:text>
+  </xsl:template>
+  <xsl:template mode="validateScript" match="f:group">
+    <xsl:value-of select="concat('&#x0a;function validate', f:linkId/@safeValue, '(node) {&#x0a;')"/>
+    <xsl:value-of select="concat('  var groupNodes = findDiv(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
+    <xsl:text disable-output-escaping="yes">  if (groupNodes.length &lt; </xsl:text>
+    <xsl:value-of select="concat(f:_minOccurs/@value, ')&#x0a;')"/>
+    <xsl:text>    return false&#x0a;  else&#x0a;    return </xsl:text>
+    <xsl:for-each select="f:group|f:question">
+      <xsl:if test="position()!=1">
+        <xsl:text disable-output-escaping="yes">&#x0a;         &amp;&amp; </xsl:text>
+      </xsl:if>
+      <xsl:value-of select="concat('validate', f:linkId/@safeValue, '(findDiv(node, &quot;', f:linkId/@value, '&quot;))')"/>
+    </xsl:for-each>
+    <xsl:text>;&#x0a;}&#x0a;&#x0a;</xsl:text>
+  </xsl:template>
+  <xsl:template mode="validateScript" match="f:question">
   </xsl:template>
   <xsl:template name="scripts">
     <xsl:if test="$jQueryPath!=''">
@@ -257,11 +336,14 @@
           <xsl:value-of select="concat('var expansionUri = &quot;', $expansionServer, '&quot;&#x0a;')"/>
           <xsl:choose>
             <xsl:when test="$iconPath!=''">
-              <xsl:text disable-output-escaping="yes">var removeButton = "&lt;input type=\"image\" alt=\"Remove\" onclick=\"deleteRow(this)\" style=\"width:10;height:10\" src=\"</xsl:text>
+              <xsl:text disable-output-escaping="yes">var removeGroupButton = "&lt;input type=\"image\" alt=\"Remove\" onclick=\"deleteRow(this)\" style=\"width:10px;height:10px\" src=\"</xsl:text>
+              <xsl:value-of select="concat($iconPath, '/html-form-delete.png\&quot;/&gt;&quot;;')"/>
+              <xsl:text disable-output-escaping="yes">var removeInputButton = "&lt;input type=\"image\" alt=\"Remove\" onclick=\"deleteInput(this)\" style=\"width:10px;height:10px\" src=\"</xsl:text>
               <xsl:value-of select="concat($iconPath, '/html-form-delete.png\&quot;/&gt;&quot;;')"/>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:text disable-output-escaping="yes">var removeButton = "&lt;button onclick=\"deleteRow(this)\"&gt;X&lt;/button&gt;";</xsl:text>
+              <xsl:text disable-output-escaping="yes">var removeGroupButton = "&lt;button onclick=\"deleteRow(this)\"&gt;X&lt;/button&gt;";</xsl:text>
+              <xsl:text disable-output-escaping="yes">var removeInputButton = "&lt;button onclick=\"deleteInput(this)\"&gt;X&lt;/button&gt;";</xsl:text>
             </xsl:otherwise>
           </xsl:choose>
           <xsl:text>&#x0a;</xsl:text>
@@ -672,11 +754,33 @@ function closeCodeSelect() {
         }
       }
       function deleteGroup(button){
-        group = button.parentNode
+        group = button.parentNode;
         if (group.id!="undefined") {
           group.style.display="none"
         } else {
           group.parentNode.removeChild(group)
+        }
+      }
+      function addInput(button){
+        var baseInput = button.nextElementSibling
+        var rootPath = baseInput.nextElementSibling
+        var occurrence = rootPath.nextElementSibling
+        var max = occurrence.nextElementSibling
+        var table = button.previousElementSibling
+        // Todo: Check maximum (need to do this on deleteInput too)
+        
+        occurrence.innerHTML = parseInt(occurrence.innerHTML) + 1;
+        var newInput = baseInput.cloneNode();
+        newInput.setAttribute('name', rootPath.innerHTML + "[" + occurrence.innerHTML + "]");
+        newInput.style.display = "inline";
+        var row = table.insertRow(0);
+        row.insertCell(0).innerHTML = removeInputButton;
+        row.insertCell(1).appendChild(newInput);
+      }
+      function deleteInput(button){
+        var row = button.parentNode.parentNode;
+        if (confirm("Remove this entry?")) {
+          row.parentNode.deleteRow(row.rowIndex);
         }
       }
       function resetGroup(button){
@@ -751,6 +855,7 @@ function closeCodeSelect() {
     </script>
   </xsl:template>
   <xsl:template match="f:group">
+    <xsl:param name="path"/>
     <xsl:param name="level" select="1"/>
     <xsl:param name="hierarchy"/>
     <xsl:variable name="label">
@@ -793,6 +898,7 @@ function closeCodeSelect() {
       </xsl:choose>
     </xsl:variable>
     <xsl:call-template name="groupDiv">
+      <xsl:with-param name="path" select="$path"/>
       <xsl:with-param name="level" select="$level"/>
       <xsl:with-param name="hierarchy" select="$hierarchy"/>
       <xsl:with-param name="totalRepetitions" select="$repetitions"/>
@@ -803,12 +909,19 @@ function closeCodeSelect() {
           <button style="margin:0em 2em;" type="button" onclick="addGroup('{generate-id()}{$hierarchy}', this)">Add section</button>
         </xsl:when>
         <xsl:otherwise>
-          <input style="margin:0em 2em;width:10;height:10;" type="image" onclick="addGroup('{generate-id()}{$hierarchy}', this)" src="{$iconPath}/html-form-add.png" alt="Add section"/>
+          <input style="margin:0em 2em;width:10px;height:10px;" type="image" onclick="addGroup('{generate-id()}{$hierarchy}', this)" src="{$iconPath}/html-form-add.png" alt="Add section"/>
         </xsl:otherwise>
       </xsl:choose>
+      <span style="display:none">
+        <xsl:value-of select="concat($path, f:linkId/@value)"/>
+      </span>
+      <span style="display:none">
+        <xsl:value-of select="$repetitions"/>
+      </span>
     </xsl:if>
   </xsl:template>
   <xsl:template name="groupDiv">
+    <xsl:param name="path"/>
     <xsl:param name="level"/>
     <xsl:param name="hierarchy"/>
     <xsl:param name="totalRepetitions"/>
@@ -819,17 +932,16 @@ function closeCodeSelect() {
         <xsl:text>border-style:solid;border-width:1px;border-color:#A0A0A0;</xsl:text>
       </xsl:if>
     </xsl:variable>
+    <xsl:variable name="newPath" select="concat($path, f:linkId/@value, '[', $currentRepetition, ']')"/>
     <div style="{$style}">
       <xsl:if test="$currentRepetition=1">
         <xsl:attribute name="id">
           <xsl:value-of select="concat(generate-id(), $hierarchy)"/>
         </xsl:attribute>
       </xsl:if>
-      <xsl:for-each select="f:linkId/@value">
-        <span style="display:none">
-          <xsl:value-of select="."/>
-        </span>
-      </xsl:for-each>
+      <span style="display:none">
+        <xsl:value-of select="$newPath"/>
+      </span>
       <xsl:if test="$enableReset='true'">
         <button type="button" onclick="resetGroup(this)">Reset</button>
       </xsl:if>
@@ -844,17 +956,19 @@ function closeCodeSelect() {
             </button>
           </xsl:when>
           <xsl:otherwise>
-            <input type="image" onclick="deleteGroup(this)" src="{$iconPath}/html-form-delete.png" alt="Remove" style="width:10;height:10;"/>
+            <input type="image" onclick="deleteGroup(this)" src="{$iconPath}/html-form-delete.png" alt="Remove" style="width:10px;height:10px;"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:if>
       <xsl:apply-templates select="f:group|f:question">
+        <xsl:with-param name="path" select="$newPath"/>
         <xsl:with-param name="level" select="$level + 1"/>
         <xsl:with-param name="hierarchy" select="concat($hierarchy, '.', $currentRepetition)"/>
       </xsl:apply-templates>
     </div>
     <xsl:if test="$currentRepetition &lt; $totalRepetitions">
       <xsl:call-template name="groupDiv">
+        <xsl:with-param name="path" select="$path"/>
         <xsl:with-param name="level" select="$level"/>
         <xsl:with-param name="hierarchy" select="$hierarchy"/>
         <xsl:with-param name="totalRepetitions" select="$totalRepetitions"/>
@@ -863,6 +977,7 @@ function closeCodeSelect() {
     </xsl:if>
   </xsl:template>
   <xsl:template name="questionRow">
+    <xsl:param name="path"/>
     <xsl:variable name="id" select="generate-id()"/>
     <xsl:variable name="formattedLabel">
       <xsl:variable name="label">
@@ -981,8 +1096,11 @@ function closeCodeSelect() {
                   </xsl:variable>
                   <xsl:variable name="max">
                     <xsl:choose>
-                      <xsl:when test="f:_maxOccurs">
-                        <xsl:value-of select="f:_maxOccurs"/>
+                      <xsl:when test="f:_maxOccursInteger/@value">
+                        <xsl:value-of select="f:_maxOccursInteger/@value"/>
+                      </xsl:when>
+                      <xsl:when test="f:_maxOccursCode">
+                        <xsl:value-of select="$defaultAnswerRepetitions"/>
                       </xsl:when>
                       <xsl:otherwise>1</xsl:otherwise>
                     </xsl:choose>
@@ -995,9 +1113,9 @@ function closeCodeSelect() {
                 </xsl:when>
                 <xsl:when test="$codingCount&gt;$maxCheckboxCodings">
                   <!-- List box -->
-                  <select>
-                    <xsl:if test="f:_maxOccurs!=1">
-                      <xsl:attribute name="multiple">true</xsl:attribute>
+                  <select name="{$path}">
+                    <xsl:if test="f:_maxOccursInteger/@value!=1 or f:_maxOccursCode/@value">
+                      <xsl:attribute name="multiple">multiple</xsl:attribute>
                     </xsl:if>
                     <xsl:choose>
                       <xsl:when test="$useMicrosoft='true'">
@@ -1013,20 +1131,20 @@ function closeCodeSelect() {
                     </xsl:choose>
                   </select>
                 </xsl:when>
-                <xsl:when test="f:_maxOccurs=1">
+                <xsl:when test="f:_maxOccursInteger/@value=1">
                   <!-- Radio buttons -->
                   <xsl:choose>
                     <xsl:when test="$useMicrosoft='true'">
                       <xsl:for-each select="msxsl:node-set($valuesetCodings)/f:coding">
                         <xsl:call-template name="doRadioBoxItem">
-                          <xsl:with-param name="id" select="id"/>
+                          <xsl:with-param name="path" select="$path"/>
                         </xsl:call-template>
                       </xsl:for-each>
                     </xsl:when>
                     <xsl:otherwise>
                       <xsl:for-each select="common:node-set($valuesetCodings)/f:coding">
                         <xsl:call-template name="doRadioBoxItem">
-                          <xsl:with-param name="id" select="id"/>
+                          <xsl:with-param name="path" select="$path"/>
                         </xsl:call-template>
                       </xsl:for-each>
                     </xsl:otherwise>
@@ -1042,14 +1160,14 @@ function closeCodeSelect() {
                     <xsl:when test="$useMicrosoft='true'">
                       <xsl:for-each select="msxsl:node-set($valuesetCodings)/f:coding">
                         <xsl:call-template name="doCheckBoxItem">
-                          <xsl:with-param name="id" select="id"/>
+                          <xsl:with-param name="path" select="$path"/>
                         </xsl:call-template>
                       </xsl:for-each>
                     </xsl:when>
                     <xsl:otherwise>
                       <xsl:for-each select="common:node-set($valuesetCodings)/f:coding">
                         <xsl:call-template name="doCheckBoxItem">
-                          <xsl:with-param name="id" select="id"/>
+                          <xsl:with-param name="path" select="$path"/>
                         </xsl:call-template>
                       </xsl:for-each>
                     </xsl:otherwise>
@@ -1109,19 +1227,86 @@ function closeCodeSelect() {
         <xsl:copy-of select="$formattedLabel"/>
       </td>
       <td>
+        <xsl:variable name="newPath" select="concat($path, f:linkId/@value)"/>
         <xsl:choose>
-          <xsl:when test="not(contains($answerType, 'choice')) and _maxOccursInteger/@value">
-            <xsl:call-template name="repeatAnswer">
-              <xsl:with-param name="totalRepetitions" select="_maxOccursInteger/@value"/>
-              <xsl:with-param name="input" select="$adjustedInput"/>
-              <xsl:with-param name="answers" select="f:answer"/>
-            </xsl:call-template>
+          <xsl:when test="not(contains($answerType, 'choice')) and (f:_maxOccursInteger/@value!=1 or f:_maxOccursCode/@value)">
+            <xsl:variable name="repetitions">
+              <xsl:choose>
+                <xsl:when test="f:_maxOccursInteger/@value">
+                  <xsl:value-of select="f:_maxOccursInteger/@value"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="$defaultAnswerRepetitions"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+            <table>
+              <tbody>
+                <xsl:call-template name="repeatAnswer">
+                  <xsl:with-param name="path" select="$newPath"/>
+                  <xsl:with-param name="totalRepetitions" select="$repetitions"/>
+                  <xsl:with-param name="input" select="$adjustedInput"/>
+                </xsl:call-template>
+              </tbody>
+            </table>
+            <xsl:choose>
+              <xsl:when test="$iconPath=''">
+                <button style="margin:0em 2em;" type="button" onclick="addInput(this)">Add Response</button>
+              </xsl:when>
+              <xsl:otherwise>
+                <input style="margin:0em 2em;width:10px;height:10px;" type="image" onclick="addInput(this)" src="{$iconPath}/html-form-add.png" alt="Add response"/>
+              </xsl:otherwise>
+            </xsl:choose>
+            <xsl:choose>
+              <xsl:when test="$useMicrosoft='true'">
+                <xsl:for-each select="msxsl:node-set($adjustedInput)/*">
+                  <xsl:copy>
+                    <xsl:copy-of select="@*"/>
+                    <xsl:attribute name="style">
+                      <xsl:value-of select="concat('display:none;', @style)"/>
+                    </xsl:attribute>
+                    <xsl:copy-of select="node()"/>
+                  </xsl:copy>
+                </xsl:for-each>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:for-each select="common:node-set($adjustedInput)/*">
+                  <xsl:copy>
+                    <xsl:copy-of select="@*"/>
+                    <xsl:attribute name="style">
+                      <xsl:value-of select="concat('display:none;', @style)"/>
+                    </xsl:attribute>
+                    <xsl:copy-of select="node()"/>
+                  </xsl:copy>
+                </xsl:for-each>
+              </xsl:otherwise>
+            </xsl:choose>
+            <span style="display:none">
+              <xsl:value-of select="$newPath"/>
+            </span>
+            <span style="display:none">
+              <xsl:value-of select="$repetitions"/>
+            </span>
+            <span style="display:none">
+              <xsl:choose>
+                <xsl:when test="f:_maxOccursInteger/@value">
+                  <xsl:value-of select="f:_maxOccursInteger/@value"/>
+                </xsl:when>
+                <xsl:otherwise>*</xsl:otherwise>
+              </xsl:choose>
+            </span>
+          </xsl:when>
+          <xsl:when test="$useMicrosoft='true'">
+            <xsl:apply-templates mode="copyInput" select="common:node-set($adjustedInput)">
+              <xsl:with-param name="path" select="$newPath"/>
+              <xsl:with-param name="position" select="1"/>
+            </xsl:apply-templates>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:call-template name="repeatAnswer">
-              <xsl:with-param name="input" select="$adjustedInput"/>
-              <xsl:with-param name="answers" select="f:answer"/>
-            </xsl:call-template>
+            <xsl:apply-templates mode="copyInput" select="common:node-set($adjustedInput)">
+              <xsl:with-param name="path" select="$newPath"/>
+              <xsl:with-param name="position" select="1"/>
+            </xsl:apply-templates>
           </xsl:otherwise>
         </xsl:choose>
       </td>
@@ -1148,9 +1333,9 @@ function closeCodeSelect() {
     </option>
   </xsl:template>
   <xsl:template name="doRadioBoxItem">
-    <xsl:param name="id"/>
+    <xsl:param name="path"/>
     <xsl:if test="f:system">
-      <input type="checkbox" name="{$id}" value="{f:code/@value}">
+      <input type="radio" name="{$path}" value="{f:code/@value}">
         <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/Profile/tools-extensions#definition']/f:valueString/@value">
           <xsl:attribute name="title">
             <xsl:value-of select="."/>
@@ -1169,9 +1354,9 @@ function closeCodeSelect() {
     <br/>
   </xsl:template>
   <xsl:template name="doCheckBoxItem">
-    <xsl:param name="id"/>
+    <xsl:param name="path"/>
     <xsl:if test="f:system">
-      <input type="radio" name="{$id}" value="{f:code/@value}">
+      <input type="checkbox" name="{$path}" value="{f:code/@value}">
         <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/Profile/tools-extensions#definition']/f:valueString/@value">
           <xsl:attribute name="title">
             <xsl:value-of select="."/>
@@ -1190,113 +1375,106 @@ function closeCodeSelect() {
     <br/>
   </xsl:template>
   <xsl:template match="f:question">
+    <xsl:param name="path"/>
     <xsl:param name="level"/>
     <xsl:param name="hierarchy"/>
     <xsl:choose>
-      <xsl:when test="preceding-sibling::*[self::f:question]">
+      <xsl:when test="preceding-sibling::*[1][self::f:question]">
         <!-- We're already inside a table, so the table will contain this question -->
       </xsl:when>
-      <xsl:when test="following-sibling::*[self::f:question]">
+      <xsl:when test="following-sibling::*[1][self::f:question]">
         <table>
           <tbody>
-            <xsl:call-template name="questionRow"/>
+            <xsl:call-template name="questionRow">
+              <xsl:with-param name="path" select="$path"/>
+            </xsl:call-template>
             <xsl:variable name="precedingGroups" select="count(preceding-sibling::f:group)"/>
             <xsl:for-each select="following-sibling::f:question[count(preceding-sibling::f:group)=$precedingGroups]">
-              <xsl:call-template name="questionRow"/>
+              <xsl:call-template name="questionRow">
+                <xsl:with-param name="path" select="$path"/>
+              </xsl:call-template>
             </xsl:for-each>
           </tbody>
         </table>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="row">
-          <xsl:call-template name="questionRow"/>
-        </xsl:variable>
-        <p>
-          <xsl:choose>
-            <xsl:when test="$useMicrosoft='true'">
-              <xsl:copy-of select="msxsl:node-set($row)/td/node()"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:copy-of select="common:node-set($row)/td/node()"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </p>
+        <table>
+          <tbody>
+            <xsl:call-template name="questionRow">
+              <xsl:with-param name="path" select="$path"/>
+            </xsl:call-template>
+          </tbody>
+        </table>
       </xsl:otherwise>
     </xsl:choose>
     <xsl:apply-templates select="f:group">
+      <xsl:with-param name="path" select="concat($path, f:linkId/@value, '[1]')"/>
       <xsl:with-param name="level" select="$level + 1"/>
       <xsl:with-param name="hierarchy" select="$hierarchy"/>
     </xsl:apply-templates>
   </xsl:template>
   <xsl:template name="repeatAnswer">
+    <xsl:param name="path"/>
     <xsl:param name="repetition" select="1"/>
     <xsl:param name="totalRepetitions" select="1"/>
     <xsl:param name="input"/>
-    <xsl:param name="answers"/>
-    <xsl:if test="not($totalRepetitions=1)">
-      <br/>
-    </xsl:if>
-    <xsl:choose>
-      <xsl:when test="$useMicrosoft='true'">
-        <xsl:apply-templates mode="copyInput" select="msxsl:node-set($input)">
-          <xsl:with-param name="position" select="$repetition"/>
-          <xsl:with-param name="answer" select="$answers/*[position()=$repetition]/@value"/>
-        </xsl:apply-templates>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates mode="copyInput" select="common:node-set($input)">
-          <xsl:with-param name="position" select="$repetition"/>
-          <xsl:with-param name="answer" select="$answers/*[position()=$repetition]/@value"/>
-        </xsl:apply-templates>
-      </xsl:otherwise>
-    </xsl:choose>
+    <tr>
+      <td>
+        <xsl:choose>
+          <xsl:when test="$iconPath=''">
+            <button type="button" onclick="deleteInput(this)">X</button>
+          </xsl:when>
+          <xsl:otherwise>
+            <input type="image" onclick="deleteInput(this)" src="{$iconPath}/html-form-delete.png" alt="Remove" style="width:10px;height:10px;"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </td>
+      <td>
+        <xsl:choose>
+          <xsl:when test="$useMicrosoft='true'">
+            <xsl:apply-templates mode="copyInput" select="common:node-set($input)">
+              <xsl:with-param name="path" select="$path"/>
+              <xsl:with-param name="position" select="$repetition"/>
+            </xsl:apply-templates>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates mode="copyInput" select="common:node-set($input)">
+              <xsl:with-param name="path" select="$path"/>
+              <xsl:with-param name="position" select="$repetition"/>
+            </xsl:apply-templates>
+          </xsl:otherwise>
+        </xsl:choose>
+      </td>
+    </tr>
     <xsl:if test="$repetition &lt; $totalRepetitions">
       <xsl:call-template name="repeatAnswer">
+        <xsl:with-param name="path" select="$path"/>
         <xsl:with-param name="repetition" select="$repetition + 1"/>
         <xsl:with-param name="totalRepetitions" select="$totalRepetitions"/>
         <xsl:with-param name="input" select="$input"/>
-        <xsl:with-param name="answers" select="$answers"/>
       </xsl:call-template>
     </xsl:if>
   </xsl:template>
   <xsl:template mode="copyInput" match="@*|node()">
+    <xsl:param name="path"/>
     <xsl:param name="position"/>
-    <xsl:param name="answer"/>
     <xsl:copy>
       <xsl:apply-templates mode="copyInput" select="@*|node()">
+        <xsl:with-param name="path" select="$path"/>
         <xsl:with-param name="position" select="$position"/>
-        <xsl:with-param name="answer" select="$answer"/>
       </xsl:apply-templates>
     </xsl:copy>
   </xsl:template>
   <xsl:template mode="copyInput" match="html:input|html:textArea">
+    <xsl:param name="path"/>
     <xsl:param name="position"/>
-    <xsl:param name="answer"/>
     <xsl:copy>
-      <xsl:apply-templates mode="copyInput" select="@*">
+      <xsl:attribute name="name">
+        <xsl:value-of select="concat($path, '[', $position, ']')"/>
+      </xsl:attribute>
+      <xsl:apply-templates mode="copyInput" select="@*|node()">
+        <xsl:with-param name="path" select="$path"/>
         <xsl:with-param name="position" select="$position"/>
-        <xsl:with-param name="answer" select="$answer"/>
-      </xsl:apply-templates>
-      <xsl:if test="normalize-space($answer)!=''">
-        <xsl:choose>
-          <xsl:when test="self::textArea">
-            <xsl:value-of select="$answer"/>
-          </xsl:when>
-          <xsl:when test="type='text'">
-            <xsl:attribute name="value">
-              <xsl:value-of select="$answer"/>
-            </xsl:attribute>
-          </xsl:when>
-          <xsl:when test="type='checkbox'">
-            <xsl:if test="$answer='true'">
-              <xsl:attribute name="checked">true</xsl:attribute>
-            </xsl:if>
-          </xsl:when>
-        </xsl:choose>
-      </xsl:if>
-      <xsl:apply-templates mode="copyInput" select="@*">
-        <xsl:with-param name="position" select="$position"/>
-        <xsl:with-param name="answer" select="$answer"/>
       </xsl:apply-templates>
     </xsl:copy>
   </xsl:template>
