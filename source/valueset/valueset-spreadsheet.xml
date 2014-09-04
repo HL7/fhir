@@ -1164,7 +1164,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="66.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="150.75"/>
@@ -1202,6 +1202,20 @@
     <Cell ss:Index="7" ss:StyleID="s79"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">RESTful Interactions</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The set of interactions defined by the RESTful part of the FHIR specification</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-restful-interaction</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-restful-interaction.xml</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s79"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">UCUM Common</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Common UCUM codes</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-ucum-common</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-ucum-common.xml</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s79"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3" ss:StyleID="s79"><Data ss:Type="String">sdc</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-example-sdc.xml</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s79"><Data ss:Type="String">SDC Value Set</Data></Cell>
@@ -1218,8 +1232,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
