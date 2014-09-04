@@ -10,10 +10,10 @@
   <xsl:param name="numberSections" select="'false'">
     <!-- If set to true, will auto-generate labels for sections if labels are not present -->
   </xsl:param>
-  <xsl:param name="defaultAnswerRepetitions" select="2">
+  <xsl:param name="defaultAnswerRepetitions" select="1">
     <!-- This is the number of times repeating answers will be included by default if they don't have a declared minimum number of repetitions -->
   </xsl:param>
-  <xsl:param name="defaultGroupRepetitions" select="2">
+  <xsl:param name="defaultGroupRepetitions" select="1">
     <!-- This is the number of times repeating groups will be included by default if they don't have a declared minimum number of repetitions -->
   </xsl:param>
   <xsl:param name="maxCheckboxCodings" select="6">
@@ -25,7 +25,7 @@
   <xsl:param name="enableReset" select="'false'">
     <!-- If set to 'true', this will display a reset button on sections to remove data -->
   </xsl:param>
-  <xsl:param name="expansionServer" select="'http://fhir.healthintersections.com.au/open'">
+  <xsl:param name="expansionServer" select="'http://fhir-dev.healthintersections.com.au/open'">
     <!-- The base URI of the server to use for value set expansions -->
   </xsl:param>
   <xsl:param name="iconPath" select="'http://fhir-dev.healthintersections.com.au'">
@@ -227,12 +227,13 @@
         <xsl:if test="$jQueryPath!=''">
           <script type="text/javascript">
             <xsl:comment>
+              <xsl:text>&#x0a;</xsl:text>
               <xsl:text>var questionnaireAnswers = null;&#x0a;</xsl:text>
               <xsl:text>var questionnaireAnswersId = null;&#x0a;</xsl:text>
               <xsl:text>var questionnaireAnswersVersion = null;&#x0a;</xsl:text>
               <xsl:text>var questionnaireAnswersEndpoint = null;&#x0a;</xsl:text>
               <xsl:apply-templates mode="validateScript" select="//f:group|//f:question"/>
-              <xsl:text>function validateQuestionnaire(document) {&#x0a;</xsl:text>
+              <xsl:text>function validateQuestionnaire() {&#x0a;</xsl:text>
               <xsl:value-of select="concat('  return validate', f:group/f:linkId/@safeValue, '(document.getElementById(&quot;div-cnt&quot;));&#x0a;')"/>
               <xsl:text>}&#x0a;&#x0a;</xsl:text>
               <xsl:text>function populateQuestionnaire() {&#x0a;</xsl:text>
@@ -282,7 +283,7 @@
                 </td>
               </xsl:if>
               <td>
-                <button onclick="safeFinal()">Save as Complete</button>
+                <button onclick="saveFinal()">Save as Complete</button>
               </td>
             </tr>
           </tbody>
@@ -314,6 +315,18 @@
     <xsl:text>;&#x0a;}&#x0a;&#x0a;</xsl:text>
   </xsl:template>
   <xsl:template mode="validateScript" match="f:question">
+    <xsl:value-of select="concat('&#x0a;function validate', f:linkId/@safeValue, '(node) {&#x0a;')"/>
+    <xsl:value-of select="concat('  var answerNodes = findAnswers(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
+    <xsl:text disable-output-escaping="yes">  if (answerNodes.length &lt; </xsl:text>
+    <xsl:value-of select="concat(f:_minOccurs/@value, ')&#x0a;')"/>
+    <xsl:text>    return false&#x0a;  else&#x0a;    return </xsl:text>
+    <xsl:for-each select="f:group">
+      <xsl:if test="position()!=1">
+        <xsl:text disable-output-escaping="yes">&#x0a;         &amp;&amp; </xsl:text>
+      </xsl:if>
+      <xsl:value-of select="concat('validate', f:linkId/@safeValue, '(findDiv(node, &quot;', f:linkId/@value, '&quot;))')"/>
+    </xsl:for-each>
+    <xsl:text>;&#x0a;}&#x0a;&#x0a;</xsl:text>
   </xsl:template>
   <xsl:template name="scripts">
     <xsl:if test="$jQueryPath!=''">
@@ -350,15 +363,30 @@
         </xsl:comment>
       </script>
       <script type="text/javascript">
+function findDiv(node, linkId) {
+  return $(node).children("div").filter(function() {
+    return $(this).children("span").text() == linkId;
+  });
+}
+
+function findAnswers(node, linkId) {
+  var answerCell = $(node).children("table").children("tr").filter(function() {return $(this).firstChild.firstChild.text() === linkId;}).cell(1);
+  if (answerCell.length == 0) {
+    alert("Unable to find question " + linkId);
+    return null;
+  }
+}
+
 function loadAnswers() {
-  if (questionnaireAnswers = null) {
+  if (questionnaireAnswers == null) {
     questionnaireAnswers =
     {
       "resourceType": "QuestionnaireAnswers",
       "text": {
         "status": "generated",
         "div": null
-      }
+      },
+      "status": "draft"
       // It would be nice to populate the reference to the Questionnaire, but we'd need to know the id      
     }
   } else {
@@ -372,7 +400,7 @@ function saveDraft() {
 }
 
 function saveFinal() {
-  if (validateQuestionnaire) {
+  if (validateQuestionnaire()) {
     if (questionnaireAnswers.status == "completed")
       questionnaireAnswers.status = "amended"
      else
@@ -789,7 +817,7 @@ function closeCodeSelect() {
       function resetDiv(div) {
         inputs = div.getElementsByTagName("input")
         for(i=0; i &lt; inputs.length; i++) {
-          if (inputs[i].default = "undefined") {
+          if (inputs[i].default == "undefined") {
             inputs[i].value = ""
           } else {
             inputs[i].value = inputs[i].default
@@ -913,7 +941,8 @@ function closeCodeSelect() {
         </xsl:otherwise>
       </xsl:choose>
       <span style="display:none">
-        <xsl:value-of select="concat($path, f:linkId/@value)"/>
+        <xsl:value-of select="f:linkId/@value"/>
+<!--        <xsl:value-of select="concat($path, f:linkId/@value)"/>-->
       </span>
       <span style="display:none">
         <xsl:value-of select="$repetitions"/>
@@ -940,7 +969,8 @@ function closeCodeSelect() {
         </xsl:attribute>
       </xsl:if>
       <span style="display:none">
-        <xsl:value-of select="$newPath"/>
+        <xsl:value-of select="f:linkId/@value"/>
+<!--        <xsl:value-of select="$newPath"/>-->
       </span>
       <xsl:if test="$enableReset='true'">
         <button type="button" onclick="resetGroup(this)">Reset</button>
@@ -1297,7 +1327,7 @@ function closeCodeSelect() {
             </span>
           </xsl:when>
           <xsl:when test="$useMicrosoft='true'">
-            <xsl:apply-templates mode="copyInput" select="common:node-set($adjustedInput)">
+            <xsl:apply-templates mode="copyInput" select="msxsl:node-set($adjustedInput)">
               <xsl:with-param name="path" select="$newPath"/>
               <xsl:with-param name="position" select="1"/>
             </xsl:apply-templates>
@@ -1432,7 +1462,7 @@ function closeCodeSelect() {
       <td>
         <xsl:choose>
           <xsl:when test="$useMicrosoft='true'">
-            <xsl:apply-templates mode="copyInput" select="common:node-set($input)">
+            <xsl:apply-templates mode="copyInput" select="msxsl:node-set($input)">
               <xsl:with-param name="path" select="$path"/>
               <xsl:with-param name="position" select="$repetition"/>
             </xsl:apply-templates>
