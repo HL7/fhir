@@ -146,7 +146,8 @@ public class Utilities {
    String[] files = src.list();
    for (String f : files) {
      if (new CSFile(sourceFolder+File.separator+f).isDirectory()) {
-       copyDirectory(sourceFolder+File.separator+f, destFolder+File.separator+f, notifier);
+       if (!f.startsWith(".")) // ignore .svn...
+         copyDirectory(sourceFolder+File.separator+f, destFolder+File.separator+f, notifier);
      } else {
        if (notifier != null)
          notifier.copyFile(sourceFolder+File.separator+f, destFolder+File.separator+f);
