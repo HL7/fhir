@@ -149,12 +149,13 @@ public class Validator {
   
 
   ValidationEngine engine = new ValidationEngine();
-  static final String MASTER_SOURCE = "??";
+  static final String MASTER_SOURCE = "http://hl7.org/documentcenter/public/standards/FHIR-Develop/validator.zip"; // fix after DSTU!!
 
   public void process() throws Exception {
     byte[] defn = loadDefinitions();
     readDefinitions(engine, defn);
-    engine.setProfile(readProfile(loadProfile()));
+    if (!Utilities.noString(profile))
+    	engine.setProfile(readProfile(loadProfile()));
     engine.setSource(loadSource());
     engine.process();
   }
