@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/specimen.xsd">
-  <text>
+  <!--text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text>
+  </text>-->
   <contained>
     <Substance id="hep">
       <type>
@@ -53,19 +53,18 @@
   </accessionIdentifier>
   <receivedTime value="2011-03-04T07:03:00"/>
 
-  <!-- collection - is required, and must have something in it 
-      - e.g. you must know something about how the specimen was collected -->
+ 
   <collection>
     <collector>
       <!-- in practice, collecter is almost always recorded -->
       <reference value="Practitioner/example"/>
     </collector>
-    <!-- the time of collection. Usually a point in time, but can be a period 
+    <!-- the time of collection is required. Usually a point in time, but can be a period 
       (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine) --> 
     <collectedDateTime value="2011-05-30T06:15:00" />
     
     <quantity>
-      <value value="10"/>
+      <value value="6"/>
       <units value="mL"/> <!-- e.g. full -->
     </quantity>
     
@@ -103,7 +102,7 @@
      as .collection.quantity (usually). This is for when there is more
      than one container -->
     <specimenQuantity>
-      <value value="10"/>
+      <value value="6"/>
       <units value="mL"/>
     </specimenQuantity>
 

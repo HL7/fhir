@@ -10,16 +10,17 @@
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-01-28T01:16:11Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>6345</WindowHeight>
-  <WindowWidth>22755</WindowWidth>
+  <WindowWidth>20730</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -65,6 +66,14 @@
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s67">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
   <Style ss:ID="s69" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -82,27 +91,19 @@
   <Style ss:ID="s71">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s73">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s74">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s75">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s88">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -122,7 +123,7 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="82.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="125.25"/>
-   <Row ss:Height="30" ss:StyleID="s65">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -140,84 +141,84 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Sample for analysis</Data></Cell>
     <Cell><Data ss:Type="String">Sample for analysis</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s88"/>
-    <Cell ss:Index="13" ss:StyleID="s88"><Data ss:Type="String">Role[classCode=SPEC]</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:Index="11" ss:StyleID="s67"/>
+    <Cell ss:Index="13" ss:StyleID="s67"><Data ss:Type="String">Role[classCode=SPEC]</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">External Identifier</Data></Cell>
     <Cell><Data ss:Type="String">Id for specimen</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s88"/>
-    <Cell ss:Index="13" ss:StyleID="s88"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s67"/>
+    <Cell ss:Index="13" ss:StyleID="s67"><Data ss:Type="String">.id</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">SPM-2</Data></Cell>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Specimen.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">SpecimenType</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">SpecimenType</Data></Cell>
     <Cell><Data ss:Type="String">Kind of material that forms the specimen</Data></Cell>
     <Cell><Data ss:Type="String">Kind of material that forms the specimen</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s88"/>
+    <Cell ss:Index="11" ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">The type can change the way that a specimen is handled, and drives what kind of analyses can properly be performed on the specimen. It is frequently used in diagnostic work flow decision making systems</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">.code</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">SPM-4 and possibly SPM-5</Data></Cell>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">.code</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">SPM-4 and possibly SPM-5</Data></Cell>
+    <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Specimen.source</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">up</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s88"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">up</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Parent of specimen</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Parent specimen from which the focal specimen was a component</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Parent specimen from which the focal specimen was a component</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">.scoper (if parent)&#10;.player.scopesRole[classCode=SPEC].player (if child)</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Source isn't a great name if it can also be a child.  Why not two separate associations?</Data></Cell>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Specimen.source.relationship</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">HierarchicalRelationshipType</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">HierarchicalRelationshipType</Data></Cell>
     <Cell><Data ss:Type="String">parent | child</Data></Cell>
     <Cell><Data ss:Type="String">Whether this relationship is to a parent or to a child</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">as above</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">as above</Data></Cell>
     <Cell><Data ss:Type="String">not explicit in v2.x SPM segment, but can be&#10;derived as child,if SPM-3 Specimen parent ID is filled in</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Specimen.source.target</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Specimen)</Data></Cell>
@@ -225,7 +226,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">The specimen resource that is the target of this relationship</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">[self]</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Specimen.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Group|Device|Substance)</Data></Cell>
@@ -233,7 +234,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">Must know the subject context</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.scoper&#10;&#10;or&#10;&#10;.scoper.playsRole</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Specimen.accessionIdentifier</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
@@ -242,7 +243,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=SBJ].act[classCode=ACSN, moodCode=EVN].id</Data></Cell>
     <Cell><Data ss:Type="String">SPM-30 (v2.7+)</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Specimen.receivedTime</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
@@ -251,15 +252,15 @@
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=SBJ].act[code=SPCREC, moodCode=EVN].effectiveTime</Data></Cell>
     <Cell><Data ss:Type="String">SPM-18</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Specimen.collection</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">up</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Collection details</Data></Cell>
     <Cell><Data ss:Type="String">Details concerning the specimen collection</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=SBJ].act[classCode=SPECCOLLECT, moodCode=EVN]</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Specimen.collection.collector</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
@@ -267,7 +268,7 @@
     <Cell><Data ss:Type="String">Person who collected the specimen</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=PFM].role</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Specimen.collection.comment</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -275,16 +276,16 @@
     <Cell><Data ss:Type="String">To communicate any details or issues encountered during the specimen collection procedure.</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Specimen.collection.collected[x]</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime|Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Collection time</Data></Cell>
     <Cell><Data ss:Type="String">Time when specimen was collected from subject - the physiologically relevant time</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.effectiveTime</Data></Cell>
     <Cell><Data ss:Type="String">SPM-17</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Specimen.collection.quantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
@@ -293,7 +294,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=SBJ].role[classCode=SPEC].player.quantity</Data></Cell>
     <Cell><Data ss:Type="String">SPM-12</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Specimen.collection.method</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -303,7 +304,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">.methodCode</Data></Cell>
     <Cell><Data ss:Type="String">SPM-7</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Specimen.collection.sourceSite</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -314,7 +315,7 @@
     <Cell><Data ss:Type="String">SPM-8 and SPM-9</Data></Cell>
     <Cell><Data ss:Type="String">Is this approach or target site?</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Specimen.treatment</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
@@ -322,14 +323,14 @@
     <Cell><Data ss:Type="String">Details concerning treatment and processing steps for the specimen</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=SBJ].act[code=SPCTRT, moodCode=EVN]</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.treatment.description</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Textual description of procedure</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.text</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Specimen.treatment.procedure</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -338,7 +339,7 @@
     <Cell><Data ss:Type="String">A coded value specifying the procedure used to process the specimen</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.code</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Specimen.treatment.additive</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance)</Data></Cell>
@@ -346,7 +347,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=CSM].role[classCode=ADTV].code</Data></Cell>
     <Cell><Data ss:Type="String">SPM-6</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Specimen.container</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
@@ -354,7 +355,7 @@
     <Cell><Data ss:Type="String">The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here. </Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.player.scopingRole[classCode=CONT].scoper</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Specimen.container.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
@@ -363,14 +364,14 @@
     <Cell ss:Index="13"><Data ss:Type="String">.id</Data></Cell>
     <Cell><Data ss:Type="String">SAC-3</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.container.description</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Textual description of the container</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.desc</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Specimen.container.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -380,7 +381,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">.code</Data></Cell>
     <Cell><Data ss:Type="String">SPM-27</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Specimen.container.capacity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
@@ -389,7 +390,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">.quantity</Data></Cell>
     <Cell><Data ss:Type="String"> one of: SAC 16, SAC17 and SAC 20, or SAC 21 and SAC 20</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Specimen.container.specimenQuantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
@@ -398,7 +399,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">.playedRole[classCode=CONT].quantity</Data></Cell>
     <Cell><Data ss:Type="String">SAC-23 (value) SAC-24 (units</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Specimen.container.additive</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance)</Data></Cell>
@@ -414,11 +415,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -431,9 +433,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -547,10 +552,10 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -764,36 +769,36 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">HierarchicalRelationshipType</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Type indicating if this is a parent or child relationship</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">#hierarchical-relationship-type</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">#hierarchical-relationship-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">SpecimenType</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">The type of the specimen. </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">http://hl7.org/fhir/v2/vs/0487</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">http://hl7.org/fhir/v2/vs/0487</Data></Cell>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">SpecimenCollectionMethod</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">The  technique that is used to perform the procedure</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-specimen-collection-method</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">valueset-specimen-collection-method</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SpecimenTreatmentProcedure</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Type indicating the technique used to process the specimen</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-specimen-treatment-procedure</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SpecimenContainerType</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Type of specimen container</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-specimen-container-type</Data></Cell>
    </Row>
@@ -882,7 +887,7 @@
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="291.75"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s74">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Display</Data></Cell>
