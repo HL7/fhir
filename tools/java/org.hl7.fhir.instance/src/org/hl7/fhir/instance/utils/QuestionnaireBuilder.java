@@ -359,6 +359,8 @@ public class QuestionnaireBuilder {
         addCodingQuestions(group, element, path);
       else if (type.getCodeSimple().equals("Quantity"))
         addQuantityQuestions(group, element, path);
+      else if (type.getCodeSimple().equals("Money"))
+        addMoneyQuestions(group, element, path);
       else if (type.getCodeSimple().equals("ResourceReference"))
         addReferenceQuestions(group, element, path, type.getProfileSimple());
       else if (type.getCodeSimple().equals("idref"))
@@ -555,6 +557,12 @@ public class QuestionnaireBuilder {
 	  addQuestion(group, AnswerFormat.decimal, path, "value", "value:");
 	  addQuestion(group, AnswerFormat.string, path, "units", "units:");
 	}
+
+  private void addMoneyQuestions(GroupComponent group, ElementComponent element, String path) throws Exception {
+    ToolingExtensions.setQuestionType(group, "Money");
+    addQuestion(group, AnswerFormat.decimal, path, "value", "value:");
+    addQuestion(group, AnswerFormat.string, path, "currency", "currency:");
+  }
 
 	private void addAgeQuestions(GroupComponent group, ElementComponent element, String path) throws Exception {
 	  ToolingExtensions.setQuestionType(group, "Age");
