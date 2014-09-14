@@ -1,7 +1,7 @@
 unit FHIRUtilities;
 
 {
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
@@ -57,6 +57,8 @@ Type
 const
   MIN_DATE = DATETIME_MIN;
   MAX_DATE = DATETIME_MAX;
+  ANY_CODE_VS = 'http://www.healthintersections.com.au/fhir/ValueSet/anything';
+
 
 function HumanNameAsText(name : TFhirHumanName):String;
 function GetEmailAddress(contacts : TFhirContactList):String;

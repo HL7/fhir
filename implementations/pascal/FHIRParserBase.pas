@@ -1,7 +1,7 @@
 Unit FHIRParserBase;
 
 {
-Copyright (c) 2011-2013, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
@@ -229,6 +229,7 @@ Type
   Protected
     Procedure PropNull(json : TJSONWriter; name : String); overload;
     Procedure Prop(json : TJSONWriter; name, value : String); overload;
+    Procedure PropNumber(json : TJSONWriter; name, value : String); overload;
     Procedure Prop(json : TJSONWriter; name : String; value : boolean); overload;
     Procedure ComposeXHtmlNode(json : TJSONWriter; name : String; value : TFhirXHtmlNode); overload;
 
@@ -861,6 +862,12 @@ procedure TFHIRJsonComposerBase.Prop(json : TJSONWriter; name, value: String);
 begin
   if value <> '' Then
     json.Value(name, value);
+end;
+
+procedure TFHIRJsonComposerBase.PropNumber(json : TJSONWriter; name, value: String);
+begin
+  if value <> '' Then
+    json.ValueNumber(name, value);
 end;
 
 procedure TFHIRJsonComposerBase.Compose(json : TJSONWriter; statedType, id, ver : String; oResource: TFhirResource; links : TFHIRAtomLinkList);
@@ -1852,7 +1859,7 @@ Header(Session, FBaseURL, lang)+
         if (e.links <> nil) and (e.links.GetRel('z-edit-src') <> '') then
           s.append(' Edit this as <a href="'+patchToWeb(e.links.GetRel('z-edit-src'))+'?srcformat=xml">XML</a> or <a href="'+patchToWeb(e.links.GetRel('z-edit-src'))+'?srcformat=json">JSON</a>.');
 
-        {$IFNDEF FHIR_DSTU}
+        {$IFNDEF FHIR-DSTU}
         if e.links.GetRel('edit-form') <> '' then
           if (e.resource is TFHIRQuestionnaireAnswers) then
           begin

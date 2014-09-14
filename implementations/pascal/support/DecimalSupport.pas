@@ -118,6 +118,10 @@ Type
 //    Function GetValueScientificByPrecision : String;
 //    Function GetValueDecimalByPrecision : String;
 
+    class function CheckValue(sValue : String) : boolean;
+    class function CheckValueDecimal(sValue : String) : boolean;
+    class function CheckValueScientific(sValue : String) : boolean;
+
     Function DoAdd(oOther : TSmartDecimal) : TSmartDecimal;
     Function DoSubtract(oOther : TSmartDecimal) : TSmartDecimal;
 
@@ -141,6 +145,7 @@ Type
     class Function Equal(oOne, oTwo : TSmartDecimal) : Boolean; overload;
     class Function Compares(oOne, oTwo : TSmartDecimal) : Integer; overload;
     class Function FromActiveX(oX: tagDEC): TSmartDecimal;
+    class Function StringIsValid(s : String) : Boolean;
     function hasContext(other : TSmartDecimal) : boolean;
 
     Function Multiply(iOther : Integer) : TSmartDecimal; Overload;
@@ -159,6 +164,11 @@ Type
       true if this value is zero (also implies isWholeNumber = true)
     }
     Function IsZero : Boolean;
+
+    {@member IsNegative
+      if number is < 0
+    }
+    Function IsNegative : boolean;
 
     {@member IsOne
       true if this value is zero (also implies isWholeNumber = true)
@@ -309,6 +319,90 @@ begin
   Create;
   FOwned := 2;
   SetValue(inttostr(iValue));
+end;
+
+class function TSmartDecimal.CheckValue(sValue: String): boolean;
+begin
+  if (sValue= '') or (sValue = '-') then
+    result := false
+  else if pos('e', lowercase(sValue)) > 0 then
+    result := CheckValueScientific(lowercase(sValue))
+  else
+    result := CheckValueDecimal(sValue);
+end;
+
+class function TSmartDecimal.CheckValueDecimal(sValue: String): boolean;
+var
+  iDecimal : integer;
+  i : integer;
+Begin
+  result := false;
+  iDecimal := 0;
+  if (sValue[1] = '-') then
+    delete(sValue, 1, 1);
+
+  while (sValue[1] = '0') And (length(sValue) > 1) Do
+    delete(sValue, 1, 1);
+
+  for i := 1 to length(sValue) do
+    if (sValue[i] = '.') And (iDecimal = 0) then
+      iDecimal := i
+    else if not CharInSet(sValue[i], ['0'..'9']) then
+      exit;
+
+  if iDecimal <> length(sValue) then
+    result := true
+end;
+
+function StringIsDecimal(s : String) : Boolean;
+var
+  bDec : Boolean;
+  i : integer;
+Begin
+  bDec := false;
+  result := true;
+  for i := 1 to length(s) Do
+  begin
+    if not (
+       ((i = 1) and (s[i] = '-')) or
+       (not bDec and (s[i] = '.')) or
+       CharInSet(s[i], ['0'..'9'])) Then
+      result := false;
+    bdec := s[i] = '.';
+  End;
+End;
+
+
+class function TSmartDecimal.CheckValueScientific(sValue: String): boolean;
+var
+  i : integer;
+  s, e : String;
+begin
+  result := false;
+  StringSplit(sValue, 'e', s, e);
+
+  if (s= '') or (s = '-') or not StringIsDecimal(s) then
+    exit;
+
+  if (e= '') or (e = '-') or not StringIsDecimal(e) then
+    exit;
+
+  if not checkValueDecimal(s) then
+    exit;
+
+  // now check for exponent
+
+  if e[1] = '-' then
+    i := 2
+  Else
+    i := 1;
+  while i <= length(e) Do
+  begin
+    if not CharInSet(e[i], ['0'..'9']) then
+      exit;
+    inc(i);
+  end;
+  result := true;
 end;
 
 Function TSmartDecimal.Clone : TSmartDecimal;
@@ -466,6 +560,11 @@ Begin
     c := t div 10;
   end;
   assert(c = 0);
+end;
+
+class function TSmartDecimal.StringIsValid(s: String): Boolean;
+begin
+  result := TSmartDecimal.CheckValue(s);
 end;
 
 Function TSmartDecimal.DoAdd(oOther : TSmartDecimal) : TSmartDecimal;
@@ -953,24 +1052,6 @@ Begin
 end;
 
 
-function StringIsDecimal(s : String) : Boolean;
-var
-  bDec : Boolean;
-  i : integer;
-Begin
-  bDec := false;
-  result := true;
-  for i := 1 to length(s) Do
-  begin
-    if not (
-       ((i = 1) and (s[i] = '-')) or
-       (not bDec and (s[i] = '.')) or
-       CharInSet(s[i], ['0'..'9'])) Then
-      result := false;
-    bdec := s[i] = '.';
-  End;
-End;
-
 Procedure TSmartDecimal.SetValueScientific(sValue: String);
 var
   i : integer;
@@ -1136,6 +1217,11 @@ end;
 Function TSmartDecimal.IsZero: Boolean;
 begin
   result := AllZeros(FDigits, 1);
+end;
+
+function TSmartDecimal.IsNegative: boolean;
+begin
+  result := FNegative;
 end;
 
 Function TSmartDecimal.IsOne: Boolean;
