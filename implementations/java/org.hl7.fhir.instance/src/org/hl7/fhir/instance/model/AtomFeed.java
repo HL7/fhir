@@ -94,7 +94,7 @@ public class AtomFeed extends AtomBase {
 	    throw new Exception("Unable to determine logical id for unknown resource");
 		
 	  if (getLinks().containsKey("fhir-base") && ae.getId().startsWith(getLinks().get("fhir-base"))) {
-	  	String tail = ae.getId().substring((getLinks().get("fhir-base")+"/"+ae.getResource().getResourceType().toString()).length());
+	  	String tail = ae.getId().substring((getLinks().get("fhir-base")+ae.getResource().getResourceType().toString()).length());
 	  	if (tail.startsWith("/"))
 	  		tail = tail.substring(1);
 	  	if (FormatUtilities.isValidId(tail))

@@ -188,7 +188,7 @@ public class WorkerContext {
 
   public void seeProfile(AtomEntry<Profile> e) {
 	  Profile p = (Profile) e.getResource();
-	  if (p.getStructure().isEmpty()) {
+	  if (!p.getStructure().isEmpty()) {
 	  	if (p.getStructure().get(0).getName() != null)
 	  		profiles.put(p.getStructure().get(0).getNameSimple(), e);
 	  	else 

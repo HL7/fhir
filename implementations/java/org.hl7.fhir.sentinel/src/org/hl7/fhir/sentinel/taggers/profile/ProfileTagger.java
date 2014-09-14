@@ -39,7 +39,7 @@ public class ProfileTagger implements Tagger {
 	  String next = null;
 	  int i = 1;
 	  do {
-	      System.out.println("Downloading ValueSets (Page "+Integer.toString(i)+")"+(next != null ? " ("+next+")" : "')"));
+	      System.out.println("Downloading ValueSets (Page "+Integer.toString(i)+")"+(next != null ? " ("+next+")" : ""));
 	      AtomFeed feed = null;
 	      if (next != null)
 	        feed = client.fetchFeed(next);
@@ -54,7 +54,7 @@ public class ProfileTagger implements Tagger {
 	  next = null;
 	  i = 1;
 	  do {
-	      System.out.println("Downloading Profiles (Page "+Integer.toString(i)+")"+(next != null ? " ("+next+")" : "')"));
+	      System.out.println("Downloading Profiles (Page "+Integer.toString(i)+")"+(next != null ? " ("+next+")" : ""));
 	      AtomFeed feed = null;
 	      if (next != null)
 	        feed = client.fetchFeed(next);
@@ -134,7 +134,10 @@ public class ProfileTagger implements Tagger {
 
 	private boolean isValidAgainstBase(Resource r, Document doc, String id) throws Exception {
 	  String name = doc.getDocumentElement().getLocalName();
-	  Profile p = validator.getWorkerContext().getProfiles().get(name.toLowerCase()).getResource();
+	  AtomEntry<Profile> t = validator.getWorkerContext().getProfiles().get(name);
+	  if (t == null)
+	  	throw new Exception("unable to find Profile for "+name);
+	  Profile p = t.getResource();
 	  new XmlComposer().compose(new FileOutputStream("c:\\temp\\resource.xml"), r, true);
 	  if (p != null)
 	  	new XmlComposer().compose(new FileOutputStream("c:\\temp\\profile.xml"), p, true);
