@@ -6,16 +6,17 @@
 Executing each of the channels documented below involves the server
 sending a communication that will reveal information about the 
 client and server relatinoship, and, if the entire resource is 
-sent, sensitive clinical information. Servers are responsible
+sent, administrative or clinical information that may be quite 
+sensitive and/or protected under law. Servers are responsible
 for ensuring appropriate security is employed for each channel. 
-The subscription resource does not address these
-concerns directly - it is assumed that these are administered by 
-other configuration. For instance, a server might maintain a whitelist 
+The subscription resource does not address these concerns 
+directly - it is assumed that these are administered by other 
+configuration. For instance, a server might maintain a whitelist 
 of acceptable servers for the rest-create/rest-update methods.
 </p>
 <p>
 Emails should generally be secured using some technique such as 
-Direct.
+<a href="http://directproject.org/">Direct</a>.
 </p>
 
 <h2>Managing Subscriptions and Errors</h2>
@@ -48,7 +49,8 @@ refer errors to it's own alert logs. If the notification fails, the
 server should set the status to 'error', and mark the error in the 
 resource. If the notification succeeds, the server should update
 the status to "active again. If a subscription fails consistently 
-a server may choose turn the subscription off.
+a server may choose set the subscription status to off, and stop
+trying to send notifications.
 </p>
 <p>
 If a subscription nominates a fixed end date, the server automatically
@@ -105,7 +107,7 @@ as a healthcare institution.
   "channel": {
     "type": "rest-hook",
     "url": "https://internal.acme.com/research/saturn",
-    "payload": false
+    "payload": true
   }
 </pre>
 
@@ -175,7 +177,7 @@ The body of the email may be empty, or it may contain a refernce
 to the search or the matching resource. It is at the discretion
 of the server as to how much information to provide. The email
 should be secured appropriately, such as using Direct, as specified
-in the rules of the jurisdiction.
+by the rules of the applicable jurisdictions.
 </p>
 
 <p>SMS works very similarly:</p>
@@ -186,6 +188,11 @@ in the rules of the jurisdiction.
     "url": "tel:+1555-345-5555"
   }
 </pre>
+
+<p>
+Note: SMS messages are extremely limited in size, so payload should be set to false,
+and most servers will refuse to send payloads in SMS. 
+</p>
 
 <h3>Messaging</h3>
 

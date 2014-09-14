@@ -6,10 +6,10 @@
 <p><b>This is a candidate resource not yet formally proposed (or approved)</b></p>
 
 <p>
-The subscription reason is used to define a push based subscription 
+The subscription resource is used to define a push based subscription 
 from a server to another system. Once a subscription is registered with the server, 
 the server checks every resource that is created or updated, and 
-if the resource matches the given criteria, it send a message
+if the resource matches the given criteria, it sends a message
 on the defined "channel" so that another system is able 
 to take an appropriate action. The server is able to send 
 notifications without any information about the matching
@@ -19,9 +19,9 @@ resource, or with the entire resource.
 Several different types of channels are supported:
 </p>
 <ul>
- <li><b>rest-hook</b>: A post is made to the URL. If a resource is included, the URL is intepreted as the service base</li>
+ <li><b>rest-hook</b>: A post is made to the URL. If the subscription requests that the whole resource is included, the URL is intepreted as the service base</li>
  <li><b>websocket</b>: An PING message is sent to the designated URI</li>
- <li><b>email/sms</b>: An notification is send to nominated email address or SMS number</li>
+ <li><b>email/sms</b>: A notification is send to nominated email address or SMS number</li>
  <li><b>message</b>: The resource is sent to the application identified in the URI as a <a href="messaging.html">message</a></li>
 </ul>
 <p>
@@ -37,21 +37,21 @@ Once a subscription is created, any newly created or updated resources
 that meet the criteria in the resource cause a notification to be sent using the 
 provided channel. The criteria is a <a href="search.html">Search</a> string
 that has the same interpretation as if it were appended to the base 
-URL and submitted using the REST API. Note that the criteria is applied to the new value of the
-resource. The consequence of this is that there is no notification 
-when a resource is deleted, or when a resource is updated so that 
-it no longer meets the criteria. 
+URL and submitted using the REST API. Note that the search criteria 
+is applied to the new value of the resource. The consequence of this 
+is that there is no notification when a resource is deleted, or when 
+a resource is updated so that it no longer meets the criteria. 
 </p>
 <p>
-The RESTful API describes a polling-based subscription method using
-<a href="extras.html#bundle">bundles</a> and the <a href="http.html#history">history operation</a>. 
-This method of polling allows for a much tighter relationship between
-the client and the server, that doesn't involve missing updates and/or 
-deletes. 
+As an alternative to subscriptions, the RESTful API describes a 
+polling-based subscription method using <a href="extras.html#bundle">bundles</a> 
+and the <a href="http.html#history">history operation</a>. This method 
+of polling allows for a much tighter relationship between the client and 
+the server that doesn't involve missing updates and/or deletes. 
 </p>
 <p>
 Subscriptions are active resources; a server can only accept a subscription
-if it will execute the provided channel for any resources subsequently 
+if it will execute the specified channel for any resources subsequently 
 received. The subscription is no longer active once it is deleted from 
 the server.
 </p>
