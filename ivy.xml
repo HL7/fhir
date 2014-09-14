@@ -1,8 +1,8 @@
 <ivy-module version="2.0">
   <info organisation="org.hl7.fhir" module="tools"/>
   <dependencies>
-    <dependency org="com.google.code.gson" name="gson" rev="2.2.4"/>
-    <dependency org="commons-codec" name="commons-codec" rev="1.3"/>
+    <dependency org="com.google.code.gson" name="gson" rev="2.3"/>
+    <dependency org="commons-codec" name="commons-codec" rev="1.9"/>
     <dependency org="commons-discovery" name="commons-discovery" rev="0.2"/>
     <dependency org="commons-httpclient" name="commons-httpclient" rev="3.0.1"/>
     <dependency org="commons-io" name="commons-io" rev="1.2"/>
@@ -32,7 +32,7 @@
     <dependency org="org.tmatesoft.svnkit" name="svnkit-cli" rev="1.8.5" />
     <dependency org="org.tmatesoft.svnkit" name="svnkit-javahl16" rev="1.8.5" />
     <dependency org="org.tmatesoft.svnkit" name="svnkit" rev="1.8.5" />
-    <dependency org="xpp3" name="xpp3" rev="1.1.3.4.O"/>
-    <dependency org="xpp3" name="xpp3_xpath" rev="1.1.3.4.O"/>
+    <dependency org="xpp3" name="xpp3" rev="1.1.4c"/>
+    <dependency org="xpp3" name="xpp3_xpath" rev="1.1.4c"/>
   </dependencies>
 </ivy-module>
