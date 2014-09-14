@@ -232,7 +232,7 @@ public class Validator {
   }
 
   private byte[] loadFromUrl(String src) throws Exception {
-  	URL url = new URL("http://fhir.healthintersections.com.au/open/Profile/patient-name-one?_format=xml");
+  	URL url = new URL(src);
     byte[] str = IOUtils.toByteArray(url.openStream());
     return str;
   }

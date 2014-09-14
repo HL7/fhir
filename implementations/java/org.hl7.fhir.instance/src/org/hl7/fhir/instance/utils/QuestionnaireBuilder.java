@@ -241,7 +241,7 @@ public class QuestionnaireBuilder {
 	  return result;
 	}
 	
-	private ResourceReference makeTypeList(Questionnaire questionnaire, Profile profile, List<TypeRefComponent> types, String path) {
+	private ResourceReference makeTypeList(Questionnaire questionnaire, Profile profile, List<TypeRefComponent> types, String path) throws Exception {
     ValueSet vs = new ValueSet();
     vs.setNameSimple("Type options for "+path);
     vs.setDescriptionSimple(vs.getNameSimple());
