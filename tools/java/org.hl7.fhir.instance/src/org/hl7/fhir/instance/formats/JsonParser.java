@@ -1,7 +1,7 @@
 package org.hl7.fhir.instance.formats;
 
 /*
-  Copyright (c) 2011-2014, HL7, Inc.
+  Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Aug 26, 2014 16:54+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 14, 2014 18:53+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -6808,7 +6808,7 @@ public class JsonParser extends JsonParserBase {
       return parseValueSet(json);
     else if (t.equals("Binary"))
       return parseBinary(json);
-    throw new Exception("Unknown.Unrecognised resource type");
+    throw new Exception("Unknown.Unrecognised resource type '"+t+"' (in property 'resourceType')");
   }
 
   protected Type parseType(String prefix, JsonObject json) throws Exception {
@@ -6937,5 +6937,194 @@ public class JsonParser extends JsonParserBase {
     return null;
   }
 
+  private boolean hasTypeName(JsonObject json, String prefix) {
+        if (json.has(prefix+"Period"))
+      return true;
+    if (json.has(prefix+"Coding"))
+      return true;
+    if (json.has(prefix+"Range"))
+      return true;
+    if (json.has(prefix+"Quantity"))
+      return true;
+    if (json.has(prefix+"Attachment"))
+      return true;
+    if (json.has(prefix+"Ratio"))
+      return true;
+    if (json.has(prefix+"SampledData"))
+      return true;
+    if (json.has(prefix+"Resource"))
+      return true;
+    if (json.has(prefix+"CodeableConcept"))
+      return true;
+    if (json.has(prefix+"Identifier"))
+      return true;
+    if (json.has(prefix+"Age"))
+      return true;
+    if (json.has(prefix+"Count"))
+      return true;
+    if (json.has(prefix+"Money"))
+      return true;
+    if (json.has(prefix+"Distance"))
+      return true;
+    if (json.has(prefix+"Duration"))
+      return true;
+    if (json.has(prefix+"Schedule"))
+      return true;
+    if (json.has(prefix+"Contact"))
+      return true;
+    if (json.has(prefix+"Address"))
+      return true;
+    if (json.has(prefix+"HumanName"))
+      return true;
+    if (json.has(prefix+"AdverseReaction"))
+      return true;
+    if (json.has(prefix+"Alert"))
+      return true;
+    if (json.has(prefix+"AllergyIntolerance"))
+      return true;
+    if (json.has(prefix+"Appointment"))
+      return true;
+    if (json.has(prefix+"AppointmentResponse"))
+      return true;
+    if (json.has(prefix+"Availability"))
+      return true;
+    if (json.has(prefix+"CarePlan"))
+      return true;
+    if (json.has(prefix+"Composition"))
+      return true;
+    if (json.has(prefix+"ConceptMap"))
+      return true;
+    if (json.has(prefix+"Condition"))
+      return true;
+    if (json.has(prefix+"Conformance"))
+      return true;
+    if (json.has(prefix+"Contraindication"))
+      return true;
+    if (json.has(prefix+"DataElement"))
+      return true;
+    if (json.has(prefix+"Device"))
+      return true;
+    if (json.has(prefix+"DeviceObservationReport"))
+      return true;
+    if (json.has(prefix+"DiagnosticOrder"))
+      return true;
+    if (json.has(prefix+"DiagnosticReport"))
+      return true;
+    if (json.has(prefix+"DocumentManifest"))
+      return true;
+    if (json.has(prefix+"DocumentReference"))
+      return true;
+    if (json.has(prefix+"Encounter"))
+      return true;
+    if (json.has(prefix+"FamilyHistory"))
+      return true;
+    if (json.has(prefix+"Group"))
+      return true;
+    if (json.has(prefix+"ImagingStudy"))
+      return true;
+    if (json.has(prefix+"Immunization"))
+      return true;
+    if (json.has(prefix+"ImmunizationRecommendation"))
+      return true;
+    if (json.has(prefix+"List"))
+      return true;
+    if (json.has(prefix+"Location"))
+      return true;
+    if (json.has(prefix+"Media"))
+      return true;
+    if (json.has(prefix+"Medication"))
+      return true;
+    if (json.has(prefix+"MedicationAdministration"))
+      return true;
+    if (json.has(prefix+"MedicationDispense"))
+      return true;
+    if (json.has(prefix+"MedicationPrescription"))
+      return true;
+    if (json.has(prefix+"MedicationStatement"))
+      return true;
+    if (json.has(prefix+"MessageHeader"))
+      return true;
+    if (json.has(prefix+"Namespace"))
+      return true;
+    if (json.has(prefix+"Observation"))
+      return true;
+    if (json.has(prefix+"OperationDefinition"))
+      return true;
+    if (json.has(prefix+"OperationOutcome"))
+      return true;
+    if (json.has(prefix+"Order"))
+      return true;
+    if (json.has(prefix+"OrderResponse"))
+      return true;
+    if (json.has(prefix+"Organization"))
+      return true;
+    if (json.has(prefix+"Other"))
+      return true;
+    if (json.has(prefix+"Patient"))
+      return true;
+    if (json.has(prefix+"Practitioner"))
+      return true;
+    if (json.has(prefix+"Procedure"))
+      return true;
+    if (json.has(prefix+"Profile"))
+      return true;
+    if (json.has(prefix+"Provenance"))
+      return true;
+    if (json.has(prefix+"Query"))
+      return true;
+    if (json.has(prefix+"Questionnaire"))
+      return true;
+    if (json.has(prefix+"QuestionnaireAnswers"))
+      return true;
+    if (json.has(prefix+"ReferralRequest"))
+      return true;
+    if (json.has(prefix+"RelatedPerson"))
+      return true;
+    if (json.has(prefix+"RiskAssessment"))
+      return true;
+    if (json.has(prefix+"SecurityEvent"))
+      return true;
+    if (json.has(prefix+"Slot"))
+      return true;
+    if (json.has(prefix+"Specimen"))
+      return true;
+    if (json.has(prefix+"Subscription"))
+      return true;
+    if (json.has(prefix+"Substance"))
+      return true;
+    if (json.has(prefix+"Supply"))
+      return true;
+    if (json.has(prefix+"ValueSet"))
+      return true;
+    if (json.has(prefix+"Integer") || json.has("_"+prefix+"Integer"))
+      return true;
+    if (json.has(prefix+"DateTime") || json.has("_"+prefix+"DateTime"))
+      return true;
+    if (json.has(prefix+"Code") || json.has("_"+prefix+"Code"))
+      return true;
+    if (json.has(prefix+"Date") || json.has("_"+prefix+"Date"))
+      return true;
+    if (json.has(prefix+"Decimal") || json.has("_"+prefix+"Decimal"))
+      return true;
+    if (json.has(prefix+"Uri") || json.has("_"+prefix+"Uri"))
+      return true;
+    if (json.has(prefix+"Id") || json.has("_"+prefix+"Id"))
+      return true;
+    if (json.has(prefix+"Base64Binary") || json.has("_"+prefix+"Base64Binary"))
+      return true;
+    if (json.has(prefix+"Time") || json.has("_"+prefix+"Time"))
+      return true;
+    if (json.has(prefix+"Oid") || json.has("_"+prefix+"Oid"))
+      return true;
+    if (json.has(prefix+"String") || json.has("_"+prefix+"String"))
+      return true;
+    if (json.has(prefix+"Boolean") || json.has("_"+prefix+"Boolean"))
+      return true;
+    if (json.has(prefix+"Uuid") || json.has("_"+prefix+"Uuid"))
+      return true;
+    if (json.has(prefix+"Instant") || json.has("_"+prefix+"Instant"))
+      return true;
+    return false;
+  }
 }
 

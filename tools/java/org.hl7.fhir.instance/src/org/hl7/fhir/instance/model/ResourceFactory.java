@@ -1,7 +1,7 @@
 package org.hl7.fhir.instance.model;
 
 /*
-  Copyright (c) 2011-2014, HL7, Inc.
+  Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 26, 2014 16:54+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 14, 2014 18:53+1000 for FHIR v0.3.0
 
 public class ResourceFactory extends Factory {
 

@@ -3,7 +3,7 @@ package org.hl7.fhir.tools.implementations.javascript;
 /*
 Contributed by Mitre Corporation
 
-Copyright (c) 2011-2014, HL7, Inc & The MITRE Corporation
+Copyright (c) 2011+, HL7, Inc & The MITRE Corporation
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -58,7 +58,7 @@ public class MongooseModel {
     public void generate() throws Exception {
       javaScriptFile.createNewFile();
       GenBlock fileBlock = new GenBlock();
-      fileBlock.ln("// Copyright (c) 2011-2014, HL7, Inc & The MITRE Corporation");
+      fileBlock.ln("// Copyright (c) 2011+, HL7, Inc & The MITRE Corporation");
       fileBlock.ln("// All rights reserved.");
       fileBlock.ln("// ");
       fileBlock.ln("// Redistribution and use in source and binary forms, with or without modification, ");

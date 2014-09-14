@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.formats;
 /*
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -177,7 +177,7 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     XmlPullParser xpp = loadXml(input);
     ResourceOrFeed r = new ResourceOrFeed();
     
-    if (xpp.getNamespace().equals(FHIR_NS) && !xpp.getName().equalsIgnoreCase("Taglist"))
+    if (xpp.getNamespace().equals(FHIR_NS) && !xpp.getName().equalsIgnoreCase("TagList"))
       r.setResource(parseResource(xpp));
     else if (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("Taglist"))
       r.setTaglist(parseTagList(xpp));

@@ -3,7 +3,7 @@ package org.hl7.fhir.tools.implementations;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 
 /*
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 

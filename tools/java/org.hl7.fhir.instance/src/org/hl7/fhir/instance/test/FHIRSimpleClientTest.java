@@ -343,7 +343,7 @@ public class FHIRSimpleClientTest {
 	public void testSearchForSingleResource() {
 		Map<String, String> parameters = new HashMap<String, String>();
 		parameters.put("_count", "50");
-		parameters.put("gender", "F");
+		parameters.put("gender", "female");
 		parameters.put("birthdate", "2008-08-08");
 		AtomFeed feed = testClient.search(Patient.class, parameters);
 		assertTrue(feed != null);
@@ -700,7 +700,7 @@ public class FHIRSimpleClientTest {
 			DateTimeType birthday = new DateTimeType();
 			birthday.setValue(new DateAndTime("2008-08-08"));
 			patient.setBirthDate(birthday);
-			patient.setGenderSimple(AdministrativeGender.F); // This is now a Simple code value
+			patient.setGenderSimple(AdministrativeGender.female); // This is now a Simple code value
 		} catch (ParseException e) {
 			e.printStackTrace();
 			fail();

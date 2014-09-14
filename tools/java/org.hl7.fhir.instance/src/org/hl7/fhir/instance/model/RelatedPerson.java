@@ -1,7 +1,7 @@
 package org.hl7.fhir.instance.model;
 
 /*
-  Copyright (c) 2011-2014, HL7, Inc.
+  Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Aug 26, 2014 16:54+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 14, 2014 18:53+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class RelatedPerson extends Resource {
 
     public enum AdministrativeGender {
-        M, // Male
-        F, // Female
-        O, // Other
-        U, // Unknown
+        male, // Male
+        female, // Female
+        other, // Other
+        unknown, // Unknown
         Null; // added to help the parsers
         public static AdministrativeGender fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("M".equals(codeString))
-          return M;
-        if ("F".equals(codeString))
-          return F;
-        if ("O".equals(codeString))
-          return O;
-        if ("U".equals(codeString))
-          return U;
+        if ("male".equals(codeString))
+          return male;
+        if ("female".equals(codeString))
+          return female;
+        if ("other".equals(codeString))
+          return other;
+        if ("unknown".equals(codeString))
+          return unknown;
         throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case M: return "M";
-            case F: return "F";
-            case O: return "O";
-            case U: return "U";
+            case male: return "male";
+            case female: return "female";
+            case other: return "other";
+            case unknown: return "unknown";
             default: return "?";
           }
         }
@@ -73,25 +73,25 @@ public class RelatedPerson extends Resource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("M".equals(codeString))
-          return AdministrativeGender.M;
-        if ("F".equals(codeString))
-          return AdministrativeGender.F;
-        if ("O".equals(codeString))
-          return AdministrativeGender.O;
-        if ("U".equals(codeString))
-          return AdministrativeGender.U;
+        if ("male".equals(codeString))
+          return AdministrativeGender.male;
+        if ("female".equals(codeString))
+          return AdministrativeGender.female;
+        if ("other".equals(codeString))
+          return AdministrativeGender.other;
+        if ("unknown".equals(codeString))
+          return AdministrativeGender.unknown;
         throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == AdministrativeGender.M)
-        return "M";
-      if (code == AdministrativeGender.F)
-        return "F";
-      if (code == AdministrativeGender.O)
-        return "O";
-      if (code == AdministrativeGender.U)
-        return "U";
+      if (code == AdministrativeGender.male)
+        return "male";
+      if (code == AdministrativeGender.female)
+        return "female";
+      if (code == AdministrativeGender.other)
+        return "other";
+      if (code == AdministrativeGender.unknown)
+        return "unknown";
       return "?";
       }
     }

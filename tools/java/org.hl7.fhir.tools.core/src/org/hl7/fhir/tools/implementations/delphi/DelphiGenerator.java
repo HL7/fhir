@@ -1,6 +1,6 @@
 package org.hl7.fhir.tools.implementations.delphi;
 /*
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -2401,6 +2401,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         prsrImpl.append("    prop(json, name, value.value);\r\n");
       else if (!pn.equals("String"))
         prsrImpl.append("    prop(json, name, asString(value.value));\r\n");
+      else if (tn.equals("Decimal") || tn.equals("Integer"))
+        prsrImpl.append("    propNumber(json, name, value.value);\r\n");
       else
         prsrImpl.append("    prop(json, name, value.value);\r\n");
       prsrImpl.append("end;\r\n\r\n");

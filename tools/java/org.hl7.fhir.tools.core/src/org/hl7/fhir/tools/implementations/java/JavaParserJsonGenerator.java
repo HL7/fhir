@@ -1,6 +1,6 @@
 package org.hl7.fhir.tools.implementations.java;
 /*
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -465,7 +465,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    "+reg.toString().substring(9));
     write("    else if (t.equals(\"Binary\"))\r\n");
     write("      return parseBinary(json);\r\n");
-    write("    throw new Exception(\"Unknown.Unrecognised resource type\");\r\n");
+    write("    throw new Exception(\"Unknown.Unrecognised resource type '\"+t+\"' (in property 'resourceType')\");\r\n");
     write("  }\r\n\r\n");
     write("  protected Type parseType(String prefix, JsonObject json) throws Exception {\r\n");
     write("    "+regt.toString().substring(9));
@@ -477,10 +477,10 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 //    write("    throw new Exception(\"Unknown type \"+type);\r\n");
 //    write("  }\r\n\r\n");
 //
-//    write("  private boolean hasTypeName(JsonObject json, String prefix) {\r\n");
-//    write("    "+regn.toString());
-//    write("    return false;\r\n");
-//    write("  }\r\n");
+    write("  private boolean hasTypeName(JsonObject json, String prefix) {\r\n");
+    write("    "+regn.toString());
+    write("    return false;\r\n");
+    write("  }\r\n");
     
     
     write("}\r\n");

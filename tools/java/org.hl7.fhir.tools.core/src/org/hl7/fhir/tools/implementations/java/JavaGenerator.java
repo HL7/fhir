@@ -1,6 +1,6 @@
 package org.hl7.fhir.tools.implementations.java;
 /*
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -31,6 +31,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -96,7 +97,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
   @Override
   public String getDescription() {
-    return "Resource Definitions, XML & Json parsers, & various utilities. The java reference implementation depends on XmlPull ([[http://www.xmlpull.org/]]), the Java JSON library ([[http://json.org]]), the Apache Commons Codec library ([[http://commons.apache.org/codec/]]), and Saxon 9 (for validation). A Java client can be found at [[https://github.com/cnanjo/FhirJavaReferenceClient]]";
+    return "Resource Definitions, XML & Json parsers, & various utilities. The java reference implementation depends on XmlPull ([[http://www.xmlpull.org/]]), the Java JSON library ([[http://json.org]]), the Apache Commons Codec library ([[http://commons.apache.org/codec/]]), and Saxon 9 (for validation). A Java client can be found at [[https://github.com/cnanjo/FhirJavaReferenceClient]]. This  code is also available via Maven [[http://mvnrepository.com/artifact/me.fhir/??]]";
   }
 
   @Override
@@ -187,7 +188,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jjComposerGen.generate(definitions, version, genDate);    
     jFactoryGen.generate(version, genDate);
     TextFile.stringToFileNoPrefix(makeConstantsClass(version, svnRevision, genDate), implDir+"org.hl7.fhir.instance"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"model"+sl+"Constants.java");
-    
     ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
     zip.addFiles(implDir+"org.hl7.fhir.instance"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"model"+sl, "org/hl7/fhir/instance/model/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.instance"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"formats"+sl, "org/hl7/fhir/instance/formats/", ".java", null);
@@ -196,9 +196,9 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     zip.addFiles(implDir+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xml"+sl, "org/hl7/fhir/utilities/xml/", ".java", null);
 
     String importsDir = folders.rootDir+sl+"tools"+sl+"java"+sl+"imports";
-    zip.addFileName("imports/xpp3-1.1.3.4.O.jar", importsDir+sl+"xpp3-1.1.3.4.O.jar", false);
-    zip.addFileName("imports/gson-2.2.4.jar", importsDir+sl+"gson-2.2.4.jar", false);
-    zip.addFileName("imports/commons-codec-1.3.jar", importsDir+sl+"commons-codec-1.3.jar", false);
+    zip.addFileName("imports/xpp3-1.1.4c.jar", importsDir+sl+"xpp3-1.1.4c.jar", false);
+    zip.addFileName("imports/gson-2.3.jar", importsDir+sl+"gson-2.3.jar", false);
+    zip.addFileName("imports/commons-codec-1.9.jar", importsDir+sl+"commons-codec-1.9.jar", false);
     
     zip.close();
     jjComposerGen.close();
@@ -343,10 +343,9 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     names.add("META-INF/MANIFEST.MF");
 
     String importsDir = rootDir+sl+"tools"+sl+"java"+sl+"imports";
-    AddJarToJar(jar, importsDir+sl+"xpp3-1.1.3.4.O.jar", names);
-    AddJarToJar(jar, importsDir+sl+"gson-2.2.4.jar", names);
-    AddJarToJar(jar, importsDir+sl+"commons-codec-1.3.jar", names);
-//    AddJarToJar(jar, importsDir+sl+"Saxon-HE-9.5.1-5.jar", names);
+    AddJarToJar(jar, importsDir+sl+"xpp3-1.1.4c.jar", names);
+    AddJarToJar(jar, importsDir+sl+"gson-2.3.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-codec-1.9.jar", names);
     AddJarToJar(jar, importsDir+sl+"Saxon-B-9.0.jar", names);
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
@@ -366,9 +365,11 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     names.add("META-INF/MANIFEST.MF");
 
     importsDir = rootDir+sl+"tools"+sl+"java"+sl+"imports";
-    AddJarToJar(jar, importsDir+sl+"xpp3-1.1.3.4.O.jar", names);
-    AddJarToJar(jar, importsDir+sl+"gson-2.2.4.jar", names);
-    AddJarToJar(jar, importsDir+sl+"commons-codec-1.3.jar", names);
+    AddJarToJar(jar, importsDir+sl+"xpp3-1.1.4c.jar", names);
+    AddJarToJar(jar, importsDir+sl+"gson-2.3.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-codec-1.9.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-io-1.2.jar", names);
+    AddJarToJar(jar, importsDir+sl+"Saxon-B-9.0.jar", names);
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"+sl).length(), names);

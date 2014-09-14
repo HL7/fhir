@@ -1,7 +1,7 @@
 package org.hl7.fhir.definitions;
 
 /*
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -43,7 +43,7 @@ public class Config {
 
   public static final String FULL_LICENSE_CODE = 
       
-"  Copyright (c) 2011-2014, HL7, Inc.\r\n"+
+"  Copyright (c) 2011+, HL7, Inc.\r\n"+
 "  All rights reserved.\r\n"+
 "  \r\n"+
 "  Redistribution and use in source and binary forms, with or without modification, \r\n" +
