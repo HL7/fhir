@@ -2,7 +2,7 @@ package org.hl7.fhir.convertors;
 
 
 /*
-  Copyright (c) 2011-2014, HL7, Inc.
+  Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -310,7 +310,7 @@ public class CCDAConverter {
 			pat.getTelecom().add(convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(p, "name"))
 			pat.getName().add(convert.makeNameFromEN(e));
-		pat.setGender(convert.makeCodeableConceptFromCD(cda.getChild(p, "administrativeGenderCode")));
+		pat.setGenderSimple(convert.makeGenderFromCD(cda.getChild(p, "administrativeGenderCode")));
 		pat.setBirthDate(convert.makeDateTimeFromTS(cda.getChild(p, "birthTime")));
 		pat.setMaritalStatus(convert.makeCodeableConceptFromCD(cda.getChild(p, "maritalStatusCode")));
 		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_RELIGION, convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -25,7 +25,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 package org.hl7.fhir.utilities;
 
 import java.io.ByteArrayInputStream;
@@ -270,6 +270,21 @@ public class Utilities {
   }
 
 
+  public static byte[] saxonTransform(Map<String, byte[]> files, byte[] source, byte[] xslt) throws Exception {
+    TransformerFactory f = new net.sf.saxon.TransformerFactoryImpl();
+    f.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
+    StreamSource xsrc = new StreamSource(new ByteArrayInputStream(xslt));
+    f.setURIResolver(new ZipURIResolver(files));
+    Transformer t = f.newTransformer(xsrc);
+
+    t.setURIResolver(new ZipURIResolver(files));
+    StreamSource src = new StreamSource(new ByteArrayInputStream(source));
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    StreamResult res = new StreamResult(out);
+    t.transform(src, res);
+    return out.toByteArray();    
+  }
+  
   public static byte[] transform(Map<String, byte[]> files, byte[] source, byte[] xslt) throws Exception {
     TransformerFactory f = TransformerFactory.newInstance();
     f.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
@@ -306,17 +321,7 @@ public class Utilities {
   }
   
   public static void transform(String xsltDir, String source, String xslt, String dest, URIResolver alt) throws Exception {
-    /* default java approach, but this doesn't support xslt2
-    TransformerFactory f = TransformerFactory.newInstance();
-    StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
-    f.setURIResolver(new MyURIResolver(xsltDir));
-    Transformer t = f.newTransformer(xsrc);
 
-    t.setURIResolver(new MyURIResolver(xsltDir));
-    StreamSource src = new StreamSource(new FileInputStream(source));
-    StreamResult res = new StreamResult(new FileOutputStream(dest));
-    t.transform(src, res);
-    */
     TransformerFactory f = TransformerFactory.newInstance();
     StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
     f.setURIResolver(new MyURIResolver(xsltDir, alt));

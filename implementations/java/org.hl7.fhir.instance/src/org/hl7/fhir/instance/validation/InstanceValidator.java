@@ -217,49 +217,46 @@ public class InstanceValidator extends BaseValidator {
     validateInstance(errors, new DOMWrapperElement(elem));
   }
   public void validateInstance(List<ValidationMessage> errors, WrapperElement elem) throws Exception {
-    validateInstance(errors, elem, null);  
+    validateInstance(errors, elem, null, null);  
   }
   
   public void validateInstance(List<ValidationMessage> errors, Element element, Profile profile) throws Exception {
-    validateInstance(errors, new DOMWrapperElement(element), profile);
+    validateInstance(errors, new DOMWrapperElement(element), profile, profile.getUrlSimple());
   }
   
-  private void validateInstance(List<ValidationMessage> errors, WrapperElement elem, Profile profile) throws Exception {
+  private void validateInstance(List<ValidationMessage> errors, WrapperElement elem, Profile profile, String uri) throws Exception {
     boolean feedHasAuthor = elem.getNamedChild("author") != null;
     if (elem.getName().equals("feed")) {
-      // for now, if the user specified a profile, and it's a feed, we refuse
-      if (rule(errors, "exception", "feed", profile == null, "Cannot validate a feed against a specified profile (TODO: re-assess this)")) {
-        ChildIterator ci = new ChildIterator("", elem);
-        while (ci.next()) {
-          if (ci.name().equals("category"))
-            validateTag(ci.path(), ci.element(), false);
-          else if (ci.name().equals("id"))
-            validateId(errors, ci.path(), ci.element(), true);
-          else if (ci.name().equals("link"))
-            validateLink(errors, ci.path(), ci.element(), false);
-          else if (ci.name().equals("entry")) 
-            validateAtomEntry(errors, ci.path(), ci.element(), feedHasAuthor);
-        }
+      ChildIterator ci = new ChildIterator("", elem);
+      while (ci.next()) {
+        if (ci.name().equals("category"))
+          validateTag(ci.path(), ci.element(), false);
+        else if (ci.name().equals("id"))
+          validateId(errors, ci.path(), ci.element(), true);
+        else if (ci.name().equals("link"))
+          validateLink(errors, ci.path(), ci.element(), false);
+        else if (ci.name().equals("entry")) 
+          validateAtomEntry(errors, ci.path(), ci.element(), feedHasAuthor, profile, uri);
       }
     }
     else
-      validate(errors, "", elem, profile);
+      validate(errors, "", elem, profile, null);
   }
 
   public List<ValidationMessage> validateInstance(WrapperElement elem) throws Exception {
     return validateInstance(elem, null);
   }
 
-  public List<ValidationMessage> validateInstance(Element elem, Profile profile) throws Exception {
+  public List<ValidationMessage> validateInstance(Element elem, Profile profile, String uri) throws Exception {
     return validateInstance(new DOMWrapperElement(elem), profile);
   }
   public List<ValidationMessage> validateInstance(WrapperElement elem, Profile profile) throws Exception {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-    validateInstance(errors, elem);      
+    validateInstance(errors, elem, profile, profile.getUrlSimple());      
     return errors;
   }
 
-  private void validateAtomEntry(List<ValidationMessage> errors, String path, WrapperElement element, boolean feedHasAuthor) throws Exception {
+  private void validateAtomEntry(List<ValidationMessage> errors, String path, WrapperElement element, boolean feedHasAuthor, Profile profile, String uri) throws Exception {
     rule(errors, "invalid", path, element.getNamedChild("title") != null, "Entry must have a title");
     rule(errors, "invalid", path, element.getNamedChild("updated") != null, "Entry must have a last updated time");
     rule(errors, "invalid", path, feedHasAuthor || element.getNamedChild("author") != null, "Entry must have an author because the feed doesn't");
@@ -275,18 +272,77 @@ public class InstanceValidator extends BaseValidator {
       else if (ci.name().equals("link"))
         validateLink(errors, ci.path(), ci.element(), true);
       else if (ci.name().equals("content")) {
+      	String puri = findProfileTag(element);
         WrapperElement r = ci.element().getFirstChild();
-        validate(errors, ci.path()+"/f:"+r.getName(), r, null);
+      	ProfileMatch p = findProfile(errors, path, profile, uri, puri, r);
+        validate(errors, ci.path()+"/f:"+r.getName(), r, p.getProfile(), p.getStructure());
       }
     }
   }
 
-  private void validate(List<ValidationMessage> errors, String path, WrapperElement elem, Profile profile) throws Exception {
+  public class ProfileMatch {
+  	Profile profile;
+  	ProfileStructureComponent structure;
+		public ProfileMatch() {
+	    super();
+    }
+		public ProfileMatch(Profile profile, ProfileStructureComponent structure) {
+	    super();
+	    this.profile = profile;
+	    this.structure = structure;
+    }
+		public Profile getProfile() {
+			return profile;
+		}
+		public ProfileStructureComponent getStructure() {
+			return structure;
+		}
+  }
+
+
+  private ProfileMatch findProfile(List<ValidationMessage> errors, String path,  Profile profile, String uri, String puri, WrapperElement r) {
+	  if (puri == null) {
+	  	if (profile != null) {
+	  	  for (ProfileStructureComponent t : profile.getStructure()) {
+	  	  	if (t.getTypeSimple().equals(r.getName())) {
+	  	  		return new ProfileMatch(profile, t);
+	  	  	}
+	  	  }
+	  	}
+	  	warning(errors, "not-found", path, false, "Resource '"+r.getName()+"' not found in profile '"+uri+"'");
+	  	return new ProfileMatch();
+	  } else if (profile != null && puri.startsWith(uri+"#")) {
+	  	String fragment = puri.substring(puri.indexOf("#")+1);
+  	  for (ProfileStructureComponent t : profile.getStructure()) {
+  	  	if (t.getNameSimple().equals(fragment)) {
+  	  		return new ProfileMatch(profile, t);
+  	  	}
+  	  }
+	  	rule(errors, "not-found", path, false, "Unable to resolve profile URL '"+puri+"'");
+	  	return new ProfileMatch();
+	  } else { 
+	    throw new Error("Not implemented yet");
+	  }
+  }
+
+	private String findProfileTag(WrapperElement element) {
+  	String uri = null;
+	  List<WrapperElement> list = new ArrayList<WrapperElement>();
+	  element.getNamedChildren("category", list);
+	  for (WrapperElement c : list) {
+	  	if ("http://hl7.org/fhir/tag/profile".equals(c.getAttribute("scheme"))) {
+	  		uri = c.getAttribute("term");
+	  	}
+	  }
+	  return uri;
+  }
+
+  private void validate(List<ValidationMessage> errors, String path, WrapperElement elem, Profile profile, ProfileStructureComponent structure) throws Exception {
     if (elem.getName().equals("Binary"))
       validateBinary(elem);
     else {
       Profile p = profile != null ? profile : getProfileForType(elem.getName());
-      ProfileStructureComponent s = getStructureForType(p, elem.getName());
+      ProfileStructureComponent s = structure != null ? structure : getStructureForType(p, elem.getName());
       if (rule(errors, "invalid", elem.getName(), s != null, "Unknown Resource Type "+elem.getName())) {
         validateElement(errors, p, s, path+"/f:"+elem.getName(), s.getSnapshot().getElement().get(0), null, null, elem, elem.getName(), null);
         if (elem.getName().equals("Query"))
@@ -311,7 +367,7 @@ public class InstanceValidator extends BaseValidator {
 
   private ProfileStructureComponent getStructureForType(Profile r, String localName) throws Exception {
     if (r.getStructure().size() != 1 || !(r.getStructure().get(0).getTypeSimple().equals(localName) || r.getStructure().get(0).getNameSimple().equals(localName)))
-      throw new Exception("unexpected profile contents");
+      throw new Exception("unexpected profile contents = expecting name = '"+localName+"'");
     ProfileStructureComponent s = r.getStructure().get(0);
     return s;
   }
@@ -367,6 +423,18 @@ public class InstanceValidator extends BaseValidator {
       rule(errors, "invalid", path, !empty(element), "Elements must have some content (@value, @id, extensions, or children elements)");
     }
     Map<String, ElementComponent> children = ProfileUtilities.getChildMap(structure, definition.getPathSimple());
+    for (ElementComponent child : children.values()) {
+    	if (child.getRepresentation().isEmpty()) {
+    		List<WrapperElement> list = new ArrayList<WrapperElement>();  
+    		element.getNamedChildrenWithWildcard(tail(child.getPathSimple()), list);
+    		if (child.getDefinition().getMinSimple() > 0) {
+    			rule(errors, "structure", child.getPathSimple(), list.size() > 0, "Element "+child.getPathSimple()+" is required");
+    		}
+    		if (child.getDefinition().getMaxSimple() != null && !child.getDefinition().getMaxSimple().equals("*")) {
+    			rule(errors, "structure", child.getPathSimple(), list.size() <= Integer.parseInt(child.getDefinition().getMaxSimple()), "Element "+child.getPathSimple()+" can only occur "+child.getDefinition().getMaxSimple()+" time"+(child.getDefinition().getMaxSimple().equals("1") ? "" : "s"));
+    		}
+    	}
+    }
     ChildIterator ci = new ChildIterator(path, element);
     while (ci.next()) {
       ElementComponent child = children.get(ci.name());
@@ -634,7 +702,7 @@ public class InstanceValidator extends BaseValidator {
 
   private void validateContains(List<ValidationMessage> errors, String path, ElementComponent child, ElementComponent context, WrapperElement element) throws Exception {
     WrapperElement e = element.getFirstChild();
-    validate(errors, path, e, null);    
+    validate(errors, path, e, null, null);    
   }
 
   private boolean typeIsPrimitive(String t) {
@@ -673,6 +741,27 @@ public class InstanceValidator extends BaseValidator {
   private void checkIdentifier(String path, WrapperElement element, ElementComponent context) {
 
   }
+
+  private void checkResourceReference(String path, Element element, ElementComponent context, boolean b) {
+    // nothing to do yet
+
+  }
+
+  private void checkIdentifier(String path, Element element, ElementComponent context) {
+
+  }
+
+  private void checkQuantity(List<ValidationMessage> errors, String path, Element element, ElementComponent context, boolean b) {
+    String code = XMLUtil.getNamedChildValue(element,  "code");
+    String system = XMLUtil.getNamedChildValue(element,  "system");
+    String units = XMLUtil.getNamedChildValue(element,  "units");
+
+    if (system != null && code != null) {
+      checkCode(errors, path, code, system, units);
+    }
+
+  }
+
 
   private void checkCoding(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementComponent context) {
     String code = element.getNamedChildValue("code");

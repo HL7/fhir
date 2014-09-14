@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.validation;
 /*
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -27,7 +27,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-
 import java.util.List;
 
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;

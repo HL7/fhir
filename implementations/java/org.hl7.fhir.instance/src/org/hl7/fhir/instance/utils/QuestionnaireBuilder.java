@@ -32,7 +32,7 @@ import org.hl7.fhir.utilities.ucum.DefinedUnit;
 
 
 /*
-  Copyright (c) 2011-2014, HL7, Inc.
+  Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -295,7 +295,7 @@ public class QuestionnaireBuilder {
     else
       ToolingExtensions.addFlyOver(group, element.getDefinition().getFormalSimple());
 
-    if (!element.getDefinition().getType().isEmpty() || element.getDefinition().getType().get(0).getCodeSimple().equals("*")) {
+    if (element.getDefinition().getType().size() > 1 || element.getDefinition().getType().get(0).getCodeSimple().equals("*")) {
       // todo
       QuestionComponent q = addQuestion(group, AnswerFormat.choice, element.getPathSimple(), "_type", "type");
       List<TypeRefComponent> types = expandTypeList(element.getDefinition().getType());
@@ -359,6 +359,8 @@ public class QuestionnaireBuilder {
         addCodingQuestions(group, element, path);
       else if (type.getCodeSimple().equals("Quantity"))
         addQuantityQuestions(group, element, path);
+      else if (type.getCodeSimple().equals("Money"))
+        addMoneyQuestions(group, element, path);
       else if (type.getCodeSimple().equals("ResourceReference"))
         addReferenceQuestions(group, element, path, type.getProfileSimple());
       else if (type.getCodeSimple().equals("idref"))
@@ -556,6 +558,12 @@ public class QuestionnaireBuilder {
 	  addQuestion(group, AnswerFormat.string, path, "units", "units:");
 	}
 	
+  private void addMoneyQuestions(GroupComponent group, ElementComponent element, String path) throws Exception {
+    ToolingExtensions.setQuestionType(group, "Money");
+    addQuestion(group, AnswerFormat.decimal, path, "value", "value:");
+    addQuestion(group, AnswerFormat.string, path, "currency", "currency:");
+  }
+
 	private void addAgeQuestions(GroupComponent group, ElementComponent element, String path) throws Exception {
 	  ToolingExtensions.setQuestionType(group, "Age");
     ResourceReference ref = new ResourceReference();

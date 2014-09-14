@@ -2,7 +2,7 @@ package org.hl7.fhir.instance.client;
 
 
 /*
-  Copyright (c) 2011-2014, HL7, Inc.
+  Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -29,7 +29,6 @@ package org.hl7.fhir.instance.client;
   POSSIBILITY OF SUCH DAMAGE.
   
 */
-
 import java.util.ArrayList;
 import java.util.List;
 

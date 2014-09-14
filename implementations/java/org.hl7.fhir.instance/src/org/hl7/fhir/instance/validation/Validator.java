@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.validation;
 /*
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -39,10 +39,14 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.apache.commons.io.IOUtils;
+import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
 /**
@@ -68,10 +72,9 @@ public class Validator {
       System.out.println("* [source] is a file name or url of the resource or bundle feed to validate");
       System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from hl7.org");
       System.out.println("* [profile] is an optional filename or URL for a specific profile to validate a resource");
-      System.out.println("    against. In the absense of this parameter, the resource will be checked aginst the ");
+      System.out.println("    against. In the absence of this parameter, the resource will be checked against the ");
       System.out.println("    base specification using the definitions.");
       System.out.println("* [output] is a filename for the results (OperationOutcome). Default: results are sent to the std out.");
-      
       System.out.println("* -noxslt means not to run the schematrons (you really need to run these, but they need xslt2).");
       System.out.println("");
       System.out.println("Or: FHIRValidator.jar -profile-tests [registry] (-defn [definitions])");
@@ -109,7 +112,12 @@ public class Validator {
           for (ValidationMessage v : exe.outputs()) {
             System.out.println(v.summary());
           }
-          if (exe.outputs().size() == 0)
+          int count = 0;
+          for (ValidationMessage t : exe.outputs()) {
+          	if (t.getLevel() == IssueSeverity.error || t.getLevel() == IssueSeverity.fatal)
+          		count++;
+          }
+          if (count == 0)
             System.out.println(" ...success");
           else
             System.out.println(" ...failure");
@@ -122,6 +130,9 @@ public class Validator {
 
 
 
+  private void setProfile(String profile) {
+	  this.profile = profile;
+  }
 	private List<ValidationMessage> outputs() {
     return engine.getOutputs();
   }
@@ -153,25 +164,29 @@ public class Validator {
 
   public void process() throws Exception {
     byte[] defn = loadDefinitions();
-    readDefinitions(engine, defn);
     if (!Utilities.noString(profile))
     	engine.setProfile(readProfile(loadProfile()));
+    readDefinitions(engine, defn);
     engine.setSource(loadSource());
     engine.process();
   }
 
- 
   private Profile readProfile(byte[] content) throws Exception {
-    try {
       XmlParser xml = new XmlParser(true);
       return (Profile) xml.parse(new ByteArrayInputStream(content));
-    } catch (Exception e) {
-      // well, we'll try again
-      JsonParser json = new JsonParser();
-      return (Profile) json.parse(new ByteArrayInputStream(content));
-      
-    }
   }
+
+  private byte[] loadProfile() throws Exception {
+	  if (Utilities.noString(profile)) {
+		  return null;
+	  } else if (profile.startsWith("https:") || profile.startsWith("http:")) {
+		  return loadFromUrl(profile);
+	  } else if (new File(profile).exists()) {
+		  return loadFromFile(profile);      
+	  } else
+		  throw new Exception("Unable to find named profile (source = "+profile+")");
+  }
+
   private void readDefinitions(ValidationEngine engine, byte[] defn) throws Exception {
     ZipInputStream zip = new ZipInputStream(new ByteArrayInputStream(defn));
     ZipEntry ze;
@@ -192,17 +207,6 @@ public class Validator {
     zip.close();    
   }
 
-  private byte[] loadProfile() throws Exception {
-    if (Utilities.noString(profile)) {
-      return null;
-    } else if (definitions.startsWith("https:") || definitions.startsWith("http:")) {
-      return loadFromUrl(profile);
-    } else if (new File(profile).exists()) {
-      return loadFromFile(profile);      
-    } else
-      throw new Exception("Unable to find named profile (source = "+profile+")");
-  }
-  
   private byte[] loadDefinitions() throws Exception {
     byte[] defn;
     if (Utilities.noString(definitions)) {
@@ -228,11 +232,9 @@ public class Validator {
   }
 
   private byte[] loadFromUrl(String src) throws Exception {
-    URL url = new URL(src);
-    InputStream in = url.openStream();
-    byte[] b = new byte[in.available()];
-    in.read(b);
-    return b;
+  	URL url = new URL("http://fhir.healthintersections.com.au/open/Profile/patient-name-one?_format=xml");
+    byte[] str = IOUtils.toByteArray(url.openStream());
+    return str;
   }
 
   private byte[] loadFromFile(String src) throws Exception {
@@ -264,18 +266,6 @@ public class Validator {
 
   public void setDefinitions(String definitions) {
     this.definitions = definitions;
-  }
-
-
-
-  public String getProfile() {
-    return profile;
-  }
-
-
-
-  public void setProfile(String profile) {
-    this.profile = profile;
   }
   
   

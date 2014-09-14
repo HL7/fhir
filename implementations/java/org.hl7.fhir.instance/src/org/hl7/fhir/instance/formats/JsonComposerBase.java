@@ -1,7 +1,7 @@
 package org.hl7.fhir.instance.formats;
 
 /*
-Copyright (c) 2011-2014, HL7, Inc
+Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -231,7 +231,7 @@ public abstract class JsonComposerBase extends ComposerBase {
 
 //	protected void composeElement(Element element) throws Exception {
 //		if (element.getXmlId() != null) 
-//			prop("_id", element.getXmlId());
+//			prop("id", element.getXmlId());
 //	}
 //
 	protected void writeNull(String name) throws Exception {
@@ -558,7 +558,7 @@ public abstract class JsonComposerBase extends ComposerBase {
     if (element != null) {
       prop("resourceType", "Binary");
       if (element.getXmlId() != null)
-        prop("_id", element.getXmlId());
+        prop("id", element.getXmlId());
       prop("contentType", element.getContentType());
       prop("content", toString(element.getContent()));
     }    

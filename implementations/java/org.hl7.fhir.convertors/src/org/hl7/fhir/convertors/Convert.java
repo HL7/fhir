@@ -2,7 +2,7 @@ package org.hl7.fhir.convertors;
 
 
 /*
-  Copyright (c) 2011-2014, HL7, Inc.
+  Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -39,6 +39,7 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Contact;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Factory;
+import org.hl7.fhir.instance.model.Patient.AdministrativeGender;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Contact.ContactUse;
@@ -445,6 +446,18 @@ public class Convert {
 		else 
 			qty.setUnitsSimple(qty.getCodeSimple());
 		return qty;		
+  }
+
+	public AdministrativeGender makeGenderFromCD(Element cd) throws Exception {
+	  String code = cd.getAttribute("code");
+	  String system = cd.getAttribute("codeSystem");
+	  if ("2.16.840.1.113883.5.1".equals(system)) {
+	  	if ("F".equals(code))
+	  		return AdministrativeGender.female;
+	  	if ("M".equals(code))
+	  		return AdministrativeGender.male;
+	  }
+	  throw new Exception("Unable to read Gender "+system+"::"+code);
   }
 
 }
