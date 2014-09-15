@@ -70,11 +70,11 @@ public class ElementDefn {
 	private String committeeNotes;
 	private String condition;
 	private String example;
+	private String maxLength;
 	private List<String> tasks = new ArrayList<String>();
 	
 	private String profileName; // only in a profile, for slicing
 	private String discriminator; // when slicing
-	private String statedProfile; // means some profile is applicable to this data type or resource reference
 	private String value; // only in a profile
 	private String aggregation; // only in a profile
 	private ElementComponent derivation;
@@ -235,7 +235,16 @@ public class ElementDefn {
 		return shortDefn != null && !"".equals(shortDefn);
 	}
 
-	public ElementDefn getElementByName(String name, boolean throughChoice) {
+	
+	public String getMaxLength() {
+    return maxLength;
+  }
+
+  public void setMaxLength(String maxLength) {
+    this.maxLength = maxLength;
+  }
+
+  public ElementDefn getElementByName(String name, boolean throughChoice) {
     String n = name.contains(".") ? name.substring(0, name.indexOf(".")) : name;
     String t = name.contains(".") ? name.substring(name.indexOf(".") + 1) : null;
     if (n.equals(this.name) && t != null)
@@ -540,6 +549,8 @@ public class ElementDefn {
 
 		for (int i = 1; i < path.length; i++) {
 			String en = path[i];
+			if (en.startsWith("extension("))
+			  return null; // don't resolve these here
 			if (en.length() == 0)
 				throw new Exception("Improper path " + pathname);
 			ElementDefn t = null;
@@ -637,14 +648,6 @@ public class ElementDefn {
 
     public List<String> getAliases() {
       return aliases;
-    }
-
-    public String getStatedProfile() {
-      return statedProfile;
-    }
-
-    public void setStatedProfile(String profile) {
-      this.statedProfile = profile;
     }
 
 	public void addMapping(String name, String value) {
@@ -770,9 +773,13 @@ public class ElementDefn {
   }
 
   public boolean hasStatedProfile() {
-    return !Utilities.noString(statedProfile);
-  }
-	
+    if (types.isEmpty())
+      return false;
+    else for (TypeRef t : types)
+      if (t.getProfile() != null)
+        return true;
+    return false;
+  }	
 	
 }
 

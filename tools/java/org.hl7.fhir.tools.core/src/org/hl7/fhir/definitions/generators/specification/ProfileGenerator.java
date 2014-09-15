@@ -49,6 +49,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.ExtensionDefn.ContextType;
+import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.Invariant;
@@ -454,7 +455,7 @@ public class ProfileGenerator {
     for (ResourceDefn resource : profile.getResources()) {
       Profile.ProfileStructureComponent c = new Profile.ProfileStructureComponent();
       p.getStructure().add(c);
-      c.setPublishSimple(true); // todo: when should this be set to true?
+      c.setPublishSimple(resource.isPublishedInProfile());
       c.setTypeSimple(resource.getRoot().getName());
       c.setBaseSimple("http://hl7.org/fhir/Profile/"+c.getTypeSimple());
       if (!"".equals(resource.getRoot().getProfileName()))
@@ -544,6 +545,11 @@ public class ProfileGenerator {
         dst.setIsExtensibleSimple(true);
       }
     }
+    if (src.getExtensible() != null)
+      dst.setIsExtensibleSimple(src.getExtensible());
+    if (src.getConformance() != null)
+      dst.setConformanceSimple(src.getConformance());
+    
     dst.setDescription(Factory.newString_(src.getDefinition()));
     if (src.getBinding() != Binding.Unbound)
       dst.setReference(buildReference(src));    
@@ -682,9 +688,17 @@ public class ProfileGenerator {
     if (!Utilities.noString(e.getProfileName())) {
       if (!Utilities.noString(e.getDiscriminator()) && !slices.contains(path)) {
         ce.setSlicing(new Profile.ElementSlicingComponent());
-        ce.getSlicing().setDiscriminatorSimple(e.getDiscriminator());
-        ce.getSlicing().setOrderedSimple(false);
-        ce.getSlicing().setRulesSimple(ResourceSlicingRules.open);
+        String[] d = e.getDiscriminator().split("\\|");
+        if (d.length >= 1)
+          ce.getSlicing().setDiscriminatorSimple(d[0].trim());
+        if (d.length >= 2)
+          ce.getSlicing().setOrderedSimple(Boolean.getBoolean(d[1].trim()));
+        else
+          ce.getSlicing().setOrderedSimple(false);
+        if (d.length >= 3)
+          ce.getSlicing().setRulesSimple(ResourceSlicingRules.fromCode(d[2].trim()));
+        else
+          ce.getSlicing().setRulesSimple(ResourceSlicingRules.open);
         ce = new Profile.ElementComponent();
         c.getElement().add(ce);
         ce.setPath(Factory.newString_(path));
@@ -709,7 +723,9 @@ public class ProfileGenerator {
     }
     ce.getDefinition().setMustSupport(Factory.newBoolean(e.isMustSupport()));
 
-
+    if (e.getMaxLength() != null) 
+      ce.getDefinition().setMaxSimple(e.getMaxLength()); 
+    
     // no purpose here
     ce.getDefinition().setMin(Factory.newInteger(e.getMinCardinality()));
     ce.getDefinition().setMax(Factory.newString_(e.getMaxCardinality() == null ? "*" : e.getMaxCardinality().toString()));
@@ -717,7 +733,7 @@ public class ProfileGenerator {
     if (e.typeCode().startsWith("@"))  {
       ce.getDefinition().setNameReferenceSimple(getNameForPath(myParents, e.typeCode().substring(1)));
     } else {
-      if (!Utilities.noString(e.getStatedProfile())) {
+      if (e.hasStatedProfile()) {
         if (e.getTypes().size() != 1)
           throw new Exception("mismatched type count for path " + path + " in profile " + p.getNameSimple());
         TypeRefComponent type = new Profile.TypeRefComponent();
@@ -725,7 +741,7 @@ public class ProfileGenerator {
           type.setCodeSimple("ResourceReference");
         else
           type.setCodeSimple(e.getTypes().get(0).getName());
-        type.setProfileSimple(e.getStatedProfile());
+        type.setProfileSimple(e.getTypes().get(0).getProfile());
         ce.getDefinition().getType().add(type);
       } else {
         for (TypeRef t : e.getTypes())  {
@@ -745,8 +761,8 @@ public class ProfileGenerator {
             TypeRefComponent type = new Profile.TypeRefComponent();
             type.setCodeSimple(t.summaryFormal());
             ce.getDefinition().getType().add(type);
-            if (e.getTypes().size() == 1 && !Utilities.noString(e.getStatedProfile()))
-              type.setProfileSimple(e.getStatedProfile());
+            if (e.getTypes().size() == 1 && !Utilities.noString(e.getTypes().get(0).getProfile()))
+              type.setProfileSimple(e.getTypes().get(0).getProfile());
           }
         }
       }
@@ -792,6 +808,11 @@ public class ProfileGenerator {
       t.getAggregation().add(en);
     }
 
+    for (String m : e.getMappings().keySet()) {
+      ElementDefinitionMappingComponent map = ce.getDefinition().addMapping();
+      map.setIdentitySimple(registerMapping(p, pd, m));
+      map.setMapSimple(e.getMappings().get(m));
+    }
 
     if (snapshot != SnapShotMode.None && !e.getElements().isEmpty()) {    
       makeExtensionSlice("extension", pd, p, c, e, path);
@@ -812,6 +833,31 @@ public class ProfileGenerator {
     return ce;
   }
   
+  private String registerMapping(Profile p, ProfileDefn pd, String m) {
+    for (ProfileMappingComponent map : p.getMapping()) {
+      if (map.getUriSimple().equals(m))
+        return map.getIdentitySimple();
+    }
+    ProfileMappingComponent map = new ProfileMappingComponent();
+    MappingSpace space = definitions.getMapTypes().get(m);
+    if (space != null)
+      map.setIdentitySimple(space.getId());
+    else
+      map.setIdentitySimple("m" + Integer.toString(p.getMapping().size()+1));
+    map.setUriSimple(m);
+    String name = pd.metadata(m+"-name");
+    if (Utilities.noString(name) && space != null)
+      name = space.getTitle();
+    if (!Utilities.noString(name))
+      map.setNameSimple(name);
+    String comments = pd.metadata(m+"-comments");
+    if (Utilities.noString(comments) && space != null)
+        comments = space.getPreamble();
+    if (!Utilities.noString(comments))
+      map.setCommentsSimple(comments);
+    return map.getIdentitySimple();
+  }
+
   private void addToPaths(List<SliceHandle> myParents, String path, ElementComponent ce, String profileName) throws Exception {
     Map<String, Profile.ElementComponent> pmap = paths;
     if (!myParents.isEmpty())
@@ -893,8 +939,8 @@ public class ProfileGenerator {
     ce.getDefinition().getType().add(new Profile.TypeRefComponent());
     ce.getDefinition().getType().get(0).setCode(Factory.newCode(src.typeCode()));
     // this one should never be used
-    if (!Utilities.noString(src.getStatedProfile()))
-      ce.getDefinition().getType().get(0).setProfile(Factory.newUri(src.getStatedProfile()));
+    if (!Utilities.noString(src.getTypes().get(0).getProfile()))
+      ce.getDefinition().getType().get(0).setProfile(Factory.newUri(src.getTypes().get(0).getProfile()));
     // todo? conditions, constraints, binding, mapping
     ce.getDefinition().setIsModifierSimple(src.isModifier());
     return ce;

@@ -212,6 +212,7 @@ public class SourceParser {
 		
 		eCoreParseResults.getType().addAll( sortTypes(allFhirComposites) );
 		
+    logger.log("Load Resources", LogMessageType.Process);
 		for (String n : ini.getPropertyNames("resources"))
 			loadResource(n, definitions.getResources(), false);
 		
@@ -281,7 +282,6 @@ public class SourceParser {
 		}
 	}
 
-	
   private void loadMappingSpaces() throws Exception {
     try {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -480,7 +480,7 @@ public class SourceParser {
 
 	private String loadCompositeType(String n, Map<String, org.hl7.fhir.definitions.model.TypeDefn> map) throws Exception {
 		TypeParser tp = new TypeParser();
-		List<TypeRef> ts = tp.parse(n);
+		List<TypeRef> ts = tp.parse(n, null);
 		definitions.getKnownTypes().addAll(ts);
 
 		try {
@@ -601,7 +601,7 @@ public class SourceParser {
 
 		for (String n : ini.getPropertyNames("types"))
 			if (ini.getStringProperty("types", n).equals("")) {
-				TypeRef t = new TypeParser().parse(n).get(0);
+				TypeRef t = new TypeParser().parse(n, null).get(0);
 				checkFile("type definition", dtDir, t.getName().toLowerCase() + ".xml", errors, "all");
 			}
     for (String n : ini.getPropertyNames("structures"))

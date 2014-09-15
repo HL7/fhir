@@ -112,6 +112,7 @@ public class ResourceDefn  {
    
    private boolean forFutureUse = false;
   private String requirements;
+  private boolean publishedInProfile;
    
    public boolean isForFutureUse()
    {
@@ -170,6 +171,15 @@ public class ResourceDefn  {
 
   public Map<String, Operation> getOperations() {
     return operations;
+  }
+
+  
+  public boolean isPublishedInProfile() {
+    return publishedInProfile;
+  }
+
+  public void setPublishedInProfile(boolean value) {
+    publishedInProfile = value;
   }
 
 

@@ -64,8 +64,8 @@ public class TableGenerator extends BaseGenerator {
           for (String rt : e.getTypes().get(0).getParams()) {
             if (!first)
               c.getPieces().add(gen.new Piece(null, " | ", null));
-            if (first && isProfile && e.hasStatedProfile())
-              c.getPieces().add(gen.new Piece(null, e.getStatedProfile(), null));
+            if (first && isProfile && e.getTypes().get(0).getProfile() != null)
+              c.getPieces().add(gen.new Piece(null, e.getTypes().get(0).getProfile(), null));
             else
               c.getPieces().add(gen.new Piece(findPage(rt)+".html", rt, null));
             first = false;
@@ -93,7 +93,7 @@ public class TableGenerator extends BaseGenerator {
     // constraints
     if (isProfiledExtension) {
       cc.addPiece(gen.new Piece("br"));
-      cc.getPieces().add(gen.new Piece(null, e.getStatedProfile(), null));
+      cc.getPieces().add(gen.new Piece(null, e.getTypes().get(0).getProfile(), null));
     }
     
     if (e.hasBinding() && definitions.getBindingByName(e.getBindingName()) != null && definitions.getBindingByName(e.getBindingName()).getBinding() != Binding.Unbound) {

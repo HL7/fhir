@@ -47,6 +47,7 @@ import java.util.List;
 
 public class TypeRef {
 	private String name;
+	private String profile;
 	private List<String> params = new ArrayList<String>();
 
 	public TypeRef()
@@ -87,7 +88,16 @@ public class TypeRef {
 		resolvedTypeName = value;
 	}
 	
-	public boolean isUnboundGenericParam() {
+	
+	public String getProfile() {
+    return profile;
+  }
+
+  public void setProfile(String profile) {
+    this.profile = profile;
+  }
+
+  public boolean isUnboundGenericParam() {
 		return name.equals("[param]");
 	}
 

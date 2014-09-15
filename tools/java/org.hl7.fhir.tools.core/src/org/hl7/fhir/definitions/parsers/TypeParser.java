@@ -31,10 +31,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.utilities.Utilities;
 
 public class TypeParser {
 
-	public List<TypeRef> parse(String n) throws Exception {
+	public List<TypeRef> parse(String n, String profiles) throws Exception {
 		ArrayList<TypeRef> a = new ArrayList<TypeRef>();
 		
 		Tokeniser tkn = new Tokeniser(n);
@@ -58,6 +59,11 @@ public class TypeParser {
 			a.add(t);
 		}
 		
+		if (!Utilities.noString(profiles)) {
+		  String[] plist = profiles.split("\\|");
+		  for (int i = 0; i < plist.length; i++) 
+		    a.get(i).setProfile(plist[i]);
+		}
 		return a;
 	}
 

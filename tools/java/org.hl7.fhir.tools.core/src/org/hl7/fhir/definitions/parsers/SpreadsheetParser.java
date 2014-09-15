@@ -28,6 +28,8 @@ package org.hl7.fhir.definitions.parsers;
  POSSIBILITY OF SUCH DAMAGE.
 
  */
+
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -61,6 +63,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.Profile.BindingConformance;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
@@ -230,7 +233,7 @@ public class SpreadsheetParser {
 	  ResourceDefn root = parseCommonTypeColumns();
 
 	  readEvents(loadSheet("Events"));
-	  readSearchParams(root, loadSheet("Search"));
+	  readSearchParams(root, loadSheet("Search"), false);
 	  readProfiles(root, loadSheet("Profiles"));
     readExamples(root, loadSheet("Examples"));
 	  readOperations(root, loadSheet("Operations"));
@@ -360,10 +363,12 @@ public class SpreadsheetParser {
 		return result;
 	}
 
-  private void readSearchParams(ResourceDefn root2, Sheet sheet) throws Exception {
-    root2.getSearchParams().put("_id", new SearchParameter("_id","The logical resource id associated with the resource (must be supported by all servers)",SearchType.token));
-    root2.getSearchParams().put("_language", new SearchParameter("_language","The stated language of the resource",SearchType.token).addPath("language"));
-
+  private void readSearchParams(ResourceDefn root2, Sheet sheet, boolean forProfile) throws Exception {
+    if (!forProfile) {
+      root2.getSearchParams().put("_id", new SearchParameter("_id","The logical resource id associated with the resource (must be supported by all servers)",SearchType.token));
+      root2.getSearchParams().put("_language", new SearchParameter("_language","The stated language of the resource",SearchType.token).addPath("language"));
+    }
+    
     if (sheet != null)
       for (int row = 0; row < sheet.rows.size(); row++) {
 
@@ -407,8 +412,9 @@ public class SpreadsheetParser {
             for (String pi : pl) {
               String p = pi.trim();
               ElementDefn e = null;
-              if (!Utilities.noString(p) && !p.startsWith("!"))
+              if (!Utilities.noString(p) && !p.startsWith("!")) {
                 e = root2.getRoot().getElementForPath(p, definitions, "search param"); 
+              }
               if (Utilities.noString(d) && e != null)
                 d = e.getShortDefn();
               if (d == null)
@@ -416,14 +422,14 @@ public class SpreadsheetParser {
               if (e != null)
                 pn.add(p);
               if (t == SearchType.reference) {
-                if (e == null)
+                if (e == null && !forProfile)
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has wrong path "+ getLocation(row));
-                if (!e.typeCode().startsWith("Resource(") && !e.typeCode().startsWith("uri|Resource("))
+                if (!forProfile && (!e.typeCode().startsWith("Resource(") && !e.typeCode().startsWith("uri|Resource(")))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is reference, but the element type is "+e.typeCode());
               } else if (e != null && e.typeCode().startsWith("Resource("))
                 throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
             }
-            if (t == SearchType.reference && pn.size() == 0)
+            if (!forProfile && t == SearchType.reference && pn.size() == 0)
               throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has no path(s) "+ getLocation(row));
 
             sp = new SearchParameter(n, d, t);
@@ -477,6 +483,11 @@ public class SpreadsheetParser {
 
       cd.setDescription(sheet.getColumn(row, "Description"));
       cd.setExample(parseBoolean(sheet.getColumn(row, "Example"), row, false));
+      if (isProfile) {
+        cd.setExtensible(parseFullBoolean(sheet.getColumn(row, "Extensible"), row, false));
+        cd.setConformance(BindingConformance.fromCode(sheet.getColumn(row, "Conformance")));
+      }
+
 			cd.setId(registry.idForName(cd.getName()));
 			cd.setSource(name);
       cd.setUri(sheet.getColumn(row, "Uri"));
@@ -544,7 +555,22 @@ public class SpreadsheetParser {
 		return result;
 	}
 
-	private void parseCodes(List<DefinedCode> codes, Sheet sheet)
+	private Boolean parseFullBoolean(String s, int row, boolean b) throws Exception {
+    s = s.toLowerCase();
+    if (s == null || s.equals(""))
+      return null;
+    else if (s.equalsIgnoreCase("y") || s.equalsIgnoreCase("yes")
+        || s.equalsIgnoreCase("true") || s.equalsIgnoreCase("1"))
+      return true;
+    else if (s.equals("false") || s.equals("0") || s.equals("f")
+        || s.equals("n") || s.equals("no"))
+      return false;
+    else
+      throw new Exception("unable to process boolean value: " + s + " in " + getLocation(row));
+  }
+
+
+  private void parseCodes(List<DefinedCode> codes, Sheet sheet)
 			throws Exception {
 		for (int row = 0; row < sheet.rows.size(); row++) {
 			DefinedCode c = new DefinedCode();
@@ -593,13 +619,13 @@ public class SpreadsheetParser {
 		if (p.getMetadata().containsKey("profile")) {
 		  for (String n : p.getMetadata().get("profile")) {
 		    if (!Utilities.noString(n))
-		    parseProfileSheet(definitions, p, invariants, n, namedSheets);
+		    parseProfileSheet(definitions, p, invariants, n, namedSheets, true);
 		  }
 		}
     
 		int i = 0;
     while (i < namedSheets.size()) {
-      parseProfileSheet(definitions, p, invariants, namedSheets.get(i), namedSheets);
+      parseProfileSheet(definitions, p, invariants, namedSheets.get(i), namedSheets, false);
       i++;
     }
 
@@ -619,23 +645,29 @@ public class SpreadsheetParser {
       
 		return p;
 	  } catch (Exception e) {
-	    throw new Exception("exception parsing "+name, e);
+	    throw new Exception("exception parsing "+name+": "+e.getMessage(), e);
 	  }
 	}
 
 
-  private void parseProfileSheet(Definitions definitions, ProfileDefn p, Map<String, Invariant> invariants, String n, List<String> namedSheets) throws Exception {
+  private void parseProfileSheet(Definitions definitions, ProfileDefn p, Map<String, Invariant> invariants, String n, List<String> namedSheets, boolean published) throws Exception {
     Sheet sheet;
     ResourceDefn resource = new ResourceDefn();
+    resource.setPublishedInProfile(published);
     sheet = loadSheet(n);
     if (sheet == null)
       throw new Exception("The Profile referred to a tab by the name of '"+n+"', but no tab by the name could be found");
     for (int row = 0; row < sheet.rows.size(); row++) {
       ElementDefn e = processLine(resource, sheet, row, invariants);
-      if (e != null && e.getStatedProfile() != null && e.typeCode().startsWith("Resource(") && e.getStatedProfile().startsWith("#")) 
-        if (!namedSheets.contains(e.getStatedProfile().substring(1)))
-          namedSheets.add(e.getStatedProfile().substring(1));      
+      if (e != null) 
+        for (TypeRef t : e.getTypes()) {
+          if (t.getProfile() != null && !t.getName().equals("Extension") && t.getProfile().startsWith("#")) { 
+            if (!namedSheets.contains(t.getProfile().substring(1)))
+              namedSheets.add(t.getProfile().substring(1));      
+          }
+        }
     }
+    
     sheet = loadSheet(n + "-Extensions");
     if (sheet != null) {
       for (int row = 0; row < sheet.rows.size(); row++) {
@@ -645,6 +677,10 @@ public class SpreadsheetParser {
             sheet, row, definitions,
             p.metadata("extension.uri"), p.getExtensions());
       }
+    }
+    sheet = loadSheet(n+"-Search");
+    if (sheet != null) {
+      readSearchParams(resource, sheet, true);
     }
     resource.getRoot().setProfileName(n);
     p.getResources().add(resource);
@@ -866,9 +902,8 @@ public class SpreadsheetParser {
 
 		String t = sheet.getColumn(row, "Type");
 		TypeParser tp = new TypeParser();
-		e.getTypes().addAll(tp.parse(t));
-		
-		e.setStatedProfile(sheet.getColumn(row, "Profile"));
+		e.getTypes().addAll(tp.parse(t, sheet.getColumn(row, "Profile")));
+
 		if (sheet.hasColumn(row, "Concept Domain"))
 			throw new Exception("Column 'Concept Domain' has been retired in "
 					+ path);
@@ -890,6 +925,8 @@ public class SpreadsheetParser {
 			root.setDefinition(e.getDefinition());
 		} 
 		
+		if (isProfile)
+		  e.setMaxLength(sheet.getColumn(row, "Max Length"));
 		e.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
 		e.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
     for (String n : definitions.getMapTypes().keySet()) {
@@ -964,7 +1001,7 @@ public class SpreadsheetParser {
     else if (!"".equals(s))
       throw new Exception("unable to process Must Understand flag: " + s
           + " in " + getLocation(row));
-    exe.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type")));
+    exe.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), null));
 	  
 	  if (extensions != null) {
 	    // if we got an extensions element, split this in.... 
@@ -1004,7 +1041,7 @@ public class SpreadsheetParser {
 	      v.ban();
 	    else {
 	      TypeParser tp = new TypeParser();
-	      v.getTypes().addAll(tp.parse(t));
+	      v.getTypes().addAll(tp.parse(t, sheet.getColumn(row, "Profile")));
 	    }
 	    e.getElements().remove(e.getElementByName("extension"));
 	  }
@@ -1141,8 +1178,7 @@ public class SpreadsheetParser {
 		return res;
 	}
 
-	protected boolean parseBoolean(String s, int row, boolean def)
-			throws Exception {
+	protected boolean parseBoolean(String s, int row, boolean def) throws Exception {
 		s = s.toLowerCase();
 		if (s == null || s.equals(""))
 			return def;

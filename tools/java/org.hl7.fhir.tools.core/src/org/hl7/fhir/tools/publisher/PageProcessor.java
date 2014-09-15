@@ -182,7 +182,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  DictHTMLGenerator gen = new DictHTMLGenerator(new FileOutputStream(tmp), this);
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt).get(0);
+	  TypeRef t = tp.parse(dt, null).get(0);
 	  
 	  ElementDefn e;
 	  if (t.getName().equals("Resource"))
@@ -206,7 +206,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  TerminologyNotesGenerator gen = new TerminologyNotesGenerator(new FileOutputStream(tmp), this);
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt).get(0);
+	  TypeRef t = tp.parse(dt, null).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
 		  gen.close();
@@ -233,7 +233,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	    pn = "base.html";
 	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this);
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt).get(0);
+	  TypeRef t = tp.parse(dt, null).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
 		  gen.close();
