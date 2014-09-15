@@ -94,26 +94,35 @@ public class ProfileTagger implements Tagger {
   }
 
 	@Override
-	public void process(AtomEntry<? extends Resource> entry, List<AtomCategory> tags, List<AtomCategory> added, List<AtomCategory> deleted) throws Exception {
-			if (entry.getResource() instanceof Profile)
-				seeProfile(entry);
-			if (entry.getResource() instanceof ValueSet)
-				seeValueSet(entry);
+	public void process(AtomEntry<? extends Resource> entry, List<AtomCategory> tags, List<AtomCategory> added, List<AtomCategory> deleted) throws Exception  {
+		if (entry.getResource() instanceof Profile)
+			seeProfile(entry);
+		if (entry.getResource() instanceof ValueSet)
+			seeValueSet(entry);
 
-			Document doc = loadAsXml(entry.getResource());
+		Document doc;
+		doc = loadAsXml(entry.getResource());
 
+		try {
 			if (!isValidAgainstBase(entry.getResource(), doc, entry.getId()))
 				added.add(new AtomCategory("http://hl7.org/fhir/tag", "http://www.healthintersections.com.au/fhir/tags/invalid", "Non-conformant Resource"));
-			
-			for (String n : validator.getWorkerContext().getProfiles().keySet()) {
-				Profile p = validator.getWorkerContext().getProfiles().get(n).getResource();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
+		for (String n : validator.getWorkerContext().getProfiles().keySet()) {
+			Profile p = validator.getWorkerContext().getProfiles().get(n).getResource();
+
+			try {
 				if (p.getUrlSimple() != null && !p.getUrlSimple().equals("http://hl7.org/fhir/profile/"+doc.getDocumentElement().getLocalName().toLowerCase())) {
 					boolean valid = check(doc, p, null);
 					if (valid) 
 						added.add(new AtomCategory("http://hl7.org/fhir/tag/profile", n, "Profile "+p.getNameSimple()));
 				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
+		}
 	}
 
 
