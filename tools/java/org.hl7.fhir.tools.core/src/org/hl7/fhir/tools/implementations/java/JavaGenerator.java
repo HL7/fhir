@@ -199,6 +199,11 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     zip.addFileName("imports/xpp3-1.1.4c.jar", importsDir+sl+"xpp3-1.1.4c.jar", false);
     zip.addFileName("imports/gson-2.3.jar", importsDir+sl+"gson-2.3.jar", false);
     zip.addFileName("imports/commons-codec-1.9.jar", importsDir+sl+"commons-codec-1.9.jar", false);
+    zip.addFileName("imports/commons-lang3-3.1.jar", importsDir+sl+"commons-lang3-3.1.jar", false);
+    zip.addFileName("imports/commons-logging-1.1.1.jar", importsDir+sl+"commons-logging-1.1.1.jar", false);
+    zip.addFileName("imports/commons-logging-api-1.1.jar", importsDir+sl+"commons-logging-api-1.1.jar", false);
+    zip.addFileName("imports/httpclient-4.2.3.jar", importsDir+sl+"httpclient-4.2.3.jar", false);
+    zip.addFileName("imports/httpcore-4.2.2.jar", importsDir+sl+"httpcore-4.2.2.jar", false);
     
     zip.close();
     jjComposerGen.close();
@@ -347,6 +352,12 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     AddJarToJar(jar, importsDir+sl+"gson-2.3.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-codec-1.9.jar", names);
     AddJarToJar(jar, importsDir+sl+"Saxon-B-9.0.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-lang3-3.1.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-logging-1.1.1.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-logging-api-1.1.jar", names);    
+    AddJarToJar(jar, importsDir+sl+"httpclient-4.2.3.jar", names);
+    AddJarToJar(jar, importsDir+sl+"httpcore-4.2.2.jar", names);
+
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"+sl).length(), names);
@@ -370,6 +381,11 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     AddJarToJar(jar, importsDir+sl+"commons-codec-1.9.jar", names);
     AddJarToJar(jar, importsDir+sl+"commons-io-1.2.jar", names);
     AddJarToJar(jar, importsDir+sl+"Saxon-B-9.0.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-lang3-3.1.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-logging-1.1.1.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-logging-api-1.1.jar", names);    
+    AddJarToJar(jar, importsDir+sl+"httpclient-4.2.3.jar", names);
+    AddJarToJar(jar, importsDir+sl+"httpcore-4.2.2.jar", names);
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"+sl).length(), names);

@@ -547,7 +547,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsref")) {
         if (resource != null)
-          src = s1 + Utilities.fileTitle(resource.getTag("filename")) + s3;
+          src = s1 + Utilities.fileTitle((String) resource.getTag("filename")) + s3;
         else {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         if (bs == null)
@@ -2766,7 +2766,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsref")) {
         if (resource != null)
-          src = s1 + Utilities.fileTitle(resource.getTag("filename")) + s3;
+          src = s1 + Utilities.fileTitle((String) resource.getTag("filename")) + s3;
         else {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         if (bs == null)
@@ -3575,7 +3575,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String profileReviewLink(ProfileDefn profile) {
-    return Utilities.changeFileExt(profile.getSource().getTag("filename"), "-review.xmlss");
+    return Utilities.changeFileExt((String) profile.getSource().getTag("filename"), "-review.xmlss");
   }
 
   private String profileExampleList(ProfileDefn profile, Map<String, Example> examples, String example) {
@@ -3682,7 +3682,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           base = base.substring(0, base.indexOf("#"));
         if (definitions.getProfiles().containsKey(base)) {
           ProfileDefn p = definitions.getProfiles().get(base);
-          b.append("<td><a href=\""+Utilities.changeFileExt(p.getSource().getTag("filename"), ".html")+"\">"+Utilities.escapeXml(s.getBaseSimple())+"</a></td>");
+          b.append("<td><a href=\""+Utilities.changeFileExt((String) p.getSource().getTag("filename"), ".html")+"\">"+Utilities.escapeXml(s.getBaseSimple())+"</a></td>");
         } else {
           b.append("<td><a href=\""+Utilities.escapeXml(s.getBaseSimple())+"\">"+Utilities.escapeXml(s.getBaseSimple())+"</a></td>");
         }
@@ -4079,7 +4079,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       profile = definitions.getProfileByURL(path[0]);
     }
     if (profile != null) {
-      fn = profile.getTag("filename");
+      fn = (String) profile.getTag("filename");
       return Utilities.changeFileExt(fn, ".html");
     }
     return null;
@@ -4102,7 +4102,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (vs == null)
           return ref.substring(9)+".html";
         else
-          return vs.getTag("filename");
+          return (String) vs.getTag("filename");
       } else if (ref.startsWith("http://hl7.org/fhir/vs/")) {
         if (new File(Utilities.path(folders.dstDir, "valueset-"+ref.substring(23)+".html")).exists())
           return "valueset-"+ref.substring(23)+".html";

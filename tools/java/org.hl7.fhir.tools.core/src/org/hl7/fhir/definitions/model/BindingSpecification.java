@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.Profile.BindingConformance;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -79,6 +80,10 @@ public class BindingSpecification {
   private String reference;
   private String description;
   private boolean example;
+
+  // for profiles:
+  private BindingConformance conformance;
+  private Boolean extensible;
   
   // allow ability to override metadata defaults
   private String uri; // used as the official value set identifier if provided, else one will be synthesized. For when code list is actually a value set defined elsewhere
@@ -174,7 +179,24 @@ public class BindingSpecification {
     this.source = source;
   }
 
+
   
+  public BindingConformance getConformance() {
+    return conformance;
+  }
+
+  public void setConformance(BindingConformance conformance) {
+    this.conformance = conformance;
+  }
+
+  public Boolean getExtensible() {
+    return extensible;
+  }
+
+  public void setExtensible(Boolean extensible) {
+    this.extensible = extensible;
+  }
+
   public static BindingSpecification getBindingFromList(
 			Map<String, BindingSpecification> conceptDomains,
 			String conceptDomain)

@@ -2832,7 +2832,9 @@ public class Publisher implements URIResolver {
 
   private void generateQuestionnaire(String n, Profile p) throws Exception {
     QuestionnaireBuilder b = new QuestionnaireBuilder(page.getWorkerContext());
-    Questionnaire q = b.buildQuestionnaire(p);
+    b.setProfile(p);
+    b.build();
+    Questionnaire q = b.getQuestionnaire();
     
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".questionnaire.xml"), q, true, false);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".questionnaire.json"), q, true);
@@ -2866,7 +2868,10 @@ public class Publisher implements URIResolver {
   }
 
   private void processQuestionnaire(ResourceDefn resource, Profile profile) throws Exception {
-    Questionnaire q = new QuestionnaireBuilder(page.getWorkerContext()).buildQuestionnaire(profile);
+    QuestionnaireBuilder qb = new QuestionnaireBuilder(page.getWorkerContext());
+    qb.setProfile(profile);
+    qb.build();
+    Questionnaire q = qb.getQuestionnaire();
     
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.json"), q, true);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml"), q, true);
