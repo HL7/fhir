@@ -58,7 +58,7 @@ public abstract class Element implements Serializable {
   /** extensions for convenience **/
   
   private List<String> xmlComments; // used to allow rough round-tripping of content
-  private Map<String, String> tags; // allow users to add extra information to the class
+  private Map<String, Object> tags; // allow users to add extra information to the class
  
   /**
    * @return xml:id (or "id" in json) - the target id for internal references
@@ -156,21 +156,30 @@ public abstract class Element implements Serializable {
     return null;
   }  
   
+  public List<Element> listChildrenByName(String name) {
+    List<Property> children = new ArrayList<Property>();
+    listChildren(children);
+    for (Property c : children)
+      if (c.getName().equals(name) || (c.getName().endsWith("[x]") && name.startsWith(c.getName())))
+        return c.values;
+    return new ArrayList<Element>();
+  }  
+  
   public List<String> getXmlComments() {
     if (xmlComments == null)
       xmlComments = new ArrayList<String>();
     return xmlComments;
   }  
 
-  public String getTag(String name) {
+  public Object getTag(String name) {
     if (tags == null)
       return null;
     return tags.get(name);
   }
   
-  public void setTag(String name, String value) {
+  public void setTag(String name, Object value) {
     if (tags == null)
-      tags = new HashMap<String, String>();
+      tags = new HashMap<String, Object>();
     tags.put(name, value);
   }
 }

@@ -39,6 +39,7 @@ import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
+import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -58,6 +59,8 @@ public class ToolingExtensions {
   private static final String EXT_QTYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
   private static final String EXT_EXPANSION_CLOSED = "http://hl7.org/fhir/Profile/questionnaire-extensions#closed";
   private static final String EXT_QREF = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
+  private static final String EXTENSION_FILTER_ONLY = "http://www.healthintersections.com.au/fhir/Profile/metadata#expandNeedsFilter";
+  private static final String EXT_TYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
   
   public static Extension makeIssueSource(Source source) {
     Extension ex = new Extension();
@@ -181,6 +184,18 @@ public class ToolingExtensions {
   public static void setQuestionReference(GroupComponent group, String text) throws Exception {
     if (!Utilities.noString(text))
       group.getExtensions().add(Factory.newExtension(EXT_QREF, Factory.newString_(text), true));   
+  }
+
+  public static void addFlyOver(Element element, String text) throws Exception {
+    element.getExtensions().add(Factory.newExtension(EXT_FLYOVER, Factory.newString_(text), true));       
+  }
+
+  public static void addFilterOnly(ResourceReference element, boolean value) throws Exception {
+    element.getExtensions().add(Factory.newExtension(EXTENSION_FILTER_ONLY, Factory.newBoolean(value), true));       
+  }
+
+  public static void addType(GroupComponent group, String value) throws Exception {
+    group.getExtensions().add(Factory.newExtension(EXT_TYPE, Factory.newString_(value), true));       
   }
 
 }
