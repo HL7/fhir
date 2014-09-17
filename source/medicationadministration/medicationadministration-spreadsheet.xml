@@ -10,16 +10,18 @@
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-01-25T01:02:06Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9600</WindowHeight>
-  <WindowWidth>19380</WindowWidth>
+  <WindowHeight>6990</WindowHeight>
+  <WindowWidth>16995</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowTopY>600</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -194,6 +196,7 @@
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="185.25"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="267.75"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="144.75"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -342,16 +345,17 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">RXA-9-Administration Notes:RXA-20-Completion Status='NA'</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.whenGiven</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.effectiveTime</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Period</Data></Cell>
+    <Cell><Data ss:Type="String">dateTime|Period</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Start and end time of administration</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">effectiveTime</Data></Cell>
     <Cell><Data ss:Type="String">RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration&#10;</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">MedicationAdministration.medication</Data></Cell>
@@ -419,7 +423,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">MedicationAdministration.dosage.asNeeded[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s72"/>
@@ -553,13 +557,12 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -567,12 +570,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -788,10 +795,10 @@
     <Cell ss:Index="9" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">whengiven</Data></Cell>
-    <Cell><Data ss:Type="String">Date of administration</Data></Cell>
+    <Cell><Data ss:Type="String">effectivetime</Data></Cell>
+    <Cell><Data ss:Type="String">Date administration happened (or did not happen)</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">MedicationAdministration.whenGiven</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">MedicationAdministration.effectiveTime</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="9" ss:StyleID="s66"/>
@@ -897,6 +904,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -916,6 +924,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
