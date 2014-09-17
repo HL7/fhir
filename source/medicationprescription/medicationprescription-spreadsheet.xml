@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowIconic/>
   <WindowHeight>6990</WindowHeight>
   <WindowWidth>16995</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>600</WindowTopY>
+  <ActiveSheet>5</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -757,7 +757,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1264,6 +1263,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1271,7 +1272,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="medication-prescription-status">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s80" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="90"/>
    <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="308.25"/>
@@ -1316,6 +1317,13 @@
     <Cell ss:StyleID="s90"><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">superceded</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">The prescription was replaced by a newer one, which encompasses all the information in the previous one.</Data></Cell>
+    <Cell><Data ss:Type="String">Obsolete</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s90"><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="String">draft</Data></Cell>
+    <Cell><Data ss:Type="String">Creation of the prescription has been started, or may have been completed, but the prescription is not yet ready for use.  An example of when this may happen is when other approvals are required.</Data></Cell>
+    <Cell><Data ss:Type="String">New</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1325,11 +1333,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>32</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>7</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
