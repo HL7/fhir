@@ -7,17 +7,17 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Hugh Glover</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-12-29T23:20:13Z</LastSaved>
+  <LastSaved>2014-09-18T16:01:33Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6990</WindowHeight>
-  <WindowWidth>16995</WindowWidth>
+  <WindowHeight>11160</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>600</WindowTopY>
   <ActiveSheet>5</ActiveSheet>
@@ -1263,7 +1263,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -1320,10 +1320,7 @@
     <Cell><Data ss:Type="String">Obsolete</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s90"><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">draft</Data></Cell>
-    <Cell><Data ss:Type="String">Creation of the prescription has been started, or may have been completed, but the prescription is not yet ready for use.  An example of when this may happen is when other approvals are required.</Data></Cell>
-    <Cell><Data ss:Type="String">New</Data></Cell>
+    <Cell ss:StyleID="s90"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1337,7 +1334,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
