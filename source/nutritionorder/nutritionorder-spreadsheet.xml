@@ -9,17 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2014-09-17T20:27:45Z</LastSaved>
+  <LastSaved>2014-09-17T20:38:53Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4365</WindowHeight>
-  <WindowWidth>19245</WindowWidth>
+  <WindowHeight>4515</WindowHeight>
+  <WindowWidth>18150</WindowWidth>
   <WindowTopX>-15</WindowTopX>
-  <WindowTopY>-15</WindowTopY>
+  <WindowTopY>4455</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -108,8 +109,11 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000"/>
   </Style>
   <Style ss:ID="s74">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
   <Style ss:ID="s75">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
@@ -132,34 +136,41 @@
    <Interior/>
   </Style>
   <Style ss:ID="s78">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s79">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s80">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s80">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-  </Style>
   <Style ss:ID="s81">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s82">
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Interior/>
   </Style>
   <Style ss:ID="s83">
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s84">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
+  </Style>
+  <Style ss:ID="s85">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000"/>
+  </Style>
+  <Style ss:ID="s86">
    <Alignment ss:Vertical="Top"/>
    <Interior ss:Color="#92D050" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s85">
+  <Style ss:ID="s87">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
@@ -167,20 +178,13 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s86">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R37C18"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R33C1"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="37" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="33" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="21.75">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="240.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="30"/>
@@ -200,597 +204,365 @@
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="722.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="31.5" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Inv.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Must Understand</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">UML</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Binding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Short Label</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Definition</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Aliases</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Requirements</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Comments</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">RIM Mapping</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">v2 Mapping</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">To Do</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Committee Notes</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Notes on mapping</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Tracker ID</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Card.</Data></Cell>
+    <Cell><Data ss:Type="String">Inv.</Data></Cell>
+    <Cell><Data ss:Type="String">Must Understand</Data></Cell>
+    <Cell><Data ss:Type="String">UML</Data></Cell>
+    <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">Binding</Data></Cell>
+    <Cell><Data ss:Type="String">Short Label</Data></Cell>
+    <Cell><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">Aliases</Data></Cell>
+    <Cell><Data ss:Type="String">Requirements</Data></Cell>
+    <Cell><Data ss:Type="String">Comments</Data></Cell>
+    <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">To Do</Data></Cell>
+    <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
+    <Cell><Data ss:Type="String">Notes on mapping</Data></Cell>
+    <Cell><Data ss:Type="String">Tracker ID</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">NutritionOrder</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Resource</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">A request for a diet, formula or nutritional supplement</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Diet Order, Diet, Nutritional Supplement, Enteral Nutrition</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Referenced by an Order Request (workflow)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ORC / ODS</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">RIM - code [1..1] (M)&#10;Supply (CV) {CNE:C:ActCode:DIET, fixed value= &quot;DIET&quot;} &#10;v2. Chapter 4 - ODS Segment</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">A request for a diet, formula or nutritional supplement</Data></Cell>
+    <Cell><Data ss:Type="String">A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident</Data></Cell>
+    <Cell><Data ss:Type="String">Diet Order, Diet, Nutritional Supplement, Enteral Nutrition</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Referenced by an Order Request (workflow)</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">ORC / ODS</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">RIM - code [1..1] (M)&#10;Supply (CV) {CNE:C:ActCode:DIET, fixed value= &quot;DIET&quot;} &#10;v2. Chapter 4 - ODS Segment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">NutritionOrder.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The person who requires the diet, formula or nutritional supplement&#10;</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s67"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">PID</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The person who requires the diet, formula or nutritional supplement&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s67"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data></Cell>
+    <Cell><Data ss:Type="String">PID</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="47.25">
     <Cell><Data ss:Type="String">NutritionOrder.orderer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Who ordered the diet, formula or nutritional supplement</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=AUT].role</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s63"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Who ordered the diet, formula or nutritional supplement</Data></Cell>
+    <Cell><Data ss:Type="String">The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=AUT].role</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">NutritionOrder.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Identifiers assigned to this order</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Identifiers assigned to this order by the order sender or by the order receiver</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.id</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">v2 - ORM/ORR or OMD - Dietary Order (Event O03); ORC</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Identifiers assigned to this order</Data></Cell>
+    <Cell><Data ss:Type="String">Identifiers assigned to this order by the order sender or by the order receiver</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">v2 - ORM/ORR or OMD - Dietary Order (Event O03); ORC</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">NutritionOrder.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The encounter associated with that this nutrition order</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">An encounter that provides additional informaton about the healthcare context in which this request is made</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The encounter associated with that this nutrition order</Data></Cell>
+    <Cell><Data ss:Type="String">An encounter that provides additional informaton about the healthcare context in which this request is made</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">NutritionOrder.dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Date and time the nutrition order was requested</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The date and time that this nutrition order was requested.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Date and time the nutrition order was requested</Data></Cell>
+    <Cell><Data ss:Type="String">The date and time that this nutrition order was requested.</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="78">
     <Cell><Data ss:Type="String">NutritionOrder.allergyIntolerance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(AllergyIntolerance)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">List of the patient's food and nutrition-related allergies and intolerances</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">resource reference</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(AllergyIntolerance)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">List of the patient's food and nutrition-related allergies and intolerances</Data></Cell>
+    <Cell><Data ss:Type="String">The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">resource reference</Data></Cell>
+    <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">NutritionOrder.foodPreferenceModifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">PatientDiet</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Order-specific modifier about the type of food that should be given</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">PatientDiet</Data></Cell>
+    <Cell><Data ss:Type="String">Order-specific modifier about the type of food that should be given</Data></Cell>
+    <Cell><Data ss:Type="String">This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.</Data></Cell>
     <Cell ss:Index="12"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier&#10;&#45;-how to convey the patient No Soy, No Red Meat? (without a negation indicator)&#10;</Font><Font
-       html:Color="#FF0000">Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference</Font></ss:Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+       html:Color="#FF0000">Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference</Font></ss:Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">NutritionOrder.excludeFoodModifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ExcludeFoodModifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ExcludeFoodModifier</Data></Cell>
     <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
        html:Color="#000000">Order-specific modifier about the type of food that should </Font><B><U><Font
-         html:Color="#000000">not </Font></U></B><Font html:Color="#000000">be given</Font></ss:Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+         html:Color="#000000">not </Font></U></B><Font html:Color="#000000">be given</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.</Data></Cell>
     <Cell ss:Index="12"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier&#10;&#45;-how to convey the patient No Soy, No Red Meat? (without a negation indicator)&#10;</Font><Font
-       html:Color="#FF0000">Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference</Font></ss:Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+       html:Color="#FF0000">Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference</Font></ss:Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="81">
     <Cell ss:StyleID="s70"><Data ss:Type="String">NutritionOrder.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5" ss:StyleID="s71"><Data ss:Type="String">up</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Set of nutrition items or components that comprise the nutrition order</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Different items that combine to make a complete description of the nutrition to be provided via oral diet, nutritional supplement and/or formula order.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s71"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Set of nutrition items or components that comprise the nutrition order</Data></Cell>
+    <Cell><Data ss:Type="String">Different items that combine to make a complete description of the nutrition to be provided via oral diet, nutritional supplement and/or formula order.</Data></Cell>
     <Cell ss:Index="12"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">reasons we may need a type - query for specific part of the order&#10;</Font><Font
-       html:Color="#FF0000">Per WGM Mon Q3 - remove this and move attributes to each instance</Font></ss:Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s72"><Data ss:Type="String">use either HL7 Supply code that represents Nutrition Order Item or SNOMED/LOINC (i.e. parent concept for the diet regimes/therapies - figure out what to use for supplements and tube feedings)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">NutritionOrder.item.type</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">NutritionOrderType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">oraldiet | enteral | supplement</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">TODO</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Nutrition Order Item</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">This is the header class</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ODS-1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">RIM - Supply Request - code [1..1] (M)&#10;Supply (CD) {CNE:D:OralDietSupplyType} &#10;v2 - ODS-1  Type  HL7 Table 0159 Diet Code Specification Type</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+       html:Color="#FF0000">Per WGM Mon Q3 - remove this and move attributes to each instance</Font></ss:Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s72"><Data ss:Type="String">use either HL7 Supply code that represents Nutrition Order Item or SNOMED/LOINC (i.e. parent concept for the diet regimes/therapies - figure out what to use for supplements and tube feedings)</Data></Cell>
+    <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s68"><Data ss:Type="String">NutritionOrder.item.schedule[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Schedule|Period</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The frequency at which the diet, oral supplement or enteral formula should be given</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">frequency</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">(not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval)&#10;Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ODS-2</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Schedule|Period</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">The frequency at which the diet, oral supplement or enteral formula should be given</Data></Cell>
+    <Cell><Data ss:Type="String">frequency</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">(not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval)&#10;Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">ODS-2</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s68"><Data ss:Type="String">NutritionOrder.item.isInEffect</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">boolean</Data><NamedCell
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Indicates whether the nutrition item is  currently in effect</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates whether the nutrition item is  currently in effect for the patient.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">Per WGM Mon Q3 - may not need if status provides same info</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">NutritionOrder.item.oralDiet</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Indicates whether the nutrition item is  currently in effect</Data><NamedCell
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">Class that defines the components of an oral diet order for the patient.</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">ODS-3</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">V2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionOrder.item.oralDiet.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Indicates whether the nutrition item is  currently in effect for the patient.</Data><NamedCell
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">OralDiet</Data></Cell>
+    <Cell><Data ss:Type="String">A set of one or more codes representing diets that describe what can be consumed orally (i.e., take via the mouth)</Data></Cell>
+    <Cell><Data ss:Type="String">A set of one or more codes representing diets that describe what can be consumed orally (i.e., take via the mouth).</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">ODS-3</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">V2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionOrder.item.oralDiet.nutrientModifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">Per WGM Mon Q3 - may not need if status provides same info</Data><NamedCell
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">NutrientModifier</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Identifies the type of nutrient that is being modified such as cabohydrate or sodium</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Identifies the type of nutrient that is being modified such as cabohydrate or sodium.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="41.25">
+    <Cell><Data ss:Type="String">NutritionOrder.item.oralDiet.nutrientAmount[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s76"><Data ss:Type="String">Quantity|Range</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">The quantity or range of the specified nutrient to supply.</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">NutritionOrder.item.oralDiet.textureModifier</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">TextureModifier</Data></Cell>
+    <Cell><Data ss:Type="String">Code to indicate how to alter the texture of the foods, e.g., pureed</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">coupled with the foodType (Meat)</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">NutritionOrder.item.oralDiet.foodType</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">FoodType</Data></Cell>
+    <Cell><Data ss:Type="String">Concepts that are used to identify an entity that is ingested for nutritional purposes</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">coupled with the textureModifier; could be (All Foods)</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">NutritionOrder.item.oralDiet.fluidConsistencyType</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">FluidConsistencyType</Data></Cell>
+    <Cell><Data ss:Type="String">The required consistency of fluids and liquids provided to the patient</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">NutritionOrder.item.oralDiet.description</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s78"/>
+    <Cell><Data ss:Type="String">A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth)</Data></Cell>
+    <Cell><Data ss:Type="String">A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">Do we need a code and a name or description?</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">ODS-3</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">V2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="141">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">NutritionOrder.item.supplement</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">Class that defines the components of a supplement order for the patient.</Data></Cell>
+    <Cell><Data ss:Type="String">frequency</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">(not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval)&#10;Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule&#10;Example:  Clear Liquid diet start today at 13:00  and stop tomorrow at 08:00.</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">ODS-2</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionOrder.item.supplement.type</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">SupplementType</Data></Cell>
+    <Cell><Data ss:Type="String">Type of supplement product requested</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the type of nutritional supplement product required such as high protein or pediatric clear liquid supplement</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">NutritionalSupplementType</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="42">
+    <Cell><Data ss:Type="String">NutritionOrder.item.supplement.quantity</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The amount of the nutritional supplement product to provide to the patient</Data></Cell>
+    <Cell><Data ss:Type="String">The amount of the nutritional supplement product to provide to the patient.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="51.75">
+    <Cell><Data ss:Type="String">NutritionOrder.item.supplement.name</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The name of the nutritional supplement product to be provided to the patient</Data></Cell>
+    <Cell><Data ss:Type="String">The name of the nutritional supplement product to be provided to the patient.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="141">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">NutritionOrder.item.enteralFormula</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">Class that defines the components of an enteral formula order for the patient.</Data></Cell>
+    <Cell><Data ss:Type="String">frequency</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">(not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval)&#10;Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule&#10;Example:  Clear Liquid diet start today at 13:00  and stop tomorrow at 08:00.</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">ODS-2</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionOrder.item.enteralFormula.baseFormulaType</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">EnteralFormulaType</Data></Cell>
+    <Cell><Data ss:Type="String">Type of enteral or infant formula</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the type of enteral or infant formula requested such as pediatric elemental formula or </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionOrder.item.enteralFormula.additiveType</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">EnteralFormulaAdditiveType</Data></Cell>
+    <Cell><Data ss:Type="String">Type of module component to add to the feeding</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula.</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell><Data ss:Type="String">NutritionOrder.item.enteralFormula.caloricDensity</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">TODO ***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionOrder.item.enteralFormula.routeofAdministration</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">RouteOfAdministration</Data></Cell>
+    <Cell><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***administration details including rate (ml per hour), route of adminstration, total volume</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell><Data ss:Type="String">NutritionOrder.item.enteralFormula.rate</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">TODO ***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NutritionOrder.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">NutritionOrderStatus</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">requested | active | inactive | held | cancelled</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Typically the system placing the order sets the status to requested. There after, the order is maintained by the receiver that updates the status as the request is handled</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">.statusCode&#10;</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">NutritionOrder.oralDiet</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">up</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Class that defines the components of an oral diet order for the patient.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ODS-3</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">V2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="141">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">NutritionOrder.oralDiet.schedule[x]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Schedule|Period</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The schedule for providing the oral diet to the patient</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The schedule for requested diet for the patient including start date/time and end date/time</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">frequency</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">(not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval)&#10;Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule&#10;Example:  Clear Liquid diet start today at 13:00  and stop tomorrow at 08:00.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ODS-2</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">NutritionOrder.oralDiet.code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">OralDiet</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A set of one or more codes representing diets that describe what can be consumed orally (i.e., take via the mouth)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A set of one or more codes representing diets that describe what can be consumed orally (i.e., take via the mouth).</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ODS-3</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">V2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">NutritionOrder.oralDiet.description</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">Do we need a code and a name or description?</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ODS-3</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">V2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">NutritionOrder.oralDiet.nutrientModifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">NutrientModifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Identifies the type of nutrient that is being modified such as cabohydrate or sodium</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Identifies the type of nutrient that is being modified such as cabohydrate or sodium.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="41.25">
-    <Cell><Data ss:Type="String">NutritionOrder.oralDiet.nutrientAmount[x]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6" ss:StyleID="s76"><Data ss:Type="String">Quantity|Range</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The quantity or range of the specified nutrient to supply.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">NutritionOrder.oralDiet.textureModifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">TextureModifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Code to indicate how to alter the texture of the foods, e.g., pureed</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">coupled with the foodType (Meat)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">NutritionOrder.oralDiet.foodType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">FoodType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Concepts that are used to identify an entity that is ingested for nutritional purposes</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">coupled with the textureModifier; could be (All Foods)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">NutritionOrder.oralDiet.fluidConsistencyType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">FluidConsistencyType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The required consistency of fluids and liquids provided to the patient</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="141">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">NutritionOrder.supplement</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">down</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Class that defines the components of a supplement order for the patient.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">frequency</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">(not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval)&#10;Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule&#10;Example:  Clear Liquid diet start today at 13:00  and stop tomorrow at 08:00.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ODS-2</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="141">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">NutritionOrder.supplement.schedule[x]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Schedule|Period</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The schedule for providing the nutritioal supplement to the patient</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The schedule for providing the oral nutritional  supplement for the patient including start date/time, end date/time, and frequency.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">frequency</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">(not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval)&#10;Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule&#10;Example:  Clear Liquid diet start today at 13:00  and stop tomorrow at 08:00.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ODS-2</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">NutritionOrder.supplement.type</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">SupplementType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Type of supplement product requested</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Indicates the type of nutritional supplement product required such as high protein or pediatric clear liquid supplement</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">NutritionalSupplementType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="42">
-    <Cell><Data ss:Type="String">NutritionOrder.supplement.quantity</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The amount of the nutritional supplement product to provide to the patient</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The amount of the nutritional supplement product to provide to the patient.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="51.75">
-    <Cell><Data ss:Type="String">NutritionOrder.supplement.name</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The name of the nutritional supplement product to be provided to the patient</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The name of the nutritional supplement product to be provided to the patient.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="141">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">NutritionOrder.enteralFormula</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">down</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Class that defines the components of an enteral formula order for the patient.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">frequency</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">(not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval)&#10;Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule&#10;Example:  Clear Liquid diet start today at 13:00  and stop tomorrow at 08:00.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ODS-2</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="141">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">NutritionOrder.enteralFormula.schedule[x]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Schedule|Period</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The schedule for adminstering the enteral feeding to the patient</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The schedule for adminstering the enteral or formula feeding for the patient including start date/time, end date/time, and frequency of feedings.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">frequency</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">(not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval)&#10;Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule&#10;Example:  Clear Liquid diet start today at 13:00  and stop tomorrow at 08:00.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ODS-2</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s66"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">NutritionOrder.enteralFormula.baseFormulaType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">EnteralFormulaType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Type of enteral or infant formula</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Indicates the type of enteral or infant formula requested such as pediatric elemental formula or </Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">NutritionOrder.enteralFormula.additiveType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">EnteralFormulaAdditiveType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Type of module component to add to the feeding</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Indicates the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">NutritionOrderStatus</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">requested | active | inactive | held | cancelled</Data></Cell>
+    <Cell><Data ss:Type="String">The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Typically the system placing the order sets the status to requested. There after, the order is maintained by the receiver that updates the status as the request is handled</Data></Cell>
+    <Cell><Data ss:Type="String">.statusCode&#10;</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="44.25">
-    <Cell><Data ss:Type="String">NutritionOrder.enteralFormula.baseFormulaName</Data><NamedCell
+    <Cell><Data ss:Type="String">NutritionOrder.item.enteralFormula.baseFormulaName</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">TODO</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell><Data ss:Type="String">NutritionOrder.enteralFormula.caloricDensity</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">TODO ***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">NutritionOrder.enteralFormula.routeofAdministration</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">RouteOfAdministration</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">TODO</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***administration details including rate (ml per hour), route of adminstration, total volume</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell><Data ss:Type="String">NutritionOrder.enteralFormula.rate</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">TODO ***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell><Data ss:Type="String">TODO</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -805,26 +577,44 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>30</TopRowVisible>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>12</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>18</ActiveRow>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R37C18"
+  <AutoFilter x:Range="R1C1:R33C1"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
-   <Column ss:Index="4" ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="143.25"/>
-   <Column ss:Index="6" ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="179.25"/>
+   x:FullRows="1" ss:StyleID="s80" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="143.25"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="143.25"/>
+   <Column ss:Index="6" ss:StyleID="s80" ss:Width="408.75"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -834,7 +624,12 @@
     <Cell><Data ss:Type="String">XPath</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s80"/>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">nutrition item type</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">NutritionOrder.item</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Nutrition Order SHALL contain either Oral Diet , Supplement, or Enteral Formula class</Data></Cell>
+    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">exists(f:item.oralDiet) or exists(f:item.supplement) or exists(f:item.enteralFormula)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -850,20 +645,29 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <LeftColumnVisible>2</LeftColumnVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>5</ActiveCol>
+     <RangeSelection>R6C6:R7C6</RangeSelection>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Events">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s81" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="73.5"/>
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="118.5"/>
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="156.75" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="125.25"
+   x:FullRows="1" ss:StyleID="s83" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="73.5"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="118.5"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="156.75" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="125.25"
     ss:Span="1"/>
-   <Column ss:Index="8" ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="102"/>
+   <Column ss:Index="8" ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="102"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Event Code</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
@@ -942,50 +746,50 @@
     <Cell><Data ss:Type="String">Status of the nutrition order.</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">NutritionOrder.status</Data></Cell>
-    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s84"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">oraldiet</Data></Cell>
     <Cell><Data ss:Type="String">Code for diet that can be consumed orally (i.e., take via the mouth).</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">NutritionOrder.oralDiet.code</Data></Cell>
+    <Cell><Data ss:Type="String">NutritionOrder.item.oralDiet.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">food</Data></Cell>
     <Cell><Data ss:Type="String">Concepts that are used to identify an entity that is ingested for nutritional purposes.  </Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">NutritionOrder.oralDiet.foodType</Data></Cell>
+    <Cell><Data ss:Type="String">NutritionOrder.item.oralDiet.foodType</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">supplement</Data></Cell>
     <Cell><Data ss:Type="String">Type of supplement product requested</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">NutritionOrder.supplement.type</Data></Cell>
+    <Cell><Data ss:Type="String">NutritionOrder.item.supplement.type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">formula</Data></Cell>
     <Cell><Data ss:Type="String">Type of enteral or infant formula</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">NutritionOrder.enteralFormula.baseFormulaType</Data></Cell>
+    <Cell><Data ss:Type="String">NutritionOrder.item.enteralFormula.baseFormulaType</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">additive</Data></Cell>
     <Cell><Data ss:Type="String">Type of module component to add to the feeding</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">NutritionOrder.enteralFormula.additiveType</Data></Cell>
+    <Cell><Data ss:Type="String">NutritionOrder.item.enteralFormula.additiveType</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s83"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s85"/>
    </Row>
    <Row ss:Index="17" ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
@@ -1005,10 +809,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1016,7 +822,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="257.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="336.75"/>
@@ -1032,19 +838,11 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s62"><Data ss:Type="String">NutritionOrderType</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">The types of nutrition orders (nutrition order items)</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">#nutrition-order-type</Data></Cell>
-    <Cell ss:StyleID="s81"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NutritionOrderStatus</Data></Cell>
     <Cell><Data ss:Type="String">TODO</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">#nutrition-order-status</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">#nutrition-order-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ExcludeFoodModifier</Data></Cell>
@@ -1052,7 +850,7 @@
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-exclude-food-type</Data></Cell>
-    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s83"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OralDiet</Data></Cell>
@@ -1060,7 +858,7 @@
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-diet-code</Data></Cell>
-    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s83"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NutrientModifier</Data></Cell>
@@ -1098,7 +896,7 @@
     <Cell><Data ss:Type="String">valueset-supplement-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">EnteralFormulaType</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">EnteralFormulaType</Data></Cell>
     <Cell><Data ss:Type="String">TODO</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
@@ -1125,12 +923,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1161,59 +958,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <TopRowVisible>6</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="nutrition-order-type">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="19" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="113.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="229.5"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s85">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Definition</Data></Cell>
-    <Cell><Data ss:Type="String">Comments</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">oraldiet</Data></Cell>
-    <Cell><Data ss:Type="String">oral diet</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">enteral</Data></Cell>
-    <Cell><Data ss:Type="String">enteral formula</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">supplement</Data></Cell>
-    <Cell><Data ss:Type="String">nutritional supplement</Data></Cell>
-   </Row>
-   <Row ss:Index="19" ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s62"/>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
-     <RangeSelection>R2C2:R4C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1227,7 +976,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="108" ss:Span="1"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="276.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s85">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s87">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Display</Data></Cell>
@@ -1272,13 +1021,22 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <RangeSelection>R7</RangeSelection>
-    </Pane>
-   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Sheet9">
+  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Row ss:AutoFitHeight="0"/>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
