@@ -17,6 +17,7 @@
   <WindowWidth>29040</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>660</WindowTopY>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -882,7 +883,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1305,7 +1305,7 @@
  <Worksheet ss:Name="Examples">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="75.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="124.5"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="218.25"/>
    <Column ss:StyleID="s69" ss:Width="83.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="201"/>
@@ -1338,8 +1338,13 @@
     <Cell><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Prothrombin time</Data></Cell>
+    <Cell><Data ss:Type="String">Prothrombin time for lab test master file</Data></Cell>
+    <Cell><Data ss:Type="String">prothrombin time</Data></Cell>
+    <Cell><Data ss:Type="String">dataelement-labtestmaster-example.xml</Data></Cell>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1349,12 +1354,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <LeftColumnVisible>1</LeftColumnVisible>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
