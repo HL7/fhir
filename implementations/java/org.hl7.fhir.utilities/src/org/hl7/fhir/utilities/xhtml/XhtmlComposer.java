@@ -41,6 +41,7 @@ public class XhtmlComposer {
 
   public static final String XHTML_NS = "http://www.w3.org/1999/xhtml";
   private boolean pretty;
+  private boolean xmlOnly;
   
   
   public boolean isPretty() {
@@ -50,6 +51,16 @@ public class XhtmlComposer {
   public void setPretty(boolean pretty) {
     this.pretty = pretty;
   }
+
+  public boolean isXmlOnly() {
+    return xmlOnly;
+  }
+
+  public XhtmlComposer setXmlOnly(boolean xmlOnly) {
+    this.xmlOnly = xmlOnly;
+    return this;
+  }
+
 
   private Writer dst;
 
@@ -109,20 +120,24 @@ public class XhtmlComposer {
         dst.append("&gt;");
       else if (c == '"')
         dst.append("&quot;");
-      else if (c == XhtmlNode.NBSP.charAt(0))
-        dst.append("&nbsp;");
-      else if (c == (char) 0xA7)
-        dst.append("&sect;");
-      else if (c == (char) 169)
-        dst.append("&copy;");
-      else if (c == (char) 8482)
-        dst.append("&trade;");
-      else if (c == (char) 956)
-        dst.append("&mu;");
-      else if (c == (char) 174)
-        dst.append("&reg;");
-      else 
+      else if (!xmlOnly) {
         dst.append(c);
+      } else {
+        if (c == XhtmlNode.NBSP.charAt(0))
+          dst.append("&nbsp;");
+        else if (c == (char) 0xA7)
+          dst.append("&sect;");
+        else if (c == (char) 169)
+          dst.append("&copy;");
+        else if (c == (char) 8482)
+          dst.append("&trade;");
+        else if (c == (char) 956)
+          dst.append("&mu;");
+        else if (c == (char) 174)
+          dst.append("&reg;");
+        else 
+          dst.append(c);
+      }
     }
   }
 
