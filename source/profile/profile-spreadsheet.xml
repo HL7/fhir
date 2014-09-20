@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
   <LastSaved>2014-08-07T01:11:13Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,6 @@
   <WindowWidth>9450</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>840</WindowTopY>
-  <ActiveSheet>9</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -192,9 +191,9 @@
    <Column ss:StyleID="s63" ss:Width="131.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ISO 11179 Mapping</Data><Comment
-      ss:Author="Grahame"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><B><Font
-         html:Face="Tahoma" x:Family="Swiss" html:Size="9" html:Color="#000000">Grahame:</Font></B><Font
+    <Cell><Data ss:Type="String">11179 Mapping</Data><Comment ss:Author="Grahame"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Face="Tahoma"
+         x:Family="Swiss" html:Size="9" html:Color="#000000">Grahame:</Font></B><Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="9" html:Color="#000000">&#10;test</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1190,9 +1189,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s71"><Data ss:Type="String">Profile.structure.snapshot.element.definition.maxLength</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Maximum  size of  data element  values?</Data><NamedCell
+    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">integer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1905,10 +1903,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>58</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1921,11 +1920,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>63</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -2720,12 +2717,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>1</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -115,6 +115,11 @@
     <columnName>11179 Mapping</columnName>
     <title>ISO 11179</title>
     <id>iso11179</id>
+    <preamble>
+     <p>
+      These mappings are included to indicate where properties of the data elements defined by the FHIR specification relate to similar fields in the ISO 11179 specification.
+     </p>
+    </preamble>
     <sort>13</sort>
   </space>
   <space>
