@@ -19,10 +19,10 @@
   <prescription>
     <reference value="MedicationPrescription/example"/>
   </prescription>
-  <whenGiven>
+  <effectiveTimePeriod>
   <start value="2012-06-01T14:30:00"/>
   <end value="2012-06-01T14:30:00"/>
-</whenGiven>
+</effectiveTimePeriod>
   <medication>
     <reference value="Medication/example"/> 
   </medication>
