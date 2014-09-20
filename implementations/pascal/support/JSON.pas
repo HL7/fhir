@@ -52,7 +52,7 @@ Type
   private
     FPath: String;
   protected
-    function nodeType : String;
+    function nodeType : String; virtual;
   public
     constructor create(path : String); overload;
     Function Link : TJsonNode; Overload;
@@ -80,6 +80,8 @@ Type
     procedure SetItem(i: integer; const Value: TJsonNode);
     procedure SetObj(i: integer; const Value: TJsonObject);
     procedure SetValue(i: integer; const Value: String);
+  protected
+    function nodeType : String; override;
   public
     constructor Create; override;
     destructor Destroy; override;
@@ -100,6 +102,8 @@ Type
   TJsonBoolean = class (TJsonNode)
   private
     FValue: boolean;
+  protected
+    function nodeType : String; override;
   public
     Constructor Create(path : String; value : boolean); overload;
     Function Link : TJsonBoolean; Overload;
@@ -109,6 +113,8 @@ Type
   TJsonValue = class (TJsonNode)
   private
     FValue: String;
+  protected
+    function nodeType : String; override;
   public
     Constructor Create(path : String; value : string); overload;
     Function Link : TJsonValue; Overload;
@@ -129,6 +135,8 @@ Type
     procedure SetArray(name: String; const Value: TJsonArray);
     procedure SetObject(name: String; const Value: TJsonObject);
     function GetForcedArray(name: String): TJsonArray;
+  protected
+    function nodeType : String; override;
   public
     constructor Create; override;
     destructor Destroy; override;
@@ -507,7 +515,7 @@ begin
       else if v is  TJsonObject then
         WriteObject(n, v as TJsonObject)
       else
-        raise Exception.Create('Unexpected object type '+v.ClassName);
+        raise Exception.Create('Unexpected object type '+v.nodeType);
     end;
   finally
     names.free;
@@ -693,7 +701,7 @@ begin
     '0'..'9' :
       Begin
       FLexType := jltNumber;
-      FValue := ch;
+      FValue := '';
       while More and CharInSet(ch, ['0'..'9', '.']) do
       Begin
         FValue := FValue + ch;
@@ -1249,7 +1257,7 @@ begin
   else if FItems[i] is TJsonNull then
     result := nil
   else
-    raise Exception.Create('Found a '+TJsonNode(FItems[i]).nodeType+' expecting an object at '+path+'['+inttostr(i)+']');
+    raise Exception.Create('Found a property of type '+TJsonNode(FItems[i]).nodeType+' looking for an object at '+path+'['+inttostr(i)+']');
 end;
 
 function TJsonArray.GetValue(i: integer): String;
@@ -1267,6 +1275,11 @@ end;
 function TJsonArray.Link: TJsonArray;
 begin
   result := TJsonArray(Inherited Link);
+end;
+
+function TJsonArray.nodeType: String;
+begin
+  result := 'array';
 end;
 
 procedure TJsonArray.SetItem(i: integer; const Value: TJsonNode);
@@ -1295,6 +1308,11 @@ end;
 function TJsonValue.Link: TJsonValue;
 begin
   result := TJsonValue(Inherited Link);
+end;
+
+function TJsonValue.nodeType: String;
+begin
+  result := 'string/number';
 end;
 
 { TJsonObject }
@@ -1332,7 +1350,7 @@ begin
     else if node is TJsonNull then
       result := nil
     else
-      raise Exception.Create('Found a '+nodeType+' looking for an array at '+path+'.'+name);
+      raise Exception.Create('Found a property of '+node.nodeType+' looking for an array at '+path+'.'+name);
   end
   else
     result := nil;
@@ -1350,7 +1368,7 @@ begin
     else if node is TJsonBoolean then
       result := (node as TJsonBoolean).FValue
     else
-      raise Exception.Create('Found a '+node.ClassName+' looking for a boolean');
+      raise Exception.Create('Found a property of type '+node.nodeType+' looking for a boolean at '+path+'.'+name);
   end
   else
     result := false;
@@ -1382,7 +1400,7 @@ begin
     else if node is TJsonNull then
       result := nil
     else
-      raise Exception.Create('Found a '+node.ClassName.substring(5)+' looking for an object at '+FPath+'.'+name);
+      raise Exception.Create('Found a property of type '+node.nodeType+' looking for an object at '+FPath+'.'+name);
   end
   else
     result := nil;
@@ -1409,7 +1427,7 @@ begin
         else
           result := 'false'
       else
-        raise Exception.Create('Found a '+node.ClassName.substring(5)+' looking for a string at '+FPath+'.'+name);
+        raise Exception.Create('Found a property of type '+node.nodeType+' looking for a string at '+FPath+'.'+name);
     end
     else
       result := '';
@@ -1429,6 +1447,11 @@ end;
 function TJsonObject.Link: TJsonObject;
 begin
   result := TJsonObject(Inherited Link);
+end;
+
+function TJsonObject.nodeType: String;
+begin
+  result := 'object';
 end;
 
 procedure TJsonObject.SetArray(name: String; const Value: TJsonArray);
@@ -1476,6 +1499,11 @@ end;
 function TJsonBoolean.Link: TJsonBoolean;
 begin
   result := TJsonBoolean(inherited Link);
+end;
+
+function TJsonBoolean.nodeType: String;
+begin
+  result := 'boolean';
 end;
 
 function JsonBoolToString(b : boolean) : String;

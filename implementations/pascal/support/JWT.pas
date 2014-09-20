@@ -644,12 +644,12 @@ end;
 
 function TJWT.GetissuedAt : TDateTime;
 begin
-  result := UnixToDateTime(StrToIntDef(payload['ist'], 0));
+  result := UnixToDateTime(StrToIntDef(payload['iat'], 0));
 end;
 
 procedure TJWT.SetissuedAt(value : TDateTime);
 begin
-  payload['ist'] := IntToStr(DateTimeToUnix(value));
+  payload['iat'] := IntToStr(DateTimeToUnix(value));
 end;
 
 function TJWT.Getid : String;
