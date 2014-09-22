@@ -31,6 +31,14 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import org.hl7.fhir.instance.model.ValueSet;
 public interface ValueSetExpander {
+  public class ETooCostly extends Exception {
+
+    public ETooCostly(String msg) {
+      super(msg);
+    }
+
+  }
+
   /**
    * Some value sets are just too big to expand. Instead of an expanded value set, 
    * you get back an interface that can test membership - usually on a server somewhere
@@ -71,5 +79,5 @@ public interface ValueSetExpander {
 
   }
 
-  public ValueSetExpansionOutcome expand(ValueSet source);
+  public ValueSetExpansionOutcome expand(ValueSet source) throws ETooCostly;
 }

@@ -115,6 +115,15 @@ public abstract class Resource extends BackboneElement {
     return contained;
   }
 
+  public Resource getContained(String id) {
+    for (Resource r : contained) {
+      if (r.getXmlId().equals(id))
+        return r;
+    }
+    return null;
+  }
+
+
 //  private ResourceResolverService resourceResolver;
 //  
 //  public Resource fetchByReference(ResourceReference reference, ResourceType type) throws EWrongResourceType, EUnableToResolveReference {

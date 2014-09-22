@@ -148,7 +148,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
 	private void addCodes(List<ValueSetExpansionContainsComponent> expand) throws Exception {
 	  if (expand.size() > 500) 
-	    throw new Exception("Too many codes to display (>"+Integer.toString(expand.size())+")");
+	    throw new ETooCostly("Too many codes to display (>"+Integer.toString(expand.size())+")");
     for (ValueSetExpansionContainsComponent c : expand) {
       addCode(c.getSystemSimple(), c.getCodeSimple(), c.getDisplaySimple());
     }   

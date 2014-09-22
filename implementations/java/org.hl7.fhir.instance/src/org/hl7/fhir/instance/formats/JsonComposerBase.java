@@ -331,6 +331,7 @@ public abstract class JsonComposerBase extends ComposerBase {
 		} else {
 		XhtmlComposer comp = new XhtmlComposer();
 		comp.setPretty(htmlPretty);
+		  comp.setXmlOnly(true);
 		prop(name, comp.compose(html));
 		}
 	}
