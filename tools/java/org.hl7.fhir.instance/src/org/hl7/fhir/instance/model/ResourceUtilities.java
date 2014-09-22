@@ -22,7 +22,7 @@ public class ResourceUtilities {
 	
 	public static String getErrorDescription(OperationOutcome error) {  
 		if (error.getText() != null && error.getText().getDiv() != null)
-			return new XhtmlComposer().composePlainText(error.getText().getDiv());
+			return new XhtmlComposer().setXmlOnly(true).composePlainText(error.getText().getDiv());
 		
 		StringBuilder b = new StringBuilder();
 		for (OperationOutcomeIssueComponent t : error.getIssue())

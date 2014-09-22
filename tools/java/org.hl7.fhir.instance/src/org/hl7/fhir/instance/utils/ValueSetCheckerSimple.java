@@ -9,6 +9,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.instance.utils.ValueSetExpander.ETooCostly;
 import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
 
 public class ValueSetCheckerSimple implements ValueSetChecker {
@@ -24,7 +25,7 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
   }
 
   @Override
-  public boolean codeInValueSet(String system, String code) {
+  public boolean codeInValueSet(String system, String code) throws ETooCostly {
     if (valueset.getDefine() != null && system.equals(valueset.getDefine().getSystemSimple()) && codeInDefine(valueset.getDefine().getConcept(), code, valueset.getDefine().getCaseSensitiveSimple()))
      return true;
 
@@ -44,14 +45,14 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
     return false;
   }
 
-  private boolean inImport(String uri, String system, String code) {
+  private boolean inImport(String uri, String system, String code) throws ETooCostly {
     ValueSet vs = context.getValueSets().get(uri).getResource();
     if (vs == null) 
       return false ; // we can't tell
     return codeInExpansion(factory.getExpander().expand(vs), system, code);
   }
 
-  private boolean codeInExpansion(ValueSetExpansionOutcome vso, String system, String code) {
+  private boolean codeInExpansion(ValueSetExpansionOutcome vso, String system, String code) throws ETooCostly {
     if (vso.getService() != null) {
       return vso.getService().codeInValueSet(system, code);
     } else {

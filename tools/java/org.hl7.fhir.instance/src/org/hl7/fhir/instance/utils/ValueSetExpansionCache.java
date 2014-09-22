@@ -52,7 +52,7 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
   public class CacheAwareExpander implements ValueSetExpander {
 
 	  @Override
-	  public ValueSetExpansionOutcome expand(ValueSet source) {
+	  public ValueSetExpansionOutcome expand(ValueSet source) throws ETooCostly {
 	  	if (expansions.containsKey(source.getIdentifierSimple()))
 	  		return expansions.get(source.getIdentifierSimple());
 	  	ValueSetExpander vse = new ValueSetExpanderSimple(context, ValueSetExpansionCache.this);
@@ -103,7 +103,7 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
         Resource r = (ValueSet) new XmlParser().parse(new FileInputStream(Utilities.path(cacheFolder, f)));
         if (r instanceof OperationOutcome) {
           OperationOutcome oo = (OperationOutcome) r;
-          expansions.put(oo.getExtension(VS_ID_EXT).getValue().toString(), new ValueSetExpansionOutcome(new XhtmlComposer().composePlainText(oo.getText().getDiv())));
+          expansions.put(oo.getExtension(VS_ID_EXT).getValue().toString(), new ValueSetExpansionOutcome(new XhtmlComposer().setXmlOnly(true).composePlainText(oo.getText().getDiv())));
         } else {
           ValueSet vs = (ValueSet) r; 
           expansions.put(vs.getIdentifierSimple(), new ValueSetExpansionOutcome(vs, null));
