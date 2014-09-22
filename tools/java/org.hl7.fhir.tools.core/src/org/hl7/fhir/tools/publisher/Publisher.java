@@ -2967,7 +2967,7 @@ public class Publisher implements URIResolver {
               combined = gen.generateDocumentNarrative(rf.getFeed());
             }
           }
-          narrative = new XhtmlComposer().compose(combined);
+          narrative = new XhtmlComposer().setXmlOnly(true).compose(combined);
           if (true /*wantSave*/) {
             new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), rf.getFeed(), true, true);
             xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
@@ -3573,7 +3573,7 @@ public class Publisher implements URIResolver {
   }
 
   private void processFragment(String filename, XhtmlNode node, String type) throws Exception {
-    String xml = new XhtmlComposer().compose(node);
+    String xml = new XhtmlComposer().setXmlOnly(true).compose(node);
     Fragment f = new Fragment();
     f.setType(type);
     f.setXml(Utilities.unescapeXml(xml));
@@ -4284,7 +4284,7 @@ public class Publisher implements URIResolver {
     cloneToXhtml(n, cm.getNameSimple(), false, "conceptmap-instance");
 
     // now, we create an html page from the narrative
-    String narrative = new XhtmlComposer().compose(cm.getText().getDiv());
+    String narrative = new XhtmlComposer().setXmlOnly(true).compose(cm.getText().getDiv());
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative);
     html = page.processPageIncludes(Utilities.changeFileExt(filename, "-map-v2.html"), html, "conceptmap-instance", null, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.html"));
@@ -4367,7 +4367,7 @@ public class Publisher implements URIResolver {
     cloneToXhtml(n, cm.getNameSimple(), false, "conceptmap-instance");
 
     // now, we create an html page from the narrative
-    String narrative = new XhtmlComposer().compose(cm.getText().getDiv());
+    String narrative = new XhtmlComposer().setXmlOnly(true).compose(cm.getText().getDiv());
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative);
     html = page.processPageIncludes(Utilities.changeFileExt(filename, "-map-v3.html"), html, "conceptmap-instance", null, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.html"));

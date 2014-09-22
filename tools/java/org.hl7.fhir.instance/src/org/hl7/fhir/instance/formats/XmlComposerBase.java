@@ -263,7 +263,7 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	      xml.namespace(XhtmlComposer.XHTML_NS, null);
 	      boolean oldPretty = xml.isPretty();
 	      xml.setPretty(htmlPretty);
-	      new XhtmlComposer().compose(xml, e.getSummary());
+	      new XhtmlComposer().setXmlOnly(true).compose(xml, e.getSummary());
 	      xml.setPretty(oldPretty);
 	      xml.close(ATOM_NS, "summary");
 	    }
@@ -318,6 +318,7 @@ public abstract class XmlComposerBase extends ComposerBase  {
       // ? check that
       boolean oldPretty = xml.isPretty();
       xml.setPretty(htmlPretty);
+      comp.setXmlOnly(true);
       xml.namespace(XhtmlComposer.XHTML_NS, null);
       comp.compose(xml, html);
       xml.setPretty(oldPretty);
