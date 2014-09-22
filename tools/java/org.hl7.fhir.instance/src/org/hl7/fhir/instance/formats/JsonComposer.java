@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Sep 14, 2014 18:53+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 22, 2014 20:08+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -3200,7 +3200,7 @@ public class JsonComposer extends JsonComposerBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      composePeriod("whenGiven", element.getWhenGiven());
+      composeType("effectiveTime", element.getEffectiveTime());
       composeResourceReference("medication", element.getMedication());
       if (element.getDevice().size() > 0) {
         openArray("device");
@@ -3596,6 +3596,159 @@ public class JsonComposer extends JsonComposerBase {
           composeContact(null, e);
         closeArray();
       };
+      close();
+    }
+  }
+
+  private void composeNutritionOrder(String name, NutritionOrder element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      composeResourceReference("subject", element.getSubject());
+      composeResourceReference("orderer", element.getOrderer());
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeResourceReference("encounter", element.getEncounter());
+      composeDateTimeCore("dateTime", element.getDateTime(), false);
+      composeDateTimeExtras("dateTime", element.getDateTime(), false);
+      if (element.getAllergyIntolerance().size() > 0) {
+        openArray("allergyIntolerance");
+        for (ResourceReference e : element.getAllergyIntolerance()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      if (element.getFoodPreferenceModifier().size() > 0) {
+        openArray("foodPreferenceModifier");
+        for (CodeableConcept e : element.getFoodPreferenceModifier()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getExcludeFoodModifier().size() > 0) {
+        openArray("excludeFoodModifier");
+        for (CodeableConcept e : element.getExcludeFoodModifier()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getItem().size() > 0) {
+        openArray("item");
+        for (NutritionOrder.NutritionOrderItemComponent e : element.getItem()) 
+          composeNutritionOrderNutritionOrderItemComponent(null, e);
+        closeArray();
+      };
+      if (element.getStatus() != null) {
+        composeEnumerationCore("status", element.getStatus(), new NutritionOrder.NutritionOrderStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new NutritionOrder.NutritionOrderStatusEnumFactory(), false);
+      }
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemComponent(String name, NutritionOrder.NutritionOrderItemComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeType("schedule", element.getSchedule());
+      composeBooleanCore("isInEffect", element.getIsInEffect(), false);
+      composeBooleanExtras("isInEffect", element.getIsInEffect(), false);
+      composeNutritionOrderNutritionOrderItemOralDietComponent("oralDiet", element.getOralDiet());
+      composeNutritionOrderNutritionOrderItemSupplementComponent("supplement", element.getSupplement());
+      composeNutritionOrderNutritionOrderItemEnteralFormulaComponent("enteralFormula", element.getEnteralFormula());
+      close();
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemOralDietComponent(String name, NutritionOrder.NutritionOrderItemOralDietComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      if (element.getCode().size() > 0) {
+        openArray("code");
+        for (CodeableConcept e : element.getCode()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getNutrientModifier().size() > 0) {
+        openArray("nutrientModifier");
+        for (CodeableConcept e : element.getNutrientModifier()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeType("nutrientAmount", element.getNutrientAmount());
+      if (element.getTextureModifier().size() > 0) {
+        openArray("textureModifier");
+        for (CodeableConcept e : element.getTextureModifier()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getFoodType().size() > 0) {
+        openArray("foodType");
+        for (CodeableConcept e : element.getFoodType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getFluidConsistencyType().size() > 0) {
+        openArray("fluidConsistencyType");
+        for (CodeableConcept e : element.getFluidConsistencyType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeStringCore("description", element.getDescription(), false);
+      composeStringExtras("description", element.getDescription(), false);
+      close();
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemSupplementComponent(String name, NutritionOrder.NutritionOrderItemSupplementComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      if (element.getType().size() > 0) {
+        openArray("type");
+        for (CodeableConcept e : element.getType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeQuantity("quantity", element.getQuantity());
+      composeStringCore("name", element.getName(), false);
+      composeStringExtras("name", element.getName(), false);
+      close();
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemEnteralFormulaComponent(String name, NutritionOrder.NutritionOrderItemEnteralFormulaComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeCodeableConcept("baseFormulaType", element.getBaseFormulaType());
+      if (element.getAdditiveType().size() > 0) {
+        openArray("additiveType");
+        for (CodeableConcept e : element.getAdditiveType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getCaloricDensity().size() > 0) {
+        openArray("caloricDensity");
+        for (Quantity e : element.getCaloricDensity()) 
+          composeQuantity(null, e);
+        closeArray();
+      };
+      if (element.getRouteofAdministration().size() > 0) {
+        openArray("routeofAdministration");
+        for (CodeableConcept e : element.getRouteofAdministration()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getRate().size() > 0) {
+        openArray("rate");
+        for (Quantity e : element.getRate()) 
+          composeQuantity(null, e);
+        closeArray();
+      };
+      composeStringCore("baseFormulaName", element.getBaseFormulaName(), false);
+      composeStringExtras("baseFormulaName", element.getBaseFormulaName(), false);
       close();
     }
   }
@@ -5783,6 +5936,8 @@ public class JsonComposer extends JsonComposerBase {
       composeMessageHeader("MessageHeader", (MessageHeader)resource);
     else if (resource instanceof Namespace)
       composeNamespace("Namespace", (Namespace)resource);
+    else if (resource instanceof NutritionOrder)
+      composeNutritionOrder("NutritionOrder", (NutritionOrder)resource);
     else if (resource instanceof Observation)
       composeObservation("Observation", (Observation)resource);
     else if (resource instanceof OperationDefinition)
@@ -5910,6 +6065,8 @@ public class JsonComposer extends JsonComposerBase {
       composeMessageHeader(name, (MessageHeader)resource);
     else if (resource instanceof Namespace)
       composeNamespace(name, (Namespace)resource);
+    else if (resource instanceof NutritionOrder)
+      composeNutritionOrder(name, (NutritionOrder)resource);
     else if (resource instanceof Observation)
       composeObservation(name, (Observation)resource);
     else if (resource instanceof OperationDefinition)

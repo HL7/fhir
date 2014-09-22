@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Sep 14, 2014 18:53+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 22, 2014 20:08+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -3653,8 +3653,9 @@ public class JsonParser extends JsonParserBase {
         res.getReasonNotGiven().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("whenGiven"))
-      res.setWhenGiven(parsePeriod(json.getAsJsonObject("whenGiven")));
+    Type effectiveTime = parseType("effectiveTime", json);
+    if (effectiveTime != null)
+      res.setEffectiveTime(effectiveTime);
     if (json.has("medication"))
       res.setMedication(parseResourceReference(json.getAsJsonObject("medication")));
     if (json.has("device")) {
@@ -4149,6 +4150,172 @@ public class JsonParser extends JsonParserBase {
         res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
       }
     };
+    return res;
+  }
+
+  private NutritionOrder parseNutritionOrder(JsonObject json) throws Exception {
+    NutritionOrder res = new NutritionOrder();
+    parseResourceProperties(json, res);
+    if (json.has("subject"))
+      res.setSubject(parseResourceReference(json.getAsJsonObject("subject")));
+    if (json.has("orderer"))
+      res.setOrderer(parseResourceReference(json.getAsJsonObject("orderer")));
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("encounter"))
+      res.setEncounter(parseResourceReference(json.getAsJsonObject("encounter")));
+    if (json.has("dateTime"))
+      res.setDateTime(parseDateTime(json.get("dateTime").getAsString()));
+    if (json.has("_dateTime"))
+      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTime());
+    if (json.has("allergyIntolerance")) {
+      JsonArray array = json.getAsJsonArray("allergyIntolerance");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAllergyIntolerance().add(parseResourceReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("foodPreferenceModifier")) {
+      JsonArray array = json.getAsJsonArray("foodPreferenceModifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getFoodPreferenceModifier().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("excludeFoodModifier")) {
+      JsonArray array = json.getAsJsonArray("excludeFoodModifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getExcludeFoodModifier().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("item")) {
+      JsonArray array = json.getAsJsonArray("item");
+      for (int i = 0; i < array.size(); i++) {
+        res.getItem().add(parseNutritionOrderNutritionOrderItemComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("status"))
+      res.setStatus(parseEnumeration(json.get("status").getAsString(), NutritionOrder.NutritionOrderStatus.Null, new NutritionOrder.NutritionOrderStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+    return res;
+  }
+
+  private NutritionOrder.NutritionOrderItemComponent parseNutritionOrderNutritionOrderItemComponent(JsonObject json, NutritionOrder owner) throws Exception {
+    NutritionOrder.NutritionOrderItemComponent res = new NutritionOrder.NutritionOrderItemComponent();
+    parseBackboneProperties(json, res);
+    Type schedule = parseType("schedule", json);
+    if (schedule != null)
+      res.setSchedule(schedule);
+    if (json.has("isInEffect"))
+      res.setIsInEffect(parseBoolean(json.get("isInEffect").getAsBoolean()));
+    if (json.has("_isInEffect"))
+      parseElementProperties(json.getAsJsonObject("_isInEffect"), res.getIsInEffect());
+    if (json.has("oralDiet"))
+      res.setOralDiet(parseNutritionOrderNutritionOrderItemOralDietComponent(json.getAsJsonObject("oralDiet"), owner));
+    if (json.has("supplement"))
+      res.setSupplement(parseNutritionOrderNutritionOrderItemSupplementComponent(json.getAsJsonObject("supplement"), owner));
+    if (json.has("enteralFormula"))
+      res.setEnteralFormula(parseNutritionOrderNutritionOrderItemEnteralFormulaComponent(json.getAsJsonObject("enteralFormula"), owner));
+    return res;
+  }
+
+  private NutritionOrder.NutritionOrderItemOralDietComponent parseNutritionOrderNutritionOrderItemOralDietComponent(JsonObject json, NutritionOrder owner) throws Exception {
+    NutritionOrder.NutritionOrderItemOralDietComponent res = new NutritionOrder.NutritionOrderItemOralDietComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("code")) {
+      JsonArray array = json.getAsJsonArray("code");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCode().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("nutrientModifier")) {
+      JsonArray array = json.getAsJsonArray("nutrientModifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getNutrientModifier().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    Type nutrientAmount = parseType("nutrientAmount", json);
+    if (nutrientAmount != null)
+      res.setNutrientAmount(nutrientAmount);
+    if (json.has("textureModifier")) {
+      JsonArray array = json.getAsJsonArray("textureModifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTextureModifier().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("foodType")) {
+      JsonArray array = json.getAsJsonArray("foodType");
+      for (int i = 0; i < array.size(); i++) {
+        res.getFoodType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("fluidConsistencyType")) {
+      JsonArray array = json.getAsJsonArray("fluidConsistencyType");
+      for (int i = 0; i < array.size(); i++) {
+        res.getFluidConsistencyType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("description"))
+      res.setDescription(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+    return res;
+  }
+
+  private NutritionOrder.NutritionOrderItemSupplementComponent parseNutritionOrderNutritionOrderItemSupplementComponent(JsonObject json, NutritionOrder owner) throws Exception {
+    NutritionOrder.NutritionOrderItemSupplementComponent res = new NutritionOrder.NutritionOrderItemSupplementComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type")) {
+      JsonArray array = json.getAsJsonArray("type");
+      for (int i = 0; i < array.size(); i++) {
+        res.getType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("quantity"))
+      res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
+    if (json.has("name"))
+      res.setName(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+    return res;
+  }
+
+  private NutritionOrder.NutritionOrderItemEnteralFormulaComponent parseNutritionOrderNutritionOrderItemEnteralFormulaComponent(JsonObject json, NutritionOrder owner) throws Exception {
+    NutritionOrder.NutritionOrderItemEnteralFormulaComponent res = new NutritionOrder.NutritionOrderItemEnteralFormulaComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("baseFormulaType"))
+      res.setBaseFormulaType(parseCodeableConcept(json.getAsJsonObject("baseFormulaType")));
+    if (json.has("additiveType")) {
+      JsonArray array = json.getAsJsonArray("additiveType");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAdditiveType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("caloricDensity")) {
+      JsonArray array = json.getAsJsonArray("caloricDensity");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCaloricDensity().add(parseQuantity(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("routeofAdministration")) {
+      JsonArray array = json.getAsJsonArray("routeofAdministration");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRouteofAdministration().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("rate")) {
+      JsonArray array = json.getAsJsonArray("rate");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRate().add(parseQuantity(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("baseFormulaName"))
+      res.setBaseFormulaName(parseString(json.get("baseFormulaName").getAsString()));
+    if (json.has("_baseFormulaName"))
+      parseElementProperties(json.getAsJsonObject("_baseFormulaName"), res.getBaseFormulaName());
     return res;
   }
 
@@ -6756,6 +6923,8 @@ public class JsonParser extends JsonParserBase {
       return parseMessageHeader(json);
     else if (t.equals("Namespace"))
       return parseNamespace(json);
+    else if (t.equals("NutritionOrder"))
+      return parseNutritionOrder(json);
     else if (t.equals("Observation"))
       return parseObservation(json);
     else if (t.equals("OperationDefinition"))
@@ -7045,6 +7214,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"MessageHeader"))
       return true;
     if (json.has(prefix+"Namespace"))
+      return true;
+    if (json.has(prefix+"NutritionOrder"))
       return true;
     if (json.has(prefix+"Observation"))
       return true;

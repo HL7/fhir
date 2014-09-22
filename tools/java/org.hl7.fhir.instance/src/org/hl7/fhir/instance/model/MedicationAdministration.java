@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 14, 2014 18:53+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 22, 2014 20:08+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -369,7 +369,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.
      */
-    protected Period whenGiven;
+    protected Type effectiveTime;
 
     /**
      * Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
@@ -396,19 +396,19 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      */
     protected List<MedicationAdministrationDosageComponent> dosage = new ArrayList<MedicationAdministrationDosageComponent>();
 
-    private static final long serialVersionUID = -1505926298L;
+    private static final long serialVersionUID = -1279315504L;
 
     public MedicationAdministration() {
       super();
     }
 
-    public MedicationAdministration(Enumeration<MedicationAdminStatus> status, ResourceReference patient, ResourceReference practitioner, ResourceReference prescription, Period whenGiven) {
+    public MedicationAdministration(Enumeration<MedicationAdminStatus> status, ResourceReference patient, ResourceReference practitioner, ResourceReference prescription, Type effectiveTime) {
       super();
       this.status = status;
       this.patient = patient;
       this.practitioner = practitioner;
       this.prescription = prescription;
-      this.whenGiven = whenGiven;
+      this.effectiveTime = effectiveTime;
     }
 
     /**
@@ -634,17 +634,17 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #whenGiven} (An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
+     * @return {@link #effectiveTime} (An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
      */
-    public Period getWhenGiven() { 
-      return this.whenGiven;
+    public Type getEffectiveTime() { 
+      return this.effectiveTime;
     }
 
     /**
-     * @param value {@link #whenGiven} (An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
+     * @param value {@link #effectiveTime} (An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
      */
-    public MedicationAdministration setWhenGiven(Period value) { 
-      this.whenGiven = value;
+    public MedicationAdministration setEffectiveTime(Type value) { 
+      this.effectiveTime = value;
       return this;
     }
 
@@ -739,7 +739,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         childrenList.add(new Property("prescription", "Resource(MedicationPrescription)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
         childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
         childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
-        childrenList.add(new Property("whenGiven", "Period", "An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.", 0, java.lang.Integer.MAX_VALUE, whenGiven));
+        childrenList.add(new Property("effectiveTime[x]", "dateTime|Period", "An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.", 0, java.lang.Integer.MAX_VALUE, effectiveTime));
         childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("device", "Resource(Device)", "The device used in administering the medication to the patient.  E.g. a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("dosage", "", "Provides details of how much of the medication was administered.", 0, java.lang.Integer.MAX_VALUE, dosage));
@@ -759,7 +759,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         dst.reasonNotGiven = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : reasonNotGiven)
           dst.reasonNotGiven.add(i.copy());
-        dst.whenGiven = whenGiven == null ? null : whenGiven.copy();
+        dst.effectiveTime = effectiveTime == null ? null : effectiveTime.copy();
         dst.medication = medication == null ? null : medication.copy();
         dst.device = new ArrayList<ResourceReference>();
         for (ResourceReference i : device)

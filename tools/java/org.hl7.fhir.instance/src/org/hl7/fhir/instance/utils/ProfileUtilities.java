@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.Profile;
@@ -992,7 +994,7 @@ public class ProfileUtilities {
   }
 
 
-  public StrucResult getStructure(Profile source, String url) {
+  public StrucResult getStructure(Profile source, String url) throws Exception {
     Profile profile;
     String code;
     if (url.startsWith("#")) {
@@ -1000,14 +1002,26 @@ public class ProfileUtilities {
       code = url.substring(1);
     } else {
       String[] parts = url.split("\\#");
+      if (!context.getProfiles().containsKey(parts[0])) {
+      	if (parts[0].startsWith("http:") || parts[0].startsWith("https:")) {
+        	String[] ps = parts[0].split("\\/Profile\\/");
+        	if (ps.length != 2)
+        		throw new Exception("Unable to understand address of profile: "+parts[0]);
+        	FHIRClient client = new FHIRSimpleClient();
+        	client.initialize(ps[0]);
+        	AtomEntry<Profile> ae = client.read(Profile.class, ps[1]);
+        	context.getProfiles().put(parts[0], ae);
+      	} else
+      		return null;
+      }
       profile = context.getProfiles().get(parts[0]).getResource();
-      code = parts[1];
+      code = parts.length < 2 ? null : parts[1];
     }
 
     if (profile != null) {
       ProfileStructureComponent structure = null;
       for (ProfileStructureComponent s : profile.getStructure()) {
-        if (s.getNameSimple().equals(code)) 
+        if (s.getNameSimple().equals(code) || s.getPublishSimple()) 
           structure = s;
       }
       if (structure != null)

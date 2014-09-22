@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Sep 14, 2014 18:53+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 22, 2014 20:08+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -2191,7 +2191,7 @@ public class XmlComposer extends XmlComposerBase {
       composeBoolean("wasNotGiven", element.getWasNotGiven());
       for (CodeableConcept e : element.getReasonNotGiven()) 
         composeCodeableConcept("reasonNotGiven", e);
-      composePeriod("whenGiven", element.getWhenGiven());
+      composeType("effectiveTime", element.getEffectiveTime());
       composeResourceReference("medication", element.getMedication());
       for (ResourceReference e : element.getDevice()) 
         composeResourceReference("device", e);
@@ -2503,6 +2503,98 @@ public class XmlComposer extends XmlComposerBase {
       composeHumanName("name", element.getName());
       for (Contact e : element.getTelecom()) 
         composeContact("telecom", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeNutritionOrder(String name, NutritionOrder element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeResourceReference("subject", element.getSubject());
+      composeResourceReference("orderer", element.getOrderer());
+      for (Identifier e : element.getIdentifier()) 
+        composeIdentifier("identifier", e);
+      composeResourceReference("encounter", element.getEncounter());
+      composeDateTime("dateTime", element.getDateTime());
+      for (ResourceReference e : element.getAllergyIntolerance()) 
+        composeResourceReference("allergyIntolerance", e);
+      for (CodeableConcept e : element.getFoodPreferenceModifier()) 
+        composeCodeableConcept("foodPreferenceModifier", e);
+      for (CodeableConcept e : element.getExcludeFoodModifier()) 
+        composeCodeableConcept("excludeFoodModifier", e);
+      for (NutritionOrder.NutritionOrderItemComponent e : element.getItem()) 
+        composeNutritionOrderNutritionOrderItemComponent("item", e);
+      if (element.getStatus() != null)
+        composeEnumeration("status", element.getStatus(), new NutritionOrder.NutritionOrderStatusEnumFactory());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemComponent(String name, NutritionOrder.NutritionOrderItemComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeType("schedule", element.getSchedule());
+      composeBoolean("isInEffect", element.getIsInEffect());
+      composeNutritionOrderNutritionOrderItemOralDietComponent("oralDiet", element.getOralDiet());
+      composeNutritionOrderNutritionOrderItemSupplementComponent("supplement", element.getSupplement());
+      composeNutritionOrderNutritionOrderItemEnteralFormulaComponent("enteralFormula", element.getEnteralFormula());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemOralDietComponent(String name, NutritionOrder.NutritionOrderItemOralDietComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      for (CodeableConcept e : element.getCode()) 
+        composeCodeableConcept("code", e);
+      for (CodeableConcept e : element.getNutrientModifier()) 
+        composeCodeableConcept("nutrientModifier", e);
+      composeType("nutrientAmount", element.getNutrientAmount());
+      for (CodeableConcept e : element.getTextureModifier()) 
+        composeCodeableConcept("textureModifier", e);
+      for (CodeableConcept e : element.getFoodType()) 
+        composeCodeableConcept("foodType", e);
+      for (CodeableConcept e : element.getFluidConsistencyType()) 
+        composeCodeableConcept("fluidConsistencyType", e);
+      composeString("description", element.getDescription());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemSupplementComponent(String name, NutritionOrder.NutritionOrderItemSupplementComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      for (CodeableConcept e : element.getType()) 
+        composeCodeableConcept("type", e);
+      composeQuantity("quantity", element.getQuantity());
+      composeString("name", element.getName());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemEnteralFormulaComponent(String name, NutritionOrder.NutritionOrderItemEnteralFormulaComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCodeableConcept("baseFormulaType", element.getBaseFormulaType());
+      for (CodeableConcept e : element.getAdditiveType()) 
+        composeCodeableConcept("additiveType", e);
+      for (Quantity e : element.getCaloricDensity()) 
+        composeQuantity("caloricDensity", e);
+      for (CodeableConcept e : element.getRouteofAdministration()) 
+        composeCodeableConcept("routeofAdministration", e);
+      for (Quantity e : element.getRate()) 
+        composeQuantity("rate", e);
+      composeString("baseFormulaName", element.getBaseFormulaName());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3964,6 +4056,8 @@ public class XmlComposer extends XmlComposerBase {
       composeMessageHeader("MessageHeader", (MessageHeader)resource);
     else if (resource instanceof Namespace)
       composeNamespace("Namespace", (Namespace)resource);
+    else if (resource instanceof NutritionOrder)
+      composeNutritionOrder("NutritionOrder", (NutritionOrder)resource);
     else if (resource instanceof Observation)
       composeObservation("Observation", (Observation)resource);
     else if (resource instanceof OperationDefinition)

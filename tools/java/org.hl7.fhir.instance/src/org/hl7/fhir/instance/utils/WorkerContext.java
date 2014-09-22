@@ -144,7 +144,7 @@ public class WorkerContext {
         res.loadFromFile(new ByteArrayInputStream(source.get(name)), name);        
       }
     }
-    return null;
+    return res;
   }
 
   private void loadFromPack(String path) throws Exception {
@@ -188,10 +188,12 @@ public class WorkerContext {
 
   public void seeProfile(AtomEntry<Profile> e) {
 	  Profile p = (Profile) e.getResource();
+	  if (!p.getStructure().isEmpty()) {
 	  if (p.getStructure().get(0).getName() != null)
 	    profiles.put(p.getStructure().get(0).getNameSimple(), e);
 	  else 
 	    profiles.put(p.getStructure().get(0).getTypeSimple(), e);
+	  }
 	  profiles.put(e.getId(), e);
   }
 
