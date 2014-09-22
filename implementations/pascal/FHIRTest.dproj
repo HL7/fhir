@@ -118,6 +118,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="support\FastMM4.pas"/>
+        <DCCReference Include="support\FastMM4Messages.pas"/>
+        <DCCReference Include="support\AdvGenerics.pas"/>
+        <DCCReference Include="support\AdvGenericsTests.pas"/>
         <DCCReference Include="support\StringSupport.pas"/>
         <DCCReference Include="support\MathSupport.pas"/>
         <DCCReference Include="support\DecimalSupport.pas"/>

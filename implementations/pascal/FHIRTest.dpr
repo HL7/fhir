@@ -3,6 +3,10 @@ program FHIRTest;
 {$APPTYPE CONSOLE}
 
 uses
+  FastMM4 in 'support\FastMM4.pas',
+  FastMM4Messages in 'support\FastMM4Messages.pas',
+  AdvGenerics in 'support\AdvGenerics.pas',
+  AdvGenericsTests in 'support\AdvGenericsTests.pas',
   FHIRConstants,
   FHIRParser,
   SysUtils,
@@ -114,8 +118,10 @@ var
   m : TMemoryStream;
   p : TFHIRParser;
   c : TFHIRComposer;
-  r : TFhirResource;
+  r, cr : TFhirResource;
   a : TFHIRAtomFeed;
+  i : integer;
+
 procedure Roundtrip(Source, Dest : String);
 begin
   try
@@ -165,6 +171,9 @@ begin
     finally
       m.Free;
     end;
+    for cr in r.containedList do
+      inc(i);
+
     f := TFileStream.Create(dest, fmCreate);
     try
       c := TFHIRXMLComposer.Create('en');
@@ -207,18 +216,19 @@ begin
 end;
 
 begin
-  try
-    CoInitialize(nil);
-    if DirectoryExists(ParamStr(2)) and DirectoryExists(Paramstr(1)) then
-      roundTripDirectory(Paramstr(1), ParamStr(2))
-    else
-    begin
-      if (ParamStr(1) = '') or (ParamStr(2) = '') or not FileExists(paramstr(1)) then
-        raise Exception.Create('Provide input and output file names');
-      roundTrip(paramStr(1), paramStr(2));
-    end;
-  except
-    on e:exception do
-      SaveStringToFile(AnsiString(e.Message), ParamStr(2)+'.err');
-  end;
+  TAdvGenericsTests.execute;
+//  try
+//    CoInitialize(nil);
+//    if DirectoryExists(ParamStr(2)) and DirectoryExists(Paramstr(1)) then
+//      roundTripDirectory(Paramstr(1), ParamStr(2))
+//    else
+//    begin
+//      if (ParamStr(1) = '') or (ParamStr(2) = '') or not FileExists(paramstr(1)) then
+//        raise Exception.Create('Provide input and output file names');
+//      roundTrip(paramStr(1), paramStr(2));
+//    end;
+//  except
+//    on e:exception do
+//      SaveStringToFile(AnsiString(e.Message), ParamStr(2)+'.err');
+//  end;
 end.

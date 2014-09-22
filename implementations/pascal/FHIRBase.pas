@@ -124,6 +124,7 @@ type
 
   TFHIRObject = class;
   TFHIRObjectList = class;
+  TFHIRPropertyList = class;
 
   TFHIRProperty = class (TAdvObject)
   Private
@@ -144,10 +145,24 @@ type
   End;
 
 
+  TFHIRPropertyListEnumerator = class (TAdvObject)
+  private
+    FIndex : integer;
+    FList : TFHIRPropertyList;
+    function GetCurrent : TFHIRProperty;
+  public
+    Constructor Create(list : TFHIRPropertyList);
+    Destructor Destroy; override;
+    function MoveNext : boolean;
+    property Current : TFHIRProperty read GetCurrent;
+  end;
+
   TFHIRPropertyList = class (TAdvObjectList)
   private
     Function GetProperty(iIndex : Integer) : TFHIRProperty;
   public
+    function Link : TFHIRPropertyList; overload;
+    function GetEnumerator : TFHIRPropertyListEnumerator;
     Property Properties[iIndex : Integer] : TFHIRProperty read GetProperty; default;
   End;
 
@@ -186,6 +201,18 @@ type
     property TagValue : String read FTagValue write FTagValue;
   end;
 
+  TFHIRObjectListEnumerator = class (TAdvObject)
+  private
+    FIndex : integer;
+    FList : TFHIRObjectList;
+    function GetCurrent : TFHIRObject;
+  public
+    Constructor Create(list : TFHIRObjectList);
+    Destructor Destroy; override;
+    function MoveNext : boolean;
+    property Current : TFHIRObject read GetCurrent;
+  end;
+
   TFHIRObjectList = class (TAdvObjectList)
   private
     Function GetItemN(index : Integer) : TFHIRObject;
@@ -194,6 +221,7 @@ type
   public
     function Link : TFHIRObjectList; Overload;
     function Clone : TFHIRObjectList; Overload;
+    function GetEnumerator : TFHIRObjectListEnumerator;
     Property ObjByIndex[index : Integer] : TFHIRObject read GetItemN; default;
   end;
 
@@ -211,6 +239,7 @@ type
 
   TFHIRSearchParameters = class (TAdvStringMatch);
 
+  TFHIRAttributeList = class;
   TFHIRAttribute = class (TFHIRObject)
   private
     FName : String;
@@ -227,15 +256,29 @@ type
     property Value : String read FValue write FValue;
   end;
 
+  TFHIRAttributeListEnumerator = class (TAdvObject)
+  private
+    FIndex : integer;
+    FList : TFHIRAttributeList;
+    function GetCurrent : TFHIRAttribute;
+  public
+    Constructor Create(list : TFHIRAttributeList);
+    Destructor Destroy; override;
+    function MoveNext : boolean;
+    property Current : TFHIRAttribute read GetCurrent;
+  end;
+
   TFHIRAttributeList = class (TFHIRObjectList)
   private
     Function GetItemN(index : Integer) : TFHIRAttribute;
   public
+    function Link : TFHIRAttributeList; Overload;
     Function IndexOf(value : TFHIRAttribute) : Integer;
     Function Item(index : Integer) : TFHIRAttribute;
     Function Count : Integer; Overload;
     Property Segments[index : Integer] : TFHIRAttribute read GetItemN; default;
     Function Get(name : String):String;
+    function GetEnumerator : TFHIRAttributeListEnumerator;
     Procedure SetValue(name : String; value :String);
   End;
 
@@ -342,6 +385,18 @@ type
     function SetAttribute(name, value : String) : TFhirXHtmlNode;
   end;
 
+  TFHIRXhtmlNodeListEnumerator = class (TAdvObject)
+  private
+    FIndex : integer;
+    FList : TFHIRXhtmlNodeList;
+    function GetCurrent : TFHIRXhtmlNode;
+  public
+    Constructor Create(list : TFHIRXhtmlNodeList);
+    Destructor Destroy; override;
+    function MoveNext : boolean;
+    property Current : TFHIRXhtmlNode read GetCurrent;
+  end;
+
   {@Class TFHIRXHtmlNodeList
     A list of Xhtml Nodes
   }
@@ -354,6 +409,7 @@ type
     {!script hide}
     Function Link : TFHIRXHtmlNodeList; Overload;
     Function Clone : TFHIRXHtmlNodeList; Overload;
+    function GetEnumerator : TFHIRXhtmlNodeListEnumerator;
     {!script show}
     {@member Append
       Add an Xhtml Node to the end of the list.
@@ -603,6 +659,11 @@ begin
   result := Inherited Count;
 end;
 
+function TFHIRXHtmlNodeList.GetEnumerator: TFHIRXhtmlNodeListEnumerator;
+begin
+  result := TFHIRXhtmlNodeListEnumerator.Create(self.Link);
+end;
+
 function TFHIRXHtmlNodeList.GetItemN(index: Integer): TFHIRXHtmlNode;
 begin
   result := TFHIRXHtmlNode(ObjectByIndex[index]);
@@ -669,6 +730,11 @@ begin
       result := GetItemN(i).Value;
 end;
 
+function TFHIRAttributeList.GetEnumerator: TFHIRAttributeListEnumerator;
+begin
+  result := TFHIRAttributeListEnumerator.Create(self.Link);
+end;
+
 function TFHIRAttributeList.GetItemN(index: Integer): TFHIRAttribute;
 begin
   result := TFHIRAttribute(ObjectByIndex[index]);
@@ -682,6 +748,11 @@ end;
 function TFHIRAttributeList.Item(index: Integer): TFHIRAttribute;
 begin
   result := TFHIRAttribute(ObjectByIndex[index]);
+end;
+
+function TFHIRAttributeList.Link: TFHIRAttributeList;
+begin
+  result := TFHIRAttributeList(inherited Link);
 end;
 
 procedure TFHIRAttributeList.SetValue(name, value: String);
@@ -1088,6 +1159,11 @@ begin
   result := TFHIRObjectList(Inherited Clone);
 end;
 
+function TFHIRObjectList.GetEnumerator: TFHIRObjectListEnumerator;
+begin
+  result := TFHIRObjectListEnumerator.Create(self.link);
+end;
+
 function TFHIRObjectList.GetItemN(index: Integer): TFHIRObject;
 begin
   result := TFHIRObject(ObjectByIndex[index]);
@@ -1300,9 +1376,19 @@ end;
 
 { TFHIRPropertyList }
 
+function TFHIRPropertyList.GetEnumerator: TFHIRPropertyListEnumerator;
+begin
+  result := TFHIRPropertyListEnumerator.Create(self.link);
+end;
+
 function TFHIRPropertyList.GetProperty(iIndex: Integer): TFHIRProperty;
 begin
   result := TFHIRProperty(ObjectByIndex[iIndex]);
+end;
+
+function TFHIRPropertyList.Link: TFHIRPropertyList;
+begin
+  result := TFHIRPropertyList(inherited Link);
 end;
 
 { TFHIRPropertyIterator }
@@ -1340,6 +1426,116 @@ end;
 procedure TFHIRPropertyIterator.Reset;
 begin
   FCursor := 0;
+end;
+
+{ TFhirPropertyListEnumerator }
+
+Constructor TFhirPropertyListEnumerator.Create(list : TFhirPropertyList);
+begin
+  inherited Create;
+  FIndex := -1;
+  FList := list;
+end;
+
+Destructor TFhirPropertyListEnumerator.Destroy;
+begin
+  FList.Free;
+  inherited;
+end;
+
+function TFhirPropertyListEnumerator.MoveNext : boolean;
+begin
+  Result := FIndex < FList.count;
+  if Result then
+    Inc(FIndex);
+end;
+
+function TFhirPropertyListEnumerator.GetCurrent : TFhirProperty;
+begin
+  Result := FList[FIndex];
+end;
+
+{ TFhirObjectListEnumerator }
+
+Constructor TFhirObjectListEnumerator.Create(list : TFhirObjectList);
+begin
+  inherited Create;
+  FIndex := -1;
+  FList := list;
+end;
+
+Destructor TFhirObjectListEnumerator.Destroy;
+begin
+  FList.Free;
+  inherited;
+end;
+
+function TFhirObjectListEnumerator.MoveNext : boolean;
+begin
+  Result := FIndex < FList.count;
+  if Result then
+    Inc(FIndex);
+end;
+
+function TFhirObjectListEnumerator.GetCurrent : TFhirObject;
+begin
+  Result := FList[FIndex];
+end;
+
+
+{ TFhirAttributeListEnumerator }
+
+Constructor TFhirAttributeListEnumerator.Create(list : TFhirAttributeList);
+begin
+  inherited Create;
+  FIndex := -1;
+  FList := list;
+end;
+
+Destructor TFhirAttributeListEnumerator.Destroy;
+begin
+  FList.Free;
+  inherited;
+end;
+
+function TFhirAttributeListEnumerator.MoveNext : boolean;
+begin
+  Result := FIndex < FList.count;
+  if Result then
+    Inc(FIndex);
+end;
+
+function TFhirAttributeListEnumerator.GetCurrent : TFhirAttribute;
+begin
+  Result := FList[FIndex];
+end;
+
+
+{ TFhirXhtmlNodeListEnumerator }
+
+Constructor TFhirXhtmlNodeListEnumerator.Create(list : TFhirXhtmlNodeList);
+begin
+  inherited Create;
+  FIndex := -1;
+  FList := list;
+end;
+
+Destructor TFhirXhtmlNodeListEnumerator.Destroy;
+begin
+  FList.Free;
+  inherited;
+end;
+
+function TFhirXhtmlNodeListEnumerator.MoveNext : boolean;
+begin
+  Result := FIndex < FList.count;
+  if Result then
+    Inc(FIndex);
+end;
+
+function TFhirXhtmlNodeListEnumerator.GetCurrent : TFhirXhtmlNode;
+begin
+  Result := FList[FIndex];
 end;
 
 End.
