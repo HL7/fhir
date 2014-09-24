@@ -981,7 +981,7 @@ public class QuestionnaireBuilder {
     return result;
   }
 
-  private ValueSet makeTypeList(Profile profile, List<TypeRefComponent> types, String path) {
+  private ValueSet makeTypeList(Profile profile, List<TypeRefComponent> types, String path) throws Exception {
     ValueSet vs = new ValueSet();
     vs.setIdentifierSimple(Utilities.makeUuidUrn());
     vs.setNameSimple("Type options for "+path);

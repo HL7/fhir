@@ -282,6 +282,10 @@ public class ResourceValidator extends BaseValidator {
 			      rule(errors, "structure", path, cd.getCodes().size() > 20 || cd.getCodes().size() == 1 || !hasGoodCode(cd.getCodes()), "The short description of an element with a code list should have the format code | code | etc");
 			  }
 			  boolean isComplex = !e.typeCode().equals("code");
+//      quality scan for heather:			  
+//			  if (isComplex && cd.getReferredValueSet() != null && cd.getReferredValueSet().getDefine() != null && !cd.isExample() &&
+//			      !cd.getReferredValueSet().getIdentifierSimple().contains("/v2/") && !cd.getReferredValueSet().getIdentifierSimple().contains("/v3/"))
+//			    System.out.println("Complex value set defines codes @ "+path+": "+cd.getReferredValueSet().getIdentifierSimple());
 			  if (cd.getElementType() == ElementType.Unknown) {
 			    if (isComplex)
 			      cd.setElementType(ElementType.Complex);

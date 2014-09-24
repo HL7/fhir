@@ -224,7 +224,7 @@ public class BreadCrumbManager {
     return b.toString();
   }
 
-  public String makelist(String name, String type, String prefix) {
+  public String makelist(String name, String type, String prefix) throws Exception {
     StringBuilder b = new StringBuilder();
     if (name.equals("index")) {
       b.append("        <li><b>Home</b></li>\r\n");      
@@ -343,70 +343,78 @@ public class BreadCrumbManager {
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
         b.append("        <li><b>Profile</b></li>");
-      } else if (type.startsWith("profile-instance:resource")) {
-        String[] path = map.get(type.substring(type.lastIndexOf(":")+1).toLowerCase()).split("\\.");
-        Page focus = home;
-        for (int i = 0; i < path.length; i++) {
-          focus = getChild(focus, path[i]);
-          if (focus.type == PageType.resource)
-            b.append("          <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
-          else
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
-        }
-        b.append("        <li><b>Profile Instance</b></li>");
-      } else if (type.startsWith("profile-instance:res:")) {
-        String[] path = map.get(type.substring(type.lastIndexOf(":")+1).toLowerCase()).split("\\.");
-        Page focus = home;
-        for (int i = 0; i < path.length; i++) {
-          focus = getChild(focus, path[i]);
-          if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
-          else
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
-        }
-        b.append("        <li><a href=\""+prefix+Utilities.fileTitle(name)+".html\">"+Utilities.fileTitle(name)+"</a></li>");
-        b.append("        <li><b>Profile Instance</b></li>");
-      } else if (type.startsWith("profile-instance")) {
-        String[] path = map.get("profilelist.html").split("\\.");
-        Page focus = home;
-        for (int i = 0; i < path.length; i++) {
-          focus = getChild(focus, path[i]);
-          if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
-          else
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
-        }
-        b.append("        <li><b>Profile</b></li>");
-      } else if (type.startsWith("v2:")) {
-        String[] path = map.get("v2Vocab").split("\\.");
-        Page focus = home;
-        for (int i = 0; i < path.length - 1; i++) {
-          focus = getChild(focus, path[i]);
-          b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
-        }
-        b.append("        <li><a href=\"index.html\">"+Utilities.fileTitle(name)+"</a></li>");
-        b.append("        <li><b>Instance</b></li>");
-      } else if (type.startsWith("v3:")) {        
-        String[] path = map.get("v3Vocab").split("\\.");
-        Page focus = home;
-        for (int i = 0; i < path.length - 1; i++) {
-          focus = getChild(focus, path[i]);
-          b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
-        }
-        b.append("        <li><a href=\"index.html\">"+Utilities.fileTitle(name.substring(3))+"</a></li>");
-        b.append("        <li><b>Instance</b></li>");
-      } else if (type.startsWith("sid:")) {        
-        String[] path = map.get("terminologies.html").split("\\.");
-        Page focus = home;
-        for (int i = 0; i < path.length - 1; i++) {
-          focus = getChild(focus, path[i]);
-          b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
-        }
-        b.append("        <li><a href=\""+prefix+"terminologies.html\">Terminologies</a></li>");
-        b.append("        <li><a href=\""+prefix+"terminologies-systems.html\">Systems</a></li>");
-        b.append("        <li><b>SID: "+type.substring(4)+"</b></li>");
       } else {
-        b.append("        <li>??? "+name+" / "+type+"</li>\r\n");
+        String t = type.substring(type.lastIndexOf(":")+1);
+        if (t==null)
+          throw new Exception("Unable to read type "+type);
+        String obj = map.get(t.toLowerCase());
+        if (obj == null)
+          throw new Exception("Unable to find type "+type);
+        if (type.startsWith("profile-instance:resource")) {
+          String[] path = obj.split("\\.");
+          Page focus = home;
+          for (int i = 0; i < path.length; i++) {
+            focus = getChild(focus, path[i]);
+            if (focus.type == PageType.resource)
+              b.append("          <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            else
+              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+          }
+          b.append("        <li><b>Profile Instance</b></li>");
+        } else if (type.startsWith("profile-instance:res:")) {
+          String[] path = obj.split("\\.");
+          Page focus = home;
+          for (int i = 0; i < path.length; i++) {
+            focus = getChild(focus, path[i]);
+            if (focus.type == PageType.resource)
+              b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            else
+              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+          }
+          b.append("        <li><a href=\""+prefix+Utilities.fileTitle(name)+".html\">"+Utilities.fileTitle(name)+"</a></li>");
+          b.append("        <li><b>Profile Instance</b></li>");
+        } else if (type.startsWith("profile-instance")) {
+          String[] path = map.get("profilelist.html").split("\\.");
+          Page focus = home;
+          for (int i = 0; i < path.length; i++) {
+            focus = getChild(focus, path[i]);
+            if (focus.type == PageType.resource)
+              b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            else
+              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+          }
+          b.append("        <li><b>Profile</b></li>");
+        } else if (type.startsWith("v2:")) {
+          String[] path = map.get("v2Vocab").split("\\.");
+          Page focus = home;
+          for (int i = 0; i < path.length - 1; i++) {
+            focus = getChild(focus, path[i]);
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+          }
+          b.append("        <li><a href=\"index.html\">"+Utilities.fileTitle(name)+"</a></li>");
+          b.append("        <li><b>Instance</b></li>");
+        } else if (type.startsWith("v3:")) {        
+          String[] path = map.get("v3Vocab").split("\\.");
+          Page focus = home;
+          for (int i = 0; i < path.length - 1; i++) {
+            focus = getChild(focus, path[i]);
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+          }
+          b.append("        <li><a href=\"index.html\">"+Utilities.fileTitle(name.substring(3))+"</a></li>");
+          b.append("        <li><b>Instance</b></li>");
+        } else if (type.startsWith("sid:")) {        
+          String[] path = map.get("terminologies.html").split("\\.");
+          Page focus = home;
+          for (int i = 0; i < path.length - 1; i++) {
+            focus = getChild(focus, path[i]);
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+          }
+          b.append("        <li><a href=\""+prefix+"terminologies.html\">Terminologies</a></li>");
+          b.append("        <li><a href=\""+prefix+"terminologies-systems.html\">Systems</a></li>");
+          b.append("        <li><b>SID: "+type.substring(4)+"</b></li>");
+        } else {
+          b.append("        <li>??? "+name+" / "+type+"</li>\r\n");
+        }
       }
     }
     b.append("        <!-- "+name+" / "+type+" -->\r\n");
