@@ -18,6 +18,8 @@
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>660</WindowTopY>
   <ActiveSheet>6</ActiveSheet>
+  <FirstVisibleSheet>5</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1318,7 +1320,7 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Identity</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Filename</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Profile</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Profile2</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -1359,6 +1361,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1394,7 +1397,6 @@
     <Cell><Data ss:Type="String">dataelement-sdc-profile-spreadsheet.xml</Data></Cell>
     <Cell><Data ss:Type="String">dataelement-sdc.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">dataelement-sdc-profile-example.xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
