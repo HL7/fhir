@@ -343,13 +343,13 @@ public class BreadCrumbManager {
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
         b.append("        <li><b>Profile</b></li>");
-      } else {
+      } else if (type.startsWith("profile-instance:resource")) {
         String t = type.substring(type.lastIndexOf(":")+1);
         if (t==null)
           throw new Exception("Unable to read type "+type);
         String obj = map.get(t.toLowerCase());
         if (obj == null)
-          throw new Exception("Unable to find type "+type);
+          throw new Exception("Unable to find type "+t);
         if (type.startsWith("profile-instance:resource")) {
           String[] path = obj.split("\\.");
           Page focus = home;
