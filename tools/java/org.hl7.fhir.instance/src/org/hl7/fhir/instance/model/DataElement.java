@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -537,7 +537,7 @@ public class DataElement extends Resource {
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    protected List<Contact> telecom = new ArrayList<Contact>();
+    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
 
     /**
      * The status of the data element.
@@ -619,7 +619,7 @@ public class DataElement extends Resource {
      */
     protected List<DataElementMappingComponent> mapping = new ArrayList<DataElementMappingComponent>();
 
-    private static final long serialVersionUID = 461036308L;
+    private static final long serialVersionUID = 1322414906L;
 
     public DataElement() {
       super();
@@ -720,7 +720,7 @@ public class DataElement extends Resource {
     /**
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
-    public List<Contact> getTelecom() { 
+    public List<ContactPoint> getTelecom() { 
       return this.telecom;
     }
 
@@ -728,8 +728,8 @@ public class DataElement extends Resource {
     /**
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
-    public Contact addTelecom() { 
-      Contact t = new Contact();
+    public ContactPoint addTelecom() { 
+      ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
     }
@@ -1192,7 +1192,7 @@ public class DataElement extends Resource {
         childrenList.add(new Property("identifier", "Identifier", "The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the data element.", 0, java.lang.Integer.MAX_VALUE, publisher));
-        childrenList.add(new Property("telecom", "Contact", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("telecom", "ContactPoint", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("status", "code", "The status of the data element.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("date", "dateTime", "The date that this version of the data element was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("name", "string", "The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -1216,8 +1216,8 @@ public class DataElement extends Resource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
-        dst.telecom = new ArrayList<Contact>();
-        for (Contact i : telecom)
+        dst.telecom = new ArrayList<ContactPoint>();
+        for (ContactPoint i : telecom)
           dst.telecom.add(i.copy());
         dst.status = status == null ? null : status.copy();
         dst.date = date == null ? null : date.copy();

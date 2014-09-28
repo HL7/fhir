@@ -209,7 +209,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Contact</Data></Cell>
+    <Cell><Data ss:Type="String">ContactPoint</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Contact details for the user</Data></Cell>
     <Cell ss:StyleID="Default"/>

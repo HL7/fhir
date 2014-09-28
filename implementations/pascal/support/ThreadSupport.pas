@@ -38,7 +38,7 @@ Uses
 
 Type
   TThreadID = Cardinal;
-  TThreadHandle = Cardinal;
+  TThreadHandle = THandle;
 
 
 Procedure ThreadSleep(iTime : Cardinal); Overload;

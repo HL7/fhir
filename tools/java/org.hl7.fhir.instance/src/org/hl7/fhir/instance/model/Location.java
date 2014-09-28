@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -299,7 +299,7 @@ public class Location extends Resource {
     /**
      * The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.
      */
-    protected List<Contact> telecom = new ArrayList<Contact>();
+    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
 
     /**
      * Physical location.
@@ -346,7 +346,7 @@ public class Location extends Resource {
      */
     protected Enumeration<LocationMode> mode;
 
-    private static final long serialVersionUID = 1099672064L;
+    private static final long serialVersionUID = -1135087706L;
 
     public Location() {
       super();
@@ -459,7 +459,7 @@ public class Location extends Resource {
     /**
      * @return {@link #telecom} (The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.)
      */
-    public List<Contact> getTelecom() { 
+    public List<ContactPoint> getTelecom() { 
       return this.telecom;
     }
 
@@ -467,8 +467,8 @@ public class Location extends Resource {
     /**
      * @return {@link #telecom} (The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.)
      */
-    public Contact addTelecom() { 
-      Contact t = new Contact();
+    public ContactPoint addTelecom() { 
+      ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
     }
@@ -656,7 +656,7 @@ public class Location extends Resource {
         childrenList.add(new Property("name", "string", "Name of the location as used by humans. Does not need to be unique.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("description", "string", "Description of the Location, which helps in finding or referencing the place.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of function performed at the location.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("telecom", "Contact", "The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("telecom", "ContactPoint", "The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("address", "Address", "Physical location.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("physicalType", "CodeableConcept", "Physical form of the location, e.g. building, room, vehicle, road.", 0, java.lang.Integer.MAX_VALUE, physicalType));
         childrenList.add(new Property("position", "", "The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML).", 0, java.lang.Integer.MAX_VALUE, position));
@@ -674,8 +674,8 @@ public class Location extends Resource {
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
         dst.type = type == null ? null : type.copy();
-        dst.telecom = new ArrayList<Contact>();
-        for (Contact i : telecom)
+        dst.telecom = new ArrayList<ContactPoint>();
+        for (ContactPoint i : telecom)
           dst.telecom.add(i.copy());
         dst.address = address == null ? null : address.copy();
         dst.physicalType = physicalType == null ? null : physicalType.copy();

@@ -181,8 +181,8 @@ Type
     procedure SetupdatedAt(Value: TDateTime);
     procedure Setwebsite(Value: string);
   public
-    constructor create; override;
-    constructor create(header, payload : TJsonObject); overload;
+    constructor Create; override;
+    constructor Create(header, payload : TJsonObject); overload;
     destructor Destroy; override;
 
     // the header is provided to get/set extra properties beyond those used in packing/unpacking.
@@ -236,7 +236,7 @@ Type
     class function Sign_Hmac_SHA256(input : TBytes; key: TJWK) : TBytes;
     class procedure Verify_Hmac_SHA256(input : TBytes; sig : TBytes; key: TJWK);
     class function Sign_Hmac_RSA256(input : TBytes; key: TJWK) : TBytes; overload;
-    class function Sign_Hmac_RSA256(input : TBytes; pemfile, pempassword : String) : TBytes; overload;
+    class function Sign_Hmac_RSA256(input : TBytes; pemfile, pempassword : AnsiString) : TBytes; overload;
     class procedure Verify_Hmac_RSA256(input : TBytes; sig : TBytes; header : TJsonObject; keys: TJWKList);
   public
 
@@ -244,7 +244,7 @@ Type
     class function pack(jwt : TJWT; method : TJWTAlgorithm; key : TJWK) : String; overload;
 
     // special use - use an existing PEM to sign the JWT
-    class function rsa_pack(jwt : TJWT; method : TJWTAlgorithm; pem_file, pem_password : AnsiString) : String; overload;
+    class function rsa_pack(jwt : TJWT; method : TJWTAlgorithm; pem_file, pem_password : String) : String; overload;
 
 
     // for testing only - need to control whitespace in order to reproduce signatures
@@ -271,20 +271,20 @@ end;
 
 function JWTBase64URL(b : TBytes) : TBytes; overload;
 var
-  b64 : AnsiString;
+  b64 : String;
 begin
-  b64 := EncodeBase64(@b[0], length(b));
+  b64 := String(EncodeBase64(@b[0], length(b)));
   b64 := StringReplace(b64, #13#10, '').TrimRight(['=']);
   b64 := StringReplace(b64, '+', '-', [rfReplaceAll]);
   b64 := StringReplace(b64, '/', '_', [rfReplaceAll]);
-  result := AnsiStringAsBytes(b64);
+  result := AnsiStringAsBytes(AnsiString(b64));
 end;
 
 function JWTBase64URLStr(b : TBytes) : String; overload;
 var
-  b64 : AnsiString;
+  b64 : String;
 begin
-  b64 := EncodeBase64(@b[0], length(b));
+  b64 := String(EncodeBase64(@b[0], length(b)));
   b64 := StringReplace(b64, #13#10, '').TrimRight(['=']);
   b64 := StringReplace(b64, '+', '-', [rfReplaceAll]);
   b64 := StringReplace(b64, '/', '_', [rfReplaceAll]);
@@ -442,7 +442,7 @@ end;
 
 procedure TJWK.SetExponent(const Value: TBytes);
 begin
-  FObj.vStr['e'] := BytesAsAnsiString(JWTBase64URL(Value));
+  FObj.vStr['e'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
 end;
 
 procedure TJWK.SetId(const Value: String);
@@ -452,7 +452,7 @@ end;
 
 procedure TJWK.SetKey(const Value: TBytes);
 begin
-  FObj.vStr['k'] := BytesAsAnsiString(JWTBase64URL(Value));
+  FObj.vStr['k'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
 end;
 
 procedure TJWK.SetKeyType(const Value: String);
@@ -468,12 +468,12 @@ end;
 
 procedure TJWK.SetPrivateKey(const Value: TBytes);
 begin
-  FObj.vStr['d'] := BytesAsAnsiString(JWTBase64URL(Value));
+  FObj.vStr['d'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
 end;
 
 procedure TJWK.SetPublicKey(const Value: TBytes);
 begin
-  FObj.vStr['n'] := BytesAsAnsiString(JWTBase64URL(Value));
+  FObj.vStr['n'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
 end;
 
 function TJWK.Load(privKey : boolean): PRSA;
@@ -922,9 +922,9 @@ begin
   if (key <> nil) and (method <> jwt_none) and (key.id <> '') then
     jwt.header.vStr['kid'] := key.id;
 
-  input := JWTBase64URL(TJSONWriter.write(jwt.header));
+  input := JWTBase64URL(TJSONWriter.writeObject(jwt.header));
   input := BytesAdd(input, Byte('.'));
-  input := BytesAdd(input, JWTBase64URL(TJSONWriter.write(jwt.payload)));
+  input := BytesAdd(input, JWTBase64URL(TJSONWriter.writeObject(jwt.payload)));
   case method of
     jwt_none: SetLength(sig, 0);
     jwt_hmac_sha256: sig := Sign_Hmac_SHA256(input, key);
@@ -938,7 +938,7 @@ class function TJWTUtils.loadKeyFromCert(filename: String): TJWK;
 var
   key : PRSA;
 begin
-  key := PRSA(LoadPublicKey(filename));
+  key := PRSA(LoadPublicKey(AnsiString(filename)));
   try
     result := TJWK.create(key);
   finally
@@ -1016,7 +1016,7 @@ begin
   result := BytesAsString(input)+'.'+BytesAsString(JWTBase64URL(sig));
 end;
 
-class function TJWTUtils.rsa_pack(jwt: TJWT; method: TJWTAlgorithm; pem_file, pem_password: AnsiString): String;
+class function TJWTUtils.rsa_pack(jwt: TJWT; method: TJWTAlgorithm; pem_file, pem_password: String): String;
 var
   input, sig : TBytes;
 begin
@@ -1027,10 +1027,10 @@ begin
     raise Exception.Create('Unsupported Message Encryption Format for PEM based signature');
   end;
 
-  input := JWTBase64URL(TJSONWriter.write(jwt.header));
+  input := JWTBase64URL(TJSONWriter.writeObject(jwt.header));
   input := BytesAdd(input, Byte('.'));
-  input := BytesAdd(input, JWTBase64URL(TJSONWriter.write(jwt.payload)));
-  sig := Sign_Hmac_RSA256(input, pem_file, pem_password);
+  input := BytesAdd(input, JWTBase64URL(TJSONWriter.writeObject(jwt.payload)));
+  sig := Sign_Hmac_RSA256(input, AnsiString(pem_file), AnsiString(pem_password));
   result := BytesAsString(input)+'.'+BytesAsString(JWTBase64URL(sig));
 end;
 
@@ -1075,12 +1075,11 @@ begin
   end;
 end;
 
-class function TJWTUtils.Sign_Hmac_RSA256(input: TBytes; pemfile, pempassword: String): TBytes;
+class function TJWTUtils.Sign_Hmac_RSA256(input: TBytes; pemfile, pempassword: AnsiString): TBytes;
 var
   ctx : EVP_MD_CTX;
   keysize : integer;
   len : integer;
-  e: integer;
   pkey: PEVP_PKEY;
   rkey: PRSA;
   keys : TJWKList;
@@ -1152,7 +1151,6 @@ var
   ctx : EVP_MD_CTX;
   keysize : integer;
   len : integer;
-  e: integer;
   pkey: PEVP_PKEY;
   rkey: PRSA;
   keys : TJWKList;

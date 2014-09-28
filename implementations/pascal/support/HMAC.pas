@@ -56,7 +56,7 @@ var
 begin
   Result:= AnsiStringAsBytes('0x');
   for I in HMAC(alg, aKey, aMessage) do
-    Result:= BytesAdd(Result, AnsiStringAsBytes(IntToHex(I, 2)));
+    Result:= BytesAdd(Result, AnsiStringAsBytes(AnsiString(IntToHex(I, 2))));
 end;
 
 class function THMACUtils.HMAC_Base64(alg : TIdHMACClass; aKey, aMessage: TBytes): AnsiString;

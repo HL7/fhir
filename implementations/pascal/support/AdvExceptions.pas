@@ -190,8 +190,10 @@ End;
 
 
 Procedure AbstractHandler(oObject : TObject);
+  {$IFDEF WIN32}
 Var
   pAddress : ^Integer;
+  {$ENDIF}
 Begin
   {$IFDEF WIN32}
   // pAddress will point at the location of the method in memory.  The Delphi action
@@ -209,7 +211,7 @@ Begin
   Else
     Raise EAdvAbstract.Create('AdvExceptions', 'AbstractHandler', StringFormat('Attempted call onto an abstract method $%x in object $%x.', [pAddress^, Integer(oObject)]));
   {$ELSE}
-  Raise EAdvAbstract.Create('AdvExceptions', 'AbstractHandler', StringFormat('Attempted call onto an abstract method $%x in object $%x.', [pAddress^, Integer(oObject)]));
+  Raise EAdvAbstract.Create('AdvExceptions', 'AbstractHandler', StringFormat('Attempted call onto an abstract method $?? in object $%x.', [Integer(oObject)]));
   {$ENDIF}
 End;
 

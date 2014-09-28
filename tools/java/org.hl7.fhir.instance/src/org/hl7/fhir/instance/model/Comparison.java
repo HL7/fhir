@@ -90,7 +90,7 @@ public class Comparison {
 			dst.setAssigner(src.getAssigner());  
   }
 
-	public static boolean matches(Contact c1, Contact c2, Object profile) throws Exception {
+	public static boolean matches(ContactPoint c1, ContactPoint c2, Object profile) throws Exception {
 	  if (profile != null) 
 	  	throw new Exception("Not Implemented Yet");
 		
@@ -98,7 +98,7 @@ public class Comparison {
 	  return matches(c1.getSystem(), c2.getSystem(), null) && matches(c1.getValueSimple(), c2.getValueSimple(), null);
   }
 
-	public static void merge(Contact dst, Contact src) {
+	public static void merge(ContactPoint dst, ContactPoint src) {
 		if (dst.getUse() == null && src.getUse() != null)
 			dst.setUse(src.getUse());  
 		if (dst.getPeriod() == null && src.getPeriod() != null)

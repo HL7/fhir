@@ -140,7 +140,7 @@ import org.hl7.fhir.instance.model.Conformance.RestfulConformanceMode;
 import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
-import org.hl7.fhir.instance.model.Contact.ContactSystem;
+import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
@@ -905,7 +905,7 @@ public class Publisher implements URIResolver {
     conf.setVersionSimple(page.getVersion() + "-" + page.getSvnRevision());
     conf.setNameSimple("Base FHIR Conformance Statement " + (full ? "(Full)" : "(Empty)"));
     conf.setPublisherSimple("FHIR Project Team");
-    conf.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
+    conf.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org/fhir"));
     conf.setStatusSimple(ConformanceStatementStatus.draft);
     conf.setDateSimple(new DateAndTime(page.getGenDate().getTime()));
     conf.setFhirVersionSimple(page.getVersion());
@@ -1890,7 +1890,7 @@ public class Publisher implements URIResolver {
     vs.setIdentifierSimple("http://hl7.org/fhir/v3/vs/" + id);
     vs.setNameSimple("v3 Code System " + id);
     vs.setPublisherSimple("HL7, Inc");
-    vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
+    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org"));
     vs.setStatusSimple(ValuesetStatus.active);
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
@@ -2063,7 +2063,7 @@ public class Publisher implements URIResolver {
       vs.setDescriptionSimple("?? (OID = " + e.getAttribute("id") + ")");
     }
     vs.setPublisherSimple("HL7 v3");
-    vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://www.hl7.org"));
+    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://www.hl7.org"));
     vs.setStatusSimple(ValuesetStatus.active);
 
     r = XMLUtil.getNamedChild(e, "version");
@@ -2105,7 +2105,7 @@ public class Publisher implements URIResolver {
       vs.setDescriptionSimple("?? (OID = " + e.getAttribute("id") + ")");
     }
     vs.setPublisherSimple("HL7 v3");
-    vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://www.hl7.org"));
+    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://www.hl7.org"));
     vs.setStatusSimple(ValuesetStatus.active);
 
     r = XMLUtil.getNamedChild(e, "version");
@@ -2238,7 +2238,7 @@ public class Publisher implements URIResolver {
     vs.setIdentifierSimple("http://hl7.org/fhir/v2/vs/" + id);
     vs.setNameSimple("v2 table " + id);
     vs.setPublisherSimple("HL7, Inc");
-    vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
+    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org"));
     vs.setStatusSimple(ValuesetStatus.active);
     vs.setDateSimple(new DateAndTime("2011-01-28")); // v2.7 version
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
@@ -2316,7 +2316,7 @@ public class Publisher implements URIResolver {
     vs.setIdentifierSimple("http://hl7.org/fhir/v2/vs/" + id + "/" + version);
     vs.setNameSimple("v2 table " + id + ", Version " + version);
     vs.setPublisherSimple("HL7, Inc");
-    vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
+    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org"));
     vs.setStatusSimple(ValuesetStatus.active);
     vs.setDateSimple(new DateAndTime("2011-01-28")); // v2.7 version
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
@@ -2772,8 +2772,8 @@ public class Publisher implements URIResolver {
 //    opd.setIdentifierSimple("http://hl7.org/fhir/operation-"+r.getname().toLowerCase()+"-"+op.getName());
     opd.setTitleSimple(op.getTitle());
     opd.setPublisherSimple("HL7 (FHIR Project)");
-    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
-    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.email, "fhir@lists.hl7.org"));
+    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org/fhir"));
+    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.email, "fhir@lists.hl7.org"));
     opd.setDescriptionSimple(op.getDoco());
     opd.setStatusSimple(ResourceProfileStatus.draft);
     opd.setDateSimple(new DateAndTime(page.getGenDate()));
@@ -4161,9 +4161,9 @@ public class Publisher implements URIResolver {
     vs.setNameSimple(cd.getName());
     vs.setPublisherSimple("HL7 (FHIR Project)");
     vs.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.url, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.url, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
     vs.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.email, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.email, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
     vs.setDescriptionSimple(Utilities.noString(cd.getDescription()) ? cd.getDefinition() : cd.getDefinition() + "\r\n\r\n" + cd.getDescription());
     if (!Utilities.noString(cd.getCopyright()))
       vs.setCopyrightSimple(cd.getCopyright());
@@ -4224,9 +4224,9 @@ public class Publisher implements URIResolver {
     cm.setNameSimple("v2 map for " + cd.getName());
     cm.setPublisherSimple("HL7 (FHIR Project)");
     cm.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.url, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.url, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
     cm.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.email, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.email, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
     if (!Utilities.noString(cd.getCopyright()))
       cm.setCopyrightSimple(cd.getCopyright());
 
@@ -4308,9 +4308,9 @@ public class Publisher implements URIResolver {
     cm.setNameSimple("v3 map for " + cd.getName());
     cm.setPublisherSimple("HL7 (FHIR Project)");
     cm.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.url, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.url, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
     cm.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContact(ContactSystem.email, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.email, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
     if (!Utilities.noString(cd.getCopyright()))
       cm.setCopyrightSimple(cd.getCopyright());
 

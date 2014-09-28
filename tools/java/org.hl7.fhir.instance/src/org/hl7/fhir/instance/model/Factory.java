@@ -3,7 +3,7 @@ package org.hl7.fhir.instance.model;
 import java.net.URISyntaxException;
 import java.text.ParseException;
 
-import org.hl7.fhir.instance.model.Contact.ContactSystem;
+import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
@@ -109,8 +109,8 @@ public class Factory {
     return res;
   }
   
-  public static Contact newContact(ContactSystem system, String value) {
-	Contact res = new Contact();
+  public static ContactPoint newContactPoint(ContactPointSystem system, String value) {
+  	ContactPoint res = new ContactPoint();
 	res.setSystemSimple(system);
 	res.setValue(newString_(value));
 	return res;

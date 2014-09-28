@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1304,7 +1304,7 @@ public class ValueSet extends Resource {
     /**
      * Contacts of the publisher to assist a user in finding and communicating with the publisher.
      */
-    protected List<Contact> telecom = new ArrayList<Contact>();
+    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
 
     /**
      * A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.
@@ -1356,7 +1356,7 @@ public class ValueSet extends Resource {
      */
     protected ValueSetExpansionComponent expansion;
 
-    private static final long serialVersionUID = -1172765595L;
+    private static final long serialVersionUID = 539185227L;
 
     public ValueSet() {
       super();
@@ -1584,7 +1584,7 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #telecom} (Contacts of the publisher to assist a user in finding and communicating with the publisher.)
      */
-    public List<Contact> getTelecom() { 
+    public List<ContactPoint> getTelecom() { 
       return this.telecom;
     }
 
@@ -1592,8 +1592,8 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #telecom} (Contacts of the publisher to assist a user in finding and communicating with the publisher.)
      */
-    public Contact addTelecom() { 
-      Contact t = new Contact();
+    public ContactPoint addTelecom() { 
+      ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
     }
@@ -1895,7 +1895,7 @@ public class ValueSet extends Resource {
         childrenList.add(new Property("purpose", "string", "This should describe 'the semantic space' to be included in the value set. This can also describe the approach taken to build the value set.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("immutable", "boolean", "If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the value set.", 0, java.lang.Integer.MAX_VALUE, publisher));
-        childrenList.add(new Property("telecom", "Contact", "Contacts of the publisher to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("telecom", "ContactPoint", "Contacts of the publisher to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("description", "string", "A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("status", "code", "The status of the value set.", 0, java.lang.Integer.MAX_VALUE, status));
@@ -1916,8 +1916,8 @@ public class ValueSet extends Resource {
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.immutable = immutable == null ? null : immutable.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
-        dst.telecom = new ArrayList<Contact>();
-        for (Contact i : telecom)
+        dst.telecom = new ArrayList<ContactPoint>();
+        for (ContactPoint i : telecom)
           dst.telecom.add(i.copy());
         dst.description = description == null ? null : description.copy();
         dst.copyright = copyright == null ? null : copyright.copy();

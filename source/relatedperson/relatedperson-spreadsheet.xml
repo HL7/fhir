@@ -10,7 +10,7 @@
   <LastAuthor>Alexander Henket</LastAuthor>
   <Created>2012-03-19T09:39:52Z</Created>
   <LastSaved>2013-09-28T12:20:07Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -242,7 +242,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Contact</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ContactPoint</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">A contact detail for the person</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">A contact detail for the person, e.g. a telephone number or an email address.</Data></Cell>

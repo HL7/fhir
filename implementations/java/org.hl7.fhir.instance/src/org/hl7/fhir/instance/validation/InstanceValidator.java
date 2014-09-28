@@ -10,7 +10,7 @@ import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.Contact;
+import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Identifier;
@@ -1231,8 +1231,8 @@ public class InstanceValidator extends BaseValidator {
 				checkQuantity(errors, path, focus, (Quantity) fixed);
 			else if (fixed instanceof Address)
 				checkAddress(errors, path, focus, (Address) fixed);
-			else if (fixed instanceof Contact)
-				checkContact(errors, path, focus, (Contact) fixed);
+			else if (fixed instanceof ContactPoint)
+				checkContactPoint(errors, path, focus, (ContactPoint) fixed);
 			else if (fixed instanceof Attachment)
 				checkAttachment(errors, path, focus, (Attachment) fixed);
 			else if (fixed instanceof Identifier)
@@ -1287,7 +1287,7 @@ public class InstanceValidator extends BaseValidator {
 		}	  
   }
 
-	private void checkContact(List<ValidationMessage> errors, String path, WrapperElement focus, Contact fixed) {
+	private void checkContactPoint(List<ValidationMessage> errors, String path, WrapperElement focus, ContactPoint fixed) {
 	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystem(), "system");
 	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValue(), "value");
 	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUse(), "use");

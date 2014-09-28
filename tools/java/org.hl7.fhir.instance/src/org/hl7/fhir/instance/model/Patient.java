@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -160,7 +160,7 @@ public class Patient extends Resource {
         /**
          * A contact detail for the person, e.g. a telephone number or an email address.
          */
-        protected List<Contact> telecom = new ArrayList<Contact>();
+        protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
 
         /**
          * Address for the contact person.
@@ -182,7 +182,7 @@ public class Patient extends Resource {
          */
         protected Organization organizationTarget;
 
-        private static final long serialVersionUID = -753423156L;
+        private static final long serialVersionUID = 1810243698L;
 
       public ContactComponent() {
         super();
@@ -223,7 +223,7 @@ public class Patient extends Resource {
         /**
          * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
          */
-        public List<Contact> getTelecom() { 
+        public List<ContactPoint> getTelecom() { 
           return this.telecom;
         }
 
@@ -231,8 +231,8 @@ public class Patient extends Resource {
         /**
          * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
          */
-        public Contact addTelecom() { 
-          Contact t = new Contact();
+        public ContactPoint addTelecom() { 
+          ContactPoint t = new ContactPoint();
           this.telecom.add(t);
           return t;
         }
@@ -322,7 +322,7 @@ public class Patient extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("relationship", "CodeableConcept", "The nature of the relationship between the patient and the contact person.", 0, java.lang.Integer.MAX_VALUE, relationship));
           childrenList.add(new Property("name", "HumanName", "A name associated with the person.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("telecom", "Contact", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
+          childrenList.add(new Property("telecom", "ContactPoint", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
           childrenList.add(new Property("address", "Address", "Address for the contact person.", 0, java.lang.Integer.MAX_VALUE, address));
           childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
           childrenList.add(new Property("organization", "Resource(Organization)", "Organization on behalf of which the contact is acting or for which the contact is working.", 0, java.lang.Integer.MAX_VALUE, organization));
@@ -334,8 +334,8 @@ public class Patient extends Resource {
         for (CodeableConcept i : relationship)
           dst.relationship.add(i.copy());
         dst.name = name == null ? null : name.copy();
-        dst.telecom = new ArrayList<Contact>();
-        for (Contact i : telecom)
+        dst.telecom = new ArrayList<ContactPoint>();
+        for (ContactPoint i : telecom)
           dst.telecom.add(i.copy());
         dst.address = address == null ? null : address.copy();
         dst.gender = gender == null ? null : gender.copy();
@@ -552,7 +552,7 @@ public class Patient extends Resource {
     /**
      * A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
      */
-    protected List<Contact> telecom = new ArrayList<Contact>();
+    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
 
     /**
      * Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
@@ -634,7 +634,7 @@ public class Patient extends Resource {
      */
     protected BooleanType active;
 
-    private static final long serialVersionUID = 1658723801L;
+    private static final long serialVersionUID = 1686085119L;
 
     public Patient() {
       super();
@@ -677,7 +677,7 @@ public class Patient extends Resource {
     /**
      * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.)
      */
-    public List<Contact> getTelecom() { 
+    public List<ContactPoint> getTelecom() { 
       return this.telecom;
     }
 
@@ -685,8 +685,8 @@ public class Patient extends Resource {
     /**
      * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.)
      */
-    public Contact addTelecom() { 
-      Contact t = new Contact();
+    public ContactPoint addTelecom() { 
+      ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
     }
@@ -1002,7 +1002,7 @@ public class Patient extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "An identifier that applies to this person as a patient.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("name", "HumanName", "A name associated with the individual.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("telecom", "Contact", "A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("telecom", "ContactPoint", "A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         childrenList.add(new Property("birthDate", "dateTime", "The date and time of birth for the individual.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("deceased[x]", "boolean|dateTime", "Indicates if the individual is deceased or not.", 0, java.lang.Integer.MAX_VALUE, deceased));
@@ -1027,8 +1027,8 @@ public class Patient extends Resource {
         dst.name = new ArrayList<HumanName>();
         for (HumanName i : name)
           dst.name.add(i.copy());
-        dst.telecom = new ArrayList<Contact>();
-        for (Contact i : telecom)
+        dst.telecom = new ArrayList<ContactPoint>();
+        for (ContactPoint i : telecom)
           dst.telecom.add(i.copy());
         dst.gender = gender == null ? null : gender.copy();
         dst.birthDate = birthDate == null ? null : birthDate.copy();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -591,26 +591,6 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Contact parseContact(JsonObject json) throws Exception {
-    Contact res = new Contact();
-    parseElementProperties(json, res);
-    if (json.has("system"))
-      res.setSystem(parseEnumeration(json.get("system").getAsString(), Contact.ContactSystem.Null, new Contact.ContactSystemEnumFactory()));
-    if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
-    if (json.has("value"))
-      res.setValue(parseString(json.get("value").getAsString()));
-    if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
-    if (json.has("use"))
-      res.setUse(parseEnumeration(json.get("use").getAsString(), Contact.ContactUse.Null, new Contact.ContactUseEnumFactory()));
-    if (json.has("_use"))
-      parseElementProperties(json.getAsJsonObject("_use"), res.getUse());
-    if (json.has("period"))
-      res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
-    return res;
-  }
-
   private Address parseAddress(JsonObject json) throws Exception {
     Address res = new Address();
     parseElementProperties(json, res);
@@ -729,6 +709,26 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getSuffix().get(i));
       }
     };
+    if (json.has("period"))
+      res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
+    return res;
+  }
+
+  private ContactPoint parseContactPoint(JsonObject json) throws Exception {
+    ContactPoint res = new ContactPoint();
+    parseElementProperties(json, res);
+    if (json.has("system"))
+      res.setSystem(parseEnumeration(json.get("system").getAsString(), ContactPoint.ContactPointSystem.Null, new ContactPoint.ContactPointSystemEnumFactory()));
+    if (json.has("_system"))
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+    if (json.has("value"))
+      res.setValue(parseString(json.get("value").getAsString()));
+    if (json.has("_value"))
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+    if (json.has("use"))
+      res.setUse(parseEnumeration(json.get("use").getAsString(), ContactPoint.ContactPointUse.Null, new ContactPoint.ContactPointUseEnumFactory()));
+    if (json.has("_use"))
+      parseElementProperties(json.getAsJsonObject("_use"), res.getUse());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     return res;
@@ -1357,7 +1357,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("description"))
@@ -1607,7 +1607,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("description"))
@@ -2086,7 +2086,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("status"))
@@ -2254,7 +2254,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("contact")) {
       JsonArray array = json.getAsJsonArray("contact");
       for (int i = 0; i < array.size(); i++) {
-        res.getContact().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getContact().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("url"))
@@ -3456,7 +3456,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("address"))
@@ -4049,7 +4049,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_version"))
       parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
     if (json.has("contact"))
-      res.setContact(parseContact(json.getAsJsonObject("contact")));
+      res.setContact(parseContactPoint(json.getAsJsonObject("contact")));
     if (json.has("endpoint"))
       res.setEndpoint(parseUri(json.get("endpoint").getAsString()));
     if (json.has("_endpoint"))
@@ -4147,7 +4147,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     return res;
@@ -4433,7 +4433,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("description"))
@@ -4677,7 +4677,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("address")) {
@@ -4717,7 +4717,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("address"))
@@ -4769,7 +4769,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("gender"))
@@ -4849,7 +4849,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("address"))
@@ -4901,7 +4901,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("address")) {
@@ -5097,7 +5097,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("description"))
@@ -5994,7 +5994,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("gender"))
@@ -6428,7 +6428,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("contact")) {
       JsonArray array = json.getAsJsonArray("contact");
       for (int i = 0; i < array.size(); i++) {
-        res.getContact().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getContact().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("reason"))
@@ -6628,7 +6628,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
-        res.getTelecom().add(parseContact(array.get(i).getAsJsonObject()));
+        res.getTelecom().add(parseContactPoint(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("description"))
@@ -7013,12 +7013,12 @@ public class JsonParser extends JsonParserBase {
       return parseDuration(json.getAsJsonObject(prefix+"Duration"));
     else if (json.has(prefix+"Schedule"))
       return parseSchedule(json.getAsJsonObject(prefix+"Schedule"));
-    else if (json.has(prefix+"Contact"))
-      return parseContact(json.getAsJsonObject(prefix+"Contact"));
     else if (json.has(prefix+"Address"))
       return parseAddress(json.getAsJsonObject(prefix+"Address"));
     else if (json.has(prefix+"HumanName"))
       return parseHumanName(json.getAsJsonObject(prefix+"HumanName"));
+    else if (json.has(prefix+"ContactPoint"))
+      return parseContactPoint(json.getAsJsonObject(prefix+"ContactPoint"));
     else if (json.has(prefix+"Integer") || json.has("_"+prefix+"Integer")) {
       Type t = json.has(prefix+"Integer") ? parseInteger(json.get(prefix+"Integer").getAsLong()) : new IntegerType();
       if (json.has("_"+prefix+"Integer"))
@@ -7139,11 +7139,11 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"Schedule"))
       return true;
-    if (json.has(prefix+"Contact"))
-      return true;
     if (json.has(prefix+"Address"))
       return true;
     if (json.has(prefix+"HumanName"))
+      return true;
+    if (json.has(prefix+"ContactPoint"))
       return true;
     if (json.has(prefix+"AdverseReaction"))
       return true;

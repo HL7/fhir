@@ -57,8 +57,8 @@ import org.hl7.fhir.instance.model.Conformance.ResourceInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
-import org.hl7.fhir.instance.model.Contact;
-import org.hl7.fhir.instance.model.Contact.ContactSystem;
+import org.hl7.fhir.instance.model.ContactPoint;
+import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.Element;
@@ -357,8 +357,8 @@ public class NarrativeGenerator {
       renderHumanName((HumanName) e, x);
     } else if (e instanceof Address) {
       renderAddress((Address) e, x);
-    } else if (e instanceof Contact) {
-      renderContact((Contact) e, x);
+    } else if (e instanceof ContactPoint) {
+      renderContactPoint((ContactPoint) e, x);
     } else if (e instanceof UriType) {
       renderUri((UriType) e, x);
     } else if (e instanceof Schedule) {
@@ -464,8 +464,8 @@ public class NarrativeGenerator {
     } else if (e instanceof Address) {
       renderAddress((Address) e, x);
       return true;
-    } else if (e instanceof Contact) {
-      renderContact((Contact) e, x);
+    } else if (e instanceof ContactPoint) {
+      renderContactPoint((ContactPoint) e, x);
       return true;
     } else if (e instanceof Schedule) {
       renderSchedule((Schedule) e, x);
@@ -767,8 +767,8 @@ public class NarrativeGenerator {
     x.addText(displayAddress(address));
   }
   
-  private void renderContact(Contact contact, XhtmlNode x) {
-    x.addText(displayContact(contact));
+  private void renderContactPoint(ContactPoint contact, XhtmlNode x) {
+    x.addText(displayContactPoint(contact));
   }
   
   private void renderUri(UriType uri, XhtmlNode x) {
@@ -889,7 +889,7 @@ public class NarrativeGenerator {
     return s.toString();
   }
 
-  private String displayContact(Contact contact) {
+  private String displayContactPoint(ContactPoint contact) {
     StringBuilder s = new StringBuilder();
     s.append(describeSystem(contact.getSystemSimple()));
     if (Utilities.noString(contact.getValueSimple()))
@@ -901,7 +901,7 @@ public class NarrativeGenerator {
     return s.toString();
   }
 
-  private Object describeSystem(ContactSystem system) {
+  private Object describeSystem(ContactPointSystem system) {
     if (system == null)
       return "";
     switch (system) {
@@ -977,7 +977,7 @@ public class NarrativeGenerator {
     if (!cm.getTelecom().isEmpty()) {
       p.addText(" (");
       boolean first = true;
-      for (Contact c : cm.getTelecom()) {
+      for (ContactPoint c : cm.getTelecom()) {
         if (first) 
           first = false;
         else
@@ -1205,14 +1205,14 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private void addTelecom(XhtmlNode p, Contact c) {
-    if (c.getSystemSimple() == ContactSystem.phone) {
+  private void addTelecom(XhtmlNode p, ContactPoint c) {
+    if (c.getSystemSimple() == ContactPointSystem.phone) {
       p.addText("Phone: "+c.getValueSimple());
-    } else if (c.getSystemSimple() == ContactSystem.fax) {
+    } else if (c.getSystemSimple() == ContactPointSystem.fax) {
       p.addText("Fax: "+c.getValueSimple());
-    } else if (c.getSystemSimple() == ContactSystem.email) {
+    } else if (c.getSystemSimple() == ContactPointSystem.email) {
       p.addTag("a").setAttribute("href",  "mailto:"+c.getValueSimple()).addText(c.getValueSimple());
-    } else if (c.getSystemSimple() == ContactSystem.url) {
+    } else if (c.getSystemSimple() == ContactPointSystem.url) {
       if (c.getValueSimple().length() > 30)
         p.addTag("a").setAttribute("href", c.getValueSimple()).addText(c.getValueSimple().substring(0, 30)+"...");
       else

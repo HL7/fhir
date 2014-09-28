@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -110,7 +110,7 @@ public class Organization extends Resource {
         /**
          * A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.
          */
-        protected List<Contact> telecom = new ArrayList<Contact>();
+        protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
 
         /**
          * Visiting or postal addresses for the contact.
@@ -122,7 +122,7 @@ public class Organization extends Resource {
          */
         protected Enumeration<AdministrativeGender> gender;
 
-        private static final long serialVersionUID = 104441075L;
+        private static final long serialVersionUID = -1196460915L;
 
       public OrganizationContactComponent() {
         super();
@@ -161,7 +161,7 @@ public class Organization extends Resource {
         /**
          * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.)
          */
-        public List<Contact> getTelecom() { 
+        public List<ContactPoint> getTelecom() { 
           return this.telecom;
         }
 
@@ -169,8 +169,8 @@ public class Organization extends Resource {
         /**
          * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.)
          */
-        public Contact addTelecom() { 
-          Contact t = new Contact();
+        public ContactPoint addTelecom() { 
+          ContactPoint t = new ContactPoint();
           this.telecom.add(t);
           return t;
         }
@@ -230,7 +230,7 @@ public class Organization extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("purpose", "CodeableConcept", "Indicates a purpose for which the contact can be reached.", 0, java.lang.Integer.MAX_VALUE, purpose));
           childrenList.add(new Property("name", "HumanName", "A name associated with the contact.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("telecom", "Contact", "A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
+          childrenList.add(new Property("telecom", "ContactPoint", "A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
           childrenList.add(new Property("address", "Address", "Visiting or postal addresses for the contact.", 0, java.lang.Integer.MAX_VALUE, address));
           childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         }
@@ -239,8 +239,8 @@ public class Organization extends Resource {
         OrganizationContactComponent dst = new OrganizationContactComponent();
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.name = name == null ? null : name.copy();
-        dst.telecom = new ArrayList<Contact>();
-        for (Contact i : telecom)
+        dst.telecom = new ArrayList<ContactPoint>();
+        for (ContactPoint i : telecom)
           dst.telecom.add(i.copy());
         dst.address = address == null ? null : address.copy();
         dst.gender = gender == null ? null : gender.copy();
@@ -267,7 +267,7 @@ public class Organization extends Resource {
     /**
      * A contact detail for the organization.
      */
-    protected List<Contact> telecom = new ArrayList<Contact>();
+    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
 
     /**
      * An address for the organization.
@@ -304,7 +304,7 @@ public class Organization extends Resource {
      */
     protected BooleanType active;
 
-    private static final long serialVersionUID = -603382635L;
+    private static final long serialVersionUID = -1195343493L;
 
     public Organization() {
       super();
@@ -381,7 +381,7 @@ public class Organization extends Resource {
     /**
      * @return {@link #telecom} (A contact detail for the organization.)
      */
-    public List<Contact> getTelecom() { 
+    public List<ContactPoint> getTelecom() { 
       return this.telecom;
     }
 
@@ -389,8 +389,8 @@ public class Organization extends Resource {
     /**
      * @return {@link #telecom} (A contact detail for the organization.)
      */
-    public Contact addTelecom() { 
-      Contact t = new Contact();
+    public ContactPoint addTelecom() { 
+      ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
     }
@@ -534,7 +534,7 @@ public class Organization extends Resource {
         childrenList.add(new Property("identifier", "Identifier", "Identifier for the organization that is used to identify the organization across multiple disparate systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("name", "string", "A name associated with the organization.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("type", "CodeableConcept", "The kind of organization that this is.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("telecom", "Contact", "A contact detail for the organization.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("telecom", "ContactPoint", "A contact detail for the organization.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("address", "Address", "An address for the organization.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("partOf", "Resource(Organization)", "The organization of which this organization forms a part.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("contact", "", "Contact for the organization for a certain purpose.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -549,8 +549,8 @@ public class Organization extends Resource {
           dst.identifier.add(i.copy());
         dst.name = name == null ? null : name.copy();
         dst.type = type == null ? null : type.copy();
-        dst.telecom = new ArrayList<Contact>();
-        for (Contact i : telecom)
+        dst.telecom = new ArrayList<ContactPoint>();
+        for (ContactPoint i : telecom)
           dst.telecom.add(i.copy());
         dst.address = new ArrayList<Address>();
         for (Address i : address)

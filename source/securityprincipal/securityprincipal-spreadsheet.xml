@@ -266,7 +266,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Contact</Data></Cell>
+    <Cell><Data ss:Type="String">ContactPoint</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Phone, Email, Fax etc</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Contact detais by which the human may be contacted</Data></Cell>
@@ -600,7 +600,7 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">SecurityPrincipal.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">contact</Data></Cell>
+    <Cell><Data ss:Type="String">ContactPoint</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">SecurityPrincipal.contact</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s69"/>

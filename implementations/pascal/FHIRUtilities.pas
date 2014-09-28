@@ -49,7 +49,7 @@ const
 
 
 function HumanNameAsText(name : TFhirHumanName):String;
-function GetEmailAddress(contacts : TFhirContactList):String;
+function GetEmailAddress(contacts : TFhirContactPointList):String;
 
 Function RecogniseFHIRResourceName(Const sName : String; out aType : TFhirResourceType): boolean;
 Function RecogniseFHIRResourceManagerName(Const sName : String; out aType : TFhirResourceType): boolean;
@@ -138,10 +138,10 @@ type
     function interaction(type_ : TFhirTypeRestfulInteraction) : TFhirConformanceRestResourceInteraction;
   end;
 
-  TFhirContactListHelper = class helper for TFhirContactList
+  TFHIRContactPointListHelper = class helper for TFhirContactPointList
   public
-    function system(type_ : TFhirContactSystem) : String;
-    procedure setSystem(type_ : TFhirContactSystem; value : String);
+    function system(type_ : TFhirContactPointSystem) : String;
+    procedure setSystem(type_ : TFhirContactPointSystem; value : String);
   end;
 
   TFHIROperationOutcomeHelper = class helper (TFHIRElementHelper) for TFhirOperationOutcome
@@ -812,14 +812,14 @@ begin
   end;
 end;
 
-function GetEmailAddress(contacts : TFhirContactList):String;
+function GetEmailAddress(contacts : TFhirContactPointList):String;
 var
   i : integer;
 begin
   result := '';
   if contacts <> nil then
     for i := 0 to contacts.Count - 1 do
-      if contacts[i].system = ContactSystemEmail then
+      if contacts[i].system = ContactPointSystemEmail then
         result := contacts[i].value;
 end;
 
@@ -1269,12 +1269,12 @@ end;
 { TFhirValueSetHelper }
 
 
-{ TFhirContactListHelper }
+{ TFHIRContactPointListHelper }
 
-procedure TFhirContactListHelper.setSystem(type_: TFhirContactSystem; value: String);
+procedure TFHIRContactPointListHelper.setSystem(type_: TFhirContactPointSystem; value: String);
 var
   i : integer;
-  c : TFhirContact;
+  c : TFhirContactPoint;
 begin
   for i := 0 to self.Count - 1 do
     if Item(i).system = type_ then
@@ -1287,7 +1287,7 @@ begin
   c.value := value;
 end;
 
-function TFhirContactListHelper.system(type_: TFhirContactSystem): String;
+function TFHIRContactPointListHelper.system(type_: TFhirContactPointSystem): String;
 var
   i : integer;
 begin

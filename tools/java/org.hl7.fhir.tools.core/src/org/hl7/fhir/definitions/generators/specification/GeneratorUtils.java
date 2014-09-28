@@ -17,7 +17,7 @@ public class GeneratorUtils {
   		return "datatypes";
   	if (name.equals("HumanId"))
   		return "datatypes";
-  	if (name.equals("Contact"))
+  	if (name.equals("ContactPoint"))
   		return "datatypes";
     if (name.equals("CodeableConcept"))
       return "datatypes";

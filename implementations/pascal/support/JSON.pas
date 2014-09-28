@@ -205,14 +205,14 @@ Type
     Procedure ValueDateInArray(aValue : TDateTime); overload;
     Procedure ValueNullInArray;
 
-    Procedure WriteObject(name : String; obj : TJsonObject);
+    Procedure WriteObject(name : String; obj : TJsonObject); overload;
     Procedure WriteObjectInner(obj : TJsonObject);
     Procedure WriteArray(name : String; arr : TJsonArray);
 
-    class Function write(obj : TJsonObject; pretty : boolean = false) : TBytes; overload;
-    class Function writeStr(obj : TJsonObject; pretty : boolean = false) : String; overload;
-    class Procedure write(stream : TStream; obj : TJsonObject; pretty : boolean = false); overload;
-    class Procedure write(stream : TAdvStream; obj : TJsonObject; pretty : boolean = false); overload;
+    class Function writeObject(obj : TJsonObject; pretty : boolean = false) : TBytes; overload;
+    class Function writeObjectStr(obj : TJsonObject; pretty : boolean = false) : String; overload;
+    class Procedure writeObject(stream : TStream; obj : TJsonObject; pretty : boolean = false); overload;
+    class Procedure writeObject(stream : TAdvStream; obj : TJsonObject; pretty : boolean = false); overload;
   End;
 
 
@@ -452,7 +452,7 @@ begin
   LevelDown;
 end;
 
-class procedure TJSONWriter.write(stream: TAdvStream; obj: TJsonObject; pretty : boolean = false);
+class procedure TJSONWriter.writeObject(stream: TAdvStream; obj: TJsonObject; pretty : boolean = false);
 var
   this : TJSONWriter;
 begin
@@ -529,18 +529,18 @@ begin
   FinishObject;
 end;
 
-class function TJSONWriter.writeStr(obj: TJsonObject; pretty: boolean): String;
+class function TJSONWriter.writeObjectStr(obj: TJsonObject; pretty: boolean): String;
 begin
-  result := TEncoding.UTF8.GetString(write(obj, pretty));
+  result := TEncoding.UTF8.GetString(writeObject(obj, pretty));
 end;
 
-class function TJSONWriter.write(obj: TJsonObject; pretty: boolean): TBytes;
+class function TJSONWriter.writeObject(obj: TJsonObject; pretty: boolean): TBytes;
 var
   mem : TBytesStream;
 begin
   mem := TBytesStream.Create;
   try
-    write(mem, obj, pretty);
+    writeObject(mem, obj, pretty);
     result := mem.Bytes;
     SetLength(result, mem.size);
   finally
@@ -548,14 +548,14 @@ begin
   end;
 end;
 
-class procedure TJSONWriter.write(stream: TStream; obj: TJsonObject; pretty: boolean);
+class procedure TJSONWriter.writeObject(stream: TStream; obj: TJsonObject; pretty: boolean);
 var
   s : TAdvVCLStream;
 begin
   s := TAdvVCLStream.Create;
   try
     s.Stream := stream;
-    write(s, obj, pretty);
+    writeObject(s, obj, pretty);
   finally
     s.Free;
   end;

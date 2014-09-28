@@ -59,7 +59,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.instance.model.Contact.ContactSystem;
+import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Factory;
@@ -125,7 +125,7 @@ public class ProfileGenerator {
     p.setUrlSimple("http://hl7.org/fhir/Profile/"+ type.getCode());
     p.setNameSimple(type.getCode());
     p.setPublisherSimple("HL7 FHIR Standard");
-    p.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
+    p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org/fhir"));
     p.setDescriptionSimple("Base Profile for "+type.getCode()+" Resource: "+type.getDefinition());
     p.setDateSimple(new DateAndTime(genDate));
     p.setStatusSimple(Profile.ResourceProfileStatus.fromCode("draft")); // DSTU
@@ -199,7 +199,7 @@ public class ProfileGenerator {
     p.setUrlSimple("http://hl7.org/fhir/Profile/"+ type.getCode());
     p.setNameSimple(type.getCode());
     p.setPublisherSimple("HL7 FHIR Standard");
-    p.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
+    p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org/fhir"));
     p.setDescriptionSimple("Base Profile for "+type.getCode()+" Resource: "+type.getDefinition());
     p.setDateSimple(new DateAndTime(genDate));
     p.setStatusSimple(Profile.ResourceProfileStatus.fromCode("draft")); // DSTU
@@ -273,7 +273,7 @@ public class ProfileGenerator {
     p.setUrlSimple("http://hl7.org/fhir/Profile/"+ t.getName());
     p.setNameSimple(t.getName());
     p.setPublisherSimple("HL7 FHIR Standard");
-    p.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
+    p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org/fhir"));
     p.setDescriptionSimple("Base Profile for "+t.getName()+" Resource");
     p.setRequirementsSimple(t.getRequirements());
     p.setDateSimple(new DateAndTime(genDate));
@@ -311,7 +311,7 @@ public class ProfileGenerator {
     p.setUrlSimple("http://hl7.org/fhir/Profile/"+ pt.getName());
     p.setNameSimple(pt.getName());
     p.setPublisherSimple("HL7 FHIR Standard");
-    p.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
+    p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org/fhir"));
     p.setDescriptionSimple("Base Profile for "+pt.getName()+" Resource");
     p.setDescriptionSimple(pt.getDefinition());
     p.setDateSimple(new DateAndTime(genDate));
@@ -378,7 +378,7 @@ public class ProfileGenerator {
     p.setUrlSimple("http://hl7.org/fhir/Profile/"+ r.getRoot().getName());
     p.setNameSimple(r.getRoot().getName());
     p.setPublisherSimple("HL7 FHIR Standard");
-    p.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
+    p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org/fhir"));
     p.setDescriptionSimple("Base Profile for "+r.getRoot().getName()+" Resource");
     p.setRequirementsSimple(r.getRequirements());
     p.setDateSimple(new DateAndTime(genDate));
@@ -435,7 +435,7 @@ public class ProfileGenerator {
     p.setNameSimple(profile.metadata("name"));
     p.setPublisherSimple(profile.metadata("author.name"));
     if (profile.hasMetadata("author.reference"))
-      p.getTelecom().add(Factory.newContact(ContactSystem.url, profile.metadata("author.reference")));
+      p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, profile.metadata("author.reference")));
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
     if (profile.hasMetadata("description"))
       p.setDescriptionSimple(profile.metadata("description"));

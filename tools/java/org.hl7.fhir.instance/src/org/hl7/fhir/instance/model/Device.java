@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -111,14 +111,14 @@ public class Device extends Resource {
     /**
      * Contact details for an organization or a particular human that is responsible for the device.
      */
-    protected List<Contact> contact = new ArrayList<Contact>();
+    protected List<ContactPoint> contact = new ArrayList<ContactPoint>();
 
     /**
      * A network address on which the device may be contacted directly.
      */
     protected UriType url;
 
-    private static final long serialVersionUID = 1596756464L;
+    private static final long serialVersionUID = 303735588L;
 
     public Device() {
       super();
@@ -470,7 +470,7 @@ public class Device extends Resource {
     /**
      * @return {@link #contact} (Contact details for an organization or a particular human that is responsible for the device.)
      */
-    public List<Contact> getContact() { 
+    public List<ContactPoint> getContact() { 
       return this.contact;
     }
 
@@ -478,8 +478,8 @@ public class Device extends Resource {
     /**
      * @return {@link #contact} (Contact details for an organization or a particular human that is responsible for the device.)
      */
-    public Contact addContact() { 
-      Contact t = new Contact();
+    public ContactPoint addContact() { 
+      ContactPoint t = new ContactPoint();
       this.contact.add(t);
       return t;
     }
@@ -533,7 +533,7 @@ public class Device extends Resource {
         childrenList.add(new Property("owner", "Resource(Organization)", "An organization that is responsible for the provision and ongoing maintenance of the device.", 0, java.lang.Integer.MAX_VALUE, owner));
         childrenList.add(new Property("location", "Resource(Location)", "The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. 'in/with the patient'), or a coded location.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("patient", "Resource(Patient)", "Patient information, if the resource is affixed to a person.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("contact", "Contact", "Contact details for an organization or a particular human that is responsible for the device.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("contact", "ContactPoint", "Contact details for an organization or a particular human that is responsible for the device.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("url", "uri", "A network address on which the device may be contacted directly.", 0, java.lang.Integer.MAX_VALUE, url));
       }
 
@@ -552,8 +552,8 @@ public class Device extends Resource {
         dst.owner = owner == null ? null : owner.copy();
         dst.location = location == null ? null : location.copy();
         dst.patient = patient == null ? null : patient.copy();
-        dst.contact = new ArrayList<Contact>();
-        for (Contact i : contact)
+        dst.contact = new ArrayList<ContactPoint>();
+        for (ContactPoint i : contact)
           dst.contact.add(i.copy());
         dst.url = url == null ? null : url.copy();
         return dst;

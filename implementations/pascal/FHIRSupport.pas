@@ -631,11 +631,11 @@ Type
     {!script nolink}
     function makeAddressText(use, text : String):TFhirAddress;
 
-    {@member makeContact
+    {@member makeContactPoint
       make a new Contact and use the provided parameters
     }
     {!script nolink}
-    function makeContact(system, value, use : String):TFhirContact;
+    function makeContactPoint(system, value, use : String):TFhirContactPoint;
 
     {@member makeReference
       make a new resource reference and use the provided parameters
@@ -977,12 +977,12 @@ begin
   end;
 end;
 
-function TFHIRFactory.makeContact(system, value, use: String): TFhirContact;
+function TFHIRFactory.makeContactPoint(system, value, use: String): TFhirContactPoint;
 begin
-  result := TFhirContact.create;
+  result := TFhirContactPoint.create;
   try
-    result.useObject := CheckEnum(CODES_TFhirContactUse, use);
-    result.systemObject := CheckEnum(CODES_TFhirContactSystem, system);
+    result.useObject := CheckEnum(CODES_TFhirContactPointUse, use);
+    result.systemObject := CheckEnum(CODES_TFhirContactPointSystem, system);
     result.value := value;
     result.link;
   finally

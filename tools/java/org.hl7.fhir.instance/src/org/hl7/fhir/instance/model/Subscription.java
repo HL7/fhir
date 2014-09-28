@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -503,7 +503,7 @@ public class Subscription extends Resource {
     /**
      * Todo.
      */
-    protected List<Contact> contact = new ArrayList<Contact>();
+    protected List<ContactPoint> contact = new ArrayList<ContactPoint>();
 
     /**
      * Todo.
@@ -535,7 +535,7 @@ public class Subscription extends Resource {
      */
     protected List<SubscriptionTagComponent> tag = new ArrayList<SubscriptionTagComponent>();
 
-    private static final long serialVersionUID = -831258768L;
+    private static final long serialVersionUID = 1514571556L;
 
     public Subscription() {
       super();
@@ -584,7 +584,7 @@ public class Subscription extends Resource {
     /**
      * @return {@link #contact} (Todo.)
      */
-    public List<Contact> getContact() { 
+    public List<ContactPoint> getContact() { 
       return this.contact;
     }
 
@@ -592,8 +592,8 @@ public class Subscription extends Resource {
     /**
      * @return {@link #contact} (Todo.)
      */
-    public Contact addContact() { 
-      Contact t = new Contact();
+    public ContactPoint addContact() { 
+      ContactPoint t = new ContactPoint();
       this.contact.add(t);
       return t;
     }
@@ -769,7 +769,7 @@ public class Subscription extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("criteria", "string", "Todo.", 0, java.lang.Integer.MAX_VALUE, criteria));
-        childrenList.add(new Property("contact", "Contact", "Todo.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("contact", "ContactPoint", "Todo.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("reason", "string", "Todo.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("status", "code", "Todo.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("error", "string", "Todo.", 0, java.lang.Integer.MAX_VALUE, error));
@@ -781,8 +781,8 @@ public class Subscription extends Resource {
       public Subscription copy() {
         Subscription dst = new Subscription();
         dst.criteria = criteria == null ? null : criteria.copy();
-        dst.contact = new ArrayList<Contact>();
-        for (Contact i : contact)
+        dst.contact = new ArrayList<ContactPoint>();
+        for (ContactPoint i : contact)
           dst.contact.add(i.copy());
         dst.reason = reason == null ? null : reason.copy();
         dst.status = status == null ? null : status.copy();

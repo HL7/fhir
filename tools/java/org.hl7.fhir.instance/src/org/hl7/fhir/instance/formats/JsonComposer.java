@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -652,25 +652,6 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
-  private void composeContact(String name, Contact element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeElement(element);
-      if (element.getSystem() != null) {
-        composeEnumerationCore("system", element.getSystem(), new Contact.ContactSystemEnumFactory(), false);
-        composeEnumerationExtras("system", element.getSystem(), new Contact.ContactSystemEnumFactory(), false);
-      }
-      composeStringCore("value", element.getValue(), false);
-      composeStringExtras("value", element.getValue(), false);
-      if (element.getUse() != null) {
-        composeEnumerationCore("use", element.getUse(), new Contact.ContactUseEnumFactory(), false);
-        composeEnumerationExtras("use", element.getUse(), new Contact.ContactUseEnumFactory(), false);
-      }
-      composePeriod("period", element.getPeriod());
-      close();
-    }
-  }
-
   private void composeAddress(String name, Address element) throws Exception {
     if (element != null) {
       open(name);
@@ -764,6 +745,25 @@ public class JsonComposer extends JsonComposerBase {
           closeArray();
         }
       };
+      composePeriod("period", element.getPeriod());
+      close();
+    }
+  }
+
+  private void composeContactPoint(String name, ContactPoint element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElement(element);
+      if (element.getSystem() != null) {
+        composeEnumerationCore("system", element.getSystem(), new ContactPoint.ContactPointSystemEnumFactory(), false);
+        composeEnumerationExtras("system", element.getSystem(), new ContactPoint.ContactPointSystemEnumFactory(), false);
+      }
+      composeStringCore("value", element.getValue(), false);
+      composeStringExtras("value", element.getValue(), false);
+      if (element.getUse() != null) {
+        composeEnumerationCore("use", element.getUse(), new ContactPoint.ContactPointUseEnumFactory(), false);
+        composeEnumerationExtras("use", element.getUse(), new ContactPoint.ContactPointUseEnumFactory(), false);
+      }
       composePeriod("period", element.getPeriod());
       close();
     }
@@ -1303,8 +1303,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("publisher", element.getPublisher(), false);
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       composeStringCore("description", element.getDescription(), false);
@@ -1510,8 +1510,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("publisher", element.getPublisher(), false);
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       composeStringCore("description", element.getDescription(), false);
@@ -1914,8 +1914,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("publisher", element.getPublisher(), false);
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       if (element.getStatus() != null) {
@@ -2035,8 +2035,8 @@ public class JsonComposer extends JsonComposerBase {
       composeResourceReference("patient", element.getPatient());
       if (element.getContact().size() > 0) {
         openArray("contact");
-        for (Contact e : element.getContact()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getContact()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       composeUriCore("url", element.getUrl(), false);
@@ -3037,8 +3037,8 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeableConcept("type", element.getType());
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       composeAddress("address", element.getAddress());
@@ -3514,7 +3514,7 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("software", element.getSoftware(), false);
       composeStringCore("version", element.getVersion(), false);
       composeStringExtras("version", element.getVersion(), false);
-      composeContact("contact", element.getContact());
+      composeContactPoint("contact", element.getContact());
       composeUriCore("endpoint", element.getEndpoint(), false);
       composeUriExtras("endpoint", element.getEndpoint(), false);
       close();
@@ -3592,8 +3592,8 @@ public class JsonComposer extends JsonComposerBase {
       composeHumanName("name", element.getName());
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       close();
@@ -3841,8 +3841,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("publisher", element.getPublisher(), false);
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       composeStringCore("description", element.getDescription(), false);
@@ -4039,8 +4039,8 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeableConcept("type", element.getType());
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       if (element.getAddress().size() > 0) {
@@ -4075,8 +4075,8 @@ public class JsonComposer extends JsonComposerBase {
       composeHumanName("name", element.getName());
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       composeAddress("address", element.getAddress());
@@ -4124,8 +4124,8 @@ public class JsonComposer extends JsonComposerBase {
       };
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       if (element.getGender() != null) {
@@ -4193,8 +4193,8 @@ public class JsonComposer extends JsonComposerBase {
       composeHumanName("name", element.getName());
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       composeAddress("address", element.getAddress());
@@ -4244,8 +4244,8 @@ public class JsonComposer extends JsonComposerBase {
       composeHumanName("name", element.getName());
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       if (element.getAddress().size() > 0) {
@@ -4420,8 +4420,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("publisher", element.getPublisher(), false);
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       composeStringCore("description", element.getDescription(), false);
@@ -5154,8 +5154,8 @@ public class JsonComposer extends JsonComposerBase {
       composeHumanName("name", element.getName());
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       if (element.getGender() != null) {
@@ -5521,8 +5521,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("criteria", element.getCriteria(), false);
       if (element.getContact().size() > 0) {
         openArray("contact");
-        for (Contact e : element.getContact()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getContact()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       composeStringCore("reason", element.getReason(), false);
@@ -5681,8 +5681,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("publisher", element.getPublisher(), false);
       if (element.getTelecom().size() > 0) {
         openArray("telecom");
-        for (Contact e : element.getTelecom()) 
-          composeContact(null, e);
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
         closeArray();
       };
       composeStringCore("description", element.getDescription(), false);
@@ -6158,12 +6158,12 @@ public class JsonComposer extends JsonComposerBase {
        composeIdentifier(prefix+"Identifier", (Identifier) type);
     else if (type instanceof Schedule)
        composeSchedule(prefix+"Schedule", (Schedule) type);
-    else if (type instanceof Contact)
-       composeContact(prefix+"Contact", (Contact) type);
     else if (type instanceof Address)
        composeAddress(prefix+"Address", (Address) type);
     else if (type instanceof HumanName)
        composeHumanName(prefix+"HumanName", (HumanName) type);
+    else if (type instanceof ContactPoint)
+       composeContactPoint(prefix+"ContactPoint", (ContactPoint) type);
     else if (type instanceof IntegerType) {
       composeIntegerCore(prefix+"Integer", (IntegerType) type, false);
       composeIntegerExtras(prefix+"Integer", (IntegerType) type, false);

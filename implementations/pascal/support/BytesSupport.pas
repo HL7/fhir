@@ -60,6 +60,18 @@ type
 
       Function EndsWith(aBytes : TBytes) : Boolean;
       Property Length : Integer Read FLength;
+
+      Procedure AddWord(val : word);
+      Procedure AddCardinal(val : cardinal);
+      Procedure AddUInt64(val : UInt64);
+      Procedure AddString(val : String);
+
+      procedure Read(index : integer; var buffer; ilength : integer);
+
+      Procedure WriteWord(index : integer; val : word);
+      Procedure WriteCardinal(index : integer; val : cardinal);
+      Procedure WriteUInt64(index : integer; val : UInt64);
+      Procedure WriteString(index : integer; val : String);
   End;
 
 
@@ -560,6 +572,51 @@ begin
       result := result And (aBytes[i] = FContent[FLength - System.Length(aBytes) + i]);
 end;
 
+procedure TAdvBytesBuilder.Read(index : integer; var buffer; ilength: integer);
+begin
+  if index < 1 Then
+    Error('Read', 'index < 1');
+  if index + ilength > FLength Then
+    Error('Read', 'index > length');
+  Move(FContent[index], buffer, ilength);
+end;
+
+procedure TAdvBytesBuilder.WriteCardinal(index: integer; val: cardinal);
+begin
+  if index < 1 Then
+    Error('Overwrite', 'index < 1');
+  if index + 4 > FLength Then
+    Error('Overwrite', 'index > length');
+  Move(val, FContent[index], 4);
+end;
+
+procedure TAdvBytesBuilder.WriteString(index: integer; val: String);
+begin
+  if index < 1 Then
+    Error('Overwrite', 'index < 1');
+  if index + (val.Length*2) > FLength Then
+    Error('Overwrite', 'index > length');
+  Move(val[1], FContent[index], (val.Length*2));
+end;
+
+procedure TAdvBytesBuilder.WriteUInt64(index: integer; val: UInt64);
+begin
+  if index < 1 Then
+    Error('Overwrite', 'index < 1');
+  if index + 8 > FLength Then
+    Error('Overwrite', 'index > length');
+  Move(val, FContent[index], 8);
+end;
+
+procedure TAdvBytesBuilder.WriteWord(index: integer; val: word);
+begin
+  if index < 1 Then
+    Error('Overwrite', 'index < 1');
+  if index + 2 > FLength Then
+    Error('Overwrite', 'index > length');
+  Move(val, FContent[index], 2);
+end;
+
 Procedure TAdvBytesBuilder.Clear;
 Begin
   FContent := nil;
@@ -590,6 +647,42 @@ Begin
   Move(b, FContent[FLength], 1);
   Inc(FLength);
 End;
+
+procedure TAdvBytesBuilder.AddCardinal(val: cardinal);
+Var
+  s : TBytes;
+Begin
+  SetLength(s, 4);
+  move(val, s[0], 4);
+  Append(s);
+end;
+
+procedure TAdvBytesBuilder.AddString(val: String);
+Var
+  s : TBytes;
+Begin
+  SetLength(s, val.Length*2);
+  move(val, s[0], val.Length*2);
+  Append(s);
+end;
+
+procedure TAdvBytesBuilder.AddUInt64(val: UInt64);
+Var
+  s : TBytes;
+Begin
+  SetLength(s, 8);
+  move(val, s[0], 8);
+  Append(s);
+end;
+
+procedure TAdvBytesBuilder.AddWord(val: word);
+Var
+  s : TBytes;
+Begin
+  SetLength(s, 2);
+  move(val, s[0], 2);
+  Append(s);
+end;
 
 Procedure TAdvBytesBuilder.Append(Const bytes : TBytes);
 Begin

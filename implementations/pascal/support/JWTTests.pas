@@ -12,6 +12,7 @@ Uses
   JWT;
 
 Type
+  {$M+}
   TJWTTests = Class (TAdvObject) // but can be used with DUnit
   Private
   Published

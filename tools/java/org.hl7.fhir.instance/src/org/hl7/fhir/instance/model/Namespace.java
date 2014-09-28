@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -372,9 +372,9 @@ public class Namespace extends Resource {
         /**
          * Identifies the mechanism(s) by which they can be contacted.
          */
-        protected List<Contact> telecom = new ArrayList<Contact>();
+        protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
 
-        private static final long serialVersionUID = -1469576513L;
+        private static final long serialVersionUID = 465097125L;
 
       public NamespaceContactComponent() {
         super();
@@ -398,7 +398,7 @@ public class Namespace extends Resource {
         /**
          * @return {@link #telecom} (Identifies the mechanism(s) by which they can be contacted.)
          */
-        public List<Contact> getTelecom() { 
+        public List<ContactPoint> getTelecom() { 
           return this.telecom;
         }
 
@@ -406,8 +406,8 @@ public class Namespace extends Resource {
         /**
          * @return {@link #telecom} (Identifies the mechanism(s) by which they can be contacted.)
          */
-        public Contact addTelecom() { 
-          Contact t = new Contact();
+        public ContactPoint addTelecom() { 
+          ContactPoint t = new ContactPoint();
           this.telecom.add(t);
           return t;
         }
@@ -415,14 +415,14 @@ public class Namespace extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "HumanName", "Names of the person who can be contacted.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("telecom", "Contact", "Identifies the mechanism(s) by which they can be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
+          childrenList.add(new Property("telecom", "ContactPoint", "Identifies the mechanism(s) by which they can be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
 
       public NamespaceContactComponent copy() {
         NamespaceContactComponent dst = new NamespaceContactComponent();
         dst.name = name == null ? null : name.copy();
-        dst.telecom = new ArrayList<Contact>();
-        for (Contact i : telecom)
+        dst.telecom = new ArrayList<ContactPoint>();
+        for (ContactPoint i : telecom)
           dst.telecom.add(i.copy());
         return dst;
       }

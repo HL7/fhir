@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 23, 2014 07:08+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -251,14 +251,14 @@ public class MessageHeader extends Resource {
         /**
          * An e-mail, phone, website or other contact point to use to resolve issues with message communications.
          */
-        protected Contact contact;
+        protected ContactPoint contact;
 
         /**
          * Identifies the routing target to send acknowledgements to.
          */
         protected UriType endpoint;
 
-        private static final long serialVersionUID = 2095309634L;
+        private static final long serialVersionUID = -115878196L;
 
       public MessageSourceComponent() {
         super();
@@ -377,14 +377,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #contact} (An e-mail, phone, website or other contact point to use to resolve issues with message communications.)
          */
-        public Contact getContact() { 
+        public ContactPoint getContact() { 
           return this.contact;
         }
 
         /**
          * @param value {@link #contact} (An e-mail, phone, website or other contact point to use to resolve issues with message communications.)
          */
-        public MessageSourceComponent setContact(Contact value) { 
+        public MessageSourceComponent setContact(ContactPoint value) { 
           this.contact = value;
           return this;
         }
@@ -426,7 +426,7 @@ public class MessageHeader extends Resource {
           childrenList.add(new Property("name", "string", "Human-readable name for the target system.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("software", "string", "May include configuration or other information useful in debugging.", 0, java.lang.Integer.MAX_VALUE, software));
           childrenList.add(new Property("version", "string", "Can convey versions of multiple systems in situations where a message passes through multiple hands.", 0, java.lang.Integer.MAX_VALUE, version));
-          childrenList.add(new Property("contact", "Contact", "An e-mail, phone, website or other contact point to use to resolve issues with message communications.", 0, java.lang.Integer.MAX_VALUE, contact));
+          childrenList.add(new Property("contact", "ContactPoint", "An e-mail, phone, website or other contact point to use to resolve issues with message communications.", 0, java.lang.Integer.MAX_VALUE, contact));
           childrenList.add(new Property("endpoint", "uri", "Identifies the routing target to send acknowledgements to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 

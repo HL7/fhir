@@ -1111,7 +1111,7 @@
     <Cell><Data ss:Type="String">authorTelecommunication  </Data></Cell>
     <Cell><Data ss:Type="String">Practitioner.details.telecom</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell><Data ss:Type="String">Contact</Data></Cell>
+    <Cell><Data ss:Type="String">ContactPoint</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Represents the telecommunications address (e.g. email) of the document author</Data></Cell>
     <Cell><Data ss:Type="String">Intended to assist with automated routing of other messages intended for the document author.  </Data></Cell>
    </Row>

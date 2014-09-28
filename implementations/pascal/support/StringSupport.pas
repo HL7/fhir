@@ -32,8 +32,7 @@ Interface
 
 
 Uses
-  SysUtils,
-  SysConst,
+  SysUtils, Character, SysConst,
   MathSupport;
 
 
@@ -194,6 +193,9 @@ Function CharInSet(C: AnsiChar; Const CharSet: TCharSet): Boolean; Overload;
 Function CharInSet(C: WideChar; Const CharSet: TCharSet): Boolean; Overload;
 {$ENDIF}
 
+function TryStrToUINT64(StrValue:String; var uValue:UInt64 ):Boolean;
+function StrToUINT64(Value:String):UInt64;
+function StrToUInt64Def(Value:String; def : UInt64):UInt64;
 
 Implementation
 
@@ -1216,6 +1218,58 @@ type
   USASCIIString = type AnsiString(20127);//20127 = us ascii
 begin
   Result := String(USASCIIString(aStr));
+end;
+
+// http://stackoverflow.com/questions/6077258/theres-a-uinttostr-in-delphi-to-let-you-display-uint64-values-but-where-is-strt
+function TryStrToUINT64(StrValue:String; var uValue:UInt64 ):Boolean;
+var
+  Start,Base,Digit:Integer;
+  n:Integer;
+  Nextvalue:UInt64;
+begin
+  result := false;
+  Base := 10;
+  Start := 1;
+  StrValue := Trim(UpperCase(StrValue));
+  if StrValue='' then
+    exit;
+  if StrValue[1]='-' then
+    exit;
+  if StrValue[1]='$' then
+  begin
+    Base := 16;
+    Start := 2;
+    if Length(StrValue)>17 then // $+16 hex digits = max hex length.
+        exit;
+  end;
+  uValue := 0;
+  for n := Start to Length(StrValue) do
+  begin
+      if StrValue[n].IsDigit then
+          Digit := Ord(StrValue[n])-Ord('0')
+      else if  (Base=16) and (StrValue[n] >= 'A') and (StrValue[n] <= 'F') then
+          Digit := (Ord(StrValue[n])-Ord('A'))+10
+      else
+          exit;// invalid digit.
+
+      Nextvalue := (uValue*base)+digit;
+      if (Nextvalue<uValue) then
+          exit;
+      uValue := Nextvalue;
+  end;
+  result := true; // success.
+end;
+
+function StrToUINT64(Value:String):UInt64;
+begin
+  if not TryStrToUINT64(Value,result) then
+    raise EConvertError.Create('Invalid uint64 value');
+end;
+
+function StrToUInt64Def(Value:String; def : UInt64):UInt64;
+begin
+  if not TryStrToUINT64(Value,result) then
+    result := def;
 end;
 
 Initialization

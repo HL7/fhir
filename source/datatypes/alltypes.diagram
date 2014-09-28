@@ -1,5 +1,5 @@
 [diagram]
-classes=Identifier,HumanName,Address,Contact,Schedule,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money
+classes=Identifier,HumanName,Address,ContactPoint,Schedule,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money
 attributes=false
 
 [directions]
@@ -13,7 +13,7 @@ Attachment=50;-70
 Identifier=150;-70
 HumanName=160;-30
 Address=165;10
-Contact=170;50
+ContactPoint=170;50
 Quantity=-10;50
 SampledData=70;50
 Age=-150;100
