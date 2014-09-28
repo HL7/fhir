@@ -9,18 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-07-31T21:57:10Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-09-28T01:17:11Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11760</WindowHeight>
-  <WindowWidth>10005</WindowWidth>
-  <WindowTopX>480</WindowTopX>
-  <WindowTopY>90</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <WindowHeight>5820</WindowHeight>
+  <WindowWidth>25260</WindowWidth>
+  <WindowTopX>375</WindowTopX>
+  <WindowTopY>330</WindowTopY>
+  <ActiveSheet>6</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -222,20 +222,20 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s99" ss:Parent="s63">
+  <Style ss:ID="s98">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s100" ss:Parent="s63">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s102">
-   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -1644,8 +1644,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1722,19 +1722,53 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="1" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="170.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="237"/>
-   <Column ss:AutoFitWidth="0" ss:Width="246"/>
+   <Column ss:Width="328.5"/>
+   <Column ss:Width="276"/>
+   <Column ss:Width="212.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="99"/>
    <Column ss:AutoFitWidth="0" ss:Width="258.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Source</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Filename</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Example</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CCDA Smoking Status Observation</Data></Cell>
+    <Cell><Data ss:Type="String">CCDA Smoking Status Observation template to FHIR Profile mapping</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdasmokingstatus-profile-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdasmokingstatus.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">   </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CCDA Age Observation</Data></Cell>
+    <Cell><Data ss:Type="String">CCDA Age Observation template to FHIR Profile mapping</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdaage-profile-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdaage.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">   </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CCDA Assessment Scale Observation</Data></Cell>
+    <Cell><Data ss:Type="String">CCDA Assessment Scale Observation template to FHIR Profile mapping</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdaassessmentscale-profile-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdaassessmentscale.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">   </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CCDA Caregiver Characteristics Observation</Data></Cell>
+    <Cell><Data ss:Type="String">CCDA Caregiver Characteristics Observation template to FHIR Profile mapping</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdacaregivercharacteristics-profile-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdacaregivercharacteristics.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">   </Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1744,11 +1778,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1890,44 +1924,44 @@
     <Cell ss:StyleID="s97"><Data ss:Type="String">Display</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Comments</Data></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">zh</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">zh</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="18.75">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">registered</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Registered</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">The existence of the observation is registered, but there is no result yet available</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">registered</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Registered</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The existence of the observation is registered, but there is no result yet available</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">This is used where an observation record is created before it is made as a place holder. Some times called &quot;To Follow&quot;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">preliminary</Data></Cell>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">This is an initial or interim observation: data may be incomplete or unverified</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">preliminary</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">This is an initial or interim observation: data may be incomplete or unverified</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">final</Data></Cell>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">The observation is complete and verified by an authorized person</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The observation is complete and verified by an authorized person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">amended</Data></Cell>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">The observation has been modified subsequent to being Final, and is complete and verified by an authorized person</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">amended</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The observation has been modified subsequent to being Final, and is complete and verified by an authorized person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="19.5">
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">The observation is unavailable because the measurement was not started or not completed (also sometimes called &quot;aborted&quot;)</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The observation is unavailable because the measurement was not started or not completed (also sometimes called &quot;aborted&quot;)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">entered in error</Data></Cell>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">The observation has been withdrawn following previous Final release</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The observation has been withdrawn following previous Final release</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Usually this is because some error has been detected in the measurement</Data></Cell>
    </Row>
   </Table>
@@ -1938,7 +1972,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1964,7 +1997,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">has-component</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">has-component</Data></Cell>
     <Cell><Data ss:Type="String">The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=ActRrelationshipType.COMP</Data></Cell>
    </Row>
