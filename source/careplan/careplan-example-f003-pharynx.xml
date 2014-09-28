@@ -42,7 +42,7 @@
                   <display value="Incision of retropharyngeal abscess"/>
               </coding>
           </code>
-          <timingString value="2011-06-27T09:30:10+01:00"/>
+          <scheduledString value="2011-06-27T09:30:10+01:00"/>
           <performer>
               <reference value="Practitioner/f001"/>
               <display value="E.M. van den broek"/>

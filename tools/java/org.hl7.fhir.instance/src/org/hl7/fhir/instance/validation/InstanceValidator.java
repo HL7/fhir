@@ -31,7 +31,7 @@ import org.hl7.fhir.instance.model.Ratio;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.SampledData;
-import org.hl7.fhir.instance.model.Schedule;
+import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
@@ -1243,8 +1243,8 @@ public class InstanceValidator extends BaseValidator {
 				checkHumanName(errors, path, focus, (HumanName) fixed);
 			else if (fixed instanceof CodeableConcept)
 				checkCodeableConcept(errors, path, focus, (CodeableConcept) fixed);
-			else if (fixed instanceof Schedule)
-				checkSchedule(errors, path, focus, (Schedule) fixed);
+			else if (fixed instanceof Timing)
+				checkTiming(errors, path, focus, (Timing) fixed);
 			else if (fixed instanceof Period)
 				checkPeriod(errors, path, focus, (Period) fixed);
 			else if (fixed instanceof Range)
@@ -1359,7 +1359,7 @@ public class InstanceValidator extends BaseValidator {
 		}	  
   }
 
-	private void checkSchedule(List<ValidationMessage> errors, String path, WrapperElement focus, Schedule fixed) {
+	private void checkTiming(List<ValidationMessage> errors, String path, WrapperElement focus, Timing fixed) {
 	  checkFixedValue(errors, path+".repeat", focus.getNamedChild("repeat"), fixed.getRepeat(), "value");
 	  
 		List<WrapperElement> events = new ArrayList<WrapperElement>();

@@ -27,13 +27,13 @@
   </medication>
 
   <dosageInstruction>
-    <timingSchedule>
+    <scheduledTiming>
       <repeat>
         <frequency value="3"/>
         <duration value="1"/>
         <units value="d"/>
       </repeat>
-    </timingSchedule>
+    </scheduledTiming>
     <route>
       <coding>
         <system value="http://snomed.info/sct"/>

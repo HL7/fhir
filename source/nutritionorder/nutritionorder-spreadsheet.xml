@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
   <LastSaved>2014-09-17T20:38:53Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,6 @@
   <WindowWidth>18150</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>225</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -171,15 +170,15 @@
    <Interior ss:Color="#92D050" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s87">
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s88">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s88">
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -342,10 +341,10 @@
     <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">NutritionOrder.item.schedule[x]</Data><NamedCell
+    <Cell ss:StyleID="s68"><Data ss:Type="String">NutritionOrder.item.scheduled[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Schedule|Period</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Timing|Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">TODO</Data></Cell>
     <Cell><Data ss:Type="String">The frequency at which the diet, oral supplement or enteral formula should be given</Data></Cell>
     <Cell><Data ss:Type="String">frequency</Data></Cell>
@@ -580,10 +579,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -600,8 +600,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -956,7 +956,7 @@
     <Cell><Data ss:Type="String">Example</Data></Cell>
     <Cell><Data ss:Type="String">Simple Nutrition Order - Needs to be completed</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">nutritionorder-example.xml</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">nutritionorder-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
   </Table>
@@ -967,7 +967,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -986,7 +985,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="108" ss:Span="1"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="276.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s87">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s88">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Display</Data></Cell>

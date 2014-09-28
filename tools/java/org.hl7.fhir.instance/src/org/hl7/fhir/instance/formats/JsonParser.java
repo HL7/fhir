@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -547,8 +547,8 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Schedule parseSchedule(JsonObject json) throws Exception {
-    Schedule res = new Schedule();
+  private Timing parseTiming(JsonObject json) throws Exception {
+    Timing res = new Timing();
     parseElementProperties(json, res);
     if (json.has("event")) {
       JsonArray array = json.getAsJsonArray("event");
@@ -557,19 +557,19 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("repeat"))
-      res.setRepeat(parseScheduleScheduleRepeatComponent(json.getAsJsonObject("repeat"), res));
+      res.setRepeat(parseTimingTimingRepeatComponent(json.getAsJsonObject("repeat"), res));
     return res;
   }
 
-  private Schedule.ScheduleRepeatComponent parseScheduleScheduleRepeatComponent(JsonObject json, Schedule owner) throws Exception {
-    Schedule.ScheduleRepeatComponent res = new Schedule.ScheduleRepeatComponent();
+  private Timing.TimingRepeatComponent parseTimingTimingRepeatComponent(JsonObject json, Timing owner) throws Exception {
+    Timing.TimingRepeatComponent res = new Timing.TimingRepeatComponent();
     parseElementProperties(json, res);
     if (json.has("frequency"))
       res.setFrequency(parseInteger(json.get("frequency").getAsLong()));
     if (json.has("_frequency"))
       parseElementProperties(json.getAsJsonObject("_frequency"), res.getFrequency());
     if (json.has("when"))
-      res.setWhen(parseEnumeration(json.get("when").getAsString(), Schedule.EventTiming.Null, new Schedule.EventTimingEnumFactory()));
+      res.setWhen(parseEnumeration(json.get("when").getAsString(), Timing.EventTiming.Null, new Timing.EventTimingEnumFactory()));
     if (json.has("_when"))
       parseElementProperties(json.getAsJsonObject("_when"), res.getWhen());
     if (json.has("duration"))
@@ -577,7 +577,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_duration"))
       parseElementProperties(json.getAsJsonObject("_duration"), res.getDuration());
     if (json.has("units"))
-      res.setUnits(parseEnumeration(json.get("units").getAsString(), Schedule.UnitsOfTime.Null, new Schedule.UnitsOfTimeEnumFactory()));
+      res.setUnits(parseEnumeration(json.get("units").getAsString(), Timing.UnitsOfTime.Null, new Timing.UnitsOfTimeEnumFactory()));
     if (json.has("_units"))
       parseElementProperties(json.getAsJsonObject("_units"), res.getUnits());
     if (json.has("count"))
@@ -1190,9 +1190,9 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_category"), res.getCategory());
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
-    Type timing = parseType("timing", json);
-    if (timing != null)
-      res.setTiming(timing);
+    Type scheduled = parseType("scheduled", json);
+    if (scheduled != null)
+      res.setScheduled(scheduled);
     if (json.has("location"))
       res.setLocation(parseResourceReference(json.getAsJsonObject("location")));
     if (json.has("performer")) {
@@ -3772,9 +3772,9 @@ public class JsonParser extends JsonParserBase {
     parseBackboneProperties(json, res);
     if (json.has("additionalInstructions"))
       res.setAdditionalInstructions(parseCodeableConcept(json.getAsJsonObject("additionalInstructions")));
-    Type timing = parseType("timing", json);
-    if (timing != null)
-      res.setTiming(timing);
+    Type schedule = parseType("schedule", json);
+    if (schedule != null)
+      res.setSchedule(schedule);
     Type asNeeded = parseType("asNeeded", json);
     if (asNeeded != null)
       res.setAsNeeded(asNeeded);
@@ -3863,9 +3863,9 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_text"), res.getText());
     if (json.has("additionalInstructions"))
       res.setAdditionalInstructions(parseCodeableConcept(json.getAsJsonObject("additionalInstructions")));
-    Type timing = parseType("timing", json);
-    if (timing != null)
-      res.setTiming(timing);
+    Type scheduled = parseType("scheduled", json);
+    if (scheduled != null)
+      res.setScheduled(scheduled);
     Type asNeeded = parseType("asNeeded", json);
     if (asNeeded != null)
       res.setAsNeeded(asNeeded);
@@ -3955,8 +3955,8 @@ public class JsonParser extends JsonParserBase {
   private MedicationStatement.MedicationStatementDosageComponent parseMedicationStatementMedicationStatementDosageComponent(JsonObject json, MedicationStatement owner) throws Exception {
     MedicationStatement.MedicationStatementDosageComponent res = new MedicationStatement.MedicationStatementDosageComponent();
     parseBackboneProperties(json, res);
-    if (json.has("timing"))
-      res.setTiming(parseSchedule(json.getAsJsonObject("timing")));
+    if (json.has("schedule"))
+      res.setSchedule(parseTiming(json.getAsJsonObject("schedule")));
     Type asNeeded = parseType("asNeeded", json);
     if (asNeeded != null)
       res.setAsNeeded(asNeeded);
@@ -4206,9 +4206,9 @@ public class JsonParser extends JsonParserBase {
   private NutritionOrder.NutritionOrderItemComponent parseNutritionOrderNutritionOrderItemComponent(JsonObject json, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemComponent res = new NutritionOrder.NutritionOrderItemComponent();
     parseBackboneProperties(json, res);
-    Type schedule = parseType("schedule", json);
-    if (schedule != null)
-      res.setSchedule(schedule);
+    Type scheduled = parseType("scheduled", json);
+    if (scheduled != null)
+      res.setScheduled(scheduled);
     if (json.has("isInEffect"))
       res.setIsInEffect(parseBoolean(json.get("isInEffect").getAsBoolean()));
     if (json.has("_isInEffect"))
@@ -4618,7 +4618,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("schedule"))
-      res.setSchedule(parseSchedule(json.getAsJsonObject("schedule")));
+      res.setSchedule(parseTiming(json.getAsJsonObject("schedule")));
     return res;
   }
 
@@ -7011,8 +7011,8 @@ public class JsonParser extends JsonParserBase {
       return parseDistance(json.getAsJsonObject(prefix+"Distance"));
     else if (json.has(prefix+"Duration"))
       return parseDuration(json.getAsJsonObject(prefix+"Duration"));
-    else if (json.has(prefix+"Schedule"))
-      return parseSchedule(json.getAsJsonObject(prefix+"Schedule"));
+    else if (json.has(prefix+"Timing"))
+      return parseTiming(json.getAsJsonObject(prefix+"Timing"));
     else if (json.has(prefix+"Address"))
       return parseAddress(json.getAsJsonObject(prefix+"Address"));
     else if (json.has(prefix+"HumanName"))
@@ -7137,7 +7137,7 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"Duration"))
       return true;
-    if (json.has(prefix+"Schedule"))
+    if (json.has(prefix+"Timing"))
       return true;
     if (json.has(prefix+"Address"))
       return true;

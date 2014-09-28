@@ -80,8 +80,8 @@ function asUTCMin(value : TFhirDateTime) : TDateTime; overload;
 function asUTCMax(value : TFhirDateTime) : TDateTime; overload;
 function asUTCMin(value : TFhirPeriod) : TDateTime; overload;
 function asUTCMax(value : TFhirPeriod) : TDateTime; overload;
-function asUTCMin(value : TFhirSchedule) : TDateTime; overload;
-function asUTCMax(value : TFhirSchedule) : TDateTime; overload;
+function asUTCMin(value : TFhirTiming) : TDateTime; overload;
+function asUTCMax(value : TFhirTiming) : TDateTime; overload;
 
 function HasExtension(element : TFhirElement; url : string):Boolean;
 function GetExtension(element : TFhirElement; url : string) : TFhirExtension;
@@ -436,7 +436,7 @@ begin
     result := value.end_.AsUTCDateTimeMax;
 end;
 
-function asUTCMin(value : TFhirSchedule) : TDateTime;
+function asUTCMin(value : TFhirTiming) : TDateTime;
 var
   i : integer;
 begin
@@ -450,7 +450,7 @@ begin
   end;
 end;
 
-function asUTCMax(value : TFhirSchedule) : TDateTime;
+function asUTCMax(value : TFhirTiming) : TDateTime;
 var
   duration : TDateTime;
   i : integer;

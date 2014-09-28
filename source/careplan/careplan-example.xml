@@ -75,13 +75,13 @@
         <code>
             <text value="a code for weight measurement"></text>
         </code>
-        <timingSchedule>
+        <scheduledTiming>
             <repeat>
                 <frequency value="1" />
                 <duration value="1" />
                 <units value="d" />
             </repeat>
-        </timingSchedule>
+        </scheduledTiming>
         <performer>
           <reference value="Patient/example"/>
           <display value="Peter James Chalmers"/>

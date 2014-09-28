@@ -1,5 +1,5 @@
 [diagram]
-classes=Identifier,HumanName,Address,ContactPoint,Schedule
+classes=Identifier,HumanName,Address,ContactPoint,Timing
 element-attributes=true
 
 [directions]
@@ -7,5 +7,5 @@ HumanName=-230;-170
 Address=-30;-180
 ContactPoint=180;-160
 Identifier=-230;-20
-Schedule=10;65
-Schedule.repeat=200;-20
+Timing=10;65
+Timing.repeat=200;-20

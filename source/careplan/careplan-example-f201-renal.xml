@@ -56,7 +56,7 @@
          <display value="Potassium supplementation"/>
        </coding>
     </code>
-    <timingString value="daily"/>
+    <scheduledString value="daily"/>
     <!--TODO Isn't <performer> redundant when considering <participant> that was defined before?-->
     <product>
        <reference value="Substance/f203"/>

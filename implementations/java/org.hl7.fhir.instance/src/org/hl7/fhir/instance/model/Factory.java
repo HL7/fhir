@@ -109,7 +109,7 @@ public class Factory {
     return res;
   }
   
-  public static ContactPoint newContactPiont(ContactPointSystem system, String value) {
+  public static ContactPoint newContactPoint(ContactPointSystem system, String value) {
   	ContactPoint res = new ContactPoint();
 	res.setSystemSimple(system);
 	res.setValue(newString_(value));

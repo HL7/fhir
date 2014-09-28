@@ -60,13 +60,13 @@
     <reference value="#2"/> 
   </medication>
   <dosage>
-    <timing>
+    <schedule>
       <repeat>
         <frequency value="1"/>
         <duration value="1"/>
         <units value="d"/>
       </repeat>
-    </timing>
+    </schedule>
     <asNeededBoolean value="true"/>
     <route>
       <coding>

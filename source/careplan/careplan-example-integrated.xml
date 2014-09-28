@@ -206,9 +206,9 @@
       <valueDate value="2012-09-10"/>
     </extension>
     <category value="other"/>
-    <timingPeriod>
+    <scheduledPeriod>
       <start value="2012-09-10"/>
-    </timingPeriod>
+    </scheduledPeriod>
     <details value="Eve will review photos of high and low density foods and share with her parents"/>
     </simple>
   </activity>
@@ -224,9 +224,9 @@
       <valueDate value="2012-09-10"/>
     </extension>
     <category value="other"/>
-    <timingPeriod>
+    <scheduledPeriod>
       <start value="2012-09-10"/>
-    </timingPeriod>
+    </scheduledPeriod>
     <details value="Eve will ask her dad to asist her to put the head of her bed on blocks"/>
     </simple>
   </activity>
@@ -241,9 +241,9 @@
         <valueDate value="2012-09-10"/>
       </extension>
       <category value="other"/>
-      <timingPeriod>
+      <scheduledPeriod>
         <start value="2012-09-10"/>
-      </timingPeriod>
+      </scheduledPeriod>
       <details value="Eve will reduce her intake of coffee and chocolate"/>
     </simple>
   </activity>
@@ -259,9 +259,9 @@
       <valueDate value="2012-09-10"/>
     </extension>
     <category value="other"/>
-    <timingPeriod>
+    <scheduledPeriod>
       <start value="2012-08-27"/>
-    </timingPeriod>
+    </scheduledPeriod>
     <details value="Eve will walk her friend's dog up and down a big hill 15-30 minutes 3 days a week"/>
     </simple>
   </activity>
@@ -277,9 +277,9 @@
         <valueDate value="2012-09-10"/>
       </extension>
       <category value="other"/>
-      <timingPeriod>
+      <scheduledPeriod>
         <start value="2012-07-23"/>
-      </timingPeriod>
+      </scheduledPeriod>
       <details value="Eve will walk 3 blocks to her parents house twice a week"/>
     </simple>
   </activity>
@@ -294,9 +294,9 @@
         <valueDate value="2012-08-13"/>
       </extension>
       <category value="other"/>
-      <timingPeriod>
+      <scheduledPeriod>
         <start value="2012-07-23"/>
-      </timingPeriod>
+      </scheduledPeriod>
       <details value="Eve will us a calendar to check off after medications are taken"/>
     </simple>
   </activity>
@@ -312,9 +312,9 @@
         <valueDate value="2012-08-27"/>
       </extension>
       <category value="other"/>
-      <timingPeriod>
+      <scheduledPeriod>
         <start value="2012-07-23"/>
-      </timingPeriod>
+      </scheduledPeriod>
       <details value="Eve will use her lights MWF after her shower for 3 minutes"/>
     </simple>
   </activity>
@@ -330,9 +330,9 @@
         <valueDate value="2012-09-10"/>
       </extension>
       <category value="other"/>
-      <timingPeriod>
+      <scheduledPeriod>
         <start value="2012-07-10"/>
-      </timingPeriod>
+      </scheduledPeriod>
       <details value="Eve will use a calendar of a chart to help her remember when to take her medications"/>
     </simple>
   </activity>
@@ -348,9 +348,9 @@
         <valueDate value="2012-08-23"/>
       </extension>
       <category value="other"/>
-      <timingPeriod>
+      <scheduledPeriod>
         <start value="2012-07-23"/>
-      </timingPeriod>
+      </scheduledPeriod>
       <details value="Eve will start using stretch bands and one step 2 days a week Mon/Wed 6-7am and maybe Friday afternoon"/>
     </simple>
   </activity>
@@ -365,9 +365,9 @@
         <valueDate value="2012-07-23"/>
       </extension>
       <category value="other"/>
-      <timingPeriod>
+      <scheduledPeriod>
         <start value="2012-07-10"/>
-      </timingPeriod>
+      </scheduledPeriod>
       <details value="Eve will match a printed medication worksheet with the medication bottles at home"/>
     </simple>
   </activity>
@@ -383,9 +383,9 @@
         <valueDate value="2012-07-16"/>
       </extension>
       <category value="other"/>
-      <timingPeriod>
+      <scheduledPeriod>
         <start value="2012-07-10"/>
-      </timingPeriod>
+      </scheduledPeriod>
       <details value="Eve will get a medication box to sort her pills.  She will have one for scheduled medications and one for as needed"/>
     </simple>
   </activity>
@@ -401,9 +401,9 @@
         <valueDate value="2012-08-13"/>
       </extension>
       <category value="other"/>
-      <timingPeriod>
+      <scheduledPeriod>
         <start value="2012-07-23"/>
-      </timingPeriod>
+      </scheduledPeriod>
       <details value="Eve will open &quot;The Firm&quot; DVD workout package and listen to it"/>
     </simple>
   </activity>

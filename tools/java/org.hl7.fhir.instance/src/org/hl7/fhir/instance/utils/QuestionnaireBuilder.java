@@ -420,7 +420,7 @@ public class QuestionnaireBuilder {
         result.add(new TypeRefComponent().setCodeSimple("HumanName"));
         result.add(new TypeRefComponent().setCodeSimple("Address"));
         result.add(new TypeRefComponent().setCodeSimple("ContactPoint"));
-        result.add(new TypeRefComponent().setCodeSimple("Schedule"));
+        result.add(new TypeRefComponent().setCodeSimple("Timing"));
         result.add(new TypeRefComponent().setCodeSimple("ResourceReference"));
       } else
         result.add(t);
@@ -740,8 +740,8 @@ public class QuestionnaireBuilder {
       addAgeQuestions(group, element, path, answerGroups);
     else if (t.getCodeSimple().equals("Range"))
       addRangeQuestions(group, element, path, answerGroups);
-    else if (t.getCodeSimple().equals("Schedule"))
-      addScheduleQuestions(group, element, path, answerGroups);
+    else if (t.getCodeSimple().equals("Timing"))
+      addTimingQuestions(group, element, path, answerGroups);
     else if (t.getCodeSimple().equals("SampledData"))
       addSampledDataQuestions(group, element, path, answerGroups);
     else if (t.getCodeSimple().equals("Extension"))
@@ -952,7 +952,7 @@ public class QuestionnaireBuilder {
       ToolingExtensions.addType(group, "SampledData");
     }
     
-    private void addScheduleQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addTimingQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Schedule");
     }
     

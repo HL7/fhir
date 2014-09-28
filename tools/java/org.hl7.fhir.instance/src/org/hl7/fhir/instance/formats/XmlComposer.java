@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -462,29 +462,29 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
-  private void composeSchedule(String name, Schedule element) throws Exception {
+  private void composeTiming(String name, Timing element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
       for (Period e : element.getEvent()) 
         composePeriod("event", e);
-      composeScheduleScheduleRepeatComponent("repeat", element.getRepeat());
+      composeTimingTimingRepeatComponent("repeat", element.getRepeat());
       xml.close(FHIR_NS, name);
     }
   }
 
-  private void composeScheduleScheduleRepeatComponent(String name, Schedule.ScheduleRepeatComponent element) throws Exception {
+  private void composeTimingTimingRepeatComponent(String name, Timing.TimingRepeatComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeElementElements(element);
       composeInteger("frequency", element.getFrequency());
       if (element.getWhen() != null)
-        composeEnumeration("when", element.getWhen(), new Schedule.EventTimingEnumFactory());
+        composeEnumeration("when", element.getWhen(), new Timing.EventTimingEnumFactory());
       composeDecimal("duration", element.getDuration());
       if (element.getUnits() != null)
-        composeEnumeration("units", element.getUnits(), new Schedule.UnitsOfTimeEnumFactory());
+        composeEnumeration("units", element.getUnits(), new Timing.UnitsOfTimeEnumFactory());
       composeInteger("count", element.getCount());
       composeDateTime("end", element.getEnd());
       xml.close(FHIR_NS, name);
@@ -812,7 +812,7 @@ public class XmlComposer extends XmlComposerBase {
       if (element.getCategory() != null)
         composeEnumeration("category", element.getCategory(), new CarePlan.CarePlanActivityCategoryEnumFactory());
       composeCodeableConcept("code", element.getCode());
-      composeType("timing", element.getTiming());
+      composeType("scheduled", element.getScheduled());
       composeResourceReference("location", element.getLocation());
       for (ResourceReference e : element.getPerformer()) 
         composeResourceReference("performer", e);
@@ -2265,7 +2265,7 @@ public class XmlComposer extends XmlComposerBase {
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
       composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
-      composeType("timing", element.getTiming());
+      composeType("schedule", element.getSchedule());
       composeType("asNeeded", element.getAsNeeded());
       composeCodeableConcept("site", element.getSite());
       composeCodeableConcept("route", element.getRoute());
@@ -2321,7 +2321,7 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       composeString("text", element.getText());
       composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
-      composeType("timing", element.getTiming());
+      composeType("scheduled", element.getScheduled());
       composeType("asNeeded", element.getAsNeeded());
       composeCodeableConcept("site", element.getSite());
       composeCodeableConcept("route", element.getRoute());
@@ -2384,7 +2384,7 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
-      composeSchedule("timing", element.getTiming());
+      composeTiming("schedule", element.getSchedule());
       composeType("asNeeded", element.getAsNeeded());
       composeCodeableConcept("site", element.getSite());
       composeCodeableConcept("route", element.getRoute());
@@ -2537,7 +2537,7 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
-      composeType("schedule", element.getSchedule());
+      composeType("scheduled", element.getScheduled());
       composeBoolean("isInEffect", element.getIsInEffect());
       composeNutritionOrderNutritionOrderItemOralDietComponent("oralDiet", element.getOralDiet());
       composeNutritionOrderNutritionOrderItemSupplementComponent("supplement", element.getSupplement());
@@ -2758,7 +2758,7 @@ public class XmlComposer extends XmlComposerBase {
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
       composeCodeableConcept("code", element.getCode());
-      composeSchedule("schedule", element.getSchedule());
+      composeTiming("schedule", element.getSchedule());
       xml.close(FHIR_NS, name);
     }
   }
@@ -4147,8 +4147,8 @@ public class XmlComposer extends XmlComposerBase {
        composeCodeableConcept(prefix+"CodeableConcept", (CodeableConcept) type);
     else if (type instanceof Identifier)
        composeIdentifier(prefix+"Identifier", (Identifier) type);
-    else if (type instanceof Schedule)
-       composeSchedule(prefix+"Schedule", (Schedule) type);
+    else if (type instanceof Timing)
+       composeTiming(prefix+"Timing", (Timing) type);
     else if (type instanceof Address)
        composeAddress(prefix+"Address", (Address) type);
     else if (type instanceof HumanName)

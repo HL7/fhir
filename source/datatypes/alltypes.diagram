@@ -1,11 +1,11 @@
 [diagram]
-classes=Identifier,HumanName,Address,ContactPoint,Schedule,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money
+classes=Identifier,HumanName,Address,ContactPoint,Timing,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money
 attributes=false
 
 [directions]
 CodeableConcept=-150;50
 Coding=-150;10
-Schedule=-150;-30
+Timing=-150;-30
 Ratio=-135;-70
 Period=-70;-70
 Range=0;-70

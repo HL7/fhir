@@ -21,7 +21,7 @@
   </medication>
   <dosageInstruction>
     <text value="aerosol 25/250ug/do 120do 2x - 1 dose - daily"/>
-    <timingSchedule>
+    <scheduledTiming>
       <!--2 months-->
       <event>
         <start value="2013-03-11"/>
@@ -33,7 +33,7 @@
         <duration value="1"/>
         <units value="d"/>
       </repeat>
-    </timingSchedule>
+    </scheduledTiming>
     <site>
       <!--Medication enters the oral cavity-->
       <coding>

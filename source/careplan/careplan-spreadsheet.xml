@@ -20,6 +20,8 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>75</WindowTopX>
   <WindowTopY>13815</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -567,12 +569,12 @@
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CarePlan.activity.simple.timing[x]</Data></Cell>
+    <Cell><Data ss:Type="String">CarePlan.activity.simple.scheduled[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Schedule|Period | string</Data></Cell>
+    <Cell><Data ss:Type="String">Timing|Period | string</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">When activity is to occur</Data></Cell>
     <Cell><Data ss:Type="String">The period, timing or frequency upon which the described activity is to occur.</Data></Cell>
@@ -704,11 +706,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>23</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -725,8 +726,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -931,7 +932,7 @@
     <Cell><Data ss:Type="String">activitydate</Data></Cell>
     <Cell><Data ss:Type="String">Specified date occurs within period specified by CarePlan.activity.timingSchedule</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">CarePlan.activity.simple.timing[x]</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">CarePlan.activity.simple.scheduled[x]</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1053,6 +1054,7 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1072,7 +1074,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

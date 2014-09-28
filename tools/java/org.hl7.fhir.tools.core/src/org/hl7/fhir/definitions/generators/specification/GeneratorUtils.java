@@ -11,7 +11,7 @@ public class GeneratorUtils {
   		return "datatypes";
   	if (name.equals("Period"))
   		return "datatypes";
-  	if (name.equals("Schedule"))
+  	if (name.equals("Timing"))
   		return "datatypes";
   	if (name.equals("Range"))
   		return "datatypes";

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -895,7 +895,7 @@ public class CarePlan extends Resource {
         /**
          * The period, timing or frequency upon which the described activity is to occur.
          */
-        protected Type timing;
+        protected Type scheduled;
 
         /**
          * Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.
@@ -942,7 +942,7 @@ public class CarePlan extends Resource {
          */
         protected StringType details;
 
-        private static final long serialVersionUID = -403342401L;
+        private static final long serialVersionUID = 1687032516L;
 
       public CarePlanActivitySimpleComponent() {
         super();
@@ -1001,17 +1001,17 @@ public class CarePlan extends Resource {
         }
 
         /**
-         * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
+         * @return {@link #scheduled} (The period, timing or frequency upon which the described activity is to occur.)
          */
-        public Type getTiming() { 
-          return this.timing;
+        public Type getScheduled() { 
+          return this.scheduled;
         }
 
         /**
-         * @param value {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
+         * @param value {@link #scheduled} (The period, timing or frequency upon which the described activity is to occur.)
          */
-        public CarePlanActivitySimpleComponent setTiming(Type value) { 
-          this.timing = value;
+        public CarePlanActivitySimpleComponent setScheduled(Type value) { 
+          this.scheduled = value;
           return this;
         }
 
@@ -1169,7 +1169,7 @@ public class CarePlan extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("category", "code", "High-level categorization of the type of activity in a care plan.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("code", "CodeableConcept", "Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("timing[x]", "Schedule|Period|string", "The period, timing or frequency upon which the described activity is to occur.", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("scheduled[x]", "Timing|Period|string", "The period, timing or frequency upon which the described activity is to occur.", 0, java.lang.Integer.MAX_VALUE, scheduled));
           childrenList.add(new Property("location", "Resource(Location)", "Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.", 0, java.lang.Integer.MAX_VALUE, location));
           childrenList.add(new Property("performer", "Resource(Practitioner|Organization|RelatedPerson|Patient)", "Identifies who's expected to be involved in the activity.", 0, java.lang.Integer.MAX_VALUE, performer));
           childrenList.add(new Property("product", "Resource(Medication|Substance)", "Identifies the food, drug or other product being consumed or supplied in the activity.", 0, java.lang.Integer.MAX_VALUE, product));
@@ -1182,7 +1182,7 @@ public class CarePlan extends Resource {
         CarePlanActivitySimpleComponent dst = new CarePlanActivitySimpleComponent();
         dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
-        dst.timing = timing == null ? null : timing.copy();
+        dst.scheduled = scheduled == null ? null : scheduled.copy();
         dst.location = location == null ? null : location.copy();
         dst.performer = new ArrayList<ResourceReference>();
         for (ResourceReference i : performer)

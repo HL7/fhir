@@ -92,11 +92,11 @@
               </coding>
               <text value="Nurse Consultation"></text>
           </code>
-          <timingPeriod>
+          <scheduledPeriod>
               <!-- the nurse saw the patient between 10:38 and 10:50 -->
               <start value ="2013-01-01T10:38:00+00:00"/>
               <end value ="2013-01-01T10:50:00+00:00"/>            
-          </timingPeriod>
+          </scheduledPeriod>
           <performer>
               <!-- refer to the participant (the nurse) in this resource-->
               <reference value="Practitioner/13"/>

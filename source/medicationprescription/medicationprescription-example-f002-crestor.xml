@@ -31,7 +31,7 @@
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstruction>
-        <timingSchedule>
+        <scheduledTiming>
             <event>
                 <start value="2013-08-04"/>
             </event>
@@ -40,7 +40,7 @@
                 <duration value="1"/>
                 <units value="d"/>
             </repeat>
-        </timingSchedule>  
+        </scheduledTiming>  
         <site>
             <coding>
                 <system value="http://snomed.info/sct"/>

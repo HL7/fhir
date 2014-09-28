@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -108,7 +108,7 @@ public class NutritionOrder extends Resource {
         /**
          * The frequency at which the diet, oral supplement or enteral formula should be given.
          */
-        protected Type schedule;
+        protected Type scheduled;
 
         /**
          * Indicates whether the nutrition item is  currently in effect for the patient.
@@ -130,7 +130,7 @@ public class NutritionOrder extends Resource {
          */
         protected NutritionOrderItemEnteralFormulaComponent enteralFormula;
 
-        private static final long serialVersionUID = -1372200025L;
+        private static final long serialVersionUID = 2064921337L;
 
       public NutritionOrderItemComponent() {
         super();
@@ -142,17 +142,17 @@ public class NutritionOrder extends Resource {
       }
 
         /**
-         * @return {@link #schedule} (The frequency at which the diet, oral supplement or enteral formula should be given.)
+         * @return {@link #scheduled} (The frequency at which the diet, oral supplement or enteral formula should be given.)
          */
-        public Type getSchedule() { 
-          return this.schedule;
+        public Type getScheduled() { 
+          return this.scheduled;
         }
 
         /**
-         * @param value {@link #schedule} (The frequency at which the diet, oral supplement or enteral formula should be given.)
+         * @param value {@link #scheduled} (The frequency at which the diet, oral supplement or enteral formula should be given.)
          */
-        public NutritionOrderItemComponent setSchedule(Type value) { 
-          this.schedule = value;
+        public NutritionOrderItemComponent setScheduled(Type value) { 
+          this.scheduled = value;
           return this;
         }
 
@@ -235,7 +235,7 @@ public class NutritionOrder extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("schedule[x]", "Schedule|Period", "The frequency at which the diet, oral supplement or enteral formula should be given.", 0, java.lang.Integer.MAX_VALUE, schedule));
+          childrenList.add(new Property("scheduled[x]", "Timing|Period", "The frequency at which the diet, oral supplement or enteral formula should be given.", 0, java.lang.Integer.MAX_VALUE, scheduled));
           childrenList.add(new Property("isInEffect", "boolean", "Indicates whether the nutrition item is  currently in effect for the patient.", 0, java.lang.Integer.MAX_VALUE, isInEffect));
           childrenList.add(new Property("oralDiet", "", "Class that defines the components of an oral diet order for the patient.", 0, java.lang.Integer.MAX_VALUE, oralDiet));
           childrenList.add(new Property("supplement", "", "Class that defines the components of a supplement order for the patient.", 0, java.lang.Integer.MAX_VALUE, supplement));
@@ -244,7 +244,7 @@ public class NutritionOrder extends Resource {
 
       public NutritionOrderItemComponent copy() {
         NutritionOrderItemComponent dst = new NutritionOrderItemComponent();
-        dst.schedule = schedule == null ? null : schedule.copy();
+        dst.scheduled = scheduled == null ? null : scheduled.copy();
         dst.isInEffect = isInEffect == null ? null : isInEffect.copy();
         dst.oralDiet = oralDiet == null ? null : oralDiet.copy();
         dst.supplement = supplement == null ? null : supplement.copy();

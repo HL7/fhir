@@ -101,82 +101,82 @@
         <display value="Prednisone 5mg tablet"/>
       </medication>
       <dosageInstruction>
-        <dosageInstructionsText value="Take 6 tablets once a day for 2 days"/>
-        <timingSchedule>
+        <text value="Take 6 tablets once a day for 2 days"/>
+        <scheduledTiming>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timingSchedule>
+        </scheduledTiming>
       </dosageInstruction>
       <dosageInstruction>
-        <dosageInstructionsText value="Take 5 tablets once a day for 2 days"/>
-        <timingSchedule>
+        <text value="Take 5 tablets once a day for 2 days"/>
+        <scheduledTiming>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timingSchedule>
+        </scheduledTiming>
         <doseQuantity>
           <value value="5"/>          
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
-        <dosageInstructionsText value="Take 4 tablets once a day for 2 days"/>
-        <timingSchedule>
+        <text value="Take 4 tablets once a day for 2 days"/>
+        <scheduledTiming>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timingSchedule>
+        </scheduledTiming>
         <doseQuantity>
           <value value="4"/>          
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
-        <dosageInstructionsText value="Take 3 tablets once a day for 2 days"/>
-        <timingSchedule>
+        <text value="Take 3 tablets once a day for 2 days"/>
+        <scheduledTiming>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timingSchedule>
+        </scheduledTiming>
         <doseQuantity>
           <value value="3"/>          
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
-        <dosageInstructionsText value="Take 2 tablets once a day for 2 days"/>
-        <timingSchedule>
+        <text value="Take 2 tablets once a day for 2 days"/>
+        <scheduledTiming>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timingSchedule>
+        </scheduledTiming>
         <doseQuantity>
           <value value="2"/>          
         </doseQuantity>
       </dosageInstruction>
       <dosageInstruction>
-        <dosageInstructionsText value="Take 1 tablet once a day for 2 days"/>
-        <timingSchedule>
+        <text value="Take 1 tablet once a day for 2 days"/>
+        <scheduledTiming>
           <repeat>
             <frequency value="1" />
             <duration value="1" />
             <units value="d" />
             <count value="2"/>
           </repeat>
-        </timingSchedule>
+        </scheduledTiming>
         <doseQuantity>
           <value value="1"/>          
         </doseQuantity>
@@ -222,13 +222,13 @@
        </coding>
       <text value="Peak Flow"></text>
      </code>
-     <timingSchedule>
+     <scheduledTiming>
        <repeat>
          <frequency value="1" />
          <duration value="1" />
          <units value="d" />
        </repeat>
-     </timingSchedule>
+     </scheduledTiming>
      <performer>
        <reference value="Patient/1"/>
        <display value="Eve Everywoman"/>

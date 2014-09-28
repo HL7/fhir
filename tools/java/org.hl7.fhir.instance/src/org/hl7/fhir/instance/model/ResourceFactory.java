@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
 
 public class ResourceFactory extends Factory {
 
@@ -161,6 +161,8 @@ public class ResourceFactory extends Factory {
     }
 
     public static Element createType(String name) throws Exception {
+        if ("Timing".equals(name))
+            return new Timing();
         if ("Period".equals(name))
             return new Period();
         if ("Coding".equals(name))
@@ -183,8 +185,6 @@ public class ResourceFactory extends Factory {
             return new ContactPoint();
         if ("Extension".equals(name))
             return new Extension();
-        if ("Schedule".equals(name))
-            return new Schedule();
         if ("HumanName".equals(name))
             return new HumanName();
         if ("Address".equals(name))

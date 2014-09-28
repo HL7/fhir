@@ -42,7 +42,7 @@
                   <display value="Partial lobectomy of lung"/>
               </coding>
           </code>
-          <timingString value="2011-07-07T09:30:10+01:00"/>
+          <scheduledString value="2011-07-07T09:30:10+01:00"/>
           <performer>
               <reference value="Practitioner/f003"/>
               <display value="M.I.M. Versteegh"/>

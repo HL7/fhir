@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -613,7 +613,7 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
-  private void composeSchedule(String name, Schedule element) throws Exception {
+  private void composeTiming(String name, Timing element) throws Exception {
     if (element != null) {
       open(name);
       composeElement(element);
@@ -623,26 +623,26 @@ public class JsonComposer extends JsonComposerBase {
           composePeriod(null, e);
         closeArray();
       };
-      composeScheduleScheduleRepeatComponent("repeat", element.getRepeat());
+      composeTimingTimingRepeatComponent("repeat", element.getRepeat());
       close();
     }
   }
 
-  private void composeScheduleScheduleRepeatComponent(String name, Schedule.ScheduleRepeatComponent element) throws Exception {
+  private void composeTimingTimingRepeatComponent(String name, Timing.TimingRepeatComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeElement(element);
       composeIntegerCore("frequency", element.getFrequency(), false);
       composeIntegerExtras("frequency", element.getFrequency(), false);
       if (element.getWhen() != null) {
-        composeEnumerationCore("when", element.getWhen(), new Schedule.EventTimingEnumFactory(), false);
-        composeEnumerationExtras("when", element.getWhen(), new Schedule.EventTimingEnumFactory(), false);
+        composeEnumerationCore("when", element.getWhen(), new Timing.EventTimingEnumFactory(), false);
+        composeEnumerationExtras("when", element.getWhen(), new Timing.EventTimingEnumFactory(), false);
       }
       composeDecimalCore("duration", element.getDuration(), false);
       composeDecimalExtras("duration", element.getDuration(), false);
       if (element.getUnits() != null) {
-        composeEnumerationCore("units", element.getUnits(), new Schedule.UnitsOfTimeEnumFactory(), false);
-        composeEnumerationExtras("units", element.getUnits(), new Schedule.UnitsOfTimeEnumFactory(), false);
+        composeEnumerationCore("units", element.getUnits(), new Timing.UnitsOfTimeEnumFactory(), false);
+        composeEnumerationExtras("units", element.getUnits(), new Timing.UnitsOfTimeEnumFactory(), false);
       }
       composeIntegerCore("count", element.getCount(), false);
       composeIntegerExtras("count", element.getCount(), false);
@@ -1168,7 +1168,7 @@ public class JsonComposer extends JsonComposerBase {
         composeEnumerationExtras("category", element.getCategory(), new CarePlan.CarePlanActivityCategoryEnumFactory(), false);
       }
       composeCodeableConcept("code", element.getCode());
-      composeType("timing", element.getTiming());
+      composeType("scheduled", element.getScheduled());
       composeResourceReference("location", element.getLocation());
       if (element.getPerformer().size() > 0) {
         openArray("performer");
@@ -3298,7 +3298,7 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
-      composeType("timing", element.getTiming());
+      composeType("schedule", element.getSchedule());
       composeType("asNeeded", element.getAsNeeded());
       composeCodeableConcept("site", element.getSite());
       composeCodeableConcept("route", element.getRoute());
@@ -3370,7 +3370,7 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("text", element.getText(), false);
       composeStringExtras("text", element.getText(), false);
       composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
-      composeType("timing", element.getTiming());
+      composeType("scheduled", element.getScheduled());
       composeType("asNeeded", element.getAsNeeded());
       composeCodeableConcept("site", element.getSite());
       composeCodeableConcept("route", element.getRoute());
@@ -3446,7 +3446,7 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeBackbone(element);
-      composeSchedule("timing", element.getTiming());
+      composeTiming("schedule", element.getSchedule());
       composeType("asNeeded", element.getAsNeeded());
       composeCodeableConcept("site", element.getSite());
       composeCodeableConcept("route", element.getRoute());
@@ -3650,7 +3650,7 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeBackbone(element);
-      composeType("schedule", element.getSchedule());
+      composeType("scheduled", element.getScheduled());
       composeBooleanCore("isInEffect", element.getIsInEffect(), false);
       composeBooleanExtras("isInEffect", element.getIsInEffect(), false);
       composeNutritionOrderNutritionOrderItemOralDietComponent("oralDiet", element.getOralDiet());
@@ -3989,7 +3989,7 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       composeCodeableConcept("code", element.getCode());
-      composeSchedule("schedule", element.getSchedule());
+      composeTiming("schedule", element.getSchedule());
       close();
     }
   }
@@ -6156,8 +6156,8 @@ public class JsonComposer extends JsonComposerBase {
        composeCodeableConcept(prefix+"CodeableConcept", (CodeableConcept) type);
     else if (type instanceof Identifier)
        composeIdentifier(prefix+"Identifier", (Identifier) type);
-    else if (type instanceof Schedule)
-       composeSchedule(prefix+"Schedule", (Schedule) type);
+    else if (type instanceof Timing)
+       composeTiming(prefix+"Timing", (Timing) type);
     else if (type instanceof Address)
        composeAddress(prefix+"Address", (Address) type);
     else if (type instanceof HumanName)

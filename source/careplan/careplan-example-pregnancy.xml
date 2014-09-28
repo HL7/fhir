@@ -115,13 +115,13 @@
             </coding>
             <text value='First Antenatal encounter'></text>
         </code>
-        <timingSchedule>
+        <scheduledTiming>
             <!-- The encounter should occur between 14 feb and 28 feb -->
             <event>
                 <start value="2013-02-14"/>
                 <end value="2013-02-28"/>
             </event>
-        </timingSchedule>
+        </scheduledTiming>
         <performer>
             <reference value="#pr1"/>
             <display value="Mavis Midwife"/>
@@ -152,13 +152,13 @@
             </coding>
             <text value='Follow-up Antenatal encounter'></text>           
         </code>
-        <timingSchedule>
+        <scheduledTiming>
             <!-- The encounter should occur between 1 march and 14 march -->
             <event>
                 <start value="2013-03-01"/>
                 <end value="2013-03-14"/>
             </event>
-        </timingSchedule>
+        </scheduledTiming>
         <performer>
             <!-- The performer is known, but the actual appointment is not yet made, hence there is no action element... -->
             <reference value="#pr1"/>
@@ -188,13 +188,13 @@
             <text value='Delivery'></text>
             
         </code>
-        <timingSchedule>
+        <scheduledTiming>
             <!-- The delivery should occur between 1 september and 14 september -->
             <event>
                 <start value="2013-09-01"/>
                 <end value="2013-09-14"/>
             </event>
-        </timingSchedule>
+        </scheduledTiming>
         <!-- Where the delivery is to occur... 
           Commented out for now because location resource isn't defined
         <location>

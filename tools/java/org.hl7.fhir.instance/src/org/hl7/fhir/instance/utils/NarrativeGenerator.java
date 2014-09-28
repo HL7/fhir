@@ -86,10 +86,10 @@ import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Ratio;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceReference;
-import org.hl7.fhir.instance.model.Schedule;
-import org.hl7.fhir.instance.model.Schedule.EventTiming;
-import org.hl7.fhir.instance.model.Schedule.ScheduleRepeatComponent;
-import org.hl7.fhir.instance.model.Schedule.UnitsOfTime;
+import org.hl7.fhir.instance.model.Timing;
+import org.hl7.fhir.instance.model.Timing.EventTiming;
+import org.hl7.fhir.instance.model.Timing.TimingRepeatComponent;
+import org.hl7.fhir.instance.model.Timing.UnitsOfTime;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -361,8 +361,8 @@ public class NarrativeGenerator {
       renderContactPoint((ContactPoint) e, x);
     } else if (e instanceof UriType) {
       renderUri((UriType) e, x);
-    } else if (e instanceof Schedule) {
-      renderSchedule((Schedule) e, x);
+    } else if (e instanceof Timing) {
+      renderTiming((Timing) e, x);
     } else if (e instanceof Quantity || e instanceof Duration) {
       renderQuantity((Quantity) e, x, showCodeDetails);
     } else if (e instanceof Ratio) {
@@ -467,8 +467,8 @@ public class NarrativeGenerator {
     } else if (e instanceof ContactPoint) {
       renderContactPoint((ContactPoint) e, x);
       return true;
-    } else if (e instanceof Schedule) {
-      renderSchedule((Schedule) e, x);
+    } else if (e instanceof Timing) {
+      renderTiming((Timing) e, x);
       return true;
     } else if (e instanceof Quantity || e instanceof Duration) {
       renderQuantity((Quantity) e, x, showCodeDetails);
@@ -740,8 +740,8 @@ public class NarrativeGenerator {
     x.addText(displayIdentifier(ii));
   }
   
-  private void renderSchedule(Schedule s, XhtmlNode x) {
-    x.addText(displaySchedule(s));
+  private void renderTiming(Timing s, XhtmlNode x) {
+    x.addText(displayTiming(s));
   }
   
   private void renderQuantity(Quantity q, XhtmlNode x, boolean showCodeDetails) {
@@ -776,7 +776,7 @@ public class NarrativeGenerator {
   }
   
   
-  private String displaySchedule(Schedule s) {
+  private String displayTiming(Timing s) {
     if (s.getEvent().size() > 1 || (s.getRepeat() == null && !s.getEvent().isEmpty())) {
       CommaSeparatedStringBuilder c = new CommaSeparatedStringBuilder();
       for (Period p : s.getEvent()) {
@@ -784,7 +784,7 @@ public class NarrativeGenerator {
       }
       return c.toString();
     } else if (s.getRepeat() != null) {
-      ScheduleRepeatComponent rep = s.getRepeat();
+      TimingRepeatComponent rep = s.getRepeat();
       StringBuilder b = new StringBuilder();
       if (s.getEvent().size() == 1) 
         b.append("Starting "+displayPeriod(s.getEvent().get(0))+", ");

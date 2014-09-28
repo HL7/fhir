@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
+// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -47,9 +47,9 @@ public class Order extends Resource {
         /**
          * A formal schedule.
          */
-        protected Schedule schedule;
+        protected Timing schedule;
 
-        private static final long serialVersionUID = -987281180L;
+        private static final long serialVersionUID = 307115287L;
 
       public OrderWhenComponent() {
         super();
@@ -73,14 +73,14 @@ public class Order extends Resource {
         /**
          * @return {@link #schedule} (A formal schedule.)
          */
-        public Schedule getSchedule() { 
+        public Timing getSchedule() { 
           return this.schedule;
         }
 
         /**
          * @param value {@link #schedule} (A formal schedule.)
          */
-        public OrderWhenComponent setSchedule(Schedule value) { 
+        public OrderWhenComponent setSchedule(Timing value) { 
           this.schedule = value;
           return this;
         }
@@ -88,7 +88,7 @@ public class Order extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "Code specifies when request should be done. The code may simply be a priority code.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("schedule", "Schedule", "A formal schedule.", 0, java.lang.Integer.MAX_VALUE, schedule));
+          childrenList.add(new Property("schedule", "Timing", "A formal schedule.", 0, java.lang.Integer.MAX_VALUE, schedule));
         }
 
       public OrderWhenComponent copy() {

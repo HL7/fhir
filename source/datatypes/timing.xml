@@ -16,10 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5940</WindowHeight>
-  <WindowWidth>22875</WindowWidth>
-  <WindowTopX>5100</WindowTopX>
-  <WindowTopY>6180</WindowTopY>
+  <WindowHeight>5310</WindowHeight>
+  <WindowWidth>22575</WindowWidth>
+  <WindowTopX>5250</WindowTopX>
+  <WindowTopY>6660</WindowTopY>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -107,21 +108,21 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">Schedule</Data></Cell>
+    <Cell><Data ss:Type="String">Timing</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Structure</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">A schedule that specifies an event that may occur multiple times</Data></Cell>
-    <Cell><Data ss:Type="String">Specifies an event that may occur multiple times. Schedules are used for to reord when things are expected or requested to occur.</Data></Cell>
-    <Cell><Data ss:Type="String">Need to able to track schedules. There are several different ways to do scheduling: one or more specified times, a simple rules like three times a day, or  before/after meals</Data></Cell>
-    <Cell><Data ss:Type="String">  A schedule can be either a list of events - intervals on which the event occurs, or a single event with repeating criteria or just repeating criteria with no actual event. </Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">A timing schedule that specifies an event that may occur multiple times</Data></Cell>
+    <Cell><Data ss:Type="String">Specifies an event that may occur multiple times. Timing schedules are used for to record when things are expected or requested to occur.</Data></Cell>
+    <Cell><Data ss:Type="String">Need to able to track proposed timing schedules. There are several different ways to do this: one or more specified times, a simple rules like three times a day, or  before/after meals</Data></Cell>
+    <Cell><Data ss:Type="String">A timing schedule can be either a list of events - intervals on which the event occurs, or a single event with repeating criteria or just repeating criteria with no actual event. </Data></Cell>
     <Cell><Data ss:Type="String">QSET&lt;TS&gt; (GTS)</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Schedule.event</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.event</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When the event occurs</Data></Cell>
@@ -130,18 +131,18 @@
     <Cell ss:Index="12"><Data ss:Type="String">QLIST&lt;TS&gt; or PIVL.offset</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Schedule.repeat</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Only if there is none or one event</Data></Cell>
     <Cell><Data ss:Type="String">Identifies a repeating pattern to the intended time periods. </Data></Cell>
-    <Cell><Data ss:Type="String">Many schedules are determined by regular repetitions</Data></Cell>
-    <Cell><Data ss:Type="String">If present, the Schedule.event indicates the time of the first occurrence.</Data></Cell>
+    <Cell><Data ss:Type="String">Many timing schedules are determined by regular repetitions</Data></Cell>
+    <Cell><Data ss:Type="String">If present, the Timing.event indicates the time of the first occurrence.</Data></Cell>
     <Cell><Data ss:Type="String">Implies PIVL or EIVL</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Schedule.repeat.frequency</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.repeat.frequency</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
@@ -150,7 +151,7 @@
     <Cell ss:Index="12"><Data ss:Type="String">PIVL.phase</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Schedule.repeat.when</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.repeat.when</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
@@ -161,7 +162,7 @@
     <Cell ss:Index="12"><Data ss:Type="String">EIVL.event</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Schedule.repeat.duration</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.repeat.duration</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
@@ -171,7 +172,7 @@
     <Cell ss:Index="12"><Data ss:Type="String">PIVL.phase / EIVL.offset</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Schedule.repeat.units</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.repeat.units</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">UnitsOfTime</Data></Cell>
@@ -180,7 +181,7 @@
     <Cell ss:Index="12"><Data ss:Type="String">PIVL.phase.unit</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Schedule.repeat.count</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.repeat.count</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
@@ -191,12 +192,12 @@
     <Cell><Data ss:Type="String">PIVL.count</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Schedule.repeat.end</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.repeat.end</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When to stop repeats</Data></Cell>
-    <Cell><Data ss:Type="String">When to stop repeating the schedule</Data></Cell>
+    <Cell><Data ss:Type="String">When to stop repeating the timing schedule</Data></Cell>
     <Cell><Data ss:Type="String">Repetitions may be limited by end time or total occurrences</Data></Cell>
     <Cell><Data ss:Type="String">An end need not be specified</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
@@ -213,8 +214,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -240,7 +241,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Multiple or repeating events</Data></Cell>
-    <Cell><Data ss:Type="String">Schedule</Data></Cell>
+    <Cell><Data ss:Type="String">Timing</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">There can only be a repeat element if there is none or one event</Data></Cell>
     <Cell><Data ss:Type="String">repeat.oclIsDefined implies event.count &lt; 2</Data></Cell>
     <Cell><Data ss:Type="String">not(exists(f:repeat)) or count(f:event) &lt; 2</Data></Cell>
@@ -248,7 +249,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">Repeat cycle</Data></Cell>
-    <Cell><Data ss:Type="String">Schedule.repeat</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s63"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Either </Font><I><Font
         html:Color="#000000">frequency</Font></I><Font html:Color="#000000"> or </Font><I><Font
@@ -259,7 +260,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">End condition</Data></Cell>
-    <Cell><Data ss:Type="String">Schedule.repeat</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s63"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">At most, only one of </Font><I><Font
         html:Color="#000000">count</Font></I><Font html:Color="#000000"> or </Font><I><Font
@@ -270,7 +271,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">Duration Positive</Data></Cell>
-    <Cell><Data ss:Type="String">Schedule.repeat.duration</Data></Cell>
+    <Cell><Data ss:Type="String">Timing.repeat.duration</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">duration SHALL be a positive value</Data></Cell>
     <Cell><Data ss:Type="String">duration &gt; 0</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">@value &gt; 0 or not(@value)</Data></Cell>
@@ -291,8 +292,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

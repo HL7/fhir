@@ -811,19 +811,19 @@ See also <a href="datatypes.html#ContactPoint">Base Definition</a>, <a href="dat
 </div>
 
 
-<a name="Schedule"></a>
-<a name="schedule"></a>
+<a name="Timing"></a>
+<a name="timing"></a>
 <h3>
-Schedule
+Timing
 </h3>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="datatypes.html#Schedule">Base Definition</a>, <a href="datatypes-definitions.html#Schedule">Formal Definitions</a> and <a href="datatypes-mappings.html#Schedule">Mappings</a>.
+See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes-definitions.html#Timing">Formal Definitions</a> and <a href="datatypes-mappings.html#Timing">Mappings</a>.
 </p>
 
 <div class="example">
 <p><b>Example</b></p>
 <p>A series of appointments for radiotherapy:</p>
-<pre class="xml" fragment="Schedule">
+<pre class="xml" fragment="Timing">
   &lt;schedule&gt;
     &lt;event&gt;
       &lt;start value="2012-01-07T09:00" /&gt;
@@ -840,7 +840,7 @@ See also <a href="datatypes.html#Schedule">Base Definition</a>, <a href="datatyp
   &lt;/schedule&gt;
 </pre>
 <p>BID (twice a day) (no start or end specified):</p>
-<pre class="xml" fragment="Schedule">
+<pre class="xml" fragment="Timing">
   &lt;schedule&gt;
    &lt;repeat&gt;
      &lt;frequency value="2" /&gt;
@@ -850,7 +850,7 @@ See also <a href="datatypes.html#Schedule">Base Definition</a>, <a href="datatyp
   &lt;/schedule&gt;
 </pre>
 <p>1/2 an hour before breakfast for 10 days from 23-Dec 2011:</p>
-<pre class="xml" fragment="Schedule">
+<pre class="xml" fragment="Timing">
   &lt;schedule&gt;
     &lt;event&gt;
       &lt;start value="2011-12-23" /&gt;
