@@ -6,18 +6,18 @@ Note: Referral is likely to be incorporated as an official resource in a future 
 -->
 <Other xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/other.xsd">
   <extension url="http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner">
-    <valueResource>
+    <valueReference>
       <reference value="Practitioner/f201"/>
       <display value="Dokter Bronsig"/>
-    </valueResource>
+    </valueReference>
   </extension>
   <extension url="http://example.org/do-not-use/fhir-extensions/referral#notes">
     <valueString value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
   </extension>
   <extension url="http://example.org/do-not-use/fhir-extensions/referral#fulfillingEncounter">
-    <valueResource>
+    <valueReference>
       <reference value="Encounter/f201"/>
-    </valueResource>
+    </valueReference>
   </extension>
   <modifierExtension url="http://example.org/do-not-use/fhir-extensions/referral#referredForService">
     <valueCodeableConcept>

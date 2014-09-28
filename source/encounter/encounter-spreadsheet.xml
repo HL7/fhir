@@ -280,7 +280,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">The patient present at the encounter</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">patient</Data></Cell>
@@ -327,7 +327,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|RelatedPerson)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|RelatedPerson)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Persons involved in the encounter other than the patient</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
@@ -342,7 +342,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Appointment)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Appointment)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">The appointment that scheduled this encounter</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
@@ -403,7 +403,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Encounter.indication</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Reason the encounter takes place (resource)</Data></Cell>
     <Cell><Data ss:Type="String">Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.</Data></Cell>
     <Cell><Data ss:Type="String">Admission diagnosis</Data></Cell>
@@ -454,7 +454,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">The location from which the patient came before admission</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -518,7 +518,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">The bed that is assigned to the patient </Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -581,7 +581,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Encounter.hospitalization.destination</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Location to which the patient is discharged</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.participation[typeCode=DST]</Data></Cell>
    </Row>
@@ -597,7 +597,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Encounter.hospitalization.dischargeDiagnosis</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=OUT].target[classCode=OBS, moodCode=EVN, code=ASSERTION].value</Data></Cell>
     <Cell ss:StyleID="s70"/>
@@ -623,7 +623,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Encounter.location.location</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Location the encounter takes place</Data></Cell>
     <Cell><Data ss:Type="String">The location where the encounter takes place</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.role</Data></Cell>
@@ -639,7 +639,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Encounter.serviceProvider</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Department or team providing care</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.particiaption[typeCode=PFM].role</Data></Cell>
     <Cell><Data ss:Type="String">PV1-10-hospital service / PL.6 Person Location Type &amp; PL.1 Point of Care (note: V2.x definition is &quot;the treatment or type of surgery that the patient is scheduled to receive&quot;; seems slightly out of alignment with the concept name 'hospital service'. Would not trust that implementations apply this semantic by default)&#10;</Data></Cell>
@@ -647,7 +647,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Encounter.partOf</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Encounter)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Another Encounter this encounter is part of</Data></Cell>
     <Cell><Data ss:Type="String">Another Encounter of which this encounter is a part of (administratively or in time).</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=COMP, moodCode=EVN]</Data></Cell>

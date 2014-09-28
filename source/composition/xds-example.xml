@@ -110,9 +110,9 @@
         <content type="text/xml">
             <Practitioner xmlns="http://hl7.org/fhir">
                 <extension url="http://healthintersections.com.au/fhir/extensions#xds-author-institution-repeats">
-                    <valueResource>
+                    <valueReference>
                         <display value="Parma Community"/>
-                    </valueResource>
+                    </valueReference>
                 </extension>
                 <text>
                     <status value="generated"/>
@@ -153,9 +153,9 @@
         <content type="text/xml">
             <Practitioner xmlns="http://hl7.org/fhir">
                 <extension url="http://healthintersections.com.au/fhir/extensions#xds-author-institution-repeats">
-                    <valueResource>
+                    <valueReference>
                         <display value="Berea Community"/>
-                    </valueResource>
+                    </valueReference>
                 </extension>
                 <text>
                     <status value="generated"/>

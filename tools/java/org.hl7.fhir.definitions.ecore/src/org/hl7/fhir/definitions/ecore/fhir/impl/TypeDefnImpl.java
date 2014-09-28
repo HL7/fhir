@@ -288,7 +288,7 @@ public abstract class TypeDefnImpl extends EObjectImpl implements TypeDefn {
 	 * @generated NOT
 	 */
 	@Override
-	public boolean isResource() {
+	public boolean isReference() {
 		return this.getClass().equals(ResourceDefnImpl.class);
 	}
 
@@ -308,7 +308,7 @@ public abstract class TypeDefnImpl extends EObjectImpl implements TypeDefn {
 //	 * @generated NOT
 //	 */
 //	public NameScope getNearestScope() {
-//		if( this.isResource() )
+//		if( this.isReference() )
 //			return (ResourceDefn)this;
 //		else
 //			return getScope();

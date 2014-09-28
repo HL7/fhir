@@ -131,7 +131,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
     <Cell><Data ss:Type="String">Owner of the sequence</Data></Cell>
@@ -229,14 +229,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Sequence.inputLab</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(SequencingLab)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(SequencingLab)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Input lab</Data></Cell>
     <Cell><Data ss:Type="String">Lab from which data about the sequence is garthered</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Sequence.inputAnalysis</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(SequencingAnalysis)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(SequencingAnalysis)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Input analysis</Data></Cell>
     <Cell><Data ss:Type="String">Analysis for the sequence</Data></Cell>
    </Row>
@@ -256,7 +256,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Sequence.inputVariant.variant</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(GVFVariant|VCFVariant)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(GVFVariant|VCFVariant)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Variant</Data></Cell>
     <Cell><Data ss:Type="String">Variant Resoruce that encapsulates a snippet of the file</Data></Cell>
    </Row>

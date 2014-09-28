@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -120,7 +120,7 @@ public class AppointmentResponse extends Resource {
     /**
      * Parent appointment that this response is replying to.
      */
-    protected ResourceReference appointment;
+    protected Reference appointment;
 
     /**
      * The actual object that is the target of the reference (Parent appointment that this response is replying to.)
@@ -135,7 +135,7 @@ public class AppointmentResponse extends Resource {
     /**
      * A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.
      */
-    protected List<ResourceReference> individual = new ArrayList<ResourceReference>();
+    protected List<Reference> individual = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
      */
@@ -165,7 +165,7 @@ public class AppointmentResponse extends Resource {
     /**
      * Who recorded the appointment response.
      */
-    protected ResourceReference lastModifiedBy;
+    protected Reference lastModifiedBy;
 
     /**
      * The actual object that is the target of the reference (Who recorded the appointment response.)
@@ -177,13 +177,13 @@ public class AppointmentResponse extends Resource {
      */
     protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = -11983044L;
+    private static final long serialVersionUID = 319665824L;
 
     public AppointmentResponse() {
       super();
     }
 
-    public AppointmentResponse(ResourceReference appointment, Enumeration<Participantstatus> participantStatus) {
+    public AppointmentResponse(Reference appointment, Enumeration<Participantstatus> participantStatus) {
       super();
       this.appointment = appointment;
       this.participantStatus = participantStatus;
@@ -209,14 +209,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #appointment} (Parent appointment that this response is replying to.)
      */
-    public ResourceReference getAppointment() { 
+    public Reference getAppointment() { 
       return this.appointment;
     }
 
     /**
      * @param value {@link #appointment} (Parent appointment that this response is replying to.)
      */
-    public AppointmentResponse setAppointment(ResourceReference value) { 
+    public AppointmentResponse setAppointment(Reference value) { 
       this.appointment = value;
       return this;
     }
@@ -256,7 +256,7 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #individual} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
      */
-    public List<ResourceReference> getIndividual() { 
+    public List<Reference> getIndividual() { 
       return this.individual;
     }
 
@@ -264,8 +264,8 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #individual} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
      */
-    public ResourceReference addIndividual() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addIndividual() { 
+      Reference t = new Reference();
       this.individual.add(t);
       return t;
     }
@@ -420,14 +420,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #lastModifiedBy} (Who recorded the appointment response.)
      */
-    public ResourceReference getLastModifiedBy() { 
+    public Reference getLastModifiedBy() { 
       return this.lastModifiedBy;
     }
 
     /**
      * @param value {@link #lastModifiedBy} (Who recorded the appointment response.)
      */
-    public AppointmentResponse setLastModifiedBy(ResourceReference value) { 
+    public AppointmentResponse setLastModifiedBy(Reference value) { 
       this.lastModifiedBy = value;
       return this;
     }
@@ -486,14 +486,14 @@ public class AppointmentResponse extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("appointment", "Resource(Appointment)", "Parent appointment that this response is replying to.", 0, java.lang.Integer.MAX_VALUE, appointment));
+        childrenList.add(new Property("appointment", "Reference(Appointment)", "Parent appointment that this response is replying to.", 0, java.lang.Integer.MAX_VALUE, appointment));
         childrenList.add(new Property("participantType", "CodeableConcept", "Role of participant in the appointment.", 0, java.lang.Integer.MAX_VALUE, participantType));
-        childrenList.add(new Property("individual", "Resource(Any)", "A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.", 0, java.lang.Integer.MAX_VALUE, individual));
+        childrenList.add(new Property("individual", "Reference(Any)", "A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.", 0, java.lang.Integer.MAX_VALUE, individual));
         childrenList.add(new Property("participantStatus", "code", "Participation status of the Patient.", 0, java.lang.Integer.MAX_VALUE, participantStatus));
         childrenList.add(new Property("comment", "string", "Additional comments about the appointment.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("start", "instant", "Date/Time that the appointment is to take place.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "instant", "Date/Time that the appointment is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
-        childrenList.add(new Property("lastModifiedBy", "Resource(Practitioner|Patient|RelatedPerson)", "Who recorded the appointment response.", 0, java.lang.Integer.MAX_VALUE, lastModifiedBy));
+        childrenList.add(new Property("lastModifiedBy", "Reference(Practitioner|Patient|RelatedPerson)", "Who recorded the appointment response.", 0, java.lang.Integer.MAX_VALUE, lastModifiedBy));
         childrenList.add(new Property("lastModified", "dateTime", "Date when the response was recorded or last updated.", 0, java.lang.Integer.MAX_VALUE, lastModified));
       }
 
@@ -506,8 +506,8 @@ public class AppointmentResponse extends Resource {
         dst.participantType = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : participantType)
           dst.participantType.add(i.copy());
-        dst.individual = new ArrayList<ResourceReference>();
-        for (ResourceReference i : individual)
+        dst.individual = new ArrayList<Reference>();
+        for (Reference i : individual)
           dst.individual.add(i.copy());
         dst.participantStatus = participantStatus == null ? null : participantStatus.copy();
         dst.comment = comment == null ? null : comment.copy();

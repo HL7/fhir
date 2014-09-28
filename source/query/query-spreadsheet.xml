@@ -220,7 +220,7 @@
    <Row ss:Height="90">
     <Cell><Data ss:Type="String">Query.response.reference</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Resources that are the results of the search</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Is query only used in messaging? </Data></Cell>
     <Cell><Data ss:Type="String">.controlAct.outboundRelationship[typeCode=SUBJ].target&#10;or&#10;.controlAct.participation[typeCode=SBJ].role</Data></Cell>

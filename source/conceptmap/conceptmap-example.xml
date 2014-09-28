@@ -18,12 +18,12 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2012-06-13"/>
-  <sourceResource>
+  <sourceReference>
     <reference value="http://hl7.org/fhir/address-use"/>
-  </sourceResource>
-  <targetResource>
+  </sourceReference>
+  <targetReference>
     <reference value="http://hl7.org/fhir/v3/AddressUse"/>
-  </targetResource>
+  </targetReference>
   <element>
     <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="home"/>

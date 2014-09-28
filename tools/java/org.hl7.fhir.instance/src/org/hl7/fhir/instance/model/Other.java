@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -51,7 +51,7 @@ public class Other extends Resource {
     /**
      * Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
@@ -61,7 +61,7 @@ public class Other extends Resource {
     /**
      * Indicates who was responsible for creating the resource instance.
      */
-    protected ResourceReference author;
+    protected Reference author;
 
     /**
      * The actual object that is the target of the reference (Indicates who was responsible for creating the resource instance.)
@@ -73,7 +73,7 @@ public class Other extends Resource {
      */
     protected DateType created;
 
-    private static final long serialVersionUID = -1949730420L;
+    private static final long serialVersionUID = -58884148L;
 
     public Other() {
       super();
@@ -119,14 +119,14 @@ public class Other extends Resource {
     /**
      * @return {@link #subject} (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
      */
-    public Other setSubject(ResourceReference value) { 
+    public Other setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -149,14 +149,14 @@ public class Other extends Resource {
     /**
      * @return {@link #author} (Indicates who was responsible for creating the resource instance.)
      */
-    public ResourceReference getAuthor() { 
+    public Reference getAuthor() { 
       return this.author;
     }
 
     /**
      * @param value {@link #author} (Indicates who was responsible for creating the resource instance.)
      */
-    public Other setAuthor(ResourceReference value) { 
+    public Other setAuthor(Reference value) { 
       this.author = value;
       return this;
     }
@@ -216,8 +216,8 @@ public class Other extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the resource for business purposes, outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("code", "CodeableConcept", "Identifies the 'type' of resource - equivalent to the resource name for other resources.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("subject", "Resource(Any)", "Identifies the patient, practitioner, device or any other resource that is the 'focus' of this resoruce.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("author", "Resource(Practitioner|Patient|RelatedPerson)", "Indicates who was responsible for creating the resource instance.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("subject", "Reference(Any)", "Identifies the patient, practitioner, device or any other resource that is the 'focus' of this resoruce.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("author", "Reference(Practitioner|Patient|RelatedPerson)", "Indicates who was responsible for creating the resource instance.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("created", "date", "Identifies when the resource was first created.", 0, java.lang.Integer.MAX_VALUE, created));
       }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -137,20 +137,20 @@ public class DiagnosticReport extends Resource {
         /**
          * Reference to the image source.
          */
-        protected ResourceReference link;
+        protected Reference link;
 
         /**
          * The actual object that is the target of the reference (Reference to the image source.)
          */
         protected Media linkTarget;
 
-        private static final long serialVersionUID = -910272270L;
+        private static final long serialVersionUID = 935791940L;
 
       public DiagnosticReportImageComponent() {
         super();
       }
 
-      public DiagnosticReportImageComponent(ResourceReference link) {
+      public DiagnosticReportImageComponent(Reference link) {
         super();
         this.link = link;
       }
@@ -194,14 +194,14 @@ public class DiagnosticReport extends Resource {
         /**
          * @return {@link #link} (Reference to the image source.)
          */
-        public ResourceReference getLink() { 
+        public Reference getLink() { 
           return this.link;
         }
 
         /**
          * @param value {@link #link} (Reference to the image source.)
          */
-        public DiagnosticReportImageComponent setLink(ResourceReference value) { 
+        public DiagnosticReportImageComponent setLink(Reference value) { 
           this.link = value;
           return this;
         }
@@ -224,7 +224,7 @@ public class DiagnosticReport extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("comment", "string", "A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.", 0, java.lang.Integer.MAX_VALUE, comment));
-          childrenList.add(new Property("link", "Resource(Media)", "Reference to the image source.", 0, java.lang.Integer.MAX_VALUE, link));
+          childrenList.add(new Property("link", "Reference(Media)", "Reference to the image source.", 0, java.lang.Integer.MAX_VALUE, link));
         }
 
       public DiagnosticReportImageComponent copy() {
@@ -254,7 +254,7 @@ public class DiagnosticReport extends Resource {
     /**
      * The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
@@ -264,7 +264,7 @@ public class DiagnosticReport extends Resource {
     /**
      * The diagnostic service that is responsible for issuing the report.
      */
-    protected ResourceReference performer;
+    protected Reference performer;
 
     /**
      * The actual object that is the target of the reference (The diagnostic service that is responsible for issuing the report.)
@@ -279,7 +279,7 @@ public class DiagnosticReport extends Resource {
     /**
      * Details concerning a test requested.
      */
-    protected List<ResourceReference> requestDetail = new ArrayList<ResourceReference>();
+    protected List<Reference> requestDetail = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Details concerning a test requested.)
      */
@@ -299,7 +299,7 @@ public class DiagnosticReport extends Resource {
     /**
      * Details about the specimens on which this Disagnostic report is based.
      */
-    protected List<ResourceReference> specimen = new ArrayList<ResourceReference>();
+    protected List<Reference> specimen = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Details about the specimens on which this Disagnostic report is based.)
      */
@@ -309,7 +309,7 @@ public class DiagnosticReport extends Resource {
     /**
      * Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").
      */
-    protected List<ResourceReference> result = new ArrayList<ResourceReference>();
+    protected List<Reference> result = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
@@ -319,7 +319,7 @@ public class DiagnosticReport extends Resource {
     /**
      * One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.
      */
-    protected List<ResourceReference> imagingStudy = new ArrayList<ResourceReference>();
+    protected List<Reference> imagingStudy = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
@@ -346,13 +346,13 @@ public class DiagnosticReport extends Resource {
      */
     protected List<Attachment> presentedForm = new ArrayList<Attachment>();
 
-    private static final long serialVersionUID = -117351753L;
+    private static final long serialVersionUID = -888190005L;
 
     public DiagnosticReport() {
       super();
     }
 
-    public DiagnosticReport(CodeableConcept name, Enumeration<DiagnosticReportStatus> status, DateTimeType issued, ResourceReference subject, ResourceReference performer, Type diagnostic) {
+    public DiagnosticReport(CodeableConcept name, Enumeration<DiagnosticReportStatus> status, DateTimeType issued, Reference subject, Reference performer, Type diagnostic) {
       super();
       this.name = name;
       this.status = status;
@@ -444,14 +444,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #subject} (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
      */
-    public DiagnosticReport setSubject(ResourceReference value) { 
+    public DiagnosticReport setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -474,14 +474,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #performer} (The diagnostic service that is responsible for issuing the report.)
      */
-    public ResourceReference getPerformer() { 
+    public Reference getPerformer() { 
       return this.performer;
     }
 
     /**
      * @param value {@link #performer} (The diagnostic service that is responsible for issuing the report.)
      */
-    public DiagnosticReport setPerformer(ResourceReference value) { 
+    public DiagnosticReport setPerformer(Reference value) { 
       this.performer = value;
       return this;
     }
@@ -519,7 +519,7 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #requestDetail} (Details concerning a test requested.)
      */
-    public List<ResourceReference> getRequestDetail() { 
+    public List<Reference> getRequestDetail() { 
       return this.requestDetail;
     }
 
@@ -527,8 +527,8 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #requestDetail} (Details concerning a test requested.)
      */
-    public ResourceReference addRequestDetail() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addRequestDetail() { 
+      Reference t = new Reference();
       this.requestDetail.add(t);
       return t;
     }
@@ -583,7 +583,7 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #specimen} (Details about the specimens on which this Disagnostic report is based.)
      */
-    public List<ResourceReference> getSpecimen() { 
+    public List<Reference> getSpecimen() { 
       return this.specimen;
     }
 
@@ -591,8 +591,8 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #specimen} (Details about the specimens on which this Disagnostic report is based.)
      */
-    public ResourceReference addSpecimen() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addSpecimen() { 
+      Reference t = new Reference();
       this.specimen.add(t);
       return t;
     }
@@ -617,7 +617,7 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #result} (Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
-    public List<ResourceReference> getResult() { 
+    public List<Reference> getResult() { 
       return this.result;
     }
 
@@ -625,8 +625,8 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #result} (Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
-    public ResourceReference addResult() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addResult() { 
+      Reference t = new Reference();
       this.result.add(t);
       return t;
     }
@@ -651,7 +651,7 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #imagingStudy} (One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
-    public List<ResourceReference> getImagingStudy() { 
+    public List<Reference> getImagingStudy() { 
       return this.imagingStudy;
     }
 
@@ -659,8 +659,8 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #imagingStudy} (One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
-    public ResourceReference addImagingStudy() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addImagingStudy() { 
+      Reference t = new Reference();
       this.imagingStudy.add(t);
       return t;
     }
@@ -774,15 +774,15 @@ public class DiagnosticReport extends Resource {
         childrenList.add(new Property("name", "CodeableConcept", "A code or name that describes this diagnostic report.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("status", "code", "The status of the diagnostic report as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("issued", "dateTime", "The date and/or time that this version of the report was released from the source diagnostic service.", 0, java.lang.Integer.MAX_VALUE, issued));
-        childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Location)", "The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("performer", "Resource(Practitioner|Organization)", "The diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, performer));
+        childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("performer", "Reference(Practitioner|Organization)", "The diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("identifier", "Identifier", "The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("requestDetail", "Resource(DiagnosticOrder)", "Details concerning a test requested.", 0, java.lang.Integer.MAX_VALUE, requestDetail));
+        childrenList.add(new Property("requestDetail", "Reference(DiagnosticOrder)", "Details concerning a test requested.", 0, java.lang.Integer.MAX_VALUE, requestDetail));
         childrenList.add(new Property("serviceCategory", "CodeableConcept", "The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.", 0, java.lang.Integer.MAX_VALUE, serviceCategory));
         childrenList.add(new Property("diagnostic[x]", "dateTime|Period", "The time or time-period the observed values are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, diagnostic));
-        childrenList.add(new Property("specimen", "Resource(Specimen)", "Details about the specimens on which this Disagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen));
-        childrenList.add(new Property("result", "Resource(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. 'atomic' results), or they can be grouping observations that include references to other members of the group (e.g. 'panels').", 0, java.lang.Integer.MAX_VALUE, result));
-        childrenList.add(new Property("imagingStudy", "Resource(ImagingStudy)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
+        childrenList.add(new Property("specimen", "Reference(Specimen)", "Details about the specimens on which this Disagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen));
+        childrenList.add(new Property("result", "Reference(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. 'atomic' results), or they can be grouping observations that include references to other members of the group (e.g. 'panels').", 0, java.lang.Integer.MAX_VALUE, result));
+        childrenList.add(new Property("imagingStudy", "Reference(ImagingStudy)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
         childrenList.add(new Property("image", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, image));
         childrenList.add(new Property("conclusion", "string", "Concise and clinically contextualized narrative interpretation of the diagnostic report.", 0, java.lang.Integer.MAX_VALUE, conclusion));
         childrenList.add(new Property("codedDiagnosis", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, codedDiagnosis));
@@ -797,19 +797,19 @@ public class DiagnosticReport extends Resource {
         dst.subject = subject == null ? null : subject.copy();
         dst.performer = performer == null ? null : performer.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
-        dst.requestDetail = new ArrayList<ResourceReference>();
-        for (ResourceReference i : requestDetail)
+        dst.requestDetail = new ArrayList<Reference>();
+        for (Reference i : requestDetail)
           dst.requestDetail.add(i.copy());
         dst.serviceCategory = serviceCategory == null ? null : serviceCategory.copy();
         dst.diagnostic = diagnostic == null ? null : diagnostic.copy();
-        dst.specimen = new ArrayList<ResourceReference>();
-        for (ResourceReference i : specimen)
+        dst.specimen = new ArrayList<Reference>();
+        for (Reference i : specimen)
           dst.specimen.add(i.copy());
-        dst.result = new ArrayList<ResourceReference>();
-        for (ResourceReference i : result)
+        dst.result = new ArrayList<Reference>();
+        for (Reference i : result)
           dst.result.add(i.copy());
-        dst.imagingStudy = new ArrayList<ResourceReference>();
-        for (ResourceReference i : imagingStudy)
+        dst.imagingStudy = new ArrayList<Reference>();
+        for (Reference i : imagingStudy)
           dst.imagingStudy.add(i.copy());
         dst.image = new ArrayList<DiagnosticReportImageComponent>();
         for (DiagnosticReportImageComponent i : image)

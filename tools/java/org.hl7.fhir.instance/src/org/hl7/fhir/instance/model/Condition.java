@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -147,14 +147,14 @@ public class Condition extends Resource {
         /**
          * Reference to a formal record of the evidence on which the staging assessment is based.
          */
-        protected List<ResourceReference> assessment = new ArrayList<ResourceReference>();
+        protected List<Reference> assessment = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Reference to a formal record of the evidence on which the staging assessment is based.)
          */
         protected List<Resource> assessmentTarget = new ArrayList<Resource>();
 
 
-        private static final long serialVersionUID = -1698066074L;
+        private static final long serialVersionUID = 652796354L;
 
       public ConditionStageComponent() {
         super();
@@ -178,7 +178,7 @@ public class Condition extends Resource {
         /**
          * @return {@link #assessment} (Reference to a formal record of the evidence on which the staging assessment is based.)
          */
-        public List<ResourceReference> getAssessment() { 
+        public List<Reference> getAssessment() { 
           return this.assessment;
         }
 
@@ -186,8 +186,8 @@ public class Condition extends Resource {
         /**
          * @return {@link #assessment} (Reference to a formal record of the evidence on which the staging assessment is based.)
          */
-        public ResourceReference addAssessment() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addAssessment() { 
+          Reference t = new Reference();
           this.assessment.add(t);
           return t;
         }
@@ -202,14 +202,14 @@ public class Condition extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("summary", "CodeableConcept", "A simple summary of the stage such as 'Stage 3'. The determination of the stage is disease-specific.", 0, java.lang.Integer.MAX_VALUE, summary));
-          childrenList.add(new Property("assessment", "Resource(Any)", "Reference to a formal record of the evidence on which the staging assessment is based.", 0, java.lang.Integer.MAX_VALUE, assessment));
+          childrenList.add(new Property("assessment", "Reference(Any)", "Reference to a formal record of the evidence on which the staging assessment is based.", 0, java.lang.Integer.MAX_VALUE, assessment));
         }
 
       public ConditionStageComponent copy() {
         ConditionStageComponent dst = new ConditionStageComponent();
         dst.summary = summary == null ? null : summary.copy();
-        dst.assessment = new ArrayList<ResourceReference>();
-        for (ResourceReference i : assessment)
+        dst.assessment = new ArrayList<Reference>();
+        for (Reference i : assessment)
           dst.assessment.add(i.copy());
         return dst;
       }
@@ -225,14 +225,14 @@ public class Condition extends Resource {
         /**
          * Links to other relevant information, including pathology reports.
          */
-        protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
+        protected List<Reference> detail = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Links to other relevant information, including pathology reports.)
          */
         protected List<Resource> detailTarget = new ArrayList<Resource>();
 
 
-        private static final long serialVersionUID = 1835722845L;
+        private static final long serialVersionUID = -1404486983L;
 
       public ConditionEvidenceComponent() {
         super();
@@ -256,7 +256,7 @@ public class Condition extends Resource {
         /**
          * @return {@link #detail} (Links to other relevant information, including pathology reports.)
          */
-        public List<ResourceReference> getDetail() { 
+        public List<Reference> getDetail() { 
           return this.detail;
         }
 
@@ -264,8 +264,8 @@ public class Condition extends Resource {
         /**
          * @return {@link #detail} (Links to other relevant information, including pathology reports.)
          */
-        public ResourceReference addDetail() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addDetail() { 
+          Reference t = new Reference();
           this.detail.add(t);
           return t;
         }
@@ -280,14 +280,14 @@ public class Condition extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A manifestation or symptom that led to the recording of this condition.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("detail", "Resource(Any)", "Links to other relevant information, including pathology reports.", 0, java.lang.Integer.MAX_VALUE, detail));
+          childrenList.add(new Property("detail", "Reference(Any)", "Links to other relevant information, including pathology reports.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
       public ConditionEvidenceComponent copy() {
         ConditionEvidenceComponent dst = new ConditionEvidenceComponent();
         dst.code = code == null ? null : code.copy();
-        dst.detail = new ArrayList<ResourceReference>();
-        for (ResourceReference i : detail)
+        dst.detail = new ArrayList<Reference>();
+        for (Reference i : detail)
           dst.detail.add(i.copy());
         return dst;
       }
@@ -391,14 +391,14 @@ public class Condition extends Resource {
         /**
          * Target of the relationship.
          */
-        protected ResourceReference target;
+        protected Reference target;
 
         /**
          * The actual object that is the target of the reference (Target of the relationship.)
          */
         protected Resource targetTarget;
 
-        private static final long serialVersionUID = -7869756L;
+        private static final long serialVersionUID = -1173582286L;
 
       public ConditionRelatedItemComponent() {
         super();
@@ -459,14 +459,14 @@ public class Condition extends Resource {
         /**
          * @return {@link #target} (Target of the relationship.)
          */
-        public ResourceReference getTarget() { 
+        public Reference getTarget() { 
           return this.target;
         }
 
         /**
          * @param value {@link #target} (Target of the relationship.)
          */
-        public ConditionRelatedItemComponent setTarget(ResourceReference value) { 
+        public ConditionRelatedItemComponent setTarget(Reference value) { 
           this.target = value;
           return this;
         }
@@ -490,7 +490,7 @@ public class Condition extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The type of relationship that this condition has to the related item.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("code", "CodeableConcept", "Code that identifies the target of this relationship. The code takes the place of a detailed instance target.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("target", "Resource(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)", "Target of the relationship.", 0, java.lang.Integer.MAX_VALUE, target));
+          childrenList.add(new Property("target", "Reference(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)", "Target of the relationship.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       public ConditionRelatedItemComponent copy() {
@@ -511,7 +511,7 @@ public class Condition extends Resource {
     /**
      * Indicates the patient who the condition record is associated with.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (Indicates the patient who the condition record is associated with.)
@@ -521,7 +521,7 @@ public class Condition extends Resource {
     /**
      * Encounter during which the condition was first asserted.
      */
-    protected ResourceReference encounter;
+    protected Reference encounter;
 
     /**
      * The actual object that is the target of the reference (Encounter during which the condition was first asserted.)
@@ -531,7 +531,7 @@ public class Condition extends Resource {
     /**
      * Person who takes responsibility for asserting the existence of the condition as part of the electronic record.
      */
-    protected ResourceReference asserter;
+    protected Reference asserter;
 
     /**
      * The actual object that is the target of the reference (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
@@ -603,13 +603,13 @@ public class Condition extends Resource {
      */
     protected StringType notes;
 
-    private static final long serialVersionUID = 1246565689L;
+    private static final long serialVersionUID = 1848650031L;
 
     public Condition() {
       super();
     }
 
-    public Condition(ResourceReference subject, CodeableConcept code, Enumeration<ConditionStatus> status) {
+    public Condition(Reference subject, CodeableConcept code, Enumeration<ConditionStatus> status) {
       super();
       this.subject = subject;
       this.code = code;
@@ -636,14 +636,14 @@ public class Condition extends Resource {
     /**
      * @return {@link #subject} (Indicates the patient who the condition record is associated with.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (Indicates the patient who the condition record is associated with.)
      */
-    public Condition setSubject(ResourceReference value) { 
+    public Condition setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -666,14 +666,14 @@ public class Condition extends Resource {
     /**
      * @return {@link #encounter} (Encounter during which the condition was first asserted.)
      */
-    public ResourceReference getEncounter() { 
+    public Reference getEncounter() { 
       return this.encounter;
     }
 
     /**
      * @param value {@link #encounter} (Encounter during which the condition was first asserted.)
      */
-    public Condition setEncounter(ResourceReference value) { 
+    public Condition setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -696,14 +696,14 @@ public class Condition extends Resource {
     /**
      * @return {@link #asserter} (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
      */
-    public ResourceReference getAsserter() { 
+    public Reference getAsserter() { 
       return this.asserter;
     }
 
     /**
      * @param value {@link #asserter} (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
      */
-    public Condition setAsserter(ResourceReference value) { 
+    public Condition setAsserter(Reference value) { 
       this.asserter = value;
       return this;
     }
@@ -986,9 +986,9 @@ public class Condition extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Resource(Patient)", "Indicates the patient who the condition record is associated with.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "Encounter during which the condition was first asserted.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("asserter", "Resource(Practitioner|Patient)", "Person who takes responsibility for asserting the existence of the condition as part of the electronic record.", 0, java.lang.Integer.MAX_VALUE, asserter));
+        childrenList.add(new Property("subject", "Reference(Patient)", "Indicates the patient who the condition record is associated with.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("encounter", "Reference(Encounter)", "Encounter during which the condition was first asserted.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("asserter", "Reference(Practitioner|Patient)", "Person who takes responsibility for asserting the existence of the condition as part of the electronic record.", 0, java.lang.Integer.MAX_VALUE, asserter));
         childrenList.add(new Property("dateAsserted", "date", "Estimated or actual date the condition/problem/diagnosis was first detected/suspected.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
         childrenList.add(new Property("code", "CodeableConcept", "Identification of the condition, problem or diagnosis.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("category", "CodeableConcept", "A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.", 0, java.lang.Integer.MAX_VALUE, category));

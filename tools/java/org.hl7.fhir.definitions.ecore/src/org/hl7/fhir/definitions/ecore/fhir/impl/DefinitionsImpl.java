@@ -374,7 +374,7 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 		
 		for( TypeDefn t : this.getType() )
 		{		
-			if( t.isResource() )
+			if( t.isReference() )
 				result.add((ResourceDefn)t);
 		}
 		

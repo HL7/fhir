@@ -211,7 +211,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Patient|Group|Device|Location)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient|Group|Device|Location)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">If all resources have the same subject</Data></Cell>
     <Cell><Data ss:Type="String">The common subject (or patient) of the resources that are in the list, if there is one</Data></Cell>
@@ -227,7 +227,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Patient|Device)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Patient|Device)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Who and/or what defined the list contents</Data></Cell>
     <Cell><Data ss:Type="String">The entity responsible for deciding what the contents of the list were</Data></Cell>
@@ -358,7 +358,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Actual entry</Data></Cell>
     <Cell><Data ss:Type="String">A reference to the actual resource from which data was derived</Data></Cell>

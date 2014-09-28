@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -311,20 +311,20 @@ public class CarePlan extends Resource {
         /**
          * The specific person or organization who is participating/expected to participate in the care plan.
          */
-        protected ResourceReference member;
+        protected Reference member;
 
         /**
          * The actual object that is the target of the reference (The specific person or organization who is participating/expected to participate in the care plan.)
          */
         protected Resource memberTarget;
 
-        private static final long serialVersionUID = -1745583963L;
+        private static final long serialVersionUID = -466811117L;
 
       public CarePlanParticipantComponent() {
         super();
       }
 
-      public CarePlanParticipantComponent(ResourceReference member) {
+      public CarePlanParticipantComponent(Reference member) {
         super();
         this.member = member;
       }
@@ -347,14 +347,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #member} (The specific person or organization who is participating/expected to participate in the care plan.)
          */
-        public ResourceReference getMember() { 
+        public Reference getMember() { 
           return this.member;
         }
 
         /**
          * @param value {@link #member} (The specific person or organization who is participating/expected to participate in the care plan.)
          */
-        public CarePlanParticipantComponent setMember(ResourceReference value) { 
+        public CarePlanParticipantComponent setMember(Reference value) { 
           this.member = value;
           return this;
         }
@@ -377,7 +377,7 @@ public class CarePlan extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "CodeableConcept", "Indicates specific responsibility of an individual within the care plan.  E.g. 'Primary physician', 'Team coordinator', 'Caregiver', etc.", 0, java.lang.Integer.MAX_VALUE, role));
-          childrenList.add(new Property("member", "Resource(Practitioner|RelatedPerson|Patient|Organization)", "The specific person or organization who is participating/expected to participate in the care plan.", 0, java.lang.Integer.MAX_VALUE, member));
+          childrenList.add(new Property("member", "Reference(Practitioner|RelatedPerson|Patient|Organization)", "The specific person or organization who is participating/expected to participate in the care plan.", 0, java.lang.Integer.MAX_VALUE, member));
         }
 
       public CarePlanParticipantComponent copy() {
@@ -408,14 +408,14 @@ public class CarePlan extends Resource {
         /**
          * The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.
          */
-        protected List<ResourceReference> concern = new ArrayList<ResourceReference>();
+        protected List<Reference> concern = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.)
          */
         protected List<Condition> concernTarget = new ArrayList<Condition>();
 
 
-        private static final long serialVersionUID = -483526324L;
+        private static final long serialVersionUID = 1077443852L;
 
       public CarePlanGoalComponent() {
         super();
@@ -533,7 +533,7 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #concern} (The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.)
          */
-        public List<ResourceReference> getConcern() { 
+        public List<Reference> getConcern() { 
           return this.concern;
         }
 
@@ -541,8 +541,8 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #concern} (The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.)
          */
-        public ResourceReference addConcern() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addConcern() { 
+          Reference t = new Reference();
           this.concern.add(t);
           return t;
         }
@@ -569,7 +569,7 @@ public class CarePlan extends Resource {
           childrenList.add(new Property("description", "string", "Human-readable description of a specific desired objective of the care plan.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("status", "code", "Indicates whether the goal has been reached and is still considered relevant.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("notes", "string", "Any comments related to the goal.", 0, java.lang.Integer.MAX_VALUE, notes));
-          childrenList.add(new Property("concern", "Resource(Condition)", "The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.", 0, java.lang.Integer.MAX_VALUE, concern));
+          childrenList.add(new Property("concern", "Reference(Condition)", "The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.", 0, java.lang.Integer.MAX_VALUE, concern));
         }
 
       public CarePlanGoalComponent copy() {
@@ -577,8 +577,8 @@ public class CarePlan extends Resource {
         dst.description = description == null ? null : description.copy();
         dst.status = status == null ? null : status.copy();
         dst.notes = notes == null ? null : notes.copy();
-        dst.concern = new ArrayList<ResourceReference>();
-        for (ResourceReference i : concern)
+        dst.concern = new ArrayList<Reference>();
+        for (Reference i : concern)
           dst.concern.add(i.copy());
         return dst;
       }
@@ -604,7 +604,7 @@ public class CarePlan extends Resource {
         /**
          * Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.
          */
-        protected List<ResourceReference> actionResulting = new ArrayList<ResourceReference>();
+        protected List<Reference> actionResulting = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.)
          */
@@ -619,7 +619,7 @@ public class CarePlan extends Resource {
         /**
          * The details of the proposed activity represented in a specific resource.
          */
-        protected ResourceReference detail;
+        protected Reference detail;
 
         /**
          * The actual object that is the target of the reference (The details of the proposed activity represented in a specific resource.)
@@ -631,7 +631,7 @@ public class CarePlan extends Resource {
          */
         protected CarePlanActivitySimpleComponent simple;
 
-        private static final long serialVersionUID = -2114558145L;
+        private static final long serialVersionUID = 284445521L;
 
       public CarePlanActivityComponent() {
         super();
@@ -750,7 +750,7 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #actionResulting} (Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.)
          */
-        public List<ResourceReference> getActionResulting() { 
+        public List<Reference> getActionResulting() { 
           return this.actionResulting;
         }
 
@@ -758,8 +758,8 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #actionResulting} (Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.)
          */
-        public ResourceReference addActionResulting() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addActionResulting() { 
+          Reference t = new Reference();
           this.actionResulting.add(t);
           return t;
         }
@@ -810,14 +810,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #detail} (The details of the proposed activity represented in a specific resource.)
          */
-        public ResourceReference getDetail() { 
+        public Reference getDetail() { 
           return this.detail;
         }
 
         /**
          * @param value {@link #detail} (The details of the proposed activity represented in a specific resource.)
          */
-        public CarePlanActivityComponent setDetail(ResourceReference value) { 
+        public CarePlanActivityComponent setDetail(Reference value) { 
           this.detail = value;
           return this;
         }
@@ -857,9 +857,9 @@ public class CarePlan extends Resource {
           childrenList.add(new Property("goal", "idref", "Internal reference that identifies the goals that this activity is intended to contribute towards meeting.", 0, java.lang.Integer.MAX_VALUE, goal));
           childrenList.add(new Property("status", "code", "Identifies what progress is being made for the specific activity.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("prohibited", "boolean", "If true, indicates that the described activity is one that must NOT be engaged in when following the plan.", 0, java.lang.Integer.MAX_VALUE, prohibited));
-          childrenList.add(new Property("actionResulting", "Resource(Any)", "Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.", 0, java.lang.Integer.MAX_VALUE, actionResulting));
+          childrenList.add(new Property("actionResulting", "Reference(Any)", "Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.", 0, java.lang.Integer.MAX_VALUE, actionResulting));
           childrenList.add(new Property("notes", "string", "Notes about the execution of the activity.", 0, java.lang.Integer.MAX_VALUE, notes));
-          childrenList.add(new Property("detail", "Resource(Procedure|MedicationPrescription|DiagnosticOrder|Encounter|Supply)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, detail));
+          childrenList.add(new Property("detail", "Reference(Procedure|MedicationPrescription|DiagnosticOrder|Encounter|Supply)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, detail));
           childrenList.add(new Property("simple", "", "A simple summary of details suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.", 0, java.lang.Integer.MAX_VALUE, simple));
         }
 
@@ -870,8 +870,8 @@ public class CarePlan extends Resource {
           dst.goal.add(i.copy());
         dst.status = status == null ? null : status.copy();
         dst.prohibited = prohibited == null ? null : prohibited.copy();
-        dst.actionResulting = new ArrayList<ResourceReference>();
-        for (ResourceReference i : actionResulting)
+        dst.actionResulting = new ArrayList<Reference>();
+        for (Reference i : actionResulting)
           dst.actionResulting.add(i.copy());
         dst.notes = notes == null ? null : notes.copy();
         dst.detail = detail == null ? null : detail.copy();
@@ -900,7 +900,7 @@ public class CarePlan extends Resource {
         /**
          * Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.
          */
-        protected ResourceReference location;
+        protected Reference location;
 
         /**
          * The actual object that is the target of the reference (Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.)
@@ -910,7 +910,7 @@ public class CarePlan extends Resource {
         /**
          * Identifies who's expected to be involved in the activity.
          */
-        protected List<ResourceReference> performer = new ArrayList<ResourceReference>();
+        protected List<Reference> performer = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Identifies who's expected to be involved in the activity.)
          */
@@ -920,7 +920,7 @@ public class CarePlan extends Resource {
         /**
          * Identifies the food, drug or other product being consumed or supplied in the activity.
          */
-        protected ResourceReference product;
+        protected Reference product;
 
         /**
          * The actual object that is the target of the reference (Identifies the food, drug or other product being consumed or supplied in the activity.)
@@ -942,7 +942,7 @@ public class CarePlan extends Resource {
          */
         protected StringType details;
 
-        private static final long serialVersionUID = 1687032516L;
+        private static final long serialVersionUID = 1333738820L;
 
       public CarePlanActivitySimpleComponent() {
         super();
@@ -1018,14 +1018,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #location} (Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.)
          */
-        public ResourceReference getLocation() { 
+        public Reference getLocation() { 
           return this.location;
         }
 
         /**
          * @param value {@link #location} (Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.)
          */
-        public CarePlanActivitySimpleComponent setLocation(ResourceReference value) { 
+        public CarePlanActivitySimpleComponent setLocation(Reference value) { 
           this.location = value;
           return this;
         }
@@ -1048,7 +1048,7 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #performer} (Identifies who's expected to be involved in the activity.)
          */
-        public List<ResourceReference> getPerformer() { 
+        public List<Reference> getPerformer() { 
           return this.performer;
         }
 
@@ -1056,8 +1056,8 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #performer} (Identifies who's expected to be involved in the activity.)
          */
-        public ResourceReference addPerformer() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addPerformer() { 
+          Reference t = new Reference();
           this.performer.add(t);
           return t;
         }
@@ -1072,14 +1072,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #product} (Identifies the food, drug or other product being consumed or supplied in the activity.)
          */
-        public ResourceReference getProduct() { 
+        public Reference getProduct() { 
           return this.product;
         }
 
         /**
          * @param value {@link #product} (Identifies the food, drug or other product being consumed or supplied in the activity.)
          */
-        public CarePlanActivitySimpleComponent setProduct(ResourceReference value) { 
+        public CarePlanActivitySimpleComponent setProduct(Reference value) { 
           this.product = value;
           return this;
         }
@@ -1170,9 +1170,9 @@ public class CarePlan extends Resource {
           childrenList.add(new Property("category", "code", "High-level categorization of the type of activity in a care plan.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("code", "CodeableConcept", "Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("scheduled[x]", "Timing|Period|string", "The period, timing or frequency upon which the described activity is to occur.", 0, java.lang.Integer.MAX_VALUE, scheduled));
-          childrenList.add(new Property("location", "Resource(Location)", "Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.", 0, java.lang.Integer.MAX_VALUE, location));
-          childrenList.add(new Property("performer", "Resource(Practitioner|Organization|RelatedPerson|Patient)", "Identifies who's expected to be involved in the activity.", 0, java.lang.Integer.MAX_VALUE, performer));
-          childrenList.add(new Property("product", "Resource(Medication|Substance)", "Identifies the food, drug or other product being consumed or supplied in the activity.", 0, java.lang.Integer.MAX_VALUE, product));
+          childrenList.add(new Property("location", "Reference(Location)", "Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.", 0, java.lang.Integer.MAX_VALUE, location));
+          childrenList.add(new Property("performer", "Reference(Practitioner|Organization|RelatedPerson|Patient)", "Identifies who's expected to be involved in the activity.", 0, java.lang.Integer.MAX_VALUE, performer));
+          childrenList.add(new Property("product", "Reference(Medication|Substance)", "Identifies the food, drug or other product being consumed or supplied in the activity.", 0, java.lang.Integer.MAX_VALUE, product));
           childrenList.add(new Property("dailyAmount", "Quantity", "Identifies the quantity expected to be consumed in a given day.", 0, java.lang.Integer.MAX_VALUE, dailyAmount));
           childrenList.add(new Property("quantity", "Quantity", "Identifies the quantity expected to be supplied.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("details", "string", "This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.", 0, java.lang.Integer.MAX_VALUE, details));
@@ -1184,8 +1184,8 @@ public class CarePlan extends Resource {
         dst.code = code == null ? null : code.copy();
         dst.scheduled = scheduled == null ? null : scheduled.copy();
         dst.location = location == null ? null : location.copy();
-        dst.performer = new ArrayList<ResourceReference>();
-        for (ResourceReference i : performer)
+        dst.performer = new ArrayList<Reference>();
+        for (Reference i : performer)
           dst.performer.add(i.copy());
         dst.product = product == null ? null : product.copy();
         dst.dailyAmount = dailyAmount == null ? null : dailyAmount.copy();
@@ -1204,7 +1204,7 @@ public class CarePlan extends Resource {
     /**
      * Identifies the patient/subject whose intended care is described by the plan.
      */
-    protected ResourceReference patient;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (Identifies the patient/subject whose intended care is described by the plan.)
@@ -1229,7 +1229,7 @@ public class CarePlan extends Resource {
     /**
      * Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
      */
-    protected List<ResourceReference> concern = new ArrayList<ResourceReference>();
+    protected List<Reference> concern = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.)
      */
@@ -1256,7 +1256,7 @@ public class CarePlan extends Resource {
      */
     protected StringType notes;
 
-    private static final long serialVersionUID = 1455393599L;
+    private static final long serialVersionUID = -1021852819L;
 
     public CarePlan() {
       super();
@@ -1287,14 +1287,14 @@ public class CarePlan extends Resource {
     /**
      * @return {@link #patient} (Identifies the patient/subject whose intended care is described by the plan.)
      */
-    public ResourceReference getPatient() { 
+    public Reference getPatient() { 
       return this.patient;
     }
 
     /**
      * @param value {@link #patient} (Identifies the patient/subject whose intended care is described by the plan.)
      */
-    public CarePlan setPatient(ResourceReference value) { 
+    public CarePlan setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -1400,7 +1400,7 @@ public class CarePlan extends Resource {
     /**
      * @return {@link #concern} (Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.)
      */
-    public List<ResourceReference> getConcern() { 
+    public List<Reference> getConcern() { 
       return this.concern;
     }
 
@@ -1408,8 +1408,8 @@ public class CarePlan extends Resource {
     /**
      * @return {@link #concern} (Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.)
      */
-    public ResourceReference addConcern() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addConcern() { 
+      Reference t = new Reference();
       this.concern.add(t);
       return t;
     }
@@ -1521,11 +1521,11 @@ public class CarePlan extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("patient", "Resource(Patient)", "Identifies the patient/subject whose intended care is described by the plan.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("patient", "Reference(Patient)", "Identifies the patient/subject whose intended care is described by the plan.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("status", "code", "Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("period", "Period", "Indicates when the plan did (or is intended to) come into effect and end.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("modified", "dateTime", "Identifies the most recent date on which the plan has been revised.", 0, java.lang.Integer.MAX_VALUE, modified));
-        childrenList.add(new Property("concern", "Resource(Condition)", "Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.", 0, java.lang.Integer.MAX_VALUE, concern));
+        childrenList.add(new Property("concern", "Reference(Condition)", "Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.", 0, java.lang.Integer.MAX_VALUE, concern));
         childrenList.add(new Property("participant", "", "Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.", 0, java.lang.Integer.MAX_VALUE, participant));
         childrenList.add(new Property("goal", "", "Describes the intended objective(s) of carrying out the Care Plan.", 0, java.lang.Integer.MAX_VALUE, goal));
         childrenList.add(new Property("activity", "", "Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.", 0, java.lang.Integer.MAX_VALUE, activity));
@@ -1541,8 +1541,8 @@ public class CarePlan extends Resource {
         dst.status = status == null ? null : status.copy();
         dst.period = period == null ? null : period.copy();
         dst.modified = modified == null ? null : modified.copy();
-        dst.concern = new ArrayList<ResourceReference>();
-        for (ResourceReference i : concern)
+        dst.concern = new ArrayList<Reference>();
+        for (Reference i : concern)
           dst.concern.add(i.copy());
         dst.participant = new ArrayList<CarePlanParticipantComponent>();
         for (CarePlanParticipantComponent i : participant)

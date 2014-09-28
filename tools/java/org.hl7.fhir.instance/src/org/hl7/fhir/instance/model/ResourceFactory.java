@@ -29,11 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 public class ResourceFactory extends Factory {
 
-    public static Resource createResource(String name) throws Exception {
+    public static Resource createReference(String name) throws Exception {
         if ("Condition".equals(name))
             return new Condition();
         if ("Supply".equals(name))
@@ -195,8 +195,8 @@ public class ResourceFactory extends Factory {
             return new Ratio();
         if ("SampledData".equals(name))
             return new SampledData();
-        if ("ResourceReference".equals(name))
-            return new ResourceReference();
+        if ("Reference".equals(name))
+            return new Reference();
         if ("CodeableConcept".equals(name))
             return new CodeableConcept();
         if ("Identifier".equals(name))

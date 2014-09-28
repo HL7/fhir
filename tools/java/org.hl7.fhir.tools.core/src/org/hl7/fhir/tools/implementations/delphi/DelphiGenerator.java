@@ -151,7 +151,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     }
     parserGap();
 
-    generateResource();
+    generateReference();
     parserGap();
 
     for (ElementDefn n : definitions.getInfrastructure().values()) {
@@ -172,7 +172,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
       generate(n.getRoot(), "TFhirResource", true, true, ClassCategory.Resource);
-      genResource(n, "TFhir"+n.getName(), "TFhirResource", true, ClassCategory.Resource);
+      genReference(n, "TFhir"+n.getName(), "TFhirResource", true, ClassCategory.Resource);
       prsrRegX.append("  else if element.baseName = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(element, path+'/"+n.getName()+"')\r\n");
       srlsRegX.append("    frt"+n.getName()+": Compose"+n.getName()+"(xml, '"+n.getName()+"', TFhir"+n.getName()+"(resource));\r\n");
       prsrRegJ.append("  else if s = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(jsn)\r\n");
@@ -353,7 +353,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             String tn = getTypeName(pt, false);
             if (tn.equals(pt))
               tn = "TFhir"+tn;
-            genGenericResource(root, "TFhir"+root.getName()+"_"+getTitle(pt), tn, superClass, ClassCategory.Type);
+            genGenericReference(root, "TFhir"+root.getName()+"_"+getTitle(pt), tn, superClass, ClassCategory.Type);
           }
         }
       }
@@ -362,7 +362,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     }
   }
 
-  private void genGenericResource(ElementDefn root, String tn, String pt, String superClass, ClassCategory category) throws Exception {
+  private void genGenericReference(ElementDefn root, String tn, String pt, String superClass, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+tn.substring(5)+"(element : IXmlDomElement; path : string) : "+tn+";\r\n");
     srlsdefX.append("    procedure Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
     prsrdefJ.append("    function Parse"+tn.substring(5)+"(jsn : TJsonObject) : "+tn+"; overload; {b/}\r\n");
@@ -616,7 +616,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defineList(tn, tn+"List", null, category, false);
   }
 
-  private void genResource(ResourceDefn root, String tn, String superClass, boolean listsAreWrapped, ClassCategory category) throws Exception {
+  private void genReference(ResourceDefn root, String tn, String superClass, boolean listsAreWrapped, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+root.getName()+"(element : IXmlDomElement; path : string) : TFhir"+root.getName()+";\r\n");
     srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrdefJ.append("    function Parse"+root.getName()+"(jsn : TJsonObject) : TFhir"+root.getName()+"; overload; {b|}\r\n");
@@ -837,7 +837,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     s.append("[");
     boolean first = true;
     for (String p : targets) {
-      if (definitions.hasResource(p)) {
+      if (definitions.hasReference(p)) {
         if (!first)
           s.append(", ");
         s.append("frt"+p);
@@ -1675,10 +1675,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           int i = 0;
           for (TypeRef td : e.getTypes()) {
             if (td.isResourceReference()) {
-              workingParserX.append("      else if (child.baseName = '"+pfx+"Resource') then\r\n        result."+s+" := ParseResourceReference(child, path+'/"+pfx+"Resource') {a}\r\n");
-              workingComposerX.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is TFhirResourceReference) {2} then\r\n    ComposeResourceReference(xml, '"+pfx+"Resource', TFhirResourceReference(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
-              workingParserJ.append("    if jsn.has('"+pfx+"Resource') {a3} then\r\n      result."+s+" := ParseResourceReference(jsn.vObj['"+pfx+"Resource']);\r\n");
-              workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is TFhirResourceReference) then\r\n    ComposeResourceReference(json, '"+pfx+"Resource', TFhirResourceReference(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
+              workingParserX.append("      else if (child.baseName = '"+pfx+"Reference') then\r\n        result."+s+" := ParseReference(child, path+'/"+pfx+"Reference') {a}\r\n");
+              workingComposerX.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is TFhirReference) {2} then\r\n    ComposeReference(xml, '"+pfx+"Reference', TFhirReference(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
+              workingParserJ.append("    if jsn.has('"+pfx+"Reference') {a3} then\r\n      result."+s+" := ParseReference(jsn.vObj['"+pfx+"Reference']);\r\n");
+              workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is TFhirReference) then\r\n    ComposeReference(json, '"+pfx+"Reference', TFhirReference(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
             }
             else {
               if (td.hasParams())
@@ -1740,17 +1740,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             i++;
           }
           for (ElementDefn ed : definitions.getTypes().values()) {
-            if (ed.getName().equals("ResourceReference")) {
-              workingParserX.append("      else if (child.baseName = '"+pfx+"Resource') then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(child, path+'/"+pfx+"Resource') {e0}\r\n");
-              workingComposerX.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") {8} then\r\n    Compose"+getTitle(ed.getName())+"(xml, '"+pfx+"Resource', TFhir"+getTitle(ed.getName())+"(elem."+s+"))\r\n");
-              workingParserJ.append("    if jsn.has('"+pfx+"Resource') {a6} then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(jsn.vObj['"+pfx+"Resource']);\r\n");
-              workingComposerJ.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") then\r\n    Compose"+getTitle(ed.getName())+"(json, '"+pfx+"Resource', TFhir"+getTitle(ed.getName())+"(elem."+s+"))\r\n");
-            } else {
-              workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(ed.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(child, path+'."+pfx+getTitle(ed.getName())+"') {e"+ed.getName()+"}\r\n");
-              workingComposerX.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") {8} then\r\n    Compose"+getTitle(ed.getName())+"(xml, '"+pfx+getTitle(ed.getName())+"', TFhir"+getTitle(ed.getName())+"(elem."+s+"))\r\n");
-              workingParserJ.append("    if jsn.has('"+pfx+getTitle(ed.getName())+"') {a7} then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(jsn.vObj['"+pfx+getTitle(ed.getName())+"']);\r\n");
-              workingComposerJ.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") then\r\n    Compose"+getTitle(ed.getName())+"(json, '"+pfx+getTitle(ed.getName())+"', TFhir"+getTitle(ed.getName())+"(elem."+s+"))\r\n");
-            }
+            workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(ed.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(child, path+'."+pfx+getTitle(ed.getName())+"') {e"+ed.getName()+"}\r\n");
+            workingComposerX.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") {8} then\r\n    Compose"+getTitle(ed.getName())+"(xml, '"+pfx+getTitle(ed.getName())+"', TFhir"+getTitle(ed.getName())+"(elem."+s+"))\r\n");
+            workingParserJ.append("    if jsn.has('"+pfx+getTitle(ed.getName())+"') {a7} then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(jsn.vObj['"+pfx+getTitle(ed.getName())+"']);\r\n");
+            workingComposerJ.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") then\r\n    Compose"+getTitle(ed.getName())+"(json, '"+pfx+getTitle(ed.getName())+"', TFhir"+getTitle(ed.getName())+"(elem."+s+"))\r\n");
           }
           int t = definitions.getStructures().size();
           i = 0;
@@ -2081,14 +2074,14 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   private String getTypename(TypeRef type, boolean complex) throws Exception {
     if (type.getParams().size() == 1) {     
       if (type.isResourceReference())
-        return "TFhirResourceReference{"+getTypeName(type.getParams().get(0), complex)+"}";
+        return "TFhirReference{"+getTypeName(type.getParams().get(0), complex)+"}";
       else if (type.getName().equals("Interval"))
         return "TInterval_"+type.getParams().get(0);
       else
         throw new Exception("not supported: "+type.summary());
     } else if (type.getParams().size() > 1) {
       if (type.isResourceReference())
-        return "TFhirResourceReference{Resource}";
+        return "TFhirReference{Resource}";
       else
         throw new Exception("not supported");
     } else {
@@ -2108,7 +2101,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     } else if (tn.equals("*")) {
       return "TFhirType";
     } else if (tn.equals("Any")) {
-      return "Resource";
+      return "TFhirReference";
     } else if (definitions.getConstraints().containsKey(tn)) {
       return getTypeName(definitions.getConstraints().get(tn).getBaseType(), complex);
     } else {
@@ -2838,7 +2831,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   }
 
-  private void generateResource() throws Exception {
+  private void generateReference() throws Exception {
     String prefix = "frt";
     StringBuilder def = new StringBuilder();
     StringBuilder con = new StringBuilder();

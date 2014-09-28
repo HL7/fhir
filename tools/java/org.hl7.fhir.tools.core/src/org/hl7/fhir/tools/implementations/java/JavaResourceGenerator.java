@@ -662,7 +662,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				writeWithHash(indent+"protected List<"+root.getName()+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+root.getName()+">();\r\n");
 			else {
 			  writeWithHash(indent+"protected List<"+tn+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+tn+">();\r\n");
-	      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {
+	      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
 	        List<String> params = e.getTypes().get(0).getParams();
 	        String rn = params.size() == 1 ? params.get(0) : "Resource";
 	        if (rn.equals("Any"))
@@ -677,7 +677,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       jdoc(indent, e.getDefinition());
       writeWithHash(indent+"protected "+tn+" "+getElementName(e.getName(), true)+";\r\n");
 			write("\r\n");
-      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {
+      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
         List<String> params = e.getTypes().get(0).getParams();
         String rn = params.size() == 1 ? params.get(0) : "Resource";
         if (rn.equals("Any"))
@@ -771,7 +771,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"  return false;\r\n");
         write(indent+"}\r\n");
         write("\r\n");
-      } else if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {
+      } else if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
         
         List<String> params = e.getTypes().get(0).getParams();
         String rn = params.size() == 1 ? params.get(0) : "Resource";
@@ -835,7 +835,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"}\r\n");
 	      write("\r\n");
 			  
-			} else if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {
+			} else if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
 			  
 			  List<String> params = e.getTypes().get(0).getParams();
         String rn = params.size() == 1 ? params.get(0) : "Resource";

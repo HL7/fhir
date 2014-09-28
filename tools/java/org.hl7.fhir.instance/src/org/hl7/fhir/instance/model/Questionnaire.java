@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -571,7 +571,7 @@ public class Questionnaire extends Resource {
         /**
          * Reference to a valueset containing the possible options.
          */
-        protected ResourceReference options;
+        protected Reference options;
 
         /**
          * The actual object that is the target of the reference (Reference to a valueset containing the possible options.)
@@ -583,7 +583,7 @@ public class Questionnaire extends Resource {
          */
         protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 
-        private static final long serialVersionUID = -883055791L;
+        private static final long serialVersionUID = 2101757219L;
 
       public QuestionComponent() {
         super();
@@ -789,14 +789,14 @@ public class Questionnaire extends Resource {
         /**
          * @return {@link #options} (Reference to a valueset containing the possible options.)
          */
-        public ResourceReference getOptions() { 
+        public Reference getOptions() { 
           return this.options;
         }
 
         /**
          * @param value {@link #options} (Reference to a valueset containing the possible options.)
          */
-        public QuestionComponent setOptions(ResourceReference value) { 
+        public QuestionComponent setOptions(Reference value) { 
           this.options = value;
           return this;
         }
@@ -841,7 +841,7 @@ public class Questionnaire extends Resource {
           childrenList.add(new Property("type", "code", "The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("required", "boolean", "If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.", 0, java.lang.Integer.MAX_VALUE, required));
           childrenList.add(new Property("repeats", "boolean", "Whether the group may occur multiple times in the instance, containing multiple sets of answers.", 0, java.lang.Integer.MAX_VALUE, repeats));
-          childrenList.add(new Property("options", "Resource(ValueSet)", "Reference to a valueset containing the possible options.", 0, java.lang.Integer.MAX_VALUE, options));
+          childrenList.add(new Property("options", "Reference(ValueSet)", "Reference to a valueset containing the possible options.", 0, java.lang.Integer.MAX_VALUE, options));
           childrenList.add(new Property("group", "@Questionnaire.group", "Nested group, containing nested question for this question. The order of groups within the question is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
         }
 

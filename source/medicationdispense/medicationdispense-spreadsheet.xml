@@ -363,7 +363,7 @@
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Resource(Patient)</Data><NamedCell
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Reference(Patient)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Who the dispense is for</Data><NamedCell
@@ -384,7 +384,7 @@
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Resource(Practitioner)</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Reference(Practitioner)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Practitioner responsible for dispensing medication</Data><NamedCell
@@ -398,7 +398,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationDispense.authorizingPrescription</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(MedicationPrescription)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(MedicationPrescription)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Medication order that authorizes the dispense</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -503,7 +503,7 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.dispense.medication</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6" ss:StyleID="s75"><Data ss:Type="String">Resource(Medication)</Data><NamedCell
+    <Cell ss:Index="6" ss:StyleID="s75"><Data ss:Type="String">Reference(Medication)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">What medication was supplied</Data><NamedCell
@@ -555,7 +555,7 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.destination</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Location)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Where the medication was sent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -572,7 +572,7 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.receiver</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Practitioner)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient|Practitioner)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who collected the medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -816,7 +816,7 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.substitution.responsibleParty</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who is responsible for the substitution</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

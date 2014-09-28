@@ -333,7 +333,7 @@ public interface ElementDefn extends EObject {
 	 * @model
 	 * @generated
 	 */
-	boolean containsResource();
+	boolean containsReference();
 
 	/**
 	 * <!-- begin-user-doc -->

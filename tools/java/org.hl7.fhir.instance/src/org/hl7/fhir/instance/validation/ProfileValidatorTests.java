@@ -93,7 +93,7 @@ public class ProfileValidatorTests {
 
 	private void executeCase(InstanceValidator v, String dir, Element test) throws Exception {
 	  Element r = parseXml(dir+XMLUtil.getNamedChildValue(test, "instance")+".xml").getDocumentElement();
-	  Profile p = (Profile) parseResource(dir+XMLUtil.getNamedChildValue(test, "profile")+".xml");
+	  Profile p = (Profile) parseReference(dir+XMLUtil.getNamedChildValue(test, "profile")+".xml");
 	  List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
 	  v.validateInstanceByProfile(errors , r, p);
 	  String outcome = XMLUtil.getNamedChildValue(test, "outcome");
@@ -109,7 +109,7 @@ public class ProfileValidatorTests {
 	  	  System.out.println("  ..: "+vm.summary());
 	}
 
-	private Resource parseResource(String filename) throws Exception {
+	private Resource parseReference(String filename) throws Exception {
 		XmlParser xml = new XmlParser();
 		return xml.parse(new FileInputStream(filename));
   }

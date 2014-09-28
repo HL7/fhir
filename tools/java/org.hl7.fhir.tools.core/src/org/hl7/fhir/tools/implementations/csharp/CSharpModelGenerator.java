@@ -391,7 +391,7 @@ public class CSharpModelGenerator extends GenBlock
       nl(")]");
     }
     
-    if(!member.isPolymorph() && member.getType().get(0).getName().equals("ResourceReference"))
+    if(!member.isPolymorph() && member.getType().get(0).getName().equals("Reference"))
     {
       ln("[References(");
       boolean isNext = false;
@@ -579,7 +579,7 @@ public class CSharpModelGenerator extends GenBlock
 		{
 		    ln("[FhirType(\"" + composite.getName() + "\")]" );
 		}
-		else if( composite.isResource() && !composite.isAbstract() )
+		else if( composite.isReference() && !composite.isAbstract() )
 		{
 			ln("[FhirType(\"" + composite.getName() + "\", IsResource=true)]" );
 		}

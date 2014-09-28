@@ -514,7 +514,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.question.options</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Resource(ValueSet)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Reference(ValueSet)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Valueset containing the possible options</Data></Cell>
     <Cell><Data ss:Type="String">Reference to a valueset containing the possible options</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Not supported - MIF/templating layer to capture value set</Data></Cell>

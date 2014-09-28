@@ -1078,7 +1078,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s69"><Data ss:Type="String">If the element is a reference to another resource, this element contains &quot;ResourceReference&quot;, and the profile element refers to the profile of the allowed target of the resource, which may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/profiles/Patient). There would be one pair of type/code for each allowed target resource type</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s69"><Data ss:Type="String">If the element is a reference to another resource, this element contains &quot;Reference&quot;, and the profile element refers to the profile of the allowed target of the resource, which may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/profiles/Patient). There would be one pair of type/code for each allowed target resource type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1454,7 +1454,7 @@
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">uri | Resource(ValueSet)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">uri | Reference(ValueSet)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Source of value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1990,7 +1990,7 @@
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.snapshot.element.definition.type</Data></Cell>
     <Cell><Data ss:Type="String">Aggregation may only be specified if one of the allowed types for the element is a resource</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:aggregation)) or exists(f:code[@value = 'ResourceReference'])</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:aggregation)) or exists(f:code[@value = 'Reference'])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="Number">10</Data></Cell>

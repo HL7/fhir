@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -434,20 +434,20 @@ public class Observation extends Resource {
         /**
          * A reference to the observation that is related to this observation.
          */
-        protected ResourceReference target;
+        protected Reference target;
 
         /**
          * The actual object that is the target of the reference (A reference to the observation that is related to this observation.)
          */
         protected Observation targetTarget;
 
-        private static final long serialVersionUID = -984646850L;
+        private static final long serialVersionUID = 1078793488L;
 
       public ObservationRelatedComponent() {
         super();
       }
 
-      public ObservationRelatedComponent(ResourceReference target) {
+      public ObservationRelatedComponent(Reference target) {
         super();
         this.target = target;
       }
@@ -491,14 +491,14 @@ public class Observation extends Resource {
         /**
          * @return {@link #target} (A reference to the observation that is related to this observation.)
          */
-        public ResourceReference getTarget() { 
+        public Reference getTarget() { 
           return this.target;
         }
 
         /**
          * @param value {@link #target} (A reference to the observation that is related to this observation.)
          */
-        public ObservationRelatedComponent setTarget(ResourceReference value) { 
+        public ObservationRelatedComponent setTarget(Reference value) { 
           this.target = value;
           return this;
         }
@@ -521,7 +521,7 @@ public class Observation extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "A code specifying the kind of relationship that exists with the target observation.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("target", "Resource(Observation)", "A reference to the observation that is related to this observation.", 0, java.lang.Integer.MAX_VALUE, target));
+          childrenList.add(new Property("target", "Reference(Observation)", "A reference to the observation that is related to this observation.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       public ObservationRelatedComponent copy() {
@@ -591,7 +591,7 @@ public class Observation extends Resource {
     /**
      * The thing the observation is being made about.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The thing the observation is being made about.)
@@ -601,7 +601,7 @@ public class Observation extends Resource {
     /**
      * The specimen that was used when this observation was made.
      */
-    protected ResourceReference specimen;
+    protected Reference specimen;
 
     /**
      * The actual object that is the target of the reference (The specimen that was used when this observation was made.)
@@ -611,7 +611,7 @@ public class Observation extends Resource {
     /**
      * Who was responsible for asserting the observed value as "true".
      */
-    protected List<ResourceReference> performer = new ArrayList<ResourceReference>();
+    protected List<Reference> performer = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Who was responsible for asserting the observed value as "true".)
      */
@@ -621,7 +621,7 @@ public class Observation extends Resource {
     /**
      * The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation.
      */
-    protected ResourceReference encounter;
+    protected Reference encounter;
 
     /**
      * The actual object that is the target of the reference (The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation.)
@@ -638,7 +638,7 @@ public class Observation extends Resource {
      */
     protected List<ObservationRelatedComponent> related = new ArrayList<ObservationRelatedComponent>();
 
-    private static final long serialVersionUID = -1164054480L;
+    private static final long serialVersionUID = 1423439902L;
 
     public Observation() {
       super();
@@ -895,14 +895,14 @@ public class Observation extends Resource {
     /**
      * @return {@link #subject} (The thing the observation is being made about.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The thing the observation is being made about.)
      */
-    public Observation setSubject(ResourceReference value) { 
+    public Observation setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -925,14 +925,14 @@ public class Observation extends Resource {
     /**
      * @return {@link #specimen} (The specimen that was used when this observation was made.)
      */
-    public ResourceReference getSpecimen() { 
+    public Reference getSpecimen() { 
       return this.specimen;
     }
 
     /**
      * @param value {@link #specimen} (The specimen that was used when this observation was made.)
      */
-    public Observation setSpecimen(ResourceReference value) { 
+    public Observation setSpecimen(Reference value) { 
       this.specimen = value;
       return this;
     }
@@ -955,7 +955,7 @@ public class Observation extends Resource {
     /**
      * @return {@link #performer} (Who was responsible for asserting the observed value as "true".)
      */
-    public List<ResourceReference> getPerformer() { 
+    public List<Reference> getPerformer() { 
       return this.performer;
     }
 
@@ -963,8 +963,8 @@ public class Observation extends Resource {
     /**
      * @return {@link #performer} (Who was responsible for asserting the observed value as "true".)
      */
-    public ResourceReference addPerformer() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addPerformer() { 
+      Reference t = new Reference();
       this.performer.add(t);
       return t;
     }
@@ -979,14 +979,14 @@ public class Observation extends Resource {
     /**
      * @return {@link #encounter} (The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation.)
      */
-    public ResourceReference getEncounter() { 
+    public Reference getEncounter() { 
       return this.encounter;
     }
 
     /**
      * @param value {@link #encounter} (The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation.)
      */
-    public Observation setEncounter(ResourceReference value) { 
+    public Observation setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -1053,10 +1053,10 @@ public class Observation extends Resource {
         childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates where on the subject's body the observation was made.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, java.lang.Integer.MAX_VALUE, method));
         childrenList.add(new Property("identifier", "Identifier", "A unique identifier for the simple observation.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Location)", "The thing the observation is being made about.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("specimen", "Resource(Specimen)", "The specimen that was used when this observation was made.", 0, java.lang.Integer.MAX_VALUE, specimen));
-        childrenList.add(new Property("performer", "Resource(Practitioner|Device|Organization|Patient)", "Who was responsible for asserting the observed value as 'true'.", 0, java.lang.Integer.MAX_VALUE, performer));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The thing the observation is being made about.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("specimen", "Reference(Specimen)", "The specimen that was used when this observation was made.", 0, java.lang.Integer.MAX_VALUE, specimen));
+        childrenList.add(new Property("performer", "Reference(Practitioner|Device|Organization|Patient)", "Who was responsible for asserting the observed value as 'true'.", 0, java.lang.Integer.MAX_VALUE, performer));
+        childrenList.add(new Property("encounter", "Reference(Encounter)", "The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("referenceRange", "", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange));
         childrenList.add(new Property("related", "", "Related observations - either components, or previous observations, or statements of derivation.", 0, java.lang.Integer.MAX_VALUE, related));
       }
@@ -1076,8 +1076,8 @@ public class Observation extends Resource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.specimen = specimen == null ? null : specimen.copy();
-        dst.performer = new ArrayList<ResourceReference>();
-        for (ResourceReference i : performer)
+        dst.performer = new ArrayList<Reference>();
+        for (Reference i : performer)
           dst.performer.add(i.copy());
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.referenceRange = new ArrayList<ObservationReferenceRangeComponent>();

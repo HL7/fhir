@@ -316,7 +316,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">ConceptMap.source[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">uri | Resource(ValueSet|Profile)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">uri | Reference(ValueSet|Profile)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Identifies the source of the concepts which are being mapped</Data></Cell>
     <Cell><Data ss:Type="String">The source value set that specifies the concepts that are being mapped</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
@@ -325,7 +325,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">ConceptMap.target[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">uri | Resource(ValueSet|Profile)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">uri | Reference(ValueSet|Profile)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Provides context to the mappings</Data></Cell>
     <Cell><Data ss:Type="String">The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
@@ -971,7 +971,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">MAY</Data></Cell>
-    <Cell><Data ss:Type="String">Resource(ValueSet)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(ValueSet)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Identifies the value set used when the concept (system/code pair) was chosen.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

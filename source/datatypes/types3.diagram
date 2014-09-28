@@ -1,8 +1,8 @@
 [diagram]
-classes=Extension,Narrative,ResourceReference
+classes=Extension,Narrative,Reference
 element-attributes=true
 
 [directions]
 Extension=right
 Narrative=left
-ResourceReference=down
+Reference=down

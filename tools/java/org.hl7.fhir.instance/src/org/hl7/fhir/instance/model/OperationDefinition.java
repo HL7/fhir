@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -206,14 +206,14 @@ public class OperationDefinition extends Resource {
         /**
          * A profile the specifies the rules that this parameter must conform to.
          */
-        protected ResourceReference profile;
+        protected Reference profile;
 
         /**
          * The actual object that is the target of the reference (A profile the specifies the rules that this parameter must conform to.)
          */
         protected Profile profileTarget;
 
-        private static final long serialVersionUID = 1779939130L;
+        private static final long serialVersionUID = 55565452L;
 
       public OperationDefinitionParameterComponent() {
         super();
@@ -410,14 +410,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
          */
-        public ResourceReference getProfile() { 
+        public Reference getProfile() { 
           return this.profile;
         }
 
         /**
          * @param value {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
          */
-        public OperationDefinitionParameterComponent setProfile(ResourceReference value) { 
+        public OperationDefinitionParameterComponent setProfile(Reference value) { 
           this.profile = value;
           return this;
         }
@@ -445,7 +445,7 @@ public class OperationDefinition extends Resource {
           childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("type", "Coding", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("profile", "Resource(Profile)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("profile", "Reference(Profile)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
         }
 
       public OperationDefinitionParameterComponent copy() {
@@ -530,7 +530,7 @@ public class OperationDefinition extends Resource {
     /**
      * Indicates that this operation definition is a constraining profile on the base.
      */
-    protected ResourceReference base;
+    protected Reference base;
 
     /**
      * The actual object that is the target of the reference (Indicates that this operation definition is a constraining profile on the base.)
@@ -557,7 +557,7 @@ public class OperationDefinition extends Resource {
      */
     protected List<OperationDefinitionParameterComponent> parameter = new ArrayList<OperationDefinitionParameterComponent>();
 
-    private static final long serialVersionUID = 558764795L;
+    private static final long serialVersionUID = 1346669801L;
 
     public OperationDefinition() {
       super();
@@ -990,14 +990,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #base} (Indicates that this operation definition is a constraining profile on the base.)
      */
-    public ResourceReference getBase() { 
+    public Reference getBase() { 
       return this.base;
     }
 
     /**
      * @param value {@link #base} (Indicates that this operation definition is a constraining profile on the base.)
      */
-    public OperationDefinition setBase(ResourceReference value) { 
+    public OperationDefinition setBase(Reference value) { 
       this.base = value;
       return this;
     }
@@ -1150,7 +1150,7 @@ public class OperationDefinition extends Resource {
         childrenList.add(new Property("kind", "code", "Whether this is operation or named query.", 0, java.lang.Integer.MAX_VALUE, kind));
         childrenList.add(new Property("name", "code", "The name used to invoke the operation.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("notes", "string", "Additional information about how to use this operation or named query.", 0, java.lang.Integer.MAX_VALUE, notes));
-        childrenList.add(new Property("base", "Resource(OperationDefinition)", "Indicates that this operation definition is a constraining profile on the base.", 0, java.lang.Integer.MAX_VALUE, base));
+        childrenList.add(new Property("base", "Reference(OperationDefinition)", "Indicates that this operation definition is a constraining profile on the base.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("system", "boolean", "Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).", 0, java.lang.Integer.MAX_VALUE, system));
         childrenList.add(new Property("type", "code", "Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("instance", "boolean", "Indicates whether this operation can be invoked on a particular instance of one of the given types.", 0, java.lang.Integer.MAX_VALUE, instance));

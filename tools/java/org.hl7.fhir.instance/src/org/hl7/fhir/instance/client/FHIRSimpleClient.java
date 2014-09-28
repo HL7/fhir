@@ -154,9 +154,9 @@ public class FHIRSimpleClient implements FHIRClient {
 		Conformance conformance = null;
 		try {
 			if(useOptionsVerb) {
-				conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getResource();//TODO fix this
+				conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getReference();//TODO fix this
 			} else {
-				conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat(), proxy).getResource();
+				conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat(), proxy).getReference();
 			}
 		} catch(Exception e) {
 			handleException("An error has occurred while trying to fetch the server's conformance statement", e);
@@ -438,10 +438,10 @@ public class FHIRSimpleClient implements FHIRClient {
 	}
 	
 	@Override
-	public <T extends Resource> List<AtomCategory> getTagsForResource(Class<T> resource, String id) {
+	public <T extends Resource> List<AtomCategory> getTagsForReference(Class<T> resource, String id) {
 		TagListRequest result = null;
 		try {
-			result = ClientUtils.issueGetRequestForTagList(resourceAddress.resolveGetTagsForResource(resource, id), getPreferredResourceFormat(), null, proxy);
+			result = ClientUtils.issueGetRequestForTagList(resourceAddress.resolveGetTagsForReference(resource, id), getPreferredResourceFormat(), null, proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve tags for this resource", e);
 		}
@@ -460,9 +460,9 @@ public class FHIRSimpleClient implements FHIRClient {
 	}
 	
 //	@Override
-//	public <T extends Resource> boolean deleteTagsForResource(Class<T> resourceClass, String id) {
+//	public <T extends Resource> boolean deleteTagsForReference(Class<T> resourceClass, String id) {
 //		try {
-//			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResource(resourceClass, id), proxy);
+//			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForReference(resourceClass, id), proxy);
 //		} catch(Exception e) {
 //			handleException("An error has occurred while trying to retrieve tags for this resource version", e);
 //			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
@@ -484,7 +484,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> List<AtomCategory> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id) {
 		TagListRequest request = null;
 		try {
-			request = ClientUtils.issuePostRequestForTagList(resourceAddress.resolveGetTagsForResource(resourceClass, id),ClientUtils.getTagListAsByteArray(tags, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), null, proxy);
+			request = ClientUtils.issuePostRequestForTagList(resourceAddress.resolveGetTagsForReference(resourceClass, id),ClientUtils.getTagListAsByteArray(tags, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), null, proxy);
 			request.addSuccessStatus(201);
 			request.addSuccessStatus(200);
 			if(request.isUnsuccessfulRequest()) {

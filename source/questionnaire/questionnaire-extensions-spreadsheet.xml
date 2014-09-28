@@ -389,7 +389,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="String">Resource(DataElement)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(DataElement)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Implemented CDE</Data></Cell>
     <Cell><Data ss:Type="String">A reference to the Data Element that corresponds to the question text and answer constraints for this question.</Data></Cell>
     <Cell><Data ss:Type="String">If a code applies to a question, that code should still be conveyed on the question, even if the same code is also referenced as a DataElement.code in the referenced data element.  This extension must not be used in place of specifying the Questionnaire.group.question.concept element.</Data></Cell>

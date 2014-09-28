@@ -214,11 +214,11 @@ public class SourceParser {
 		
     logger.log("Load Resources", LogMessageType.Process);
 		for (String n : ini.getPropertyNames("resources"))
-			loadResource(n, definitions.getResources(), false);
+			loadReference(n, definitions.getResources(), false);
 		
-		ResourceDefn baseResource = loadResource("resource", null, false);
+		ResourceDefn baseResource = loadReference("resource", null, false);
 		baseResource.setAbstract(true);
-		definitions.setBaseResource(baseResource);
+		definitions.setBaseReference(baseResource);
 		
 		loadCompartments();
 		loadStatusCodes();
@@ -527,7 +527,7 @@ public class SourceParser {
 		}
 	}
 
-	private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, boolean sandbox) throws Exception {
+	private ResourceDefn loadReference(String n, Map<String, ResourceDefn> map, boolean sandbox) throws Exception {
 		String src = sandbox ? sndBoxDir : srcDir;
 		File spreadsheet = new CSFile((sandbox ? sndBoxDir : srcDir) + n + File.separatorChar + n + "-spreadsheet.xml");
 		if (!spreadsheet.exists())
@@ -537,7 +537,7 @@ public class SourceParser {
 				spreadsheet), spreadsheet.getName(), definitions, src, logger, registry);
 		ResourceDefn root;
 		try {
-		  root = sparser.parseResource();
+		  root = sparser.parseReference();
 		} catch (Exception e) {
 		  throw new Exception("Error Parsing Resource "+n+": "+e.getMessage(), e);
 		}
@@ -547,7 +547,7 @@ public class SourceParser {
 			processEvent(e, root.getRoot());
 
 		// EK: Commented this out, seems double with next statement, since
-		// loadResource()
+		// loadReference()
 		// is always called with definitions.getResources in its map argument.
 		// definitions.getResources().put(root.getName(), root);
 		if (map != null) {

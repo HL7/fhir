@@ -151,7 +151,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Patient|Group)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient|Group)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Who/what does assessment apply to?</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">The patient or group the risk assessment applies to</Data></Cell>
@@ -186,7 +186,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Condition)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Condition)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Condition assessed</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">For assessments or prognosis specific to a particular condition, indicates the condition being assessed.</Data></Cell>
@@ -202,7 +202,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner | Device)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner | Device)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Who did assessment?</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">The provider or software application that performed the assessment</Data></Cell>
@@ -245,7 +245,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">RiskAssessment.basis</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Information used in assessment</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.)</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=DRIV].target</Data></Cell>

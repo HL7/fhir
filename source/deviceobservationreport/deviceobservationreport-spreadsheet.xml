@@ -174,7 +174,7 @@
    <Row ss:Height="45">
     <Cell><Data ss:Type="String">DeviceObservationReport.source</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Device)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Device)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Identifies/describes where the data came from</Data></Cell>
     <Cell><Data ss:Type="String">Identification information for the device that is the source of the data</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.participation[typeCode=PFM].role[player.classCode=DEV]</Data></Cell>
@@ -182,7 +182,7 @@
    <Row ss:Height="30" ss:StyleID="s96">
     <Cell ss:StyleID="s95"><Data ss:Type="String">DeviceObservationReport.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Device|Location)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient|Device|Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Subject of the measurement</Data></Cell>
     <Cell><Data ss:Type="String">The subject of the measurement</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data></Cell>
@@ -232,7 +232,7 @@
    <Row ss:Height="30" ss:StyleID="s96">
     <Cell ss:StyleID="s95"><Data ss:Type="String">DeviceObservationReport.virtualDevice.channel.metric.observation</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Observation)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The data for the metric</Data></Cell>
     <Cell><Data ss:Type="String">The data for the metric</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.value</Data></Cell>

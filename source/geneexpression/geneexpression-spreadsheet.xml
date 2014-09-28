@@ -122,7 +122,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Subject described by the resource</Data></Cell>
     <Cell><Data ss:Type="String">Subject described by the resource</Data></Cell>
@@ -197,7 +197,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">GeneExpression.microarray</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Microarray)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Microarray)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Microarray that studies the gene</Data></Cell>
     <Cell><Data ss:Type="String">Microarray that studies the gene</Data></Cell>
    </Row>
@@ -210,14 +210,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">GeneExpression.rnaSeq.inputLab</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(SequencingLab)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(SequencingLab)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Input lab for the RNA-Seq</Data></Cell>
     <Cell><Data ss:Type="String">Input lab for the RNA-Seq</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">GeneExpression.rnaSeq.inputAnalysis</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(SequencingAnalysis)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(SequencingAnalysis)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Input analysis for the RNA-Seq</Data></Cell>
     <Cell><Data ss:Type="String">Input analysis for the RNA-Seq</Data></Cell>
    </Row>

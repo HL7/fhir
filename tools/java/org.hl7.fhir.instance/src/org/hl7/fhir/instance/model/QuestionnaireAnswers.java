@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -107,7 +107,7 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.
          */
-        protected ResourceReference subject;
+        protected Reference subject;
 
         /**
          * The actual object that is the target of the reference (More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.)
@@ -124,7 +124,7 @@ public class QuestionnaireAnswers extends Resource {
          */
         protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
 
-        private static final long serialVersionUID = -885347240L;
+        private static final long serialVersionUID = -672105814L;
 
       public GroupComponent() {
         super();
@@ -241,14 +241,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #subject} (More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.)
          */
-        public ResourceReference getSubject() { 
+        public Reference getSubject() { 
           return this.subject;
         }
 
         /**
          * @param value {@link #subject} (More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.)
          */
-        public GroupComponent setSubject(ResourceReference value) { 
+        public GroupComponent setSubject(Reference value) { 
           this.subject = value;
           return this;
         }
@@ -307,7 +307,7 @@ public class QuestionnaireAnswers extends Resource {
           childrenList.add(new Property("linkId", "string", "Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
           childrenList.add(new Property("title", "string", "Text that is displayed above the contents of the group.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("text", "string", "Additional text for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, text));
-          childrenList.add(new Property("subject", "Resource(Any)", "More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.", 0, java.lang.Integer.MAX_VALUE, subject));
+          childrenList.add(new Property("subject", "Reference(Any)", "More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.", 0, java.lang.Integer.MAX_VALUE, subject));
           childrenList.add(new Property("group", "@QuestionnaireAnswers.group", "A sub-group within a group. The ordering of groups within this group is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
           childrenList.add(new Property("question", "", "Set of questions within this group. The order of questions within the group is relevant.", 0, java.lang.Integer.MAX_VALUE, question));
         }
@@ -514,7 +514,7 @@ public class QuestionnaireAnswers extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("value[x]", "boolean|decimal|integer|date|dateTime|instant|time|string|Attachment|Coding|Quantity|Resource(Any)", "Single-valued answer to the question.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value[x]", "boolean|decimal|integer|date|dateTime|instant|time|string|Attachment|Coding|Quantity|Reference(Any)", "Single-valued answer to the question.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       public QuestionAnswerComponent copy() {
@@ -533,7 +533,7 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * Indicates the Questionnaire resource that defines the form for which answers are being provided.
      */
-    protected ResourceReference questionnaire;
+    protected Reference questionnaire;
 
     /**
      * The actual object that is the target of the reference (Indicates the Questionnaire resource that defines the form for which answers are being provided.)
@@ -548,7 +548,7 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
@@ -558,7 +558,7 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.
      */
-    protected ResourceReference author;
+    protected Reference author;
 
     /**
      * The actual object that is the target of the reference (Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.)
@@ -573,7 +573,7 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * The person who answered the questions about the subject. Only used when this is not the subject him/herself.
      */
-    protected ResourceReference source;
+    protected Reference source;
 
     /**
      * The actual object that is the target of the reference (The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
@@ -583,7 +583,7 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.
      */
-    protected ResourceReference encounter;
+    protected Reference encounter;
 
     /**
      * The actual object that is the target of the reference (Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
@@ -595,7 +595,7 @@ public class QuestionnaireAnswers extends Resource {
      */
     protected GroupComponent group;
 
-    private static final long serialVersionUID = 1656433257L;
+    private static final long serialVersionUID = -949684393L;
 
     public QuestionnaireAnswers() {
       super();
@@ -625,14 +625,14 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * @return {@link #questionnaire} (Indicates the Questionnaire resource that defines the form for which answers are being provided.)
      */
-    public ResourceReference getQuestionnaire() { 
+    public Reference getQuestionnaire() { 
       return this.questionnaire;
     }
 
     /**
      * @param value {@link #questionnaire} (Indicates the Questionnaire resource that defines the form for which answers are being provided.)
      */
-    public QuestionnaireAnswers setQuestionnaire(ResourceReference value) { 
+    public QuestionnaireAnswers setQuestionnaire(Reference value) { 
       this.questionnaire = value;
       return this;
     }
@@ -687,14 +687,14 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * @return {@link #subject} (The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
      */
-    public QuestionnaireAnswers setSubject(ResourceReference value) { 
+    public QuestionnaireAnswers setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -717,14 +717,14 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * @return {@link #author} (Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.)
      */
-    public ResourceReference getAuthor() { 
+    public Reference getAuthor() { 
       return this.author;
     }
 
     /**
      * @param value {@link #author} (Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.)
      */
-    public QuestionnaireAnswers setAuthor(ResourceReference value) { 
+    public QuestionnaireAnswers setAuthor(Reference value) { 
       this.author = value;
       return this;
     }
@@ -779,14 +779,14 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * @return {@link #source} (The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
      */
-    public ResourceReference getSource() { 
+    public Reference getSource() { 
       return this.source;
     }
 
     /**
      * @param value {@link #source} (The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
      */
-    public QuestionnaireAnswers setSource(ResourceReference value) { 
+    public QuestionnaireAnswers setSource(Reference value) { 
       this.source = value;
       return this;
     }
@@ -809,14 +809,14 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * @return {@link #encounter} (Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
      */
-    public ResourceReference getEncounter() { 
+    public Reference getEncounter() { 
       return this.encounter;
     }
 
     /**
      * @param value {@link #encounter} (Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
      */
-    public QuestionnaireAnswers setEncounter(ResourceReference value) { 
+    public QuestionnaireAnswers setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -854,13 +854,13 @@ public class QuestionnaireAnswers extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A business identifier assigned to a particular completed (or partially completed) questionnaire.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("questionnaire", "Resource(Questionnaire)", "Indicates the Questionnaire resource that defines the form for which answers are being provided.", 0, java.lang.Integer.MAX_VALUE, questionnaire));
+        childrenList.add(new Property("questionnaire", "Reference(Questionnaire)", "Indicates the Questionnaire resource that defines the form for which answers are being provided.", 0, java.lang.Integer.MAX_VALUE, questionnaire));
         childrenList.add(new Property("status", "code", "The lifecycle status of the questionnaire answers as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("subject", "Resource(Any)", "The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("author", "Resource(Practitioner|Patient|RelatedPerson)", "Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("subject", "Reference(Any)", "The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("author", "Reference(Practitioner|Patient|RelatedPerson)", "Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("authored", "dateTime", "The date and/or time that this version of the questionnaire answers was authored.", 0, java.lang.Integer.MAX_VALUE, authored));
-        childrenList.add(new Property("source", "Resource(Patient|Practitioner|RelatedPerson)", "The person who answered the questions about the subject. Only used when this is not the subject him/herself.", 0, java.lang.Integer.MAX_VALUE, source));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("source", "Reference(Patient|Practitioner|RelatedPerson)", "The person who answered the questions about the subject. Only used when this is not the subject him/herself.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("encounter", "Reference(Encounter)", "Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("group", "", "A group of questions to a possibly similarly grouped set of questions in the questionnaire answers.", 0, java.lang.Integer.MAX_VALUE, group));
       }
 

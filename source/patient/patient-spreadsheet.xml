@@ -503,7 +503,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String" x:Ticked="1">Resource(Organization)</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">Reference(Organization)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Organization that is associated with the contact</Data></Cell>
     <Cell><Data ss:Type="String">Organization on behalf of which the contact is acting or for which the contact is working.</Data></Cell>
@@ -720,7 +720,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Resource(Organization|Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Reference(Organization|Practitioner)</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Patient's nominated care provider</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Patient's nominated care provider</Data></Cell>
@@ -738,7 +738,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Organization that is the custodian of the patient record</Data></Cell>
     <Cell><Data ss:Type="String">Organization that is the custodian of the patient record</Data></Cell>
@@ -769,7 +769,7 @@
     <Cell><Data ss:Type="String">Patient.link.other</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The other patient resource that the link refers to</Data></Cell>
     <Cell><Data ss:Type="String">The other patient resource that the link refers to</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>

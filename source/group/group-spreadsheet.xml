@@ -345,7 +345,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Patient|Practitioner|Device|Medication|Substance)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient|Practitioner|Device|Medication|Substance)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Who is in group</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the resource instances that are members of the group.</Data></Cell>

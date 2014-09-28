@@ -169,7 +169,7 @@ public class XSDGenerator  {
 		}
 		for (TypeRef t : datatypes) {
 			if (t.isResourceReference())
-				write("           <xs:element name=\"Resource\" type=\"ResourceReference\"/>\r\n");				
+				write("           <xs:element name=\"Resource\" type=\"Reference\"/>\r\n");				
 			else if (t.hasParams()) {
 				for (String p : t.getParams()) {
 					write("           <xs:element name=\""+t.getName()+"_"+upFirst(p)+"\" type=\""+t.getName()+"_"+upFirst(p)+"\"/>\r\n");				
@@ -188,10 +188,7 @@ public class XSDGenerator  {
 			if (!definitions.getInfrastructure().containsKey(t.getName()) && !definitions.getConstraints().containsKey(t.getName())) {
 			  String en = prefix != null ? prefix + upFirst(t.getName()) : t.getName();
 			  //write("       <xs:element name=\""+t.getName()+"\" type=\""+t.getName()+"\"/>\r\n");        
-			  if (t.getName().equals("ResourceReference"))
-			    write("            <xs:element name=\"" + prefix + "Resource\" type=\"" + t.getName()+ "\"/>\r\n");
-			  else
-			    write("            <xs:element name=\""+en+"\" type=\""+t.getName()+"\"/>\r\n");
+  	    write("            <xs:element name=\""+en+"\" type=\""+t.getName()+"\"/>\r\n");
 			}
 		}
 	}
@@ -214,8 +211,8 @@ public class XSDGenerator  {
 				for (TypeRef t : e.getTypes()) {
 					String tn = encodeType(e, t, true);
 					String n = e.getName().replace("[x]", tn.toUpperCase().substring(0, 1) + tn.substring(1));
-					if (t.getName().equals("Resource"))
- 	          n = e.getName().replace("[x]", "Resource");
+					if (t.getName().equals("Reference"))
+ 	          n = e.getName().replace("[x]", "Reference");
   			  write("            <xs:element name=\""+n+"\" type=\""+encodeType(e, t, true)+"\"/>\r\n");
 				}
 			write("          </xs:choice>\r\n");
@@ -285,7 +282,7 @@ public class XSDGenerator  {
 
 	private String encodeType(ElementDefn e, TypeRef type, boolean params) throws Exception {
 		if (type.isResourceReference())
-			return "ResourceReference";
+			return "Reference";
 		else if (type.getName().equals("code")) {
 			String en = null;
 			if (e.hasBinding()) {

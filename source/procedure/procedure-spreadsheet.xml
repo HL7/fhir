@@ -184,12 +184,12 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who procedure was performed on</Data></Cell>
     <Cell><Data ss:Type="String">The person on whom the procedure was performed</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Reference(Patient)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Procedure.type</Data></Cell>
@@ -221,7 +221,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapuetic</Data></Cell>
     <Cell><Data ss:Type="String">.reasonCode</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Resource(Condition) | CodeableConcept | string </Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Reference(Condition) | CodeableConcept | string </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.performer</Data></Cell>
@@ -235,12 +235,12 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.performer.person</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The reference to the practitioner</Data></Cell>
     <Cell><Data ss:Type="String">The practitioner who was involved in the procedure</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.role</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.performer.role</Data></Cell>
@@ -266,12 +266,12 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Procedure.encounter</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Encounter)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The encounter when procedure performed</Data></Cell>
     <Cell><Data ss:Type="String">The encounter during which the procedure was performed</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Reference(Encounter)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Procedure.outcome</Data></Cell>
@@ -281,16 +281,16 @@
     <Cell><Data ss:Type="String">What was the outcome of the procedure - did it resolve reasons why the procedure was performed? </Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=OUT].target.text</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Resource(Observation) | CodeableConcept | string</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Reference(Observation) | CodeableConcept | string</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Procedure.report</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(DiagnosticReport)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(DiagnosticReport)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Any report that results from the procedure</Data></Cell>
     <Cell><Data ss:Type="String">This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN]</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Resource(DiagnosticReport)</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Reference(DiagnosticReport)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Procedure.complication</Data></Cell>
@@ -309,7 +309,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Instructions for follow up</Data></Cell>
     <Cell><Data ss:Type="String">If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=ACT, moodCode=INT].text</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Resource(Careplan) | string </Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Reference(Careplan) | string </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Procedure.relatedItem</Data></Cell>
@@ -333,10 +333,10 @@
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Procedure.relatedItem.target</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(AdverseReaction | AllergyIntolerance | CarePlan | Condition | DeviceObservationReport | DiagnosticReport | FamilyHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationPrescription | MedicationStatement | Observation | Procedure)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(AdverseReaction | AllergyIntolerance | CarePlan | Condition | DeviceObservationReport | DiagnosticReport | FamilyHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationPrescription | MedicationStatement | Observation | Procedure)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The related item - e.g. a procedure</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.target</Data></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Resource(Procedure | Prescription)</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Reference(Procedure | Prescription)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Procedure.notes</Data></Cell>

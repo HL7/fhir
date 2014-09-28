@@ -501,7 +501,7 @@ public class Publisher implements URIResolver {
             ResourceOrFeed rf = new XmlParser().parseGeneral(new FileInputStream(f));
             if (rf.getFeed() != null) {
               for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> ae : rf.getFeed().getEntryList()) {
-                loadIgResource(ae);
+                loadIgReference(ae);
               }
             } else {
               AtomEntry<org.hl7.fhir.instance.model.Resource> ae = new AtomEntry<org.hl7.fhir.instance.model.Resource>();
@@ -510,7 +510,7 @@ public class Publisher implements URIResolver {
               ae.setTitle(f.getName());
               ae.getLinks().put("path", page.getIg().getFilePrefix()+f.getName());
               ae.getResource().setTag("filename", ae.getLinks().get("path"));
-              loadIgResource(ae);
+              loadIgReference(ae);
             }
           }
         }
@@ -550,7 +550,7 @@ public class Publisher implements URIResolver {
   }
 
   @SuppressWarnings("unchecked")
-  private void loadIgResource(AtomEntry<? extends org.hl7.fhir.instance.model.Resource> ae) {
+  private void loadIgReference(AtomEntry<? extends org.hl7.fhir.instance.model.Resource> ae) {
     page.getIgResources().put(ae.getId(), ae);
     if (ae.getResource() instanceof ValueSet) {
       ValueSet vs = (ValueSet) ae.getResource();
@@ -717,7 +717,7 @@ public class Publisher implements URIResolver {
     String[] parts = base.split("#");
     if (parts[0].startsWith("http://hl7.org/fhir/Profile/") && parts.length == 1) {
       String name = base.substring(28);
-      if (page.getDefinitions().hasResource(name)) 
+      if (page.getDefinitions().hasReference(name)) 
         return page.getDefinitions().getSnapShotForType(name);
       else if (page.getDefinitions().hasType(name)) {
         TypeDefn t = page.getDefinitions().getElementDefn(name);
@@ -932,7 +932,7 @@ public class Publisher implements URIResolver {
         ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
         rest.getResource().add(res);
         res.setTypeSimple(rn);
-        res.setProfile(Factory.makeResourceReference("http://hl7.org/fhir/" + rn));
+        res.setProfile(Factory.makeReference("http://hl7.org/fhir/" + rn));
         genConfOp(conf, res, TypeRestfulInteraction.read);
         genConfOp(conf, res, TypeRestfulInteraction.vread);
         genConfOp(conf, res, TypeRestfulInteraction.update);
@@ -1276,7 +1276,7 @@ public class Publisher implements URIResolver {
   private boolean resolveLink(ExampleReference ref) throws Exception {
     if (ref.getId().startsWith("#"))
       return true;
-    if (!page.getDefinitions().hasResource(ref.getType()))
+    if (!page.getDefinitions().hasReference(ref.getType()))
       return false;
     ResourceDefn r = page.getDefinitions().getResourceByName(ref.getType());
     for (Example e : r.getExamples()) {
@@ -1358,7 +1358,7 @@ public class Publisher implements URIResolver {
   }
 
   private void listLinks(String path, org.hl7.fhir.definitions.model.ElementDefn d, List<Element> set, List<ExampleReference> refs) throws Exception {
-    if (d.typeCode().contains("Resource") && !d.typeCode().equals("Resource")) {
+    if (d.typeCode().startsWith("Reference")) {
       for (Element m : set) {
         if (XMLUtil.getNamedChild(m, "type") != null && XMLUtil.getNamedChild(m, "reference") != null) {
           refs.add(new ExampleReference(XMLUtil.getNamedChild(m, "type").getAttribute("value"), XMLUtil.getNamedChild(m, "reference").getAttribute("value"),
@@ -2672,7 +2672,7 @@ public class Publisher implements URIResolver {
     svg.generate(resource, page.getFolders().dstDir + n + ".svg");
 
     for (RegisteredProfile p : resource.getProfiles())
-      p.setResource(produceProfile(p.getDestFilename(), p.getProfile(), p.getFilepath(), resource.getName(), p.getExamples()));
+      p.setReference(produceProfile(p.getDestFilename(), p.getProfile(), p.getFilepath(), resource.getName(), p.getExamples()));
 
     Profile profile = (Profile) profileFeed.getById("http://hl7.org/fhir/profile/" + resource.getName().toLowerCase()).getResource();
     for (Example e : resource.getExamples()) {
@@ -2689,7 +2689,7 @@ public class Publisher implements URIResolver {
       page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
     }
 
-    String prefix = page.getBreadCrumbManager().getIndexPrefixForResource(resource.getName());
+    String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(resource.getName());
     SectionTracker st = new SectionTracker(prefix);
     st.start("");
     page.getSectionTrackerCache().put(n, st);
@@ -3403,7 +3403,7 @@ public class Publisher implements URIResolver {
 //    }
 //  }
 
-  // private void produceFutureResource(String n) throws Exception {
+  // private void produceFutureReference(String n) throws Exception {
   // ElementDefn e = new ElementDefn();
   // e.setName(page.getIni().getStringProperty("future-resources", n));
   // }
@@ -3702,7 +3702,7 @@ public class Publisher implements URIResolver {
           validateXmlFile(schema, n, validator, null);
           for (String en : e.getExamples().keySet()) {
             page.log(" ...validate " + en, LogMessageType.Process);
-            validateXmlFile(schema, Utilities.changeFileExt(en, ""), validator, e.getResource()); // validates the example against it's base definitions
+            validateXmlFile(schema, Utilities.changeFileExt(en, ""), validator, e.getReference()); // validates the example against it's base definitions
           }
         }
       }
@@ -4234,8 +4234,8 @@ public class Publisher implements URIResolver {
     cm.setStatusSimple(ConceptMap.ValuesetStatus.draft); // until we publish
                                                          // DSTU, then .review
     cm.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
-    cm.setSource(Factory.makeResourceReference(src));
-    cm.setTarget(Factory.makeResourceReference(cd.getV2Map()));
+    cm.setSource(Factory.makeReference(src));
+    cm.setTarget(Factory.makeReference(cd.getV2Map()));
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV2Map())) {
         for (String m : c.getV2Map().split(",")) {
@@ -4318,8 +4318,8 @@ public class Publisher implements URIResolver {
     cm.setStatusSimple(ConceptMap.ValuesetStatus.draft); // until we publish
                                                          // DSTU, then .review
     cm.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
-    cm.setSource(Factory.makeResourceReference(src));
-    cm.setTarget(Factory.makeResourceReference(cd.getV3Map()));
+    cm.setSource(Factory.makeReference(src));
+    cm.setTarget(Factory.makeReference(cd.getV3Map()));
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV3Map())) {
         for (String m : c.getV3Map().split(",")) {

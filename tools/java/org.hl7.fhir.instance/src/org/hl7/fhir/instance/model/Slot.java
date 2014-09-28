@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -109,7 +109,7 @@ public class Slot extends Resource {
     /**
      * The availability resource that this slot defines an interval of status information.
      */
-    protected ResourceReference availability;
+    protected Reference availability;
 
     /**
      * The actual object that is the target of the reference (The availability resource that this slot defines an interval of status information.)
@@ -146,13 +146,13 @@ public class Slot extends Resource {
      */
     protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = 1753840499L;
+    private static final long serialVersionUID = 1162351429L;
 
     public Slot() {
       super();
     }
 
-    public Slot(ResourceReference availability, Enumeration<Slotstatus> freeBusyType, InstantType start, InstantType end) {
+    public Slot(Reference availability, Enumeration<Slotstatus> freeBusyType, InstantType start, InstantType end) {
       super();
       this.availability = availability;
       this.freeBusyType = freeBusyType;
@@ -195,14 +195,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #availability} (The availability resource that this slot defines an interval of status information.)
      */
-    public ResourceReference getAvailability() { 
+    public Reference getAvailability() { 
       return this.availability;
     }
 
     /**
      * @param value {@link #availability} (The availability resource that this slot defines an interval of status information.)
      */
-    public Slot setAvailability(ResourceReference value) { 
+    public Slot setAvailability(Reference value) { 
       this.availability = value;
       return this;
     }
@@ -430,7 +430,7 @@ public class Slot extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("type", "CodeableConcept", "The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("availability", "Resource(Availability)", "The availability resource that this slot defines an interval of status information.", 0, java.lang.Integer.MAX_VALUE, availability));
+        childrenList.add(new Property("availability", "Reference(Availability)", "The availability resource that this slot defines an interval of status information.", 0, java.lang.Integer.MAX_VALUE, availability));
         childrenList.add(new Property("freeBusyType", "code", "BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.", 0, java.lang.Integer.MAX_VALUE, freeBusyType));
         childrenList.add(new Property("start", "instant", "Date/Time that the slot is to begin.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "instant", "Date/Time that the slot is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));

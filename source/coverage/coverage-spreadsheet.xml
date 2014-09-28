@@ -154,7 +154,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Coverage.issuer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">An identifier for the plan issuer</Data></Cell>
     <Cell><Data ss:Type="String">The program or plan underwriter or payor.</Data></Cell>
     <Cell><Data ss:Type="String">Need to identify the issuer to target for processing and for coordination of benefit processing.</Data></Cell>

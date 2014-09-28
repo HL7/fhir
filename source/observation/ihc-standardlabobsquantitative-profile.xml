@@ -64,9 +64,9 @@
           <binding>
             <name value="ReportingPriority_VALUESET_ECID"/>
             <isExtensible value="false"/>
-            <referenceResource>  
+            <referenceReference>  
               <reference value="ValueSet/AbnormalInterpretationNumericNom_VALUESET_ECID"/>
-            </referenceResource>
+            </referenceReference>
           </binding>
         </definition>
       </element>      
@@ -106,9 +106,9 @@
           <binding> 
             <name value="LabNullFlavor_VALUESET_ECID"/>
             <isExtensible value="false"/>
-            <referenceResource>
+            <referenceReference>
               <reference value="ValueSet/LabNullFlavor_VALUESET_ECID"/>
-            </referenceResource>
+            </referenceReference>
           </binding>
           <!-- this doesn't appear to have a key -->
         </definition>
@@ -133,9 +133,9 @@
           <binding>
             <name value="CEM_Ordinal_And_Abnormal"/>
             <isExtensible value="false"/> 
-            <referenceResource>
+            <referenceReference>
               <reference value="ValueSet/AbnormalInterpretation_KEY_ECID"/> <!-- todo: make this, and do the code mappings -->
-            </referenceResource>
+            </referenceReference>
           </binding>
           <mapping>
             <identity value="cdl.key"/>

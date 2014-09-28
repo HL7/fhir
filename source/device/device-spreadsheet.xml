@@ -210,7 +210,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Device.owner</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Organization responsible for device</Data></Cell>
     <Cell><Data ss:Type="String">An organization that is responsible for the provision and ongoing maintenance of the device</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.playedRole[typeCode=OWN].scoper</Data></Cell>
@@ -218,7 +218,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Device.location</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Where the resource is found</Data></Cell>
     <Cell><Data ss:Type="String">The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. &quot;in/with the patient&quot;), or a coded location</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.playedRole[typeCode=LOCE].scoper</Data></Cell>
@@ -226,7 +226,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Device.patient</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If the resource is affixed to a person</Data></Cell>
     <Cell><Data ss:Type="String">Patient information, if the resource is affixed to a person</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.playedRole[typeCode=USED].scoper.playedRole[typeCode=PAT]</Data></Cell>

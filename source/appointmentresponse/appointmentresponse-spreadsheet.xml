@@ -196,7 +196,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Appointment)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Appointment)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Parent appointment that this response is replying to</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>
@@ -227,7 +227,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Should this be multiple? And move to a child enitity</Data></Cell>
@@ -292,7 +292,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Patient|RelatedPerson)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Patient|RelatedPerson)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Who recorded the appointment response</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>

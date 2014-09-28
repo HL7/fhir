@@ -202,7 +202,7 @@ public class Definitions {
 		return root;
 	}
 
-	public boolean hasResource(String name) {
+	public boolean hasReference(String name) {
 		return resources.containsKey(name);
 	}
 	
@@ -272,11 +272,11 @@ public class Definitions {
     return diagrams;
   }
 
-  public ResourceDefn getBaseResource() {
+  public ResourceDefn getBaseReference() {
     return baseResource;
   }
 
-  public void setBaseResource(ResourceDefn baseResource) {
+  public void setBaseReference(ResourceDefn baseResource) {
     this.baseResource = baseResource;
   }
 
@@ -376,7 +376,7 @@ public class Definitions {
     String[] parts = base.split("#");
     if (parts[0].startsWith("http://hl7.org/fhir/Profile/") && parts.length == 1) {
       String name = base.substring(28);
-      if (hasType(name) || hasResource(name)) 
+      if (hasType(name) || hasReference(name)) 
         return getSnapShotForType(name);
     }
     Profile p = getProfileByURL(parts[0]);

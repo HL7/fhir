@@ -159,7 +159,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Order)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Order)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">The order that this is a response to</Data></Cell>
     <Cell><Data ss:Type="String">A reference to the order that this is in response to</Data></Cell>
@@ -192,7 +192,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Organization|Device)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Organization|Device)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Who made the response</Data></Cell>
     <Cell><Data ss:Type="String">The person, organization, or device credited with making the response</Data></Cell>
@@ -207,7 +207,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">CodeableConcept | Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">CodeableConcept | Reference(Any)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">If required by policy</Data></Cell>
     <Cell><Data ss:Type="String">A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection</Data></Cell>
@@ -253,7 +253,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Details of the outcome of performing the order</Data></Cell>
     <Cell><Data ss:Type="String">Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order</Data></Cell>

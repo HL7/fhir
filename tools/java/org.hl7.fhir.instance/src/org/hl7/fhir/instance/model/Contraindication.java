@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -52,14 +52,14 @@ public class Contraindication extends Resource {
         /**
          * Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.
          */
-        protected ResourceReference author;
+        protected Reference author;
 
         /**
          * The actual object that is the target of the reference (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
         protected Practitioner authorTarget;
 
-        private static final long serialVersionUID = -2022383266L;
+        private static final long serialVersionUID = -1994768436L;
 
       public ContraindicationMitigationComponent() {
         super();
@@ -124,14 +124,14 @@ public class Contraindication extends Resource {
         /**
          * @return {@link #author} (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
-        public ResourceReference getAuthor() { 
+        public Reference getAuthor() { 
           return this.author;
         }
 
         /**
          * @param value {@link #author} (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
-        public ContraindicationMitigationComponent setAuthor(ResourceReference value) { 
+        public ContraindicationMitigationComponent setAuthor(Reference value) { 
           this.author = value;
           return this;
         }
@@ -155,7 +155,7 @@ public class Contraindication extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("action", "CodeableConcept", "Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified contraindication.", 0, java.lang.Integer.MAX_VALUE, action));
           childrenList.add(new Property("date", "dateTime", "Indicates when the mitigating action was documented.", 0, java.lang.Integer.MAX_VALUE, date));
-          childrenList.add(new Property("author", "Resource(Practitioner)", "Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.", 0, java.lang.Integer.MAX_VALUE, author));
+          childrenList.add(new Property("author", "Reference(Practitioner)", "Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.", 0, java.lang.Integer.MAX_VALUE, author));
         }
 
       public ContraindicationMitigationComponent copy() {
@@ -171,7 +171,7 @@ public class Contraindication extends Resource {
     /**
      * Indicates the patient whose record the contraindication is associated with.
      */
-    protected ResourceReference patient;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (Indicates the patient whose record the contraindication is associated with.)
@@ -191,7 +191,7 @@ public class Contraindication extends Resource {
     /**
      * Indicates the resource representing the current activity or proposed activity that.
      */
-    protected List<ResourceReference> implicated = new ArrayList<ResourceReference>();
+    protected List<Reference> implicated = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Indicates the resource representing the current activity or proposed activity that.)
      */
@@ -211,7 +211,7 @@ public class Contraindication extends Resource {
     /**
      * Identifies the provider or software that identified the.
      */
-    protected ResourceReference author;
+    protected Reference author;
 
     /**
      * The actual object that is the target of the reference (Identifies the provider or software that identified the.)
@@ -233,7 +233,7 @@ public class Contraindication extends Resource {
      */
     protected List<ContraindicationMitigationComponent> mitigation = new ArrayList<ContraindicationMitigationComponent>();
 
-    private static final long serialVersionUID = -709355231L;
+    private static final long serialVersionUID = -1374855035L;
 
     public Contraindication() {
       super();
@@ -242,14 +242,14 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #patient} (Indicates the patient whose record the contraindication is associated with.)
      */
-    public ResourceReference getPatient() { 
+    public Reference getPatient() { 
       return this.patient;
     }
 
     /**
      * @param value {@link #patient} (Indicates the patient whose record the contraindication is associated with.)
      */
-    public Contraindication setPatient(ResourceReference value) { 
+    public Contraindication setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -323,7 +323,7 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #implicated} (Indicates the resource representing the current activity or proposed activity that.)
      */
-    public List<ResourceReference> getImplicated() { 
+    public List<Reference> getImplicated() { 
       return this.implicated;
     }
 
@@ -331,8 +331,8 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #implicated} (Indicates the resource representing the current activity or proposed activity that.)
      */
-    public ResourceReference addImplicated() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addImplicated() { 
+      Reference t = new Reference();
       this.implicated.add(t);
       return t;
     }
@@ -419,14 +419,14 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #author} (Identifies the provider or software that identified the.)
      */
-    public ResourceReference getAuthor() { 
+    public Reference getAuthor() { 
       return this.author;
     }
 
     /**
      * @param value {@link #author} (Identifies the provider or software that identified the.)
      */
-    public Contraindication setAuthor(ResourceReference value) { 
+    public Contraindication setAuthor(Reference value) { 
       this.author = value;
       return this;
     }
@@ -516,13 +516,13 @@ public class Contraindication extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("patient", "Resource(Patient)", "Indicates the patient whose record the contraindication is associated with.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("patient", "Reference(Patient)", "Indicates the patient whose record the contraindication is associated with.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("category", "CodeableConcept", "Identifies the general type of issue identified.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("severity", "code", "Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.", 0, java.lang.Integer.MAX_VALUE, severity));
-        childrenList.add(new Property("implicated", "Resource(Any)", "Indicates the resource representing the current activity or proposed activity that.", 0, java.lang.Integer.MAX_VALUE, implicated));
+        childrenList.add(new Property("implicated", "Reference(Any)", "Indicates the resource representing the current activity or proposed activity that.", 0, java.lang.Integer.MAX_VALUE, implicated));
         childrenList.add(new Property("detail", "string", "A textual explanation of the contraindication.", 0, java.lang.Integer.MAX_VALUE, detail));
         childrenList.add(new Property("date", "dateTime", "The date or date-time when the contraindication was initially identified.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("author", "Resource(Practitioner|Device)", "Identifies the provider or software that identified the.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("author", "Reference(Practitioner|Device)", "Identifies the provider or software that identified the.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("identifier", "Identifier", "Business identifier associated with the contraindication record.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("reference", "uri", "The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.", 0, java.lang.Integer.MAX_VALUE, reference));
         childrenList.add(new Property("mitigation", "", "Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.", 0, java.lang.Integer.MAX_VALUE, mitigation));
@@ -533,8 +533,8 @@ public class Contraindication extends Resource {
         dst.patient = patient == null ? null : patient.copy();
         dst.category = category == null ? null : category.copy();
         dst.severity = severity == null ? null : severity.copy();
-        dst.implicated = new ArrayList<ResourceReference>();
-        for (ResourceReference i : implicated)
+        dst.implicated = new ArrayList<Reference>();
+        for (Reference i : implicated)
           dst.implicated.add(i.copy());
         dst.detail = detail == null ? null : detail.copy();
         dst.date = date == null ? null : date.copy();

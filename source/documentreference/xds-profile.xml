@@ -353,7 +353,7 @@
     <Cell><Data ss:Type="String">legalAuthenticator</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">DocumentReference.authenticator</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Represents a participant within the authorInstitution who has legally authenticated or attested the document.  Legal authentication implies that a document has been signed manually or electronically by the legalAuthenticator</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Usually just a name, so use a contained resource - but if an id is provided, may be able to identify it</Data></Cell>
    </Row>
@@ -393,7 +393,7 @@
     <Cell><Data ss:Type="String">RPLC relationship</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">DocumentReference.supercedes</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s78"><Data ss:Type="String">Resource(DocumentReference)</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s78"><Data ss:Type="String">Reference(DocumentReference)</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The current document is a replacement of the referenced document</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Other relationships go in extension</Data></Cell>
    </Row>
@@ -607,7 +607,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The patientId represents the subject of care of the document.  The value of the patientId shall be the same for all new documents of a SubmissionSet. Patient information typically includes: the patient first and last name, sex, and birth date&#10;</Data></Cell>
     <Cell><Data ss:Type="String">XDSDocumentEntry.patientId + sourcePatientId/sourcePatientInfo</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">In the context of XDS, the patientId shall be the one with use = official. The Clinical XDS Affinity Domain policies may require more or less specific information and format. This patient information is not intended to be updated once the Document is registered (just as the Document content and metadata itself will not be updated without replacing the previous document). As sourcePatientInfo may have been updated by the source actor, it may no longer be in use within the Document Source (EHR-CR). It is only intended as an audit/checking mechanism and has occasional use for Document Consumer actors.</Data></Cell>
@@ -636,7 +636,7 @@
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.author</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Device)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Device)</Data></Cell>
     <Cell><Data ss:Type="String">Represents the humans and/or machines that authored the document</Data></Cell>
     <Cell><Data ss:Type="String">XDSDocumentEntry.author</Data></Cell>
     <Cell ss:Index="10" ss:StyleID="s84"/>
@@ -646,7 +646,7 @@
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.custodian</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell><Data ss:Type="String">Org which maintains the document</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
    </Row>
@@ -661,7 +661,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.authenticator</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell><Data ss:Type="String">Represents a participant who has legally authenticated or attested the document within the authorInstitution. Legal authentication implies that a document has been signed manually or electronically by the legalAuthenticator</Data></Cell>
     <Cell><Data ss:Type="String">??</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">is this used in XDS?</Data></Cell>
@@ -719,7 +719,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.relatesTo.target</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Resource(DocumentReference)</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(DocumentReference)</Data></Cell>
     <Cell><Data ss:Type="String">Target of the relationship</Data></Cell>
     <Cell><Data ss:Type="String">The target document of this relationship</Data></Cell>
    </Row>
@@ -895,14 +895,14 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.subject</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.patientId</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">the subject of care whose longitudinal record is being reflected in this SubmissionSet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.recipient</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(Patient|Practitioner|Organization)</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reference(Patient|Practitioner|Organization)</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s85"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">SubmissionSet.intendedRecipient</Font><Font
        html:Face="Times New Roman" x:Family="Swiss" html:Size="8"
@@ -920,7 +920,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.author</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(Practitioner|Device)</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reference(Practitioner|Device)</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s85"><Data ss:Type="String">SubmissionSet.author</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The humans and/or machines that authored the document  in the SubmissionSet. This attribute contains the sub-attributes: authorInstitution, authorPerson, authorRole, authorSpecialty</Data></Cell>
    </Row>
@@ -949,7 +949,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.supercedes</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(DocumentManifest)</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reference(DocumentManifest)</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">todo</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">If this document manifest replaces another</Data></Cell>
    </Row>
@@ -971,7 +971,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:Index="2" ss:StyleID="s89"><Data ss:Type="String">DocumentManifest.content</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(DocumentReference)</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reference(DocumentReference)</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">SubmissionSet.documentEntry</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed</Data></Cell>
    </Row>
@@ -1119,7 +1119,7 @@
     <Cell><Data ss:Type="String">authorInstitution </Data></Cell>
     <Cell><Data ss:Type="String">Practitioner.organization</Data></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Represents a specific healthcare facility under which the human and/or machines authored the document</Data></Cell>
     <Cell><Data ss:Type="String">Organization will have name and maybe id</Data></Cell>
    </Row>
@@ -1215,7 +1215,7 @@
     <Cell><Data ss:Type="String">patientId</Data></Cell>
     <Cell><Data ss:Type="String">Category.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">The patientId represents the primary subject of care of the Folder</Data></Cell>
    </Row>
   </Table>
@@ -1290,7 +1290,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Practitioner</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Additional Institutions</Data></Cell>
     <Cell><Data ss:Type="String">XDS allows multiple institutions for an author, but the Practitioner only allows one. If there a multiple institutions in an XDS record, use this extension for the additional ones</Data></Cell>
    </Row>

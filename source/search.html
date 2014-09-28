@@ -322,7 +322,7 @@ The interpretation of a <i>reference</i> parameter is either:
 Note that if a relative reference resolves to the same value as a specified absolute URL, or vice versa, this is a match too.
 </p>
 <p>
-Some references are allowed to point to more than one type of resource. e.g. subject : Resource(Patient|Group|Device|..).
+Some references are allowed to point to more than one type of resource. e.g. subject : Reference(Patient|Group|Device|..).
 In these cases, multiple different resources may have the same logical identifier. In this case, the client can specify 
 a type modifier after the name of the parameter to be explicit about the intended type:
 </p>
@@ -598,15 +598,15 @@ for the matching <a href="medicationdispense.html">Medication Dispense</a> resou
 <h4>Include Paths</h4>
 <p>
 An include path begins at the root of a FHIR resource and must include exactly one property of 
-type <a href="references.html#Identification">ResourceReference</a> or <a href="datatypes.html#uri">uri</a>, 
+type <a href="references.html#Identification">Reference</a> or <a href="datatypes.html#uri">uri</a>, 
 which must appear in the terminal position. That means that an 
 include path cannot "cross the boundary" from one resource to another.  So for example, 
 `CarePlan.activity.simple.performer` is a valid include path, because it begins at the 
 root of the CarePlan resource and ends with a reference to another resource 
 (Practitioner|Organization|RelatedPerson|Patient). On the other hand, 
 `CarePlan.patient.managingOrganization` is an invalid include path, because it 
-includes two ResourceReferences (patient and managingOrganization), and `CarePlan.goal` 
-is an invalid include path because it does not end with a ResourceReference or a URI.
+includes two References (patient and managingOrganization), and `CarePlan.goal` 
+is an invalid include path because it does not end with a Reference or a URI.
 </p>
 <p>
 When looking for the references indicated by an include path, all occurrences of 

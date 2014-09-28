@@ -206,7 +206,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Identifies the </Data></Cell>
     <Cell><Data ss:Type="String">Identifies the patient, practitioner, device or any other resource that is the &quot;focus&quot; of this resoruce.</Data></Cell>
@@ -222,7 +222,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Patient|RelatedPerson)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Patient|RelatedPerson)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Who created</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Indicates who was responsible for creating the resource instance</Data></Cell>

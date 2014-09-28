@@ -91,10 +91,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     
     for (ElementDefn n : definitions.getTypes().values()) {
       generate(n, JavaGenClass.Type);
-      if (n.getName().equals("ResourceReference"))
-        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\"Resource\", ("+n.getName()+") type);\r\n");
-      else
-        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
+      regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
     }
 
     for (ProfiledType n : definitions.getConstraints().values()) {
@@ -106,7 +103,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
       regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
     }
     
-    genResource();
+    genReference();
 
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
@@ -153,7 +150,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("\r\n");
   }
 
-  private void genResource() throws Exception {    
+  private void genReference() throws Exception {    
     write("  private void composeResourceElements(Resource element) throws Exception {\r\n");
     write("    composeBackbone(element);\r\n");
     write("    if (element.getText() != null)\r\n");
@@ -363,9 +360,9 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
           comp = "composeCode";
         } else if (tn.equals("instant"))
           tn = "Instant";
-        if (tn.contains("Resource(")) {
-          comp = "composeResourceReference";
-          tn = "ResourceReference";
+        if (tn.contains("Reference(")) {
+          comp = "composeReference";
+          tn = "Reference";
         } else if (tn.contains("("))
           comp = "compose"+PrepGenericName(tn);
         else if (tn.startsWith(context) && !tn.equals(context)) {
@@ -386,9 +383,9 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
         write("      };\r\n");
       } else if (e.unbounded()) {
         tn = typeName(root, e, true);
-        if (tn.contains("Resource(")) {
-          comp = "composeResourceReference";
-          tn = "ResourceReference";
+        if (tn.contains("Reference(")) {
+          comp = "composeReference";
+          tn = "Reference";
         }
         write("      if (element.get"+upFirst(name)+"().size() > 0) {\r\n");
   	    if (en == null) {
@@ -525,7 +522,7 @@ private String leaf(String tn) {
     write("    else\r\n");
     write("      throw new Exception(\"Unhanded resource type \"+resource.getClass().getName());\r\n");
     write("  }\r\n\r\n");
-    write("  protected void composeNamedResource(String name, Resource resource) throws Exception {\r\n");
+    write("  protected void composeNamedReference(String name, Resource resource) throws Exception {\r\n");
     write("    "+regn.toString().substring(9));
     write("    else if (resource instanceof Binary)\r\n");
     write("      composeBinary(name, (Binary)resource);\r\n");

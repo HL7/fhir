@@ -179,7 +179,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Alert.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who is alert about?</Data></Cell>
     <Cell><Data ss:Type="String">The person who this alert concerns</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=SBJ].role[classCode=PAT]</Data></Cell>
@@ -187,7 +187,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Alert.author</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner | Patient| Device)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner | Patient| Device)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Alert creator</Data></Cell>
     <Cell><Data ss:Type="String">The person or device that created the alert</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=AUT].role</Data></Cell>

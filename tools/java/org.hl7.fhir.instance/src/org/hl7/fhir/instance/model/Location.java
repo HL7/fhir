@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -319,7 +319,7 @@ public class Location extends Resource {
     /**
      * The organization that is responsible for the provisioning and upkeep of the location.
      */
-    protected ResourceReference managingOrganization;
+    protected Reference managingOrganization;
 
     /**
      * The actual object that is the target of the reference (The organization that is responsible for the provisioning and upkeep of the location.)
@@ -334,7 +334,7 @@ public class Location extends Resource {
     /**
      * Another Location which this Location is physically part of.
      */
-    protected ResourceReference partOf;
+    protected Reference partOf;
 
     /**
      * The actual object that is the target of the reference (Another Location which this Location is physically part of.)
@@ -346,7 +346,7 @@ public class Location extends Resource {
      */
     protected Enumeration<LocationMode> mode;
 
-    private static final long serialVersionUID = -1135087706L;
+    private static final long serialVersionUID = -1809421878L;
 
     public Location() {
       super();
@@ -521,14 +521,14 @@ public class Location extends Resource {
     /**
      * @return {@link #managingOrganization} (The organization that is responsible for the provisioning and upkeep of the location.)
      */
-    public ResourceReference getManagingOrganization() { 
+    public Reference getManagingOrganization() { 
       return this.managingOrganization;
     }
 
     /**
      * @param value {@link #managingOrganization} (The organization that is responsible for the provisioning and upkeep of the location.)
      */
-    public Location setManagingOrganization(ResourceReference value) { 
+    public Location setManagingOrganization(Reference value) { 
       this.managingOrganization = value;
       return this;
     }
@@ -587,14 +587,14 @@ public class Location extends Resource {
     /**
      * @return {@link #partOf} (Another Location which this Location is physically part of.)
      */
-    public ResourceReference getPartOf() { 
+    public Reference getPartOf() { 
       return this.partOf;
     }
 
     /**
      * @param value {@link #partOf} (Another Location which this Location is physically part of.)
      */
-    public Location setPartOf(ResourceReference value) { 
+    public Location setPartOf(Reference value) { 
       this.partOf = value;
       return this;
     }
@@ -660,9 +660,9 @@ public class Location extends Resource {
         childrenList.add(new Property("address", "Address", "Physical location.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("physicalType", "CodeableConcept", "Physical form of the location, e.g. building, room, vehicle, road.", 0, java.lang.Integer.MAX_VALUE, physicalType));
         childrenList.add(new Property("position", "", "The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML).", 0, java.lang.Integer.MAX_VALUE, position));
-        childrenList.add(new Property("managingOrganization", "Resource(Organization)", "The organization that is responsible for the provisioning and upkeep of the location.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
+        childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The organization that is responsible for the provisioning and upkeep of the location.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
         childrenList.add(new Property("status", "code", "active | suspended | inactive.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("partOf", "Resource(Location)", "Another Location which this Location is physically part of.", 0, java.lang.Integer.MAX_VALUE, partOf));
+        childrenList.add(new Property("partOf", "Reference(Location)", "Another Location which this Location is physically part of.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("mode", "code", "Indicates whether a resource instance represents a specific location or a class of locations.", 0, java.lang.Integer.MAX_VALUE, mode));
       }
 

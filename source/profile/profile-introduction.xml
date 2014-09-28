@@ -5,7 +5,7 @@
 <p>
 This specification describes a set of base resources that are used in many different
 contexts in healthcare. In order to make this manageable, applications and specifications need to be
-able to describe restrictions on how one or more resource(s) are used, including 
+able to describe restrictions on how one or more Reference(s) are used, including 
 defining extensions, and controlling how terminology is used. These descriptions 
 need to be able to be shared through repositories of profile definitions, and need
 to allow for these usage statements to be published, compared, and used as the basis

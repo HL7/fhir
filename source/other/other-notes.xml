@@ -12,7 +12,7 @@ whatever data elements they wish.  However, doing so causes several issues:
   of the resource or its elements were.  While they could get some sense of meaning from XML or JSON tag names, this often 
   isn't sufficient for safe healthcare interoperability.</li>
   <li>Custom resource names would not be present in the FHIR schemas as allowed elements within the FHIR
-  ATOM schema and would also not be present in the enumeration of resources in the ResourceReference type.  
+  ATOM schema and would also not be present in the enumeration of resources in the Reference type.  
   This would cause issues for any receiving system making use of the schemas directly or via code-generation.</li>
   <li>There is no means of ensuring that two implementers might independently come up with the same name for
   a resource but define it differently in terms of meaning as well as allowed elements.  This would also cause

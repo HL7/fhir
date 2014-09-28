@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -899,7 +899,7 @@ public class SecurityEvent extends Resource {
         /**
          * Direct reference to a resource that identifies the participant.
          */
-        protected ResourceReference reference;
+        protected Reference reference;
 
         /**
          * The actual object that is the target of the reference (Direct reference to a resource that identifies the participant.)
@@ -936,7 +936,7 @@ public class SecurityEvent extends Resource {
          */
         protected SecurityEventParticipantNetworkComponent network;
 
-        private static final long serialVersionUID = 410004357L;
+        private static final long serialVersionUID = 867092439L;
 
       public SecurityEventParticipantComponent() {
         super();
@@ -967,14 +967,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #reference} (Direct reference to a resource that identifies the participant.)
          */
-        public ResourceReference getReference() { 
+        public Reference getReference() { 
           return this.reference;
         }
 
         /**
          * @param value {@link #reference} (Direct reference to a resource that identifies the participant.)
          */
-        public SecurityEventParticipantComponent setReference(ResourceReference value) { 
+        public SecurityEventParticipantComponent setReference(Reference value) { 
           this.reference = value;
           return this;
         }
@@ -1167,7 +1167,7 @@ public class SecurityEvent extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
-          childrenList.add(new Property("reference", "Resource(Practitioner|Patient|Device)", "Direct reference to a resource that identifies the participant.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("reference", "Reference(Practitioner|Patient|Device)", "Direct reference to a resource that identifies the participant.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("userId", "string", "Unique identifier for the user actively participating in the event.", 0, java.lang.Integer.MAX_VALUE, userId));
           childrenList.add(new Property("altId", "string", "Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.", 0, java.lang.Integer.MAX_VALUE, altId));
           childrenList.add(new Property("name", "string", "Human-meaningful name for the user.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -1437,7 +1437,7 @@ public class SecurityEvent extends Resource {
         /**
          * Identifies a specific instance of the participant object. The reference should always be version specific.
          */
-        protected ResourceReference reference;
+        protected Reference reference;
 
         /**
          * The actual object that is the target of the reference (Identifies a specific instance of the participant object. The reference should always be version specific.)
@@ -1484,7 +1484,7 @@ public class SecurityEvent extends Resource {
          */
         protected List<SecurityEventObjectDetailComponent> detail = new ArrayList<SecurityEventObjectDetailComponent>();
 
-        private static final long serialVersionUID = -876364505L;
+        private static final long serialVersionUID = 1508980729L;
 
       public SecurityEventObjectComponent() {
         super();
@@ -1508,14 +1508,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #reference} (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public ResourceReference getReference() { 
+        public Reference getReference() { 
           return this.reference;
         }
 
         /**
          * @param value {@link #reference} (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public SecurityEventObjectComponent setReference(ResourceReference value) { 
+        public SecurityEventObjectComponent setReference(Reference value) { 
           this.reference = value;
           return this;
         }
@@ -1786,7 +1786,7 @@ public class SecurityEvent extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifies a specific instance of the participant object. The reference should always be version specific.", 0, java.lang.Integer.MAX_VALUE, identifier));
-          childrenList.add(new Property("reference", "Resource(Any)", "Identifies a specific instance of the participant object. The reference should always be version specific.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("reference", "Reference(Any)", "Identifies a specific instance of the participant object. The reference should always be version specific.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("type", "code", "Object type being audited.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("role", "code", "Code representing the functional application role of Participant Object being audited.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("lifecycle", "code", "Identifier for the data life-cycle stage for the participant object.", 0, java.lang.Integer.MAX_VALUE, lifecycle));

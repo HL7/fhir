@@ -149,7 +149,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Subject</Data></Cell>
     <Cell><Data ss:Type="String">Patient resource that stores information of the subejct</Data></Cell>
@@ -179,7 +179,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell><Data ss:Type="String">Resource(GVFMeta)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(GVFMeta)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">GVF Meta</Data></Cell>
     <Cell><Data ss:Type="String">Meta information of a GVF file</Data></Cell>

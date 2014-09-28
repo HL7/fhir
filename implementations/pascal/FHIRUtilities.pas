@@ -61,11 +61,11 @@ Function FhirGUIDToString(aGuid : TGuid):String;
 function ParseXhtml(lang : String; content : String; policy : TFHIRXhtmlParserPolicy):TFhirXHtmlNode;
 function geTFhirResourceNarrativeAsText(resource : TFhirResource) : String;
 function IsId(s : String) : boolean;
-procedure listReferences(resource : TFhirResource; list : TFhirResourceReferenceList);
+procedure listReferences(resource : TFhirResource; list : TFhirReferenceList);
 procedure listAttachments(resource : TFhirResource; list : TFhirAttachmentList);
 Function FhirHtmlToText(html : TFhirXHtmlNode):String;
-function FindContainedResource(resource : TFhirResource; ref : TFhirResourceReference) : TFhirResource;
-function GetResourceFromFeed(feed : TFHIRAtomFeed; ref : TFhirResourceReference) : TFHIRResource;
+function FindContainedResource(resource : TFhirResource; ref : TFhirReference) : TFhirResource;
+function GetResourceFromFeed(feed : TFHIRAtomFeed; ref : TFhirReference) : TFHIRResource;
 function LoadFromFormParam(part : TIdSoapMimePart; lang : String) : TFhirResource;
 function LoadDTFromFormParam(part : TIdSoapMimePart; lang, name : String; type_ : TFHIRTypeClass) : TFhirType;
 
@@ -313,7 +313,7 @@ begin
       result := result and CharInset(s[i], ['0'..'9', 'a'..'z', 'A'..'Z', '-', '.']);
 end;
 
-procedure iterateReferences(node : TFHIRObject; list : TFhirResourceReferenceList);
+procedure iterateReferences(node : TFHIRObject; list : TFhirReferenceList);
 var
   iter : TFHIRPropertyIterator;
   i : integer;
@@ -322,14 +322,14 @@ begin
   try
     while iter.More do
     begin
-      if StringStartsWith(iter.Current.Type_, 'Resource(') then
+      if StringStartsWith(iter.Current.Type_, 'Reference(') then
       begin
         for i := 0 to iter.Current.List.count - 1 do
-          if not StringStartsWith(TFhirResourceReference(iter.current.list[i]).reference, '#') then
+          if not StringStartsWith(TFhirReference(iter.current.list[i]).reference, '#') then
             list.add(iter.Current.list[i].Link)
       end
       else if iter.Current.Type_ = 'Resource' then
-        iterateReferences(TFhirResource(iter.current.list[0]), list)
+        iterateReferences(TFhirReference(iter.current.list[0]), list)
       else
         for i := 0 to iter.Current.list.Count - 1 Do
           iterateReferences(iter.Current.list[i], list);
@@ -340,7 +340,7 @@ begin
   end;
 end;
 
-procedure listReferences(resource : TFhirResource; list : TFhirResourceReferenceList);
+procedure listReferences(resource : TFhirResource; list : TFhirReferenceList);
 begin
   iterateReferences(resource, list);
 end;
@@ -496,7 +496,7 @@ begin
     result := MAX_DATE;
 end;
 
-function GetResourceFromFeed(feed : TFHIRAtomFeed; ref : TFhirResourceReference) : TFHIRResource;
+function GetResourceFromFeed(feed : TFHIRAtomFeed; ref : TFhirReference) : TFHIRResource;
 var
   i : integer;
 begin
@@ -511,7 +511,7 @@ begin
   end;
 end;
 
-function FindContainedResource(resource : TFhirResource; ref : TFhirResourceReference) : TFhirResource;
+function FindContainedResource(resource : TFhirResource; ref : TFhirReference) : TFhirResource;
 var
   i : integer;
 begin
@@ -1313,9 +1313,11 @@ begin
 end;
 
 function ZDecompressBytes(const s: TBytes): TBytes;
+  {$IFNDEF WIN64}
 var
   buffer: Pointer;
   size  : Integer;
+  {$ENDIF}
 begin
   {$IFDEF WIN64}
   ZDecompress(s, result);

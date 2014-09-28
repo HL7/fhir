@@ -264,6 +264,7 @@ function TSCIMObject.GetCreatedUTC: TDateAndTime;
 begin
   FCreatedUTC.free;
   FCreatedUTC := FCreated.AsUTC;
+  result := FCreatedUTC;
 end;
 
 function TSCIMObject.GetExternalId: String;
@@ -296,6 +297,7 @@ function TSCIMObject.GetLastModifiedUTC: TDateAndTime;
 begin
   FLastModifiedUTC.free;
   FLastModifiedUTC := FLastModified.AsUTC;
+  result := FLastModifiedUTC;
 end;
 
 function TSCIMObject.GetLocation: String;

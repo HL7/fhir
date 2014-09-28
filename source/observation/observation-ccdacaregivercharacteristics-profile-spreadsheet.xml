@@ -400,7 +400,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Resource(Patient)|Resource(Group)</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Reference(Patient)|Reference(Group)</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Person requiring care</Data></Cell>
     <Cell><Data ss:Type="String">This is the person for whom the caretaker's ablility or williness to provide care is being questioned.</Data></Cell>
    </Row>
@@ -928,7 +928,7 @@
       ss:Name="CONTEXT"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5"><Data ss:Type="String">ResourceReference</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">Reference</Data><NamedCell
       ss:Name="TYPE"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.low</Data><NamedCell
       ss:Name="CONTEXT"/></Cell>
@@ -940,7 +940,7 @@
       ss:Name="CONTEXT"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5"><Data ss:Type="String">Schedule</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">Timing</Data><NamedCell
       ss:Name="TYPE"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.meaning</Data><NamedCell
       ss:Name="CONTEXT"/></Cell>
@@ -1416,7 +1416,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>

@@ -35,8 +35,8 @@ import org.hl7.fhir.utilities.CSFileInputStream;
     HashMap<String, Profile> result = new HashMap<String, Profile>();
     AtomFeed feed = new XmlParser().parseGeneral(new FileInputStream(PROFILES)).getFeed();
     for (AtomEntry<? extends Resource> e : feed.getEntryList()) {
-      if (e.getResource() instanceof Profile) {
-        result.put(e.getId(), (Profile) e.getResource());
+      if (e.getReference() instanceof Profile) {
+        result.put(e.getId(), (Profile) e.getReference());
       }
     }
     return result;
@@ -406,7 +406,7 @@ public class WorkerContext {
 	  }
 
 	  @Override
-	  public <T extends Resource> List<AtomCategory> getTagsForResource(Class<T> resource, String id) {
+	  public <T extends Resource> List<AtomCategory> getTagsForReference(Class<T> resource, String id) {
       throw new Error("call to NullClient");
 	  }
 

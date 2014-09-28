@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -72,7 +72,7 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * Immunization event history that supports the status and recommendation.
          */
-        protected List<ResourceReference> supportingImmunization = new ArrayList<ResourceReference>();
+        protected List<Reference> supportingImmunization = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Immunization event history that supports the status and recommendation.)
          */
@@ -82,14 +82,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.
          */
-        protected List<ResourceReference> supportingPatientInformation = new ArrayList<ResourceReference>();
+        protected List<Reference> supportingPatientInformation = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
          */
         protected List<Resource> supportingPatientInformationTarget = new ArrayList<Resource>();
 
 
-        private static final long serialVersionUID = -1269839046L;
+        private static final long serialVersionUID = 1147205490L;
 
       public ImmunizationRecommendationRecommendationComponent() {
         super();
@@ -235,7 +235,7 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #supportingImmunization} (Immunization event history that supports the status and recommendation.)
          */
-        public List<ResourceReference> getSupportingImmunization() { 
+        public List<Reference> getSupportingImmunization() { 
           return this.supportingImmunization;
         }
 
@@ -243,8 +243,8 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #supportingImmunization} (Immunization event history that supports the status and recommendation.)
          */
-        public ResourceReference addSupportingImmunization() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addSupportingImmunization() { 
+          Reference t = new Reference();
           this.supportingImmunization.add(t);
           return t;
         }
@@ -269,7 +269,7 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
          */
-        public List<ResourceReference> getSupportingPatientInformation() { 
+        public List<Reference> getSupportingPatientInformation() { 
           return this.supportingPatientInformation;
         }
 
@@ -277,8 +277,8 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
          */
-        public ResourceReference addSupportingPatientInformation() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addSupportingPatientInformation() { 
+          Reference t = new Reference();
           this.supportingPatientInformation.add(t);
           return t;
         }
@@ -298,8 +298,8 @@ public class ImmunizationRecommendation extends Resource {
           childrenList.add(new Property("forecastStatus", "CodeableConcept", "Vaccine administration status.", 0, java.lang.Integer.MAX_VALUE, forecastStatus));
           childrenList.add(new Property("dateCriterion", "", "Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.", 0, java.lang.Integer.MAX_VALUE, dateCriterion));
           childrenList.add(new Property("protocol", "", "Contains information about the protocol under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, protocol));
-          childrenList.add(new Property("supportingImmunization", "Resource(Immunization)", "Immunization event history that supports the status and recommendation.", 0, java.lang.Integer.MAX_VALUE, supportingImmunization));
-          childrenList.add(new Property("supportingPatientInformation", "Resource(Observation|AdverseReaction|AllergyIntolerance)", "Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.", 0, java.lang.Integer.MAX_VALUE, supportingPatientInformation));
+          childrenList.add(new Property("supportingImmunization", "Reference(Immunization)", "Immunization event history that supports the status and recommendation.", 0, java.lang.Integer.MAX_VALUE, supportingImmunization));
+          childrenList.add(new Property("supportingPatientInformation", "Reference(Observation|AdverseReaction|AllergyIntolerance)", "Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.", 0, java.lang.Integer.MAX_VALUE, supportingPatientInformation));
         }
 
       public ImmunizationRecommendationRecommendationComponent copy() {
@@ -312,11 +312,11 @@ public class ImmunizationRecommendation extends Resource {
         for (ImmunizationRecommendationRecommendationDateCriterionComponent i : dateCriterion)
           dst.dateCriterion.add(i.copy());
         dst.protocol = protocol == null ? null : protocol.copy();
-        dst.supportingImmunization = new ArrayList<ResourceReference>();
-        for (ResourceReference i : supportingImmunization)
+        dst.supportingImmunization = new ArrayList<Reference>();
+        for (Reference i : supportingImmunization)
           dst.supportingImmunization.add(i.copy());
-        dst.supportingPatientInformation = new ArrayList<ResourceReference>();
-        for (ResourceReference i : supportingPatientInformation)
+        dst.supportingPatientInformation = new ArrayList<Reference>();
+        for (Reference i : supportingPatientInformation)
           dst.supportingPatientInformation.add(i.copy());
         return dst;
       }
@@ -422,7 +422,7 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * Indicates the authority who published the protocol?  E.g. ACIP.
          */
-        protected ResourceReference authority;
+        protected Reference authority;
 
         /**
          * The actual object that is the target of the reference (Indicates the authority who published the protocol?  E.g. ACIP.)
@@ -434,7 +434,7 @@ public class ImmunizationRecommendation extends Resource {
          */
         protected StringType series;
 
-        private static final long serialVersionUID = -1894841004L;
+        private static final long serialVersionUID = -512702014L;
 
       public ImmunizationRecommendationRecommendationProtocolComponent() {
         super();
@@ -515,14 +515,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #authority} (Indicates the authority who published the protocol?  E.g. ACIP.)
          */
-        public ResourceReference getAuthority() { 
+        public Reference getAuthority() { 
           return this.authority;
         }
 
         /**
          * @param value {@link #authority} (Indicates the authority who published the protocol?  E.g. ACIP.)
          */
-        public ImmunizationRecommendationRecommendationProtocolComponent setAuthority(ResourceReference value) { 
+        public ImmunizationRecommendationRecommendationProtocolComponent setAuthority(Reference value) { 
           this.authority = value;
           return this;
         }
@@ -582,7 +582,7 @@ public class ImmunizationRecommendation extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("doseSequence", "integer", "Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.", 0, java.lang.Integer.MAX_VALUE, doseSequence));
           childrenList.add(new Property("description", "string", "Contains the description about the protocol under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("authority", "Resource(Organization)", "Indicates the authority who published the protocol?  E.g. ACIP.", 0, java.lang.Integer.MAX_VALUE, authority));
+          childrenList.add(new Property("authority", "Reference(Organization)", "Indicates the authority who published the protocol?  E.g. ACIP.", 0, java.lang.Integer.MAX_VALUE, authority));
           childrenList.add(new Property("series", "string", "One possible path to achieve presumed immunity against a disease - within the context of an authority.", 0, java.lang.Integer.MAX_VALUE, series));
         }
 
@@ -605,7 +605,7 @@ public class ImmunizationRecommendation extends Resource {
     /**
      * The patient who is the subject of the profile.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The patient who is the subject of the profile.)
@@ -617,13 +617,13 @@ public class ImmunizationRecommendation extends Resource {
      */
     protected List<ImmunizationRecommendationRecommendationComponent> recommendation = new ArrayList<ImmunizationRecommendationRecommendationComponent>();
 
-    private static final long serialVersionUID = -1986363579L;
+    private static final long serialVersionUID = 2049030551L;
 
     public ImmunizationRecommendation() {
       super();
     }
 
-    public ImmunizationRecommendation(ResourceReference subject) {
+    public ImmunizationRecommendation(Reference subject) {
       super();
       this.subject = subject;
     }
@@ -648,14 +648,14 @@ public class ImmunizationRecommendation extends Resource {
     /**
      * @return {@link #subject} (The patient who is the subject of the profile.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The patient who is the subject of the profile.)
      */
-    public ImmunizationRecommendation setSubject(ResourceReference value) { 
+    public ImmunizationRecommendation setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -695,7 +695,7 @@ public class ImmunizationRecommendation extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A unique identifier assigned to this particular recommendation record.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Resource(Patient)", "The patient who is the subject of the profile.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient)", "The patient who is the subject of the profile.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("recommendation", "", "Vaccine administration recommendations.", 0, java.lang.Integer.MAX_VALUE, recommendation));
       }
 

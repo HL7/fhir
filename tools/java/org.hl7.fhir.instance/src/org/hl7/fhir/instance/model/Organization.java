@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -277,7 +277,7 @@ public class Organization extends Resource {
     /**
      * The organization of which this organization forms a part.
      */
-    protected ResourceReference partOf;
+    protected Reference partOf;
 
     /**
      * The actual object that is the target of the reference (The organization of which this organization forms a part.)
@@ -292,7 +292,7 @@ public class Organization extends Resource {
     /**
      * Location(s) the organization uses to provide services.
      */
-    protected List<ResourceReference> location = new ArrayList<ResourceReference>();
+    protected List<Reference> location = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Location(s) the organization uses to provide services.)
      */
@@ -304,7 +304,7 @@ public class Organization extends Resource {
      */
     protected BooleanType active;
 
-    private static final long serialVersionUID = -1195343493L;
+    private static final long serialVersionUID = 462842125L;
 
     public Organization() {
       super();
@@ -415,14 +415,14 @@ public class Organization extends Resource {
     /**
      * @return {@link #partOf} (The organization of which this organization forms a part.)
      */
-    public ResourceReference getPartOf() { 
+    public Reference getPartOf() { 
       return this.partOf;
     }
 
     /**
      * @param value {@link #partOf} (The organization of which this organization forms a part.)
      */
-    public Organization setPartOf(ResourceReference value) { 
+    public Organization setPartOf(Reference value) { 
       this.partOf = value;
       return this;
     }
@@ -462,7 +462,7 @@ public class Organization extends Resource {
     /**
      * @return {@link #location} (Location(s) the organization uses to provide services.)
      */
-    public List<ResourceReference> getLocation() { 
+    public List<Reference> getLocation() { 
       return this.location;
     }
 
@@ -470,8 +470,8 @@ public class Organization extends Resource {
     /**
      * @return {@link #location} (Location(s) the organization uses to provide services.)
      */
-    public ResourceReference addLocation() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addLocation() { 
+      Reference t = new Reference();
       this.location.add(t);
       return t;
     }
@@ -536,9 +536,9 @@ public class Organization extends Resource {
         childrenList.add(new Property("type", "CodeableConcept", "The kind of organization that this is.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("telecom", "ContactPoint", "A contact detail for the organization.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("address", "Address", "An address for the organization.", 0, java.lang.Integer.MAX_VALUE, address));
-        childrenList.add(new Property("partOf", "Resource(Organization)", "The organization of which this organization forms a part.", 0, java.lang.Integer.MAX_VALUE, partOf));
+        childrenList.add(new Property("partOf", "Reference(Organization)", "The organization of which this organization forms a part.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("contact", "", "Contact for the organization for a certain purpose.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("location", "Resource(Location)", "Location(s) the organization uses to provide services.", 0, java.lang.Integer.MAX_VALUE, location));
+        childrenList.add(new Property("location", "Reference(Location)", "Location(s) the organization uses to provide services.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("active", "boolean", "Whether the organization's record is still in active use.", 0, java.lang.Integer.MAX_VALUE, active));
       }
 
@@ -559,8 +559,8 @@ public class Organization extends Resource {
         dst.contact = new ArrayList<OrganizationContactComponent>();
         for (OrganizationContactComponent i : contact)
           dst.contact.add(i.copy());
-        dst.location = new ArrayList<ResourceReference>();
-        for (ResourceReference i : location)
+        dst.location = new ArrayList<Reference>();
+        for (Reference i : location)
           dst.location.add(i.copy());
         dst.active = active == null ? null : active.copy();
         return dst;

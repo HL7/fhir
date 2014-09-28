@@ -36,13 +36,13 @@ import java.math.BigDecimal;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.Contact;
+import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Patient.AdministrativeGender;
 import org.hl7.fhir.instance.model.Quantity;
-import org.hl7.fhir.instance.model.Contact.ContactSystem;
-import org.hl7.fhir.instance.model.Contact.ContactUse;
+import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.instance.model.ContactPoint.ContactPointUse;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.HumanName.NameUse;
 import org.hl7.fhir.instance.model.Enumeration;
@@ -261,22 +261,22 @@ public class Convert {
 	  return s;
   }
 
-	public Contact makeContactFromTEL(Element e) throws Exception {
+	public ContactPoint makeContactFromTEL(Element e) throws Exception {
 		if (e == null)
 			return null;
 		if (e.hasAttribute("nullFlavor"))
 			return null;
-	  Contact c = new Contact();
+	  ContactPoint c = new ContactPoint();
   	String use = e.getAttribute("use");
 	  if (use != null) {
 	  	if (use.equals("H") || use.equals("HP") || use.equals("HV"))
-	  		c.setUse(new Enumeration<ContactUse>(ContactUse.home));
+	  		c.setUse(new Enumeration<ContactPointUse>(ContactPointUse.home));
 	  	else if (use.equals("WP") || use.equals("DIR") || use.equals("PUB"))
-	  		c.setUse(new Enumeration<ContactUse>(ContactUse.work));
+	  		c.setUse(new Enumeration<ContactPointUse>(ContactPointUse.work));
 	  	else if (use.equals("TMP"))
-	  		c.setUse(new Enumeration<ContactUse>(ContactUse.temp));
+	  		c.setUse(new Enumeration<ContactPointUse>(ContactPointUse.temp));
 	  	else if (use.equals("BAD"))
-	  		c.setUse(new Enumeration<ContactUse>(ContactUse.old));
+	  		c.setUse(new Enumeration<ContactPointUse>(ContactPointUse.old));
 	  }
 	  if (e.getAttribute("value") != null) {
 	  	String[] url = e.getAttribute("value").split(":");
@@ -284,9 +284,9 @@ public class Convert {
 	  		c.setValueSimple(url[0].trim());
 	  	else {
 	  		if (url[0].equals("tel"))
-	  			c.setSystem(new Enumeration<ContactSystem>(ContactSystem.phone));
+	  			c.setSystem(new Enumeration<ContactPointSystem>(ContactPointSystem.phone));
 	  		else if (url[0].equals("mailto"))
-	  			c.setSystem(new Enumeration<ContactSystem>(ContactSystem.email));
+	  			c.setSystem(new Enumeration<ContactPointSystem>(ContactPointSystem.email));
 	  		c.setValueSimple(url[1].trim());
 	  	}
 	  }

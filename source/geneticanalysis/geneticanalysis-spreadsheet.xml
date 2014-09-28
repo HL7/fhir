@@ -123,7 +123,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Subject of the analysis</Data></Cell>
     <Cell><Data ss:Type="String">Subject of the analysis</Data></Cell>
@@ -138,7 +138,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Author of the analysis</Data></Cell>
     <Cell><Data ss:Type="String">Author of the analysis</Data></Cell>

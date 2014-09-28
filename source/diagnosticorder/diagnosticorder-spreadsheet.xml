@@ -182,7 +182,7 @@
     <Cell><Data ss:Type="String">DiagnosticOrder.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Group|Location|Device)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient|Group|Location|Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who and/or what test is about</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -196,7 +196,7 @@
     <Cell><Data ss:Type="String">DiagnosticOrder.orderer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who ordered the test</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -224,7 +224,7 @@
     <Cell><Data ss:Type="String">DiagnosticOrder.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Encounter)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The encounter that this diagnostic order is associated with</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -254,7 +254,7 @@
     <Cell><Data ss:Type="String">DiagnosticOrder.supportingInformation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation|Condition)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Observation|Condition)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Supporting observations or conditions for this request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -273,7 +273,7 @@
     <Cell><Data ss:Type="String">DiagnosticOrder.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Specimen)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Specimen)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If the whole order relates to specific specimens</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -387,7 +387,7 @@
     <Cell><Data ss:Type="String">DiagnosticOrder.event.actor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Device)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner|Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who recorded or did this</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -434,7 +434,7 @@
     <Cell><Data ss:Type="String">DiagnosticOrder.item.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Specimen)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Specimen)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If this item relates to specific specimens</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

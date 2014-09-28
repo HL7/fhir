@@ -336,7 +336,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Patient|Device)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner|Patient|Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Direct reference to resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -615,7 +615,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">2</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any) </Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any) </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">@ParticipantObjectID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

@@ -203,7 +203,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Availability.actor</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">ATTENDEE:MAILTO:john_public@host2.com&#10;This can be populated with a value from the referenced resource</Data></Cell>
    </Row>

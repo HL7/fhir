@@ -121,7 +121,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       jrg.generate(root.getRoot(), javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Resource, null, genDate, version);
       jrg.close();
       hashes.put(n, Long.toString(jrg.getHashSum()));
-      jFactoryGen.registerResource(n,  root.getName());
+      jFactoryGen.registerReference(n,  root.getName());
     }
 
     generateResourceTypeEnum();
@@ -132,7 +132,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       jrg.generate(e, javaClassName(e.getName()), definitions.getBindings(), JavaGenClass.Resource, null, genDate, version);
       jrg.close();
       hashes.put(resource.getName(), Long.toString(jrg.getHashSum()));
-      jFactoryGen.registerResource(resource.getName(),  e.getName());
+      jFactoryGen.registerReference(resource.getName(),  e.getName());
     }
 
     for (String n : definitions.getInfrastructure().keySet()) {

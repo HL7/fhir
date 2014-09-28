@@ -269,7 +269,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Namespace.responsible</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who maintains system namespace?</Data></Cell>
     <Cell><Data ss:Type="String">The organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This is the primary organization.  Responsibility for some aspects of a namespace may be delegated</Data></Cell>

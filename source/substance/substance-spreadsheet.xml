@@ -236,7 +236,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Substance.ingredient.substance</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Substance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A component of the substance</Data></Cell>
     <Cell><Data ss:Type="String">Another substance that is a component of this substance</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.player</Data></Cell>

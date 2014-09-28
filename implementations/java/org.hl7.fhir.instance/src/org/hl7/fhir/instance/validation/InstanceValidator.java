@@ -29,7 +29,7 @@ import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Range;
 import org.hl7.fhir.instance.model.Ratio;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.SampledData;
 import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.StringType;
@@ -358,7 +358,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private Profile getProfileForType(String localName) throws Exception {
-    Profile r = (Profile) getResource(localName);
+    Profile r = (Profile) getReference(localName);
     if (r == null)
       return null;
     if (r.getStructure().size() != 1 || !(r.getStructure().get(0).getTypeSimple().equals(localName) || r.getStructure().get(0).getNameSimple().equals(localName)))
@@ -373,7 +373,7 @@ public class InstanceValidator extends BaseValidator {
     return s;
   }
 
-  private Resource getResource(String id) {
+  private Resource getReference(String id) {
     return context.getProfiles().get(id.toLowerCase()).getResource();
   }
 
@@ -451,7 +451,7 @@ public class InstanceValidator extends BaseValidator {
         if (child != null)
           type = ci.name().substring(tail(child.getPathSimple()).length() - 3);
         if ("Resource".equals(type))
-          type = "ResourceReference";
+          type = "Reference";
       } 
       else 
       {
@@ -461,15 +461,15 @@ public class InstanceValidator extends BaseValidator {
           {
         	  TypeRefComponent trc = child.getDefinition().getType().get(0);
         	  
-        	  if(trc.getCodeSimple().equals("ResourceReference"))
-        		  type = "ResourceReference";
+        	  if(trc.getCodeSimple().equals("Reference"))
+        		  type = "Reference";
         	  else
         		  throw new Exception("multiple types ("+describeTypes(child.getDefinition().getType())+") @ "+path+"/f:"+ci.name());
           }
           
         if (type != null) {
-          if (type.startsWith("Resource("))
-            type = "ResourceReference";
+          if (type.startsWith("Reference("))
+            type = "Reference";
           if (type.startsWith("@")) {
             child = findElement(structure, type.substring(1));
             type = null;
@@ -568,8 +568,8 @@ public class InstanceValidator extends BaseValidator {
             if (cs.equals("code"))  {
               ElementDefinitionBindingComponent binding = elementComp.getDefinition().getBinding();
               if (binding != null) {
-                if (warning(errors, "code-unknown", path, binding.getReference() != null && binding.getReference() instanceof ResourceReference, "Binding for "+path+" missing or cannot be processed")) {
-                  if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {
+                if (warning(errors, "code-unknown", path, binding.getReference() != null && binding.getReference() instanceof Reference, "Binding for "+path+" missing or cannot be processed")) {
+                  if (binding.getReference() != null && binding.getReference() instanceof Reference) {
                     ValueSet vs = resolveBindingReference(binding.getReference());
                     if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
                       try {
@@ -743,7 +743,7 @@ public class InstanceValidator extends BaseValidator {
 
   }
 
-  private void checkResourceReference(String path, Element element, ElementComponent context, boolean b) {
+  private void checkReference(String path, Element element, ElementComponent context, boolean b) {
     // nothing to do yet
 
   }
@@ -774,7 +774,7 @@ public class InstanceValidator extends BaseValidator {
         if (context != null && context.getDefinition().getBinding() != null) {
           ElementDefinitionBindingComponent binding = context.getDefinition().getBinding();
           if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing")) {
-            if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {
+            if (binding.getReference() != null && binding.getReference() instanceof Reference) {
               ValueSet vs = resolveBindingReference(binding.getReference());
               if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
                 try {
@@ -806,8 +806,8 @@ public class InstanceValidator extends BaseValidator {
   private ValueSet resolveBindingReference(Type reference) {
     if (reference instanceof UriType)
       return context.getValueSets().get(((UriType) reference).getValue().toString()).getResource();
-    else if (reference instanceof ResourceReference)
-      return context.getValueSets().get(((ResourceReference) reference).getReferenceSimple()).getResource();
+    else if (reference instanceof Reference)
+      return context.getValueSets().get(((Reference) reference).getReferenceSimple()).getResource();
     else
       return null;
   }
@@ -836,7 +836,7 @@ public class InstanceValidator extends BaseValidator {
     if (context != null && context.getDefinition().getBinding() != null) {
       ElementDefinitionBindingComponent binding = context.getDefinition().getBinding();
       if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing (cc)")) {
-        if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {
+        if (binding.getReference() != null && binding.getReference() instanceof Reference) {
           ValueSet vs = resolveBindingReference(binding.getReference());
           if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
             try {
@@ -888,8 +888,8 @@ public class InstanceValidator extends BaseValidator {
       return "null";
     if (reference instanceof UriType)
       return ((UriType)reference).getValue();
-    if (reference instanceof ResourceReference)
-      return ((ResourceReference)reference).getReference().getValue();
+    if (reference instanceof Reference)
+      return ((Reference)reference).getReference().getValue();
     return "??";
   }
 
@@ -1102,9 +1102,9 @@ public class InstanceValidator extends BaseValidator {
 	private void checkBinding(List<ValidationMessage> errors, String path, WrapperElement focus, Profile profile, ElementComponent elementDefn, String type) {
 	  ElementDefinitionBindingComponent bc = elementDefn.getDefinition().getBinding();
 
-	  if (bc != null && bc.getReference() != null && bc.getReference() instanceof ResourceReference) {
-      String url = ((ResourceReference) bc.getReference()).getReferenceSimple();
-	  	ValueSet vs = resolveValueSetReference(profile, (ResourceReference) bc.getReference());
+	  if (bc != null && bc.getReference() != null && bc.getReference() instanceof Reference) {
+      String url = ((Reference) bc.getReference()).getReferenceSimple();
+	  	ValueSet vs = resolveValueSetReference(profile, (Reference) bc.getReference());
 	  	if (vs == null) {
 	      rule(errors, "structure", path, false, "Cannot check binding on type '"+type+"' as the value set '"+url+"' could not be located");
       } else if (type.equals("code"))
@@ -1118,7 +1118,7 @@ public class InstanceValidator extends BaseValidator {
 	  }
   }
 
-	private ValueSet resolveValueSetReference(Profile profile, ResourceReference reference) {
+	private ValueSet resolveValueSetReference(Profile profile, Reference reference) {
 	  if (reference.getReferenceSimple().startsWith("#")) {
 	  	for (Resource r : profile.getContained()) {
 	  		if (r instanceof ValueSet && r.getXmlId().equals(reference.getReferenceSimple().substring(1)))
@@ -1154,7 +1154,7 @@ public class InstanceValidator extends BaseValidator {
 	  for (TypeRefComponent type : types) {
 	  	if (t.equals(Utilities.capitalize(type.getCodeSimple())))
 	  		return true;
-	  	if (t.equals("Resource") && Utilities.capitalize(type.getCodeSimple()).equals("ResourceReference"))
+	  	if (t.equals("Resource") && Utilities.capitalize(type.getCodeSimple()).equals("Reference"))
 	  	  return true;
 	  }
 	  return false;

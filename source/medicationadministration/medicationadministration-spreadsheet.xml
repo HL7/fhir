@@ -265,7 +265,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Who received medication?</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">The person or animal to whom the medication was given.</Data></Cell>
@@ -278,7 +278,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Who administered substance?</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">The individual who was responsible for giving the medication to the patient.</Data></Cell>
@@ -291,7 +291,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(Encounter)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Encounter administered as part of</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.</Data></Cell>
@@ -309,7 +309,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(MedicationPrescription)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(MedicationPrescription)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Order administration performed against</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">The original request, instruction or authority to perform the administration.</Data></Cell>
@@ -363,7 +363,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Medication)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(Medication)</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">What was administered?</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data></Cell>
@@ -381,7 +381,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Device)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(Device)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Device used to administer</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">The device used in administering the medication to the patient.  E.g. a particular infusion pump</Data></Cell>

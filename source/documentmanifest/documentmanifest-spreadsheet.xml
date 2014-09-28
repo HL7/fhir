@@ -218,7 +218,7 @@
     <Cell><Data ss:Type="String">DocumentManifest.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Practitioner|Group|Device)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient|Practitioner|Group|Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The subject of the set of documents</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -232,7 +232,7 @@
     <Cell><Data ss:Type="String">DocumentManifest.recipient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Practitioner|Organization)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient|Practitioner|Organization)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Intended to get notified about this set of documents</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -270,7 +270,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Device|Patient|RelatedPerson)</Data><NamedCell
+    <Cell><Data ss:Type="String">Reference(Practitioner|Device|Patient|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who and/or what authored the document</Data><NamedCell
@@ -345,7 +345,7 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(DocumentManifest)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(DocumentManifest)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If this document manifest replaces another</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -400,7 +400,7 @@
    <Row ss:Height="60">
     <Cell><Data ss:Type="String">DocumentManifest.content</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(DocumentReference|Binary|Media)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(DocumentReference|Binary|Media)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Contents of this set of documents</Data></Cell>
     <Cell><Data ss:Type="String">The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target</Data></Cell>

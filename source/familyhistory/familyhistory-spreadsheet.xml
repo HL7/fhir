@@ -232,7 +232,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">FamilyHistory.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Patient history is about</Data></Cell>
     <Cell><Data ss:Type="String">The person who this history concerns</Data></Cell>
     <Cell><Data ss:Type="String">Proband</Data></Cell>

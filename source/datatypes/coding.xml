@@ -231,7 +231,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Coding.valueSet</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Resource(ValueSet)</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(ValueSet)</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Set this coding was chosen from</Data></Cell>
     <Cell><Data ss:Type="String">The set of possible coded values this coding was chosen from or constrained by</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">The value set may influence the codes that the user can select. Also, referencing the value set directly makes it easier to share ad-hoc code systems used across healthcare</Data></Cell>

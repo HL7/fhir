@@ -310,14 +310,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment.slot</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Slot)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Slot)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Schedule-Slot (classCode=ACT, moodCode = SLOT)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment.location</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The primary location that this appointment is to take place</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.location</Data></Cell>
    </Row>
@@ -331,7 +331,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Appointment.order</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Order)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Order)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">An Order that lead to the creation of this appointment</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.referencedOrder</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">The Supply Order from the V3 DMIM was discussed and decided outside 80%, permit via extensions where required</Data></Cell>
@@ -372,7 +372,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Should this be multiple? And move to a child enitity</Data></Cell>
@@ -422,7 +422,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Resource(Observation)</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Reference(Observation)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Observations that lead to the creation of this appointment. (Is this 80%)</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">PA discussed, concerms that this was part of V2 and v3, but not sure that is should be in 80%</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -434,7 +434,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!Appointment.participant.location</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The location that this appointment is to take place</Data></Cell>
     <Cell><Data ss:Type="String">If this location is defined, this is where this participant is expected to be, otherwise the location in the appointment is used. This covers use-cases where teleconferencing is used, and some participants are in a different location.</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">(wrapper)</Data></Cell>
@@ -445,7 +445,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Patient|RelatedPerson)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Patient|RelatedPerson)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Who recorded the appointment</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>

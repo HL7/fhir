@@ -90,10 +90,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     
     for (ElementDefn n : definitions.getTypes().values()) {
       generate(n, JavaGenClass.Type);
-      String an = n.getName().equals("ResourceReference") ? "Resource" : n.getName();
-      regt.append("    else if (xpp.getName().equals(prefix+\""+an+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+      regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
       regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-      regn.append("    if (xpp.getName().equals(prefix+\""+an+"\"))\r\n      return true;\r\n");
+      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
 
     for (ProfiledType n : definitions.getConstraints().values()) {
@@ -109,7 +108,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
     
-    genResource();
+    genReference();
     
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
@@ -155,7 +154,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("\r\n");
   }
 
-  private void genResource() throws Exception {
+  private void genReference() throws Exception {
     write("  private boolean parseResourceContent(int eventType, XmlPullParser xpp, Resource res) throws Exception {\r\n");
     write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"language\")) { \r\n");
     write("      res.setLanguage(parseCode(xpp));\r\n");
@@ -386,8 +385,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         }
         if (tn.equals("char[]"))
           tn = "xhtml";
-        if (tn.contains("Resource("))
-          prsr = "parseResourceReference(xpp)";
+        if (tn.contains("Reference("))
+          prsr = "parseReference(xpp)";
         else if (tn.contains("("))
           prsr = "parse"+PrepGenericName(tn)+"(xpp)";
         else if (tn.startsWith(context) && !tn.equals(context) && !definitions.hasType(tn)) {

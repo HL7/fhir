@@ -145,7 +145,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Resource that corresponds to the subject</Data></Cell>
     <Cell><Data ss:Type="String">Resource that corresponds to the subject</Data></Cell>
@@ -175,7 +175,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Organization</Data></Cell>
     <Cell><Data ss:Type="String">Organization that does the microarray</Data></Cell>
@@ -215,7 +215,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Microarray.scanner.manufacturer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Scanner manufacturer</Data></Cell>
     <Cell><Data ss:Type="String">Manufactuerer of the scanner</Data></Cell>
    </Row>

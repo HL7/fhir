@@ -243,7 +243,7 @@
     <Cell><Data ss:Type="String">NutritionOrder.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The person who requires the diet, formula or nutritional supplement&#10;</Data></Cell>
     <Cell><Data ss:Type="String">The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s67"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data></Cell>
@@ -254,7 +254,7 @@
     <Cell><Data ss:Type="String">NutritionOrder.orderer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who ordered the diet, formula or nutritional supplement</Data></Cell>
     <Cell><Data ss:Type="String">The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=AUT].role</Data></Cell>
@@ -274,7 +274,7 @@
     <Cell><Data ss:Type="String">NutritionOrder.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Encounter)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The encounter associated with that this nutrition order</Data></Cell>
     <Cell><Data ss:Type="String">An encounter that provides additional informaton about the healthcare context in which this request is made</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</Data></Cell>
@@ -293,7 +293,7 @@
     <Cell><Data ss:Type="String">NutritionOrder.allergyIntolerance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(AllergyIntolerance)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(AllergyIntolerance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">List of the patient's food and nutrition-related allergies and intolerances</Data></Cell>
     <Cell><Data ss:Type="String">The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">resource reference</Data></Cell>

@@ -751,7 +751,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Resource(ValueSet)</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(ValueSet)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Source of value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

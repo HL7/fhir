@@ -344,7 +344,7 @@ public interface FHIRClient {
 	 * 
 	 * GET [base]/[type]/[id]/_tags
 	 */
-	public <T extends Resource> List<AtomCategory> getTagsForResource(Class<T> resource, String id);
+	public <T extends Resource> List<AtomCategory> getTagsForReference(Class<T> resource, String id);
 	
 	/**
 	 * Get a list of all tags affixed to the nominated version of the resource. This duplicates the HTTP header entries
@@ -358,7 +358,7 @@ public interface FHIRClient {
 	 * 
 	 * DELETE [base]/[type]/[id]/_tags
 	 */
-	//public <T extends Resource> boolean deleteTagsForResource(Class<T> resourceClass, String id);
+	//public <T extends Resource> boolean deleteTagsForReference(Class<T> resourceClass, String id);
 	
 	/**
 	 * Remove tags in the provided list from the list of tags for the nominated version of the resource

@@ -135,8 +135,8 @@ public class Factory {
 	  return cc;
   }
 
-	public static ResourceReference makeResourceReference(String url) throws Exception {
-	  ResourceReference rr = new ResourceReference();
+	public static Reference makeReference(String url) throws Exception {
+	  Reference rr = new Reference();
 	  rr.setReferenceSimple(url);
 	  return rr;
   }

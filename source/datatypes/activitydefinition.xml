@@ -219,7 +219,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Where it should happen</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.</Data></Cell>
@@ -241,7 +241,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Organization|RelatedPerson|Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Organization|RelatedPerson|Patient)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Who's responsible?</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who's expected to be involved in the activity.</Data></Cell>
@@ -263,7 +263,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Medication|Substance)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Medication|Substance)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">What's administered/supplied</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the food, drug or other product being consumed or supplied in the activity.</Data></Cell>

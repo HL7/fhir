@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -401,7 +401,7 @@ public class FamilyHistory extends Resource {
     /**
      * The person who this history concerns.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The person who this history concerns.)
@@ -423,13 +423,13 @@ public class FamilyHistory extends Resource {
      */
     protected List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
 
-    private static final long serialVersionUID = -1348395138L;
+    private static final long serialVersionUID = 1904472144L;
 
     public FamilyHistory() {
       super();
     }
 
-    public FamilyHistory(ResourceReference subject) {
+    public FamilyHistory(Reference subject) {
       super();
       this.subject = subject;
     }
@@ -454,14 +454,14 @@ public class FamilyHistory extends Resource {
     /**
      * @return {@link #subject} (The person who this history concerns.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The person who this history concerns.)
      */
-    public FamilyHistory setSubject(ResourceReference value) { 
+    public FamilyHistory setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -573,7 +573,7 @@ public class FamilyHistory extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Resource(Patient)", "The person who this history concerns.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient)", "The person who this history concerns.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("date", "dateTime", "The date (and possibly time) when the family history was taken.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("note", "string", "Conveys information about family history not specific to individual relations.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("relation", "", "The related person. Each FamilyHistory resource contains the entire family history for a single person.", 0, java.lang.Integer.MAX_VALUE, relation));

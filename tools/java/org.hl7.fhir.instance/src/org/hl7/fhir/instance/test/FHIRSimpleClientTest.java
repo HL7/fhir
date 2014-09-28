@@ -36,7 +36,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueCompone
 import org.hl7.fhir.instance.model.Patient;
 import org.hl7.fhir.instance.model.Patient.AdministrativeGender;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Reference;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -174,21 +174,21 @@ public class FHIRSimpleClientTest {
 
 	@Test
 	public void testRead() {
-		loadPatientResource();
+		loadPatientReference();
 		AtomEntry<Patient> fetchedPatient = testClient.read(Patient.class, testPatientId);
 		assertEqualDate(fetchedPatient.getResource().getBirthDate().getValue(),testDateAndTime);
 		assertEquals(2, fetchedPatient.getTags().size());
-		unloadPatientResource();
+		unloadPatientReference();
 	}
 
 	@Test
 	public void testVread() {
 		try {
-			loadPatientResource();
+			loadPatientReference();
 			AtomEntry<Patient> fetchedPatient = testClient.vread(Patient.class, testPatientId, testPatientVersion);
 			assertEqualDate(fetchedPatient.getResource().getBirthDate().getValue(),testDateAndTime);
 			assertEquals(2, fetchedPatient.getTags().size());
-			unloadPatientResource();
+			unloadPatientReference();
 		} catch(EFhirClientException e) {
 			List<OperationOutcome> outcomes = e.getServerErrors();
 			for(OperationOutcome outcome : outcomes) {
@@ -204,7 +204,7 @@ public class FHIRSimpleClientTest {
 	@Test
 	public void testUpdate() {
 		try {
-			loadPatientResource();
+			loadPatientReference();
 			AtomEntry<Patient> originalPatientEntry = testClient.read(Patient.class, testPatientId);
 			String originalEntryVersion = getEntryVersion(originalPatientEntry);
 			DateTimeType modifiedBirthday = new DateTimeType();
@@ -222,7 +222,7 @@ public class FHIRSimpleClientTest {
 			assertEquals(Integer.parseInt(originalEntryVersion) + 1, Integer.parseInt(entryVersion));
 			AtomEntry<Patient> fetchedUpdatedPatientEntry = testClient.read(Patient.class, testPatientId);
 			assertEqualDate(new DateAndTime("2002-09-09"), fetchedUpdatedPatientEntry.getResource().getBirthDateSimple());
-			unloadPatientResource();
+			unloadPatientReference();
 		} catch (ParseException e) {
 			e.printStackTrace();
 			fail();
@@ -255,14 +255,14 @@ public class FHIRSimpleClientTest {
 	@Test
 	public void testValidate() {
 		try {
-			loadPatientResource();
+			loadPatientReference();
 			Patient patient = testClient.read(Patient.class, testPatientId).getResource();
 			DateTimeType modifiedBirthday = new DateTimeType();
 			modifiedBirthday.setValue(new DateAndTime("2009-08-08"));
 			patient.setBirthDate(modifiedBirthday);
 			AtomEntry<OperationOutcome> validate = testClient.validate(Patient.class, patient, testPatientId);
 			assertTrue(validate.getResource().getIssue().size() == 0);//TODO not sure why bad syntax
-			unloadPatientResource();
+			unloadPatientReference();
 		} catch (ParseException e) {
 			e.printStackTrace();
 			fail();
@@ -272,7 +272,7 @@ public class FHIRSimpleClientTest {
 
 	@Test
 	public void testGetHistoryForResourceWithId() {
-		loadPatientResource();
+		loadPatientReference();
 		Patient patient = testClient.read(Patient.class, testPatientId).getResource();
 		testClient.update(Patient.class, patient, testPatientId);
 		testClient.update(Patient.class, patient, testPatientId);
@@ -340,7 +340,7 @@ public class FHIRSimpleClientTest {
 	}
 
 	@Test
-	public void testSearchForSingleResource() {
+	public void testSearchForSingleReference() {
 		Map<String, String> parameters = new HashMap<String, String>();
 		parameters.put("_count", "50");
 		parameters.put("gender", "female");
@@ -377,7 +377,7 @@ public class FHIRSimpleClientTest {
 			Patient patient = buildPatient();
 			AtomEntry<OperationOutcome> createdPatientEntry = testClient.create(Patient.class, patient);
 			patient.setBirthDateSimple(new DateAndTime("1966-01-10"));
-			ResourceReference patientReference = new ResourceReference();
+			Reference patientReference = new Reference();
 			AtomEntry<Patient> patientEntry = new AtomEntry<Patient>();
 			patientEntry.setResource(patient);
 			patientEntry.setId(getEntryPath(createdPatientEntry));
@@ -497,54 +497,54 @@ public class FHIRSimpleClientTest {
 	}
 	
 	@Test
-	public void testGetTagsForResource() {
-		loadPatientResource();
-		List<AtomCategory> tags = testClient.getTagsForResource(Patient.class, testPatientId);
+	public void testGetTagsForReference() {
+		loadPatientReference();
+		List<AtomCategory> tags = testClient.getTagsForReference(Patient.class, testPatientId);
 		assertTrue(tags != null && tags.size() > 0);
-		unloadPatientResource();
+		unloadPatientReference();
 	}
 	
 	@Test
 	public void testGetTagsForResourceVersion() {
-		loadPatientResource();
+		loadPatientReference();
 		List<AtomCategory> tags = testClient.getTagsForResourceVersion(Patient.class, testPatientId, testPatientVersion);
 		assertTrue(tags != null && tags.size() > 0);
-		unloadPatientResource();
+		unloadPatientReference();
 	}
 	
 //	@Test
-//	public void testDeleteTagsForResource() {
-//		loadPatientResource();
-//		boolean success = testClient.deleteTagsForResource(Patient.class, testPatientId);
+//	public void testDeleteTagsForReference() {
+//		loadPatientReference();
+//		boolean success = testClient.deleteTagsForReference(Patient.class, testPatientId);
 //		assertTrue(success);
-//		unloadPatientResource();
+//		unloadPatientReference();
 //	}
 //	
 //	@Test
 //	public void testDeleteTagsForResourceVersion() {
-//		loadPatientResource();
+//		loadPatientReference();
 //		List<AtomCategory> tags = generateCategoryHeader();
 //		boolean success = testClient.deleteTagsForResourceVersion(Patient.class, testPatientId, tags, testPatientVersion);
 //		assertTrue(success);
-//		unloadPatientResource();
+//		unloadPatientReference();
 //	}
 	
 	@Test
-	public void testCreateTagsForResource() {
-		loadPatientResource();
+	public void testCreateTagsForReference() {
+		loadPatientReference();
 		List<AtomCategory> tags = new ArrayList<AtomCategory>();
 		tags.add(new AtomCategory("http://scheme.com", "http://term.com", "Some good ole term"));
 		testClient.createTags(tags, Patient.class, testPatientId);
-		unloadPatientResource();
+		unloadPatientReference();
 	}
 	
 	@Test
 	public void testCreateTagsForResourceVersion() {
-		loadPatientResource();
+		loadPatientReference();
 		List<AtomCategory> tags = new ArrayList<AtomCategory>();
 		tags.add(new AtomCategory("http://scheme.com", "http://term.com", "Some good ole term"));
 		testClient.createTags(tags, Patient.class, testPatientId, testPatientVersion);
-		unloadPatientResource();
+		unloadPatientReference();
 	}
 
 /*
@@ -595,7 +595,7 @@ public class FHIRSimpleClientTest {
 			//fetch condition and ensure it has an ID
 			AtomEntry<Condition> retrievedConditionEntry = testClient.read(Condition.class, getEntryId(createdConditionEntry));
 			//Check that subject is patient
-			condition = retrievedConditionEntry.getResource();
+			condition = retrievedConditionEntry.getReference();
 			String patientReference = condition.getSubject().getReferenceSimple();
 			System.out.println(patientReference);
 			assertTrue(patientReference.equalsIgnoreCase("patient/@"+getEntryId(createdPatientEntry)));
@@ -628,16 +628,16 @@ public class FHIRSimpleClientTest {
 			//fetch condition and ensure it has an ID
 			AtomEntry<Condition> retrievedConditionEntry1 = testClient.read(Condition.class, getEntryId(createdConditionEntry1));
 			//Check that subject is patient
-			condition1 = retrievedConditionEntry1.getResource();
+			condition1 = retrievedConditionEntry1.getReference();
 			String patientReference = condition1.getSubject().getReferenceSimple();
 			assertTrue(patientReference.equalsIgnoreCase("patient/@"+getEntryId(createdPatientEntry)));
 			//Get all conditions for this patient
 			AtomFeed preexistingConditions = testClient.search(Condition.class, searchParameters);
 			assertTrue(preexistingConditions.getEntryList().size() == 1);
 			AtomEntry<Condition> preexistingConditionEntry = (AtomEntry<Condition>)preexistingConditions.getEntryList().get(0);
-			assertTrue(preexistingConditionEntry.getResource().getCode().getCoding().get(0).getCodeSimple().equalsIgnoreCase("29530003"));
-			assertNotNull(preexistingConditionEntry.getResource().getCode().getCoding().get(0).getSystemSimple().equalsIgnoreCase("http://snomed.info/id"));
-			assertTrue(preexistingConditionEntry.getResource().getCode().getCoding().get(0).getDisplaySimple().equalsIgnoreCase("Fungal granuloma (disorder)"));
+			assertTrue(preexistingConditionEntry.getReference().getCode().getCoding().get(0).getCodeSimple().equalsIgnoreCase("29530003"));
+			assertNotNull(preexistingConditionEntry.getReference().getCode().getCoding().get(0).getSystemSimple().equalsIgnoreCase("http://snomed.info/id"));
+			assertTrue(preexistingConditionEntry.getReference().getCode().getCoding().get(0).getDisplaySimple().equalsIgnoreCase("Fungal granuloma (disorder)"));
 			//Add new condition
 			AtomEntry<Condition> createdConditionEntry2 = testClient.create(Condition.class, condition2);
 			preexistingConditions = testClient.search(Condition.class, searchParameters);
@@ -675,7 +675,7 @@ public class FHIRSimpleClientTest {
 		Condition condition = null;
 		try {
 			condition = new Condition();
-			ResourceReference patientReference = new ResourceReference();
+			Reference patientReference = new Reference();
 			patientReference.setReferenceSimple("patient/@"+getEntryId(patientEntry));
 			condition.setSubject(patientReference);
 			condition.setCode(conditionCode);
@@ -708,7 +708,7 @@ public class FHIRSimpleClientTest {
 		return patient;
 	}
 	
-	private void loadPatientResource() {
+	private void loadPatientReference() {
 		Patient testPatient = buildPatient();
 		List<AtomCategory> tags = generateCategoryHeader();
 		AtomEntry<OperationOutcome> result = testClient.create(Patient.class, testPatient, tags);
@@ -723,7 +723,7 @@ public class FHIRSimpleClientTest {
 		return tags;
 	}
 	
-	private void unloadPatientResource() {
+	private void unloadPatientReference() {
 		testClient.delete(Patient.class, testPatientId);
 	}
 	

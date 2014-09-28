@@ -193,7 +193,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Who this profile is for</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The patient who is the subject of the profile</Data></Cell>
@@ -371,7 +371,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:Index="6" ss:StyleID="s69"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s69"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who is responsible for protocol</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the authority who published the protocol?  E.g. ACIP</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=AUT]</Data></Cell>
@@ -393,7 +393,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Immunization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Immunization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Past immunizations supporting recommendation</Data></Cell>
     <Cell><Data ss:Type="String">Immunization event history that supports the status and recommendation</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=&quot;immunization&quot;]</Data></Cell>
@@ -404,7 +404,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation | AdverseReaction | AllergyIntolerance)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Observation | AdverseReaction | AllergyIntolerance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Patient observations supporting recommendation</Data></Cell>
     <Cell><Data ss:Type="String">Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]</Data></Cell>

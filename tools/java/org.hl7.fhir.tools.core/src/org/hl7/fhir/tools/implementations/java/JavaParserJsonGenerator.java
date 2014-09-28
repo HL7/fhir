@@ -90,10 +90,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     
     for (ElementDefn n : definitions.getTypes().values()) {
       generate(n, JavaGenClass.Type);
-      String an = n.getName().equals("ResourceReference") ? "Resource" : n.getName();
-      regt.append("    else if (json.has(prefix+\""+an+"\"))\r\n      return parse"+n.getName()+"(json.getAsJsonObject(prefix+\""+an+"\"));\r\n");
+      regt.append("    else if (json.has(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json.getAsJsonObject(prefix+\""+n.getName()+"\"));\r\n");
       regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-      regn.append("    if (json.has(prefix+\""+an+"\"))\r\n      return true;\r\n");
+      regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
 
     for (ProfiledType n : definitions.getConstraints().values()) {
@@ -109,7 +108,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
     
-    genResource();
+    genReference();
     
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
@@ -164,7 +163,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("\r\n");
   }
 
-  private void genResource() throws Exception {
+  private void genReference() throws Exception {
     write("  protected void parseResourceProperties(JsonObject json, Resource res) throws Exception {\r\n");
     write("    parseBackboneProperties(json, res); \r\n");
     write("    if (json.has(\"language\"))\r\n");
@@ -363,10 +362,10 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
           }
           if (tn.equals("char[]")) {
             prsr = "parseXhtml(json.get(\""+name+"\").getAsString())";
-          } else if (tn.contains("Resource(")) {
-            prsr = "parseResourceReference(json.getAsJsonObject(\""+name+"\"))";
-            aprsr = "parseResourceReference(array.get(i).getAsJsonObject())";
-            anprsr = "parseResourceReference(null)";
+          } else if (tn.contains("Reference(")) {
+            prsr = "parseReference(json.getAsJsonObject(\""+name+"\"))";
+            aprsr = "parseReference(array.get(i).getAsJsonObject())";
+            anprsr = "parseReference(null)";
           } else if (tn.startsWith(context) && !tn.equals(context) && !definitions.hasType(tn)) {
             if (bUseOwner) {
               prsr = "parse"+upFirst(tn)+"(json.getAsJsonObject(\""+name+"\"), owner)";

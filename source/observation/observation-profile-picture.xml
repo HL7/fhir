@@ -356,14 +356,14 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Resource(Patient|Group|Device)</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Patient|Group|Device)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Who/What this image is taken of</Data></Cell>
     <Cell><Data ss:Type="String">Who/What this image is taken of</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The person who generated the image</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

@@ -60,9 +60,9 @@
           <binding>
             <name value="PotassiumSCncPtSerPlasBldQn_KEY_ECID"/>
             <isExtensible value="false"/>
-            <referenceResource>
+            <referenceReference>
               <reference value="ValueSet/PotassiumSCncPtSerPlasBldQn_KEY_ECID"/>
-            </referenceResource>
+            </referenceReference>
           </binding>
           <mapping>
             <identity value="cdl.key"/>
@@ -86,9 +86,9 @@
           <binding>
             <name value="SubstanceConcentrationUnits_VALUESET_ECID"/>
             <isExtensible value="false"/>
-            <referenceResource>
+            <referenceReference>
               <reference value="ValueSet/SubstanceConcentrationUnits_VALUESET_ECID"/>
-            </referenceResource>
+            </referenceReference>
           </binding>
         </definition>
       </element>

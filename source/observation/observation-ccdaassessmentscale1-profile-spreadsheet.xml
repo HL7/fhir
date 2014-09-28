@@ -413,7 +413,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Reference(Patient)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="210">
     <Cell><Data ss:Type="String">13. MAY contain zero or more [0..*] referenceRange (CONF:16799). &#10;The referenceRange, if present, SHALL contain exactly one [1..1] &#10;observationRange (CONF:16800). &#10;This observationRange SHOULD contain zero or one [0..1] text &#10;(CONF:16801). &#10;1.  The text, if present, SHOULD contain zero or one [0..1] &#10;reference (CONF:16802). &#10;a.  The reference, if present, MAY contain zero or &#10;one [0..1] @value (CONF:16803). </Data></Cell>
@@ -446,7 +446,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related.target</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.related.target</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Resource(Observation)</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Reference(Observation)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">#CCDAAssessmentSupporting</Data></Cell>
    </Row>
   </Table>
@@ -1476,7 +1476,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Ratio</Data><NamedCell ss:Name="TYPE"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5"><Data ss:Type="String">ResourceReference</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">Reference</Data><NamedCell
       ss:Name="TYPE"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1484,7 +1484,7 @@
       ss:Name="TYPE"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5"><Data ss:Type="String">Schedule</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">Timing</Data><NamedCell
       ss:Name="TYPE"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

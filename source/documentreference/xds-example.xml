@@ -108,9 +108,9 @@
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
-          <valueResource>
+          <valueReference>
             <display value="Parma Community"/>
-          </valueResource>
+          </valueReference>
         </extension>
         <text>
           <status value="generated"/>
@@ -152,9 +152,9 @@
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
-          <valueResource>
+          <valueReference>
             <display value="Berea Community"/>
-          </valueResource>
+          </valueReference>
         </extension>
         <text>
           <status value="generated"/>

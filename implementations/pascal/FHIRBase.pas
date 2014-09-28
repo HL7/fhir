@@ -534,25 +534,25 @@ begin
 end;
 *)
 (*
-{ TFHIRResourceReference }
+{ TFhirReference }
 
-procedure TFHIRResourceReference.Assign(oSource: TAdvObject);
+procedure TFhirReference.Assign(oSource: TAdvObject);
 begin
   inherited;
-  resourceType := TFHIRResourceReference(oSource).resourceType;
-  id := TFHIRResourceReference(oSource).id;
-  version := TFHIRResourceReference(oSource).version;
-  text := TFHIRResourceReference(oSource).text;
+  resourceType := TFhirReference(oSource).resourceType;
+  id := TFhirReference(oSource).id;
+  version := TFhirReference(oSource).version;
+  text := TFhirReference(oSource).text;
 end;
 
-function TFHIRResourceReference.Clone: TFHIRResourceReference;
+function TFhirReference.Clone: TFhirReference;
 begin
-  result := TFHIRResourceReference(Inherited Clone);
+  result := TFhirReference(Inherited Clone);
 end;
 
-function TFHIRResourceReference.Link: TFHIRResourceReference;
+function TFhirReference.Link: TFhirReference;
 begin
-  result := TFHIRResourceReference(Inherited Link);
+  result := TFhirReference(Inherited Link);
 end;
   *)
 
@@ -986,6 +986,7 @@ function TFhirXHtmlNode.SetAttribute(name, value: String) : TFhirXHtmlNode;
 var
   i : integer;
 begin
+  result := self;
   for i := 0 to FAttributes.Count - 1 Do
     if FAttributes[i].Name = name then
     begin
@@ -993,7 +994,6 @@ begin
       exit;
     end;
   FAttributes.add(TFHIRAttribute.create(name, value));
-  result := self;
 end;
 
 procedure TFhirXHtmlNode.SetNodeType(const Value: TFHIRHtmlNodeType);
@@ -1109,12 +1109,12 @@ var
   src, seg : String;
   i : integer;
   first : boolean;
-  list : TFhirResourceReferenceList;
+  list : TFhirReferenceList;
 begin
   src := FPath;
   if (src = '*') and (FSource[0] is TFHIRResource) then
   begin
-    list := TFhirResourceReferenceList.Create;
+    list := TFhirReferenceList.Create;
     try
       listReferences(FSource[0] as TFHIRResource, list);
       FResults.AddAll(list);

@@ -539,9 +539,9 @@
             <valueInteger value="30"/>
           </extension>
           <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-            <valueResource>
+            <valueReference>
               <reference value="http://loinc.org/74076-1"/>
-            </valueResource>
+            </valueReference>
           </extension>
           <linkId value="74080-3/74076-1"/>
           <text value="What type of medication/substance was involved?"/>
@@ -562,9 +562,9 @@
                 <valueInteger value="65"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://loinc.org/vs/74075-3"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="74080-3/74075-3"/>
               <text value="What type of medication?"/>
@@ -585,9 +585,9 @@
                     <valueInteger value="500"/>
                   </extension>
                   <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                    <valueResource>
+                    <valueReference>
                       <reference value="http://loinc.org/74077-9"/>
-                    </valueResource>
+                    </valueReference>
                   </extension>
                   <linkId value="74080-3/74077-9-q"/>
                   <text value="Please list all ingredients:"/>

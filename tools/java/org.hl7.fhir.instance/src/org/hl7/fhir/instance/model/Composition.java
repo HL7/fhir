@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -176,14 +176,14 @@ public class Composition extends Resource {
         /**
          * Who attested the composition in the specified way.
          */
-        protected ResourceReference party;
+        protected Reference party;
 
         /**
          * The actual object that is the target of the reference (Who attested the composition in the specified way.)
          */
         protected Resource partyTarget;
 
-        private static final long serialVersionUID = 2056316894L;
+        private static final long serialVersionUID = 1840838348L;
 
       public CompositionAttesterComponent() {
         super();
@@ -265,14 +265,14 @@ public class Composition extends Resource {
         /**
          * @return {@link #party} (Who attested the composition in the specified way.)
          */
-        public ResourceReference getParty() { 
+        public Reference getParty() { 
           return this.party;
         }
 
         /**
          * @param value {@link #party} (Who attested the composition in the specified way.)
          */
-        public CompositionAttesterComponent setParty(ResourceReference value) { 
+        public CompositionAttesterComponent setParty(Reference value) { 
           this.party = value;
           return this;
         }
@@ -296,7 +296,7 @@ public class Composition extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("mode", "code", "The type of attestation the authenticator offers.", 0, java.lang.Integer.MAX_VALUE, mode));
           childrenList.add(new Property("time", "dateTime", "When composition was attested by the party.", 0, java.lang.Integer.MAX_VALUE, time));
-          childrenList.add(new Property("party", "Resource(Patient|Practitioner|Organization)", "Who attested the composition in the specified way.", 0, java.lang.Integer.MAX_VALUE, party));
+          childrenList.add(new Property("party", "Reference(Patient|Practitioner|Organization)", "Who attested the composition in the specified way.", 0, java.lang.Integer.MAX_VALUE, party));
         }
 
       public CompositionAttesterComponent copy() {
@@ -325,14 +325,14 @@ public class Composition extends Resource {
         /**
          * Full details for the event(s) the composition/documentation consents.
          */
-        protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
+        protected List<Reference> detail = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Full details for the event(s) the composition/documentation consents.)
          */
         protected List<Resource> detailTarget = new ArrayList<Resource>();
 
 
-        private static final long serialVersionUID = -1713925885L;
+        private static final long serialVersionUID = 913829727L;
 
       public CompositionEventComponent() {
         super();
@@ -373,7 +373,7 @@ public class Composition extends Resource {
         /**
          * @return {@link #detail} (Full details for the event(s) the composition/documentation consents.)
          */
-        public List<ResourceReference> getDetail() { 
+        public List<Reference> getDetail() { 
           return this.detail;
         }
 
@@ -381,8 +381,8 @@ public class Composition extends Resource {
         /**
          * @return {@link #detail} (Full details for the event(s) the composition/documentation consents.)
          */
-        public ResourceReference addDetail() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addDetail() { 
+          Reference t = new Reference();
           this.detail.add(t);
           return t;
         }
@@ -398,7 +398,7 @@ public class Composition extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a 'History and Physical Report' in which the procedure being documented is necessarily a 'History and Physical' act.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("period", "Period", "The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time.", 0, java.lang.Integer.MAX_VALUE, period));
-          childrenList.add(new Property("detail", "Resource(Any)", "Full details for the event(s) the composition/documentation consents.", 0, java.lang.Integer.MAX_VALUE, detail));
+          childrenList.add(new Property("detail", "Reference(Any)", "Full details for the event(s) the composition/documentation consents.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
       public CompositionEventComponent copy() {
@@ -407,8 +407,8 @@ public class Composition extends Resource {
         for (CodeableConcept i : code)
           dst.code.add(i.copy());
         dst.period = period == null ? null : period.copy();
-        dst.detail = new ArrayList<ResourceReference>();
-        for (ResourceReference i : detail)
+        dst.detail = new ArrayList<Reference>();
+        for (Reference i : detail)
           dst.detail.add(i.copy());
         return dst;
       }
@@ -429,7 +429,7 @@ public class Composition extends Resource {
         /**
          * Identifies the primary subject of the section.
          */
-        protected ResourceReference subject;
+        protected Reference subject;
 
         /**
          * The actual object that is the target of the reference (Identifies the primary subject of the section.)
@@ -439,7 +439,7 @@ public class Composition extends Resource {
         /**
          * Identifies the discrete data that provides the content for the section.
          */
-        protected ResourceReference content;
+        protected Reference content;
 
         /**
          * The actual object that is the target of the reference (Identifies the discrete data that provides the content for the section.)
@@ -451,7 +451,7 @@ public class Composition extends Resource {
          */
         protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
-        private static final long serialVersionUID = -904255741L;
+        private static final long serialVersionUID = 156946755L;
 
       public SectionComponent() {
         super();
@@ -511,14 +511,14 @@ public class Composition extends Resource {
         /**
          * @return {@link #subject} (Identifies the primary subject of the section.)
          */
-        public ResourceReference getSubject() { 
+        public Reference getSubject() { 
           return this.subject;
         }
 
         /**
          * @param value {@link #subject} (Identifies the primary subject of the section.)
          */
-        public SectionComponent setSubject(ResourceReference value) { 
+        public SectionComponent setSubject(Reference value) { 
           this.subject = value;
           return this;
         }
@@ -541,14 +541,14 @@ public class Composition extends Resource {
         /**
          * @return {@link #content} (Identifies the discrete data that provides the content for the section.)
          */
-        public ResourceReference getContent() { 
+        public Reference getContent() { 
           return this.content;
         }
 
         /**
          * @param value {@link #content} (Identifies the discrete data that provides the content for the section.)
          */
-        public SectionComponent setContent(ResourceReference value) { 
+        public SectionComponent setContent(Reference value) { 
           this.content = value;
           return this;
         }
@@ -589,8 +589,8 @@ public class Composition extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("title", "string", "The heading for this particular section.  This will be part of the rendered content for the document.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("code", "CodeableConcept", "A code identifying the kind of content contained within the section.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("subject", "Resource(Patient|Group|Device)", "Identifies the primary subject of the section.", 0, java.lang.Integer.MAX_VALUE, subject));
-          childrenList.add(new Property("content", "Resource(Any)", "Identifies the discrete data that provides the content for the section.", 0, java.lang.Integer.MAX_VALUE, content));
+          childrenList.add(new Property("subject", "Reference(Patient|Group|Device)", "Identifies the primary subject of the section.", 0, java.lang.Integer.MAX_VALUE, subject));
+          childrenList.add(new Property("content", "Reference(Any)", "Identifies the discrete data that provides the content for the section.", 0, java.lang.Integer.MAX_VALUE, content));
           childrenList.add(new Property("section", "@Composition.section", "A nested sub-section within this section.", 0, java.lang.Integer.MAX_VALUE, section));
         }
 
@@ -646,7 +646,7 @@ public class Composition extends Resource {
     /**
      * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
@@ -656,7 +656,7 @@ public class Composition extends Resource {
     /**
      * Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).
      */
-    protected List<ResourceReference> author = new ArrayList<ResourceReference>();
+    protected List<Reference> author = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).)
      */
@@ -671,7 +671,7 @@ public class Composition extends Resource {
     /**
      * Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.
      */
-    protected ResourceReference custodian;
+    protected Reference custodian;
 
     /**
      * The actual object that is the target of the reference (Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
@@ -686,7 +686,7 @@ public class Composition extends Resource {
     /**
      * Describes the clinical encounter or type of care this documentation is associated with.
      */
-    protected ResourceReference encounter;
+    protected Reference encounter;
 
     /**
      * The actual object that is the target of the reference (Describes the clinical encounter or type of care this documentation is associated with.)
@@ -698,13 +698,13 @@ public class Composition extends Resource {
      */
     protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
-    private static final long serialVersionUID = 665135617L;
+    private static final long serialVersionUID = 680630411L;
 
     public Composition() {
       super();
     }
 
-    public Composition(DateTimeType date, CodeableConcept type, Enumeration<CompositionStatus> status, Coding confidentiality, ResourceReference subject) {
+    public Composition(DateTimeType date, CodeableConcept type, Enumeration<CompositionStatus> status, Coding confidentiality, Reference subject) {
       super();
       this.date = date;
       this.type = type;
@@ -876,14 +876,14 @@ public class Composition extends Resource {
     /**
      * @return {@link #subject} (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
-    public Composition setSubject(ResourceReference value) { 
+    public Composition setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -906,7 +906,7 @@ public class Composition extends Resource {
     /**
      * @return {@link #author} (Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).)
      */
-    public List<ResourceReference> getAuthor() { 
+    public List<Reference> getAuthor() { 
       return this.author;
     }
 
@@ -914,8 +914,8 @@ public class Composition extends Resource {
     /**
      * @return {@link #author} (Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).)
      */
-    public ResourceReference addAuthor() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addAuthor() { 
+      Reference t = new Reference();
       this.author.add(t);
       return t;
     }
@@ -947,14 +947,14 @@ public class Composition extends Resource {
     /**
      * @return {@link #custodian} (Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
      */
-    public ResourceReference getCustodian() { 
+    public Reference getCustodian() { 
       return this.custodian;
     }
 
     /**
      * @param value {@link #custodian} (Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
      */
-    public Composition setCustodian(ResourceReference value) { 
+    public Composition setCustodian(Reference value) { 
       this.custodian = value;
       return this;
     }
@@ -992,14 +992,14 @@ public class Composition extends Resource {
     /**
      * @return {@link #encounter} (Describes the clinical encounter or type of care this documentation is associated with.)
      */
-    public ResourceReference getEncounter() { 
+    public Reference getEncounter() { 
       return this.encounter;
     }
 
     /**
      * @param value {@link #encounter} (Describes the clinical encounter or type of care this documentation is associated with.)
      */
-    public Composition setEncounter(ResourceReference value) { 
+    public Composition setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -1045,12 +1045,12 @@ public class Composition extends Resource {
         childrenList.add(new Property("title", "string", "Official human-readable label for the composition.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("status", "code", "The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("confidentiality", "Coding", "The code specifying the level of confidentiality of the Composition.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
-        childrenList.add(new Property("subject", "Resource(Patient|Practitioner|Group|Device|Location)", "Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("author", "Resource(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device|Location)", "Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("author", "Reference(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("attester", "", "A participant who has attested to the accuracy of the composition/document.", 0, java.lang.Integer.MAX_VALUE, attester));
-        childrenList.add(new Property("custodian", "Resource(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.", 0, java.lang.Integer.MAX_VALUE, custodian));
+        childrenList.add(new Property("custodian", "Reference(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.", 0, java.lang.Integer.MAX_VALUE, custodian));
         childrenList.add(new Property("event", "", "The main event/act/item, such as a colonoscopy or an appendectomy, being documented.", 0, java.lang.Integer.MAX_VALUE, event));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "Describes the clinical encounter or type of care this documentation is associated with.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("encounter", "Reference(Encounter)", "Describes the clinical encounter or type of care this documentation is associated with.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("section", "", "The root of the sections that make up the composition.", 0, java.lang.Integer.MAX_VALUE, section));
       }
 
@@ -1064,8 +1064,8 @@ public class Composition extends Resource {
         dst.status = status == null ? null : status.copy();
         dst.confidentiality = confidentiality == null ? null : confidentiality.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.author = new ArrayList<ResourceReference>();
-        for (ResourceReference i : author)
+        dst.author = new ArrayList<Reference>();
+        for (Reference i : author)
           dst.author.add(i.copy());
         dst.attester = new ArrayList<CompositionAttesterComponent>();
         for (CompositionAttesterComponent i : attester)

@@ -70,14 +70,14 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 	protected String getTypename(TypeRef type) throws Exception {
 		if (type.getParams().size() == 1) {			
 			if (type.isResourceReference())
-				return "ResourceReference";
+				return "Reference";
 			else if (type.getName().equals("Interval"))
 				return "Interval<"+getTypeName(type.getParams().get(0))+">";
 			else
 				throw new Exception("not supported");
 		} else if (type.getParams().size() > 1) {
 			if (type.isResourceReference())
-				return "ResourceReference";
+				return "Reference";
 			else
 				throw new Exception("not supported");
 		} else {
@@ -89,7 +89,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 		if (tn.equals("string")) {
 			return "StringType";
 		} else if (tn.equals("Any")) {
-			return "Resource";
+			return "Reference";
     } else if (definitions.hasPrimitiveType(tn)) {
       return getTitle(tn)+"Type";
 		} else {

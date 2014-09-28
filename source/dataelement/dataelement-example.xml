@@ -81,9 +81,9 @@
     <ConceptMap id="2179414-cm">
       <name value="TODO - remove"/>
       <status value="active"/>
-      <sourceResource>
+      <sourceReference>
         <reference value="#2179414"/>
-      </sourceResource>
+      </sourceReference>
       <targetUri value="http://ncit.nci.nih.gov"/>
       <element>
         <codeSystem value="http://example.org/fhir/2179414"/>

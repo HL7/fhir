@@ -95,7 +95,7 @@ import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
@@ -186,7 +186,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  
 	  ElementDefn e;
 	  if (t.getName().equals("Resource"))
-	    e = definitions.getBaseResource().getRoot();
+	    e = definitions.getBaseReference().getRoot();
 	  else
 	    e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
@@ -229,7 +229,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   
   private String xmlForDt(String dt, String pn) throws Exception {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
-	  if (dt.equals("ResourceReference") || dt.equals("Narrative") || dt.equals("Extension"))
+	  if (dt.equals("Reference") || dt.equals("Narrative") || dt.equals("Extension"))
 	    pn = "base.html";
 	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this);
 	  TypeParser tp = new TypeParser();
@@ -771,7 +771,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     List<AtomEntry<ConceptMap>> cmaps = new ArrayList<AtomEntry<ConceptMap>>();
     for (AtomEntry<ConceptMap> e : conceptMaps.values()) {
       ConceptMap cm = e.getResource();
-      if (((ResourceReference) cm.getSource()).getReferenceSimple().equals(id) || ((ResourceReference) cm.getTarget()).getReferenceSimple().equals(id))
+      if (((Reference) cm.getSource()).getReferenceSimple().equals(id) || ((Reference) cm.getTarget()).getReferenceSimple().equals(id))
         cmaps.add(e);
     }
     if (cmaps.size() == 0)
@@ -790,10 +790,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (AtomEntry<ConceptMap> ae : cmaps) {
         ConceptMap cm = ae.getResource();
         b.append(" <tr><td>");
-        if (((ResourceReference) cm.getSource()).getReferenceSimple().equals(id)) {
-          b.append("to <a href=\""+getValueSetRef(prefix, ((ResourceReference) cm.getTarget()).getReferenceSimple())+"\">"+describeValueSetByRef(((ResourceReference) cm.getTarget()).getReferenceSimple()));
+        if (((Reference) cm.getSource()).getReferenceSimple().equals(id)) {
+          b.append("to <a href=\""+getValueSetRef(prefix, ((Reference) cm.getTarget()).getReferenceSimple())+"\">"+describeValueSetByRef(((Reference) cm.getTarget()).getReferenceSimple()));
         } else {
-          b.append("from <a href=\""+getValueSetRef(prefix, ((ResourceReference) cm.getSource()).getReferenceSimple())+"\">"+describeValueSetByRef(((ResourceReference) cm.getSource()).getReferenceSimple()));
+          b.append("from <a href=\""+getValueSetRef(prefix, ((Reference) cm.getSource()).getReferenceSimple())+"\">"+describeValueSetByRef(((Reference) cm.getSource()).getReferenceSimple()));
         }
         b.append("</a></td><td><a href=\""+prefix+ae.getLinks().get("path")+"\">"+cm.getNameSimple()+"</a></td><td><a href=\""+prefix+Utilities.changeFileExt(ae.getLinks().get("path"), ".xml.html")+"\">XML</a></td><td><a href=\""+prefix+Utilities.changeFileExt(ae.getLinks().get("path"), ".json.html")+"\">JSON</a></td></tr>");
       }
@@ -1212,7 +1212,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String resItem(String name, boolean even) throws Exception {
     String color = even ? "#EFEFEF" : "#FFFFFF";
-    if (definitions.hasResource(name)) {
+    if (definitions.hasReference(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
       return
           "<tr bgcolor=\""+color+"\"><td><a href=\""+name.toLowerCase()+".html\">"+name+"</a></td><td>"+aliases(r.getRoot().getAliases())+"</td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
@@ -1224,7 +1224,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String resDesc(String name) throws Exception {
-    if (definitions.hasResource(name)) {
+    if (definitions.hasReference(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
       return Utilities.escapeXml(r.getDefinition());
     } else 
@@ -1354,7 +1354,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         scanForProfileUsage(b, cd, r);
       }
       for (ElementDefn e : definitions.getInfrastructure().values()) {
-        if (e.getName().equals("ResourceReference")) {
+        if (e.getName().equals("Reference")) {
           scanForUsage(b, cd, e, "references.html#"+e.getName());
         } else if (e.getName().equals("Extension")) {
           scanForUsage(b, cd, e, "extensibility.html#"+e.getName());
@@ -1366,7 +1366,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       }
       for (ElementDefn e : definitions.getTypes().values())
         if (!definitions.dataTypeIsSharedInfo(e.getName())) {
-          if (e.getName().equals("ResourceReference")) 
+          if (e.getName().equals("Reference")) 
             scanForUsage(b, cd, e, "references.html#"+e.getName());
           else
             scanForUsage(b, cd, e, "datatypes.html#"+e.getName());
@@ -1910,8 +1910,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String n = sn.substring(23);
       ConceptMap cm = ae.getResource();
       s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+cm.getNameSimple()+"</a></td>"+
-          "<td><a href=\""+getValueSetRef("", ((ResourceReference) cm.getSource()).getReferenceSimple())+"\">"+describeValueSetByRef(((ResourceReference) cm.getSource()).getReferenceSimple())+"</a></td>"+
-          "<td><a href=\""+getValueSetRef("", ((ResourceReference) cm.getTarget()).getReferenceSimple())+"\">"+describeValueSetByRef(((ResourceReference) cm.getTarget()).getReferenceSimple())+"</a></td></tr>\r\n");
+          "<td><a href=\""+getValueSetRef("", ((Reference) cm.getSource()).getReferenceSimple())+"\">"+describeValueSetByRef(((Reference) cm.getSource()).getReferenceSimple())+"</a></td>"+
+          "<td><a href=\""+getValueSetRef("", ((Reference) cm.getTarget()).getReferenceSimple())+"\">"+describeValueSetByRef(((Reference) cm.getTarget()).getReferenceSimple())+"</a></td></tr>\r\n");
     }
     s.append("</table>\r\n");
     return s.toString();
@@ -2232,7 +2232,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           html.append("  <tr><td><a href=\"extensibility.html\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
         else if (c.getName().equals("Narrative"))
           html.append("  <tr><td><a href=\"narrative.html#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
-        else if (c.getName().equals("ResourceReference") )
+        else if (c.getName().equals("Reference") )
           html.append("  <tr><td><a href=\"references.html#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
         else
           html.append("  <tr><td><a href=\"datatypes.html#"+c.getName()+"\">"+c.getName()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
@@ -3062,7 +3062,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append(p.describeCardinality());
         b.append("</td><td>");
         String t = p.getType();
-        if (definitions.hasResource(t)) {
+        if (definitions.hasReference(t)) {
           b.append("<a href=\"");
           b.append(t.toLowerCase());
           b.append(".html\">");
@@ -3092,7 +3092,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           b.append(t);
           b.append("</a>");
           
-        } else if (t.startsWith("Resource(")) {
+        } else if (t.startsWith("Reference(")) {
           b.append("<a href=\"references.html#Resource\">Resource</a>");
           String pn = t.substring(0, t.length()-1).substring(9);
           b.append("(");
@@ -3129,7 +3129,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String rn : definitions.sortedResourceNames()) {
       if (!rn.equals(name)) {
         ResourceDefn r = definitions.getResourceByName(rn);
-        if (usesResource(r.getRoot(), name)) {
+        if (usesReference(r.getRoot(), name)) {
           refs.add(rn);
         }
       }
@@ -3154,19 +3154,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return b.toString();
   }
 
-  private boolean usesResource(ElementDefn e, String name) {
-    if (usesResource(e.getTypes(), name))
+  private boolean usesReference(ElementDefn e, String name) {
+    if (usesReference(e.getTypes(), name))
       return true;
     for (ElementDefn c : e.getElements()) {
-      if (usesResource(c, name))
+      if (usesReference(c, name))
         return true;
     }
     return false;
   }
 
-  private boolean usesResource(List<TypeRef> types, String name) {
+  private boolean usesReference(List<TypeRef> types, String name) {
     for (TypeRef t : types) {
-      if (t.getName().equals("Resource")) {
+      if (t.getName().equals("Reference")) {
         for (String p : t.getParams()) {
           if (p.equals(name))
             return true;
@@ -3629,7 +3629,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String baseLink(ProfileStructureComponent structure) throws Exception {
     if (structure.getBaseSimple().startsWith("http://hl7.org/fhir/Profile/")) {
       String name = structure.getBaseSimple().substring(28);
-      if (definitions.hasResource(name))
+      if (definitions.hasReference(name))
         return "<a href=\""+name.toLowerCase()+".html\">"+name+"</a>";
       else if (definitions.hasElementDefn(name))
         return "<a href=\""+GeneratorUtils.getSrcFile(name, false)+"#"+name+".html\">"+name+"</a>";  
@@ -3972,17 +3972,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   @Override
   public boolean isDatatype(String type) {
-    return definitions.hasPrimitiveType(type) || (definitions.hasElementDefn(type) && !definitions.hasResource(type));
+    return definitions.hasPrimitiveType(type) || (definitions.hasElementDefn(type) && !definitions.hasReference(type));
   }
 
   @Override
   public boolean hasLinkFor(String type) {
-    return isDatatype(type) || definitions.hasResource(type);
+    return isDatatype(type) || definitions.hasReference(type);
   }
 
   @Override
   public String getLinkFor(String type) throws Exception {
-    if (definitions.hasResource(type)) 
+    if (definitions.hasReference(type)) 
       return type.toLowerCase()+".html";
     else 
       return GeneratorUtils.getSrcFile(type, false)+".html#"+type;
@@ -4029,7 +4029,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       Profile p = definitions.getProfileByURL(parts[0]);
       if (p != null)
         url = p.getTag("filename")+".html";
-      else if (definitions.hasResource(linkText)) {
+      else if (definitions.hasReference(linkText)) {
         url = linkText.toLowerCase()+".html#";
       } else if (definitions.hasElementDefn(linkText)) {
       	url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;
@@ -4096,7 +4096,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else
         return ref;
     } else {
-      String ref = ((ResourceReference) binding.getReference()).getReferenceSimple();
+      String ref = ((Reference) binding.getReference()).getReferenceSimple();
       if (ref.startsWith("ValueSet/")) {
         ValueSet vs = definitions.getValuesets().get(ref.substring(8));
         if (vs == null)

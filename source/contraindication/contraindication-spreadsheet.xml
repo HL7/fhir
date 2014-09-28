@@ -150,7 +150,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Associated patient</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the patient whose record the contraindication is associated with.</Data></Cell>
@@ -196,7 +196,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Contraindication.implicated</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Problem resource</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the resource representing the current activity or proposed activity that </Data></Cell>
     <Cell><Data ss:Type="String">cause</Data></Cell>
@@ -235,7 +235,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Device)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Device)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Who found issue?</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Identifies the provider or software that identified the </Data></Cell>
@@ -303,7 +303,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Contraindication.mitigation.author</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who is committing?</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s67"><Data ss:Type="String">.participation[typeCode=AUT].role[classCode=ASSIGNED]</Data></Cell>

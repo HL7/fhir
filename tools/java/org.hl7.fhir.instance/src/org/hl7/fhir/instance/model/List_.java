@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -107,20 +107,20 @@ public class List_ extends Resource {
         /**
          * A reference to the actual resource from which data was derived.
          */
-        protected ResourceReference item;
+        protected Reference item;
 
         /**
          * The actual object that is the target of the reference (A reference to the actual resource from which data was derived.)
          */
         protected Resource itemTarget;
 
-        private static final long serialVersionUID = -1728647377L;
+        private static final long serialVersionUID = 1219106973L;
 
       public ListEntryComponent() {
         super();
       }
 
-      public ListEntryComponent(ResourceReference item) {
+      public ListEntryComponent(Reference item) {
         super();
         this.item = item;
       }
@@ -217,14 +217,14 @@ public class List_ extends Resource {
         /**
          * @return {@link #item} (A reference to the actual resource from which data was derived.)
          */
-        public ResourceReference getItem() { 
+        public Reference getItem() { 
           return this.item;
         }
 
         /**
          * @param value {@link #item} (A reference to the actual resource from which data was derived.)
          */
-        public ListEntryComponent setItem(ResourceReference value) { 
+        public ListEntryComponent setItem(Reference value) { 
           this.item = value;
           return this;
         }
@@ -249,7 +249,7 @@ public class List_ extends Resource {
           childrenList.add(new Property("flag", "CodeableConcept", "The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.", 0, java.lang.Integer.MAX_VALUE, flag));
           childrenList.add(new Property("deleted", "boolean", "True if this item is marked as deleted in the list.", 0, java.lang.Integer.MAX_VALUE, deleted));
           childrenList.add(new Property("date", "dateTime", "When this item was added to the list.", 0, java.lang.Integer.MAX_VALUE, date));
-          childrenList.add(new Property("item", "Resource(Any)", "A reference to the actual resource from which data was derived.", 0, java.lang.Integer.MAX_VALUE, item));
+          childrenList.add(new Property("item", "Reference(Any)", "A reference to the actual resource from which data was derived.", 0, java.lang.Integer.MAX_VALUE, item));
         }
 
       public ListEntryComponent copy() {
@@ -278,7 +278,7 @@ public class List_ extends Resource {
     /**
      * The common subject (or patient) of the resources that are in the list, if there is one.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The common subject (or patient) of the resources that are in the list, if there is one.)
@@ -288,7 +288,7 @@ public class List_ extends Resource {
     /**
      * The entity responsible for deciding what the contents of the list were.
      */
-    protected ResourceReference source;
+    protected Reference source;
 
     /**
      * The actual object that is the target of the reference (The entity responsible for deciding what the contents of the list were.)
@@ -320,7 +320,7 @@ public class List_ extends Resource {
      */
     protected CodeableConcept emptyReason;
 
-    private static final long serialVersionUID = -1401650190L;
+    private static final long serialVersionUID = -918829646L;
 
     public List_() {
       super();
@@ -366,14 +366,14 @@ public class List_ extends Resource {
     /**
      * @return {@link #subject} (The common subject (or patient) of the resources that are in the list, if there is one.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The common subject (or patient) of the resources that are in the list, if there is one.)
      */
-    public List_ setSubject(ResourceReference value) { 
+    public List_ setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -396,14 +396,14 @@ public class List_ extends Resource {
     /**
      * @return {@link #source} (The entity responsible for deciding what the contents of the list were.)
      */
-    public ResourceReference getSource() { 
+    public Reference getSource() { 
       return this.source;
     }
 
     /**
      * @param value {@link #source} (The entity responsible for deciding what the contents of the list were.)
      */
-    public List_ setSource(ResourceReference value) { 
+    public List_ setSource(Reference value) { 
       this.source = value;
       return this;
     }
@@ -563,8 +563,8 @@ public class List_ extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier for the List assigned for business purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("code", "CodeableConcept", "This code defines the purpose of the list - why it was created.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Location)", "The common subject (or patient) of the resources that are in the list, if there is one.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("source", "Resource(Practitioner|Patient|Device)", "The entity responsible for deciding what the contents of the list were.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The common subject (or patient) of the resources that are in the list, if there is one.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("source", "Reference(Practitioner|Patient|Device)", "The entity responsible for deciding what the contents of the list were.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("date", "dateTime", "The date that the list was prepared.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("ordered", "boolean", "Whether items in the list have a meaningful order.", 0, java.lang.Integer.MAX_VALUE, ordered));
         childrenList.add(new Property("mode", "code", "How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.", 0, java.lang.Integer.MAX_VALUE, mode));

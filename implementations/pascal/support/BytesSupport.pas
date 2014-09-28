@@ -662,7 +662,7 @@ Var
   s : TBytes;
 Begin
   SetLength(s, val.Length*2);
-  move(val, s[0], val.Length*2);
+  move(val[1], s[0], val.Length*2);
   Append(s);
 end;
 

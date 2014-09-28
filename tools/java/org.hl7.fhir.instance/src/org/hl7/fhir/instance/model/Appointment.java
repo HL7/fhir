@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -171,7 +171,7 @@ public class Appointment extends Resource {
         /**
          * A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.
          */
-        protected ResourceReference actor;
+        protected Reference actor;
 
         /**
          * The actual object that is the target of the reference (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
@@ -188,7 +188,7 @@ public class Appointment extends Resource {
          */
         protected Enumeration<Participationstatus> status;
 
-        private static final long serialVersionUID = -1080184197L;
+        private static final long serialVersionUID = -16788247L;
 
       public AppointmentParticipantComponent() {
         super();
@@ -219,14 +219,14 @@ public class Appointment extends Resource {
         /**
          * @return {@link #actor} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
          */
-        public ResourceReference getActor() { 
+        public Reference getActor() { 
           return this.actor;
         }
 
         /**
          * @param value {@link #actor} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
          */
-        public AppointmentParticipantComponent setActor(ResourceReference value) { 
+        public AppointmentParticipantComponent setActor(Reference value) { 
           this.actor = value;
           return this;
         }
@@ -317,7 +317,7 @@ public class Appointment extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Role of participant in the appointment.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("actor", "Resource(Any)", "A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.", 0, java.lang.Integer.MAX_VALUE, actor));
+          childrenList.add(new Property("actor", "Reference(Any)", "A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.", 0, java.lang.Integer.MAX_VALUE, actor));
           childrenList.add(new Property("required", "code", "Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.", 0, java.lang.Integer.MAX_VALUE, required));
           childrenList.add(new Property("status", "code", "Participation status of the Patient.", 0, java.lang.Integer.MAX_VALUE, status));
         }
@@ -378,7 +378,7 @@ public class Appointment extends Resource {
     /**
      * The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.
      */
-    protected List<ResourceReference> slot = new ArrayList<ResourceReference>();
+    protected List<Reference> slot = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
      */
@@ -388,7 +388,7 @@ public class Appointment extends Resource {
     /**
      * The primary location that this appointment is to take place.
      */
-    protected ResourceReference location;
+    protected Reference location;
 
     /**
      * The actual object that is the target of the reference (The primary location that this appointment is to take place.)
@@ -403,7 +403,7 @@ public class Appointment extends Resource {
     /**
      * An Order that lead to the creation of this appointment.
      */
-    protected ResourceReference order;
+    protected Reference order;
 
     /**
      * The actual object that is the target of the reference (An Order that lead to the creation of this appointment.)
@@ -418,7 +418,7 @@ public class Appointment extends Resource {
     /**
      * Who recorded the appointment.
      */
-    protected ResourceReference lastModifiedBy;
+    protected Reference lastModifiedBy;
 
     /**
      * The actual object that is the target of the reference (Who recorded the appointment.)
@@ -430,7 +430,7 @@ public class Appointment extends Resource {
      */
     protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = 60096063L;
+    private static final long serialVersionUID = -57274067L;
 
     public Appointment() {
       super();
@@ -664,7 +664,7 @@ public class Appointment extends Resource {
     /**
      * @return {@link #slot} (The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
      */
-    public List<ResourceReference> getSlot() { 
+    public List<Reference> getSlot() { 
       return this.slot;
     }
 
@@ -672,8 +672,8 @@ public class Appointment extends Resource {
     /**
      * @return {@link #slot} (The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
      */
-    public ResourceReference addSlot() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addSlot() { 
+      Reference t = new Reference();
       this.slot.add(t);
       return t;
     }
@@ -698,14 +698,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #location} (The primary location that this appointment is to take place.)
      */
-    public ResourceReference getLocation() { 
+    public Reference getLocation() { 
       return this.location;
     }
 
     /**
      * @param value {@link #location} (The primary location that this appointment is to take place.)
      */
-    public Appointment setLocation(ResourceReference value) { 
+    public Appointment setLocation(Reference value) { 
       this.location = value;
       return this;
     }
@@ -764,14 +764,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #order} (An Order that lead to the creation of this appointment.)
      */
-    public ResourceReference getOrder() { 
+    public Reference getOrder() { 
       return this.order;
     }
 
     /**
      * @param value {@link #order} (An Order that lead to the creation of this appointment.)
      */
-    public Appointment setOrder(ResourceReference value) { 
+    public Appointment setOrder(Reference value) { 
       this.order = value;
       return this;
     }
@@ -811,14 +811,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #lastModifiedBy} (Who recorded the appointment.)
      */
-    public ResourceReference getLastModifiedBy() { 
+    public Reference getLastModifiedBy() { 
       return this.lastModifiedBy;
     }
 
     /**
      * @param value {@link #lastModifiedBy} (Who recorded the appointment.)
      */
-    public Appointment setLastModifiedBy(ResourceReference value) { 
+    public Appointment setLastModifiedBy(Reference value) { 
       this.lastModifiedBy = value;
       return this;
     }
@@ -884,12 +884,12 @@ public class Appointment extends Resource {
         childrenList.add(new Property("description", "string", "The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("start", "instant", "Date/Time that the appointment is to take place.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "instant", "Date/Time that the appointment is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
-        childrenList.add(new Property("slot", "Resource(Slot)", "The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.", 0, java.lang.Integer.MAX_VALUE, slot));
-        childrenList.add(new Property("location", "Resource(Location)", "The primary location that this appointment is to take place.", 0, java.lang.Integer.MAX_VALUE, location));
+        childrenList.add(new Property("slot", "Reference(Slot)", "The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.", 0, java.lang.Integer.MAX_VALUE, slot));
+        childrenList.add(new Property("location", "Reference(Location)", "The primary location that this appointment is to take place.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("comment", "string", "Additional comments about the appointment.", 0, java.lang.Integer.MAX_VALUE, comment));
-        childrenList.add(new Property("order", "Resource(Order)", "An Order that lead to the creation of this appointment.", 0, java.lang.Integer.MAX_VALUE, order));
+        childrenList.add(new Property("order", "Reference(Order)", "An Order that lead to the creation of this appointment.", 0, java.lang.Integer.MAX_VALUE, order));
         childrenList.add(new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant));
-        childrenList.add(new Property("lastModifiedBy", "Resource(Practitioner|Patient|RelatedPerson)", "Who recorded the appointment.", 0, java.lang.Integer.MAX_VALUE, lastModifiedBy));
+        childrenList.add(new Property("lastModifiedBy", "Reference(Practitioner|Patient|RelatedPerson)", "Who recorded the appointment.", 0, java.lang.Integer.MAX_VALUE, lastModifiedBy));
         childrenList.add(new Property("lastModified", "dateTime", "Date when the appointment was recorded.", 0, java.lang.Integer.MAX_VALUE, lastModified));
       }
 
@@ -905,8 +905,8 @@ public class Appointment extends Resource {
         dst.description = description == null ? null : description.copy();
         dst.start = start == null ? null : start.copy();
         dst.end = end == null ? null : end.copy();
-        dst.slot = new ArrayList<ResourceReference>();
-        for (ResourceReference i : slot)
+        dst.slot = new ArrayList<Reference>();
+        for (Reference i : slot)
           dst.slot.add(i.copy());
         dst.location = location == null ? null : location.copy();
         dst.comment = comment == null ? null : comment.copy();

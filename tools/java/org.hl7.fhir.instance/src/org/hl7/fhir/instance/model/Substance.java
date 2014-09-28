@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -152,20 +152,20 @@ public class Substance extends Resource {
         /**
          * Another substance that is a component of this substance.
          */
-        protected ResourceReference substance;
+        protected Reference substance;
 
         /**
          * The actual object that is the target of the reference (Another substance that is a component of this substance.)
          */
         protected Substance substanceTarget;
 
-        private static final long serialVersionUID = 1192860668L;
+        private static final long serialVersionUID = -1783242034L;
 
       public SubstanceIngredientComponent() {
         super();
       }
 
-      public SubstanceIngredientComponent(ResourceReference substance) {
+      public SubstanceIngredientComponent(Reference substance) {
         super();
         this.substance = substance;
       }
@@ -188,14 +188,14 @@ public class Substance extends Resource {
         /**
          * @return {@link #substance} (Another substance that is a component of this substance.)
          */
-        public ResourceReference getSubstance() { 
+        public Reference getSubstance() { 
           return this.substance;
         }
 
         /**
          * @param value {@link #substance} (Another substance that is a component of this substance.)
          */
-        public SubstanceIngredientComponent setSubstance(ResourceReference value) { 
+        public SubstanceIngredientComponent setSubstance(Reference value) { 
           this.substance = value;
           return this;
         }
@@ -218,7 +218,7 @@ public class Substance extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("quantity", "Ratio", "The amount of the ingredient in the substance - a concentration ratio.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("substance", "Resource(Substance)", "Another substance that is a component of this substance.", 0, java.lang.Integer.MAX_VALUE, substance));
+          childrenList.add(new Property("substance", "Reference(Substance)", "Another substance that is a component of this substance.", 0, java.lang.Integer.MAX_VALUE, substance));
         }
 
       public SubstanceIngredientComponent copy() {

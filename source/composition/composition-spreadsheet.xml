@@ -322,7 +322,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The source of the data entry</Data></Cell>
     <Cell><Data ss:Type="String">The person or device that performed the data entry leading to this composition. Where there is more than one candidate, pick the most proximal to the document creation or capture on a per-section basis. </Data></Cell>
@@ -359,7 +359,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Patient|Practitioner|Group|Device|Location)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient|Practitioner|Group|Device|Location)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who and/or what the composition is about</Data></Cell>
     <Cell><Data ss:Type="String">Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)</Data></Cell>
@@ -377,7 +377,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Patient|Practitioner)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient|Practitioner)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who provided information in composition</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the source that recounted the information recorded</Data></Cell>
@@ -396,7 +396,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Device|Patient|RelatedPerson)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Device|Patient|RelatedPerson)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who and/or what authored the composition</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.)</Data></Cell>
@@ -472,7 +472,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Patient|Practitioner|Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient|Practitioner|Organization)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who attested the composition</Data></Cell>
     <Cell><Data ss:Type="String">Who attested the composition in the specified way</Data></Cell>
@@ -491,7 +491,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Organization)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Expected to receive a copy </Data></Cell>
     <Cell><Data ss:Type="String">Identifies the people and organizations that are intende to be notified about the composition</Data></Cell>
@@ -510,7 +510,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Org which maintains the composition</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information</Data></Cell>
@@ -585,7 +585,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Full details for the event(s) the composition consents</Data></Cell>
     <Cell><Data ss:Type="String">Full details for the event(s) the composition/documentation consents</Data></Cell>
@@ -603,7 +603,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Encounter)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Context of the conposition</Data></Cell>
     <Cell><Data ss:Type="String">Describes the clinical encounter or type of care this documentation is associated with.</Data></Cell>
@@ -632,7 +632,7 @@
    <Row ss:Height="120">
     <Cell><Data ss:Type="String">!Composition.enterer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The source of the data entry</Data></Cell>
     <Cell><Data ss:Type="String">The person or device that performed the data entry leading to this composition Where there is more than one candidate, pick the most proximal to the document creation or capture on a per-section basis. </Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
@@ -643,7 +643,7 @@
    <Row ss:Height="45">
     <Cell><Data ss:Type="String">!Composition.provenance</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Provenance)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Provenance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">All the provenance statements about the composition and its parts</Data></Cell>
     <Cell><Data ss:Type="String">All the provenance statements about the composition and the resources that are the sections</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">n/a</Data></Cell>
@@ -716,7 +716,7 @@
    <Row ss:Height="105">
     <Cell><Data ss:Type="String">!Composition.section.author</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who and/or what authored the section</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for the information in the section.  (Not necessarily who typed it in.)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Identifies who is responsible for the content.</Data></Cell>
@@ -726,7 +726,7 @@
    <Row ss:Height="120">
     <Cell><Data ss:Type="String">!Composition.section.enterer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The source of the data entry</Data></Cell>
     <Cell><Data ss:Type="String">The person or device that performed the data entry leading to this section. Where there is more than one candidate, pick the most proximal to the construction of the composition </Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Identifies who is responsible for the entry of the data.</Data></Cell>
@@ -738,7 +738,7 @@
     <Cell><Data ss:Type="String">Composition.section.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Group|Device)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient|Group|Device)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If section different to composition</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the primary subject of the section.  </Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Subjects can vary within one composition or document, for example mother/baby, patient &amp; relatives, etc.</Data></Cell>
@@ -749,7 +749,7 @@
    <Row ss:Height="120">
     <Cell><Data ss:Type="String">!Composition.section.informant</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Person)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Person)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who provided information in section</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the source that recounted the information recorded</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Provides context as to the potential accuracy of the information</Data></Cell>
@@ -761,7 +761,7 @@
     <Cell><Data ss:Type="String">Composition.section.content</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The actual data for the section</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the discrete data that provides the content for the section.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Conveys the discrete data associated with the composition</Data></Cell>

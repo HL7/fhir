@@ -14,10 +14,10 @@
     <reference value="Encounter/f203"/>
     <display value="Roel's encounter on March eleventh 2013"/>
  </encounter>
- <reasonResource>
+ <reasonReference>
    <reference value="Condition/f203"/>
    <display value="sepsis"/>
- </reasonResource>
+ </reasonReference>
  <medication>
     <reference value="Medication/f202"/>
     <display value="Flucloxacilline"/>

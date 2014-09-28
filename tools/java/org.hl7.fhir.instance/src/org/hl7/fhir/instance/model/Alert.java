@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -106,7 +106,7 @@ public class Alert extends Resource {
     /**
      * The person who this alert concerns.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The person who this alert concerns.)
@@ -116,7 +116,7 @@ public class Alert extends Resource {
     /**
      * The person or device that created the alert.
      */
-    protected ResourceReference author;
+    protected Reference author;
 
     /**
      * The actual object that is the target of the reference (The person or device that created the alert.)
@@ -128,13 +128,13 @@ public class Alert extends Resource {
      */
     protected StringType note;
 
-    private static final long serialVersionUID = 1816158418L;
+    private static final long serialVersionUID = -1397907794L;
 
     public Alert() {
       super();
     }
 
-    public Alert(Enumeration<AlertStatus> status, ResourceReference subject, StringType note) {
+    public Alert(Enumeration<AlertStatus> status, Reference subject, StringType note) {
       super();
       this.status = status;
       this.subject = subject;
@@ -208,14 +208,14 @@ public class Alert extends Resource {
     /**
      * @return {@link #subject} (The person who this alert concerns.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The person who this alert concerns.)
      */
-    public Alert setSubject(ResourceReference value) { 
+    public Alert setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -238,14 +238,14 @@ public class Alert extends Resource {
     /**
      * @return {@link #author} (The person or device that created the alert.)
      */
-    public ResourceReference getAuthor() { 
+    public Reference getAuthor() { 
       return this.author;
     }
 
     /**
      * @param value {@link #author} (The person or device that created the alert.)
      */
-    public Alert setAuthor(ResourceReference value) { 
+    public Alert setAuthor(Reference value) { 
       this.author = value;
       return this;
     }
@@ -302,8 +302,8 @@ public class Alert extends Resource {
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the alert for external use (outside the FHIR environment).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("category", "CodeableConcept", "Allows an alert to be divided into different categories like clinical, administrative etc.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("status", "code", "Supports basic workflow.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("subject", "Resource(Patient)", "The person who this alert concerns.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("author", "Resource(Practitioner|Patient|Device)", "The person or device that created the alert.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("subject", "Reference(Patient)", "The person who this alert concerns.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("author", "Reference(Practitioner|Patient|Device)", "The person or device that created the alert.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("note", "string", "The textual component of the alert to display to the user.", 0, java.lang.Integer.MAX_VALUE, note));
       }
 

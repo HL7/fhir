@@ -253,7 +253,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">The location where this healthcare service may be provided</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -271,7 +271,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Availability)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Availability)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">The availability resource that this slot defines an interval of status information</Data></Cell>
     <Cell ss:StyleID="s67"/>

@@ -96,7 +96,7 @@ public class XSDBaseGenerator {
     genPrimitives();
     write("\r\n");
     genResourceReference();
-    genResource();
+    genReference();
 
     for (ElementDefn e : definitions.getInfrastructure().values())
       genInfrastructure(e);
@@ -149,7 +149,7 @@ public class XSDBaseGenerator {
     write("\r\n");    
   }
 
-  private void genResource() throws Exception {
+  private void genReference() throws Exception {
     write("  <xs:complexType name=\"Resource.Inline\">\r\n");
     write("    <xs:choice minOccurs=\"1\" maxOccurs=\"1\">\r\n");
     write("      <xs:element ref=\"Binary\"/>\r\n");
@@ -572,10 +572,7 @@ public class XSDBaseGenerator {
                 + upFirst(p) + "\" type=\""+ t.getName() + "_" + upFirst(p) + "\"/>\r\n");
           }
         } else if (!definitions.getShared().contains(t.getName()) && !t.getName().equals("oid") && !t.getName().equals("uuid") && !t.getName().equals("id") ) {
-          if (t.getName().equals("ResourceReference"))
-            write("           <xs:element name=\"" + prefix + "Resource\" type=\"" + t.getName()+ "\"/>\r\n");
-          else
-            write("           <xs:element name=\"" + en + "\" type=\"" + t.getName()+ "\"/>\r\n");
+          write("           <xs:element name=\"" + en + "\" type=\"" + t.getName()+ "\"/>\r\n");
         }
       }
     }
@@ -672,7 +669,7 @@ public class XSDBaseGenerator {
   private String encodeType(ElementDefn e, TypeRef type, boolean params)
       throws Exception {
     if (type.isResourceReference())
-      return "ResourceReference";
+      return "Reference";
     else if (type.isIdRef())
       return "id-primitive";
     //    else if (params

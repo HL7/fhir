@@ -227,7 +227,7 @@
     <Cell><Data ss:Type="String">DocumentReference.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Practitioner|Group|Device)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient|Practitioner|Group|Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who|what is the subject of the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -288,7 +288,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Device|Patient|RelatedPerson)</Data><NamedCell
+    <Cell><Data ss:Type="String">Reference(Practitioner|Device|Patient|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who and/or what authored the document</Data><NamedCell
@@ -309,7 +309,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Resource(Organization)</Data><NamedCell
+    <Cell><Data ss:Type="String">Reference(Organization)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Org which maintains the document</Data><NamedCell
@@ -343,7 +343,7 @@
     <Cell><Data ss:Type="String">DocumentReference.authenticator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Organization)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner|Organization)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who/What authenticated the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -468,7 +468,7 @@
     <Cell><Data ss:Type="String">DocumentReference.relatesTo.target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(DocumentReference)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(DocumentReference)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Target of the relationship</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

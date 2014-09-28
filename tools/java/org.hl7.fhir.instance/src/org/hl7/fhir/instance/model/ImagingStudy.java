@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1299,14 +1299,14 @@ public class ImagingStudy extends Resource {
         /**
          * A FHIR resource with content for this instance.
          */
-        protected ResourceReference attachment;
+        protected Reference attachment;
 
         /**
          * The actual object that is the target of the reference (A FHIR resource with content for this instance.)
          */
         protected Resource attachmentTarget;
 
-        private static final long serialVersionUID = 1782301410L;
+        private static final long serialVersionUID = -2008450480L;
 
       public ImagingStudySeriesInstanceComponent() {
         super();
@@ -1529,14 +1529,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #attachment} (A FHIR resource with content for this instance.)
          */
-        public ResourceReference getAttachment() { 
+        public Reference getAttachment() { 
           return this.attachment;
         }
 
         /**
          * @param value {@link #attachment} (A FHIR resource with content for this instance.)
          */
-        public ImagingStudySeriesInstanceComponent setAttachment(ResourceReference value) { 
+        public ImagingStudySeriesInstanceComponent setAttachment(Reference value) { 
           this.attachment = value;
           return this;
         }
@@ -1564,7 +1564,7 @@ public class ImagingStudy extends Resource {
           childrenList.add(new Property("type", "string", "Type of instance (image etc) (0004,1430).", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("title", "string", "Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("url", "uri", "WADO-RS url where image is available.", 0, java.lang.Integer.MAX_VALUE, url));
-          childrenList.add(new Property("attachment", "Resource(Any)", "A FHIR resource with content for this instance.", 0, java.lang.Integer.MAX_VALUE, attachment));
+          childrenList.add(new Property("attachment", "Reference(Any)", "A FHIR resource with content for this instance.", 0, java.lang.Integer.MAX_VALUE, attachment));
         }
 
       public ImagingStudySeriesInstanceComponent copy() {
@@ -1589,7 +1589,7 @@ public class ImagingStudy extends Resource {
     /**
      * Who the images are of.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (Who the images are of.)
@@ -1614,7 +1614,7 @@ public class ImagingStudy extends Resource {
     /**
      * A list of the diagnostic orders that resulted in this imaging study being performed.
      */
-    protected List<ResourceReference> order = new ArrayList<ResourceReference>();
+    protected List<Reference> order = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (A list of the diagnostic orders that resulted in this imaging study being performed.)
      */
@@ -1629,7 +1629,7 @@ public class ImagingStudy extends Resource {
     /**
      * The requesting/referring physician.
      */
-    protected ResourceReference referrer;
+    protected Reference referrer;
 
     /**
      * The actual object that is the target of the reference (The requesting/referring physician.)
@@ -1669,7 +1669,7 @@ public class ImagingStudy extends Resource {
     /**
      * Who read study and interpreted the images.
      */
-    protected ResourceReference interpreter;
+    protected Reference interpreter;
 
     /**
      * The actual object that is the target of the reference (Who read study and interpreted the images.)
@@ -1686,13 +1686,13 @@ public class ImagingStudy extends Resource {
      */
     protected List<ImagingStudySeriesComponent> series = new ArrayList<ImagingStudySeriesComponent>();
 
-    private static final long serialVersionUID = -358913729L;
+    private static final long serialVersionUID = -1804185583L;
 
     public ImagingStudy() {
       super();
     }
 
-    public ImagingStudy(ResourceReference subject, OidType uid, IntegerType numberOfSeries, IntegerType numberOfInstances) {
+    public ImagingStudy(Reference subject, OidType uid, IntegerType numberOfSeries, IntegerType numberOfInstances) {
       super();
       this.subject = subject;
       this.uid = uid;
@@ -1739,14 +1739,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #subject} (Who the images are of.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (Who the images are of.)
      */
-    public ImagingStudy setSubject(ResourceReference value) { 
+    public ImagingStudy setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -1833,7 +1833,7 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #order} (A list of the diagnostic orders that resulted in this imaging study being performed.)
      */
-    public List<ResourceReference> getOrder() { 
+    public List<Reference> getOrder() { 
       return this.order;
     }
 
@@ -1841,8 +1841,8 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #order} (A list of the diagnostic orders that resulted in this imaging study being performed.)
      */
-    public ResourceReference addOrder() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addOrder() { 
+      Reference t = new Reference();
       this.order.add(t);
       return t;
     }
@@ -1904,14 +1904,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #referrer} (The requesting/referring physician.)
      */
-    public ResourceReference getReferrer() { 
+    public Reference getReferrer() { 
       return this.referrer;
     }
 
     /**
      * @param value {@link #referrer} (The requesting/referring physician.)
      */
-    public ImagingStudy setReferrer(ResourceReference value) { 
+    public ImagingStudy setReferrer(Reference value) { 
       this.referrer = value;
       return this;
     }
@@ -2123,14 +2123,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #interpreter} (Who read study and interpreted the images.)
      */
-    public ResourceReference getInterpreter() { 
+    public Reference getInterpreter() { 
       return this.interpreter;
     }
 
     /**
      * @param value {@link #interpreter} (Who read study and interpreted the images.)
      */
-    public ImagingStudy setInterpreter(ResourceReference value) { 
+    public ImagingStudy setInterpreter(Reference value) { 
       this.interpreter = value;
       return this;
     }
@@ -2206,20 +2206,20 @@ public class ImagingStudy extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("dateTime", "dateTime", "Date and Time the study took place.", 0, java.lang.Integer.MAX_VALUE, dateTime));
-        childrenList.add(new Property("subject", "Resource(Patient)", "Who the images are of.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient)", "Who the images are of.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("uid", "oid", "Formal identifier for the study.", 0, java.lang.Integer.MAX_VALUE, uid));
         childrenList.add(new Property("accessionNo", "Identifier", "Accession Number.", 0, java.lang.Integer.MAX_VALUE, accessionNo));
         childrenList.add(new Property("identifier", "Identifier", "Other identifiers for the study.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("order", "Resource(DiagnosticOrder)", "A list of the diagnostic orders that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, order));
+        childrenList.add(new Property("order", "Reference(DiagnosticOrder)", "A list of the diagnostic orders that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, order));
         childrenList.add(new Property("modality", "code", "A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).", 0, java.lang.Integer.MAX_VALUE, modality));
-        childrenList.add(new Property("referrer", "Resource(Practitioner)", "The requesting/referring physician.", 0, java.lang.Integer.MAX_VALUE, referrer));
+        childrenList.add(new Property("referrer", "Reference(Practitioner)", "The requesting/referring physician.", 0, java.lang.Integer.MAX_VALUE, referrer));
         childrenList.add(new Property("availability", "code", "Availability of study (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
         childrenList.add(new Property("url", "uri", "WADO-RS URI where Study is available.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("numberOfSeries", "integer", "Number of Series in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfSeries));
         childrenList.add(new Property("numberOfInstances", "integer", "Number of SOP Instances in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
         childrenList.add(new Property("clinicalInformation", "string", "Diagnoses etc provided with request.", 0, java.lang.Integer.MAX_VALUE, clinicalInformation));
         childrenList.add(new Property("procedure", "Coding", "Type of procedure performed.", 0, java.lang.Integer.MAX_VALUE, procedure));
-        childrenList.add(new Property("interpreter", "Resource(Practitioner)", "Who read study and interpreted the images.", 0, java.lang.Integer.MAX_VALUE, interpreter));
+        childrenList.add(new Property("interpreter", "Reference(Practitioner)", "Who read study and interpreted the images.", 0, java.lang.Integer.MAX_VALUE, interpreter));
         childrenList.add(new Property("description", "string", "Institution-generated description or classification of the Study (component) performed.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("series", "", "Each study has one or more series of image instances.", 0, java.lang.Integer.MAX_VALUE, series));
       }
@@ -2233,8 +2233,8 @@ public class ImagingStudy extends Resource {
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
-        dst.order = new ArrayList<ResourceReference>();
-        for (ResourceReference i : order)
+        dst.order = new ArrayList<Reference>();
+        for (Reference i : order)
           dst.order.add(i.copy());
         dst.modality = new ArrayList<Enumeration<ImagingModality>>();
         for (Enumeration<ImagingModality> i : modality)

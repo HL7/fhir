@@ -702,7 +702,7 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("class", "diagram-class-title");
     if (link) {
       xml.open("text");
-      if (tn.equals("Extension") || tn.equals("ResourceReference") || tn.equals("Narrative"))
+      if (tn.equals("Extension") || tn.equals("Reference") || tn.equals("Narrative"))
         xml.attribute("xlink:href", GeneratorUtils.getSrcFile(tn, false) + ".html#"+tn.toLowerCase());
       else
         xml.attribute("xlink:href", "#"+tn.toLowerCase());
@@ -766,11 +766,11 @@ public class SvgGenerator extends BaseGenerator {
 
   private String baseUrl(String path) throws Exception {
     String root = path.contains(".") ? path.substring(0, path.indexOf(".")) : path;
-    if (definitions.hasResource(root))
+    if (definitions.hasReference(root))
       return root.toLowerCase()+"-definitions.html#";
     else if ("Narrative".equals(root))
       return "base-definitions.html#";
-    else if ("ResourceReference".equals(root))
+    else if ("Reference".equals(root))
       return "base-definitions.html#";
     else if ("Extension".equals(root))
       return "base-definitions.html#";

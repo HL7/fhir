@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -217,7 +217,7 @@ public class RiskAssessment extends Resource {
     /**
      * The patient or group the risk assessment applies to.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The patient or group the risk assessment applies to.)
@@ -232,7 +232,7 @@ public class RiskAssessment extends Resource {
     /**
      * For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
      */
-    protected ResourceReference condition;
+    protected Reference condition;
 
     /**
      * The actual object that is the target of the reference (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
@@ -242,7 +242,7 @@ public class RiskAssessment extends Resource {
     /**
      * The provider or software application that performed the assessment.
      */
-    protected ResourceReference performer;
+    protected Reference performer;
 
     /**
      * The actual object that is the target of the reference (The provider or software application that performed the assessment.)
@@ -262,7 +262,7 @@ public class RiskAssessment extends Resource {
     /**
      * Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).
      */
-    protected List<ResourceReference> basis = new ArrayList<ResourceReference>();
+    protected List<Reference> basis = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
@@ -279,7 +279,7 @@ public class RiskAssessment extends Resource {
      */
     protected StringType mitigation;
 
-    private static final long serialVersionUID = -1398763765L;
+    private static final long serialVersionUID = 1326122717L;
 
     public RiskAssessment() {
       super();
@@ -288,14 +288,14 @@ public class RiskAssessment extends Resource {
     /**
      * @return {@link #subject} (The patient or group the risk assessment applies to.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The patient or group the risk assessment applies to.)
      */
-    public RiskAssessment setSubject(ResourceReference value) { 
+    public RiskAssessment setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -354,14 +354,14 @@ public class RiskAssessment extends Resource {
     /**
      * @return {@link #condition} (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
      */
-    public ResourceReference getCondition() { 
+    public Reference getCondition() { 
       return this.condition;
     }
 
     /**
      * @param value {@link #condition} (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
      */
-    public RiskAssessment setCondition(ResourceReference value) { 
+    public RiskAssessment setCondition(Reference value) { 
       this.condition = value;
       return this;
     }
@@ -384,14 +384,14 @@ public class RiskAssessment extends Resource {
     /**
      * @return {@link #performer} (The provider or software application that performed the assessment.)
      */
-    public ResourceReference getPerformer() { 
+    public Reference getPerformer() { 
       return this.performer;
     }
 
     /**
      * @param value {@link #performer} (The provider or software application that performed the assessment.)
      */
-    public RiskAssessment setPerformer(ResourceReference value) { 
+    public RiskAssessment setPerformer(Reference value) { 
       this.performer = value;
       return this;
     }
@@ -444,7 +444,7 @@ public class RiskAssessment extends Resource {
     /**
      * @return {@link #basis} (Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
-    public List<ResourceReference> getBasis() { 
+    public List<Reference> getBasis() { 
       return this.basis;
     }
 
@@ -452,8 +452,8 @@ public class RiskAssessment extends Resource {
     /**
      * @return {@link #basis} (Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
-    public ResourceReference addBasis() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addBasis() { 
+      Reference t = new Reference();
       this.basis.add(t);
       return t;
     }
@@ -520,13 +520,13 @@ public class RiskAssessment extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("subject", "Resource(Patient|Group)", "The patient or group the risk assessment applies to.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient|Group)", "The patient or group the risk assessment applies to.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("date", "dateTime", "The date (and possibly time) the risk assessment was performed.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("condition", "Resource(Condition)", "For assessments or prognosis specific to a particular condition, indicates the condition being assessed.", 0, java.lang.Integer.MAX_VALUE, condition));
-        childrenList.add(new Property("performer", "Resource(Practitioner|Device)", "The provider or software application that performed the assessment.", 0, java.lang.Integer.MAX_VALUE, performer));
+        childrenList.add(new Property("condition", "Reference(Condition)", "For assessments or prognosis specific to a particular condition, indicates the condition being assessed.", 0, java.lang.Integer.MAX_VALUE, condition));
+        childrenList.add(new Property("performer", "Reference(Practitioner|Device)", "The provider or software application that performed the assessment.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("identifier", "Identifier", "Business identifier assigned to the risk assessment.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("method", "CodeableConcept", "The algorithm, processs or mechanism used to evaluate the risk.", 0, java.lang.Integer.MAX_VALUE, method));
-        childrenList.add(new Property("basis", "Resource(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis));
+        childrenList.add(new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis));
         childrenList.add(new Property("prediction", "", "Describes the expected outcome for the subject.", 0, java.lang.Integer.MAX_VALUE, prediction));
         childrenList.add(new Property("mitigation", "string", "A description of the steps that might be taken to reduce the identified risk(s).", 0, java.lang.Integer.MAX_VALUE, mitigation));
       }
@@ -539,8 +539,8 @@ public class RiskAssessment extends Resource {
         dst.performer = performer == null ? null : performer.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.method = method == null ? null : method.copy();
-        dst.basis = new ArrayList<ResourceReference>();
-        for (ResourceReference i : basis)
+        dst.basis = new ArrayList<Reference>();
+        for (Reference i : basis)
           dst.basis.add(i.copy());
         dst.prediction = new ArrayList<RiskAssessmentPredictionComponent>();
         for (RiskAssessmentPredictionComponent i : prediction)

@@ -48,7 +48,7 @@ Type
     TEmptyFunc = reference to function (const L, R: T): Boolean;
     TListCompareFunc = reference to function (const L, R: T): Integer;
 
-    constructor Create; overload;
+    constructor Create; Overload; Override;
     constructor Create(const AComparer: IComparer<T>); overload;
     constructor Create(const Collection: TEnumerable<T>); overload;
     destructor Destroy; override;

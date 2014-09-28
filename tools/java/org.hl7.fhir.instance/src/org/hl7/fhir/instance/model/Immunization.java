@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -117,7 +117,7 @@ public class Immunization extends Resource {
         /**
          * Details of the reaction.
          */
-        protected ResourceReference detail;
+        protected Reference detail;
 
         /**
          * The actual object that is the target of the reference (Details of the reaction.)
@@ -129,7 +129,7 @@ public class Immunization extends Resource {
          */
         protected BooleanType reported;
 
-        private static final long serialVersionUID = -1842660322L;
+        private static final long serialVersionUID = -1876833936L;
 
       public ImmunizationReactionComponent() {
         super();
@@ -174,14 +174,14 @@ public class Immunization extends Resource {
         /**
          * @return {@link #detail} (Details of the reaction.)
          */
-        public ResourceReference getDetail() { 
+        public Reference getDetail() { 
           return this.detail;
         }
 
         /**
          * @param value {@link #detail} (Details of the reaction.)
          */
-        public ImmunizationReactionComponent setDetail(ResourceReference value) { 
+        public ImmunizationReactionComponent setDetail(Reference value) { 
           this.detail = value;
           return this;
         }
@@ -240,7 +240,7 @@ public class Immunization extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("date", "dateTime", "Date of reaction to the immunization.", 0, java.lang.Integer.MAX_VALUE, date));
-          childrenList.add(new Property("detail", "Resource(AdverseReaction|Observation)", "Details of the reaction.", 0, java.lang.Integer.MAX_VALUE, detail));
+          childrenList.add(new Property("detail", "Reference(AdverseReaction|Observation)", "Details of the reaction.", 0, java.lang.Integer.MAX_VALUE, detail));
           childrenList.add(new Property("reported", "boolean", "Self-reported indicator.", 0, java.lang.Integer.MAX_VALUE, reported));
         }
 
@@ -268,7 +268,7 @@ public class Immunization extends Resource {
         /**
          * Indicates the authority who published the protocol?  E.g. ACIP.
          */
-        protected ResourceReference authority;
+        protected Reference authority;
 
         /**
          * The actual object that is the target of the reference (Indicates the authority who published the protocol?  E.g. ACIP.)
@@ -300,7 +300,7 @@ public class Immunization extends Resource {
          */
         protected CodeableConcept doseStatusReason;
 
-        private static final long serialVersionUID = -619399794L;
+        private static final long serialVersionUID = 747305824L;
 
       public ImmunizationVaccinationProtocolComponent() {
         super();
@@ -384,14 +384,14 @@ public class Immunization extends Resource {
         /**
          * @return {@link #authority} (Indicates the authority who published the protocol?  E.g. ACIP.)
          */
-        public ResourceReference getAuthority() { 
+        public Reference getAuthority() { 
           return this.authority;
         }
 
         /**
          * @param value {@link #authority} (Indicates the authority who published the protocol?  E.g. ACIP.)
          */
-        public ImmunizationVaccinationProtocolComponent setAuthority(ResourceReference value) { 
+        public ImmunizationVaccinationProtocolComponent setAuthority(Reference value) { 
           this.authority = value;
           return this;
         }
@@ -532,7 +532,7 @@ public class Immunization extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("doseSequence", "integer", "Nominal position in a series.", 0, java.lang.Integer.MAX_VALUE, doseSequence));
           childrenList.add(new Property("description", "string", "Contains the description about the protocol under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("authority", "Resource(Organization)", "Indicates the authority who published the protocol?  E.g. ACIP.", 0, java.lang.Integer.MAX_VALUE, authority));
+          childrenList.add(new Property("authority", "Reference(Organization)", "Indicates the authority who published the protocol?  E.g. ACIP.", 0, java.lang.Integer.MAX_VALUE, authority));
           childrenList.add(new Property("series", "string", "One possible path to achieve presumed immunity against a disease - within the context of an authority.", 0, java.lang.Integer.MAX_VALUE, series));
           childrenList.add(new Property("seriesDoses", "integer", "The recommended number of doses to achieve immunity.", 0, java.lang.Integer.MAX_VALUE, seriesDoses));
           childrenList.add(new Property("doseTarget", "CodeableConcept", "The targeted disease.", 0, java.lang.Integer.MAX_VALUE, doseTarget));
@@ -573,7 +573,7 @@ public class Immunization extends Resource {
     /**
      * The patient to whom the vaccine was to be administered.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The patient to whom the vaccine was to be administered.)
@@ -593,7 +593,7 @@ public class Immunization extends Resource {
     /**
      * Clinician who administered the vaccine.
      */
-    protected ResourceReference performer;
+    protected Reference performer;
 
     /**
      * The actual object that is the target of the reference (Clinician who administered the vaccine.)
@@ -603,7 +603,7 @@ public class Immunization extends Resource {
     /**
      * Clinician who ordered the vaccination.
      */
-    protected ResourceReference requester;
+    protected Reference requester;
 
     /**
      * The actual object that is the target of the reference (Clinician who ordered the vaccination.)
@@ -613,7 +613,7 @@ public class Immunization extends Resource {
     /**
      * Name of vaccine manufacturer.
      */
-    protected ResourceReference manufacturer;
+    protected Reference manufacturer;
 
     /**
      * The actual object that is the target of the reference (Name of vaccine manufacturer.)
@@ -623,7 +623,7 @@ public class Immunization extends Resource {
     /**
      * The service delivery location where the vaccine administration occurred.
      */
-    protected ResourceReference location;
+    protected Reference location;
 
     /**
      * The actual object that is the target of the reference (The service delivery location where the vaccine administration occurred.)
@@ -670,13 +670,13 @@ public class Immunization extends Resource {
      */
     protected List<ImmunizationVaccinationProtocolComponent> vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
 
-    private static final long serialVersionUID = 927863190L;
+    private static final long serialVersionUID = -2037290648L;
 
     public Immunization() {
       super();
     }
 
-    public Immunization(DateTimeType date, CodeableConcept vaccineType, ResourceReference subject, BooleanType refusedIndicator, BooleanType reported) {
+    public Immunization(DateTimeType date, CodeableConcept vaccineType, Reference subject, BooleanType refusedIndicator, BooleanType reported) {
       super();
       this.date = date;
       this.vaccineType = vaccineType;
@@ -752,14 +752,14 @@ public class Immunization extends Resource {
     /**
      * @return {@link #subject} (The patient to whom the vaccine was to be administered.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The patient to whom the vaccine was to be administered.)
      */
-    public Immunization setSubject(ResourceReference value) { 
+    public Immunization setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -846,14 +846,14 @@ public class Immunization extends Resource {
     /**
      * @return {@link #performer} (Clinician who administered the vaccine.)
      */
-    public ResourceReference getPerformer() { 
+    public Reference getPerformer() { 
       return this.performer;
     }
 
     /**
      * @param value {@link #performer} (Clinician who administered the vaccine.)
      */
-    public Immunization setPerformer(ResourceReference value) { 
+    public Immunization setPerformer(Reference value) { 
       this.performer = value;
       return this;
     }
@@ -876,14 +876,14 @@ public class Immunization extends Resource {
     /**
      * @return {@link #requester} (Clinician who ordered the vaccination.)
      */
-    public ResourceReference getRequester() { 
+    public Reference getRequester() { 
       return this.requester;
     }
 
     /**
      * @param value {@link #requester} (Clinician who ordered the vaccination.)
      */
-    public Immunization setRequester(ResourceReference value) { 
+    public Immunization setRequester(Reference value) { 
       this.requester = value;
       return this;
     }
@@ -906,14 +906,14 @@ public class Immunization extends Resource {
     /**
      * @return {@link #manufacturer} (Name of vaccine manufacturer.)
      */
-    public ResourceReference getManufacturer() { 
+    public Reference getManufacturer() { 
       return this.manufacturer;
     }
 
     /**
      * @param value {@link #manufacturer} (Name of vaccine manufacturer.)
      */
-    public Immunization setManufacturer(ResourceReference value) { 
+    public Immunization setManufacturer(Reference value) { 
       this.manufacturer = value;
       return this;
     }
@@ -936,14 +936,14 @@ public class Immunization extends Resource {
     /**
      * @return {@link #location} (The service delivery location where the vaccine administration occurred.)
      */
-    public ResourceReference getLocation() { 
+    public Reference getLocation() { 
       return this.location;
     }
 
     /**
      * @param value {@link #location} (The service delivery location where the vaccine administration occurred.)
      */
-    public Immunization setLocation(ResourceReference value) { 
+    public Immunization setLocation(Reference value) { 
       this.location = value;
       return this;
     }
@@ -1134,13 +1134,13 @@ public class Immunization extends Resource {
         childrenList.add(new Property("identifier", "Identifier", "A unique identifier assigned to this adverse reaction record.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("date", "dateTime", "Date vaccine administered or was to be administered.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("vaccineType", "CodeableConcept", "Vaccine that was administered or was to be administered.", 0, java.lang.Integer.MAX_VALUE, vaccineType));
-        childrenList.add(new Property("subject", "Resource(Patient)", "The patient to whom the vaccine was to be administered.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient)", "The patient to whom the vaccine was to be administered.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("refusedIndicator", "boolean", "Indicates if the vaccination was refused.", 0, java.lang.Integer.MAX_VALUE, refusedIndicator));
         childrenList.add(new Property("reported", "boolean", "True if this administration was reported rather than directly administered.", 0, java.lang.Integer.MAX_VALUE, reported));
-        childrenList.add(new Property("performer", "Resource(Practitioner)", "Clinician who administered the vaccine.", 0, java.lang.Integer.MAX_VALUE, performer));
-        childrenList.add(new Property("requester", "Resource(Practitioner)", "Clinician who ordered the vaccination.", 0, java.lang.Integer.MAX_VALUE, requester));
-        childrenList.add(new Property("manufacturer", "Resource(Organization)", "Name of vaccine manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
-        childrenList.add(new Property("location", "Resource(Location)", "The service delivery location where the vaccine administration occurred.", 0, java.lang.Integer.MAX_VALUE, location));
+        childrenList.add(new Property("performer", "Reference(Practitioner)", "Clinician who administered the vaccine.", 0, java.lang.Integer.MAX_VALUE, performer));
+        childrenList.add(new Property("requester", "Reference(Practitioner)", "Clinician who ordered the vaccination.", 0, java.lang.Integer.MAX_VALUE, requester));
+        childrenList.add(new Property("manufacturer", "Reference(Organization)", "Name of vaccine manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
+        childrenList.add(new Property("location", "Reference(Location)", "The service delivery location where the vaccine administration occurred.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("lotNumber", "string", "Lot number of the  vaccine product.", 0, java.lang.Integer.MAX_VALUE, lotNumber));
         childrenList.add(new Property("expirationDate", "date", "Date vaccine batch expires.", 0, java.lang.Integer.MAX_VALUE, expirationDate));
         childrenList.add(new Property("site", "CodeableConcept", "Body site where vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, site));

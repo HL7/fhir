@@ -253,7 +253,7 @@ namespace Hl7.Fhir.Tests
         //        new StreamReader(@"publish\observation-example.xml"));
 
         //    // Create a file-based reader for Xml
-        //    var obs = (Observation)FhirParser.ParseResource(xr, errors);
+        //    var obs = (Observation)FhirParser.ParseReference(xr, errors);
 
         //    // Modify some fields of the observation
         //    obs.Status = ObservationStatus.Amended;

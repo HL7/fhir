@@ -253,7 +253,7 @@
     <Cell><Data ss:Type="String">Medication.manufacturer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Manufacturer of the item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -332,7 +332,7 @@
     <Cell><Data ss:Type="String">Medication.product.ingredient.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance|Medication)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Substance|Medication)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The product contained</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -415,7 +415,7 @@
     <Cell ss:StyleID="s63"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s63"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s63"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Resource(Medication)</Data><NamedCell
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Reference(Medication)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s63"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">A product in the package</Data><NamedCell

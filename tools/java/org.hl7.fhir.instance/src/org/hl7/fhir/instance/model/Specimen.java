@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -89,14 +89,14 @@ public class Specimen extends Resource {
         /**
          * The specimen resource that is the target of this relationship.
          */
-        protected List<ResourceReference> target = new ArrayList<ResourceReference>();
+        protected List<Reference> target = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (The specimen resource that is the target of this relationship.)
          */
         protected List<Specimen> targetTarget = new ArrayList<Specimen>();
 
 
-        private static final long serialVersionUID = 118968671L;
+        private static final long serialVersionUID = -452220997L;
 
       public SpecimenSourceComponent() {
         super();
@@ -142,7 +142,7 @@ public class Specimen extends Resource {
         /**
          * @return {@link #target} (The specimen resource that is the target of this relationship.)
          */
-        public List<ResourceReference> getTarget() { 
+        public List<Reference> getTarget() { 
           return this.target;
         }
 
@@ -150,8 +150,8 @@ public class Specimen extends Resource {
         /**
          * @return {@link #target} (The specimen resource that is the target of this relationship.)
          */
-        public ResourceReference addTarget() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addTarget() { 
+          Reference t = new Reference();
           this.target.add(t);
           return t;
         }
@@ -176,14 +176,14 @@ public class Specimen extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("relationship", "code", "Whether this relationship is to a parent or to a child.", 0, java.lang.Integer.MAX_VALUE, relationship));
-          childrenList.add(new Property("target", "Resource(Specimen)", "The specimen resource that is the target of this relationship.", 0, java.lang.Integer.MAX_VALUE, target));
+          childrenList.add(new Property("target", "Reference(Specimen)", "The specimen resource that is the target of this relationship.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       public SpecimenSourceComponent copy() {
         SpecimenSourceComponent dst = new SpecimenSourceComponent();
         dst.relationship = relationship == null ? null : relationship.copy();
-        dst.target = new ArrayList<ResourceReference>();
-        for (ResourceReference i : target)
+        dst.target = new ArrayList<Reference>();
+        for (Reference i : target)
           dst.target.add(i.copy());
         return dst;
       }
@@ -194,7 +194,7 @@ public class Specimen extends Resource {
         /**
          * Person who collected the specimen.
          */
-        protected ResourceReference collector;
+        protected Reference collector;
 
         /**
          * The actual object that is the target of the reference (Person who collected the specimen.)
@@ -226,7 +226,7 @@ public class Specimen extends Resource {
          */
         protected CodeableConcept sourceSite;
 
-        private static final long serialVersionUID = -850785324L;
+        private static final long serialVersionUID = 2038407490L;
 
       public SpecimenCollectionComponent() {
         super();
@@ -240,14 +240,14 @@ public class Specimen extends Resource {
         /**
          * @return {@link #collector} (Person who collected the specimen.)
          */
-        public ResourceReference getCollector() { 
+        public Reference getCollector() { 
           return this.collector;
         }
 
         /**
          * @param value {@link #collector} (Person who collected the specimen.)
          */
-        public SpecimenCollectionComponent setCollector(ResourceReference value) { 
+        public SpecimenCollectionComponent setCollector(Reference value) { 
           this.collector = value;
           return this;
         }
@@ -366,7 +366,7 @@ public class Specimen extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("collector", "Resource(Practitioner)", "Person who collected the specimen.", 0, java.lang.Integer.MAX_VALUE, collector));
+          childrenList.add(new Property("collector", "Reference(Practitioner)", "Person who collected the specimen.", 0, java.lang.Integer.MAX_VALUE, collector));
           childrenList.add(new Property("comment", "string", "To communicate any details or issues encountered during the specimen collection procedure.", 0, java.lang.Integer.MAX_VALUE, comment));
           childrenList.add(new Property("collected[x]", "dateTime|Period", "Time when specimen was collected from subject - the physiologically relevant time.", 0, java.lang.Integer.MAX_VALUE, collected));
           childrenList.add(new Property("quantity", "Quantity", "The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.", 0, java.lang.Integer.MAX_VALUE, quantity));
@@ -403,14 +403,14 @@ public class Specimen extends Resource {
         /**
          * Material used in the processing step.
          */
-        protected List<ResourceReference> additive = new ArrayList<ResourceReference>();
+        protected List<Reference> additive = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Material used in the processing step.)
          */
         protected List<Substance> additiveTarget = new ArrayList<Substance>();
 
 
-        private static final long serialVersionUID = 349457190L;
+        private static final long serialVersionUID = -402002686L;
 
       public SpecimenTreatmentComponent() {
         super();
@@ -470,7 +470,7 @@ public class Specimen extends Resource {
         /**
          * @return {@link #additive} (Material used in the processing step.)
          */
-        public List<ResourceReference> getAdditive() { 
+        public List<Reference> getAdditive() { 
           return this.additive;
         }
 
@@ -478,8 +478,8 @@ public class Specimen extends Resource {
         /**
          * @return {@link #additive} (Material used in the processing step.)
          */
-        public ResourceReference addAdditive() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addAdditive() { 
+          Reference t = new Reference();
           this.additive.add(t);
           return t;
         }
@@ -505,15 +505,15 @@ public class Specimen extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("description", "string", "Textual description of procedure.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("procedure", "CodeableConcept", "A coded value specifying the procedure used to process the specimen.", 0, java.lang.Integer.MAX_VALUE, procedure));
-          childrenList.add(new Property("additive", "Resource(Substance)", "Material used in the processing step.", 0, java.lang.Integer.MAX_VALUE, additive));
+          childrenList.add(new Property("additive", "Reference(Substance)", "Material used in the processing step.", 0, java.lang.Integer.MAX_VALUE, additive));
         }
 
       public SpecimenTreatmentComponent copy() {
         SpecimenTreatmentComponent dst = new SpecimenTreatmentComponent();
         dst.description = description == null ? null : description.copy();
         dst.procedure = procedure == null ? null : procedure.copy();
-        dst.additive = new ArrayList<ResourceReference>();
-        for (ResourceReference i : additive)
+        dst.additive = new ArrayList<Reference>();
+        for (Reference i : additive)
           dst.additive.add(i.copy());
         return dst;
       }
@@ -549,14 +549,14 @@ public class Specimen extends Resource {
         /**
          * Additive associated with the container.
          */
-        protected ResourceReference additive;
+        protected Reference additive;
 
         /**
          * The actual object that is the target of the reference (Additive associated with the container.)
          */
         protected Substance additiveTarget;
 
-        private static final long serialVersionUID = 794189367L;
+        private static final long serialVersionUID = 62861449L;
 
       public SpecimenContainerComponent() {
         super();
@@ -663,14 +663,14 @@ public class Specimen extends Resource {
         /**
          * @return {@link #additive} (Additive associated with the container.)
          */
-        public ResourceReference getAdditive() { 
+        public Reference getAdditive() { 
           return this.additive;
         }
 
         /**
          * @param value {@link #additive} (Additive associated with the container.)
          */
-        public SpecimenContainerComponent setAdditive(ResourceReference value) { 
+        public SpecimenContainerComponent setAdditive(Reference value) { 
           this.additive = value;
           return this;
         }
@@ -697,7 +697,7 @@ public class Specimen extends Resource {
           childrenList.add(new Property("type", "CodeableConcept", "The type of container associated with the specimen (e.g. slide, aliquot, etc).", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("capacity", "Quantity", "The capacity (volume or other measure) the container may contain.", 0, java.lang.Integer.MAX_VALUE, capacity));
           childrenList.add(new Property("specimenQuantity", "Quantity", "The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.", 0, java.lang.Integer.MAX_VALUE, specimenQuantity));
-          childrenList.add(new Property("additive", "Resource(Substance)", "Additive associated with the container.", 0, java.lang.Integer.MAX_VALUE, additive));
+          childrenList.add(new Property("additive", "Reference(Substance)", "Additive associated with the container.", 0, java.lang.Integer.MAX_VALUE, additive));
         }
 
       public SpecimenContainerComponent copy() {
@@ -733,7 +733,7 @@ public class Specimen extends Resource {
     /**
      * Where the specimen came from. This may be the patient(s) or from the environment or  a device.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
@@ -765,13 +765,13 @@ public class Specimen extends Resource {
      */
     protected List<SpecimenContainerComponent> container = new ArrayList<SpecimenContainerComponent>();
 
-    private static final long serialVersionUID = 1171226212L;
+    private static final long serialVersionUID = 257946834L;
 
     public Specimen() {
       super();
     }
 
-    public Specimen(ResourceReference subject) {
+    public Specimen(Reference subject) {
       super();
       this.subject = subject;
     }
@@ -828,14 +828,14 @@ public class Specimen extends Resource {
     /**
      * @return {@link #subject} (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
      */
-    public Specimen setSubject(ResourceReference value) { 
+    public Specimen setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -960,7 +960,7 @@ public class Specimen extends Resource {
         childrenList.add(new Property("identifier", "Identifier", "Id for specimen.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("type", "CodeableConcept", "Kind of material that forms the specimen.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("source", "", "Parent specimen from which the focal specimen was a component.", 0, java.lang.Integer.MAX_VALUE, source));
-        childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Substance)", "Where the specimen came from. This may be the patient(s) or from the environment or  a device.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Substance)", "Where the specimen came from. This may be the patient(s) or from the environment or  a device.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("accessionIdentifier", "Identifier", "The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.", 0, java.lang.Integer.MAX_VALUE, accessionIdentifier));
         childrenList.add(new Property("receivedTime", "dateTime", "Time when specimen was received for processing or testing.", 0, java.lang.Integer.MAX_VALUE, receivedTime));
         childrenList.add(new Property("collection", "", "Details concerning the specimen collection.", 0, java.lang.Integer.MAX_VALUE, collection));

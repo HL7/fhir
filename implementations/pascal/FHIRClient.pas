@@ -15,8 +15,8 @@ Type
   private
     FIssue : TFhirOperationOutcome;
   public
-    constructor create(message : String; issue : TFhirOperationOutcome);
-    destructor destroy; override;
+    constructor Create(message : String; issue : TFhirOperationOutcome);
+    destructor Destroy; override;
 
     property issue : TFhirOperationOutcome read FIssue;
   end;
@@ -42,8 +42,8 @@ Type
     procedure encodeTags(tags : TFHIRAtomCategoryList);
     function makeMultipart(stream: TStream; streamName: string; params: TAdvStringMatch; var mp : TStream) : String;
   public
-    constructor create(url : String; json : boolean); overload;
-    destructor destroy; override;
+    constructor Create(url : String; json : boolean); overload;
+    destructor Destroy; override;
     property url : String read FUrl;
 
 
@@ -92,8 +92,7 @@ end;
 
 function TFhirClient.transaction(bundle : TFHIRAtomFeed) : TFHIRAtomFeed;
 Var
-  p : TFHIRParser;
-  src, ret : TStream;
+  src : TStream;
 begin
   src := serialise(bundle);
   try
@@ -106,8 +105,7 @@ end;
 
 function TFhirClient.createResource(resource: TFhirResource; tags : TFHIRAtomCategoryList): TFHIRAtomEntry;
 Var
-  p : TFHIRParser;
-  src, ret : TStream;
+  src : TStream;
 begin
   encodeTags(tags);
   src := serialise(resource);
@@ -135,8 +133,7 @@ end;
 
 function TFhirClient.updateResource(id, ver : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRAtomEntry;
 Var
-  p : TFHIRParser;
-  src, ret : TStream;
+  src : TStream;
 begin
   if ver <> '' then
     client.Request.RawHeaders.Values['Content-Location'] := MakeUrlPath(CODES_TFhirResourceType[resource.resourceType]+'/'+id+'/history/'+ver);
@@ -231,7 +228,6 @@ end;
 
 function TFhirClient.searchPost(atype: TFhirResourceType; allRecords: boolean; params: TAdvStringMatch; resource: TFhirResource): TFHIRAtomFeed;
 Var
-  p : TFHIRParser;
   src, frm : TStream;
   ct : String;
 begin
@@ -472,9 +468,9 @@ begin
       p.Content := TStringStream.Create(params.Matches[params.Keys[i]], TEncoding.UTF8);
       p.OwnsContent := true;
     end;
-    m.Boundary := '---'+copy(GUIDToString(CreateGUID), 2, 36);
+    m.Boundary := '---'+AnsiString(copy(GUIDToString(CreateGUID), 2, 36));
     m.start := m.parts.PartByIndex[0].Id;
-    result := 'multipart/form-data; boundary='+m.Boundary;
+    result := 'multipart/form-data; boundary='+String(m.Boundary);
     mp := TMemoryStream.Create;
     m.WriteToStream(mp, false);
   finally
@@ -539,9 +535,6 @@ end;
 
 
 function TFhirClient.readResource(atype: TFhirResourceType; id: String; tags: TFHIRAtomCategoryList): TFHIRAtomEntry;
-Var
-  p : TFHIRParser;
-  ret : TStream;
 begin
   encodeTags(tags);
 
@@ -572,9 +565,6 @@ begin
 end;
 
 procedure TFhirClient.encodeTags(tags: TFHIRAtomCategoryList);
-var
-  s : String;
-  i : integer;
 begin
   if (tags <> nil) and (tags.Count > 0) then
     client.Request.RawHeaders.Values['Category'] := tags.AsHeader;
@@ -596,20 +586,3 @@ end;
 
 end.
 
-
-(*
-
-  oSource : TStringStream;
-  oReturn : TStringStream;
-  aType : TFhirResourceType;
-  url : String;
-Begin
-
-
-End;
-
-*)
-(*
-
-
-*)

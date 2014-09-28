@@ -212,7 +212,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Who care plan is for</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the patient/subject whose intended care is described by the plan.</Data></Cell>
@@ -278,7 +278,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Condition)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Condition)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Health issues this plan addresses</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.</Data></Cell>
@@ -327,7 +327,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|RelatedPerson|Patient|Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|RelatedPerson|Patient|Organization)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Who is involved</Data></Cell>
     <Cell><Data ss:Type="String">The specific person or organization who is participating/expected to participate in the care plan.</Data></Cell>
@@ -410,7 +410,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Condition)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Condition)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Health issues this goal addresses</Data></Cell>
     <Cell><Data ss:Type="String">The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address</Data></Cell>
@@ -491,7 +491,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Appointments, orders, etc.</Data></Cell>
     <Cell><Data ss:Type="String">Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.</Data></Cell>
@@ -516,7 +516,7 @@
     <Cell><Data ss:Type="String">CarePlan.activity.detail</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Procedure|MedicationPrescription|DiagnosticOrder|Encounter|Supply)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Procedure|MedicationPrescription|DiagnosticOrder|Encounter|Supply)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Activity details defined in specific resource</Data></Cell>
     <Cell><Data ss:Type="String">The details of the proposed activity represented in a specific resource</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Details in a form consistent with other applications and contexts of use</Data></Cell>
@@ -590,7 +590,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Where it should happen</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.</Data></Cell>
@@ -607,7 +607,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Organization|RelatedPerson|Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Organization|RelatedPerson|Patient)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Who's responsible?</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who's expected to be involved in the activity.</Data></Cell>
@@ -624,7 +624,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Medication|Substance)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Medication|Substance)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">What's administered/supplied</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the food, drug or other product being consumed or supplied in the activity.</Data></Cell>

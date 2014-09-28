@@ -44,7 +44,7 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
  * "Old" Syntax for type declarations in Fhir
  * 
  * typeSpec = '@' elementreference | '[param]' | 'xhtml' | 'xml:ID' |
- * 			'Interval(' orderedType ')' | 'Resource(' resourceParams ')' | 
+ * 			'Interval(' orderedType ')' | 'Reference(' resourceParams ')' | 
  * 			type('|' type)* | '*'
  * 
  * resourceParams = resourceType ('|' resourceType)* | Any 
@@ -101,7 +101,7 @@ public class TypeRefConverter
 			{
 				convertedType.setName(TypeRef.RESOURCEREF_TYPE_NAME);
 				
-				if( !ref.isAnyResource() )					
+				if( !ref.isAnyReference() )					
 					convertedType.getResourceParams().addAll(ref.getParams());					
 			}
 			else

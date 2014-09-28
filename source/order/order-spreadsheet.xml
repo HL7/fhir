@@ -169,7 +169,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Patient this order is about</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Patient</Data></Cell>
@@ -185,7 +185,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Who initiated the order</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Author, Practitioner</Data></Cell>
@@ -200,7 +200,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Organization|Device|Practitioner)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Organization|Device|Practitioner)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Who is intended to fulfill the order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"/>
@@ -214,7 +214,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">CodeableConcept | Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">CodeableConcept | Reference(Any)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Text - why the order was made</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"/>
@@ -228,7 +228,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">If required by policy</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"/>
@@ -285,7 +285,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">What action is being ordered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -140,7 +140,7 @@ public class ReferralRequest extends Resource {
     /**
      * The patient who is the subject of a referral or transfer of care request.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The patient who is the subject of a referral or transfer of care request.)
@@ -150,7 +150,7 @@ public class ReferralRequest extends Resource {
     /**
      * The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).
      */
-    protected ResourceReference requester;
+    protected Reference requester;
 
     /**
      * The actual object that is the target of the reference (The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).)
@@ -160,7 +160,7 @@ public class ReferralRequest extends Resource {
     /**
      * The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.
      */
-    protected List<ResourceReference> recipient = new ArrayList<ResourceReference>();
+    protected List<Reference> recipient = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.)
      */
@@ -170,7 +170,7 @@ public class ReferralRequest extends Resource {
     /**
      * The encounter at which the request for referral or transfer of care is initiated.
      */
-    protected ResourceReference encounter;
+    protected Reference encounter;
 
     /**
      * The actual object that is the target of the reference (The encounter at which the request for referral or transfer of care is initiated.)
@@ -200,7 +200,7 @@ public class ReferralRequest extends Resource {
     /**
      * Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.
      */
-    protected List<ResourceReference> supportingInformation = new ArrayList<ResourceReference>();
+    protected List<Reference> supportingInformation = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.)
      */
@@ -212,7 +212,7 @@ public class ReferralRequest extends Resource {
      */
     protected Period fulfillmentTime;
 
-    private static final long serialVersionUID = -464748626L;
+    private static final long serialVersionUID = 624419520L;
 
     public ReferralRequest() {
       super();
@@ -320,14 +320,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #subject} (The patient who is the subject of a referral or transfer of care request.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The patient who is the subject of a referral or transfer of care request.)
      */
-    public ReferralRequest setSubject(ResourceReference value) { 
+    public ReferralRequest setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -350,14 +350,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #requester} (The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).)
      */
-    public ResourceReference getRequester() { 
+    public Reference getRequester() { 
       return this.requester;
     }
 
     /**
      * @param value {@link #requester} (The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).)
      */
-    public ReferralRequest setRequester(ResourceReference value) { 
+    public ReferralRequest setRequester(Reference value) { 
       this.requester = value;
       return this;
     }
@@ -380,7 +380,7 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #recipient} (The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.)
      */
-    public List<ResourceReference> getRecipient() { 
+    public List<Reference> getRecipient() { 
       return this.recipient;
     }
 
@@ -388,8 +388,8 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #recipient} (The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.)
      */
-    public ResourceReference addRecipient() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addRecipient() { 
+      Reference t = new Reference();
       this.recipient.add(t);
       return t;
     }
@@ -404,14 +404,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #encounter} (The encounter at which the request for referral or transfer of care is initiated.)
      */
-    public ResourceReference getEncounter() { 
+    public Reference getEncounter() { 
       return this.encounter;
     }
 
     /**
      * @param value {@link #encounter} (The encounter at which the request for referral or transfer of care is initiated.)
      */
-    public ReferralRequest setEncounter(ResourceReference value) { 
+    public ReferralRequest setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -538,7 +538,7 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #supportingInformation} (Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.)
      */
-    public List<ResourceReference> getSupportingInformation() { 
+    public List<Reference> getSupportingInformation() { 
       return this.supportingInformation;
     }
 
@@ -546,8 +546,8 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #supportingInformation} (Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.)
      */
-    public ResourceReference addSupportingInformation() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addSupportingInformation() { 
+      Reference t = new Reference();
       this.supportingInformation.add(t);
       return t;
     }
@@ -581,15 +581,15 @@ public class ReferralRequest extends Resource {
         childrenList.add(new Property("type", "CodeableConcept", "An indication of the type of referral (or where applicable the type of transfer of care) request.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("specialty", "CodeableConcept", "Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.", 0, java.lang.Integer.MAX_VALUE, specialty));
         childrenList.add(new Property("priority", "CodeableConcept", "An indication of the urgency of referral (or where applicable the type of transfer of care) request.", 0, java.lang.Integer.MAX_VALUE, priority));
-        childrenList.add(new Property("subject", "Resource(Patient)", "The patient who is the subject of a referral or transfer of care request.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("requester", "Resource(Practitioner|Organization|Patient)", "The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).", 0, java.lang.Integer.MAX_VALUE, requester));
-        childrenList.add(new Property("recipient", "Resource(Practitioner|Organization)", "The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.", 0, java.lang.Integer.MAX_VALUE, recipient));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "The encounter at which the request for referral or transfer of care is initiated.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("subject", "Reference(Patient)", "The patient who is the subject of a referral or transfer of care request.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("requester", "Reference(Practitioner|Organization|Patient)", "The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).", 0, java.lang.Integer.MAX_VALUE, requester));
+        childrenList.add(new Property("recipient", "Reference(Practitioner|Organization)", "The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.", 0, java.lang.Integer.MAX_VALUE, recipient));
+        childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter at which the request for referral or transfer of care is initiated.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("dateSent", "dateTime", "Date/DateTime the request for referral or transfer of care is sent by the author.", 0, java.lang.Integer.MAX_VALUE, dateSent));
         childrenList.add(new Property("reason", "CodeableConcept", "Description of clinical condition indicating why referral/transfer of care is requested.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("description", "string", "The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("serviceRequested", "CodeableConcept", "The service(s) that is/are requested to be provided to the patient.", 0, java.lang.Integer.MAX_VALUE, serviceRequested));
-        childrenList.add(new Property("supportingInformation", "Resource(Any)", "Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
+        childrenList.add(new Property("supportingInformation", "Reference(Any)", "Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("fulfillmentTime", "Period", "The period of time within which the services identified in the referral/transfer of care is specified or required to occur.", 0, java.lang.Integer.MAX_VALUE, fulfillmentTime));
       }
 
@@ -604,8 +604,8 @@ public class ReferralRequest extends Resource {
         dst.priority = priority == null ? null : priority.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.requester = requester == null ? null : requester.copy();
-        dst.recipient = new ArrayList<ResourceReference>();
-        for (ResourceReference i : recipient)
+        dst.recipient = new ArrayList<Reference>();
+        for (Reference i : recipient)
           dst.recipient.add(i.copy());
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.dateSent = dateSent == null ? null : dateSent.copy();
@@ -614,8 +614,8 @@ public class ReferralRequest extends Resource {
         dst.serviceRequested = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : serviceRequested)
           dst.serviceRequested.add(i.copy());
-        dst.supportingInformation = new ArrayList<ResourceReference>();
-        for (ResourceReference i : supportingInformation)
+        dst.supportingInformation = new ArrayList<Reference>();
+        for (Reference i : supportingInformation)
           dst.supportingInformation.add(i.copy());
         dst.fulfillmentTime = fulfillmentTime == null ? null : fulfillmentTime.copy();
         return dst;

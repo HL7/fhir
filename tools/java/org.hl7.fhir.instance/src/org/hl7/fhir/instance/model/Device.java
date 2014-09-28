@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -81,7 +81,7 @@ public class Device extends Resource {
     /**
      * An organization that is responsible for the provision and ongoing maintenance of the device.
      */
-    protected ResourceReference owner;
+    protected Reference owner;
 
     /**
      * The actual object that is the target of the reference (An organization that is responsible for the provision and ongoing maintenance of the device.)
@@ -91,7 +91,7 @@ public class Device extends Resource {
     /**
      * The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location.
      */
-    protected ResourceReference location;
+    protected Reference location;
 
     /**
      * The actual object that is the target of the reference (The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location.)
@@ -101,7 +101,7 @@ public class Device extends Resource {
     /**
      * Patient information, if the resource is affixed to a person.
      */
-    protected ResourceReference patient;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (Patient information, if the resource is affixed to a person.)
@@ -118,7 +118,7 @@ public class Device extends Resource {
      */
     protected UriType url;
 
-    private static final long serialVersionUID = 303735588L;
+    private static final long serialVersionUID = 1707185618L;
 
     public Device() {
       super();
@@ -380,14 +380,14 @@ public class Device extends Resource {
     /**
      * @return {@link #owner} (An organization that is responsible for the provision and ongoing maintenance of the device.)
      */
-    public ResourceReference getOwner() { 
+    public Reference getOwner() { 
       return this.owner;
     }
 
     /**
      * @param value {@link #owner} (An organization that is responsible for the provision and ongoing maintenance of the device.)
      */
-    public Device setOwner(ResourceReference value) { 
+    public Device setOwner(Reference value) { 
       this.owner = value;
       return this;
     }
@@ -410,14 +410,14 @@ public class Device extends Resource {
     /**
      * @return {@link #location} (The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location.)
      */
-    public ResourceReference getLocation() { 
+    public Reference getLocation() { 
       return this.location;
     }
 
     /**
      * @param value {@link #location} (The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location.)
      */
-    public Device setLocation(ResourceReference value) { 
+    public Device setLocation(Reference value) { 
       this.location = value;
       return this;
     }
@@ -440,14 +440,14 @@ public class Device extends Resource {
     /**
      * @return {@link #patient} (Patient information, if the resource is affixed to a person.)
      */
-    public ResourceReference getPatient() { 
+    public Reference getPatient() { 
       return this.patient;
     }
 
     /**
      * @param value {@link #patient} (Patient information, if the resource is affixed to a person.)
      */
-    public Device setPatient(ResourceReference value) { 
+    public Device setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -530,9 +530,9 @@ public class Device extends Resource {
         childrenList.add(new Property("expiry", "date", "Date of expiry of this device (if applicable).", 0, java.lang.Integer.MAX_VALUE, expiry));
         childrenList.add(new Property("udi", "string", "FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.", 0, java.lang.Integer.MAX_VALUE, udi));
         childrenList.add(new Property("lotNumber", "string", "Lot number assigned by the manufacturer.", 0, java.lang.Integer.MAX_VALUE, lotNumber));
-        childrenList.add(new Property("owner", "Resource(Organization)", "An organization that is responsible for the provision and ongoing maintenance of the device.", 0, java.lang.Integer.MAX_VALUE, owner));
-        childrenList.add(new Property("location", "Resource(Location)", "The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. 'in/with the patient'), or a coded location.", 0, java.lang.Integer.MAX_VALUE, location));
-        childrenList.add(new Property("patient", "Resource(Patient)", "Patient information, if the resource is affixed to a person.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("owner", "Reference(Organization)", "An organization that is responsible for the provision and ongoing maintenance of the device.", 0, java.lang.Integer.MAX_VALUE, owner));
+        childrenList.add(new Property("location", "Reference(Location)", "The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. 'in/with the patient'), or a coded location.", 0, java.lang.Integer.MAX_VALUE, location));
+        childrenList.add(new Property("patient", "Reference(Patient)", "Patient information, if the resource is affixed to a person.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("contact", "ContactPoint", "Contact details for an organization or a particular human that is responsible for the device.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("url", "uri", "A network address on which the device may be contacted directly.", 0, java.lang.Integer.MAX_VALUE, url));
       }

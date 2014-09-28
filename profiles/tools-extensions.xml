@@ -188,9 +188,9 @@
           <name value="ProfileStructureType"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
-          <referenceResource>
+          <referenceReference>
             <reference value="#v2"/>
-          </referenceResource>
+          </referenceReference>
         </binding>
       </definition> 
     </element>
@@ -327,9 +327,9 @@
         <name value="OperationOutcomeSource"/>
         <isExtensible value="true"/>
         <conformance value="preferred"/>
-        <referenceResource>
+        <referenceReference>
           <reference value="#v1"/>
-        </referenceResource>
+        </referenceReference>
       </binding>
     </definition> 
     </element>

@@ -323,7 +323,7 @@
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Resource(Patient)</Data><NamedCell
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Reference(Patient)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Who prescription is for</Data><NamedCell
@@ -345,7 +345,7 @@
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Practitioner)</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(Practitioner)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Who ordered the medication(s)</Data><NamedCell
@@ -366,7 +366,7 @@
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Encounter)</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(Encounter)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Created during encounter / admission / stay</Data><NamedCell
@@ -384,7 +384,7 @@
     <Cell><Data ss:Type="String">MedicationPrescription.reason[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept | Resource(Condition)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept | Reference(Condition)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Reason or indication for writing the prescription</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -399,7 +399,7 @@
     <Cell><Data ss:Type="String">MedicationPrescription.medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">Resource(Medication)</Data><NamedCell
+    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">Reference(Medication)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Medication to be taken</Data><NamedCell
@@ -621,7 +621,7 @@
     <Cell><Data ss:Type="String">MedicationPrescription.dispense.medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">Resource(Medication)</Data><NamedCell
+    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">Reference(Medication)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Product to be supplied</Data><NamedCell

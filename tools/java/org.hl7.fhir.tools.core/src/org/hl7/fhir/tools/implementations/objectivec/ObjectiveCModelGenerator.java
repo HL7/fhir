@@ -343,8 +343,8 @@ public class ObjectiveCModelGenerator extends GenBlock {
     ln(" *");
     if (composite.isComposite())
       ln(" * [FhirComposite(");
-    else if (composite.isResource())
-      ln(" * [FhirResource(");
+    else if (composite.isReference())
+      ln(" * [FhirReference(");
     nl("\"" + composite.getName() + "\"");
     nl(")]");
     ln(" * [Serializable]");

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -124,14 +124,14 @@ public class Identifier extends Type {
     /**
      * Organization that issued/manages the identifier.
      */
-    protected ResourceReference assigner;
+    protected Reference assigner;
 
     /**
      * The actual object that is the target of the reference (Organization that issued/manages the identifier.)
      */
     protected Organization assignerTarget;
 
-    private static final long serialVersionUID = -892620253L;
+    private static final long serialVersionUID = 334577297L;
 
     public Identifier() {
       super();
@@ -299,14 +299,14 @@ public class Identifier extends Type {
     /**
      * @return {@link #assigner} (Organization that issued/manages the identifier.)
      */
-    public ResourceReference getAssigner() { 
+    public Reference getAssigner() { 
       return this.assigner;
     }
 
     /**
      * @param value {@link #assigner} (Organization that issued/manages the identifier.)
      */
-    public Identifier setAssigner(ResourceReference value) { 
+    public Identifier setAssigner(Reference value) { 
       this.assigner = value;
       return this;
     }
@@ -333,7 +333,7 @@ public class Identifier extends Type {
         childrenList.add(new Property("system", "uri", "Establishes the namespace in which set of possible id values is unique.", 0, java.lang.Integer.MAX_VALUE, system));
         childrenList.add(new Property("value", "string", "The portion of the identifier typically displayed to the user and which is unique within the context of the system.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("period", "Period", "Time period during which identifier is/was valid for use.", 0, java.lang.Integer.MAX_VALUE, period));
-        childrenList.add(new Property("assigner", "Resource(Organization)", "Organization that issued/manages the identifier.", 0, java.lang.Integer.MAX_VALUE, assigner));
+        childrenList.add(new Property("assigner", "Reference(Organization)", "Organization that issued/manages the identifier.", 0, java.lang.Integer.MAX_VALUE, assigner));
       }
 
       public Identifier copy() {

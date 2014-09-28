@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -766,7 +766,7 @@ public class NutritionOrder extends Resource {
     /**
      * The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
@@ -776,7 +776,7 @@ public class NutritionOrder extends Resource {
     /**
      * The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
      */
-    protected ResourceReference orderer;
+    protected Reference orderer;
 
     /**
      * The actual object that is the target of the reference (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
@@ -791,7 +791,7 @@ public class NutritionOrder extends Resource {
     /**
      * An encounter that provides additional informaton about the healthcare context in which this request is made.
      */
-    protected ResourceReference encounter;
+    protected Reference encounter;
 
     /**
      * The actual object that is the target of the reference (An encounter that provides additional informaton about the healthcare context in which this request is made.)
@@ -806,7 +806,7 @@ public class NutritionOrder extends Resource {
     /**
      * The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.
      */
-    protected List<ResourceReference> allergyIntolerance = new ArrayList<ResourceReference>();
+    protected List<Reference> allergyIntolerance = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
      */
@@ -833,13 +833,13 @@ public class NutritionOrder extends Resource {
      */
     protected Enumeration<NutritionOrderStatus> status;
 
-    private static final long serialVersionUID = 418944389L;
+    private static final long serialVersionUID = 1103299087L;
 
     public NutritionOrder() {
       super();
     }
 
-    public NutritionOrder(ResourceReference subject, DateTimeType dateTime) {
+    public NutritionOrder(Reference subject, DateTimeType dateTime) {
       super();
       this.subject = subject;
       this.dateTime = dateTime;
@@ -848,14 +848,14 @@ public class NutritionOrder extends Resource {
     /**
      * @return {@link #subject} (The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
      */
-    public NutritionOrder setSubject(ResourceReference value) { 
+    public NutritionOrder setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -878,14 +878,14 @@ public class NutritionOrder extends Resource {
     /**
      * @return {@link #orderer} (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
-    public ResourceReference getOrderer() { 
+    public Reference getOrderer() { 
       return this.orderer;
     }
 
     /**
      * @param value {@link #orderer} (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
-    public NutritionOrder setOrderer(ResourceReference value) { 
+    public NutritionOrder setOrderer(Reference value) { 
       this.orderer = value;
       return this;
     }
@@ -925,14 +925,14 @@ public class NutritionOrder extends Resource {
     /**
      * @return {@link #encounter} (An encounter that provides additional informaton about the healthcare context in which this request is made.)
      */
-    public ResourceReference getEncounter() { 
+    public Reference getEncounter() { 
       return this.encounter;
     }
 
     /**
      * @param value {@link #encounter} (An encounter that provides additional informaton about the healthcare context in which this request is made.)
      */
-    public NutritionOrder setEncounter(ResourceReference value) { 
+    public NutritionOrder setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -987,7 +987,7 @@ public class NutritionOrder extends Resource {
     /**
      * @return {@link #allergyIntolerance} (The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
      */
-    public List<ResourceReference> getAllergyIntolerance() { 
+    public List<Reference> getAllergyIntolerance() { 
       return this.allergyIntolerance;
     }
 
@@ -995,8 +995,8 @@ public class NutritionOrder extends Resource {
     /**
      * @return {@link #allergyIntolerance} (The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
      */
-    public ResourceReference addAllergyIntolerance() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addAllergyIntolerance() { 
+      Reference t = new Reference();
       this.allergyIntolerance.add(t);
       return t;
     }
@@ -1107,12 +1107,12 @@ public class NutritionOrder extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("subject", "Resource(Patient)", "The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("orderer", "Resource(Practitioner)", "The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.", 0, java.lang.Integer.MAX_VALUE, orderer));
+        childrenList.add(new Property("subject", "Reference(Patient)", "The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("orderer", "Reference(Practitioner)", "The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.", 0, java.lang.Integer.MAX_VALUE, orderer));
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the order sender or by the order receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "An encounter that provides additional informaton about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("encounter", "Reference(Encounter)", "An encounter that provides additional informaton about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("dateTime", "dateTime", "The date and time that this nutrition order was requested.", 0, java.lang.Integer.MAX_VALUE, dateTime));
-        childrenList.add(new Property("allergyIntolerance", "Resource(AllergyIntolerance)", "The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.", 0, java.lang.Integer.MAX_VALUE, allergyIntolerance));
+        childrenList.add(new Property("allergyIntolerance", "Reference(AllergyIntolerance)", "The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.", 0, java.lang.Integer.MAX_VALUE, allergyIntolerance));
         childrenList.add(new Property("foodPreferenceModifier", "CodeableConcept", "This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.", 0, java.lang.Integer.MAX_VALUE, foodPreferenceModifier));
         childrenList.add(new Property("excludeFoodModifier", "CodeableConcept", "This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.", 0, java.lang.Integer.MAX_VALUE, excludeFoodModifier));
         childrenList.add(new Property("item", "", "Different items that combine to make a complete description of the nutrition to be provided via oral diet, nutritional supplement and/or formula order.", 0, java.lang.Integer.MAX_VALUE, item));
@@ -1128,8 +1128,8 @@ public class NutritionOrder extends Resource {
           dst.identifier.add(i.copy());
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.dateTime = dateTime == null ? null : dateTime.copy();
-        dst.allergyIntolerance = new ArrayList<ResourceReference>();
-        for (ResourceReference i : allergyIntolerance)
+        dst.allergyIntolerance = new ArrayList<Reference>();
+        for (Reference i : allergyIntolerance)
           dst.allergyIntolerance.add(i.copy());
         dst.foodPreferenceModifier = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : foodPreferenceModifier)

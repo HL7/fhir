@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -175,14 +175,14 @@ public class Patient extends Resource {
         /**
          * Organization on behalf of which the contact is acting or for which the contact is working.
          */
-        protected ResourceReference organization;
+        protected Reference organization;
 
         /**
          * The actual object that is the target of the reference (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
         protected Organization organizationTarget;
 
-        private static final long serialVersionUID = 1810243698L;
+        private static final long serialVersionUID = -677722912L;
 
       public ContactComponent() {
         super();
@@ -291,14 +291,14 @@ public class Patient extends Resource {
         /**
          * @return {@link #organization} (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
-        public ResourceReference getOrganization() { 
+        public Reference getOrganization() { 
           return this.organization;
         }
 
         /**
          * @param value {@link #organization} (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
-        public ContactComponent setOrganization(ResourceReference value) { 
+        public ContactComponent setOrganization(Reference value) { 
           this.organization = value;
           return this;
         }
@@ -325,7 +325,7 @@ public class Patient extends Resource {
           childrenList.add(new Property("telecom", "ContactPoint", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
           childrenList.add(new Property("address", "Address", "Address for the contact person.", 0, java.lang.Integer.MAX_VALUE, address));
           childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
-          childrenList.add(new Property("organization", "Resource(Organization)", "Organization on behalf of which the contact is acting or for which the contact is working.", 0, java.lang.Integer.MAX_VALUE, organization));
+          childrenList.add(new Property("organization", "Reference(Organization)", "Organization on behalf of which the contact is acting or for which the contact is working.", 0, java.lang.Integer.MAX_VALUE, organization));
         }
 
       public ContactComponent copy() {
@@ -438,7 +438,7 @@ public class Patient extends Resource {
         /**
          * The other patient resource that the link refers to.
          */
-        protected ResourceReference other;
+        protected Reference other;
 
         /**
          * The actual object that is the target of the reference (The other patient resource that the link refers to.)
@@ -450,13 +450,13 @@ public class Patient extends Resource {
          */
         protected Enumeration<LinkType> type;
 
-        private static final long serialVersionUID = 383172000L;
+        private static final long serialVersionUID = -1942104050L;
 
       public PatientLinkComponent() {
         super();
       }
 
-      public PatientLinkComponent(ResourceReference other, Enumeration<LinkType> type) {
+      public PatientLinkComponent(Reference other, Enumeration<LinkType> type) {
         super();
         this.other = other;
         this.type = type;
@@ -465,14 +465,14 @@ public class Patient extends Resource {
         /**
          * @return {@link #other} (The other patient resource that the link refers to.)
          */
-        public ResourceReference getOther() { 
+        public Reference getOther() { 
           return this.other;
         }
 
         /**
          * @param value {@link #other} (The other patient resource that the link refers to.)
          */
-        public PatientLinkComponent setOther(ResourceReference value) { 
+        public PatientLinkComponent setOther(Reference value) { 
           this.other = value;
           return this;
         }
@@ -526,7 +526,7 @@ public class Patient extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("other", "Resource(Patient)", "The other patient resource that the link refers to.", 0, java.lang.Integer.MAX_VALUE, other));
+          childrenList.add(new Property("other", "Reference(Patient)", "The other patient resource that the link refers to.", 0, java.lang.Integer.MAX_VALUE, other));
           childrenList.add(new Property("type", "code", "The type of link between this patient resource and another patient resource.", 0, java.lang.Integer.MAX_VALUE, type));
         }
 
@@ -607,7 +607,7 @@ public class Patient extends Resource {
     /**
      * Patient's nominated care provider.
      */
-    protected List<ResourceReference> careProvider = new ArrayList<ResourceReference>();
+    protected List<Reference> careProvider = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Patient's nominated care provider.)
      */
@@ -617,7 +617,7 @@ public class Patient extends Resource {
     /**
      * Organization that is the custodian of the patient record.
      */
-    protected ResourceReference managingOrganization;
+    protected Reference managingOrganization;
 
     /**
      * The actual object that is the target of the reference (Organization that is the custodian of the patient record.)
@@ -634,7 +634,7 @@ public class Patient extends Resource {
      */
     protected BooleanType active;
 
-    private static final long serialVersionUID = 1686085119L;
+    private static final long serialVersionUID = -340628307L;
 
     public Patient() {
       super();
@@ -894,7 +894,7 @@ public class Patient extends Resource {
     /**
      * @return {@link #careProvider} (Patient's nominated care provider.)
      */
-    public List<ResourceReference> getCareProvider() { 
+    public List<Reference> getCareProvider() { 
       return this.careProvider;
     }
 
@@ -902,8 +902,8 @@ public class Patient extends Resource {
     /**
      * @return {@link #careProvider} (Patient's nominated care provider.)
      */
-    public ResourceReference addCareProvider() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addCareProvider() { 
+      Reference t = new Reference();
       this.careProvider.add(t);
       return t;
     }
@@ -918,14 +918,14 @@ public class Patient extends Resource {
     /**
      * @return {@link #managingOrganization} (Organization that is the custodian of the patient record.)
      */
-    public ResourceReference getManagingOrganization() { 
+    public Reference getManagingOrganization() { 
       return this.managingOrganization;
     }
 
     /**
      * @param value {@link #managingOrganization} (Organization that is the custodian of the patient record.)
      */
-    public Patient setManagingOrganization(ResourceReference value) { 
+    public Patient setManagingOrganization(Reference value) { 
       this.managingOrganization = value;
       return this;
     }
@@ -1013,8 +1013,8 @@ public class Patient extends Resource {
         childrenList.add(new Property("contact", "", "A contact party (e.g. guardian, partner, friend) for the patient.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("animal", "", "This element has a value if the patient is an animal.", 0, java.lang.Integer.MAX_VALUE, animal));
         childrenList.add(new Property("communication", "CodeableConcept", "Languages which may be used to communicate with the patient about his or her health.", 0, java.lang.Integer.MAX_VALUE, communication));
-        childrenList.add(new Property("careProvider", "Resource(Organization|Practitioner)", "Patient's nominated care provider.", 0, java.lang.Integer.MAX_VALUE, careProvider));
-        childrenList.add(new Property("managingOrganization", "Resource(Organization)", "Organization that is the custodian of the patient record.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
+        childrenList.add(new Property("careProvider", "Reference(Organization|Practitioner)", "Patient's nominated care provider.", 0, java.lang.Integer.MAX_VALUE, careProvider));
+        childrenList.add(new Property("managingOrganization", "Reference(Organization)", "Organization that is the custodian of the patient record.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
         childrenList.add(new Property("link", "", "Link to another patient resource that concerns the same actual person.", 0, java.lang.Integer.MAX_VALUE, link));
         childrenList.add(new Property("active", "boolean", "Whether this patient record is in active use.", 0, java.lang.Integer.MAX_VALUE, active));
       }
@@ -1048,8 +1048,8 @@ public class Patient extends Resource {
         dst.communication = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : communication)
           dst.communication.add(i.copy());
-        dst.careProvider = new ArrayList<ResourceReference>();
-        for (ResourceReference i : careProvider)
+        dst.careProvider = new ArrayList<Reference>();
+        for (Reference i : careProvider)
           dst.careProvider.add(i.copy());
         dst.managingOrganization = managingOrganization == null ? null : managingOrganization.copy();
         dst.link = new ArrayList<PatientLinkComponent>();

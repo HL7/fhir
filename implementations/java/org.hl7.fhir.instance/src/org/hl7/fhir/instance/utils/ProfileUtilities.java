@@ -21,7 +21,7 @@ import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
-import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -445,7 +445,7 @@ public class ProfileUtilities {
 
 
   private ProfileStructureComponent getStructureForDataType(TypeRefComponent type) {
-    if (type.getProfile() != null && !type.getCodeSimple().equals("ResourceReference") && !type.getCodeSimple().equals("Extension")) 
+    if (type.getProfile() != null && !type.getCodeSimple().equals("Reference") && !type.getCodeSimple().equals("Extension")) 
       throw new Error("handling profiles is not supported yet");
     for (AtomEntry<Profile> ae : context.getProfiles().values()) {
       if (ae.getResource().getNameSimple().equals(type.getCodeSimple())) {
@@ -474,7 +474,7 @@ public class ProfileUtilities {
       return false;
     for (TypeRefComponent type : types) {
       String t = type.getCodeSimple();
-      if (!isDataType(t) && !t.equals("ResourceReference") && !t.equals("Extension") && !isPrimitive(t))
+      if (!isDataType(t) && !t.equals("Reference") && !t.equals("Extension") && !isPrimitive(t))
         return false;
     }
     return true;
@@ -490,8 +490,8 @@ public class ProfileUtilities {
   private ElementComponent updateURLs(String url, ElementComponent element) {
     if (element.getDefinition() != null) {
       ElementDefinitionComponent defn = element.getDefinition();
-      if (defn.getBinding() != null && defn.getBinding().getReference() instanceof ResourceReference && ((ResourceReference)defn.getBinding().getReference()).getReferenceSimple().startsWith("#"))
-        ((ResourceReference)defn.getBinding().getReference()).setReferenceSimple(url+((ResourceReference)defn.getBinding().getReference()).getReferenceSimple());
+      if (defn.getBinding() != null && defn.getBinding().getReference() instanceof Reference && ((Reference)defn.getBinding().getReference()).getReferenceSimple().startsWith("#"))
+        ((Reference)defn.getBinding().getReference()).setReferenceSimple(url+((Reference)defn.getBinding().getReference()).getReferenceSimple());
       for (TypeRefComponent t : defn.getType()) {
         if (t.getProfile() != null && t.getProfileSimple().startsWith("#")) {
           t.setProfileSimple(url+t.getProfileSimple());
@@ -697,7 +697,7 @@ public class ProfileUtilities {
         first = false; 
       else 
         c.addPiece(gen.new Piece(null,", ", null));
-      if (t.getCodeSimple().equals("ResourceReference") || (t.getCodeSimple().equals("Resource") && t.getProfile() != null)) {
+      if (t.getCodeSimple().equals("Reference") || (t.getCodeSimple().equals("Resource") && t.getProfile() != null)) {
         if (t.getProfileSimple().startsWith("http://hl7.org/fhir/Profile/")) {
           String rn = t.getProfileSimple().substring(28);
           c.addPiece(gen.new Piece(pkp.getLinkFor(rn), rn, null));
@@ -771,7 +771,7 @@ public class ProfileUtilities {
     } else if (!hasDef || element.getDefinition().getType().size() == 0)
       row.setIcon("icon_element.gif");
     else if (hasDef && element.getDefinition().getType().size() > 1) {
-      if (allTypesAre(element.getDefinition().getType(), "ResourceReference"))
+      if (allTypesAre(element.getDefinition().getType(), "Reference"))
         row.setIcon("icon_reference.png");
       else
         row.setIcon("icon_choice.gif");
@@ -962,7 +962,7 @@ public class ProfileUtilities {
   }
 
   private boolean isReference(String value) {
-    return value.equals("ResourceReference");
+    return value.equals("Reference");
   }
 
   private boolean isPrimitive(String value) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -115,14 +115,14 @@ public class Practitioner extends Resource {
         /**
          * Organization that regulates and issues the qualification.
          */
-        protected ResourceReference issuer;
+        protected Reference issuer;
 
         /**
          * The actual object that is the target of the reference (Organization that regulates and issues the qualification.)
          */
         protected Organization issuerTarget;
 
-        private static final long serialVersionUID = 1498294019L;
+        private static final long serialVersionUID = -1873253007L;
 
       public PractitionerQualificationComponent() {
         super();
@@ -183,14 +183,14 @@ public class Practitioner extends Resource {
         /**
          * @return {@link #issuer} (Organization that regulates and issues the qualification.)
          */
-        public ResourceReference getIssuer() { 
+        public Reference getIssuer() { 
           return this.issuer;
         }
 
         /**
          * @param value {@link #issuer} (Organization that regulates and issues the qualification.)
          */
-        public PractitionerQualificationComponent setIssuer(ResourceReference value) { 
+        public PractitionerQualificationComponent setIssuer(Reference value) { 
           this.issuer = value;
           return this;
         }
@@ -215,7 +215,7 @@ public class Practitioner extends Resource {
           childrenList.add(new Property("identifier", "Identifier", "An identifier that applies to this person's qualification in this role.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("code", "CodeableConcept", "Coded representation of the qualification.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("period", "Period", "Period during which the qualification is valid.", 0, java.lang.Integer.MAX_VALUE, period));
-          childrenList.add(new Property("issuer", "Resource(Organization)", "Organization that regulates and issues the qualification.", 0, java.lang.Integer.MAX_VALUE, issuer));
+          childrenList.add(new Property("issuer", "Reference(Organization)", "Organization that regulates and issues the qualification.", 0, java.lang.Integer.MAX_VALUE, issuer));
         }
 
       public PractitionerQualificationComponent copy() {
@@ -269,7 +269,7 @@ public class Practitioner extends Resource {
     /**
      * The organization that the practitioner represents.
      */
-    protected ResourceReference organization;
+    protected Reference organization;
 
     /**
      * The actual object that is the target of the reference (The organization that the practitioner represents.)
@@ -294,7 +294,7 @@ public class Practitioner extends Resource {
     /**
      * The location(s) at which this practitioner provides care.
      */
-    protected List<ResourceReference> location = new ArrayList<ResourceReference>();
+    protected List<Reference> location = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (The location(s) at which this practitioner provides care.)
      */
@@ -311,7 +311,7 @@ public class Practitioner extends Resource {
      */
     protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
 
-    private static final long serialVersionUID = 1418202941L;
+    private static final long serialVersionUID = 211133931L;
 
     public Practitioner() {
       super();
@@ -475,14 +475,14 @@ public class Practitioner extends Resource {
     /**
      * @return {@link #organization} (The organization that the practitioner represents.)
      */
-    public ResourceReference getOrganization() { 
+    public Reference getOrganization() { 
       return this.organization;
     }
 
     /**
      * @param value {@link #organization} (The organization that the practitioner represents.)
      */
-    public Practitioner setOrganization(ResourceReference value) { 
+    public Practitioner setOrganization(Reference value) { 
       this.organization = value;
       return this;
     }
@@ -554,7 +554,7 @@ public class Practitioner extends Resource {
     /**
      * @return {@link #location} (The location(s) at which this practitioner provides care.)
      */
-    public List<ResourceReference> getLocation() { 
+    public List<Reference> getLocation() { 
       return this.location;
     }
 
@@ -562,8 +562,8 @@ public class Practitioner extends Resource {
     /**
      * @return {@link #location} (The location(s) at which this practitioner provides care.)
      */
-    public ResourceReference addLocation() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addLocation() { 
+      Reference t = new Reference();
       this.location.add(t);
       return t;
     }
@@ -628,11 +628,11 @@ public class Practitioner extends Resource {
         childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         childrenList.add(new Property("birthDate", "dateTime", "The date and time of birth for the practitioner.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
-        childrenList.add(new Property("organization", "Resource(Organization)", "The organization that the practitioner represents.", 0, java.lang.Integer.MAX_VALUE, organization));
+        childrenList.add(new Property("organization", "Reference(Organization)", "The organization that the practitioner represents.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("role", "CodeableConcept", "Roles which this practitioner is authorized to perform for the organization.", 0, java.lang.Integer.MAX_VALUE, role));
         childrenList.add(new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty));
         childrenList.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, java.lang.Integer.MAX_VALUE, period));
-        childrenList.add(new Property("location", "Resource(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));
+        childrenList.add(new Property("location", "Reference(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("qualification", "", "Qualifications obtained by training and certification.", 0, java.lang.Integer.MAX_VALUE, qualification));
         childrenList.add(new Property("communication", "CodeableConcept", "A language the practitioner is able to use in patient communication.", 0, java.lang.Integer.MAX_VALUE, communication));
       }
@@ -662,8 +662,8 @@ public class Practitioner extends Resource {
         for (CodeableConcept i : specialty)
           dst.specialty.add(i.copy());
         dst.period = period == null ? null : period.copy();
-        dst.location = new ArrayList<ResourceReference>();
-        for (ResourceReference i : location)
+        dst.location = new ArrayList<Reference>();
+        for (Reference i : location)
           dst.location.add(i.copy());
         dst.qualification = new ArrayList<PractitionerQualificationComponent>();
         for (PractitionerQualificationComponent i : qualification)

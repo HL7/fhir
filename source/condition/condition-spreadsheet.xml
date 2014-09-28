@@ -190,7 +190,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Condition.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who has the condition?</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the patient who the condition record is associated with</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.participation[typeCode=SBJ].role[classCode=PAT]</Data></Cell>
@@ -199,7 +199,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Condition.encounter</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Encounter)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Encounter when condition first asserted</Data></Cell>
     <Cell><Data ss:Type="String">Encounter during which the condition was first asserted</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</Data></Cell>
@@ -208,7 +208,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Condition.asserter</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Patient)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner|Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Person who asserts this condition</Data></Cell>
     <Cell><Data ss:Type="String">Person who takes responsibility for asserting the existence of the condition as part of the electronic record</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.participation[typeCode=AUT].role</Data></Cell>
@@ -321,7 +321,7 @@
     <Cell><Data ss:Type="String">Condition.stage.assessment</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Formal record of assessment</Data></Cell>
     <Cell><Data ss:Type="String">Reference to a formal record of the evidence on which the staging assessment is based</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.self</Data></Cell>
@@ -349,7 +349,7 @@
     <Cell><Data ss:Type="String">Condition.evidence.detail</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Supporting information found elsewhere</Data></Cell>
     <Cell><Data ss:Type="String">Links to other relevant information, including pathology reports</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.self</Data></Cell>
@@ -417,7 +417,7 @@
     <Cell><Data ss:Type="String">Condition.relatedItem.target</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)&#10;</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)&#10;</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Relationship target resource</Data></Cell>
     <Cell><Data ss:Type="String">Target of the relationship </Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.target[classCode=OBS, moodCode=EVN]</Data></Cell>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -319,7 +319,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * The person or animal to whom the medication was given.
      */
-    protected ResourceReference patient;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (The person or animal to whom the medication was given.)
@@ -329,7 +329,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * The individual who was responsible for giving the medication to the patient.
      */
-    protected ResourceReference practitioner;
+    protected Reference practitioner;
 
     /**
      * The actual object that is the target of the reference (The individual who was responsible for giving the medication to the patient.)
@@ -339,7 +339,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.
      */
-    protected ResourceReference encounter;
+    protected Reference encounter;
 
     /**
      * The actual object that is the target of the reference (The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.)
@@ -349,7 +349,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * The original request, instruction or authority to perform the administration.
      */
-    protected ResourceReference prescription;
+    protected Reference prescription;
 
     /**
      * The actual object that is the target of the reference (The original request, instruction or authority to perform the administration.)
@@ -374,7 +374,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    protected ResourceReference medication;
+    protected Reference medication;
 
     /**
      * The actual object that is the target of the reference (Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
@@ -384,7 +384,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * The device used in administering the medication to the patient.  E.g. a particular infusion pump.
      */
-    protected List<ResourceReference> device = new ArrayList<ResourceReference>();
+    protected List<Reference> device = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (The device used in administering the medication to the patient.  E.g. a particular infusion pump.)
      */
@@ -396,13 +396,13 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      */
     protected List<MedicationAdministrationDosageComponent> dosage = new ArrayList<MedicationAdministrationDosageComponent>();
 
-    private static final long serialVersionUID = -1279315504L;
+    private static final long serialVersionUID = -1037637350L;
 
     public MedicationAdministration() {
       super();
     }
 
-    public MedicationAdministration(Enumeration<MedicationAdminStatus> status, ResourceReference patient, ResourceReference practitioner, ResourceReference prescription, Type effectiveTime) {
+    public MedicationAdministration(Enumeration<MedicationAdminStatus> status, Reference patient, Reference practitioner, Reference prescription, Type effectiveTime) {
       super();
       this.status = status;
       this.patient = patient;
@@ -463,14 +463,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #patient} (The person or animal to whom the medication was given.)
      */
-    public ResourceReference getPatient() { 
+    public Reference getPatient() { 
       return this.patient;
     }
 
     /**
      * @param value {@link #patient} (The person or animal to whom the medication was given.)
      */
-    public MedicationAdministration setPatient(ResourceReference value) { 
+    public MedicationAdministration setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -493,14 +493,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #practitioner} (The individual who was responsible for giving the medication to the patient.)
      */
-    public ResourceReference getPractitioner() { 
+    public Reference getPractitioner() { 
       return this.practitioner;
     }
 
     /**
      * @param value {@link #practitioner} (The individual who was responsible for giving the medication to the patient.)
      */
-    public MedicationAdministration setPractitioner(ResourceReference value) { 
+    public MedicationAdministration setPractitioner(Reference value) { 
       this.practitioner = value;
       return this;
     }
@@ -523,14 +523,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #encounter} (The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    public ResourceReference getEncounter() { 
+    public Reference getEncounter() { 
       return this.encounter;
     }
 
     /**
      * @param value {@link #encounter} (The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    public MedicationAdministration setEncounter(ResourceReference value) { 
+    public MedicationAdministration setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -553,14 +553,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #prescription} (The original request, instruction or authority to perform the administration.)
      */
-    public ResourceReference getPrescription() { 
+    public Reference getPrescription() { 
       return this.prescription;
     }
 
     /**
      * @param value {@link #prescription} (The original request, instruction or authority to perform the administration.)
      */
-    public MedicationAdministration setPrescription(ResourceReference value) { 
+    public MedicationAdministration setPrescription(Reference value) { 
       this.prescription = value;
       return this;
     }
@@ -651,14 +651,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #medication} (Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public ResourceReference getMedication() { 
+    public Reference getMedication() { 
       return this.medication;
     }
 
     /**
      * @param value {@link #medication} (Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public MedicationAdministration setMedication(ResourceReference value) { 
+    public MedicationAdministration setMedication(Reference value) { 
       this.medication = value;
       return this;
     }
@@ -681,7 +681,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #device} (The device used in administering the medication to the patient.  E.g. a particular infusion pump.)
      */
-    public List<ResourceReference> getDevice() { 
+    public List<Reference> getDevice() { 
       return this.device;
     }
 
@@ -689,8 +689,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #device} (The device used in administering the medication to the patient.  E.g. a particular infusion pump.)
      */
-    public ResourceReference addDevice() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addDevice() { 
+      Reference t = new Reference();
       this.device.add(t);
       return t;
     }
@@ -733,15 +733,15 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("patient", "Resource(Patient)", "The person or animal to whom the medication was given.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("practitioner", "Resource(Practitioner)", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, practitioner));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("prescription", "Resource(MedicationPrescription)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The person or animal to whom the medication was given.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("practitioner", "Reference(Practitioner)", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, practitioner));
+        childrenList.add(new Property("encounter", "Reference(Encounter)", "The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("prescription", "Reference(MedicationPrescription)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
         childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
         childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
         childrenList.add(new Property("effectiveTime[x]", "dateTime|Period", "An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.", 0, java.lang.Integer.MAX_VALUE, effectiveTime));
-        childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
-        childrenList.add(new Property("device", "Resource(Device)", "The device used in administering the medication to the patient.  E.g. a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
+        childrenList.add(new Property("medication", "Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
+        childrenList.add(new Property("device", "Reference(Device)", "The device used in administering the medication to the patient.  E.g. a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("dosage", "", "Provides details of how much of the medication was administered.", 0, java.lang.Integer.MAX_VALUE, dosage));
       }
 
@@ -761,8 +761,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           dst.reasonNotGiven.add(i.copy());
         dst.effectiveTime = effectiveTime == null ? null : effectiveTime.copy();
         dst.medication = medication == null ? null : medication.copy();
-        dst.device = new ArrayList<ResourceReference>();
-        for (ResourceReference i : device)
+        dst.device = new ArrayList<Reference>();
+        for (Reference i : device)
           dst.device.add(i.copy());
         dst.dosage = new ArrayList<MedicationAdministrationDosageComponent>();
         for (MedicationAdministrationDosageComponent i : dosage)

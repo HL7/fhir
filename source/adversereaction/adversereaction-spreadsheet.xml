@@ -221,7 +221,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Who had the reaction</Data></Cell>
     <Cell><Data ss:Type="String">The subject of the adverse reaction</Data></Cell>
@@ -257,7 +257,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Patient)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Who recorded the reaction</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the individual responsible for the information in the reaction record.</Data></Cell>
@@ -381,7 +381,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Resource(Substance)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Substance)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Presumed causative substance</Data></Cell>
     <Cell><Data ss:Type="String">Substance that is presumed to have caused the adverse reaction</Data></Cell>

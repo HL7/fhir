@@ -85,7 +85,7 @@ import org.hl7.fhir.instance.model.Property;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Ratio;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.Timing.EventTiming;
 import org.hl7.fhir.instance.model.Timing.TimingRepeatComponent;
@@ -259,7 +259,7 @@ public class NarrativeGenerator {
   private boolean renderAsList(ElementComponent child) {
     if (child.getDefinition().getType().size() == 1) {
       String t = child.getDefinition().getType().get(0).getCodeSimple();
-      if (t.equals("Address") || t.equals("ResourceReference"))
+      if (t.equals("Address") || t.equals("Reference"))
         return true;
     }
     return false;
@@ -374,8 +374,8 @@ public class NarrativeGenerator {
       x.addText(p.getStart() == null ? "??" : p.getStartSimple().toHumanDisplay());
       x.addText(" --> ");
       x.addText(p.getEnd() == null ? "(ongoing)" : p.getEndSimple().toHumanDisplay());
-    } else if (e instanceof ResourceReference) {
-      ResourceReference r = (ResourceReference) e;
+    } else if (e instanceof Reference) {
+      Reference r = (Reference) e;
       XhtmlNode c = x;
       ResourceWithReference tr = null;
       if (r.getReference() != null) {
@@ -485,13 +485,13 @@ public class NarrativeGenerator {
       x.addText(" --> ");
       x.addText(p.getEnd() == null ? "(ongoing)" : p.getEndSimple().toHumanDisplay());
       return true;
-    } else if (e instanceof ResourceReference) {
-      ResourceReference r = (ResourceReference) e;
+    } else if (e instanceof Reference) {
+      Reference r = (Reference) e;
       if (r.getDisplay() != null)        
         x.addText(r.getDisplaySimple());
       else if (r.getReference() != null) {
         ResourceWithReference tr = resolveReference(res, r.getReferenceSimple());
-        x.addText(tr == null ? r.getReferenceSimple() : "????"); // getDisplayForResource(tr.getResource()));
+        x.addText(tr == null ? r.getReferenceSimple() : "????"); // getDisplayForReference(tr.getReference()));
       } else
         x.addText("??");
       return true;
@@ -571,7 +571,7 @@ public class NarrativeGenerator {
       return true;
     if (child.getDefinition().getType().size() == 1) {
       String t = child.getDefinition().getType().get(0).getCodeSimple();
-      if (t.equals("Address") || t.equals("Contact") || t.equals("ResourceReference") || t.equals("Uri"))
+      if (t.equals("Address") || t.equals("Contact") || t.equals("Reference") || t.equals("Uri"))
         return false;
     }
     return true;
@@ -964,9 +964,9 @@ public class NarrativeGenerator {
 
     XhtmlNode p = x.addTag("p");
     p.addText("Mapping from ");
-    AddVsRef(((ResourceReference) cm.getSource()).getReferenceSimple(), p);
+    AddVsRef(((Reference) cm.getSource()).getReferenceSimple(), p);
     p.addText(" to ");
-    AddVsRef(((ResourceReference) cm.getTarget()).getReferenceSimple(), p);
+    AddVsRef(((Reference) cm.getTarget()).getReferenceSimple(), p);
     
     p = x.addTag("p");
     if (cm.getExperimentalSimple())
@@ -1249,10 +1249,10 @@ public class NarrativeGenerator {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (AtomEntry<ConceptMap> a : context.getMaps().values()) {
-      if (((ResourceReference) a.getResource().getSource()).getReferenceSimple().equals(vs.getIdentifierSimple())) {
+      if (((Reference) a.getResource().getSource()).getReferenceSimple().equals(vs.getIdentifierSimple())) {
         String url = "";
-        if (context.getValueSets().containsKey(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()))
-            url = context.getValueSets().get(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()).getLinks().get("path");
+        if (context.getValueSets().containsKey(((Reference) a.getResource().getTarget()).getReferenceSimple()))
+            url = context.getValueSets().get(((Reference) a.getResource().getTarget()).getReferenceSimple()).getLinks().get("path");
         mymaps.put(a.getResource(), url);
       }
     }
@@ -1279,10 +1279,10 @@ public class NarrativeGenerator {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (AtomEntry<ConceptMap> a : context.getMaps().values()) {
-      if (((ResourceReference) a.getResource().getSource()).getReferenceSimple().equals(vs.getIdentifierSimple())) {
+      if (((Reference) a.getResource().getSource()).getReferenceSimple().equals(vs.getIdentifierSimple())) {
         String url = "";
-        if (context.getValueSets().containsKey(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()))
-            url = context.getValueSets().get(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()).getLinks().get("path");
+        if (context.getValueSets().containsKey(((Reference) a.getResource().getTarget()).getReferenceSimple()))
+            url = context.getValueSets().get(((Reference) a.getResource().getTarget()).getReferenceSimple()).getLinks().get("path");
         mymaps.put(a.getResource(), url);
       }
     }

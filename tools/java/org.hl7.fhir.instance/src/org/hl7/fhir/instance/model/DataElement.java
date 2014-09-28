@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -157,14 +157,14 @@ public class DataElement extends Resource {
         /**
          * Points to the value set that identifies the set of codes to be used.
          */
-        protected ResourceReference valueSet;
+        protected Reference valueSet;
 
         /**
          * The actual object that is the target of the reference (Points to the value set that identifies the set of codes to be used.)
          */
         protected ValueSet valueSetTarget;
 
-        private static final long serialVersionUID = -445833557L;
+        private static final long serialVersionUID = -1297440999L;
 
       public DataElementBindingComponent() {
         super();
@@ -282,14 +282,14 @@ public class DataElement extends Resource {
         /**
          * @return {@link #valueSet} (Points to the value set that identifies the set of codes to be used.)
          */
-        public ResourceReference getValueSet() { 
+        public Reference getValueSet() { 
           return this.valueSet;
         }
 
         /**
          * @param value {@link #valueSet} (Points to the value set that identifies the set of codes to be used.)
          */
-        public DataElementBindingComponent setValueSet(ResourceReference value) { 
+        public DataElementBindingComponent setValueSet(Reference value) { 
           this.valueSet = value;
           return this;
         }
@@ -314,7 +314,7 @@ public class DataElement extends Resource {
           childrenList.add(new Property("isExtensible", "boolean", "If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.", 0, java.lang.Integer.MAX_VALUE, isExtensible));
           childrenList.add(new Property("conformance", "code", "Indicates the degree of conformance expectations associated with this binding.", 0, java.lang.Integer.MAX_VALUE, conformance));
           childrenList.add(new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("valueSet", "Resource(ValueSet)", "Points to the value set that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, valueSet));
+          childrenList.add(new Property("valueSet", "Reference(ValueSet)", "Points to the value set that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, valueSet));
         }
 
       public DataElementBindingComponent copy() {

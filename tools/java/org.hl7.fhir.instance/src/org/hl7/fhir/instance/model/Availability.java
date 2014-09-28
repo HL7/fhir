@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -51,7 +51,7 @@ public class Availability extends Resource {
     /**
      * The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.
      */
-    protected ResourceReference actor;
+    protected Reference actor;
 
     /**
      * The actual object that is the target of the reference (The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
@@ -73,13 +73,13 @@ public class Availability extends Resource {
      */
     protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = 901197698L;
+    private static final long serialVersionUID = -2050467472L;
 
     public Availability() {
       super();
     }
 
-    public Availability(ResourceReference actor) {
+    public Availability(Reference actor) {
       super();
       this.actor = actor;
     }
@@ -121,14 +121,14 @@ public class Availability extends Resource {
     /**
      * @return {@link #actor} (The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
      */
-    public ResourceReference getActor() { 
+    public Reference getActor() { 
       return this.actor;
     }
 
     /**
      * @param value {@link #actor} (The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
      */
-    public Availability setActor(ResourceReference value) { 
+    public Availability setActor(Reference value) { 
       this.actor = value;
       return this;
     }
@@ -239,7 +239,7 @@ public class Availability extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("type", "CodeableConcept", "The schedule type can be used for the categorization of healthcare services or other appointment types.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("actor", "Resource(Any)", "The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.", 0, java.lang.Integer.MAX_VALUE, actor));
+        childrenList.add(new Property("actor", "Reference(Any)", "The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.", 0, java.lang.Integer.MAX_VALUE, actor));
         childrenList.add(new Property("planningHorizon", "Period", "The period of time that the slots that are attached to this availability resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a 'template' for planning outside these dates.", 0, java.lang.Integer.MAX_VALUE, planningHorizon));
         childrenList.add(new Property("comment", "string", "Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("lastModified", "dateTime", "When this availability was created, or last revised.", 0, java.lang.Integer.MAX_VALUE, lastModified));

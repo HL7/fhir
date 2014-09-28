@@ -47,7 +47,7 @@ import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
-import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
@@ -215,7 +215,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
   public static String describeBinding(ElementDefinitionBindingComponent def, PageProcessor page) throws Exception {
     if (def.getReference() == null) 
       return def.getDescriptionSimple();
-    String ref = def.getReference() instanceof UriType ? ((UriType) def.getReference()).asStringValue() : ((ResourceReference) def.getReference()).getReferenceSimple();
+    String ref = def.getReference() instanceof UriType ? ((UriType) def.getReference()).asStringValue() : ((Reference) def.getReference()).getReferenceSimple();
     AtomEntry<ValueSet> vs = page.getValueSets().get(ref);
     if (vs != null)
       return def.getDescriptionSimple()+"<br/>"+conf(def)+ "<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+vs.getResource().getNameSimple()+"</a>"+confTail(def);

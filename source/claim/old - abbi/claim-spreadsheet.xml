@@ -391,7 +391,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Claim)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Claim)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">For adjudication, what invoice is it</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
@@ -433,7 +433,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Covered party</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
@@ -447,7 +447,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Person|Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Person|Organization)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Who is billing</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
@@ -461,7 +461,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Coverage)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Coverage)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">What coverage is claim against</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
@@ -475,7 +475,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Claim)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Claim)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Other coverages billed</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
@@ -713,7 +713,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Agent|Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Agent|Organization)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Who delivered service</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
@@ -727,7 +727,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Where performed</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
@@ -755,7 +755,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Resource(ANY)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(ANY)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Details of service</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>

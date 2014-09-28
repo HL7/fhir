@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -203,14 +203,14 @@ public class Encounter extends Resource {
         /**
          * Persons involved in the encounter other than the patient.
          */
-        protected ResourceReference individual;
+        protected Reference individual;
 
         /**
          * The actual object that is the target of the reference (Persons involved in the encounter other than the patient.)
          */
         protected Resource individualTarget;
 
-        private static final long serialVersionUID = 982307509L;
+        private static final long serialVersionUID = -1094895325L;
 
       public EncounterParticipantComponent() {
         super();
@@ -236,14 +236,14 @@ public class Encounter extends Resource {
         /**
          * @return {@link #individual} (Persons involved in the encounter other than the patient.)
          */
-        public ResourceReference getIndividual() { 
+        public Reference getIndividual() { 
           return this.individual;
         }
 
         /**
          * @param value {@link #individual} (Persons involved in the encounter other than the patient.)
          */
-        public EncounterParticipantComponent setIndividual(ResourceReference value) { 
+        public EncounterParticipantComponent setIndividual(Reference value) { 
           this.individual = value;
           return this;
         }
@@ -266,7 +266,7 @@ public class Encounter extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Role of participant in encounter.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("individual", "Resource(Practitioner|RelatedPerson)", "Persons involved in the encounter other than the patient.", 0, java.lang.Integer.MAX_VALUE, individual));
+          childrenList.add(new Property("individual", "Reference(Practitioner|RelatedPerson)", "Persons involved in the encounter other than the patient.", 0, java.lang.Integer.MAX_VALUE, individual));
         }
 
       public EncounterParticipantComponent copy() {
@@ -289,7 +289,7 @@ public class Encounter extends Resource {
         /**
          * The location from which the patient came before admission.
          */
-        protected ResourceReference origin;
+        protected Reference origin;
 
         /**
          * The actual object that is the target of the reference (The location from which the patient came before admission.)
@@ -329,7 +329,7 @@ public class Encounter extends Resource {
         /**
          * Location to which the patient is discharged.
          */
-        protected ResourceReference destination;
+        protected Reference destination;
 
         /**
          * The actual object that is the target of the reference (Location to which the patient is discharged.)
@@ -344,7 +344,7 @@ public class Encounter extends Resource {
         /**
          * The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.
          */
-        protected ResourceReference dischargeDiagnosis;
+        protected Reference dischargeDiagnosis;
 
         /**
          * The actual object that is the target of the reference (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
@@ -356,7 +356,7 @@ public class Encounter extends Resource {
          */
         protected BooleanType reAdmission;
 
-        private static final long serialVersionUID = -521461330L;
+        private static final long serialVersionUID = -809806884L;
 
       public EncounterHospitalizationComponent() {
         super();
@@ -380,14 +380,14 @@ public class Encounter extends Resource {
         /**
          * @return {@link #origin} (The location from which the patient came before admission.)
          */
-        public ResourceReference getOrigin() { 
+        public Reference getOrigin() { 
           return this.origin;
         }
 
         /**
          * @param value {@link #origin} (The location from which the patient came before admission.)
          */
-        public EncounterHospitalizationComponent setOrigin(ResourceReference value) { 
+        public EncounterHospitalizationComponent setOrigin(Reference value) { 
           this.origin = value;
           return this;
         }
@@ -506,14 +506,14 @@ public class Encounter extends Resource {
         /**
          * @return {@link #destination} (Location to which the patient is discharged.)
          */
-        public ResourceReference getDestination() { 
+        public Reference getDestination() { 
           return this.destination;
         }
 
         /**
          * @param value {@link #destination} (Location to which the patient is discharged.)
          */
-        public EncounterHospitalizationComponent setDestination(ResourceReference value) { 
+        public EncounterHospitalizationComponent setDestination(Reference value) { 
           this.destination = value;
           return this;
         }
@@ -551,14 +551,14 @@ public class Encounter extends Resource {
         /**
          * @return {@link #dischargeDiagnosis} (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
          */
-        public ResourceReference getDischargeDiagnosis() { 
+        public Reference getDischargeDiagnosis() { 
           return this.dischargeDiagnosis;
         }
 
         /**
          * @param value {@link #dischargeDiagnosis} (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
          */
-        public EncounterHospitalizationComponent setDischargeDiagnosis(ResourceReference value) { 
+        public EncounterHospitalizationComponent setDischargeDiagnosis(Reference value) { 
           this.dischargeDiagnosis = value;
           return this;
         }
@@ -617,16 +617,16 @@ public class Encounter extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("preAdmissionIdentifier", "Identifier", "Pre-admission identifier.", 0, java.lang.Integer.MAX_VALUE, preAdmissionIdentifier));
-          childrenList.add(new Property("origin", "Resource(Location)", "The location from which the patient came before admission.", 0, java.lang.Integer.MAX_VALUE, origin));
+          childrenList.add(new Property("origin", "Reference(Location)", "The location from which the patient came before admission.", 0, java.lang.Integer.MAX_VALUE, origin));
           childrenList.add(new Property("admitSource", "CodeableConcept", "From where patient was admitted (physician referral, transfer).", 0, java.lang.Integer.MAX_VALUE, admitSource));
           childrenList.add(new Property("period", "Period", "Period during which the patient was admitted.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("accomodation", "", "Where the patient stays during this encounter.", 0, java.lang.Integer.MAX_VALUE, accomodation));
           childrenList.add(new Property("diet", "CodeableConcept", "Dietary restrictions for the patient.", 0, java.lang.Integer.MAX_VALUE, diet));
           childrenList.add(new Property("specialCourtesy", "CodeableConcept", "Special courtesies (VIP, board member).", 0, java.lang.Integer.MAX_VALUE, specialCourtesy));
           childrenList.add(new Property("specialArrangement", "CodeableConcept", "Wheelchair, translator, stretcher, etc.", 0, java.lang.Integer.MAX_VALUE, specialArrangement));
-          childrenList.add(new Property("destination", "Resource(Location)", "Location to which the patient is discharged.", 0, java.lang.Integer.MAX_VALUE, destination));
+          childrenList.add(new Property("destination", "Reference(Location)", "Location to which the patient is discharged.", 0, java.lang.Integer.MAX_VALUE, destination));
           childrenList.add(new Property("dischargeDisposition", "CodeableConcept", "Category or kind of location after discharge.", 0, java.lang.Integer.MAX_VALUE, dischargeDisposition));
-          childrenList.add(new Property("dischargeDiagnosis", "Resource(Any)", "The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.", 0, java.lang.Integer.MAX_VALUE, dischargeDiagnosis));
+          childrenList.add(new Property("dischargeDiagnosis", "Reference(Any)", "The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.", 0, java.lang.Integer.MAX_VALUE, dischargeDiagnosis));
           childrenList.add(new Property("reAdmission", "boolean", "Whether this hospitalization is a readmission.", 0, java.lang.Integer.MAX_VALUE, reAdmission));
         }
 
@@ -659,7 +659,7 @@ public class Encounter extends Resource {
         /**
          * The bed that is assigned to the patient.
          */
-        protected ResourceReference bed;
+        protected Reference bed;
 
         /**
          * The actual object that is the target of the reference (The bed that is assigned to the patient.)
@@ -671,7 +671,7 @@ public class Encounter extends Resource {
          */
         protected Period period;
 
-        private static final long serialVersionUID = 1820878877L;
+        private static final long serialVersionUID = 1058938507L;
 
       public EncounterHospitalizationAccomodationComponent() {
         super();
@@ -680,14 +680,14 @@ public class Encounter extends Resource {
         /**
          * @return {@link #bed} (The bed that is assigned to the patient.)
          */
-        public ResourceReference getBed() { 
+        public Reference getBed() { 
           return this.bed;
         }
 
         /**
          * @param value {@link #bed} (The bed that is assigned to the patient.)
          */
-        public EncounterHospitalizationAccomodationComponent setBed(ResourceReference value) { 
+        public EncounterHospitalizationAccomodationComponent setBed(Reference value) { 
           this.bed = value;
           return this;
         }
@@ -724,7 +724,7 @@ public class Encounter extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("bed", "Resource(Location)", "The bed that is assigned to the patient.", 0, java.lang.Integer.MAX_VALUE, bed));
+          childrenList.add(new Property("bed", "Reference(Location)", "The bed that is assigned to the patient.", 0, java.lang.Integer.MAX_VALUE, bed));
           childrenList.add(new Property("period", "Period", "Period during which the patient was assigned the bed.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
@@ -741,7 +741,7 @@ public class Encounter extends Resource {
         /**
          * The location where the encounter takes place.
          */
-        protected ResourceReference location;
+        protected Reference location;
 
         /**
          * The actual object that is the target of the reference (The location where the encounter takes place.)
@@ -753,13 +753,13 @@ public class Encounter extends Resource {
          */
         protected Period period;
 
-        private static final long serialVersionUID = 1444463345L;
+        private static final long serialVersionUID = 1137166303L;
 
       public EncounterLocationComponent() {
         super();
       }
 
-      public EncounterLocationComponent(ResourceReference location) {
+      public EncounterLocationComponent(Reference location) {
         super();
         this.location = location;
       }
@@ -767,14 +767,14 @@ public class Encounter extends Resource {
         /**
          * @return {@link #location} (The location where the encounter takes place.)
          */
-        public ResourceReference getLocation() { 
+        public Reference getLocation() { 
           return this.location;
         }
 
         /**
          * @param value {@link #location} (The location where the encounter takes place.)
          */
-        public EncounterLocationComponent setLocation(ResourceReference value) { 
+        public EncounterLocationComponent setLocation(Reference value) { 
           this.location = value;
           return this;
         }
@@ -811,7 +811,7 @@ public class Encounter extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("location", "Resource(Location)", "The location where the encounter takes place.", 0, java.lang.Integer.MAX_VALUE, location));
+          childrenList.add(new Property("location", "Reference(Location)", "The location where the encounter takes place.", 0, java.lang.Integer.MAX_VALUE, location));
           childrenList.add(new Property("period", "Period", "Time period during which the patient was present at the location.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
@@ -847,7 +847,7 @@ public class Encounter extends Resource {
     /**
      * The patient present at the encounter.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The patient present at the encounter.)
@@ -862,7 +862,7 @@ public class Encounter extends Resource {
     /**
      * The appointment that scheduled this encounter.
      */
-    protected ResourceReference fulfills;
+    protected Reference fulfills;
 
     /**
      * The actual object that is the target of the reference (The appointment that scheduled this encounter.)
@@ -887,7 +887,7 @@ public class Encounter extends Resource {
     /**
      * Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.
      */
-    protected ResourceReference indication;
+    protected Reference indication;
 
     /**
      * The actual object that is the target of the reference (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
@@ -912,7 +912,7 @@ public class Encounter extends Resource {
     /**
      * Department or team providing care.
      */
-    protected ResourceReference serviceProvider;
+    protected Reference serviceProvider;
 
     /**
      * The actual object that is the target of the reference (Department or team providing care.)
@@ -922,14 +922,14 @@ public class Encounter extends Resource {
     /**
      * Another Encounter of which this encounter is a part of (administratively or in time).
      */
-    protected ResourceReference partOf;
+    protected Reference partOf;
 
     /**
      * The actual object that is the target of the reference (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
     protected Encounter partOfTarget;
 
-    private static final long serialVersionUID = 1531727349L;
+    private static final long serialVersionUID = 1326272483L;
 
     public Encounter() {
       super();
@@ -1042,14 +1042,14 @@ public class Encounter extends Resource {
     /**
      * @return {@link #subject} (The patient present at the encounter.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The patient present at the encounter.)
      */
-    public Encounter setSubject(ResourceReference value) { 
+    public Encounter setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -1089,14 +1089,14 @@ public class Encounter extends Resource {
     /**
      * @return {@link #fulfills} (The appointment that scheduled this encounter.)
      */
-    public ResourceReference getFulfills() { 
+    public Reference getFulfills() { 
       return this.fulfills;
     }
 
     /**
      * @param value {@link #fulfills} (The appointment that scheduled this encounter.)
      */
-    public Encounter setFulfills(ResourceReference value) { 
+    public Encounter setFulfills(Reference value) { 
       this.fulfills = value;
       return this;
     }
@@ -1164,14 +1164,14 @@ public class Encounter extends Resource {
     /**
      * @return {@link #indication} (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
      */
-    public ResourceReference getIndication() { 
+    public Reference getIndication() { 
       return this.indication;
     }
 
     /**
      * @param value {@link #indication} (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
      */
-    public Encounter setIndication(ResourceReference value) { 
+    public Encounter setIndication(Reference value) { 
       this.indication = value;
       return this;
     }
@@ -1241,14 +1241,14 @@ public class Encounter extends Resource {
     /**
      * @return {@link #serviceProvider} (Department or team providing care.)
      */
-    public ResourceReference getServiceProvider() { 
+    public Reference getServiceProvider() { 
       return this.serviceProvider;
     }
 
     /**
      * @param value {@link #serviceProvider} (Department or team providing care.)
      */
-    public Encounter setServiceProvider(ResourceReference value) { 
+    public Encounter setServiceProvider(Reference value) { 
       this.serviceProvider = value;
       return this;
     }
@@ -1271,14 +1271,14 @@ public class Encounter extends Resource {
     /**
      * @return {@link #partOf} (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
-    public ResourceReference getPartOf() { 
+    public Reference getPartOf() { 
       return this.partOf;
     }
 
     /**
      * @param value {@link #partOf} (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
-    public Encounter setPartOf(ResourceReference value) { 
+    public Encounter setPartOf(Reference value) { 
       this.partOf = value;
       return this;
     }
@@ -1304,18 +1304,18 @@ public class Encounter extends Resource {
         childrenList.add(new Property("status", "code", "planned | in progress | onleave | finished | cancelled.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("class", "code", "inpatient | outpatient | ambulatory | emergency +.", 0, java.lang.Integer.MAX_VALUE, class_));
         childrenList.add(new Property("type", "CodeableConcept", "Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("subject", "Resource(Patient)", "The patient present at the encounter.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient)", "The patient present at the encounter.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("participant", "", "The main practitioner responsible for providing the service.", 0, java.lang.Integer.MAX_VALUE, participant));
-        childrenList.add(new Property("fulfills", "Resource(Appointment)", "The appointment that scheduled this encounter.", 0, java.lang.Integer.MAX_VALUE, fulfills));
+        childrenList.add(new Property("fulfills", "Reference(Appointment)", "The appointment that scheduled this encounter.", 0, java.lang.Integer.MAX_VALUE, fulfills));
         childrenList.add(new Property("period", "Period", "The start and end time of the encounter.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("length", "Duration", "Quantity of time the encounter lasted. This excludes the time during leaves of absence.", 0, java.lang.Integer.MAX_VALUE, length));
         childrenList.add(new Property("reason", "CodeableConcept", "Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("indication", "Resource(Any)", "Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.", 0, java.lang.Integer.MAX_VALUE, indication));
+        childrenList.add(new Property("indication", "Reference(Any)", "Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.", 0, java.lang.Integer.MAX_VALUE, indication));
         childrenList.add(new Property("priority", "CodeableConcept", "Indicates the urgency of the encounter.", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("hospitalization", "", "Details about an admission to a clinic.", 0, java.lang.Integer.MAX_VALUE, hospitalization));
         childrenList.add(new Property("location", "", "List of locations at which the patient has been.", 0, java.lang.Integer.MAX_VALUE, location));
-        childrenList.add(new Property("serviceProvider", "Resource(Organization)", "Department or team providing care.", 0, java.lang.Integer.MAX_VALUE, serviceProvider));
-        childrenList.add(new Property("partOf", "Resource(Encounter)", "Another Encounter of which this encounter is a part of (administratively or in time).", 0, java.lang.Integer.MAX_VALUE, partOf));
+        childrenList.add(new Property("serviceProvider", "Reference(Organization)", "Department or team providing care.", 0, java.lang.Integer.MAX_VALUE, serviceProvider));
+        childrenList.add(new Property("partOf", "Reference(Encounter)", "Another Encounter of which this encounter is a part of (administratively or in time).", 0, java.lang.Integer.MAX_VALUE, partOf));
       }
 
       public Encounter copy() {

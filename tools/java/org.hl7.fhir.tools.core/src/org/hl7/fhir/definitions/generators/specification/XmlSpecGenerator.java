@@ -209,8 +209,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
         String vn = "value[x]";
         if (ex.getDefinition().getTypes().size() == 1) {
           t = ex.getDefinition().typeCode();
-          if (t.startsWith("Resource("))
-            t = "ResourceReference";
+          if (t.startsWith("Reference("))
+            t = "Reference";
           vn = "value" + upFirst(t);
         }
 
@@ -609,7 +609,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           else if (p.equals("Any")) {
             write("<a href=\"" + "resourcelist.html" + "\">" + p + "</a>");								
           }
-          else if (t.getName().equals("Resource") && t.getParams().size() == 1 && !Utilities.noString(t.getProfile()))
+          else if (t.getName().equals("Reference") && t.getParams().size() == 1 && !Utilities.noString(t.getProfile()))
             write("<a href=\""+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
           else
             write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p, false)

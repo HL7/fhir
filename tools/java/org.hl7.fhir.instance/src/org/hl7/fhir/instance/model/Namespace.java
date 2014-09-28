@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -482,14 +482,14 @@ public class Namespace extends Resource {
     /**
      * For namespaces that are retired, indicates the namespace that should be used in their place (if any).
      */
-    protected ResourceReference replacedBy;
+    protected Reference replacedBy;
 
     /**
      * The actual object that is the target of the reference (For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
      */
     protected Namespace replacedByTarget;
 
-    private static final long serialVersionUID = -358777936L;
+    private static final long serialVersionUID = 1011915778L;
 
     public Namespace() {
       super();
@@ -792,14 +792,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #replacedBy} (For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
      */
-    public ResourceReference getReplacedBy() { 
+    public Reference getReplacedBy() { 
       return this.replacedBy;
     }
 
     /**
      * @param value {@link #replacedBy} (For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
      */
-    public Namespace setReplacedBy(ResourceReference value) { 
+    public Namespace setReplacedBy(Reference value) { 
       this.replacedBy = value;
       return this;
     }
@@ -831,7 +831,7 @@ public class Namespace extends Resource {
         childrenList.add(new Property("usage", "string", "Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.", 0, java.lang.Integer.MAX_VALUE, usage));
         childrenList.add(new Property("uniqueId", "", "Indicates how the system may be identified when referenced in electronic exchange.", 0, java.lang.Integer.MAX_VALUE, uniqueId));
         childrenList.add(new Property("contact", "", "The person who can be contacted about this system registration entry.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("replacedBy", "Resource(Namespace)", "For namespaces that are retired, indicates the namespace that should be used in their place (if any).", 0, java.lang.Integer.MAX_VALUE, replacedBy));
+        childrenList.add(new Property("replacedBy", "Reference(Namespace)", "For namespaces that are retired, indicates the namespace that should be used in their place (if any).", 0, java.lang.Integer.MAX_VALUE, replacedBy));
       }
 
       public Namespace copy() {

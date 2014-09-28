@@ -63,8 +63,6 @@ public class SchematronGenerator  extends TextStreamWriter {
 
 	private ElementDefn getType(TypeRef tr, Definitions definitions) throws Exception {
     String tn = tr.getName();
-    if (tn.equals("Resource"))
-      tn = "ResourceReference";
     if (definitions.getPrimitives().containsKey(tn) || isSpecialType(tn) || tn.contains("@") || tn.equals("xml:lang")) 
       return null;
     

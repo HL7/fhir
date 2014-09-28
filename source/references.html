@@ -28,8 +28,8 @@ Resources contain two types of references:
 <p>
 There are 3 cases where elements inside a resource reference each other:
 </p>
-<p><b>Between a ResourceReference and a contained resource</b><br />
-The ResourceReference's reference element refers to the id of the contained resource using
+<p><b>Between a Reference and a contained resource</b><br />
+The Reference's reference element refers to the id of the contained resource using
 a fragment identifier, relative to the resource.
 <em>See below under 'Contained Resources' for an example.</em></p>
 
@@ -79,8 +79,8 @@ Note that internal references work exactly the same in way in JSON, based on the
 to the XML attribute "id".
 </p>
 
-<a name="ResourceReference"> </a>
-<a name="resourcereference"> </a>
+<a name="Reference"> </a>
+<a name="reference"> </a>
 <a name="Resource"> </a>
 <a name="references"> </a>
 <a name="Identification"> </a>
@@ -120,7 +120,7 @@ The <i>reference</i> is the key element - resources are identified and addressed
 The actual reference looks like this:
 </p>
 
-[%dt ResourceReference%]
+[%dt Reference%]
 
 <p>&nbsp;</p>
 
@@ -145,19 +145,19 @@ The actual reference looks like this:
 <div class="use">
 <p><b>Constraints</b></p>
 <p>
-[%dt.constraints ResourceReference%]
+[%dt.constraints Reference%]
 </p>
 </div>
 
 <div class="example">
 <p>A relative reference to the <a href="patient.html">patient</a> "034AB16" in an element named "context" on a FHIR RESTful server:</p>
-<pre class="xml" fragment="ResourceReference">
+<pre class="xml" fragment="Reference">
   &lt;context&gt;
     &lt;reference value="Patient/034AB16" /&gt;
   &lt;/context&gt;
 </pre>
 <p>An absolute reference to a <a href="profile.html">resource profile</a> in an element named "profile":</p>
-<pre class="xml" fragment="ResourceReference">
+<pre class="xml" fragment="Reference">
   &lt;profile&gt;
     &lt;reference value="http://fhir.hl7.org/svc/Profilec8973a22-2b5b-4e76-9c66-00639c99e61b" /&gt;
   &lt;/profile&gt;
@@ -166,7 +166,7 @@ The actual reference looks like this:
 <p>
 A short display text that provides a human-readable identification of the resource may be provided:
 </p>
-<pre class="xml" fragment="ResourceReference">
+<pre class="xml" fragment="Reference">
   &lt;custodian&gt;
     &lt;reference value="Organization/123" /&gt;
     &lt;display value="HL7, Inc" /&gt;
@@ -284,7 +284,7 @@ bundle first when a <a href="#Resource">resource reference</a> is encountered.
 </p>
 <h4>Absolute References</h4>
 <div class="example">
-<pre class="xml" fragment="ResourceReference">
+<pre class="xml" fragment="Reference">
   &lt;institution&gt;
     &lt;reference value="http://example.org/Organization/23" /&gt;
   &lt;/institution&gt;

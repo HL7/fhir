@@ -103,10 +103,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
       } else {
         generate(n, JavaGenClass.Type);
         String nn = javaClassName(n.getName());
-        if (nn.equals("ResourceReference"))
-          regtn.append("    else if (type instanceof "+nn+")\r\n       compose"+nn+"(prefix+\"Resource\", ("+nn+") type);\r\n");
-        else
-          regtn.append("    else if (type instanceof "+nn+")\r\n       compose"+nn+"(prefix+\""+n.getName()+"\", ("+nn+") type);\r\n");
+        regtn.append("    else if (type instanceof "+nn+")\r\n       compose"+nn+"(prefix+\""+n.getName()+"\", ("+nn+") type);\r\n");
 //        regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
       }
     }
@@ -122,7 +119,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
 //      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
     
-    genResource();
+    genReference();
 
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
@@ -161,7 +158,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     write("\r\n");
   }
 
-  private void genResource() throws Exception {
+  private void genReference() throws Exception {
     write("  private void composeResourceAttributes(Resource element) throws Exception {\r\n");
     write("    composeElementAttributes(element);\r\n");
     write("  }\r\n\r\n");
@@ -174,7 +171,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     write("      if (r.getXmlId() == null)\r\n");
     write("        throw new Exception(\"Contained Resource has no id - one must be assigned\"); // we can't assign one here - what points to it?\r\n");
     write("      xml.open(FHIR_NS, \"contained\");\r\n");
-    write("      composeResource(r);\r\n");
+    write("      composeReference(r);\r\n");
     write("      xml.close(FHIR_NS, \"contained\");\r\n");
     write("    }\r\n");
     write("  }\r\n");
@@ -391,9 +388,9 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
           comp = "composeCode";
         } else if (tn.equals("instant"))
           tn = "Instant";
-        if (tn.contains("Resource(")) {
-          comp = "composeResourceReference";
-          tn = "ResourceReference";
+        if (tn.contains("Reference(")) {
+          comp = "composeReference";
+          tn = "Reference";
         } else if (tn.contains("("))
           comp = "compose"+PrepGenericName(tn);
         else if (tn.startsWith(context) && !tn.equals(context)) {
@@ -408,9 +405,9 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
         write("        composeExtension(\"extension\", e);\r\n");
       } else if (e.unbounded()) {
         tn = typeName(root, e, type, true);
-        if (tn.contains("Resource(")) {
-          comp = "composeResourceReference";
-          tn = "ResourceReference";
+        if (tn.contains("Reference(")) {
+          comp = "composeReference";
+          tn = "Reference";
         };
   	    if (en == null) {
           if (tn.equalsIgnoreCase("string"))
@@ -496,7 +493,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
   
   private void finish() throws Exception {
     write("  @Override\r\n");
-    write("  protected void composeResource(Resource resource) throws Exception {\r\n");
+    write("  protected void composeReference(Resource resource) throws Exception {\r\n");
     write("    "+reg.toString().substring(9));
     write("    else if (resource instanceof Binary)\r\n");
     write("      composeBinary(\"Binary\", (Binary)resource);\r\n");

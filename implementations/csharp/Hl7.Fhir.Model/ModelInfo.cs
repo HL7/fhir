@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011-2012, HL7, Inc
+  Copyright (c) 2011+, HL7, Inc
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -74,12 +74,12 @@ namespace Hl7.Fhir.Model
                 return FhirCsTypeToString[resourceType];
         }
 
-        public static bool IsKnownResource(string name)
+        public static bool IsKnownReference(string name)
         {
             return GetTypeForResourceName(name) != null;
         }
 
-        public static bool IsKnownResource(Type type)
+        public static bool IsKnownReference(Type type)
         {
             return GetResourceNameForType(type) != null;
         }

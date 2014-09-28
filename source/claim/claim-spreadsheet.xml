@@ -229,7 +229,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Responsible practitioner</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The practitioner who is responsible for the services rendered to the patient</Data></Cell>
@@ -252,7 +252,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Provider who is the payee</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The provider who is to be reimbursed for the claim (the party to whom any benefit is assigned)</Data></Cell>
@@ -275,7 +275,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Provider who is the payee</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -442,7 +442,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Claim.coverage.issuer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">An identifier for the plan issuer</Data></Cell>
     <Cell><Data ss:Type="String">The program or plan underwriter or payor.</Data></Cell>
     <Cell><Data ss:Type="String">Need to identify the issuer to target for processing and for coordination of benefit processing.</Data></Cell>

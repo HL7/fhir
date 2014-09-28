@@ -61,10 +61,10 @@ public class BreadCrumbManager {
     public void setFilename(String filename) {
       this.filename = filename;
     }
-    public String getResource() {
+    public String getReference() {
       return resource;
     }
-    public void setResource(String resource) {
+    public void setReference(String resource) {
       this.resource = resource;
     }
     public List<Node> getChildren() {
@@ -136,8 +136,8 @@ public class BreadCrumbManager {
         map.put(p.getFilename(), path);
         if (p.getSource() != null)
           map.put(p.getSource(), path);
-        if (p.getResource() != null)
-          map.put(p.getResource().toLowerCase(), path);
+        if (p.getReference() != null)
+          map.put(p.getReference().toLowerCase(), path);
           
         p.setId(Integer.toString(i));
         numberChildren(p, path);
@@ -170,7 +170,7 @@ public class BreadCrumbManager {
     if (node.hasAttribute("type")) {
       if (node.getAttribute("type").equals("resource")) {
         page.setType(PageType.resource);
-        page.setResource(node.getAttribute("resource"));
+        page.setReference(node.getAttribute("resource"));
       } else
         throw new Exception("Unknown page node type");
     } else { 
@@ -254,7 +254,7 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length; i++) {
           focus = getChild(focus, path[i]);
           if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
           else
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
@@ -265,7 +265,7 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length; i++) {
           focus = getChild(focus, path[i]);
           if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
           else
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
@@ -279,7 +279,7 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length; i++) {
           focus = getChild(focus, path[i]);
           if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
           else
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
@@ -290,7 +290,7 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length; i++) {
           focus = getChild(focus, path[i]);
           if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
           else
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
@@ -302,7 +302,7 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length; i++) {
           focus = getChild(focus, path[i]);
           if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
           else
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
@@ -316,9 +316,9 @@ public class BreadCrumbManager {
         }
         focus = getChild(focus, path[path.length - 1]);
         if (type.equals("resource")) {
-          b.append("        <li><b>"+focus.getResource()+"</b></li>");
+          b.append("        <li><b>"+focus.getReference()+"</b></li>");
         } else {
-          b.append("        <li><a href=\""+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          b.append("        <li><a href=\""+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
           b.append("        <li><b>"+type.substring(4)+"</b></li>");          
         }
       } else if (type.startsWith("profile:")) {
@@ -327,7 +327,7 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length; i++) {
           focus = getChild(focus, path[i]);
           if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
           else
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
@@ -338,7 +338,7 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length; i++) {
           focus = getChild(focus, path[i]);
           if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
           else
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
@@ -356,7 +356,7 @@ public class BreadCrumbManager {
           for (int i = 0; i < path.length; i++) {
             focus = getChild(focus, path[i]);
             if (focus.type == PageType.resource)
-              b.append("          <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+              b.append("          <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
             else
               b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
           }
@@ -367,7 +367,7 @@ public class BreadCrumbManager {
           for (int i = 0; i < path.length; i++) {
             focus = getChild(focus, path[i]);
             if (focus.type == PageType.resource)
-              b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
             else
               b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
           }
@@ -379,7 +379,7 @@ public class BreadCrumbManager {
           for (int i = 0; i < path.length; i++) {
             focus = getChild(focus, path[i]);
             if (focus.type == PageType.resource)
-              b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
             else
               b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
           }
@@ -429,10 +429,10 @@ public class BreadCrumbManager {
 
   private void writePage(StringBuilder b, Page p, int level, String path) {
     if (p.getType() == PageType.resource) {
-        addLink(b, p.getResource().toLowerCase()+".html", p.getResource(), path, level);
-        addLink(b, p.getResource().toLowerCase()+"-examples.html", p.getResource()+" Examples", path+".1", level+1);
-        addLink(b, p.getResource().toLowerCase()+"-definitions.html", p.getResource()+" Definitions", path+".2", level+1);
-        addLink(b, p.getResource().toLowerCase()+"-mappings.html", p.getResource()+" Mappings", path+".3", level+1);
+        addLink(b, p.getReference().toLowerCase()+".html", p.getReference(), path, level);
+        addLink(b, p.getReference().toLowerCase()+"-examples.html", p.getReference()+" Examples", path+".1", level+1);
+        addLink(b, p.getReference().toLowerCase()+"-definitions.html", p.getReference()+" Definitions", path+".2", level+1);
+        addLink(b, p.getReference().toLowerCase()+"-mappings.html", p.getReference()+" Mappings", path+".3", level+1);
     } else {
       addLink(b, p.getFilename(), p.getTitle(), path, level);
       for (Node n : p.getChildren()) {
@@ -471,7 +471,7 @@ public class BreadCrumbManager {
     return "?.?";
   }
 
-  public String getIndexPrefixForResource(String name) {
+  public String getIndexPrefixForReference(String name) {
     return map.get(name.toLowerCase());
   }
 
@@ -481,10 +481,10 @@ public class BreadCrumbManager {
   
   private void writePage(XhtmlNode node, Page p, int level, String path) {
     if (p.getType() == PageType.resource) {
-      addLink(node, p.getResource().toLowerCase()+".html", p.getResource(), path, level);
-      addLink(node, p.getResource().toLowerCase()+"-examples.html", p.getResource()+" Examples", path+".1", level+1);
-      addLink(node, p.getResource().toLowerCase()+"-definitions.html", p.getResource()+" Definitions", path+".2", level+1);
-      addLink(node, p.getResource().toLowerCase()+"-mappings.html", p.getResource()+" Mappings", path+".3", level+1);
+      addLink(node, p.getReference().toLowerCase()+".html", p.getReference(), path, level);
+      addLink(node, p.getReference().toLowerCase()+"-examples.html", p.getReference()+" Examples", path+".1", level+1);
+      addLink(node, p.getReference().toLowerCase()+"-definitions.html", p.getReference()+" Definitions", path+".2", level+1);
+      addLink(node, p.getReference().toLowerCase()+"-mappings.html", p.getReference()+" Mappings", path+".3", level+1);
     } else {
       addLink(node, p.getFilename(), p.getTitle(), path, level);
       for (Node n : p.getChildren()) {

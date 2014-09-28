@@ -501,7 +501,7 @@ public class GeneratorUtils {
 	public static TypeRef getMemberTypeForElement( Definitions defs, ElementDefn elem )
 			throws Exception
 	{
-		if( elem.containsResource() )
+		if( elem.containsReference() )
 			return elem.getType().get(0);	// the element's type is already correct, "Resource"
 									
 		if( !elem.isPolymorph() )

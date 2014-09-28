@@ -228,7 +228,7 @@ public class SpreadsheetParser {
 	}
 	
 	
-	public ResourceDefn parseResource() throws Exception {
+	public ResourceDefn parseReference() throws Exception {
 	  isProfile = false;
 	  ResourceDefn root = parseCommonTypeColumns();
 
@@ -424,9 +424,9 @@ public class SpreadsheetParser {
               if (t == SearchType.reference) {
                 if (e == null && !forProfile)
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has wrong path "+ getLocation(row));
-                if (!forProfile && (!e.typeCode().startsWith("Resource(") && !e.typeCode().startsWith("uri|Resource(")))
+                if (!forProfile && (!e.typeCode().startsWith("Reference(") && !e.typeCode().startsWith("uri|Reference(")))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is reference, but the element type is "+e.typeCode());
-              } else if (e != null && e.typeCode().startsWith("Resource("))
+              } else if (e != null && e.typeCode().startsWith("Reference("))
                 throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
             }
             if (!forProfile && t == SearchType.reference && pn.size() == 0)

@@ -11,10 +11,10 @@
     <reference value="Practitioner/f201"/>
     <display value="Dokter Bonsig"/>
   </prescriber>
-  <reasonResource>
+  <reasonReference>
     <reference value="Condition/f201"/>
     <display value="fever"/>
-  </reasonResource>
+  </reasonReference>
   <medication>
     <reference value="Medication/f201"/>
     <display value="25ug Salmeterol + 250ug Fluticasone"/>

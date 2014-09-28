@@ -173,7 +173,7 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public <T extends Resource> List<AtomCategory> getTagsForResource(Class<T> resource, String id) {
+  public <T extends Resource> List<AtomCategory> getTagsForReference(Class<T> resource, String id) {
     throw new Error("getTagsForResource not supported by the internal specification client");
   }
 

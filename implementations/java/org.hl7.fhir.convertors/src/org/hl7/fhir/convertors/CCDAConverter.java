@@ -65,7 +65,7 @@ import org.hl7.fhir.instance.model.Composition.CompositionAttestationMode;
 import org.hl7.fhir.instance.model.Composition.CompositionAttesterComponent;
 import org.hl7.fhir.instance.model.Composition.SectionComponent;
 import org.hl7.fhir.instance.model.AllergyIntolerance;
-import org.hl7.fhir.instance.model.Contact;
+import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.Device;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Identifier;
@@ -82,7 +82,7 @@ import org.hl7.fhir.instance.model.Procedure;
 import org.hl7.fhir.instance.model.Procedure.ProcedurePerformerComponent;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceFactory;
-import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.Substance;
 import org.hl7.fhir.instance.model.Encounter;
@@ -218,11 +218,11 @@ public class CCDAConverter {
 		
 		// process the header
 		makeDocument();
-		composition.setSubject(Factory.makeResourceReference(makeSubject()));
+		composition.setSubject(Factory.makeReference(makeSubject()));
 		for (Element e : cda.getChildren(doc, "author"))
-			composition.getAuthor().add(Factory.makeResourceReference(makeAuthor(e)));
+			composition.getAuthor().add(Factory.makeReference(makeAuthor(e)));
 		// todo: data enterer & informant goes in provenance
-		composition.setCustodian(Factory.makeResourceReference(makeOrganization(
+		composition.setCustodian(Factory.makeReference(makeOrganization(
 				 cda.getDescendent(doc, "custodian/assignedCustodian/representedCustodianOrganization"), "Custodian")));
 		// todo: informationRecipient		
 		for (Element e : cda.getChildren(doc, "legalAuthenticator"))
@@ -238,7 +238,7 @@ public class CCDAConverter {
 	}
 
 	
-	private String addResource(Resource r, String title, String id) throws Exception {
+	private String addReference(Resource r, String title, String id) throws Exception {
 		if (r.getText() == null)
 			r.setText(new Narrative());
 		if (r.getText().getDiv() == null) {
@@ -255,8 +255,8 @@ public class CCDAConverter {
 	}
 
 	private void makeDocument() throws Exception {
-		composition = (Composition) ResourceFactory.createResource("Composition");
-    addResource(composition, "Composition", makeUUIDReference());
+		composition = (Composition) ResourceFactory.createReference("Composition");
+    addReference(composition, "Composition", makeUUIDReference());
 
 		Element title = cda.getChild(doc, "title");
 		if (title == null) {
@@ -289,7 +289,7 @@ public class CCDAConverter {
 			composition.setEvent(new Composition.CompositionEventComponent());
 			composition.getEvent().getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
 			composition.getEvent().setPeriod(visit.getHospitalization().getPeriod());
-			composition.getEvent().getDetail().add(Factory.makeResourceReference(addResource(visit, "Encounter", makeUUIDReference())));			
+			composition.getEvent().getDetail().add(Factory.makeReference(addReference(visit, "Encounter", makeUUIDReference())));			
 		}
 		
 		// main todo: fill out the narrative, but before we can do that, we have to convert everything else
@@ -300,7 +300,7 @@ public class CCDAConverter {
 		Element pr = cda.getChild(rt, "patientRole");
 		Element p = cda.getChild(pr, "patient");
 		
-		Patient pat = (Patient) ResourceFactory.createResource("Patient");
+		Patient pat = (Patient) ResourceFactory.createReference("Patient");
 		for (Element e : cda.getChildren(pr, "id"))
 			pat.getIdentifier().add(convert.makeIdentifierFromII(e));
 
@@ -342,8 +342,8 @@ public class CCDAConverter {
 		// todo: this got broken.... lang.setMode(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
 		cc.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_LANG_PROF, convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")), false));
 		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_RELIGION, convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
-		pat.setManagingOrganization(Factory.makeResourceReference(makeOrganization(cda.getChild(pr, "providerOrganization"), "Provider")));
-		return addResource(pat, "Subject", makeUUIDReference());
+		pat.setManagingOrganization(Factory.makeReference(makeOrganization(cda.getChild(pr, "providerOrganization"), "Provider")));
+		return addReference(pat, "Subject", makeUUIDReference());
 	}
 
 
@@ -358,14 +358,14 @@ public class CCDAConverter {
 		for (Element e : cda.getChildren(org, "telecom"))
 			o.getTelecom().add(convert.makeContactFromTEL(e));
 
-	  return addResource(o, name, makeUUIDReference());
+	  return addReference(o, name, makeUUIDReference());
   }
 
 	private String makeAuthor(Element auth) throws Exception {
 		Element aa = cda.getChild(auth, "assignedAuthor");
 		Element ap = cda.getChild(aa, "assignedPerson");
 		
-		Practitioner  pr = (Practitioner) ResourceFactory.createResource("Practitioner");
+		Practitioner  pr = (Practitioner) ResourceFactory.createReference("Practitioner");
 		for (Element e : cda.getChildren(aa, "id"))
 			pr.getIdentifier().add(convert.makeIdentifierFromII(e));
 		for (Element e : cda.getChildren(aa, "addr"))
@@ -377,7 +377,7 @@ public class CCDAConverter {
 			if (pr.getName() != null)
 				pr.setName(convert.makeNameFromEN(e));
 
-	  return addResource(pr, "Author", makeUUIDReference());
+	  return addReference(pr, "Author", makeUUIDReference());
 	}
 
 
@@ -387,7 +387,7 @@ public class CCDAConverter {
 
 
 	private CompositionAttesterComponent makeAttester(Element a1, CompositionAttestationMode mode, String title) throws Exception {
-		Practitioner  pr = (Practitioner) ResourceFactory.createResource("Practitioner");
+		Practitioner  pr = (Practitioner) ResourceFactory.createReference("Practitioner");
 		Element ass = cda.getChild(a1, "assignedEntity");
 		for (Element e : cda.getChildren(ass, "id"))
 			pr.getIdentifier().add(convert.makeIdentifierFromII(e));
@@ -405,7 +405,7 @@ public class CCDAConverter {
 		CompositionAttesterComponent att = new CompositionAttesterComponent();
 		att.addModeSimple(mode);
 		att.setTime(convert.makeDateTimeFromTS(cda.getChild(a1,"time")));
-	  att.setParty(Factory.makeResourceReference(addResource(pr, title, makeUUIDReference())));
+	  att.setParty(Factory.makeReference(addReference(pr, title, makeUUIDReference())));
 	  return att;
   }
 
@@ -462,7 +462,7 @@ public class CCDAConverter {
 		SectionComponent s = new Composition.SectionComponent();
 		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
 		// todo: check subject
-		s.setContent(Factory.makeResourceReference(addResource(list, "Procedures", makeUUIDReference())));
+		s.setContent(Factory.makeReference(addReference(list, "Procedures", makeUUIDReference())));
 		return s;
 		
 	}
@@ -537,10 +537,10 @@ public class CCDAConverter {
 			if (type == ProcedureType.Procedure && cda.hasTemplateId(participantRole, "2.16.840.1.113883.10.20.22.4.37")) {
 		  	//   MAY contain zero or more [0..*] participant (CONF:7751) such that it  SHALL contain exactly one [1..1] @typeCode="DEV" Device
 			  // implanted devices
-				p.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/implanted-devices", Factory.makeResourceReference(processDevice(participantRole, p)), false));
+				p.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/implanted-devices", Factory.makeReference(processDevice(participantRole, p)), false));
 			} else if (cda.hasTemplateId(participantRole, "2.16.840.1.113883.10.20.22.4.32")) {
 			// MAY contain zero or more [0..*] participant (CONF:7765) such that it SHALL contain exactly one [1..1] Service Delivery Location (templateId:2.16.840.1.113883.10.20.22.4.32) (CONF:7767)
-				p.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/location", Factory.makeResourceReference(processSDLocation(participantRole, p)), false));
+				p.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/location", Factory.makeReference(processSDLocation(participantRole, p)), false));
 			}
 		}
 		
@@ -628,14 +628,14 @@ public class CCDAConverter {
 	  	l.add(convert.makeCodeableConceptFromCD(v));
   }
 	
-	private ResourceReference makeReferenceToPractitionerForAssignedEntity(Element assignedEntity, Resource r) throws Exception {
+	private Reference makeReferenceToPractitionerForAssignedEntity(Element assignedEntity, Resource r) throws Exception {
 		
-		ResourceReference ref = null;
+		Reference ref = null;
 		// do we have this by id? 
 		String uri = getIdForEntity(assignedEntity);
 		Practitioner p = null;
 		if (uri != null) {
-			ref = Factory.makeResourceReference(uri);
+			ref = Factory.makeReference(uri);
 			p = practitionerCache.get(uri);
 		}
 		if (p == null) {
@@ -645,10 +645,10 @@ public class CCDAConverter {
 				String n = nextRef();
 				p.setXmlId(n);
 				r.getContained().add(p);
-				ref = Factory.makeResourceReference("#"+n);
+				ref = Factory.makeReference("#"+n);
 			} else {
 				// add this to feed
-				ref = Factory.makeResourceReference(addResource(p, "Practitioner", uri));
+				ref = Factory.makeReference(addReference(p, "Practitioner", uri));
 			}
 		}
 		// ref and p are both sorted. now we fill out p as much as we can (remembering it might already be populated)
@@ -669,8 +669,8 @@ public class CCDAConverter {
   }
 
 
-	private void addToContactList(List<Contact> list, Contact c) throws Exception {
-		for (Contact item : list) {
+	private void addToContactList(List<ContactPoint> list, ContactPoint c) throws Exception {
+		for (ContactPoint item : list) {
 			if (Comparison.matches(item, c, null)) 
 				Comparison.merge(item, c);
 		}
@@ -725,7 +725,7 @@ public class CCDAConverter {
 		SectionComponent s = new Composition.SectionComponent();
 		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
 		// todo: check subject
-		s.setContent(Factory.makeResourceReference(addResource(list, "Allergies, Adverse Reactions, Alerts", makeUUIDReference())));
+		s.setContent(Factory.makeReference(addReference(list, "Allergies, Adverse Reactions, Alerts", makeUUIDReference())));
 		return s;
   }
 
@@ -794,7 +794,7 @@ public class CCDAConverter {
 			String n = nextRef();
 			subst.setXmlId(n);
 		  ai.getContained().add(subst);
-			ai.setSubstance(Factory.makeResourceReference("#"+n));
+			ai.setSubstance(Factory.makeReference("#"+n));
 			// ......This playingEntity SHALL contain exactly one [1..1] code			
 			subst.setType(convert.makeCodeableConceptFromCD(cda.getDescendent(obs, "participant/participantRole/playingEntity/code"))); 
 
@@ -817,7 +817,7 @@ public class CCDAConverter {
 		  		n = nextRef();
 					reaction.setXmlId(n);
 				  ai.getContained().add(subst);
-					ai.setSubstance(Factory.makeResourceReference("#"+n));
+					ai.setSubstance(Factory.makeReference("#"+n));
 		  	}
 		  }
 			
@@ -892,7 +892,7 @@ public class CCDAConverter {
 		SectionComponent s = new Composition.SectionComponent();
 		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
 		// todo: check subject
-		s.setContent(Factory.makeResourceReference(addResource(list, "Procedures", makeUUIDReference())));
+		s.setContent(Factory.makeReference(addReference(list, "Procedures", makeUUIDReference())));
 		return s;
 		
 	}
@@ -982,7 +982,7 @@ public class CCDAConverter {
 				ObservationRelatedComponent or = new ObservationRelatedComponent();
 				obs.getRelated().add(or);
 				or.setTypeSimple(ObservationRelationshiptypes.hascomponent);
-				or.setTarget(Factory.makeResourceReference("#"+id));
+				or.setTarget(Factory.makeReference("#"+id));
 				co.setName(Factory.newCodeableConcept("11778-8", "http://loinc.org", "Delivery date Estimated"));
 				co.setValue(convert.makeDateTimeFromTS(cda.getChild(dd, "value"))); // not legal, see gForge http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=3125&start=0 
 			}
@@ -1013,7 +1013,7 @@ public class CCDAConverter {
 	  ai.setXmlId(n);
 	  ListEntryComponent item = new List_.ListEntryComponent();
 	  list.getEntry().add(item);
-	  item.setItem(Factory.makeResourceReference("#"+n));
+	  item.setItem(Factory.makeReference("#"+n));
 	  return item;
   }
 
@@ -1073,7 +1073,7 @@ public class CCDAConverter {
 		SectionComponent s = new Composition.SectionComponent();
 		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
 		// todo: check subject
-		s.setContent(Factory.makeResourceReference(addResource(list, "Vital Signs", makeUUIDReference())));
+		s.setContent(Factory.makeReference(addReference(list, "Vital Signs", makeUUIDReference())));
 		return s;
 		
 	}
@@ -1105,7 +1105,7 @@ public class CCDAConverter {
 		for (Element e : cda.getChildren(organizer, "component")){
 			ObservationRelatedComponent ro = new ObservationRelatedComponent();
 			ro.setTypeSimple(ObservationRelationshiptypes.hascomponent);
-			ro.setTarget(Factory.makeResourceReference("#"+processVitalSignsObservation(e, list)));
+			ro.setTarget(Factory.makeReference("#"+processVitalSignsObservation(e, list)));
 		}
 	}
 

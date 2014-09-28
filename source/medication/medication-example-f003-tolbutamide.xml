@@ -9,7 +9,7 @@
         </coding>
     </code>
     <isBrand value="true"/>
-    <!-- <manufacturer> Linked to non excisting RESOURCE(Organization) 
+    <!-- <manufacturer> Linked to non excisting Reference(Organization) 
         OID: 2.16.840.1.113883.4.642.1.4 
         <reference value="Organization/F000"/>
         <display value="Merck"/>
@@ -24,7 +24,7 @@
             </coding>
         </container>
         <!-- <content>
-            <item> 1..1 Resource(Medication) A product in the package </item>
+            <item> 1..1 Reference(Medication) A product in the package </item>
             <amount>
                 <value value="30"/>
                 <units value="Pill"/>

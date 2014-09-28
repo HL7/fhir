@@ -167,7 +167,7 @@ public interface TypeDefn extends EObject {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	boolean isResource();
+	boolean isReference();
 
 	/**
 	 * <!-- begin-user-doc -->

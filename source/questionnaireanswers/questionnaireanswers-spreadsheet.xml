@@ -229,7 +229,7 @@
     <Cell><Data ss:Type="String">QuestionnaireAnswers.questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Questionnaire)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Questionnaire)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Form being answered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -268,7 +268,7 @@
     <Cell><Data ss:Type="String">QuestionnaireAnswers.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The subject of the questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -287,7 +287,7 @@
     <Cell><Data ss:Type="String">QuestionnaireAnswers.author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Patient|RelatedPerson)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner|Patient|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Person who received and recorded the answers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -329,7 +329,7 @@
     <Cell><Data ss:Type="String">QuestionnaireAnswers.source</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Practitioner|RelatedPerson)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient|Practitioner|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The person who answered the questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -348,7 +348,7 @@
     <Cell><Data ss:Type="String">QuestionnaireAnswers.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Encounter)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Primary encounter during which the answers were collected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -432,7 +432,7 @@
     <Cell><Data ss:Type="String">QuestionnaireAnswers.group.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The subject this group's answers are about</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -529,7 +529,7 @@
     <Cell><Data ss:Type="String">QuestionnaireAnswers.group.question.answer.value[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">boolean | decimal | integer | date | dateTime | instant | time | string | Attachment | Coding | Quantity | Resource(Any)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">boolean | decimal | integer | date | dateTime | instant | time | string | Attachment | Coding | Quantity | Reference(Any)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Single-valued answer to the question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

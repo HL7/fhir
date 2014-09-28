@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
-import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -192,7 +192,7 @@ public class ToolingExtensions {
     element.getExtensions().add(Factory.newExtension(EXT_FLYOVER, Factory.newString_(text), true));       
   }
 
-  public static void addFilterOnly(ResourceReference element, boolean value) throws Exception {
+  public static void addFilterOnly(Reference element, boolean value) throws Exception {
     element.getExtensions().add(Factory.newExtension(EXTENSION_FILTER_ONLY, Factory.newBoolean(value), true));       
   }
 

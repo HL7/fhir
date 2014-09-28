@@ -97,7 +97,7 @@ The <i>value[x]</i> element has the [x] replaced with the title-cased name of on
  <li><a href="datatypes.html#Address">Address</a></li>
  <li><a href="datatypes.html#Contact">Contact</a></li>
  <li><a href="datatypes.html#Schedule">Schedule</a></li>
- <li><a href="references.html#ResourceReference">Resource</a> - a reference to another resource</li>
+ <li><a href="references.html#Reference">Reference</a> - a reference to another resource</li>
 </ul>
 
 <p>
@@ -147,9 +147,9 @@ Extending a patient with an opt-in status for a clinical trial, with
       &lt;valueDate value=&quot;2009-03-14&quot; /&gt;	  
     &lt;/extension&gt;
     &lt;extension url=&quot;http://acme.org/fhir/Profile/main#trial-status-who&quot; &gt;	  
-      &lt;valueResource&gt;	  
+      &lt;valueReference&gt;	  
         &lt;reference value=&quot;Practitioner/example&quot; /&gt;	  	    
-      &lt;/valueResource&gt;	  
+      &lt;/valueReference&gt;	  
     &lt;/extension&gt;
   &lt;/extension&gt;
   &lt;!-- other data for patient --&gt;

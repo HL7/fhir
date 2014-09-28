@@ -222,7 +222,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Availability)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Availability)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The availability resource that this slot defines an interval of status information</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"/>

@@ -134,7 +134,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Paitent)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Paitent)</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">Patient resource that corresponds to the subject</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Patient resource that corresponds to the subject</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
@@ -176,7 +176,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(VCFMeta)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(VCFMeta)</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">Meta information of the variant</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Meta information of the variant</Data></Cell>
     <Cell ss:StyleID="Default"/>

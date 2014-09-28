@@ -57,7 +57,7 @@ public class TableGenerator extends BaseGenerator {
         if (t.startsWith("@")) {
           row.setIcon("icon_reuse.png");
           c = gen.new Cell("see ", "#"+t.substring(1), t.substring(t.lastIndexOf(".")+1), t.substring(1), null);
-        } else if (t.equals("Resource")) {
+        } else if (t.equals("Reference")) {
           row.setIcon("icon_reference.png");
           c = gen.new Cell();
           boolean first = true;
@@ -125,8 +125,8 @@ public class TableGenerator extends BaseGenerator {
       for (TypeRef tr : e.getTypes()) {
         Row choicerow = gen.new Row();
         String t = tr.getName();
-        if (t.equals("Resource")) {
-          choicerow.getCells().add(gen.new Cell(null, null, e.getName().replace("[x]",  "Resource"), null, null));
+        if (t.equals("Reference")) {
+          choicerow.getCells().add(gen.new Cell(null, null, e.getName().replace("[x]",  "Reference"), null, null));
           choicerow.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null));
           choicerow.setIcon("icon_reference.png");
           Cell c = gen.new Cell();

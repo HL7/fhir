@@ -96,11 +96,11 @@ public class RegisteredProfile {
     this.profile = profile;
   }
 
-  public Profile getResource() {
+  public Profile getReference() {
     return resource;
   }
 
-  public void setResource(Profile resource) {
+  public void setReference(Profile resource) {
     this.resource = resource;
   }
 

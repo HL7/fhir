@@ -135,7 +135,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Subject</Data></Cell>
     <Cell><Data ss:Type="String">Subject of the analysis</Data></Cell>
@@ -213,14 +213,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SequencingAnalysis.inputLab </Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(SequencingLab)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(SequencingLab)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Input lab</Data></Cell>
     <Cell><Data ss:Type="String">SequencingLab taken into account of the analysis</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SequencingAnalysis.inputAnalysis </Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(SequencingAnalysis)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(SequencingAnalysis)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Input analysis</Data></Cell>
     <Cell><Data ss:Type="String">SequencingAnalysis taken into account of the analysis</Data></Cell>
    </Row>

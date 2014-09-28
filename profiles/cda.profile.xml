@@ -187,7 +187,7 @@
 					<min value="1"/>
 					<max value="1"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="#PatientRole"/>
 					</type>
 					<!-- todo: should there be other choices here? -->
@@ -206,19 +206,19 @@
 					<min value="1"/>
 					<max value="*"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Practitioner"/>
 					</type>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Device"/>
 					</type>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Patient"/>
 					</type>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/RelatedPerson"/>
 					</type>
 					<isModifier value="false"/>
@@ -297,9 +297,9 @@
 						<name value="CompositionAttestationMode"/>
 						<isExtensible value="false"/>
 						<description value="The way in which a person authenticated a composition"/>
-						<referenceResource>
+						<referenceReference>
 							<reference value="http://hl7.org/fhir/vs/composition-attestation-mode"/>
-						</referenceResource>
+						</referenceReference>
 					</binding>
 					<mapping>
 						<identity value="cda"/>
@@ -340,15 +340,15 @@
 					<min value="0"/>
 					<max value="1"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Patient"/>
 					</type>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Practitioner"/>
 					</type>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Organization"/>
 					</type>
 					<isModifier value="false"/>
@@ -373,7 +373,7 @@ or
 					<min value="0"/>
 					<max value="1"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Organization"/>
 					</type>
 					<isModifier value="false"/>
@@ -452,9 +452,9 @@ or
 						<name value="DocumentEventType"/>
 						<isExtensible value="false"/>
 						<description value="This list of codes represents the main clinical acts being documented"/>
-						<referenceResource>
+						<referenceReference>
 							<reference value="http://hl7.org/fhir/v3/vs/ActCode"/>
-						</referenceResource>
+						</referenceReference>
 					</binding>
 					<mapping>
 						<identity value="cda"/>
@@ -495,7 +495,7 @@ or
 					<min value="0"/>
 					<max value="*"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Any"/>
 					</type>
 					<isModifier value="false"/>
@@ -517,7 +517,7 @@ or
 					<min value="0"/>
 					<max value="1"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Encounter"/>
 					</type>
 					<isModifier value="false"/>
@@ -623,9 +623,9 @@ or
 						<name value="CompositionSectionType"/>
 						<isExtensible value="false"/>
 						<description value="Classification of a composition / document"/>
-						<referenceResource>
+						<referenceReference>
 							<reference value="http://hl7.org/fhir/vs/doc-section-codes"/>
-						</referenceResource>
+						</referenceReference>
 					</binding>
 					<mapping>
 						<identity value="cda"/>
@@ -646,15 +646,15 @@ or
 					<min value="0"/>
 					<max value="1"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Patient"/>
 					</type>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Group"/>
 					</type>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Device"/>
 					</type>
 					<isModifier value="true"/>
@@ -679,7 +679,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
 					<min value="0"/>
 					<max value="1"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="http://hl7.org/fhir/Profile/Any"/>
 					</type>
 					<isModifier value="false"/>
@@ -796,7 +796,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
 					<min value="0"/>
 					<max value="1"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="#Birthplace"/>
 					</type>
 					<isModifier value="false"/>
@@ -1061,7 +1061,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
 					<min value="0"/>
 					<max value="1"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="#Organization"/>
 					</type>
 					<mapping>
@@ -1159,7 +1159,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
 					<min value="0"/>
 					<max value="1"/>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="#Organization"/>
 					</type>
 					<isModifier value="false"/>
@@ -1294,7 +1294,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
           <min value="0"/>
           <max value="1"/>
           <type>
-            <code value="ResourceReference"/>
+            <code value="Reference"/>
             <profile value="#Organization"/>
           </type>
           <mapping>
@@ -1780,7 +1780,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
         <min value="0"/>
         <max value="1"/>
         <type>
-          <code value="ResourceReference"/>
+          <code value="Reference"/>
           <profile value="#birthplace"/>
         </type>
         <mapping>
@@ -1875,7 +1875,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
         <min value="0"/>
         <max value="1"/>
         <type>
-          <code value="ResourceReference"/>
+          <code value="Reference"/>
           <profile value="#Organization"/>
         </type>
       </definition>
@@ -1893,7 +1893,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
         <min value="0"/>
         <max value="1"/>
         <type>
-          <code value="ResourceReference"/>
+          <code value="Reference"/>
           <profile value="#inFulFillmentOfDiagnosticOrder"/>
         </type>
       </definition>

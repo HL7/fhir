@@ -649,7 +649,7 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * @generated NOT
 	 */
 	@Override
-  public boolean containsResource() {
+  public boolean containsReference() {
 		return getType() != null && getType().size() == 1 &&
 				getType().get(0).getName().equals(TypeRef.RESOURCE_TYPE_NAME);
 	}

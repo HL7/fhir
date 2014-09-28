@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -258,14 +258,14 @@ public class Group extends Resource {
     /**
      * Identifies the resource instances that are members of the group.
      */
-    protected List<ResourceReference> member = new ArrayList<ResourceReference>();
+    protected List<Reference> member = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Identifies the resource instances that are members of the group.)
      */
     protected List<Resource> memberTarget = new ArrayList<Resource>();
 
 
-    private static final long serialVersionUID = -1925725072L;
+    private static final long serialVersionUID = 1477460940L;
 
     public Group() {
       super();
@@ -463,7 +463,7 @@ public class Group extends Resource {
     /**
      * @return {@link #member} (Identifies the resource instances that are members of the group.)
      */
-    public List<ResourceReference> getMember() { 
+    public List<Reference> getMember() { 
       return this.member;
     }
 
@@ -471,8 +471,8 @@ public class Group extends Resource {
     /**
      * @return {@link #member} (Identifies the resource instances that are members of the group.)
      */
-    public ResourceReference addMember() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addMember() { 
+      Reference t = new Reference();
       this.member.add(t);
       return t;
     }
@@ -493,7 +493,7 @@ public class Group extends Resource {
         childrenList.add(new Property("name", "string", "A label assigned to the group for human identification and communication.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("quantity", "integer", "A count of the number of resource instances that are part of the group.", 0, java.lang.Integer.MAX_VALUE, quantity));
         childrenList.add(new Property("characteristic", "", "Identifies the traits shared by members of the group.", 0, java.lang.Integer.MAX_VALUE, characteristic));
-        childrenList.add(new Property("member", "Resource(Patient|Practitioner|Device|Medication|Substance)", "Identifies the resource instances that are members of the group.", 0, java.lang.Integer.MAX_VALUE, member));
+        childrenList.add(new Property("member", "Reference(Patient|Practitioner|Device|Medication|Substance)", "Identifies the resource instances that are members of the group.", 0, java.lang.Integer.MAX_VALUE, member));
       }
 
       public Group copy() {
@@ -507,8 +507,8 @@ public class Group extends Resource {
         dst.characteristic = new ArrayList<GroupCharacteristicComponent>();
         for (GroupCharacteristicComponent i : characteristic)
           dst.characteristic.add(i.copy());
-        dst.member = new ArrayList<ResourceReference>();
-        for (ResourceReference i : member)
+        dst.member = new ArrayList<Reference>();
+        for (Reference i : member)
           dst.member.add(i.copy());
         return dst;
       }

@@ -22,7 +22,7 @@ public class Property {
 	private String name;
 	
 	/**
-	 * The type of the property as specified in the FHIR specification (e.g. type|type|Resource(Name|Name)
+	 * The type of the property as specified in the FHIR specification (e.g. type|type|Reference(Name|Name)
 	 */
 	private String typeCode;
 	

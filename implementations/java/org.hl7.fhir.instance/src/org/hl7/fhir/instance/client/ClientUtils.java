@@ -191,7 +191,7 @@ public class ClientUtils {
 		} else {
 			response = sendRequest(request, proxy);
 		}
-		T resource = unmarshalResource(response, resourceFormat);
+		T resource = unmarshalReference(response, resourceFormat);
 		AtomEntry<T> atomEntry = buildAtomEntry(response, resource);
 		return new ResourceRequest<T>(atomEntry, response.getStatusLine().getStatusCode());
 	}
@@ -295,7 +295,7 @@ public class ClientUtils {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	protected static <T extends Resource> T unmarshalResource(HttpResponse response, String format) {
+	protected static <T extends Resource> T unmarshalReference(HttpResponse response, String format) {
 		T resource = null;
 		OperationOutcome error = null;
 		InputStream instream = null;

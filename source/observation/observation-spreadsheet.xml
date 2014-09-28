@@ -681,7 +681,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell><Data ss:Type="String">Resource(Patient|Group|Device|Location)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient|Group|Device|Location)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Who and/or what this is about</Data></Cell>
     <Cell><Data ss:Type="String">The thing the observation is being made about</Data></Cell>
@@ -721,7 +721,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell><Data ss:Type="String">Resource(Specimen)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Specimen)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Specimen used for this observation</Data></Cell>
     <Cell><Data ss:Type="String">The specimen that was used when this observation was made </Data></Cell>
@@ -761,7 +761,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Device|Organization|Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner|Device|Organization|Patient)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Who did the observation</Data></Cell>
     <Cell><Data ss:Type="String">Who was responsible for asserting the observed value as &quot;true&quot;</Data></Cell>
@@ -801,7 +801,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Encounter)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Healthcare event related to the observation</Data></Cell>
     <Cell><Data ss:Type="String">The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation</Data></Cell>
@@ -1126,7 +1126,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Observation.related.target</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Observation)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Observation that is related to this one</Data></Cell>
     <Cell><Data ss:Type="String">A reference to the observation that is related to this observation</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.targetObservation</Data></Cell>

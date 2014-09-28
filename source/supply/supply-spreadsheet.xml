@@ -237,7 +237,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Supply.orderedItem</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s70"><Data ss:Type="String">Resource(Medication|Substance|Device)</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s70"><Data ss:Type="String">Reference(Medication|Substance|Device)</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s71"><Data ss:Type="String">Medication, Substance, or Device requested to be supplied</Data></Cell>
     <Cell><Data ss:Type="String">The item that is requested to be supplied</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Note that there's a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions</Data></Cell>
@@ -249,7 +249,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Patient for whom the item is supplied</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">A link to a resource representing the person whom the ordered item is for</Data></Cell>
@@ -365,7 +365,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Medication|Substance|Device)</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference(Medication|Substance|Device)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Medication, Substance, or Device supplied</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data></Cell>
@@ -385,7 +385,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Dispenser</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">The individual responsible for dispensing the medication</Data></Cell>
@@ -442,7 +442,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Where the Supply was sent</Data></Cell>
     <Cell><Data ss:Type="String">Identification of the facility/location where the Supply was shipped to, as part of the dispense event. </Data></Cell>
@@ -461,7 +461,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Who collected the Supply</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the person who picked up the Supply.</Data></Cell>

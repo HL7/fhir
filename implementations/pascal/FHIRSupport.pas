@@ -230,7 +230,7 @@ Type
     FCompartmentId: String;
     FForm: TIdSoapMimeMessage;
     FOperationName: String;
-    procedure SeTFhirResource(const Value: TFhirResource);
+    procedure SetResource(const Value: TFhirResource);
     procedure SetFeed(const Value: TFHIRAtomFeed);
     procedure SetSource(const Value: TAdvBuffer);
     procedure SetSession(const Value: TFhirSession);
@@ -316,7 +316,7 @@ Type
       Note that actual kind of the resource will be one of the ones defined as
       part of the FHIR specification
     }
-    Property Resource : TFhirResource read FResource write SeTFhirResource;
+    Property Resource : TFhirResource read FResource write SetResource;
 
     {@member Bundle
       the request bnndle (i.e. atom feed), if a resource was submitted as part of the request.
@@ -401,7 +401,7 @@ Type
     FOrigin: String;
     FId: String;
     procedure SetFeed(const Value: TFHIRAtomFeed);
-    procedure SeTFhirResource(const Value: TFhirResource);
+    procedure SetResource(const Value: TFhirResource);
   public
     Constructor Create; Override;
     Destructor Destroy; Override;
@@ -444,7 +444,7 @@ Type
       Note that actual kind of the resource will be one of the ones defined as
       part of the FHIR specification
     }
-    Property Resource : TFhirResource read FResource write SeTFhirResource;
+    Property Resource : TFhirResource read FResource write SetResource;
 
     {@member Feed
       the feed resulting from the transaction
@@ -641,13 +641,13 @@ Type
       make a new resource reference and use the provided parameters
     }
     {!script nolink}
-    function makeReference(id : String) : TFhirResourceReference;
+    function makeReference(id : String) : TFhirReference;
 
     {@member makeReferenceText
       make a new resource reference and fill out the display only
     }
     {!script nolink}
-    function makeReferenceText(s : String) : TFhirResourceReference;
+    function makeReferenceText(s : String) : TFhirReference;
 
     {@member makeExtension
       make a new narrative with the provided status and html
@@ -814,7 +814,7 @@ begin
   FFeed := Value;
 end;
 
-procedure TFHIRRequest.SeTFhirResource(const Value: TFhirResource);
+procedure TFHIRRequest.SetResource(const Value: TFhirResource);
 begin
   FResource.Free;
   FResource := Value;
@@ -890,7 +890,7 @@ begin
   FFeed := Value;
 end;
 
-procedure TFHIRResponse.SeTFhirResource(const Value: TFhirResource);
+procedure TFHIRResponse.SetResource(const Value: TFhirResource);
 begin
   FResource.free;
   FResource := nil;
@@ -1147,9 +1147,9 @@ begin
   result.ContentType := mimeType;
 end;
 
-function TFHIRFactory.makeReference(id: String): TFhirResourceReference;
+function TFHIRFactory.makeReference(id: String): TFhirReference;
 begin
-  result := TFhirResourceReference.create;
+  result := TFhirReference.create;
   try
     result.reference := id;
     result.link;
@@ -1197,9 +1197,9 @@ begin
 end;
 
 
-function TFHIRFactory.makeReferenceText(s: String): TFhirResourceReference;
+function TFHIRFactory.makeReferenceText(s: String): TFhirReference;
 begin
-  result := TFhirResourceReference.create;
+  result := TFhirReference.create;
   try
     result.display := s;
     result.link;

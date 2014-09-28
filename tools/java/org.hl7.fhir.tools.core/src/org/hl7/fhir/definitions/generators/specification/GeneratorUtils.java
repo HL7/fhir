@@ -87,9 +87,9 @@ public class GeneratorUtils {
       return "extensibility";
     if (name.equals("Resource"))
       return "references";
-    if (name.equals("ResourceReference") && definitions)
+    if (name.equals("Reference") && definitions)
       return "base";
-    if (name.equals("ResourceReference"))
+    if (name.equals("Reference"))
       return "references";
     if (name.equals("Binary"))
       return "extras";

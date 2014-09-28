@@ -247,7 +247,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Patient|Practitioner|Group|Device|Specimen)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient|Practitioner|Group|Device|Specimen)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who/What this Media is a record of</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">~0010,0020</Data></Cell>
@@ -264,7 +264,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who asked that this image be collected</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0008,0090</Data></Cell>
@@ -282,7 +282,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The person who generated the image</Data></Cell>
     <Cell><Data ss:Type="String">0008,1060?</Data></Cell>

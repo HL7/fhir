@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -178,7 +178,7 @@ public class Supply extends Resource {
         /**
          * Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.
          */
-        protected ResourceReference suppliedItem;
+        protected Reference suppliedItem;
 
         /**
          * The actual object that is the target of the reference (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
@@ -188,7 +188,7 @@ public class Supply extends Resource {
         /**
          * The individual responsible for dispensing the medication.
          */
-        protected ResourceReference supplier;
+        protected Reference supplier;
 
         /**
          * The actual object that is the target of the reference (The individual responsible for dispensing the medication.)
@@ -208,7 +208,7 @@ public class Supply extends Resource {
         /**
          * Identification of the facility/location where the Supply was shipped to, as part of the dispense event.
          */
-        protected ResourceReference destination;
+        protected Reference destination;
 
         /**
          * The actual object that is the target of the reference (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
@@ -218,14 +218,14 @@ public class Supply extends Resource {
         /**
          * Identifies the person who picked up the Supply.
          */
-        protected List<ResourceReference> receiver = new ArrayList<ResourceReference>();
+        protected List<Reference> receiver = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Identifies the person who picked up the Supply.)
          */
         protected List<Practitioner> receiverTarget = new ArrayList<Practitioner>();
 
 
-        private static final long serialVersionUID = 1248640970L;
+        private static final long serialVersionUID = -476007340L;
 
       public SupplyDispenseComponent() {
         super();
@@ -315,14 +315,14 @@ public class Supply extends Resource {
         /**
          * @return {@link #suppliedItem} (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
-        public ResourceReference getSuppliedItem() { 
+        public Reference getSuppliedItem() { 
           return this.suppliedItem;
         }
 
         /**
          * @param value {@link #suppliedItem} (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
-        public SupplyDispenseComponent setSuppliedItem(ResourceReference value) { 
+        public SupplyDispenseComponent setSuppliedItem(Reference value) { 
           this.suppliedItem = value;
           return this;
         }
@@ -345,14 +345,14 @@ public class Supply extends Resource {
         /**
          * @return {@link #supplier} (The individual responsible for dispensing the medication.)
          */
-        public ResourceReference getSupplier() { 
+        public Reference getSupplier() { 
           return this.supplier;
         }
 
         /**
          * @param value {@link #supplier} (The individual responsible for dispensing the medication.)
          */
-        public SupplyDispenseComponent setSupplier(ResourceReference value) { 
+        public SupplyDispenseComponent setSupplier(Reference value) { 
           this.supplier = value;
           return this;
         }
@@ -405,14 +405,14 @@ public class Supply extends Resource {
         /**
          * @return {@link #destination} (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
          */
-        public ResourceReference getDestination() { 
+        public Reference getDestination() { 
           return this.destination;
         }
 
         /**
          * @param value {@link #destination} (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
          */
-        public SupplyDispenseComponent setDestination(ResourceReference value) { 
+        public SupplyDispenseComponent setDestination(Reference value) { 
           this.destination = value;
           return this;
         }
@@ -435,7 +435,7 @@ public class Supply extends Resource {
         /**
          * @return {@link #receiver} (Identifies the person who picked up the Supply.)
          */
-        public List<ResourceReference> getReceiver() { 
+        public List<Reference> getReceiver() { 
           return this.receiver;
         }
 
@@ -443,8 +443,8 @@ public class Supply extends Resource {
         /**
          * @return {@link #receiver} (Identifies the person who picked up the Supply.)
          */
-        public ResourceReference addReceiver() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addReceiver() { 
+          Reference t = new Reference();
           this.receiver.add(t);
           return t;
         }
@@ -472,12 +472,12 @@ public class Supply extends Resource {
           childrenList.add(new Property("status", "code", "A code specifying the state of the dispense event.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("quantity", "Quantity", "The amount of supply that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("suppliedItem", "Resource(Medication|Substance|Device)", "Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, suppliedItem));
-          childrenList.add(new Property("supplier", "Resource(Practitioner)", "The individual responsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, supplier));
+          childrenList.add(new Property("suppliedItem", "Reference(Medication|Substance|Device)", "Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, suppliedItem));
+          childrenList.add(new Property("supplier", "Reference(Practitioner)", "The individual responsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, supplier));
           childrenList.add(new Property("whenPrepared", "Period", "The time the dispense event occurred.", 0, java.lang.Integer.MAX_VALUE, whenPrepared));
           childrenList.add(new Property("whenHandedOver", "Period", "The time the dispensed item was sent or handed to the patient (or agent).", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));
-          childrenList.add(new Property("destination", "Resource(Location)", "Identification of the facility/location where the Supply was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));
-          childrenList.add(new Property("receiver", "Resource(Practitioner)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver));
+          childrenList.add(new Property("destination", "Reference(Location)", "Identification of the facility/location where the Supply was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));
+          childrenList.add(new Property("receiver", "Reference(Practitioner)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver));
         }
 
       public SupplyDispenseComponent copy() {
@@ -491,8 +491,8 @@ public class Supply extends Resource {
         dst.whenPrepared = whenPrepared == null ? null : whenPrepared.copy();
         dst.whenHandedOver = whenHandedOver == null ? null : whenHandedOver.copy();
         dst.destination = destination == null ? null : destination.copy();
-        dst.receiver = new ArrayList<ResourceReference>();
-        for (ResourceReference i : receiver)
+        dst.receiver = new ArrayList<Reference>();
+        for (Reference i : receiver)
           dst.receiver.add(i.copy());
         return dst;
       }
@@ -517,7 +517,7 @@ public class Supply extends Resource {
     /**
      * The item that is requested to be supplied.
      */
-    protected ResourceReference orderedItem;
+    protected Reference orderedItem;
 
     /**
      * The actual object that is the target of the reference (The item that is requested to be supplied.)
@@ -527,7 +527,7 @@ public class Supply extends Resource {
     /**
      * A link to a resource representing the person whom the ordered item is for.
      */
-    protected ResourceReference patient;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (A link to a resource representing the person whom the ordered item is for.)
@@ -539,7 +539,7 @@ public class Supply extends Resource {
      */
     protected List<SupplyDispenseComponent> dispense = new ArrayList<SupplyDispenseComponent>();
 
-    private static final long serialVersionUID = 487202825L;
+    private static final long serialVersionUID = 2134953033L;
 
     public Supply() {
       super();
@@ -614,14 +614,14 @@ public class Supply extends Resource {
     /**
      * @return {@link #orderedItem} (The item that is requested to be supplied.)
      */
-    public ResourceReference getOrderedItem() { 
+    public Reference getOrderedItem() { 
       return this.orderedItem;
     }
 
     /**
      * @param value {@link #orderedItem} (The item that is requested to be supplied.)
      */
-    public Supply setOrderedItem(ResourceReference value) { 
+    public Supply setOrderedItem(Reference value) { 
       this.orderedItem = value;
       return this;
     }
@@ -644,14 +644,14 @@ public class Supply extends Resource {
     /**
      * @return {@link #patient} (A link to a resource representing the person whom the ordered item is for.)
      */
-    public ResourceReference getPatient() { 
+    public Reference getPatient() { 
       return this.patient;
     }
 
     /**
      * @param value {@link #patient} (A link to a resource representing the person whom the ordered item is for.)
      */
-    public Supply setPatient(ResourceReference value) { 
+    public Supply setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -693,8 +693,8 @@ public class Supply extends Resource {
         childrenList.add(new Property("kind", "CodeableConcept", "Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.", 0, java.lang.Integer.MAX_VALUE, kind));
         childrenList.add(new Property("identifier", "Identifier", "Unique identifier for this supply request.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "Status of the supply request.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("orderedItem", "Resource(Medication|Substance|Device)", "The item that is requested to be supplied.", 0, java.lang.Integer.MAX_VALUE, orderedItem));
-        childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person whom the ordered item is for.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("orderedItem", "Reference(Medication|Substance|Device)", "The item that is requested to be supplied.", 0, java.lang.Integer.MAX_VALUE, orderedItem));
+        childrenList.add(new Property("patient", "Reference(Patient)", "A link to a resource representing the person whom the ordered item is for.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("dispense", "", "Indicates the details of the dispense event such as the days supply and quantity of a supply dispensed.", 0, java.lang.Integer.MAX_VALUE, dispense));
       }
 

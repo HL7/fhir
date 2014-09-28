@@ -221,7 +221,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Specimen.source.target</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Specimen)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Specimen)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The subject of the relationship</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">The specimen resource that is the target of this relationship</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">[self]</Data></Cell>
@@ -229,7 +229,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Specimen.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Group|Device|Substance)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient|Group|Device|Substance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Where the specimen came from. This may be the patient(s) or from the environment or  a device</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Must know the subject context</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.scoper&#10;&#10;or&#10;&#10;.scoper.playsRole</Data></Cell>
@@ -263,7 +263,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Specimen.collection.collector</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who collected the specimen</Data></Cell>
     <Cell><Data ss:Type="String">Person who collected the specimen</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=PFM].role</Data></Cell>
@@ -342,7 +342,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Specimen.treatment.additive</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Substance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Material used in the processing step</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=CSM].role[classCode=ADTV].code</Data></Cell>
     <Cell><Data ss:Type="String">SPM-6</Data></Cell>
@@ -402,7 +402,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Specimen.container.additive</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Substance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Additive associated with container </Data></Cell>
     <Cell><Data ss:Type="String">Additive associated with the container</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.scopesRole[classCode=ADTV].player</Data></Cell>

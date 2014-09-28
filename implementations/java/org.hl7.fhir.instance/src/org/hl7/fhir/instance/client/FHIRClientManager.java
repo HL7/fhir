@@ -34,7 +34,7 @@ import java.net.URI;
 import java.util.HashMap;
 
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Reference;
 
 /**
  * TODO Modify FHIR client to incorporate this class
@@ -51,17 +51,17 @@ public class FHIRClientManager {
 		servers.put(baseUrl, server);
 	}
 	
-	public FHIRClient resolveServer(ResourceReference ref) {
+	public FHIRClient resolveServer(Reference ref) {
 		return null;
 		// todo
 	}
 	
-	public Resource getResource(ResourceReference ref) {
+	public Resource getReference(Reference ref) {
 		return null;
 		// todo		
 	}
 
-	public Resource getResource(URI ref) {
+	public Resource getReference(URI ref) {
 		return null;
 		// todo		
 	}

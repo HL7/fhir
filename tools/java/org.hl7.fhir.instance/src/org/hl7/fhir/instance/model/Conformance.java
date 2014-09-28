@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1267,7 +1267,7 @@ public class Conformance extends Resource {
         /**
          * A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.
          */
-        protected ResourceReference profile;
+        protected Reference profile;
 
         /**
          * The actual object that is the target of the reference (A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
@@ -1299,7 +1299,7 @@ public class Conformance extends Resource {
          */
         protected List<ConformanceRestResourceSearchParamComponent> searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
 
-        private static final long serialVersionUID = -1489057465L;
+        private static final long serialVersionUID = -1054517479L;
 
       public ConformanceRestResourceComponent() {
         super();
@@ -1345,14 +1345,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #profile} (A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
          */
-        public ResourceReference getProfile() { 
+        public Reference getProfile() { 
           return this.profile;
         }
 
         /**
          * @param value {@link #profile} (A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
          */
-        public ConformanceRestResourceComponent setProfile(ResourceReference value) { 
+        public ConformanceRestResourceComponent setProfile(Reference value) { 
           this.profile = value;
           return this;
         }
@@ -1518,7 +1518,7 @@ public class Conformance extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "A type of resource exposed via the restful interface.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("profile", "Resource(Profile)", "A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("profile", "Reference(Profile)", "A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("interaction", "", "Identifies a restful operation supported by the solution.", 0, java.lang.Integer.MAX_VALUE, interaction));
           childrenList.add(new Property("readHistory", "boolean", "A flag for whether the server is able to return past versions as part of the vRead operation.", 0, java.lang.Integer.MAX_VALUE, readHistory));
           childrenList.add(new Property("updateCreate", "boolean", "A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.", 0, java.lang.Integer.MAX_VALUE, updateCreate));
@@ -2045,20 +2045,20 @@ public class Conformance extends Resource {
         /**
          * Where the formal definition can be found.
          */
-        protected ResourceReference definition;
+        protected Reference definition;
 
         /**
          * The actual object that is the target of the reference (Where the formal definition can be found.)
          */
         protected OperationDefinition definitionTarget;
 
-        private static final long serialVersionUID = 966727094L;
+        private static final long serialVersionUID = 122107272L;
 
       public ConformanceRestOperationComponent() {
         super();
       }
 
-      public ConformanceRestOperationComponent(StringType name, ResourceReference definition) {
+      public ConformanceRestOperationComponent(StringType name, Reference definition) {
         super();
         this.name = name;
         this.definition = definition;
@@ -2099,14 +2099,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #definition} (Where the formal definition can be found.)
          */
-        public ResourceReference getDefinition() { 
+        public Reference getDefinition() { 
           return this.definition;
         }
 
         /**
          * @param value {@link #definition} (Where the formal definition can be found.)
          */
-        public ConformanceRestOperationComponent setDefinition(ResourceReference value) { 
+        public ConformanceRestOperationComponent setDefinition(Reference value) { 
           this.definition = value;
           return this;
         }
@@ -2129,7 +2129,7 @@ public class Conformance extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of a query, which is used in the _query parameter when the query is called.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("definition", "Resource(OperationDefinition)", "Where the formal definition can be found.", 0, java.lang.Integer.MAX_VALUE, definition));
+          childrenList.add(new Property("definition", "Reference(OperationDefinition)", "Where the formal definition can be found.", 0, java.lang.Integer.MAX_VALUE, definition));
         }
 
       public ConformanceRestOperationComponent copy() {
@@ -2343,7 +2343,7 @@ public class Conformance extends Resource {
         /**
          * Information about the request for this event.
          */
-        protected ResourceReference request;
+        protected Reference request;
 
         /**
          * The actual object that is the target of the reference (Information about the request for this event.)
@@ -2353,7 +2353,7 @@ public class Conformance extends Resource {
         /**
          * Information about the response for this event.
          */
-        protected ResourceReference response;
+        protected Reference response;
 
         /**
          * The actual object that is the target of the reference (Information about the response for this event.)
@@ -2365,13 +2365,13 @@ public class Conformance extends Resource {
          */
         protected StringType documentation;
 
-        private static final long serialVersionUID = 1765976644L;
+        private static final long serialVersionUID = 1554067488L;
 
       public ConformanceMessagingEventComponent() {
         super();
       }
 
-      public ConformanceMessagingEventComponent(Coding code, Enumeration<MessageConformanceEventMode> mode, CodeType focus, ResourceReference request, ResourceReference response) {
+      public ConformanceMessagingEventComponent(Coding code, Enumeration<MessageConformanceEventMode> mode, CodeType focus, Reference request, Reference response) {
         super();
         this.code = code;
         this.mode = mode;
@@ -2515,14 +2515,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #request} (Information about the request for this event.)
          */
-        public ResourceReference getRequest() { 
+        public Reference getRequest() { 
           return this.request;
         }
 
         /**
          * @param value {@link #request} (Information about the request for this event.)
          */
-        public ConformanceMessagingEventComponent setRequest(ResourceReference value) { 
+        public ConformanceMessagingEventComponent setRequest(Reference value) { 
           this.request = value;
           return this;
         }
@@ -2545,14 +2545,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #response} (Information about the response for this event.)
          */
-        public ResourceReference getResponse() { 
+        public Reference getResponse() { 
           return this.response;
         }
 
         /**
          * @param value {@link #response} (Information about the response for this event.)
          */
-        public ConformanceMessagingEventComponent setResponse(ResourceReference value) { 
+        public ConformanceMessagingEventComponent setResponse(Reference value) { 
           this.response = value;
           return this;
         }
@@ -2615,8 +2615,8 @@ public class Conformance extends Resource {
           childrenList.add(new Property("mode", "code", "The mode of this event declaration - whether application is sender or receiver.", 0, java.lang.Integer.MAX_VALUE, mode));
           childrenList.add(new Property("protocol", "Coding", "A list of the messaging transport protocol(s) identifiers, supported by this endpoint.", 0, java.lang.Integer.MAX_VALUE, protocol));
           childrenList.add(new Property("focus", "code", "A resource associated with the event.  This is the resource that defines the event.", 0, java.lang.Integer.MAX_VALUE, focus));
-          childrenList.add(new Property("request", "Resource(Profile)", "Information about the request for this event.", 0, java.lang.Integer.MAX_VALUE, request));
-          childrenList.add(new Property("response", "Resource(Profile)", "Information about the response for this event.", 0, java.lang.Integer.MAX_VALUE, response));
+          childrenList.add(new Property("request", "Reference(Profile)", "Information about the request for this event.", 0, java.lang.Integer.MAX_VALUE, request));
+          childrenList.add(new Property("response", "Reference(Profile)", "Information about the response for this event.", 0, java.lang.Integer.MAX_VALUE, response));
           childrenList.add(new Property("documentation", "string", "Guidance on how this event is handled, such as internal system trigger points, business rules, etc.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
@@ -2651,20 +2651,20 @@ public class Conformance extends Resource {
         /**
          * A constraint on a resource used in the document.
          */
-        protected ResourceReference profile;
+        protected Reference profile;
 
         /**
          * The actual object that is the target of the reference (A constraint on a resource used in the document.)
          */
         protected Profile profileTarget;
 
-        private static final long serialVersionUID = 1730738206L;
+        private static final long serialVersionUID = 437404016L;
 
       public ConformanceDocumentComponent() {
         super();
       }
 
-      public ConformanceDocumentComponent(Enumeration<DocumentMode> mode, ResourceReference profile) {
+      public ConformanceDocumentComponent(Enumeration<DocumentMode> mode, Reference profile) {
         super();
         this.mode = mode;
         this.profile = profile;
@@ -2741,14 +2741,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #profile} (A constraint on a resource used in the document.)
          */
-        public ResourceReference getProfile() { 
+        public Reference getProfile() { 
           return this.profile;
         }
 
         /**
          * @param value {@link #profile} (A constraint on a resource used in the document.)
          */
-        public ConformanceDocumentComponent setProfile(ResourceReference value) { 
+        public ConformanceDocumentComponent setProfile(Reference value) { 
           this.profile = value;
           return this;
         }
@@ -2772,7 +2772,7 @@ public class Conformance extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("mode", "code", "Mode of this document declaration - whether application is producer or consumer.", 0, java.lang.Integer.MAX_VALUE, mode));
           childrenList.add(new Property("documentation", "string", "A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("profile", "Resource(Profile)", "A constraint on a resource used in the document.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("profile", "Reference(Profile)", "A constraint on a resource used in the document.", 0, java.lang.Integer.MAX_VALUE, profile));
         }
 
       public ConformanceDocumentComponent copy() {
@@ -2858,7 +2858,7 @@ public class Conformance extends Resource {
     /**
      * A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.
      */
-    protected List<ResourceReference> profile = new ArrayList<ResourceReference>();
+    protected List<Reference> profile = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
@@ -2880,7 +2880,7 @@ public class Conformance extends Resource {
      */
     protected List<ConformanceDocumentComponent> document = new ArrayList<ConformanceDocumentComponent>();
 
-    private static final long serialVersionUID = 467986104L;
+    private static final long serialVersionUID = 277150712L;
 
     public Conformance() {
       super();
@@ -3325,7 +3325,7 @@ public class Conformance extends Resource {
     /**
      * @return {@link #profile} (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
-    public List<ResourceReference> getProfile() { 
+    public List<Reference> getProfile() { 
       return this.profile;
     }
 
@@ -3333,8 +3333,8 @@ public class Conformance extends Resource {
     /**
      * @return {@link #profile} (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
-    public ResourceReference addProfile() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addProfile() { 
+      Reference t = new Reference();
       this.profile.add(t);
       return t;
     }
@@ -3423,7 +3423,7 @@ public class Conformance extends Resource {
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this conformance statement is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("acceptUnknown", "boolean", "A flag that indicates whether the application accepts unknown elements as part of a resource.", 0, java.lang.Integer.MAX_VALUE, acceptUnknown));
         childrenList.add(new Property("format", "code", "A list of the formats supported by this implementation.", 0, java.lang.Integer.MAX_VALUE, format));
-        childrenList.add(new Property("profile", "Resource(Profile)", "A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.", 0, java.lang.Integer.MAX_VALUE, profile));
+        childrenList.add(new Property("profile", "Reference(Profile)", "A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("rest", "", "A definition of the restful capabilities of the solution, if any.", 0, java.lang.Integer.MAX_VALUE, rest));
         childrenList.add(new Property("messaging", "", "A description of the messaging capabilities of the solution.", 0, java.lang.Integer.MAX_VALUE, messaging));
         childrenList.add(new Property("document", "", "A document definition.", 0, java.lang.Integer.MAX_VALUE, document));
@@ -3449,8 +3449,8 @@ public class Conformance extends Resource {
         dst.format = new ArrayList<CodeType>();
         for (CodeType i : format)
           dst.format.add(i.copy());
-        dst.profile = new ArrayList<ResourceReference>();
-        for (ResourceReference i : profile)
+        dst.profile = new ArrayList<Reference>();
+        for (Reference i : profile)
           dst.profile.add(i.copy());
         dst.rest = new ArrayList<ConformanceRestComponent>();
         for (ConformanceRestComponent i : rest)

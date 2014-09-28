@@ -672,9 +672,9 @@
                   <valueInteger value="30"/>
                 </extension>
                 <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                  <valueResource>
+                  <valueReference>
                     <reference value="http://AHRQ.gov/data_element_identifier#Type%20of%20substance%20involved"/>
-                  </valueResource>
+                  </valueReference>
                 </extension>
                 <linkId value="Medication/DE270"/>
                 <text value="What type of medication/substance was involved?"/>
@@ -695,9 +695,9 @@
                       <valueInteger value="65"/>
                     </extension>
                     <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                      <valueResource>
+                      <valueReference>
                         <reference value="http://AHRQ.gov/data_element_identifier#Type%20of%20medication%20involved"/>
-                      </valueResource>
+                      </valueReference>
                     </extension>
                     <linkId value="Medication/DE273"/>
                     <text value="What type of medication?"/>
@@ -718,9 +718,9 @@
                           <valueInteger value="500"/>
                         </extension>
                         <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                          <valueResource>
+                          <valueReference>
                             <reference value="http://AHRQ.gov/data_element_identifier#Compounded%20preparation%20ingredients"/>
-                          </valueResource>
+                          </valueReference>
                         </extension>
                         <linkId value="Medication/DE276"/>
                         <text value="Please list all ingredients:"/>
@@ -1552,12 +1552,12 @@
           <ConceptMap id="d1e8086-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e8086-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3921052v1.0/question_identifier#3921060v1.0-cs"/>
               <code value="Primary"/>
@@ -1627,12 +1627,12 @@
           <ConceptMap id="d1e8407-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e8407-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3921052v1.0/question_identifier#3921071v1.0-cs"/>
               <code value="Initial same as Current"/>
@@ -1699,12 +1699,12 @@
           <ConceptMap id="d1e8830-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e8830-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3921052v1.0/question_identifier#3921081v1.0-cs"/>
               <code value="Cytologic"/>
@@ -1782,12 +1782,12 @@
           <ConceptMap id="d1e9025-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e9025-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3921052v1.0/question_identifier#3921085v1.0-cs"/>
               <code value="G1"/>
@@ -1863,9 +1863,9 @@
             <required value="true"/>
             <question>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#62667v3.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3921059v1.0"/>
               <text value="Date of Current Pathologic Diagnosis"/>
@@ -1876,9 +1876,9 @@
                 <valueInteger value="40"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914869v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3921060v1.0"/>
               <text value="Diagnosis Type"/>
@@ -1892,9 +1892,9 @@
                 <valueInteger value="100"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914972v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3921065v1.0"/>
               <text value="Primary Site"/>
@@ -1910,9 +1910,9 @@
                 <valueInteger value="25"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2816923v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3921071v1.0"/>
               <text value="Diagnosis Time Point"/>
@@ -1934,9 +1934,9 @@
                 <valueInteger value="100"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#64320v3.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3921079v1.0"/>
               <text value="Reviewing Pathologist"/>
@@ -1944,9 +1944,9 @@
             </question>
             <question>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004425v4.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3921080v1.0"/>
               <text value="MedDRA disease code"/>
@@ -1957,9 +1957,9 @@
                 <valueInteger value="40"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914983v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3921081v1.0"/>
               <text value="Assessment Method"/>
@@ -1973,9 +1973,9 @@
                 <valueInteger value="10"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2785839v2.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3921085v1.0"/>
               <text value="Tumor grade"/>
@@ -2048,12 +2048,12 @@
           <ConceptMap id="d1e9892-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e9892-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702892v4.0-cs"/>
               <code value="Female"/>
@@ -2133,12 +2133,12 @@
           <ConceptMap id="d1e10146-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e10146-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702904v4.0-cs"/>
               <code value="American Indian or Alaska Native"/>
@@ -2224,12 +2224,12 @@
           <ConceptMap id="d1e10593-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e10593-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702898v4.0-cs"/>
               <code value="Hispanic or Latino"/>
@@ -2344,12 +2344,12 @@
           <ConceptMap id="d1e10923-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e10923-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702916v4.0-cs"/>
               <code value="Managed Care/Medicare"/>
@@ -2509,12 +2509,12 @@
           <ConceptMap id="d1e11887-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e11887-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702942v4.0-cs"/>
               <code value="Bachelor's Degree"/>
@@ -2614,12 +2614,12 @@
           <ConceptMap id="d1e12384-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e12384-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702952v4.0-cs"/>
               <code value="Other country"/>
@@ -2794,12 +2794,12 @@
           <ConceptMap id="d1e12630-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e12630-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702957v4.0-cs"/>
               <code value="10th Grade"/>
@@ -3028,12 +3028,12 @@
           <ConceptMap id="d1e14027-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e14027-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702985v4.0-cs"/>
               <code value="Divorced"/>
@@ -3101,9 +3101,9 @@
                 <valueInteger value="13"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200604v3.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702892v4.0"/>
               <text value="Gender"/>
@@ -3120,9 +3120,9 @@
                 <valueInteger value="41"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2192199v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702904v4.0"/>
               <text value="Race"/>
@@ -3133,9 +3133,9 @@
             </question>
             <question>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#793v5.1"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702903v4.0"/>
               <text value="Patient's Date of Birth"/>
@@ -3149,9 +3149,9 @@
                 <valueInteger value="22"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2192217v2.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702898v4.0"/>
               <text value="Ethnicity"/>
@@ -3170,9 +3170,9 @@
                 <valueInteger value="15"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179606v2.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702914v4.0"/>
               <text value="ZIP Code"/>
@@ -3183,9 +3183,9 @@
                 <valueInteger value="50"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2865130v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702916v4.0"/>
               <text value="Payment Method"/>
@@ -3199,9 +3199,9 @@
                 <valueInteger value="75"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#315v4.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702932v4.0"/>
               <text value="Country of Residence"/>
@@ -3209,9 +3209,9 @@
             </question>
             <question>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2003745v5.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702934v4.0"/>
               <text value="Date Completed"/>
@@ -3222,9 +3222,9 @@
                 <valueInteger value="6"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200286v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702936v4.0"/>
               <text value="CDC Race Code"/>
@@ -3235,9 +3235,9 @@
                 <valueInteger value="6"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200284v2.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702938v4.0"/>
               <text value="CDC Ethnicity Code"/>
@@ -3253,9 +3253,9 @@
                 <valueInteger value="44"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2681552v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702942v4.0"/>
               <text value="Highest Education Level"/>
@@ -3269,9 +3269,9 @@
                 <valueInteger value="55"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2001708v5.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702952v4.0"/>
               <text value="Country of Birth"/>
@@ -3285,9 +3285,9 @@
                 <valueInteger value="50"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2674076v2.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702957v4.0"/>
               <text value="Highest Education Level"/>
@@ -3304,9 +3304,9 @@
                 <valueString value="9999.99"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2943243v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702984v4.0"/>
               <text value="Census Tract Code at Enrollment"/>
@@ -3317,9 +3317,9 @@
                 <valueInteger value="25"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2188083v2.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3702985v4.0"/>
               <text value="Marital Status"/>
@@ -7315,12 +7315,12 @@
           <ConceptMap id="d1e14927-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e14927-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3556214v2.0-cs"/>
               <code value="Abdominal distension"/>
@@ -12892,12 +12892,12 @@
           <ConceptMap id="d1e54652-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e54652-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557008v2.0-cs"/>
               <code value="1"/>
@@ -12959,12 +12959,12 @@
           <ConceptMap id="d1e55041-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e55041-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557021v2.0-cs"/>
               <code value="Yes"/>
@@ -13055,12 +13055,12 @@
           <ConceptMap id="d1e55265-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e55265-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557032v2.0-cs"/>
               <code value="Biological Therapy"/>
@@ -13291,12 +13291,12 @@
           <ConceptMap id="d1e56008-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e56008-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557869v2.0-cs"/>
               <code value="Blood and lymphatic system disorders"/>
@@ -17445,12 +17445,12 @@
           <ConceptMap id="d1e57358-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e57358-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557050v2.0-cs"/>
               <code value="10000060"/>
@@ -23022,12 +23022,12 @@
           <ConceptMap id="d1e97042-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e97042-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557842v2.0-cs"/>
               <code value="Definite"/>
@@ -23094,12 +23094,12 @@
           <ConceptMap id="d1e97392-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e97392-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557851v2.0-cs"/>
               <code value="Yes"/>
@@ -23147,12 +23147,12 @@
           <ConceptMap id="d1e97594-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e97594-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557856v2.0-cs"/>
               <code value="Yes"/>
@@ -23193,12 +23193,12 @@
           <ConceptMap id="d1e97746-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e97746-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557859v2.0-cs"/>
               <code value="Yes"/>
@@ -23239,12 +23239,12 @@
           <ConceptMap id="d1e98036-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e98036-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557913v2.0-cs"/>
               <code value="Yes"/>
@@ -23285,12 +23285,12 @@
           <ConceptMap id="d1e98234-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e98234-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557028v2.0-cs"/>
               <code value="Yes"/>
@@ -23351,12 +23351,12 @@
           <ConceptMap id="d1e98385-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e98385-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557896v2.0-cs"/>
               <code value="Fatal"/>
@@ -23430,12 +23430,12 @@
           <ConceptMap id="d1e98732-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e98732-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557906v2.0-cs"/>
               <code value="1"/>
@@ -23488,12 +23488,12 @@
           <ConceptMap id="d1e98928-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e98928-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557917v2.0-cs"/>
               <code value="Yes"/>
@@ -23571,12 +23571,12 @@
           <ConceptMap id="d1e99214-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e99214-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3556199v2.0-cs"/>
               <code value="1"/>
@@ -23659,12 +23659,12 @@
           <ConceptMap id="d1e99668-cm">
             <name value="TODO - remove"/>
             <status value="active"/>
-            <sourceResource>
+            <sourceReference>
               <reference value="#d1e99668-vs"/>
-            </sourceResource>
-            <targetResource>
+            </sourceReference>
+            <targetReference>
               <reference value="#2.16.840.1.113883.3.26.1-vs"/>
-            </targetResource>
+            </targetReference>
             <element>
               <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3556209v2.0-cs"/>
               <code value="N"/>
@@ -23701,9 +23701,9 @@
                 <valueInteger value="84"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3125302v1.1"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3556214v2.0"/>
               <text value="Adverse Event Term (v4.0)"/>
@@ -23717,9 +23717,9 @@
                 <valueInteger value="200"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2188132v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557006v2.0"/>
               <text value="Describe 'Other' Adverse Event"/>
@@ -23733,9 +23733,9 @@
                 <valueInteger value="1"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2944515v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557008v2.0"/>
               <text value="Adverse Event Grade"/>
@@ -23760,9 +23760,9 @@
                 <valueString value="MM/DD/YYYY"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744993v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557017v2.0"/>
               <text value="AE Start Date"/>
@@ -23776,9 +23776,9 @@
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2552398v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557021v2.0"/>
               <text value="Was patient hospitalized for toxicity?"/>
@@ -23789,9 +23789,9 @@
             </question>
             <question>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744948v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557025v2.0"/>
               <text value="Cycle #"/>
@@ -23807,9 +23807,9 @@
                 <valueInteger value="22"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179892v2.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557032v2.0"/>
               <text value="To what is the AE attributed?"/>
@@ -23823,9 +23823,9 @@
                 <valueInteger value="60"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2201348v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557863v2.0"/>
               <text value="Other Attribution, Specify"/>
@@ -23839,9 +23839,9 @@
                 <valueString value="DD/MON/YYYY"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2189843v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557046v2.0"/>
               <text value="AE Stop Date"/>
@@ -23852,9 +23852,9 @@
                 <valueInteger value="80"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2943864v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557869v2.0"/>
               <text value="MedDRA System Organ Class (SOC)"/>
@@ -23871,9 +23871,9 @@
                 <valueInteger value="8"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3133353v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557050v2.0"/>
               <text value="MedDRA AE Code (CTCAE v4.0)"/>
@@ -23890,9 +23890,9 @@
                 <valueInteger value="10"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#1285v3.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557842v2.0"/>
               <text value="AE Attribution"/>
@@ -23903,9 +23903,9 @@
             </question>
             <question>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2006851v4.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557849v2.0"/>
               <text value="Reporting Period End Date"/>
@@ -23919,9 +23919,9 @@
                 <valueInteger value="7"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179971v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557851v2.0"/>
               <text value="Were adverse events assessed during most recent period"/>
@@ -23938,9 +23938,9 @@
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2183619v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557856v2.0"/>
               <text value="Expected? (Yes/No)"/>
@@ -23957,9 +23957,9 @@
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2199908v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557859v2.0"/>
               <text value="Serious?"/>
@@ -23970,9 +23970,9 @@
             </question>
             <question>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2585234v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557911v2.0"/>
               <text value="Event Onset Time"/>
@@ -23980,9 +23980,9 @@
             </question>
             <question>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2732184v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557865v2.0"/>
               <text value="Course"/>
@@ -23990,9 +23990,9 @@
             </question>
             <question>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744943v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557867v2.0"/>
               <text value="AE Evaluation Period Start Date"/>
@@ -24006,9 +24006,9 @@
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746280v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557913v2.0"/>
               <text value="Pre-existing AE?"/>
@@ -24019,9 +24019,9 @@
             </question>
             <question>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746301v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557904v2.0"/>
               <text value="AE Resolved Time"/>
@@ -24035,9 +24035,9 @@
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746311v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557028v2.0"/>
               <text value="AE Ongoing?"/>
@@ -24051,9 +24051,9 @@
                 <valueInteger value="33"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746517v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557896v2.0"/>
               <text value="Participant Status/Outcome"/>
@@ -24067,9 +24067,9 @@
                 <valueInteger value="1"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2008418v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557906v2.0"/>
               <text value="Adverse Event Condition Pattern"/>
@@ -24086,9 +24086,9 @@
                 <valueInteger value="3"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179615v1.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557917v2.0"/>
               <text value="Did event reappear after study agent was reintroduced?"/>
@@ -24105,9 +24105,9 @@
                 <valueInteger value="200"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#797v5.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3557922v2.0"/>
               <text value="Comments"/>
@@ -24126,9 +24126,9 @@
                 <valueInteger value="1"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179679v3.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3556199v2.0"/>
               <text value="Why serious?"/>
@@ -24145,9 +24145,9 @@
                 <valueInteger value="1"/>
               </extension>
               <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
-                <valueResource>
+                <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004106v3.0"/>
-                </valueResource>
+                </valueReference>
               </extension>
               <linkId value="3556209v2.0"/>
               <text value="Dose-Limiting Toxicity?"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -140,14 +140,14 @@ public class Query extends Resource {
         /**
          * Resources that are the results of the search.
          */
-        protected List<ResourceReference> reference = new ArrayList<ResourceReference>();
+        protected List<Reference> reference = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Resources that are the results of the search.)
          */
         protected List<Resource> referenceTarget = new ArrayList<Resource>();
 
 
-        private static final long serialVersionUID = -1700337143L;
+        private static final long serialVersionUID = -1765656247L;
 
       public QueryResponseComponent() {
         super();
@@ -347,7 +347,7 @@ public class Query extends Resource {
         /**
          * @return {@link #reference} (Resources that are the results of the search.)
          */
-        public List<ResourceReference> getReference() { 
+        public List<Reference> getReference() { 
           return this.reference;
         }
 
@@ -355,8 +355,8 @@ public class Query extends Resource {
         /**
          * @return {@link #reference} (Resources that are the results of the search.)
          */
-        public ResourceReference addReference() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addReference() { 
+          Reference t = new Reference();
           this.reference.add(t);
           return t;
         }
@@ -378,7 +378,7 @@ public class Query extends Resource {
           childrenList.add(new Property("previous", "Extension", "To get previous page (if paged).", 0, java.lang.Integer.MAX_VALUE, previous));
           childrenList.add(new Property("next", "Extension", "To get next page (if paged).", 0, java.lang.Integer.MAX_VALUE, next));
           childrenList.add(new Property("last", "Extension", "To get last page (if paged).", 0, java.lang.Integer.MAX_VALUE, last));
-          childrenList.add(new Property("reference", "Resource(Any)", "Resources that are the results of the search.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("reference", "Reference(Any)", "Resources that are the results of the search.", 0, java.lang.Integer.MAX_VALUE, reference));
         }
 
       public QueryResponseComponent copy() {
@@ -401,8 +401,8 @@ public class Query extends Resource {
         dst.last = new ArrayList<Extension>();
         for (Extension i : last)
           dst.last.add(i.copy());
-        dst.reference = new ArrayList<ResourceReference>();
-        for (ResourceReference i : reference)
+        dst.reference = new ArrayList<Reference>();
+        for (Reference i : reference)
           dst.reference.add(i.copy());
         return dst;
       }

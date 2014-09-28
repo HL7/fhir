@@ -45,7 +45,7 @@ public class JavaParserFactoryGenerator extends OutputStreamWriter {
 		super(out, "UTF-8");
 	}
 
-	public void registerResource(String name, String classname) {
+	public void registerReference(String name, String classname) {
 		resources.put(name,  classname);
 	}
 	

@@ -36,7 +36,7 @@ import org.hl7.fhir.instance.model.QuestionnaireAnswers;
 import org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionAnswerComponent;
 import org.hl7.fhir.instance.model.QuestionnaireAnswers.QuestionnaireAnswersStatus;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.TimeType;
 import org.hl7.fhir.instance.model.Type;
@@ -125,11 +125,11 @@ public class QuestionnaireBuilder {
     this.context = context;
   }
 
-  public Resource getResource() {
+  public Resource getReference() {
     return resource;
   }
 
-  public void setResource(Resource resource) {
+  public void setReference(Resource resource) {
     this.resource = resource;
   }
 
@@ -256,7 +256,7 @@ public class QuestionnaireBuilder {
 
     if (answers != null) {
       // no identifier - this is transient
-      answers.setQuestionnaire(factory.makeResourceReference("#"+questionnaire.getXmlId()));
+      answers.setQuestionnaire(factory.makeReference("#"+questionnaire.getXmlId()));
       answers.getContained().add(questionnaire);
       answers.setStatusSimple(QuestionnaireAnswersStatus.inProgress);
       answers.setGroup(new QuestionnaireAnswers.GroupComponent());
@@ -421,7 +421,7 @@ public class QuestionnaireBuilder {
 	      result.add(new TypeRefComponent().setCodeSimple("Address"));
         result.add(new TypeRefComponent().setCodeSimple("ContactPoint"));
         result.add(new TypeRefComponent().setCodeSimple("Timing"));
-	      result.add(new TypeRefComponent().setCodeSimple("ResourceReference"));
+	      result.add(new TypeRefComponent().setCodeSimple("Reference"));
 	    } else
 	      result.add(t);
 	  }
@@ -438,7 +438,7 @@ public class QuestionnaireBuilder {
     vs.getExpansion().setTimestampSimple(DateAndTime.now());
 	  for (TypeRefComponent t : types) {
       ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
-	    if (t.getCodeSimple().equals("ResourceReference") && (t.getProfileSimple() != null && t.getProfileSimple().startsWith("http://hl7.org/fhir/Profile/"))) { 
+	    if (t.getCodeSimple().equals("Reference") && (t.getProfileSimple() != null && t.getProfileSimple().startsWith("http://hl7.org/fhir/Profile/"))) { 
 	      cc.setCodeSimple(t.getProfileSimple().substring(28));
         cc.setSystemSimple("http://hl7.org/fhir/resource-types");
 	      cc.setDisplaySimple(cc.getCodeSimple());
@@ -481,7 +481,7 @@ public class QuestionnaireBuilder {
 
       Coding cc = new Coding();
       q.addAnswer().setValue(cc);
-      if (t.getCodeSimple().equals("ResourceReference") && t.getProfileSimple().startsWith("http://hl7.org/fhir/Profile/")) {
+      if (t.getCodeSimple().equals("Reference") && t.getProfileSimple().startsWith("http://hl7.org/fhir/Profile/")) {
         cc.setCodeSimple(t.getProfileSimple().substring(28));
         cc.setSystemSimple("http://hl7.org/fhir/resource-types");
       } else {
@@ -509,11 +509,11 @@ public class QuestionnaireBuilder {
   }
 
   private boolean instanceOf(TypeRefComponent t, Element obj) throws Exception {
-    if (t.getCodeSimple().equals("ResourceReference")) {
-      if (!(obj instanceof ResourceReference)) {
+    if (t.getCodeSimple().equals("Reference")) {
+      if (!(obj instanceof Reference)) {
         return false;
       } else {
-        String url = ((ResourceReference) obj).getReferenceSimple();
+        String url = ((Reference) obj).getReferenceSimple();
         // there are several problems here around profile matching. This process is degenerative, and there's probably nothing we can do to solve it
         if (url.startsWith("http:") || url.startsWith("https:"))
             return true;
@@ -535,7 +535,7 @@ public class QuestionnaireBuilder {
   private QuestionComponent addQuestion(GroupComponent group, AnswerFormat af, String path, String id, String name, List<QuestionnaireAnswers.GroupComponent> answerGroups, ValueSet vs) throws Exception {
     QuestionComponent result = group.addQuestion();
     if (vs != null) {
-      result.setOptions(new ResourceReference());
+      result.setOptions(new Reference());
       if (vs.getExpansion() == null) {
         result.getOptions().setReferenceSimple(vs.getIdentifierSimple());
         ToolingExtensions.addFilterOnly(result.getOptions(), true); 
@@ -633,10 +633,10 @@ public class QuestionnaireBuilder {
       }
 
     case reference:
-      if (value instanceof ResourceReference)
+      if (value instanceof Reference)
         return (Type) value;
       else if (value instanceof StringType) {
-        ResourceReference r = new ResourceReference();
+        Reference r = new Reference();
         r.setReferenceSimple(((StringType) value).asStringValue());
       }
     }
@@ -686,7 +686,7 @@ public class QuestionnaireBuilder {
     return (t != null) && 
           (t.getCodeSimple().equals("string") || t.getCodeSimple().equals("code") || t.getCodeSimple().equals("boolean") || t.getCodeSimple().equals("integer") || 
               t.getCodeSimple().equals("decimal") || t.getCodeSimple().equals("date") || t.getCodeSimple().equals("dateTime") || 
-              t.getCodeSimple().equals("instant") || t.getCodeSimple().equals("time") || t.getCodeSimple().equals("ResourceReference"));
+              t.getCodeSimple().equals("instant") || t.getCodeSimple().equals("time") || t.getCodeSimple().equals("Reference"));
   }
 
   private void processDataType(Profile profile, GroupComponent group, ElementComponent element, String path, TypeRefComponent t, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
@@ -726,7 +726,7 @@ public class QuestionnaireBuilder {
       addCodingQuestions(group, element, path, answerGroups);
     else if (t.getCodeSimple().equals("Quantity"))
       addQuantityQuestions(group, element, path, answerGroups);
-    else if (t.getCodeSimple().equals("ResourceReference"))
+    else if (t.getCodeSimple().equals("Reference"))
       addReferenceQuestions(group, element, path, t.getProfileSimple(), answerGroups);
     else if (t.getCodeSimple().equals("idref"))
       addIdRefQuestions(group, element, path, answerGroups);
@@ -963,7 +963,7 @@ public class QuestionnaireBuilder {
       //    rn : String;
       //    i : integer;
       //    q : TFhirQuestionnaireGroupQuestion;
-      ToolingExtensions.addType(group, "ResourceReference");
+      ToolingExtensions.addType(group, "Reference");
 
       QuestionComponent q = addQuestion(group, AnswerFormat.reference, path, "value", group.getTextSimple(), answerGroups);
       group.setText(null);

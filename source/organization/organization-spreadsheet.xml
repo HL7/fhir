@@ -308,7 +308,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">!Organization.accreditation.issuer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who conferred accreditation</Data></Cell>
     <Cell><Data ss:Type="String">The organization that conferred/confers the accreditation</Data></Cell>
     <Cell><Data ss:Type="String">May determine the significance of the qualification, and allows a link back to a qualification registry, if one exists</Data></Cell>
@@ -327,7 +327,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Organization.partOf</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The organization of which this organization forms a part</Data></Cell>
     <Cell><Data ss:Type="String">The organization of which this organization forms a part</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to track the hierarchy of organizations within an organization</Data></Cell>
@@ -432,7 +432,7 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Location(s) the organization uses to provide services</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Location(s) the organization uses to provide services</Data></Cell>

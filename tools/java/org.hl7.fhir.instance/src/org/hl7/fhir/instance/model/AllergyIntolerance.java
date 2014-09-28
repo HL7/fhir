@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -232,7 +232,7 @@ public class AllergyIntolerance extends Resource {
     /**
      * The patient who has the allergy or intolerance.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The patient who has the allergy or intolerance.)
@@ -242,7 +242,7 @@ public class AllergyIntolerance extends Resource {
     /**
      * Indicates who has responsibility for the record.
      */
-    protected ResourceReference recorder;
+    protected Reference recorder;
 
     /**
      * The actual object that is the target of the reference (Indicates who has responsibility for the record.)
@@ -252,7 +252,7 @@ public class AllergyIntolerance extends Resource {
     /**
      * The substance that causes the sensitivity.
      */
-    protected ResourceReference substance;
+    protected Reference substance;
 
     /**
      * The actual object that is the target of the reference (The substance that causes the sensitivity.)
@@ -262,7 +262,7 @@ public class AllergyIntolerance extends Resource {
     /**
      * Reactions associated with the sensitivity.
      */
-    protected List<ResourceReference> reaction = new ArrayList<ResourceReference>();
+    protected List<Reference> reaction = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Reactions associated with the sensitivity.)
      */
@@ -272,20 +272,20 @@ public class AllergyIntolerance extends Resource {
     /**
      * Observations that confirm or refute the sensitivity.
      */
-    protected List<ResourceReference> sensitivityTest = new ArrayList<ResourceReference>();
+    protected List<Reference> sensitivityTest = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Observations that confirm or refute the sensitivity.)
      */
     protected List<Observation> sensitivityTestTarget = new ArrayList<Observation>();
 
 
-    private static final long serialVersionUID = -449872376L;
+    private static final long serialVersionUID = -880479022L;
 
     public AllergyIntolerance() {
       super();
     }
 
-    public AllergyIntolerance(Enumeration<Sensitivitytype> sensitivityType, Enumeration<Sensitivitystatus> status, ResourceReference subject, ResourceReference substance) {
+    public AllergyIntolerance(Enumeration<Sensitivitytype> sensitivityType, Enumeration<Sensitivitystatus> status, Reference subject, Reference substance) {
       super();
       this.sensitivityType = sensitivityType;
       this.status = status;
@@ -449,14 +449,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #subject} (The patient who has the allergy or intolerance.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The patient who has the allergy or intolerance.)
      */
-    public AllergyIntolerance setSubject(ResourceReference value) { 
+    public AllergyIntolerance setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -479,14 +479,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #recorder} (Indicates who has responsibility for the record.)
      */
-    public ResourceReference getRecorder() { 
+    public Reference getRecorder() { 
       return this.recorder;
     }
 
     /**
      * @param value {@link #recorder} (Indicates who has responsibility for the record.)
      */
-    public AllergyIntolerance setRecorder(ResourceReference value) { 
+    public AllergyIntolerance setRecorder(Reference value) { 
       this.recorder = value;
       return this;
     }
@@ -509,14 +509,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #substance} (The substance that causes the sensitivity.)
      */
-    public ResourceReference getSubstance() { 
+    public Reference getSubstance() { 
       return this.substance;
     }
 
     /**
      * @param value {@link #substance} (The substance that causes the sensitivity.)
      */
-    public AllergyIntolerance setSubstance(ResourceReference value) { 
+    public AllergyIntolerance setSubstance(Reference value) { 
       this.substance = value;
       return this;
     }
@@ -539,7 +539,7 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #reaction} (Reactions associated with the sensitivity.)
      */
-    public List<ResourceReference> getReaction() { 
+    public List<Reference> getReaction() { 
       return this.reaction;
     }
 
@@ -547,8 +547,8 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #reaction} (Reactions associated with the sensitivity.)
      */
-    public ResourceReference addReaction() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addReaction() { 
+      Reference t = new Reference();
       this.reaction.add(t);
       return t;
     }
@@ -573,7 +573,7 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #sensitivityTest} (Observations that confirm or refute the sensitivity.)
      */
-    public List<ResourceReference> getSensitivityTest() { 
+    public List<Reference> getSensitivityTest() { 
       return this.sensitivityTest;
     }
 
@@ -581,8 +581,8 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #sensitivityTest} (Observations that confirm or refute the sensitivity.)
      */
-    public ResourceReference addSensitivityTest() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addSensitivityTest() { 
+      Reference t = new Reference();
       this.sensitivityTest.add(t);
       return t;
     }
@@ -611,11 +611,11 @@ public class AllergyIntolerance extends Resource {
         childrenList.add(new Property("sensitivityType", "code", "Type of the sensitivity.", 0, java.lang.Integer.MAX_VALUE, sensitivityType));
         childrenList.add(new Property("recordedDate", "dateTime", "Date when the sensitivity was recorded.", 0, java.lang.Integer.MAX_VALUE, recordedDate));
         childrenList.add(new Property("status", "code", "Status of the sensitivity.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("subject", "Resource(Patient)", "The patient who has the allergy or intolerance.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("recorder", "Resource(Practitioner|Patient)", "Indicates who has responsibility for the record.", 0, java.lang.Integer.MAX_VALUE, recorder));
-        childrenList.add(new Property("substance", "Resource(Substance)", "The substance that causes the sensitivity.", 0, java.lang.Integer.MAX_VALUE, substance));
-        childrenList.add(new Property("reaction", "Resource(AdverseReaction)", "Reactions associated with the sensitivity.", 0, java.lang.Integer.MAX_VALUE, reaction));
-        childrenList.add(new Property("sensitivityTest", "Resource(Observation)", "Observations that confirm or refute the sensitivity.", 0, java.lang.Integer.MAX_VALUE, sensitivityTest));
+        childrenList.add(new Property("subject", "Reference(Patient)", "The patient who has the allergy or intolerance.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("recorder", "Reference(Practitioner|Patient)", "Indicates who has responsibility for the record.", 0, java.lang.Integer.MAX_VALUE, recorder));
+        childrenList.add(new Property("substance", "Reference(Substance)", "The substance that causes the sensitivity.", 0, java.lang.Integer.MAX_VALUE, substance));
+        childrenList.add(new Property("reaction", "Reference(AdverseReaction)", "Reactions associated with the sensitivity.", 0, java.lang.Integer.MAX_VALUE, reaction));
+        childrenList.add(new Property("sensitivityTest", "Reference(Observation)", "Observations that confirm or refute the sensitivity.", 0, java.lang.Integer.MAX_VALUE, sensitivityTest));
       }
 
       public AllergyIntolerance copy() {
@@ -630,11 +630,11 @@ public class AllergyIntolerance extends Resource {
         dst.subject = subject == null ? null : subject.copy();
         dst.recorder = recorder == null ? null : recorder.copy();
         dst.substance = substance == null ? null : substance.copy();
-        dst.reaction = new ArrayList<ResourceReference>();
-        for (ResourceReference i : reaction)
+        dst.reaction = new ArrayList<Reference>();
+        for (Reference i : reaction)
           dst.reaction.add(i.copy());
-        dst.sensitivityTest = new ArrayList<ResourceReference>();
-        for (ResourceReference i : sensitivityTest)
+        dst.sensitivityTest = new ArrayList<Reference>();
+        for (Reference i : sensitivityTest)
           dst.sensitivityTest.add(i.copy());
         return dst;
       }

@@ -37,7 +37,7 @@ import java.util.List;
  * Syntax for type declarations
  * 
  * typeSpec = '@' elementreference | '[param]' | 'xhtml' | 'xml:ID' | 'xml:lang'
- * 'Interval(' orderedType ')' | 'Resource(' resourceParams ')' | Resource | type
+ * 'Interval(' orderedType ')' | 'Reference(' resourceParams ')' | Resource | type
  * ('|' type)* | '*'
  * 
  * resourceParams = resourceType ('|' resourceType)* | Any 
@@ -120,14 +120,14 @@ public class TypeRef {
 	
 	public boolean isResourceReference()
 	{
-		// When the type is Resource(X), this is a resource reference
-		return name.equals("Resource") && !params.isEmpty();
+		// When the type is Reference(X), this is a resource reference
+		return name.equals("Reference") && !params.isEmpty();
 	}
 	
-	public boolean isContainedResource()
+	public boolean isContainedReference()
 	{
 		// When the type is Resource, it's a contained resource
-		return name.equals("Resource") && params.isEmpty();
+		return name.equals("Reference") && params.isEmpty();
 	}
 	
 
@@ -141,7 +141,7 @@ public class TypeRef {
 		return params.size() > 0;
 	}
 	
-	public boolean isAnyResource()
+	public boolean isAnyReference()
 	{
 		return  isResourceReference() && 
 				hasParams() && 
@@ -159,9 +159,9 @@ public class TypeRef {
 	
 	public boolean isSpecialType() {
 		return isIdRef() || isXhtml() || isUnboundGenericParam() || isXmlLang() 
-				|| isWildcardType() || name.equals("Type") || name.equals("Narrative")
+				|| isWildcardType() || name.equals("Type") || name.equals("Narrative") || name.equals("Resource")
 				|| name.equals("SharedDefinition") || isResourceReference() || name.equals("Structure") ||
-				isContainedResource() || isExtension();
+				isContainedReference() || isExtension();
 	}
 
   public String summary() {

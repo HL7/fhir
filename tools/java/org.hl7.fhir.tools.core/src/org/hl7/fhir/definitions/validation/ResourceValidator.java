@@ -95,7 +95,7 @@ public class ResourceValidator extends BaseValidator {
 	// this.conceptDomains = conceptDomains;
 	// }
 	//
-	// public void defineResource(String name) {
+	// public void defineReference(String name) {
 	// this.resources.add(name);
 	// }
 	//
@@ -144,9 +144,9 @@ public class ResourceValidator extends BaseValidator {
     }
     rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("text") == null, "Element named \"text\" not allowed");
     rule(errors, "structure", parent.getName(), parent.getRoot().getElementByName("contained") == null, "Element named \"contained\" not allowed");
-    if (parent.getRoot().getElementByName("subject") != null && parent.getRoot().getElementByName("subject").typeCode().startsWith("Resource"))
+    if (parent.getRoot().getElementByName("subject") != null && parent.getRoot().getElementByName("subject").typeCode().startsWith("Reference"))
       rule(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
-    if (parent.getRoot().getElementByName("patient") != null && parent.getRoot().getElementByName("patient").typeCode().startsWith("Resource"))
+    if (parent.getRoot().getElementByName("patient") != null && parent.getRoot().getElementByName("patient").typeCode().startsWith("Reference"))
       rule(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("patient"), "A resource that contains a patient reference must have a search parameter 'patient'");
     for (org.hl7.fhir.definitions.model.SearchParameter p : parent.getSearchParams().values()) {
       if (!usages.containsKey(p.getCode()))
@@ -433,7 +433,7 @@ public class ResourceValidator extends BaseValidator {
                 for (String p : t.getParams()) {
                   rule(errors, "structure", path,
                       p.equals("Any")
-                      || definitions.hasResource(p),
+                      || definitions.hasReference(p),
                       "Unknown resource type " + p);
                 }
               }

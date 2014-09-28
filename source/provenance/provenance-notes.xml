@@ -27,7 +27,7 @@ The provenance resource includes an integritySignature element which contains
 an <a href="http://www.w3.org/TR/xmldsig-core/">XML digital signature</a>. 
 </p>
 <p>
-The purpose of the signature is limited to checking cryptographic integrity of the target resource(s); 
+The purpose of the signature is limited to checking cryptographic integrity of the target Reference(s); 
 e.g. detecting whether changes have occurred between the original construction of the resource and the application
 processing it. In order to make proper use of the signature element, 
 implementation profiles are required to further clarify the obligations 

@@ -345,7 +345,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Patient)</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(Patient)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1099,7 +1099,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">FamilyHistory.relation</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Observation)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(Observation)</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Genetic markers, ethnicity, etc.</Data></Cell>

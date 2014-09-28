@@ -273,7 +273,7 @@
     <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Resource(Provenance)</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Reference(Provenance)</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Most recent change</Data></Cell>

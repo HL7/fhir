@@ -134,7 +134,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">Patient resource corresponds to the subject</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Patient resource corresponds to the subject</Data></Cell>
     <Cell ss:StyleID="Default"/>

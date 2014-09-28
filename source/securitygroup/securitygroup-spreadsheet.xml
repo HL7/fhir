@@ -114,7 +114,7 @@
         x:Family="Swiss" html:Size="8" html:Color="#000000">x pixels;y pixels</Font></ss:Data></Comment></Cell>
     <Cell><Data ss:Type="String">Type</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">datatype | Resource(Resource1 | Resource2) | Any</Font></ss:Data></Comment></Cell>
+        x:Family="Swiss" html:Size="8" html:Color="#000000">datatype | Reference(Resource1 | Resource2) | Any</Font></ss:Data></Comment></Cell>
     <Cell><Data ss:Type="String">Binding</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">BindingName from Bindings tab</Font></ss:Data></Comment></Cell>
@@ -240,7 +240,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!SecurityGroup.group</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(SecurityGroup)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(SecurityGroup)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Other groups this group gets claims from </Data></Cell>
     <Cell><Data ss:Type="String">Other groups this group gets claims from </Data></Cell>
    </Row>

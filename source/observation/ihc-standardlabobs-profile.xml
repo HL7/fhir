@@ -125,10 +125,10 @@
 					<binding>
 						<name value="CEM_Ordinal_And_Abnormal"/>
 						<isExtensible value="false"/>
-						<referenceResource>
+						<referenceReference>
 							<reference value="ValueSet/Ordinal-Abnormal-Union"/>
 							<!-- todo: make this, and do the code mappings -->
-						</referenceResource>
+						</referenceReference>
 					</binding>
 					<mapping>
 						<identity value="cdl.key"/>
@@ -183,10 +183,10 @@
 					<binding>
 						<name value="ResultStatus_VALUESET_ECID"/>
 						<isExtensible value="false"/>
-						<referenceResource>
+						<referenceReference>
 							<reference value="ValueSet/ResultStatus_VALUESET_ECID"/>
 							<!-- todo: check this, and do the code mappings -->
-						</referenceResource>
+						</referenceReference>
 					</binding>
 					<mapping>
 						<identity value="cdl.key"/>
@@ -238,7 +238,7 @@
 				<path value="Observation.specimen"/>
 				<definition>
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="#Specimen"/>
 						<aggregation value="contained"/>
 						<!-- since all we have is 2 dates, this is contained -->
@@ -265,7 +265,7 @@
 					<max value="*"/>
 					<!-- strictly, this isn't something we needed to say, but a reader might overlook this -->
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="#ResponsibleObserver"/>
 						<!-- <aggregation value="referenced"/>  we may or may not have an identifier for this, so we can't say whether it has to be contained or not -->
 					</type>
@@ -283,7 +283,7 @@
 					<max value="1"/>
 					<!-- only one of these -->
 					<type>
-						<code value="ResourceReference"/>
+						<code value="Reference"/>
 						<profile value="#PerformingLaboratory"/>
 						<!-- <aggregation value="referenced"/>  we may or may not have an identifier for this, so we can't say whether it has to be contained or not -->
 					</type>
@@ -503,9 +503,9 @@
 				<binding>
 					<name value="ReportingPriority_VALUESET_ECID"/>
 					<isExtensible value="false"/>
-					<referenceResource>
+					<referenceReference>
 						<reference value="ValueSet/ReportingPriority_VALUESET_ECID"/>
-					</referenceResource>
+					</referenceReference>
 				</binding>
 				<mapping>
 					<identity value="cdl.key"/>
@@ -532,9 +532,9 @@
 				<binding>
 					<name value="DeltaFlag_VALUESET_ECID"/>
 					<isExtensible value="false"/>
-					<referenceResource>
+					<referenceReference>
 						<reference value="ValueSet/DeltaFlag_VALUESET_ECID"/>
-					</referenceResource>
+					</referenceReference>
 				</binding>
 				<mapping>
 					<identity value="cdl.key"/>

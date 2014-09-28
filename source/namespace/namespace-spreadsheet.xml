@@ -298,7 +298,7 @@
     <Cell><Data ss:Type="String">Namespace.replacedBy</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Namespace)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Namespace)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Use this instead</Data></Cell>
     <Cell><Data ss:Type="String">For namespaces that are retired, indicates the namespace that should be used in their place (if any)</Data></Cell>
    </Row>

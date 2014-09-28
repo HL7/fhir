@@ -255,7 +255,7 @@ public class EMFStructureGenerator extends EMFBase {
 //				field.addProperty("type", "List<"+root.getName()+">");
 //			else {
 //			  field.addProperty("type", "List<"+tn+">");
-////	      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {
+////	      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
 ////	        List<String> params = e.getTypes().get(0).getParams();
 ////	        String rn = params.size() == 1 ? params.get(0) : "Resource";
 ////	        if (rn.equals("Any"))
@@ -267,7 +267,7 @@ public class EMFStructureGenerator extends EMFBase {
 //			}
 //		} else {
 //		  field.addProperty("type", tn);
-////      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {
+////      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
 ////        List<String> params = e.getTypes().get(0).getParams();
 ////        String rn = params.size() == 1 ? params.get(0) : "Resource";
 ////        if (rn.equals("Any"))

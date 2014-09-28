@@ -148,7 +148,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A resource that describes a message that is exchanged between systems</Data></Cell>
-    <Cell><Data ss:Type="String">The header for a message exchange that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle</Data></Cell>
+    <Cell><Data ss:Type="String">The header for a message exchange that is either requesting or responding to an action.  The Reference(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle</Data></Cell>
     <Cell><Data ss:Type="String">Many implementations are not prepared to use REST and need a messaging based infrastructure</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Message</Data></Cell>
     <Cell><Data ss:Type="String">MSH / MSA / ERR</Data></Cell>
@@ -221,7 +221,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">MessageHeader.response.details</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(OperationOutcome)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(OperationOutcome)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Specific list of hints/warnings/errors</Data></Cell>
     <Cell><Data ss:Type="String">Full details of any issues found in the message</Data></Cell>
     <Cell><Data ss:Type="String">Allows the sender of the message to determine what the specific issues are</Data></Cell>
@@ -316,7 +316,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">MessageHeader.destination.target</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Device)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Device)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Particular delivery destination within the destination</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the target end system in situations where the initial message transmission is to an intermediary system.</Data></Cell>
     <Cell><Data ss:Type="String">Supports multi-hop routing</Data></Cell>
@@ -336,7 +336,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell><Data ss:Type="String">MessageHeader.enterer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The source of the data entry</Data></Cell>
     <Cell><Data ss:Type="String">The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions</Data></Cell>
     <Cell><Data ss:Type="String">Need to know for audit/traceback requirements and possibly for authorization.</Data></Cell>
@@ -347,7 +347,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="210">
     <Cell><Data ss:Type="String">MessageHeader.author</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The source of the decision</Data></Cell>
     <Cell><Data ss:Type="String">The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions</Data></Cell>
     <Cell><Data ss:Type="String">Need to know for audit/traceback requirements and possibly for authorization.</Data></Cell>
@@ -358,7 +358,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">MessageHeader.receiver</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner | Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner | Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Intended &quot;real-world&quot; recipient for the data</Data></Cell>
     <Cell><Data ss:Type="String">Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.</Data></Cell>
     <Cell><Data ss:Type="String">Allows routing beyond just the application level</Data></Cell>
@@ -369,7 +369,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="405">
     <Cell><Data ss:Type="String">MessageHeader.responsible</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner|Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Final responsibility for event</Data></Cell>
     <Cell><Data ss:Type="String">The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party</Data></Cell>
     <Cell><Data ss:Type="String">Need to know for audit/traceback requirements and possibly for authorization.</Data></Cell>
@@ -391,7 +391,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="240">
     <Cell><Data ss:Type="String">MessageHeader.data</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The actual content of the message</Data></Cell>
     <Cell><Data ss:Type="String">The actual data of the message - a reference to the root/focus class of the event. </Data></Cell>
     <Cell><Data ss:Type="String">Every message event is about actual data, a single resource, that is identified in the definition of the event, and perhaps some or all linked resources</Data></Cell>

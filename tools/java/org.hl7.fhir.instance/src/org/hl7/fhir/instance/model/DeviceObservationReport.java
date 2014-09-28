@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -174,20 +174,20 @@ public class DeviceObservationReport extends Resource {
         /**
          * The data for the metric.
          */
-        protected ResourceReference observation;
+        protected Reference observation;
 
         /**
          * The actual object that is the target of the reference (The data for the metric.)
          */
         protected Observation observationTarget;
 
-        private static final long serialVersionUID = -753705470L;
+        private static final long serialVersionUID = -1440655020L;
 
       public DeviceObservationReportVirtualDeviceChannelMetricComponent() {
         super();
       }
 
-      public DeviceObservationReportVirtualDeviceChannelMetricComponent(ResourceReference observation) {
+      public DeviceObservationReportVirtualDeviceChannelMetricComponent(Reference observation) {
         super();
         this.observation = observation;
       }
@@ -195,14 +195,14 @@ public class DeviceObservationReport extends Resource {
         /**
          * @return {@link #observation} (The data for the metric.)
          */
-        public ResourceReference getObservation() { 
+        public Reference getObservation() { 
           return this.observation;
         }
 
         /**
          * @param value {@link #observation} (The data for the metric.)
          */
-        public DeviceObservationReportVirtualDeviceChannelMetricComponent setObservation(ResourceReference value) { 
+        public DeviceObservationReportVirtualDeviceChannelMetricComponent setObservation(Reference value) { 
           this.observation = value;
           return this;
         }
@@ -224,7 +224,7 @@ public class DeviceObservationReport extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("observation", "Resource(Observation)", "The data for the metric.", 0, java.lang.Integer.MAX_VALUE, observation));
+          childrenList.add(new Property("observation", "Reference(Observation)", "The data for the metric.", 0, java.lang.Integer.MAX_VALUE, observation));
         }
 
       public DeviceObservationReportVirtualDeviceChannelMetricComponent copy() {
@@ -248,7 +248,7 @@ public class DeviceObservationReport extends Resource {
     /**
      * Identification information for the device that is the source of the data.
      */
-    protected ResourceReference source;
+    protected Reference source;
 
     /**
      * The actual object that is the target of the reference (Identification information for the device that is the source of the data.)
@@ -258,7 +258,7 @@ public class DeviceObservationReport extends Resource {
     /**
      * The subject of the measurement.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The subject of the measurement.)
@@ -270,13 +270,13 @@ public class DeviceObservationReport extends Resource {
      */
     protected List<DeviceObservationReportVirtualDeviceComponent> virtualDevice = new ArrayList<DeviceObservationReportVirtualDeviceComponent>();
 
-    private static final long serialVersionUID = -1068505466L;
+    private static final long serialVersionUID = 279528902L;
 
     public DeviceObservationReport() {
       super();
     }
 
-    public DeviceObservationReport(InstantType instant, ResourceReference source) {
+    public DeviceObservationReport(InstantType instant, Reference source) {
       super();
       this.instant = instant;
       this.source = source;
@@ -332,14 +332,14 @@ public class DeviceObservationReport extends Resource {
     /**
      * @return {@link #source} (Identification information for the device that is the source of the data.)
      */
-    public ResourceReference getSource() { 
+    public Reference getSource() { 
       return this.source;
     }
 
     /**
      * @param value {@link #source} (Identification information for the device that is the source of the data.)
      */
-    public DeviceObservationReport setSource(ResourceReference value) { 
+    public DeviceObservationReport setSource(Reference value) { 
       this.source = value;
       return this;
     }
@@ -362,14 +362,14 @@ public class DeviceObservationReport extends Resource {
     /**
      * @return {@link #subject} (The subject of the measurement.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The subject of the measurement.)
      */
-    public DeviceObservationReport setSubject(ResourceReference value) { 
+    public DeviceObservationReport setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -410,8 +410,8 @@ public class DeviceObservationReport extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("instant", "instant", "The point in time that the values are reported.", 0, java.lang.Integer.MAX_VALUE, instant));
         childrenList.add(new Property("identifier", "Identifier", "An identifier assigned to this observation bu the source device that made the observation.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("source", "Resource(Device)", "Identification information for the device that is the source of the data.", 0, java.lang.Integer.MAX_VALUE, source));
-        childrenList.add(new Property("subject", "Resource(Patient|Device|Location)", "The subject of the measurement.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("source", "Reference(Device)", "Identification information for the device that is the source of the data.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("subject", "Reference(Patient|Device|Location)", "The subject of the measurement.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("virtualDevice", "", "A medical-related subsystem of a medical device.", 0, java.lang.Integer.MAX_VALUE, virtualDevice));
       }
 

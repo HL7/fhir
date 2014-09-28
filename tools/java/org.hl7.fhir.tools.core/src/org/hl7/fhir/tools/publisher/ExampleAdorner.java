@@ -93,7 +93,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
       return null;
     if (parts[0].equals("http:") || parts[0].equals("https:"))
       return null;
-    if (!definitions.hasResource(parts[0]))
+    if (!definitions.hasReference(parts[0]))
       throw new Exception("Type unknown: "+parts[0]);
     if (parts[1].startsWith("@"))
       throw new Exception("Invalid syntax: "+parts[1]);
@@ -120,7 +120,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
       return null;
     if (parts[0].equals("http:") || parts[0].equals("https:"))
       return null;
-    if (!definitions.hasResource(parts[0]))
+    if (!definitions.hasReference(parts[0]))
       throw new Exception("Type unknown: "+parts[0]);
     return parts[0];
   }
@@ -132,14 +132,14 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         return new ExampleAdornerState(State.Unknown, null, "", "");
       else if (node.getLocalName().equals("feed"))
         return new ExampleAdornerState(State.Feed, null, "", "");
-      else if (definitions.hasResource(node.getLocalName()))
+      else if (definitions.hasReference(node.getLocalName()))
         return new ExampleAdornerState(State.Element, definitions.getResourceByName(node.getLocalName()).getRoot(), "", "");
       else 
         return new ExampleAdornerState(State.Unknown, null, "", "");
     } else {
       ExampleAdornerState s = (ExampleAdornerState) state;
       if (s.getState() == State.Feed) {
-        if (definitions.hasResource(node.getLocalName()))
+        if (definitions.hasReference(node.getLocalName()))
           return new ExampleAdornerState(State.Element, definitions.getResourceByName(node.getLocalName()).getRoot(), "", "");
         else if (node.getLocalName().equals("reference") && !node.getAttribute("value").startsWith("http://"))
           return new ExampleAdornerState(State.Feed, null, "<a name=\""+extractId(node.getAttribute("value"), null)+"\">...</a>", "");
@@ -153,7 +153,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         }
         if (e == null)
           return new ExampleAdornerState(State.Unknown, null, "", "");
-        if (!e.isBaseResourceElement() && e.typeCode().contains("Resource"))
+        if (!e.isBaseResourceElement() && e.typeCode().contains("Reference"))
           return new ExampleAdornerState(State.Reference, e, "", "");
         else
           return new ExampleAdornerState(State.Element, e, "", "");

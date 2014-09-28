@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -311,14 +311,14 @@ public class AdverseReaction extends Resource {
         /**
          * Substance that is presumed to have caused the adverse reaction.
          */
-        protected ResourceReference substance;
+        protected Reference substance;
 
         /**
          * The actual object that is the target of the reference (Substance that is presumed to have caused the adverse reaction.)
          */
         protected Substance substanceTarget;
 
-        private static final long serialVersionUID = -1829911400L;
+        private static final long serialVersionUID = 1654286186L;
 
       public AdverseReactionExposureComponent() {
         super();
@@ -435,14 +435,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return {@link #substance} (Substance that is presumed to have caused the adverse reaction.)
          */
-        public ResourceReference getSubstance() { 
+        public Reference getSubstance() { 
           return this.substance;
         }
 
         /**
          * @param value {@link #substance} (Substance that is presumed to have caused the adverse reaction.)
          */
-        public AdverseReactionExposureComponent setSubstance(ResourceReference value) { 
+        public AdverseReactionExposureComponent setSubstance(Reference value) { 
           this.substance = value;
           return this;
         }
@@ -467,7 +467,7 @@ public class AdverseReaction extends Resource {
           childrenList.add(new Property("date", "dateTime", "Identifies the initial date of the exposure that is suspected to be related to the reaction.", 0, java.lang.Integer.MAX_VALUE, date));
           childrenList.add(new Property("type", "code", "The type of exposure: Drug Administration, Immunization, Coincidental.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("causalityExpectation", "code", "A statement of how confident that the recorder was that this exposure caused the reaction.", 0, java.lang.Integer.MAX_VALUE, causalityExpectation));
-          childrenList.add(new Property("substance", "Resource(Substance)", "Substance that is presumed to have caused the adverse reaction.", 0, java.lang.Integer.MAX_VALUE, substance));
+          childrenList.add(new Property("substance", "Reference(Substance)", "Substance that is presumed to have caused the adverse reaction.", 0, java.lang.Integer.MAX_VALUE, substance));
         }
 
       public AdverseReactionExposureComponent copy() {
@@ -494,7 +494,7 @@ public class AdverseReaction extends Resource {
     /**
      * The subject of the adverse reaction.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The subject of the adverse reaction.)
@@ -509,7 +509,7 @@ public class AdverseReaction extends Resource {
     /**
      * Identifies the individual responsible for the information in the reaction record.
      */
-    protected ResourceReference recorder;
+    protected Reference recorder;
 
     /**
      * The actual object that is the target of the reference (Identifies the individual responsible for the information in the reaction record.)
@@ -526,13 +526,13 @@ public class AdverseReaction extends Resource {
      */
     protected List<AdverseReactionExposureComponent> exposure = new ArrayList<AdverseReactionExposureComponent>();
 
-    private static final long serialVersionUID = -285872214L;
+    private static final long serialVersionUID = 264165454L;
 
     public AdverseReaction() {
       super();
     }
 
-    public AdverseReaction(ResourceReference subject, BooleanType didNotOccurFlag) {
+    public AdverseReaction(Reference subject, BooleanType didNotOccurFlag) {
       super();
       this.subject = subject;
       this.didNotOccurFlag = didNotOccurFlag;
@@ -594,14 +594,14 @@ public class AdverseReaction extends Resource {
     /**
      * @return {@link #subject} (The subject of the adverse reaction.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (The subject of the adverse reaction.)
      */
-    public AdverseReaction setSubject(ResourceReference value) { 
+    public AdverseReaction setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -656,14 +656,14 @@ public class AdverseReaction extends Resource {
     /**
      * @return {@link #recorder} (Identifies the individual responsible for the information in the reaction record.)
      */
-    public ResourceReference getRecorder() { 
+    public Reference getRecorder() { 
       return this.recorder;
     }
 
     /**
      * @param value {@link #recorder} (Identifies the individual responsible for the information in the reaction record.)
      */
-    public AdverseReaction setRecorder(ResourceReference value) { 
+    public AdverseReaction setRecorder(Reference value) { 
       this.recorder = value;
       return this;
     }
@@ -721,9 +721,9 @@ public class AdverseReaction extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this reaction that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("date", "dateTime", "The date (and possibly time) when the reaction began.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("subject", "Resource(Patient)", "The subject of the adverse reaction.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient)", "The subject of the adverse reaction.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("didNotOccurFlag", "boolean", "If true, indicates that no reaction occurred.", 0, java.lang.Integer.MAX_VALUE, didNotOccurFlag));
-        childrenList.add(new Property("recorder", "Resource(Practitioner|Patient)", "Identifies the individual responsible for the information in the reaction record.", 0, java.lang.Integer.MAX_VALUE, recorder));
+        childrenList.add(new Property("recorder", "Reference(Practitioner|Patient)", "Identifies the individual responsible for the information in the reaction record.", 0, java.lang.Integer.MAX_VALUE, recorder));
         childrenList.add(new Property("symptom", "", "The signs and symptoms that were observed as part of the reaction.", 0, java.lang.Integer.MAX_VALUE, symptom));
         childrenList.add(new Property("exposure", "", "An exposure to a substance that preceded a reaction occurrence.", 0, java.lang.Integer.MAX_VALUE, exposure));
       }

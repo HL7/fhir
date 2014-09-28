@@ -313,7 +313,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Practitioner.organization</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The represented organization</Data></Cell>
     <Cell><Data ss:Type="String">The organization that the practitioner represents</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to track the represented organization separately, if any.</Data></Cell>
@@ -364,7 +364,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Practitioner.location</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The location(s) at which this practitioner provides care</Data></Cell>
     <Cell><Data ss:Type="String">The location(s) at which this practitioner provides care</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">./target[classCode=&quot;indirectAuthority].source[classCode=SDLOC]</Data></Cell>
@@ -411,7 +411,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner.qualification.issuer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Organization that regulates and issues the qualification</Data></Cell>
     <Cell><Data ss:Type="String">Organization that regulates and issues the qualification</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">./scoper</Data></Cell>

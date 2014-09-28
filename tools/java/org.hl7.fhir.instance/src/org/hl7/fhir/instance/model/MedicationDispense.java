@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -128,7 +128,7 @@ public class MedicationDispense extends Resource {
         /**
          * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
          */
-        protected ResourceReference medication;
+        protected Reference medication;
 
         /**
          * The actual object that is the target of the reference (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
@@ -148,7 +148,7 @@ public class MedicationDispense extends Resource {
         /**
          * Identification of the facility/location where the medication was shipped to, as part of the dispense event.
          */
-        protected ResourceReference destination;
+        protected Reference destination;
 
         /**
          * The actual object that is the target of the reference (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
@@ -158,7 +158,7 @@ public class MedicationDispense extends Resource {
         /**
          * Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.
          */
-        protected List<ResourceReference> receiver = new ArrayList<ResourceReference>();
+        protected List<Reference> receiver = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.)
          */
@@ -170,7 +170,7 @@ public class MedicationDispense extends Resource {
          */
         protected List<MedicationDispenseDispenseDosageComponent> dosage = new ArrayList<MedicationDispenseDispenseDosageComponent>();
 
-        private static final long serialVersionUID = -557541864L;
+        private static final long serialVersionUID = -319013324L;
 
       public MedicationDispenseDispenseComponent() {
         super();
@@ -260,14 +260,14 @@ public class MedicationDispense extends Resource {
         /**
          * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
-        public ResourceReference getMedication() { 
+        public Reference getMedication() { 
           return this.medication;
         }
 
         /**
          * @param value {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
-        public MedicationDispenseDispenseComponent setMedication(ResourceReference value) { 
+        public MedicationDispenseDispenseComponent setMedication(Reference value) { 
           this.medication = value;
           return this;
         }
@@ -362,14 +362,14 @@ public class MedicationDispense extends Resource {
         /**
          * @return {@link #destination} (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
          */
-        public ResourceReference getDestination() { 
+        public Reference getDestination() { 
           return this.destination;
         }
 
         /**
          * @param value {@link #destination} (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
          */
-        public MedicationDispenseDispenseComponent setDestination(ResourceReference value) { 
+        public MedicationDispenseDispenseComponent setDestination(Reference value) { 
           this.destination = value;
           return this;
         }
@@ -392,7 +392,7 @@ public class MedicationDispense extends Resource {
         /**
          * @return {@link #receiver} (Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.)
          */
-        public List<ResourceReference> getReceiver() { 
+        public List<Reference> getReceiver() { 
           return this.receiver;
         }
 
@@ -400,8 +400,8 @@ public class MedicationDispense extends Resource {
         /**
          * @return {@link #receiver} (Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.)
          */
-        public ResourceReference addReceiver() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addReceiver() { 
+          Reference t = new Reference();
           this.receiver.add(t);
           return t;
         }
@@ -436,11 +436,11 @@ public class MedicationDispense extends Resource {
           childrenList.add(new Property("status", "code", "A code specifying the state of the dispense event.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("quantity", "Quantity", "The amount of medication that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
+          childrenList.add(new Property("medication", "Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
           childrenList.add(new Property("whenPrepared", "dateTime", "The time when the dispensed product was packaged and reviewed.", 0, java.lang.Integer.MAX_VALUE, whenPrepared));
           childrenList.add(new Property("whenHandedOver", "dateTime", "The time the dispensed product was provided to the patient or their representative.", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));
-          childrenList.add(new Property("destination", "Resource(Location)", "Identification of the facility/location where the medication was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));
-          childrenList.add(new Property("receiver", "Resource(Patient|Practitioner)", "Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.", 0, java.lang.Integer.MAX_VALUE, receiver));
+          childrenList.add(new Property("destination", "Reference(Location)", "Identification of the facility/location where the medication was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));
+          childrenList.add(new Property("receiver", "Reference(Patient|Practitioner)", "Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.", 0, java.lang.Integer.MAX_VALUE, receiver));
           childrenList.add(new Property("dosage", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
         }
 
@@ -454,8 +454,8 @@ public class MedicationDispense extends Resource {
         dst.whenPrepared = whenPrepared == null ? null : whenPrepared.copy();
         dst.whenHandedOver = whenHandedOver == null ? null : whenHandedOver.copy();
         dst.destination = destination == null ? null : destination.copy();
-        dst.receiver = new ArrayList<ResourceReference>();
-        for (ResourceReference i : receiver)
+        dst.receiver = new ArrayList<Reference>();
+        for (Reference i : receiver)
           dst.receiver.add(i.copy());
         dst.dosage = new ArrayList<MedicationDispenseDispenseDosageComponent>();
         for (MedicationDispenseDispenseDosageComponent i : dosage)
@@ -701,14 +701,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * The person or organization that has primary responsibility for the substitution.
          */
-        protected List<ResourceReference> responsibleParty = new ArrayList<ResourceReference>();
+        protected List<Reference> responsibleParty = new ArrayList<Reference>();
         /**
          * The actual objects that are the target of the reference (The person or organization that has primary responsibility for the substitution.)
          */
         protected List<Practitioner> responsiblePartyTarget = new ArrayList<Practitioner>();
 
 
-        private static final long serialVersionUID = -1275850915L;
+        private static final long serialVersionUID = 2006573113L;
 
       public MedicationDispenseSubstitutionComponent() {
         super();
@@ -754,7 +754,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * @return {@link #responsibleParty} (The person or organization that has primary responsibility for the substitution.)
          */
-        public List<ResourceReference> getResponsibleParty() { 
+        public List<Reference> getResponsibleParty() { 
           return this.responsibleParty;
         }
 
@@ -762,8 +762,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * @return {@link #responsibleParty} (The person or organization that has primary responsibility for the substitution.)
          */
-        public ResourceReference addResponsibleParty() { 
-          ResourceReference t = new ResourceReference();
+        public Reference addResponsibleParty() { 
+          Reference t = new Reference();
           this.responsibleParty.add(t);
           return t;
         }
@@ -789,7 +789,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "A code signifying whether a different drug was dispensed from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("reason", "CodeableConcept", "Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, reason));
-          childrenList.add(new Property("responsibleParty", "Resource(Practitioner)", "The person or organization that has primary responsibility for the substitution.", 0, java.lang.Integer.MAX_VALUE, responsibleParty));
+          childrenList.add(new Property("responsibleParty", "Reference(Practitioner)", "The person or organization that has primary responsibility for the substitution.", 0, java.lang.Integer.MAX_VALUE, responsibleParty));
         }
 
       public MedicationDispenseSubstitutionComponent copy() {
@@ -798,8 +798,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         dst.reason = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : reason)
           dst.reason.add(i.copy());
-        dst.responsibleParty = new ArrayList<ResourceReference>();
-        for (ResourceReference i : responsibleParty)
+        dst.responsibleParty = new ArrayList<Reference>();
+        for (Reference i : responsibleParty)
           dst.responsibleParty.add(i.copy());
         return dst;
       }
@@ -819,7 +819,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * A link to a resource representing the person to whom the medication will be given.
      */
-    protected ResourceReference patient;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (A link to a resource representing the person to whom the medication will be given.)
@@ -829,7 +829,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * The individual responsible for dispensing the medication.
      */
-    protected ResourceReference dispenser;
+    protected Reference dispenser;
 
     /**
      * The actual object that is the target of the reference (The individual responsible for dispensing the medication.)
@@ -839,7 +839,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * Indicates the medication order that is being dispensed against.
      */
-    protected List<ResourceReference> authorizingPrescription = new ArrayList<ResourceReference>();
+    protected List<Reference> authorizingPrescription = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Indicates the medication order that is being dispensed against.)
      */
@@ -856,7 +856,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      */
     protected MedicationDispenseSubstitutionComponent substitution;
 
-    private static final long serialVersionUID = 1726669338L;
+    private static final long serialVersionUID = 889557246L;
 
     public MedicationDispense() {
       super();
@@ -916,14 +916,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
      */
-    public ResourceReference getPatient() { 
+    public Reference getPatient() { 
       return this.patient;
     }
 
     /**
      * @param value {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
      */
-    public MedicationDispense setPatient(ResourceReference value) { 
+    public MedicationDispense setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -946,14 +946,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #dispenser} (The individual responsible for dispensing the medication.)
      */
-    public ResourceReference getDispenser() { 
+    public Reference getDispenser() { 
       return this.dispenser;
     }
 
     /**
      * @param value {@link #dispenser} (The individual responsible for dispensing the medication.)
      */
-    public MedicationDispense setDispenser(ResourceReference value) { 
+    public MedicationDispense setDispenser(Reference value) { 
       this.dispenser = value;
       return this;
     }
@@ -976,7 +976,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #authorizingPrescription} (Indicates the medication order that is being dispensed against.)
      */
-    public List<ResourceReference> getAuthorizingPrescription() { 
+    public List<Reference> getAuthorizingPrescription() { 
       return this.authorizingPrescription;
     }
 
@@ -984,8 +984,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #authorizingPrescription} (Indicates the medication order that is being dispensed against.)
      */
-    public ResourceReference addAuthorizingPrescription() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addAuthorizingPrescription() { 
+      Reference t = new Reference();
       this.authorizingPrescription.add(t);
       return t;
     }
@@ -1043,9 +1043,9 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "A code specifying the state of the set of dispense events.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("dispenser", "Resource(Practitioner)", "The individual responsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, dispenser));
-        childrenList.add(new Property("authorizingPrescription", "Resource(MedicationPrescription)", "Indicates the medication order that is being dispensed against.", 0, java.lang.Integer.MAX_VALUE, authorizingPrescription));
+        childrenList.add(new Property("patient", "Reference(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("dispenser", "Reference(Practitioner)", "The individual responsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, dispenser));
+        childrenList.add(new Property("authorizingPrescription", "Reference(MedicationPrescription)", "Indicates the medication order that is being dispensed against.", 0, java.lang.Integer.MAX_VALUE, authorizingPrescription));
         childrenList.add(new Property("dispense", "", "Indicates the details of the dispense event such as the days supply and quantity of medication dispensed.", 0, java.lang.Integer.MAX_VALUE, dispense));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why.", 0, java.lang.Integer.MAX_VALUE, substitution));
       }
@@ -1056,8 +1056,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         dst.status = status == null ? null : status.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.dispenser = dispenser == null ? null : dispenser.copy();
-        dst.authorizingPrescription = new ArrayList<ResourceReference>();
-        for (ResourceReference i : authorizingPrescription)
+        dst.authorizingPrescription = new ArrayList<Reference>();
+        for (Reference i : authorizingPrescription)
           dst.authorizingPrescription.add(i.copy());
         dst.dispense = new ArrayList<MedicationDispenseDispenseComponent>();
         for (MedicationDispenseDispenseComponent i : dispense)

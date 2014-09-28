@@ -261,7 +261,7 @@
    <Row ss:Height="30">
     <Cell><Data ss:Type="String">ImagingStudy.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell><Data ss:Type="String">Who the images are of</Data></Cell>
     <Cell><Data ss:Type="String">0010/*</Data></Cell>
@@ -319,7 +319,7 @@
    <Row ss:Height="150">
     <Cell><Data ss:Type="String">ImagingStudy.order</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(DiagnosticOrder)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(DiagnosticOrder)</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell><Data ss:Type="String">Order(s) that caused this study to be performed</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">A list of the diagnostic orders that resulted in this imaging study being performed</Data></Cell>
@@ -347,7 +347,7 @@
    <Row ss:Height="75">
     <Cell><Data ss:Type="String">ImagingStudy.referrer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell><Data ss:Type="String">Referring physician (0008,0090)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0090</Data></Cell>
@@ -448,7 +448,7 @@
    <Row ss:Height="30">
     <Cell><Data ss:Type="String">ImagingStudy.interpreter</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell><Data ss:Type="String">Who interpreted images (0008,1060)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0008,1060</Data></Cell>
@@ -936,7 +936,7 @@
    <Row ss:Height="120">
     <Cell><Data ss:Type="String">ImagingStudy.series.instance.attachment</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Any)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A FHIR resource with content for this instance</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Each instance may have a url and an attachment. Both represent the same information, but using different approaches. The attachment is a reference to a FHIR resource (Media, Document, etc).</Data></Cell>
     <Cell><Data ss:Type="String">.text.binary</Data></Cell>

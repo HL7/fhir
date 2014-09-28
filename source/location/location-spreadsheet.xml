@@ -360,7 +360,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The organization that is responsible for the provisioning and upkeep of the location</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -387,7 +387,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Location.partOf</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Another Location which this Location is physically part of</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">For purposes of location, display and identification, knowing which locations are located within other locations is important</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">inboundLink[typeCode=PART].source[classCode=SDLC]</Data></Cell>

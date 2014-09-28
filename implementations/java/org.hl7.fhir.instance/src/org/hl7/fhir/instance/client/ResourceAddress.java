@@ -169,7 +169,7 @@ public class ResourceAddress {
 		return baseServiceUri.resolve(nameForClass(resourceClass) + "/_tags");
 	}
 	
-	public <T extends Resource> URI resolveGetTagsForResource(Class<T> resourceClass, String id) {
+	public <T extends Resource> URI resolveGetTagsForReference(Class<T> resourceClass, String id) {
 		return baseServiceUri.resolve(nameForClass(resourceClass) + "/" + id + "/_tags");
 	}
 	
@@ -272,11 +272,11 @@ public class ResourceAddress {
 		return buildRelativePathFromResourceType(resourceType)+ "@" + id;
 	}
 	
-	public static String buildRelativePathFromResource(Resource resource) {
+	public static String buildRelativePathFromReference(Resource resource) {
 		return buildRelativePathFromResourceType(resource.getResourceType());
 	}
 	
-	public static String buildRelativePathFromResource(Resource resource, String id) {
+	public static String buildRelativePathFromReference(Resource resource, String id) {
 		return buildRelativePathFromResourceType(resource.getResourceType(), id);
 	}
 	

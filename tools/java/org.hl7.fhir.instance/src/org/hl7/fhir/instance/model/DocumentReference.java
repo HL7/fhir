@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -155,20 +155,20 @@ public class DocumentReference extends Resource {
         /**
          * The target document of this relationship.
          */
-        protected ResourceReference target;
+        protected Reference target;
 
         /**
          * The actual object that is the target of the reference (The target document of this relationship.)
          */
         protected DocumentReference targetTarget;
 
-        private static final long serialVersionUID = -548377577L;
+        private static final long serialVersionUID = -347257495L;
 
       public DocumentReferenceRelatesToComponent() {
         super();
       }
 
-      public DocumentReferenceRelatesToComponent(Enumeration<DocumentRelationshipType> code, ResourceReference target) {
+      public DocumentReferenceRelatesToComponent(Enumeration<DocumentRelationshipType> code, Reference target) {
         super();
         this.code = code;
         this.target = target;
@@ -209,14 +209,14 @@ public class DocumentReference extends Resource {
         /**
          * @return {@link #target} (The target document of this relationship.)
          */
-        public ResourceReference getTarget() { 
+        public Reference getTarget() { 
           return this.target;
         }
 
         /**
          * @param value {@link #target} (The target document of this relationship.)
          */
-        public DocumentReferenceRelatesToComponent setTarget(ResourceReference value) { 
+        public DocumentReferenceRelatesToComponent setTarget(Reference value) { 
           this.target = value;
           return this;
         }
@@ -239,7 +239,7 @@ public class DocumentReference extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "The type of relationship that this document has with anther document.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("target", "Resource(DocumentReference)", "The target document of this relationship.", 0, java.lang.Integer.MAX_VALUE, target));
+          childrenList.add(new Property("target", "Reference(DocumentReference)", "The target document of this relationship.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       public DocumentReferenceRelatesToComponent copy() {
@@ -571,7 +571,7 @@ public class DocumentReference extends Resource {
     /**
      * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).)
@@ -591,7 +591,7 @@ public class DocumentReference extends Resource {
     /**
      * Identifies who is responsible for adding the information to the document.
      */
-    protected List<ResourceReference> author = new ArrayList<ResourceReference>();
+    protected List<Reference> author = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Identifies who is responsible for adding the information to the document.)
      */
@@ -601,7 +601,7 @@ public class DocumentReference extends Resource {
     /**
      * Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
      */
-    protected ResourceReference custodian;
+    protected Reference custodian;
 
     /**
      * The actual object that is the target of the reference (Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.)
@@ -616,7 +616,7 @@ public class DocumentReference extends Resource {
     /**
      * Which person or organization authenticates that this document is valid.
      */
-    protected ResourceReference authenticator;
+    protected Reference authenticator;
 
     /**
      * The actual object that is the target of the reference (Which person or organization authenticates that this document is valid.)
@@ -698,13 +698,13 @@ public class DocumentReference extends Resource {
      */
     protected DocumentReferenceContextComponent context;
 
-    private static final long serialVersionUID = -1872142526L;
+    private static final long serialVersionUID = 210550392L;
 
     public DocumentReference() {
       super();
     }
 
-    public DocumentReference(Identifier masterIdentifier, ResourceReference subject, CodeableConcept type, InstantType indexed, Enumeration<DocumentReferenceStatus> status, CodeType mimeType) {
+    public DocumentReference(Identifier masterIdentifier, Reference subject, CodeableConcept type, InstantType indexed, Enumeration<DocumentReferenceStatus> status, CodeType mimeType) {
       super();
       this.masterIdentifier = masterIdentifier;
       this.subject = subject;
@@ -749,14 +749,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #subject} (Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).)
      */
-    public DocumentReference setSubject(ResourceReference value) { 
+    public DocumentReference setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -809,7 +809,7 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
      */
-    public List<ResourceReference> getAuthor() { 
+    public List<Reference> getAuthor() { 
       return this.author;
     }
 
@@ -817,8 +817,8 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
      */
-    public ResourceReference addAuthor() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addAuthor() { 
+      Reference t = new Reference();
       this.author.add(t);
       return t;
     }
@@ -833,14 +833,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #custodian} (Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.)
      */
-    public ResourceReference getCustodian() { 
+    public Reference getCustodian() { 
       return this.custodian;
     }
 
     /**
      * @param value {@link #custodian} (Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.)
      */
-    public DocumentReference setCustodian(ResourceReference value) { 
+    public DocumentReference setCustodian(Reference value) { 
       this.custodian = value;
       return this;
     }
@@ -899,14 +899,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #authenticator} (Which person or organization authenticates that this document is valid.)
      */
-    public ResourceReference getAuthenticator() { 
+    public Reference getAuthenticator() { 
       return this.authenticator;
     }
 
     /**
      * @param value {@link #authenticator} (Which person or organization authenticates that this document is valid.)
      */
-    public DocumentReference setAuthenticator(ResourceReference value) { 
+    public DocumentReference setAuthenticator(Reference value) { 
       this.authenticator = value;
       return this;
     }
@@ -1358,13 +1358,13 @@ public class DocumentReference extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("masterIdentifier", "Identifier", "Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.", 0, java.lang.Integer.MAX_VALUE, masterIdentifier));
         childrenList.add(new Property("identifier", "Identifier", "Other identifiers associated with the document, including version independent, source record and workflow related identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Resource(Patient|Practitioner|Group|Device)", "Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device)", "Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("type", "CodeableConcept", "Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("class", "CodeableConcept", "A categorization for the type of the document. This may be implied by or derived from the code specified in the Document Type.", 0, java.lang.Integer.MAX_VALUE, class_));
-        childrenList.add(new Property("author", "Resource(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for adding the information to the document.", 0, java.lang.Integer.MAX_VALUE, author));
-        childrenList.add(new Property("custodian", "Resource(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.", 0, java.lang.Integer.MAX_VALUE, custodian));
+        childrenList.add(new Property("author", "Reference(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for adding the information to the document.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("custodian", "Reference(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.", 0, java.lang.Integer.MAX_VALUE, custodian));
         childrenList.add(new Property("policyManager", "uri", "A reference to a domain or server that manages policies under which the document is accessed and/or made available.", 0, java.lang.Integer.MAX_VALUE, policyManager));
-        childrenList.add(new Property("authenticator", "Resource(Practitioner|Organization)", "Which person or organization authenticates that this document is valid.", 0, java.lang.Integer.MAX_VALUE, authenticator));
+        childrenList.add(new Property("authenticator", "Reference(Practitioner|Organization)", "Which person or organization authenticates that this document is valid.", 0, java.lang.Integer.MAX_VALUE, authenticator));
         childrenList.add(new Property("created", "dateTime", "When the document was created.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("indexed", "instant", "When the document reference was created.", 0, java.lang.Integer.MAX_VALUE, indexed));
         childrenList.add(new Property("status", "code", "The status of this document reference.", 0, java.lang.Integer.MAX_VALUE, status));
@@ -1391,8 +1391,8 @@ public class DocumentReference extends Resource {
         dst.subject = subject == null ? null : subject.copy();
         dst.type = type == null ? null : type.copy();
         dst.class_ = class_ == null ? null : class_.copy();
-        dst.author = new ArrayList<ResourceReference>();
-        for (ResourceReference i : author)
+        dst.author = new ArrayList<Reference>();
+        for (Reference i : author)
           dst.author.add(i.copy());
         dst.custodian = custodian == null ? null : custodian.copy();
         dst.policyManager = policyManager == null ? null : policyManager.copy();

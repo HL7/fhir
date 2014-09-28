@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -111,7 +111,7 @@ public class Media extends Resource {
     /**
      * Who/What this Media is a record of.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (Who/What this Media is a record of.)
@@ -121,7 +121,7 @@ public class Media extends Resource {
     /**
      * The person who administered the collection of the image.
      */
-    protected ResourceReference operator;
+    protected Reference operator;
 
     /**
      * The actual object that is the target of the reference (The person who administered the collection of the image.)
@@ -163,7 +163,7 @@ public class Media extends Resource {
      */
     protected Attachment content;
 
-    private static final long serialVersionUID = 633107111L;
+    private static final long serialVersionUID = -539142937L;
 
     public Media() {
       super();
@@ -278,14 +278,14 @@ public class Media extends Resource {
     /**
      * @return {@link #subject} (Who/What this Media is a record of.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (Who/What this Media is a record of.)
      */
-    public Media setSubject(ResourceReference value) { 
+    public Media setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -308,14 +308,14 @@ public class Media extends Resource {
     /**
      * @return {@link #operator} (The person who administered the collection of the image.)
      */
-    public ResourceReference getOperator() { 
+    public Reference getOperator() { 
       return this.operator;
     }
 
     /**
      * @param value {@link #operator} (The person who administered the collection of the image.)
      */
-    public Media setOperator(ResourceReference value) { 
+    public Media setOperator(Reference value) { 
       this.operator = value;
       return this;
     }
@@ -551,8 +551,8 @@ public class Media extends Resource {
         childrenList.add(new Property("subtype", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, java.lang.Integer.MAX_VALUE, subtype));
         childrenList.add(new Property("identifier", "Identifier", "Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("dateTime", "dateTime", "When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.", 0, java.lang.Integer.MAX_VALUE, dateTime));
-        childrenList.add(new Property("subject", "Resource(Patient|Practitioner|Group|Device|Specimen)", "Who/What this Media is a record of.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("operator", "Resource(Practitioner)", "The person who administered the collection of the image.", 0, java.lang.Integer.MAX_VALUE, operator));
+        childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device|Specimen)", "Who/What this Media is a record of.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("operator", "Reference(Practitioner)", "The person who administered the collection of the image.", 0, java.lang.Integer.MAX_VALUE, operator));
         childrenList.add(new Property("view", "CodeableConcept", "The name of the imaging view e.g Lateral or Antero-posterior (AP).", 0, java.lang.Integer.MAX_VALUE, view));
         childrenList.add(new Property("deviceName", "string", "The name of the device / manufacturer of the device  that was used to make the recording.", 0, java.lang.Integer.MAX_VALUE, deviceName));
         childrenList.add(new Property("height", "integer", "Height of the image in pixels(photo/video).", 0, java.lang.Integer.MAX_VALUE, height));

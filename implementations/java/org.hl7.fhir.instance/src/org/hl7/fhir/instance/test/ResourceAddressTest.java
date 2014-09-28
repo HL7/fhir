@@ -99,16 +99,16 @@ public class ResourceAddressTest {
 	}
 	
 	@Test
-	public void buildRelativePathFromResource() {
+	public void buildRelativePathFromReference() {
 		Patient patient = new Patient();
-		String path = ResourceAddress.buildRelativePathFromResource(patient);
+		String path = ResourceAddress.buildRelativePathFromReference(patient);
 		assertEquals("patient/",path);
 	}
 	
 	@Test
 	public void buildRelativePathFromResourceWithId() {
 		Patient patient = new Patient();
-		String path = ResourceAddress.buildRelativePathFromResource(patient,"23");
+		String path = ResourceAddress.buildRelativePathFromReference(patient,"23");
 		assertEquals("patient/@23",path);
 	}
 	

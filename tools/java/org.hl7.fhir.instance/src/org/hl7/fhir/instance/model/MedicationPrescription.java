@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -381,7 +381,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
          */
-        protected ResourceReference medication;
+        protected Reference medication;
 
         /**
          * The actual object that is the target of the reference (Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
@@ -412,7 +412,7 @@ In some situations, this attribute may be used instead of quantity to identify t
          */
         protected Duration expectedSupplyDuration;
 
-        private static final long serialVersionUID = 1342523350L;
+        private static final long serialVersionUID = -492174040L;
 
       public MedicationPrescriptionDispenseComponent() {
         super();
@@ -421,14 +421,14 @@ In some situations, this attribute may be used instead of quantity to identify t
         /**
          * @return {@link #medication} (Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
-        public ResourceReference getMedication() { 
+        public Reference getMedication() { 
           return this.medication;
         }
 
         /**
          * @param value {@link #medication} (Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
-        public MedicationPrescriptionDispenseComponent setMedication(ResourceReference value) { 
+        public MedicationPrescriptionDispenseComponent setMedication(Reference value) { 
           this.medication = value;
           return this;
         }
@@ -541,7 +541,7 @@ In some situations, this attribute may be used instead of quantity to identify t
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
+          childrenList.add(new Property("medication", "Reference(Medication)", "Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
           childrenList.add(new Property("validityPeriod", "Period", "Design Comments: This indicates the validity period of a prescription (stale dating the Prescription) \nIt reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. \nRationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.", 0, java.lang.Integer.MAX_VALUE, validityPeriod));
           childrenList.add(new Property("numberOfRepeatsAllowed", "integer", "An integer indicating the number of repeats of the Dispense. \nUsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.", 0, java.lang.Integer.MAX_VALUE, numberOfRepeatsAllowed));
           childrenList.add(new Property("quantity", "Quantity", "The amount that is to be dispensed.", 0, java.lang.Integer.MAX_VALUE, quantity));
@@ -645,7 +645,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * A link to a resource representing the person to whom the medication will be given.
      */
-    protected ResourceReference patient;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (A link to a resource representing the person to whom the medication will be given.)
@@ -655,7 +655,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * The healthcare professional responsible for authorizing the prescription.
      */
-    protected ResourceReference prescriber;
+    protected Reference prescriber;
 
     /**
      * The actual object that is the target of the reference (The healthcare professional responsible for authorizing the prescription.)
@@ -665,7 +665,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
      */
-    protected ResourceReference encounter;
+    protected Reference encounter;
 
     /**
      * The actual object that is the target of the reference (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
@@ -680,7 +680,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    protected ResourceReference medication;
+    protected Reference medication;
 
     /**
      * The actual object that is the target of the reference (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
@@ -702,7 +702,7 @@ In some situations, this attribute may be used instead of quantity to identify t
      */
     protected MedicationPrescriptionSubstitutionComponent substitution;
 
-    private static final long serialVersionUID = 1303224135L;
+    private static final long serialVersionUID = 1111162183L;
 
     public MedicationPrescription() {
       super();
@@ -800,14 +800,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
      */
-    public ResourceReference getPatient() { 
+    public Reference getPatient() { 
       return this.patient;
     }
 
     /**
      * @param value {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
      */
-    public MedicationPrescription setPatient(ResourceReference value) { 
+    public MedicationPrescription setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -830,14 +830,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return {@link #prescriber} (The healthcare professional responsible for authorizing the prescription.)
      */
-    public ResourceReference getPrescriber() { 
+    public Reference getPrescriber() { 
       return this.prescriber;
     }
 
     /**
      * @param value {@link #prescriber} (The healthcare professional responsible for authorizing the prescription.)
      */
-    public MedicationPrescription setPrescriber(ResourceReference value) { 
+    public MedicationPrescription setPrescriber(Reference value) { 
       this.prescriber = value;
       return this;
     }
@@ -860,14 +860,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return {@link #encounter} (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
      */
-    public ResourceReference getEncounter() { 
+    public Reference getEncounter() { 
       return this.encounter;
     }
 
     /**
      * @param value {@link #encounter} (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
      */
-    public MedicationPrescription setEncounter(ResourceReference value) { 
+    public MedicationPrescription setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -905,14 +905,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public ResourceReference getMedication() { 
+    public Reference getMedication() { 
       return this.medication;
     }
 
     /**
      * @param value {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public MedicationPrescription setMedication(ResourceReference value) { 
+    public MedicationPrescription setMedication(Reference value) { 
       this.medication = value;
       return this;
     }
@@ -984,11 +984,11 @@ In some situations, this attribute may be used instead of quantity to identify t
         childrenList.add(new Property("identifier", "Identifier", "External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("dateWritten", "dateTime", "The date (and perhaps time) when the prescription was written.", 0, java.lang.Integer.MAX_VALUE, dateWritten));
         childrenList.add(new Property("status", "code", "A code specifying the state of the order.  Generally this will be active or completed state.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("prescriber", "Resource(Practitioner)", "The healthcare professional responsible for authorizing the prescription.", 0, java.lang.Integer.MAX_VALUE, prescriber));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("reason[x]", "CodeableConcept|Resource(Condition)", "Can be the reason or the indication for writing the prescription.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
+        childrenList.add(new Property("patient", "Reference(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("prescriber", "Reference(Practitioner)", "The healthcare professional responsible for authorizing the prescription.", 0, java.lang.Integer.MAX_VALUE, prescriber));
+        childrenList.add(new Property("encounter", "Reference(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Condition)", "Can be the reason or the indication for writing the prescription.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("medication", "Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("dosageInstruction", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("dispense", "", "Deals with details of the dispense part of the order.", 0, java.lang.Integer.MAX_VALUE, dispense));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, java.lang.Integer.MAX_VALUE, substitution));

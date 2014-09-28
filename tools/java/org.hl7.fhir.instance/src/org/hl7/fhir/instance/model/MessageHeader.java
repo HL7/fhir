@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
 /**
- * The header for a message exchange that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
+ * The header for a message exchange that is either requesting or responding to an action.  The Reference(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
  */
 public class MessageHeader extends Resource {
 
@@ -102,14 +102,14 @@ public class MessageHeader extends Resource {
         /**
          * Full details of any issues found in the message.
          */
-        protected ResourceReference details;
+        protected Reference details;
 
         /**
          * The actual object that is the target of the reference (Full details of any issues found in the message.)
          */
         protected OperationOutcome detailsTarget;
 
-        private static final long serialVersionUID = -1631054369L;
+        private static final long serialVersionUID = 1419103693L;
 
       public MessageHeaderResponseComponent() {
         super();
@@ -188,14 +188,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #details} (Full details of any issues found in the message.)
          */
-        public ResourceReference getDetails() { 
+        public Reference getDetails() { 
           return this.details;
         }
 
         /**
          * @param value {@link #details} (Full details of any issues found in the message.)
          */
-        public MessageHeaderResponseComponent setDetails(ResourceReference value) { 
+        public MessageHeaderResponseComponent setDetails(Reference value) { 
           this.details = value;
           return this;
         }
@@ -219,7 +219,7 @@ public class MessageHeader extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "id", "The id of the message that this message is a response to.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("code", "code", "Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("details", "Resource(OperationOutcome)", "Full details of any issues found in the message.", 0, java.lang.Integer.MAX_VALUE, details));
+          childrenList.add(new Property("details", "Reference(OperationOutcome)", "Full details of any issues found in the message.", 0, java.lang.Integer.MAX_VALUE, details));
         }
 
       public MessageHeaderResponseComponent copy() {
@@ -451,7 +451,7 @@ public class MessageHeader extends Resource {
         /**
          * Identifies the target end system in situations where the initial message transmission is to an intermediary system.
          */
-        protected ResourceReference target;
+        protected Reference target;
 
         /**
          * The actual object that is the target of the reference (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
@@ -463,7 +463,7 @@ public class MessageHeader extends Resource {
          */
         protected UriType endpoint;
 
-        private static final long serialVersionUID = 1209429009L;
+        private static final long serialVersionUID = -2097633309L;
 
       public MessageDestinationComponent() {
         super();
@@ -513,14 +513,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #target} (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
          */
-        public ResourceReference getTarget() { 
+        public Reference getTarget() { 
           return this.target;
         }
 
         /**
          * @param value {@link #target} (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
          */
-        public MessageDestinationComponent setTarget(ResourceReference value) { 
+        public MessageDestinationComponent setTarget(Reference value) { 
           this.target = value;
           return this;
         }
@@ -575,7 +575,7 @@ public class MessageHeader extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "Human-readable name for the source system.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("target", "Resource(Device)", "Identifies the target end system in situations where the initial message transmission is to an intermediary system.", 0, java.lang.Integer.MAX_VALUE, target));
+          childrenList.add(new Property("target", "Reference(Device)", "Identifies the target end system in situations where the initial message transmission is to an intermediary system.", 0, java.lang.Integer.MAX_VALUE, target));
           childrenList.add(new Property("endpoint", "uri", "Indicates where the message should be routed to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 
@@ -622,7 +622,7 @@ public class MessageHeader extends Resource {
     /**
      * The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.
      */
-    protected ResourceReference enterer;
+    protected Reference enterer;
 
     /**
      * The actual object that is the target of the reference (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
@@ -632,7 +632,7 @@ public class MessageHeader extends Resource {
     /**
      * The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.
      */
-    protected ResourceReference author;
+    protected Reference author;
 
     /**
      * The actual object that is the target of the reference (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
@@ -642,7 +642,7 @@ public class MessageHeader extends Resource {
     /**
      * Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.
      */
-    protected ResourceReference receiver;
+    protected Reference receiver;
 
     /**
      * The actual object that is the target of the reference (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
@@ -652,7 +652,7 @@ public class MessageHeader extends Resource {
     /**
      * The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.
      */
-    protected ResourceReference responsible;
+    protected Reference responsible;
 
     /**
      * The actual object that is the target of the reference (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
@@ -667,14 +667,14 @@ public class MessageHeader extends Resource {
     /**
      * The actual data of the message - a reference to the root/focus class of the event.
      */
-    protected List<ResourceReference> data = new ArrayList<ResourceReference>();
+    protected List<Reference> data = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (The actual data of the message - a reference to the root/focus class of the event.)
      */
     protected List<Resource> dataTarget = new ArrayList<Resource>();
 
 
-    private static final long serialVersionUID = 75462059L;
+    private static final long serialVersionUID = -286667385L;
 
     public MessageHeader() {
       super();
@@ -817,14 +817,14 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #enterer} (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
      */
-    public ResourceReference getEnterer() { 
+    public Reference getEnterer() { 
       return this.enterer;
     }
 
     /**
      * @param value {@link #enterer} (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
      */
-    public MessageHeader setEnterer(ResourceReference value) { 
+    public MessageHeader setEnterer(Reference value) { 
       this.enterer = value;
       return this;
     }
@@ -847,14 +847,14 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
-    public ResourceReference getAuthor() { 
+    public Reference getAuthor() { 
       return this.author;
     }
 
     /**
      * @param value {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
-    public MessageHeader setAuthor(ResourceReference value) { 
+    public MessageHeader setAuthor(Reference value) { 
       this.author = value;
       return this;
     }
@@ -877,14 +877,14 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #receiver} (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
      */
-    public ResourceReference getReceiver() { 
+    public Reference getReceiver() { 
       return this.receiver;
     }
 
     /**
      * @param value {@link #receiver} (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
      */
-    public MessageHeader setReceiver(ResourceReference value) { 
+    public MessageHeader setReceiver(Reference value) { 
       this.receiver = value;
       return this;
     }
@@ -907,14 +907,14 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
-    public ResourceReference getResponsible() { 
+    public Reference getResponsible() { 
       return this.responsible;
     }
 
     /**
      * @param value {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
-    public MessageHeader setResponsible(ResourceReference value) { 
+    public MessageHeader setResponsible(Reference value) { 
       this.responsible = value;
       return this;
     }
@@ -952,7 +952,7 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #data} (The actual data of the message - a reference to the root/focus class of the event.)
      */
-    public List<ResourceReference> getData() { 
+    public List<Reference> getData() { 
       return this.data;
     }
 
@@ -960,8 +960,8 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #data} (The actual data of the message - a reference to the root/focus class of the event.)
      */
-    public ResourceReference addData() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addData() { 
+      Reference t = new Reference();
       this.data.add(t);
       return t;
     }
@@ -981,12 +981,12 @@ public class MessageHeader extends Resource {
         childrenList.add(new Property("response", "", "Information about the message that this message is a response to.  Only present if this message is a response.", 0, java.lang.Integer.MAX_VALUE, response));
         childrenList.add(new Property("source", "", "The source application from which this message originated.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("destination", "", "The destination application which the message is intended for.", 0, java.lang.Integer.MAX_VALUE, destination));
-        childrenList.add(new Property("enterer", "Resource(Practitioner)", "The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.", 0, java.lang.Integer.MAX_VALUE, enterer));
-        childrenList.add(new Property("author", "Resource(Practitioner)", "The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.", 0, java.lang.Integer.MAX_VALUE, author));
-        childrenList.add(new Property("receiver", "Resource(Practitioner|Organization)", "Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.", 0, java.lang.Integer.MAX_VALUE, receiver));
-        childrenList.add(new Property("responsible", "Resource(Practitioner|Organization)", "The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.", 0, java.lang.Integer.MAX_VALUE, responsible));
+        childrenList.add(new Property("enterer", "Reference(Practitioner)", "The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.", 0, java.lang.Integer.MAX_VALUE, enterer));
+        childrenList.add(new Property("author", "Reference(Practitioner)", "The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("receiver", "Reference(Practitioner|Organization)", "Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.", 0, java.lang.Integer.MAX_VALUE, receiver));
+        childrenList.add(new Property("responsible", "Reference(Practitioner|Organization)", "The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.", 0, java.lang.Integer.MAX_VALUE, responsible));
         childrenList.add(new Property("reason", "CodeableConcept", "Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("data", "Resource(Any)", "The actual data of the message - a reference to the root/focus class of the event.", 0, java.lang.Integer.MAX_VALUE, data));
+        childrenList.add(new Property("data", "Reference(Any)", "The actual data of the message - a reference to the root/focus class of the event.", 0, java.lang.Integer.MAX_VALUE, data));
       }
 
       public MessageHeader copy() {
@@ -1004,8 +1004,8 @@ public class MessageHeader extends Resource {
         dst.receiver = receiver == null ? null : receiver.copy();
         dst.responsible = responsible == null ? null : responsible.copy();
         dst.reason = reason == null ? null : reason.copy();
-        dst.data = new ArrayList<ResourceReference>();
-        for (ResourceReference i : data)
+        dst.data = new ArrayList<Reference>();
+        for (Reference i : data)
           dst.data.add(i.copy());
         return dst;
       }

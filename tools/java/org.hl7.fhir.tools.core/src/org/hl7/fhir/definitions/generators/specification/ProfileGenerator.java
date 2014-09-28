@@ -561,22 +561,22 @@ public class ProfileGenerator {
     case Unbound: return null;
     case CodeList:
       if (src.getReference().startsWith("#"))
-        return Factory.makeResourceReference("http://hl7.org/fhir/vs/"+src.getReference().substring(1));
+        return Factory.makeReference("http://hl7.org/fhir/vs/"+src.getReference().substring(1));
       else
         throw new Exception("not done yet");
     case ValueSet: 
       if (!Utilities.noString(src.getReference()))
         if (src.getReference().startsWith("http"))
-          return Factory.makeResourceReference(src.getReference());
+          return Factory.makeReference(src.getReference());
         else if (src.getReference().startsWith("valueset-"))
-          return Factory.makeResourceReference("http://hl7.org/fhir/vs/"+src.getReference().substring(9));
+          return Factory.makeReference("http://hl7.org/fhir/vs/"+src.getReference().substring(9));
         else
-          return Factory.makeResourceReference("http://hl7.org/fhir/vs/"+src.getReference());
+          return Factory.makeReference("http://hl7.org/fhir/vs/"+src.getReference());
       else
         return null; // throw new Exception("not done yet");
     case Reference: return Factory.newUri(src.getReference());
     case Special: 
-      return Factory.makeResourceReference("http://hl7.org/fhir/vs/"+src.getReference().substring(1));
+      return Factory.makeReference("http://hl7.org/fhir/vs/"+src.getReference().substring(1));
     default: 
       throw new Exception("not done yet");
     }
@@ -737,20 +737,17 @@ public class ProfileGenerator {
         if (e.getTypes().size() != 1)
           throw new Exception("mismatched type count for path " + path + " in profile " + p.getNameSimple());
         TypeRefComponent type = new Profile.TypeRefComponent();
-        if (e.getTypes().get(0).getName().equals("Resource"))
-          type.setCodeSimple("ResourceReference");
-        else
-          type.setCodeSimple(e.getTypes().get(0).getName());
+        type.setCodeSimple(e.getTypes().get(0).getName());
         type.setProfileSimple(e.getTypes().get(0).getProfile());
         ce.getDefinition().getType().add(type);
       } else {
         for (TypeRef t : e.getTypes())  {
-          // If this is Resource(A|B|C), duplicate the ResourceReference for each
-          if(t.hasParams() && "Resource".equals(t.getName()))
+          // If this is Reference(A|B|C), duplicate the ResourceReference for each
+          if(t.hasParams() && "Reference".equals(t.getName()))
           {
             for(String param : t.getParams()) {    
               TypeRefComponent type = new Profile.TypeRefComponent();
-              type.setCodeSimple("ResourceReference");
+              type.setCodeSimple("Reference");
               if (param.startsWith("http:"))
                 type.setProfileSimple(param);
               else 
@@ -820,9 +817,9 @@ public class ProfileGenerator {
         makeExtensionSlice("modifierExtension", pd, p, c, e, path);
 
         if (!path.contains(".")) {
-          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("language")));
-          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("text")));
-          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("contained")));
+          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseReference().getRoot().getElementByName("language")));
+          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseReference().getRoot().getElementByName("text")));
+          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseReference().getRoot().getElementByName("contained")));
         }
       }
     }
@@ -895,7 +892,7 @@ public class ProfileGenerator {
   }
 
   private void makeExtensionSlice(String extensionName, ProfileDefn pd, Profile p, ConstraintComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
-      ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName(extensionName));
+      ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseReference().getRoot().getElementByName(extensionName));
       c.getElement().add(ex);
   }
   

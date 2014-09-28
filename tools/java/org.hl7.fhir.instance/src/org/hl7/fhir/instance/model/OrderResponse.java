@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -144,7 +144,7 @@ public class OrderResponse extends Resource {
     /**
      * A reference to the order that this is in response to.
      */
-    protected ResourceReference request;
+    protected Reference request;
 
     /**
      * The actual object that is the target of the reference (A reference to the order that this is in response to.)
@@ -159,7 +159,7 @@ public class OrderResponse extends Resource {
     /**
      * The person, organization, or device credited with making the response.
      */
-    protected ResourceReference who;
+    protected Reference who;
 
     /**
      * The actual object that is the target of the reference (The person, organization, or device credited with making the response.)
@@ -184,20 +184,20 @@ public class OrderResponse extends Resource {
     /**
      * Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.
      */
-    protected List<ResourceReference> fulfillment = new ArrayList<ResourceReference>();
+    protected List<Reference> fulfillment = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
      */
     protected List<Resource> fulfillmentTarget = new ArrayList<Resource>();
 
 
-    private static final long serialVersionUID = 1422952117L;
+    private static final long serialVersionUID = 499827481L;
 
     public OrderResponse() {
       super();
     }
 
-    public OrderResponse(ResourceReference request, Enumeration<OrderOutcomeCode> code) {
+    public OrderResponse(Reference request, Enumeration<OrderOutcomeCode> code) {
       super();
       this.request = request;
       this.code = code;
@@ -223,14 +223,14 @@ public class OrderResponse extends Resource {
     /**
      * @return {@link #request} (A reference to the order that this is in response to.)
      */
-    public ResourceReference getRequest() { 
+    public Reference getRequest() { 
       return this.request;
     }
 
     /**
      * @param value {@link #request} (A reference to the order that this is in response to.)
      */
-    public OrderResponse setRequest(ResourceReference value) { 
+    public OrderResponse setRequest(Reference value) { 
       this.request = value;
       return this;
     }
@@ -289,14 +289,14 @@ public class OrderResponse extends Resource {
     /**
      * @return {@link #who} (The person, organization, or device credited with making the response.)
      */
-    public ResourceReference getWho() { 
+    public Reference getWho() { 
       return this.who;
     }
 
     /**
      * @param value {@link #who} (The person, organization, or device credited with making the response.)
      */
-    public OrderResponse setWho(ResourceReference value) { 
+    public OrderResponse setWho(Reference value) { 
       this.who = value;
       return this;
     }
@@ -402,7 +402,7 @@ public class OrderResponse extends Resource {
     /**
      * @return {@link #fulfillment} (Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
      */
-    public List<ResourceReference> getFulfillment() { 
+    public List<Reference> getFulfillment() { 
       return this.fulfillment;
     }
 
@@ -410,8 +410,8 @@ public class OrderResponse extends Resource {
     /**
      * @return {@link #fulfillment} (Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
      */
-    public ResourceReference addFulfillment() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addFulfillment() { 
+      Reference t = new Reference();
       this.fulfillment.add(t);
       return t;
     }
@@ -426,13 +426,13 @@ public class OrderResponse extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("request", "Resource(Order)", "A reference to the order that this is in response to.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("request", "Reference(Order)", "A reference to the order that this is in response to.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("date", "dateTime", "The date and time at which this order response was made (created/posted).", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("who", "Resource(Practitioner|Organization|Device)", "The person, organization, or device credited with making the response.", 0, java.lang.Integer.MAX_VALUE, who));
-        childrenList.add(new Property("authority[x]", "CodeableConcept|Resource(Any)", "A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection.", 0, java.lang.Integer.MAX_VALUE, authority));
+        childrenList.add(new Property("who", "Reference(Practitioner|Organization|Device)", "The person, organization, or device credited with making the response.", 0, java.lang.Integer.MAX_VALUE, who));
+        childrenList.add(new Property("authority[x]", "CodeableConcept|Reference(Any)", "A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection.", 0, java.lang.Integer.MAX_VALUE, authority));
         childrenList.add(new Property("code", "code", "What this response says about the status of the original order.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("description", "string", "Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("fulfillment", "Resource(Any)", "Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.", 0, java.lang.Integer.MAX_VALUE, fulfillment));
+        childrenList.add(new Property("fulfillment", "Reference(Any)", "Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.", 0, java.lang.Integer.MAX_VALUE, fulfillment));
       }
 
       public OrderResponse copy() {
@@ -446,8 +446,8 @@ public class OrderResponse extends Resource {
         dst.authority = authority == null ? null : authority.copy();
         dst.code = code == null ? null : code.copy();
         dst.description = description == null ? null : description.copy();
-        dst.fulfillment = new ArrayList<ResourceReference>();
-        for (ResourceReference i : fulfillment)
+        dst.fulfillment = new ArrayList<Reference>();
+        for (Reference i : fulfillment)
           dst.fulfillment.add(i.copy());
         return dst;
       }

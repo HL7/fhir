@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -104,7 +104,7 @@ public class RelatedPerson extends Resource {
     /**
      * The patient this person is related to.
      */
-    protected ResourceReference patient;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (The patient this person is related to.)
@@ -141,13 +141,13 @@ public class RelatedPerson extends Resource {
      */
     protected List<Attachment> photo = new ArrayList<Attachment>();
 
-    private static final long serialVersionUID = 588750165L;
+    private static final long serialVersionUID = 152396611L;
 
     public RelatedPerson() {
       super();
     }
 
-    public RelatedPerson(ResourceReference patient) {
+    public RelatedPerson(Reference patient) {
       super();
       this.patient = patient;
     }
@@ -172,14 +172,14 @@ public class RelatedPerson extends Resource {
     /**
      * @return {@link #patient} (The patient this person is related to.)
      */
-    public ResourceReference getPatient() { 
+    public Reference getPatient() { 
       return this.patient;
     }
 
     /**
      * @param value {@link #patient} (The patient this person is related to.)
      */
-    public RelatedPerson setPatient(ResourceReference value) { 
+    public RelatedPerson setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -317,7 +317,7 @@ public class RelatedPerson extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier for a person within a particular scope.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("patient", "Resource(Patient)", "The patient this person is related to.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The patient this person is related to.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("relationship", "CodeableConcept", "The nature of the relationship between a patient and the related person.", 0, java.lang.Integer.MAX_VALUE, relationship));
         childrenList.add(new Property("name", "HumanName", "A name associated with the person.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("telecom", "ContactPoint", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));

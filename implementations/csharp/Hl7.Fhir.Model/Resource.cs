@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011-2012, HL7, Inc
+  Copyright (c) 2011+, HL7, Inc
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -75,9 +75,9 @@ namespace Hl7.Fhir.Model
         /// <param name="containedReference">A ResourceReference containing an anchored resource id.</param>
         /// <returns>The found resource, or null if no matching contained resource was found. Will throw an exception if there's more than
         /// one matching contained resource</returns>
-        public Resource FindContainedResource(ResourceReference containedReference)
+        public Resource FindContainedReference(Reference containedReference)
         {
-            return FindContainedResource(containedReference.Reference);
+            return FindContainedReference(containedReference.Reference_);
         }
 
         /// <summary>
@@ -86,9 +86,9 @@ namespace Hl7.Fhir.Model
         /// <param name="containedReference">A Uri containing an anchored resource id.</param>
         /// <returns>The found resource, or null if no matching contained resource was found. Will throw an exception if there's more than
         /// one matching contained resource</returns>
-        public Resource FindContainedResource(Uri containedReference)
+        public Resource FindContainedReference(Uri containedReference)
         {
-            return FindContainedResource(containedReference.ToString());
+            return FindContainedReference(containedReference.ToString());
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Hl7.Fhir.Model
         /// <param name="containedReference">A string containing an anchored resource id.</param>
         /// <returns>The found resource, or null if no matching contained resource was found. Will throw an exception if there's more than
         /// one matching contained resource</returns>
-        public Resource FindContainedResource(string containedReference)
+        public Resource FindContainedReference(string containedReference)
         {
             if(containedReference == null) throw new ArgumentNullException("containedReference");
             if(!containedReference.StartsWith("#")) throw new ArgumentException("Reference is not a local anchored reference", "containedReference");

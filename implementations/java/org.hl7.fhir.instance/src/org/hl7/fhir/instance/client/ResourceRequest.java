@@ -73,7 +73,7 @@ public class ResourceRequest<T extends Resource> {
 		return payload;
 	}
 	
-	public T getResource() {
+	public T getReference() {
 		T payloadResource = null;
 		if(payload != null) {
 			payloadResource = payload.getResource();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -150,7 +150,7 @@ public class Medication extends Resource {
         /**
          * The actual ingredient - either a substance (simple ingredient) or another medication.
          */
-        protected ResourceReference item;
+        protected Reference item;
 
         /**
          * The actual object that is the target of the reference (The actual ingredient - either a substance (simple ingredient) or another medication.)
@@ -162,13 +162,13 @@ public class Medication extends Resource {
          */
         protected Ratio amount;
 
-        private static final long serialVersionUID = 928082101L;
+        private static final long serialVersionUID = -1217232889L;
 
       public MedicationProductIngredientComponent() {
         super();
       }
 
-      public MedicationProductIngredientComponent(ResourceReference item) {
+      public MedicationProductIngredientComponent(Reference item) {
         super();
         this.item = item;
       }
@@ -176,14 +176,14 @@ public class Medication extends Resource {
         /**
          * @return {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
          */
-        public ResourceReference getItem() { 
+        public Reference getItem() { 
           return this.item;
         }
 
         /**
          * @param value {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
          */
-        public MedicationProductIngredientComponent setItem(ResourceReference value) { 
+        public MedicationProductIngredientComponent setItem(Reference value) { 
           this.item = value;
           return this;
         }
@@ -220,7 +220,7 @@ public class Medication extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("item", "Resource(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, java.lang.Integer.MAX_VALUE, item));
+          childrenList.add(new Property("item", "Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, java.lang.Integer.MAX_VALUE, item));
           childrenList.add(new Property("amount", "Ratio", "Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
@@ -303,7 +303,7 @@ public class Medication extends Resource {
         /**
          * Identifies one of the items in the package.
          */
-        protected ResourceReference item;
+        protected Reference item;
 
         /**
          * The actual object that is the target of the reference (Identifies one of the items in the package.)
@@ -315,13 +315,13 @@ public class Medication extends Resource {
          */
         protected Quantity amount;
 
-        private static final long serialVersionUID = 1971935074L;
+        private static final long serialVersionUID = -1385430192L;
 
       public MedicationPackageContentComponent() {
         super();
       }
 
-      public MedicationPackageContentComponent(ResourceReference item) {
+      public MedicationPackageContentComponent(Reference item) {
         super();
         this.item = item;
       }
@@ -329,14 +329,14 @@ public class Medication extends Resource {
         /**
          * @return {@link #item} (Identifies one of the items in the package.)
          */
-        public ResourceReference getItem() { 
+        public Reference getItem() { 
           return this.item;
         }
 
         /**
          * @param value {@link #item} (Identifies one of the items in the package.)
          */
-        public MedicationPackageContentComponent setItem(ResourceReference value) { 
+        public MedicationPackageContentComponent setItem(Reference value) { 
           this.item = value;
           return this;
         }
@@ -373,7 +373,7 @@ public class Medication extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("item", "Resource(Medication)", "Identifies one of the items in the package.", 0, java.lang.Integer.MAX_VALUE, item));
+          childrenList.add(new Property("item", "Reference(Medication)", "Identifies one of the items in the package.", 0, java.lang.Integer.MAX_VALUE, item));
           childrenList.add(new Property("amount", "Quantity", "The amount of the product that is in the package.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
@@ -404,7 +404,7 @@ public class Medication extends Resource {
     /**
      * Describes the details of the manufacturer.
      */
-    protected ResourceReference manufacturer;
+    protected Reference manufacturer;
 
     /**
      * The actual object that is the target of the reference (Describes the details of the manufacturer.)
@@ -426,7 +426,7 @@ public class Medication extends Resource {
      */
     protected MedicationPackageComponent package_;
 
-    private static final long serialVersionUID = -1406021045L;
+    private static final long serialVersionUID = 385691577L;
 
     public Medication() {
       super();
@@ -522,14 +522,14 @@ public class Medication extends Resource {
     /**
      * @return {@link #manufacturer} (Describes the details of the manufacturer.)
      */
-    public ResourceReference getManufacturer() { 
+    public Reference getManufacturer() { 
       return this.manufacturer;
     }
 
     /**
      * @param value {@link #manufacturer} (Describes the details of the manufacturer.)
      */
-    public Medication setManufacturer(ResourceReference value) { 
+    public Medication setManufacturer(Reference value) { 
       this.manufacturer = value;
       return this;
     }
@@ -620,7 +620,7 @@ public class Medication extends Resource {
         childrenList.add(new Property("name", "string", "The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("code", "CodeableConcept", "A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED CT code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("isBrand", "boolean", "Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).", 0, java.lang.Integer.MAX_VALUE, isBrand));
-        childrenList.add(new Property("manufacturer", "Resource(Organization)", "Describes the details of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
+        childrenList.add(new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
         childrenList.add(new Property("kind", "code", "Medications are either a single administrable product or a package that contains one or more products.", 0, java.lang.Integer.MAX_VALUE, kind));
         childrenList.add(new Property("product", "", "Information that only applies to products (not packages).", 0, java.lang.Integer.MAX_VALUE, product));
         childrenList.add(new Property("package", "", "Information that only applies to packages (not products).", 0, java.lang.Integer.MAX_VALUE, package_));

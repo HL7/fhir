@@ -286,7 +286,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Who was immunized?</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">The patient to whom the vaccine was to be administered</Data></Cell>
@@ -335,7 +335,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Who administered vaccine?</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Clinician who administered the vaccine</Data></Cell>
@@ -352,7 +352,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Who ordered vaccination?</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Clinician who ordered the vaccination</Data></Cell>
@@ -368,7 +368,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Vaccine manufacturer</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Name of vaccine manufacturer</Data></Cell>
@@ -385,7 +385,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference(Location)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Where did vaccination occur?</Data></Cell>
     <Cell><Data ss:Type="String">The service delivery location where the vaccine administration occurred.</Data></Cell>
@@ -558,7 +558,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(AdverseReaction|Observation)</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference(AdverseReaction|Observation)</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Additional information on reaction</Data></Cell>
     <Cell><Data ss:Type="String">Details of the reaction</Data></Cell>
@@ -616,7 +616,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Immunization.vaccinationProtocol.authority</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s70"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s70"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who is responsible for protocol</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the authority who published the protocol?  E.g. ACIP</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s72"><Data ss:Type="String">outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].participation[typeCode=AUT].COCT_MT090200UV</Data></Cell>

@@ -19,13 +19,13 @@
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2013-07-25"/>
-  <sourceResource>
+  <sourceReference>
     <reference value="http://hl7.org/fhir/v2/vs/0487"/>
-  </sourceResource>
-  <targetResource>
+  </sourceReference>
+  <targetReference>
     <!-- standard SNOMED-CT value set for all of SNOMED-CT -->
     <reference value="http://snomed.info/id"/>
-  </targetResource>
+  </targetReference>
   
       												
   <element>

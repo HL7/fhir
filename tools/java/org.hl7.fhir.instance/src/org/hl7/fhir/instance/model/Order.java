@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -113,7 +113,7 @@ public class Order extends Resource {
     /**
      * Patient this order is about.
      */
-    protected ResourceReference subject;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (Patient this order is about.)
@@ -123,7 +123,7 @@ public class Order extends Resource {
     /**
      * Who initiated the order.
      */
-    protected ResourceReference source;
+    protected Reference source;
 
     /**
      * The actual object that is the target of the reference (Who initiated the order.)
@@ -133,7 +133,7 @@ public class Order extends Resource {
     /**
      * Who is intended to fulfill the order.
      */
-    protected ResourceReference target;
+    protected Reference target;
 
     /**
      * The actual object that is the target of the reference (Who is intended to fulfill the order.)
@@ -148,7 +148,7 @@ public class Order extends Resource {
     /**
      * If required by policy.
      */
-    protected ResourceReference authority;
+    protected Reference authority;
 
     /**
      * The actual object that is the target of the reference (If required by policy.)
@@ -163,14 +163,14 @@ public class Order extends Resource {
     /**
      * What action is being ordered.
      */
-    protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
+    protected List<Reference> detail = new ArrayList<Reference>();
     /**
      * The actual objects that are the target of the reference (What action is being ordered.)
      */
     protected List<Resource> detailTarget = new ArrayList<Resource>();
 
 
-    private static final long serialVersionUID = 156950294L;
+    private static final long serialVersionUID = -1949835634L;
 
     public Order() {
       super();
@@ -232,14 +232,14 @@ public class Order extends Resource {
     /**
      * @return {@link #subject} (Patient this order is about.)
      */
-    public ResourceReference getSubject() { 
+    public Reference getSubject() { 
       return this.subject;
     }
 
     /**
      * @param value {@link #subject} (Patient this order is about.)
      */
-    public Order setSubject(ResourceReference value) { 
+    public Order setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -262,14 +262,14 @@ public class Order extends Resource {
     /**
      * @return {@link #source} (Who initiated the order.)
      */
-    public ResourceReference getSource() { 
+    public Reference getSource() { 
       return this.source;
     }
 
     /**
      * @param value {@link #source} (Who initiated the order.)
      */
-    public Order setSource(ResourceReference value) { 
+    public Order setSource(Reference value) { 
       this.source = value;
       return this;
     }
@@ -292,14 +292,14 @@ public class Order extends Resource {
     /**
      * @return {@link #target} (Who is intended to fulfill the order.)
      */
-    public ResourceReference getTarget() { 
+    public Reference getTarget() { 
       return this.target;
     }
 
     /**
      * @param value {@link #target} (Who is intended to fulfill the order.)
      */
-    public Order setTarget(ResourceReference value) { 
+    public Order setTarget(Reference value) { 
       this.target = value;
       return this;
     }
@@ -337,14 +337,14 @@ public class Order extends Resource {
     /**
      * @return {@link #authority} (If required by policy.)
      */
-    public ResourceReference getAuthority() { 
+    public Reference getAuthority() { 
       return this.authority;
     }
 
     /**
      * @param value {@link #authority} (If required by policy.)
      */
-    public Order setAuthority(ResourceReference value) { 
+    public Order setAuthority(Reference value) { 
       this.authority = value;
       return this;
     }
@@ -382,7 +382,7 @@ public class Order extends Resource {
     /**
      * @return {@link #detail} (What action is being ordered.)
      */
-    public List<ResourceReference> getDetail() { 
+    public List<Reference> getDetail() { 
       return this.detail;
     }
 
@@ -390,8 +390,8 @@ public class Order extends Resource {
     /**
      * @return {@link #detail} (What action is being ordered.)
      */
-    public ResourceReference addDetail() { 
-      ResourceReference t = new ResourceReference();
+    public Reference addDetail() { 
+      Reference t = new Reference();
       this.detail.add(t);
       return t;
     }
@@ -407,13 +407,13 @@ public class Order extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the orderer or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("date", "dateTime", "When the order was made.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("subject", "Resource(Patient)", "Patient this order is about.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("source", "Resource(Practitioner)", "Who initiated the order.", 0, java.lang.Integer.MAX_VALUE, source));
-        childrenList.add(new Property("target", "Resource(Organization|Device|Practitioner)", "Who is intended to fulfill the order.", 0, java.lang.Integer.MAX_VALUE, target));
-        childrenList.add(new Property("reason[x]", "CodeableConcept|Resource(Any)", "Text - why the order was made.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("authority", "Resource(Any)", "If required by policy.", 0, java.lang.Integer.MAX_VALUE, authority));
+        childrenList.add(new Property("subject", "Reference(Patient)", "Patient this order is about.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("source", "Reference(Practitioner)", "Who initiated the order.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("target", "Reference(Organization|Device|Practitioner)", "Who is intended to fulfill the order.", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Any)", "Text - why the order was made.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("authority", "Reference(Any)", "If required by policy.", 0, java.lang.Integer.MAX_VALUE, authority));
         childrenList.add(new Property("when", "", "When order should be fulfilled.", 0, java.lang.Integer.MAX_VALUE, when));
-        childrenList.add(new Property("detail", "Resource(Any)", "What action is being ordered.", 0, java.lang.Integer.MAX_VALUE, detail));
+        childrenList.add(new Property("detail", "Reference(Any)", "What action is being ordered.", 0, java.lang.Integer.MAX_VALUE, detail));
       }
 
       public Order copy() {
@@ -428,8 +428,8 @@ public class Order extends Resource {
         dst.reason = reason == null ? null : reason.copy();
         dst.authority = authority == null ? null : authority.copy();
         dst.when = when == null ? null : when.copy();
-        dst.detail = new ArrayList<ResourceReference>();
-        for (ResourceReference i : detail)
+        dst.detail = new ArrayList<Reference>();
+        for (Reference i : detail)
           dst.detail.add(i.copy());
         return dst;
       }

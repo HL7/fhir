@@ -280,7 +280,7 @@ associated with the use of extensions by any application, project, or standard -
         <min value="0"/>
         <max value="1"/>
         <type>
-          <code value="Resource(Patient|Group|Device)"/>
+          <code value="Reference(Patient|Group|Device)"/>
         </type>
         <mustUnderstand value="false"/>
       </definition>
@@ -294,7 +294,7 @@ associated with the use of extensions by any application, project, or standard -
         <min value="0"/>
         <max value="1"/>
         <type>
-          <code value="Resource(Practitioner|Device|Organization)"/>
+          <code value="Reference(Practitioner|Device|Organization)"/>
         </type>
         <mustUnderstand value="false"/>
       </definition>
@@ -456,67 +456,67 @@ associated with the use of extensions by any application, project, or standard -
 
     <isExtensible value="true"/>
     <conformance value="example"/>
-    <referenceResource>
+    <referenceReference>
   
       <reference value="http://hl7.org/fhir/vs/observation-methods"/>
-    </referenceResource>
+    </referenceReference>
   </binding>
   <binding>
     <name value="BodySite"/>
 
     <isExtensible value="true"/>
     <conformance value="example"/>
-    <referenceResource>
+    <referenceReference>
   
       <reference value="http://hl7.org/fhir/vs/body-site"/>
-    </referenceResource>
+    </referenceReference>
   </binding>
   <binding>
     <name value="ObservationType"/>
 
     <isExtensible value="true"/>
     <conformance value="preferred"/>
-    <referenceResource>
+    <referenceReference>
   
       <reference value="http://hl7.org/fhir/vs/observation-codes"/>
-    </referenceResource>
+    </referenceReference>
   </binding>
   <binding>
     <name value="ObservationRangeMeaning"/>
 
     <isExtensible value="true"/>
     <conformance value="example"/>
-    <referenceResource>
+    <referenceReference>
   
       <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
-    </referenceResource>
+    </referenceReference>
   </binding>
   <binding>
     <name value="ObservationReliability"/>
 
     <conformance value="required"/>
-    <referenceResource>
+    <referenceReference>
   
       <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
-    </referenceResource>
+    </referenceReference>
   </binding>
   <binding>
     <name value="ObservationStatus"/>
 
     <conformance value="required"/>
-    <referenceResource>
+    <referenceReference>
   
       <reference value="http://hl7.org/fhir/vs/observation-status"/>
-    </referenceResource>
+    </referenceReference>
   </binding>
   <binding>
     <name value="ObservationInterpretation"/>
 
     <isExtensible value="true"/>
     <conformance value="preferred"/>
-    <referenceResource>
+    <referenceReference>
   
       <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
-    </referenceResource>
+    </referenceReference>
   </binding>
 </Profile>

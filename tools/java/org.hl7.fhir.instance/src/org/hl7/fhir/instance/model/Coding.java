@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 22:20+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -66,14 +66,14 @@ public class Coding extends Type {
     /**
      * The set of possible coded values this coding was chosen from or constrained by.
      */
-    protected ResourceReference valueSet;
+    protected Reference valueSet;
 
     /**
      * The actual object that is the target of the reference (The set of possible coded values this coding was chosen from or constrained by.)
      */
     protected ValueSet valueSetTarget;
 
-    private static final long serialVersionUID = -2106166442L;
+    private static final long serialVersionUID = -1529268796L;
 
     public Coding() {
       super();
@@ -262,14 +262,14 @@ public class Coding extends Type {
     /**
      * @return {@link #valueSet} (The set of possible coded values this coding was chosen from or constrained by.)
      */
-    public ResourceReference getValueSet() { 
+    public Reference getValueSet() { 
       return this.valueSet;
     }
 
     /**
      * @param value {@link #valueSet} (The set of possible coded values this coding was chosen from or constrained by.)
      */
-    public Coding setValueSet(ResourceReference value) { 
+    public Coding setValueSet(Reference value) { 
       this.valueSet = value;
       return this;
     }
@@ -296,7 +296,7 @@ public class Coding extends Type {
         childrenList.add(new Property("code", "code", "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("display", "string", "A representation of the meaning of the code in the system, following the rules of the system.", 0, java.lang.Integer.MAX_VALUE, display));
         childrenList.add(new Property("primary", "boolean", "Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).", 0, java.lang.Integer.MAX_VALUE, primary));
-        childrenList.add(new Property("valueSet", "Resource(ValueSet)", "The set of possible coded values this coding was chosen from or constrained by.", 0, java.lang.Integer.MAX_VALUE, valueSet));
+        childrenList.add(new Property("valueSet", "Reference(ValueSet)", "The set of possible coded values this coding was chosen from or constrained by.", 0, java.lang.Integer.MAX_VALUE, valueSet));
       }
 
       public Coding copy() {

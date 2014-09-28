@@ -496,7 +496,7 @@
     <Cell ss:Index="2" ss:StyleID="s83"><Data ss:Type="String">Patient.contact.organization</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:Index="7" ss:StyleID="s68"><Data ss:Type="String" x:Ticked="1">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s68"><Data ss:Type="String" x:Ticked="1">Reference(Organization)</Data></Cell>
    </Row>
    <Row ss:StyleID="s101">
     <Cell ss:Index="2" ss:StyleID="s102"><Data ss:Type="String">Patient.animal</Data></Cell>
@@ -520,12 +520,12 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Resource(Organization|Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Organization|Practitioner)</Data></Cell>
    </Row>
    <Row>
     <Cell ss:Index="2" ss:StyleID="s83"><Data ss:Type="String">Patient.managingOrganization</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s68"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s68"><Data ss:Type="String">Reference(Organization)</Data></Cell>
    </Row>
    <Row>
     <Cell ss:Index="2" ss:StyleID="s83"><Data ss:Type="String">Patient.link</Data></Cell>
@@ -541,7 +541,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Reference(Patient)</Data></Cell>
    </Row>
    <Row>
     <Cell ss:Index="2" ss:StyleID="s83"><Data ss:Type="String">Patient.link.type</Data></Cell>
