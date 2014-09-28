@@ -18,8 +18,8 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>5820</WindowHeight>
   <WindowWidth>25260</WindowWidth>
-  <WindowTopX>375</WindowTopX>
-  <WindowTopY>330</WindowTopY>
+  <WindowTopX>1620</WindowTopX>
+  <WindowTopY>4830</WindowTopY>
   <ActiveSheet>6</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
@@ -1757,7 +1757,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CCDA Assessment Scale Observation</Data></Cell>
     <Cell><Data ss:Type="String">CCDA Assessment Scale Observation template to FHIR Profile mapping</Data></Cell>
-    <Cell><Data ss:Type="String">observation-ccdaassessmentscale-profile-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdaassessmentscale1-profile-spreadsheet.xml</Data></Cell>
     <Cell><Data ss:Type="String">observation-ccdaassessmentscale.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">   </Data></Cell>
@@ -1782,7 +1782,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>9</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
