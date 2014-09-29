@@ -1,0 +1,1369 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Grahame</Author>
+  <LastAuthor>Eric Haas</LastAuthor>
+  <Created>2012-03-19T11:17:14Z</Created>
+  <LastSaved>2014-09-28T21:58:54Z</LastSaved>
+  <Version>12.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>3990</WindowHeight>
+  <WindowWidth>25260</WindowWidth>
+  <WindowTopX>-135</WindowTopX>
+  <WindowTopY>705</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62" ss:Name="Hyperlink">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
+    ss:Underline="Single"/>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s67" ss:Parent="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s76">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s77">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s78">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s82">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s83">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s84">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s85">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s86">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s87">
+   <Interior ss:Color="#D8D8D8" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ <Names>
+  <NamedRange ss:Name="BINDNG" ss:RefersTo="=NamedValidationRanges!R1C6:R5C6"/>
+  <NamedRange ss:Name="CARD" ss:RefersTo="=NamedValidationRanges!R1C2:R6C2"/>
+  <NamedRange ss:Name="CONTEXT" ss:RefersTo="=NamedValidationRanges!R1C9:R27C9"/>
+  <NamedRange ss:Name="CONTEXTTYPE" ss:RefersTo="=NamedValidationRanges!R1C8:R4C8"/>
+  <NamedRange ss:Name="DISCRIMINATOR"
+   ss:RefersTo="=NamedValidationRanges!R1C10:R3C10"/>
+  <NamedRange ss:Name="EXAMPLE" ss:RefersTo="=NamedValidationRanges!R1C7:R3C7"/>
+  <NamedRange ss:Name="INVARIENT_ID" ss:RefersTo="=Invariants!R1C1:R30C1"/>
+  <NamedRange ss:Name="IS_MODIFIER" ss:RefersTo="=NamedValidationRanges!R1C3:R3C3"/>
+  <NamedRange ss:Name="METADATA_STATUS"
+   ss:RefersTo="=NamedValidationRanges!R1C1:R4C1"/>
+  <NamedRange ss:Name="MUST_SUPPORT" ss:RefersTo="=NamedValidationRanges!R1C4:R3C4"/>
+  <NamedRange ss:Name="TYPE" ss:RefersTo="=NamedValidationRanges!R1C5:R36C5"/>
+  <NamedRange ss:Name="VALUE" ss:RefersTo="=NamedValidationRanges!R1C11:R2C11"/>
+ </Names>
+ <Worksheet ss:Name="Metadata">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="16" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s63" ss:Width="85.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="293.25"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Value</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">id</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">observation-ccdacognitivestatusresult</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">CCDA Cognitive Status Result Observation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">author.name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">HL7 International - Orders and Observations WG</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">author.reference</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">http://hl7.org</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">code</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">description</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">CCDA Cognitive Status Result Observation template to FHIR Profile mapping</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">status</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">draft</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="DateTime">2014-09-21T00:00:00.000</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">profile</Data></Cell>
+    <Cell><Data ss:Type="String">CCDACognitiveStatusResult</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">resource</Data></Cell>
+    <Cell><Data ss:Type="String">Observation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">binding</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">version</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">extension.uri</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">http://hl7.org/fhir/Profile/observation-ccdacognitivestatusresult</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">introduction</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">observation-ccdacognitivestatusresult-introduction.xml</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">notes</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
+   <TopRowVisible>6</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C2</Range>
+   <Type>List</Type>
+   <Value>METADATA_STATUS</Value>
+  </DataValidation>
+ </Worksheet>
+ <Worksheet ss:Name="CCDACognitiveStatusResult">
+  <Names>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="=CCDACognitiveStatusResult!R1C3:R1C22" ss:Hidden="1"/>
+   <NamedRange ss:Name="Observation.interpretation"
+    ss:RefersTo="=CCDACognitiveStatusResult!#REF!"/>
+  </Names>
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="12" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="201"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="107.25"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="126"/>
+   <Column ss:StyleID="s72" ss:Width="41.25"/>
+   <Column ss:StyleID="s72" ss:Width="34.5"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
+   <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
+   <Column ss:StyleID="s72" ss:Width="129.75" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
+   <Column ss:Index="17" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="23" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
+    ss:Span="1"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
+    <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
+    <Cell><Data ss:Type="String">Base Element</Data></Cell>
+    <Cell><Data ss:Type="String">Profile Name</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Inv.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Is Modifier</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Must Support</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Binding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Profile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Discriminator</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Aliases</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Short Name</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Definition</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Requirements</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Comments</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">RIM Mapping</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">v2 Mapping</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">To Do</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Committee Notes</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Display Name</Data></Cell>
+    <Cell><Data ss:Type="String">Display notes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">4.  MAY contain zero or one [0..1] @negationInd (CONF:14344). &#10;9/27/2014 EH:  assume using value set approach </Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">CCDACognitiveStatusResult</Data></Cell>
+    <Cell><Data ss:Type="String">Observation</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:Index="14" ss:StyleID="s77"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">11. SHOULD contain zero or more [0..*] interpretationCode (CONF:14264). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">AdditionalInterpretationCodes</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.extension</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><Data ss:Type="String">yes</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">#AdditionalInterpretationCodes</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:Index="14" ss:StyleID="s77"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">6.  SHALL contain exactly one [1..1] code (CONF:14591). &#10;a.  This code SHOULD contain zero or one [0..1] @code=&quot;373930000&quot; &#10;Cognitive function finding (CodeSystem: SNOMED-CT &#10;2.16.840.1.113883.6.96) (CONF:14592). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
+    <Cell><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">10. SHALL contain exactly one [1..1] value (CONF:14263). &#10;a.  If xsi:type=“CD”, SHOULD contain a code from SNOMED CT &#10;(CodeSystem: 2.16.840.1.113883.6.96) (CONF:14271). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">#CognitiveStatusResultCodes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">7.  SHOULD contain zero or one [0..1] text (CONF:14258). &#10;a.  The text, if present, SHOULD contain zero or one [0..1] &#10;reference/@value (CONF:14259). &#10;i.  This reference/@value SHALL begin with a '#' and SHALL point &#10;to its corresponding narrative (using the approach defined in &#10;CDA Release 2, section 4.3.5.1) (CONF:14260). &#10;EH:  Should contain a an internal reference?  how  to map this?</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.comments</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.comments</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">9.  SHALL contain exactly one [1..1] effectiveTime (CONF:14261).&#10;</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">The onset date SHALL be recorded in the low element of the &#10;effectiveTime element when known.&#10;The resolution date SHALL be recorded in the high element of the &#10;effectiveTime element when known. &#10;</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">8.  SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed &#10;(CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:14323). &#10;9/27/2014 EH:  mapped to 'final'&#10;</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">final</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">5.  SHALL contain at least one [1..*] id (CONF:14257). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.identifier</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.identifier</Data></Cell>
+    <Cell><Data ss:Type="String">1..*</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">9/26/2014 EH: constrain to patients</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.subject</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.subject</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Reference(Patient)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">14. MAY contain zero or one [0..1] author (CONF:14266). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.performer</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.performer</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">13. MAY contain zero or more [0..*] entryRelationship (CONF:14331) such that &#10;it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; refers to &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14588). &#10;b.  SHALL contain exactly one [1..1] Non-Medicinal Supply Activity &#10;(templateId:2.16.840.1.113883.10.20.22.4.50) (CONF:14351). &#10;14. SHALL contain zero or more [0..*] entryRelationship (CONF:14335) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; refers to &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14589). &#10;b.  SHALL contain exactly one [1..1]  Caregiver Characteristics  &#10;(templateId:2.16.840.1.113883.10.20.22.4.72) (CONF:14352). &#10;15. SHALL contain zero or more [0..*] entryRelationship (CONF:14467) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14590). &#10;b.  SHALL contain exactly one [1..1] Assessment Scale Observation &#10;(templateId:2.16.840.1.113883.10.20.22.4.69) (CONF:14468). &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">MAY contain zero or more [0..*] .related&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Caregiver Characteristics ' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity ' &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-3</HorizontalResolution>
+    <VerticalResolution>-3</VerticalResolution>
+   </Print>
+   <TabColorIndex>10</TabColorIndex>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>10</TopRowBottomPane>
+   <SplitVertical>4</SplitVertical>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C6:R13C6,R2C6</Range>
+   <Type>List</Type>
+   <Value>INVARIENT_ID</Value>
+   <ErrorMessage>Invarient ID does not exist</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C5:R13C5</Range>
+   <Type>List</Type>
+   <Value>CARD</Value>
+   <ErrorStyle>Info</ErrorStyle>
+   <ErrorMessage>The format is n..n</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C7:R13C7</Range>
+   <Type>List</Type>
+   <Value>IS_MODIFIER</Value>
+   <ErrorMessage>'yes'  or 'no'</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C8:R13C8</Range>
+   <Type>List</Type>
+   <Value>MUST_SUPPORT</Value>
+   <ErrorMessage>'y' or 'n'</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C9:R9C9,R11C9:R13C9</Range>
+   <Type>List</Type>
+   <Value>TYPE</Value>
+   <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C12:R13C12</Range>
+   <Type>List</Type>
+   <Value>DISCRIMINATOR</Value>
+   <ErrorMessage>Allowed values are &quot;name&quot; or &quot;url&quot;</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C13:R13C13</Range>
+   <Type>List</Type>
+   <Value>VALUE</Value>
+   <ErrorHide/>
+   <ErrorStyle>Info</ErrorStyle>
+   <ErrorMessage>Use</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R10C9</Range>
+   <Type>List</Type>
+   <Value>TYPE</Value>
+   <ErrorHide/>
+   <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
+  </DataValidation>
+  <AutoFilter x:Range="R1C3:R1C22"
+   xmlns="urn:schemas-microsoft-com:office:excel">
+  </AutoFilter>
+ </Worksheet>
+ <Worksheet ss:Name="Invariants">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s77" ss:Width="15.75"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="108"/>
+   <Column ss:StyleID="s77" ss:Width="470.25"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="221.25"/>
+   <Column ss:Index="6" ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="436.5"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Id</Data><NamedCell
+      ss:Name="INVARIENT_ID"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Context</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">English</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">OCL</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">XPath</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">1</Data><NamedCell ss:Name="INVARIENT_ID"/></Cell>
+    <Cell><Data ss:Type="String">additional interpretation codes</Data></Cell>
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">http://hl7.org/fhir/Profile/observation-ccdacognitivestatusresult#</Font><B><Font
+        html:Color="#000000">AdditionalInterpretationCodes</Font></B></ss:Data></Cell>
+    <Cell><Data ss:Type="String">Can only be valued If observation.interpretation is valued.</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:interpretation)</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <LeftColumnVisible>2</LeftColumnVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>4</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Bindings">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="2" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s77" ss:Width="165.75"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="231.75"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="65.25" ss:Span="1"/>
+   <Column ss:Index="5" ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="306.75"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="126.75"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="168.75"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Comments</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CognitiveStatusResultCodes</Data></Cell>
+    <Cell><Data ss:Type="String">SHOULD contain a code from SNOMED CT </Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-observation-cognitivestatusresultcodes</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">9/28/2014  EH: Is there already a generic SNOMED Value set?</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>4</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C3:R35C3</Range>
+   <Type>List</Type>
+   <Value>BINDNG</Value>
+   <ErrorMessage>Must be one of &quot;code list&quot;,&quot;special&quot;,&quot;reference&quot;, or &quot;value set&quot;</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C4:R35C4</Range>
+   <Type>List</Type>
+   <Value>EXAMPLE</Value>
+   <ErrorMessage>Must be either &quot;y&quot; or blank</ErrorMessage>
+  </DataValidation>
+ </Worksheet>
+ <Worksheet ss:Name="Extensions">
+  <Names>
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R1C15"
+    ss:Hidden="1"/>
+  </Names>
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="2" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s77" ss:Width="177.75"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="102.75"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="95.25"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="39"/>
+   <Column ss:StyleID="s77" ss:Width="60"/>
+   <Column ss:StyleID="s77" ss:Width="105"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="64.5"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="171"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="174"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="187.5"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="90"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Context Type</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Context</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Card.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Type</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Binding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Is Modifier</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Short Name</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Definition</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Requirements</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Comments</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">RIM Mapping</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">v2 Mapping</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">To Do</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Committee Notes</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AdditionalInterpretationCodes</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">Observation</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">IS_MODIFIER</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Additional Interpretation Codes</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">This extension is used when there are multiple interpretation values for a single Observation Resource.  The first interpretation for this observation is the interpretation element and any additional interpretations for this observation will go here.</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">The base Observation resource is limited to a single interpretation.</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-3</HorizontalResolution>
+    <VerticalResolution>-3</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>1</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C2:R30C2</Range>
+   <Type>List</Type>
+   <Value>CONTEXTTYPE</Value>
+   <ErrorMessage>Allowed values are &quot;resource', 'datatype' or 'extension'</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C3:R31C3</Range>
+   <Type>List</Type>
+   <Value>CONTEXT</Value>
+   <ErrorHide/>
+   <ErrorStyle>Info</ErrorStyle>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C4:R28C4</Range>
+   <Type>List</Type>
+   <Value>CARD</Value>
+   <ErrorStyle>Info</ErrorStyle>
+   <ErrorMessage>The format is n..n</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C5:R39C5</Range>
+   <Type>List</Type>
+   <Value>TYPE</Value>
+   <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C7:R30C7</Range>
+   <Type>List</Type>
+   <Value>IS_MODIFIER</Value>
+   <ErrorMessage>'yes'  or 'no'</ErrorMessage>
+  </DataValidation>
+  <AutoFilter x:Range="R1C1:R1C15"
+   xmlns="urn:schemas-microsoft-com:office:excel">
+  </AutoFilter>
+ </Worksheet>
+ <Worksheet ss:Name="Search">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="8" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="487.5" ss:DefaultRowHeight="15">
+   <Column ss:Width="57.75"/>
+   <Column ss:Width="387.75"/>
+   <Column ss:Width="32.25"/>
+   <Column ss:Width="117"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Path</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s85"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s86"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="NamedValidationRanges">
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="36" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="74.25"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s87"><Data ss:Type="String">METADATA_STATUS</Data><NamedCell
+      ss:Name="METADATA_STATUS"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CARD</Data><NamedCell
+      ss:Name="CARD"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">IS_MODIFIER</Data><NamedCell
+      ss:Name="IS_MODIFIER"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">MUST_SUPPORT</Data><NamedCell
+      ss:Name="MUST_SUPPORT"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">TYPE</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">BINDING</Data><NamedCell
+      ss:Name="BINDNG"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">EXAMPLE</Data><NamedCell
+      ss:Name="EXAMPLE"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CONTEXTTYPE</Data><NamedCell
+      ss:Name="CONTEXTTYPE"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CONTEXT</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">DISCRIMINATOR</Data><NamedCell
+      ss:Name="DISCRIMINATOR"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">VALUE</Data><NamedCell
+      ss:Name="VALUE"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">draft</Data><NamedCell ss:Name="METADATA_STATUS"/></Cell>
+    <Cell><Data ss:Type="String">0..0</Data><NamedCell ss:Name="CARD"/></Cell>
+    <Cell><Data ss:Type="String">yes</Data><NamedCell ss:Name="IS_MODIFIER"/></Cell>
+    <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="MUST_SUPPORT"/></Cell>
+    <Cell><Data ss:Type="String">Address</Data><NamedCell ss:Name="TYPE"/></Cell>
+    <Cell><Data ss:Type="String">code list</Data><NamedCell ss:Name="BINDNG"/></Cell>
+    <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="EXAMPLE"/></Cell>
+    <Cell><Data ss:Type="String">Resource</Data><NamedCell ss:Name="CONTEXTTYPE"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+    <Cell><Data ss:Type="String">name</Data><NamedCell ss:Name="DISCRIMINATOR"/></Cell>
+    <Cell><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org|snomed|ucum|dicom&quot;/&gt;&lt;version value=&quot;ver&quot;/&gt;&lt;code value=&quot;code&quot;/&gt;&lt;display value=&quot;display value&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data><NamedCell
+      ss:Name="VALUE"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">active</Data><NamedCell ss:Name="METADATA_STATUS"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="CARD"/></Cell>
+    <Cell><Data ss:Type="String">no</Data><NamedCell ss:Name="IS_MODIFIER"/></Cell>
+    <Cell><Data ss:Type="String">n</Data><NamedCell ss:Name="MUST_SUPPORT"/></Cell>
+    <Cell><Data ss:Type="String">Age</Data><NamedCell ss:Name="TYPE"/></Cell>
+    <Cell><Data ss:Type="String">special</Data><NamedCell ss:Name="BINDNG"/></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Datatype</Data><NamedCell
+      ss:Name="CONTEXTTYPE"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+    <Cell><Data ss:Type="String">url</Data><NamedCell ss:Name="DISCRIMINATOR"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">retired</Data><NamedCell ss:Name="METADATA_STATUS"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="CARD"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Attachment</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell><Data ss:Type="String">reference</Data><NamedCell ss:Name="BINDNG"/></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Extension</Data><NamedCell
+      ss:Name="CONTEXTTYPE"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="CARD"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell><Data ss:Type="String">value set</Data><NamedCell ss:Name="BINDNG"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.valueCodeableConcept</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2"><Data ss:Type="String">1..*</Data><NamedCell ss:Name="CARD"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Coding</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.interpretation</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Contact</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.comments</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Count</Data><NamedCell ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.applies[x]</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Distance</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.issued</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Duration</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Extension</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.reliability</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">HumanName</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.bodySite</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Identifier</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.method</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Money</Data><NamedCell ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.identifier</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Narrative</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.subject</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Period</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.specimen</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.performer</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Range</Data><NamedCell ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.encounter</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Ratio</Data><NamedCell ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">ResourceReference</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.low</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">SampledData</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.high</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">Schedule</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.meaning</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">base64Binary</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.age</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">boolean</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.text</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">code</Data><NamedCell ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.related</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">date</Data><NamedCell ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.related.type</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s73"><Data ss:Type="String">Observation.related.target</Data><NamedCell
+      ss:Name="CONTEXT"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">decimal</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">id</Data><NamedCell ss:Name="TYPE"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">instant</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">integer</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">oid</Data><NamedCell ss:Name="TYPE"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="TYPE"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">time</Data><NamedCell ss:Name="TYPE"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">uri</Data><NamedCell ss:Name="TYPE"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5"><Data ss:Type="String">uuid</Data><NamedCell ss:Name="TYPE"/></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>10</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="FullDefinitionsMapping">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="27" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="220.5" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s73" ss:Width="206.25"/>
+   <Column ss:StyleID="s72" ss:Width="41.25"/>
+   <Column ss:StyleID="s72" ss:Width="34.5"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
+   <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
+   <Column ss:StyleID="s72" ss:Width="129.75" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
+   <Column ss:Index="17" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="23" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
+    ss:Span="1"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
+    <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
+    <Cell><Data ss:Type="String">Base Element</Data></Cell>
+    <Cell><Data ss:Type="String">Profile Name</Data></Cell>
+    <Cell><Data ss:Type="String">Element</Data></Cell>
+    <Cell><Data ss:Type="String">Card.</Data></Cell>
+    <Cell><Data ss:Type="String">Inv.</Data></Cell>
+    <Cell><Data ss:Type="String">Is Modifier</Data></Cell>
+    <Cell><Data ss:Type="String">Must Support</Data></Cell>
+    <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">Binding</Data></Cell>
+    <Cell><Data ss:Type="String">Profile</Data></Cell>
+    <Cell><Data ss:Type="String">Discriminator</Data></Cell>
+    <Cell><Data ss:Type="String">Value</Data></Cell>
+    <Cell><Data ss:Type="String">Aliases</Data></Cell>
+    <Cell><Data ss:Type="String">Short Name</Data></Cell>
+    <Cell><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">Requirements</Data></Cell>
+    <Cell><Data ss:Type="String">Comments</Data></Cell>
+    <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">To Do</Data></Cell>
+    <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
+    <Cell><Data ss:Type="String">Display Name</Data></Cell>
+    <Cell><Data ss:Type="String">Display notes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">4.  MAY contain zero or one [0..1] @negationInd (CONF:14344). &#10;9/27/2014 EH:  assume using value set approach </Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell><Data ss:Type="String">CCDACognitiveStatusResult</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">11. SHOULD contain zero or more [0..*] interpretationCode (CONF:14264). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
+    <Cell><Data ss:Type="String">AdditionalInterpretationCodes</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">yes</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell><Data ss:Type="String">#AdditionalInterpretationCodes</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">6.  SHALL contain exactly one [1..1] code (CONF:14591). &#10;a.  This code SHOULD contain zero or one [0..1] @code=&quot;373930000&quot; &#10;Cognitive function finding (CodeSystem: SNOMED-CT &#10;2.16.840.1.113883.6.96) (CONF:14592). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">Smoking Status: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
+    <Cell><Data ss:Type="String">Smoking Status: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">10. SHALL contain exactly one [1..1] value (CONF:14263). &#10;a.  If xsi:type=“CD”, SHOULD contain a code from SNOMED CT &#10;(CodeSystem: 2.16.840.1.113883.6.96) (CONF:14271). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">#CognitiveStatusResultCodes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">11. SHOULD contain zero or more [0..*] interpretationCode (CONF:14264). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.interpretation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">7.  SHOULD contain zero or one [0..1] text (CONF:14258). &#10;a.  The text, if present, SHOULD contain zero or one [0..1] &#10;reference/@value (CONF:14259). &#10;i.  This reference/@value SHALL begin with a '#' and SHALL point &#10;to its corresponding narrative (using the approach defined in &#10;CDA Release 2, section 4.3.5.1) (CONF:14260). &#10;EH:  Should contain a an internal reference?  how  to map this?</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.comments</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.comments</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">9.  SHALL contain exactly one [1..1] effectiveTime (CONF:14261).&#10;</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">The onset date SHALL be recorded in the low element of the &#10;effectiveTime element when known.&#10;The resolution date SHALL be recorded in the high element of the &#10;effectiveTime element when known. &#10;</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.issued</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">8.  SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed &#10;(CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:14323). &#10;9/27/2014 EH:  mapped to 'final'&#10;</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">final</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.reliability</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">13. MAY contain zero or one [0..1] targetSiteCode (CONF:14270). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.bodySite</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">12. MAY contain zero or one [0..1] methodCode (CONF:14265). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.method</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">5.  SHALL contain at least one [1..*] id (CONF:14257). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.identifier</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.identifier</Data></Cell>
+    <Cell><Data ss:Type="String">1..*</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">9/26/2014 EH: constrain to patients</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.subject</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.subject</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.specimen</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">14. MAY contain zero or one [0..1] author (CONF:14266). </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.performer</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.performer</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.encounter</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">18. SHOULD contain zero or more [0..*] referenceRange (CONF:14267). &#10;a.  The referenceRange, if present, SHALL contain exactly one [1..1] &#10;observationRange (CONF:14268). &#10;i.  This observationRange SHALL NOT contain [0..0] code &#10;(CONF:14269). &#10;9/28/2014 EH: not coded.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.text</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">13. MAY contain zero or more [0..*] entryRelationship (CONF:14331) such that &#10;it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; refers to &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14588). &#10;b.  SHALL contain exactly one [1..1] Non-Medicinal Supply Activity &#10;(templateId:2.16.840.1.113883.10.20.22.4.50) (CONF:14351). &#10;14. SHALL contain zero or more [0..*] entryRelationship (CONF:14335) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; refers to &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14589). &#10;b.  SHALL contain exactly one [1..1]  Caregiver Characteristics  &#10;(templateId:2.16.840.1.113883.10.20.22.4.72) (CONF:14352). &#10;15. SHALL contain zero or more [0..*] entryRelationship (CONF:14467) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14590). &#10;b.  SHALL contain exactly one [1..1] Assessment Scale Observation &#10;(templateId:2.16.840.1.113883.10.20.22.4.69) (CONF:14468). &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">MAY contain zero or more [0..*] .related&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Caregiver Characteristics ' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity ' &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.related.type</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.related.target</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>5</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C13:R41C13</Range>
+   <Type>List</Type>
+   <Value>VALUE</Value>
+   <ErrorHide/>
+   <ErrorStyle>Info</ErrorStyle>
+   <ErrorMessage>Use</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C12:R35C12</Range>
+   <Type>List</Type>
+   <Value>DISCRIMINATOR</Value>
+   <ErrorMessage>Allowed values are &quot;name&quot; or &quot;url&quot;</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C9:R38C9</Range>
+   <Type>List</Type>
+   <Value>TYPE</Value>
+   <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C8:R37C8</Range>
+   <Type>List</Type>
+   <Value>MUST_SUPPORT</Value>
+   <ErrorMessage>'y' or 'n'</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C7:R37C7</Range>
+   <Type>List</Type>
+   <Value>IS_MODIFIER</Value>
+   <ErrorMessage>'yes'  or 'no'</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C5:R37C5</Range>
+   <Type>List</Type>
+   <Value>CARD</Value>
+   <ErrorStyle>Info</ErrorStyle>
+   <ErrorMessage>The format is n..n</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C6:R37C6</Range>
+   <Type>List</Type>
+   <Value>INVARIENT_ID</Value>
+   <ErrorMessage>Invarient ID does not exist</ErrorMessage>
+  </DataValidation>
+ </Worksheet>
+</Workbook>
