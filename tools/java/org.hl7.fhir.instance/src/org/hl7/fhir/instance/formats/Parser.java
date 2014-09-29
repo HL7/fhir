@@ -33,7 +33,6 @@ package org.hl7.fhir.instance.formats;
 
 import java.io.InputStream;
 
-import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.model.Resource;
 
 

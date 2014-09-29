@@ -24,8 +24,8 @@ import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.validation.ExtensionLocatorService;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -212,7 +212,7 @@ public class WorkerContext {
     }
 
     @Override
-    public ValueSetDefineConceptComponent getCodeDefinition(String system, String code) {
+    public ConceptDefinitionComponent getCodeDefinition(String system, String code) {
       throw new Error("call to NullTerminologyServices");
     }
 

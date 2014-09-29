@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2014-08-06T21:37:15Z</LastSaved>
+  <LastSaved>2014-09-29T01:09:11Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -168,7 +168,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="48" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="50" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="267.75"/>
@@ -404,6 +404,7 @@
     <Cell><Data ss:Type="String">ValueSet.define.concept</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s72"><Data ss:Type="String">10;460</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=ConceptDefinition</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Concepts in the code system</Data></Cell>
    </Row>
    <Row>
@@ -512,14 +513,32 @@
     <Cell ss:Index="13"><Data ss:Type="String">It is an error to include codes that are marked &quot;abstract&quot; in a value set that is used directly in a specification, but not an error to include an abstract code in a value set not destined for this use</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
-   <Row ss:Height="60">
-    <Cell><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
+   <Row ss:Height="105">
+    <Cell><Data ss:Type="String">ValueSet.compose.include.concept</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=ConceptReference</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">A concept defined in the system</Data></Cell>
+    <Cell><Data ss:Type="String">Specifies a concept to be included or excluded. </Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">The list of concepts is considered ordered, though the order may not have any particular significance. Typically, the order an an expansion follows that defined in the compose</Data></Cell>
+    <Cell><Data ss:Type="String">N/A</Data></Cell>
+   </Row>
+   <Row ss:Height="45">
+    <Cell><Data ss:Type="String">ValueSet.compose.include.concept.code</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">!</Data></Cell>
-    <Cell><Data ss:Type="String">Code or concept from system</Data></Cell>
-    <Cell><Data ss:Type="String">Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance</Data></Cell>
+    <Cell><Data ss:Type="String">Code or expression from system</Data></Cell>
+    <Cell><Data ss:Type="String">Specifies a code for the concept to be included or excluded</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Expressions are allowed if defined by the underlying code system</Data></Cell>
+    <Cell><Data ss:Type="String">N/A</Data></Cell>
+   </Row>
+   <Row ss:Height="105">
+    <Cell><Data ss:Type="String">ValueSet.compose.include.concept.display</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Test to display for this code for this value set</Data></Cell>
+    <Cell><Data ss:Type="String">The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">The value set resource allows for an alternative display to be specified for when this concept is used in this particular value set. See notes in the value set narrative about the correct use of this element</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:Height="165">
@@ -566,14 +585,14 @@
     <Cell ss:Index="13" ss:StyleID="s76"><Data ss:Type="String">Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">ValueSet.compose.exclude</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@ValueSet.compose.include</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Explicitly exclude codes</Data></Cell>
     <Cell><Data ss:Type="String">Exclude one or more codes from the value set</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Usually this is used to selectively exclude codes that were included by subsumption in the inclusions</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Usually this is used to selectively exclude codes that were included by subsumption in the inclusions. Any display names specified for the codes are ignored</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:Height="75">
@@ -657,7 +676,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>28</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -674,8 +693,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>33</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

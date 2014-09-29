@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 
 public interface ConceptLocator {
@@ -25,7 +25,7 @@ public interface ConceptLocator {
       
       
   }
-    public ValueSetDefineConceptComponent locate(String system, String code);
+    public ConceptDefinitionComponent locate(String system, String code);
     public ValidationResult validate(String system, String code, String display);
     public boolean verifiesSystem(String system);
     public List<ValueSetExpansionContainsComponent> expand(ConceptSetComponent inc) throws Exception;

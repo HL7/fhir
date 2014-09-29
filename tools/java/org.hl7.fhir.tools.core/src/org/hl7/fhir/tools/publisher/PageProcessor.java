@@ -2562,13 +2562,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (ConceptSetComponent t : vs.getCompose().getInclude()) {
         if (t.getFilter().size() > 0)
           return true;
-        if (t.getCode().size() == 0)
+        if (t.getConcept().size() == 0)
           return true;
       }
       for (ConceptSetComponent t : vs.getCompose().getExclude()) {
         if (t.getFilter().size() > 0)
           return true;
-        if (t.getCode().size() == 0)
+        if (t.getConcept().size() == 0)
           return true;
       }
     }

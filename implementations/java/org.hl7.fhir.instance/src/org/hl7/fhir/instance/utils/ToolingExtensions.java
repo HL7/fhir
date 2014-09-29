@@ -42,7 +42,7 @@ import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.StringType;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -83,7 +83,7 @@ public class ToolingExtensions {
     nc.getExtensions().add(Factory.newExtension(EXT_DEPRECATED, Factory.newBoolean(true), true));   
   }
 
-  public static void addSubsumes(ValueSetDefineConceptComponent nc, String code) throws Exception {
+  public static void addSubsumes(ConceptDefinitionComponent nc, String code) throws Exception {
     nc.getModifierExtensions().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
   }
 
@@ -146,23 +146,23 @@ public class ToolingExtensions {
     return true;
   }
 
-  public static String getComment(ValueSetDefineConceptComponent c) {
+  public static String getComment(ConceptDefinitionComponent c) {
     return readStringExtension(c, EXT_COMMENT);    
   }
 
-  public static String getDeprecated(ValueSetDefineConceptComponent c) {
+  public static String getDeprecated(ConceptDefinitionComponent c) {
     return readBooleanExtension(c, EXT_DEPRECATED);    
   }
 
-  public static boolean hasComment(ValueSetDefineConceptComponent c) {
+  public static boolean hasComment(ConceptDefinitionComponent c) {
     return findStringExtension(c, EXT_COMMENT);    
   }
 
-  public static boolean hasDeprecated(ValueSetDefineConceptComponent c) {
+  public static boolean hasDeprecated(ConceptDefinitionComponent c) {
     return findBooleanExtension(c, EXT_DEPRECATED);    
   }
 
-  public static List<CodeType> getSubsumes(ValueSetDefineConceptComponent c) {
+  public static List<CodeType> getSubsumes(ConceptDefinitionComponent c) {
     List<CodeType> res = new ArrayList<CodeType>();
 
     for (Extension e : c.getExtensions()) {

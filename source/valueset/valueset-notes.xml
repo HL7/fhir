@@ -88,6 +88,29 @@ to compute the relationship, which might not be possible for a profile tool</li>
   definitions may be provided by a third party. See below for notes about its use against common code systems</li>
 </ul>
 
+<p>
+When a value set enumerates codes, it is also able to define an alternative display for 
+the code that is to be used where ever the value set is expanded and used in a UI. This 
+facility is provided to cover the following circumstances:
+</p>
+<ul>
+ <li>The system that defines the code or expression doesn't provide a display for this code (or any codes)</li>
+ <li>The system that defines the code or expression defines multiple choices for display</li>
+ <li>The system provides a very long display name that is unnecssary or innappropriate in the context of this value set (e.g. a display name of "Glucose [Mass/volume] in Serum or Plasma --10 PM specimen" for LOINC code 48991-4, when the value set only includes Glucose mass/vol in serum/plasma codes). As the display names get longer, this becomes more important</li>
+</ul>
+<p>
+Note that care must be taken in order to avoid "changing the meaning" of the concept by
+implying that it means something other than the explicit definition of the concept in the
+underlying system (e.g. in the case above, using a display "Glucose Concentration at 10pm"). 
+For this reason, some contexts of use do not allow a display to be associated with a specific code.
+</p>
+<p>
+The display name for the code in the value set is only used in the UI. The display in a 
+a <a href="datatypes.html#Coding">Coding</a> must be taken from the underlying system, 
+even if a value set is referenced explicitly in the Coding. The alternative display 
+specified in the value set would go in <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text.
+</p>
+ 
 <h3>Code systems Note</h3>
 <p>
 How filters are used with various code systems:

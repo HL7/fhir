@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 13:00+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -6686,14 +6686,14 @@ public class JsonParser extends JsonParserBase {
     if (json.has("concept")) {
       JsonArray array = json.getAsJsonArray("concept");
       for (int i = 0; i < array.size(); i++) {
-        res.getConcept().add(parseValueSetValueSetDefineConceptComponent(array.get(i).getAsJsonObject(), owner));
+        res.getConcept().add(parseValueSetConceptDefinitionComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     return res;
   }
 
-  private ValueSet.ValueSetDefineConceptComponent parseValueSetValueSetDefineConceptComponent(JsonObject json, ValueSet owner) throws Exception {
-    ValueSet.ValueSetDefineConceptComponent res = new ValueSet.ValueSetDefineConceptComponent();
+  private ValueSet.ConceptDefinitionComponent parseValueSetConceptDefinitionComponent(JsonObject json, ValueSet owner) throws Exception {
+    ValueSet.ConceptDefinitionComponent res = new ValueSet.ConceptDefinitionComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
       res.setCode(parseCode(json.get("code").getAsString()));
@@ -6714,7 +6714,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("concept")) {
       JsonArray array = json.getAsJsonArray("concept");
       for (int i = 0; i < array.size(); i++) {
-        res.getConcept().add(parseValueSetValueSetDefineConceptComponent(array.get(i).getAsJsonObject(), owner));
+        res.getConcept().add(parseValueSetConceptDefinitionComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     return res;
@@ -6764,19 +6764,10 @@ public class JsonParser extends JsonParserBase {
       res.setVersion(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
       parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
-    if (json.has("code")) {
-      JsonArray array = json.getAsJsonArray("code");
+    if (json.has("concept")) {
+      JsonArray array = json.getAsJsonArray("concept");
       for (int i = 0; i < array.size(); i++) {
-        res.getCode().add(parseCode(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_code")) {
-      JsonArray array = json.getAsJsonArray("_code");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getCode().size())
-          res.getCode().add(parseCode(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getCode().get(i));
+        res.getConcept().add(parseValueSetConceptReferenceComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     if (json.has("filter")) {
@@ -6785,6 +6776,20 @@ public class JsonParser extends JsonParserBase {
         res.getFilter().add(parseValueSetConceptSetFilterComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
+    return res;
+  }
+
+  private ValueSet.ConceptReferenceComponent parseValueSetConceptReferenceComponent(JsonObject json, ValueSet owner) throws Exception {
+    ValueSet.ConceptReferenceComponent res = new ValueSet.ConceptReferenceComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCode(json.get("code").getAsString()));
+    if (json.has("_code"))
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+    if (json.has("display"))
+      res.setDisplay(parseString(json.get("display").getAsString()));
+    if (json.has("_display"))
+      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplay());
     return res;
   }
 
@@ -6831,6 +6836,10 @@ public class JsonParser extends JsonParserBase {
       res.setSystem(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
       parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+    if (json.has("version"))
+      res.setVersion(parseString(json.get("version").getAsString()));
+    if (json.has("_version"))
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
     if (json.has("code"))
       res.setCode(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))

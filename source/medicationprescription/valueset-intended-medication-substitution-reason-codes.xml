@@ -23,21 +23,39 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/_SubstanceAdminSubstitutionReason"/>
-      <code value="CT"/>
-      <code value="FP"/>
-      <code value="OS"/>
-      <code value="RR"/>
+      <concept>
+        <code value="CT"/>
+      </concept>
+      <concept>
+        <code value="FP"/>
+      </concept>
+      <concept>
+        <code value="OS"/>
+      </concept>
+      <concept>
+        <code value="RR"/>
+      </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/v3/_SubstanceAdministrationPermissionRefusalReasonCode"/>
-      <code value="NOUSEPERM"/>
-      <code value="PATINELIG"/>
-      <code value="PROTUNMET"/>
-      <code value="PROVUNAUTH"/>
+      <concept>
+        <code value="NOUSEPERM"/>
+      </concept>
+      <concept>
+        <code value="PATINELIG"/>
+      </concept>
+      <concept>
+        <code value="PROTUNMET"/>
+      </concept>
+      <concept>
+        <code value="PROVUNAUTH"/>
+      </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/v3/NullFlavor"/>
-      <code value="UNK"/>
+      <concept>
+        <code value="UNK"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

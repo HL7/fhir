@@ -18,16 +18,36 @@
   <compose>
     <include>
       <system value="http://nema.org/dicom/dcid"/>
-      <code value="110030"/>
-      <code value="110031"/>
-      <code value="110032"/>
-      <code value="110033"/>
-      <code value="110034"/>
-      <code value="110035"/>
-      <code value="110036"/>
-      <code value="110037"/>
-      <code value="110010"/>
-      <code value="110038"/>
+      <concept>
+        <code value="110030"/>
+      </concept>
+      <concept>
+        <code value="110031"/>
+      </concept>
+      <concept>
+        <code value="110032"/>
+      </concept>
+      <concept>
+        <code value="110033"/>
+      </concept>
+      <concept>
+        <code value="110034"/>
+      </concept>
+      <concept>
+        <code value="110035"/>
+      </concept>
+      <concept>
+        <code value="110036"/>
+      </concept>
+      <concept>
+        <code value="110037"/>
+      </concept>
+      <concept>
+        <code value="110010"/>
+      </concept>
+      <concept>
+        <code value="110038"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

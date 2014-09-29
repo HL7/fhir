@@ -12,10 +12,18 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ActReason"/>
-      <code value="IMMUNE"/>
-      <code value="MEDPREC"/>
-      <code value="OSTOCK"/>
-      <code value="PATOBJ"/>
+      <concept>
+        <code value="IMMUNE"/>
+      </concept>
+      <concept>
+        <code value="MEDPREC"/>
+      </concept>
+      <concept>
+        <code value="OSTOCK"/>
+      </concept>
+      <concept>
+        <code value="PATOBJ"/>
+      </concept>
     </include>
     <include>
       <system value="http://snomed.info/sct"/>

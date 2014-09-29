@@ -84,19 +84,20 @@ import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Property;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Ratio;
-import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Reference;
+import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.Timing.EventTiming;
 import org.hl7.fhir.instance.model.Timing.TimingRepeatComponent;
 import org.hl7.fhir.instance.model.Timing.UnitsOfTime;
-import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -680,7 +681,7 @@ public class NarrativeGenerator {
   }
 
   private String lookupCode(String system, String code) {
-    ValueSetDefineConceptComponent t;
+    ConceptDefinitionComponent t;
     if (context.getCodeSystems() == null && context.getTerminologyServices() == null)
     	return code;
     else if (context.getCodeSystems() != null && context.getCodeSystems().containsKey(system)) 
@@ -695,11 +696,11 @@ public class NarrativeGenerator {
     
   }
 
-  private ValueSetDefineConceptComponent findCode(String code, List<ValueSetDefineConceptComponent> list) {
-    for (ValueSetDefineConceptComponent t : list) {
+  private ConceptDefinitionComponent findCode(String code, List<ConceptDefinitionComponent> list) {
+    for (ConceptDefinitionComponent t : list) {
       if (code.equals(t.getCodeSimple()))
         return t;
-      ValueSetDefineConceptComponent c = findCode(code, t.getConcept());
+      ConceptDefinitionComponent c = findCode(code, t.getConcept());
       if (c != null)
         return c;
     }
@@ -1171,14 +1172,14 @@ public class NarrativeGenerator {
       ValueSet vs = context.getCodeSystems().get(system).getResource();
       return getDisplayForConcept(code, vs.getDefine().getConcept(), vs.getDefine().getCaseSensitiveSimple());
     } else if (context.getTerminologyServices() != null) {
-      ValueSetDefineConceptComponent cl = context.getTerminologyServices().getCodeDefinition(system, code);
+      ConceptDefinitionComponent cl = context.getTerminologyServices().getCodeDefinition(system, code);
       return cl == null ? null : cl.getDisplaySimple();
     } else
       return null;
   }
 
-  private String getDisplayForConcept(String code, List<ValueSetDefineConceptComponent> concept, boolean cs) {
-    for (ValueSetDefineConceptComponent t : concept) {
+  private String getDisplayForConcept(String code, List<ConceptDefinitionComponent> concept, boolean cs) {
+    for (ConceptDefinitionComponent t : concept) {
       if ((cs && code.equals(t.getCodeSimple()) || (!cs && code.equalsIgnoreCase(t.getCodeSimple()))))
           return t.getDisplaySimple();
       String disp = getDisplayForConcept(code, t.getConcept(), cs);
@@ -1298,12 +1299,12 @@ public class NarrativeGenerator {
     XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     boolean commentS = false;
     boolean deprecated = false;
-    for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
       deprecated = deprecated || conceptsHaveDeprecated(c);
     }
     addMapHeaders(addTableHeaderRowStandard(t, commentS, deprecated), mymaps);
-    for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
       hasExtensions = addDefineRowToTable(t, c, 0, commentS, deprecated, mymaps) || hasExtensions;
     }    
     return hasExtensions;
@@ -1331,19 +1332,19 @@ public class NarrativeGenerator {
     }
   }
 
-  private boolean conceptsHaveComments(ValueSetDefineConceptComponent c) {
+  private boolean conceptsHaveComments(ConceptDefinitionComponent c) {
     if (ToolingExtensions.hasComment(c)) 
       return true;
-    for (ValueSetDefineConceptComponent g : c.getConcept()) 
+    for (ConceptDefinitionComponent g : c.getConcept()) 
       if (conceptsHaveComments(g))
         return true;
     return false;
   }
 
-  private boolean conceptsHaveDeprecated(ValueSetDefineConceptComponent c) {
+  private boolean conceptsHaveDeprecated(ConceptDefinitionComponent c) {
     if (ToolingExtensions.hasDeprecated(c)) 
       return true;
-    for (ValueSetDefineConceptComponent g : c.getConcept()) 
+    for (ConceptDefinitionComponent g : c.getConcept()) 
       if (conceptsHaveDeprecated(g))
         return true;
     return false;
@@ -1421,7 +1422,7 @@ public class NarrativeGenerator {
     }    
   }
 
-  private boolean addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i, boolean comment, boolean deprecated, Map<ConceptMap, String> maps) {
+  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean comment, boolean deprecated, Map<ConceptMap, String> maps) {
     boolean hasExtensions = false;
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
@@ -1482,7 +1483,7 @@ public class NarrativeGenerator {
       a.setAttribute("href", "#"+Utilities.nmtokenize(e.getValue()));
       a.addText(c.getCodeSimple());
     }
-    for (ValueSetDefineConceptComponent cc : c.getConcept()) {
+    for (ConceptDefinitionComponent cc : c.getConcept()) {
       hasExtensions = addDefineRowToTable(t, cc, i+1, comment, deprecated, maps) || hasExtensions;
     }    
     return hasExtensions;
@@ -1569,30 +1570,30 @@ public class NarrativeGenerator {
     li = ul.addTag("li");
     AtomEntry<? extends Resource> e = context.getCodeSystems().get(inc.getSystemSimple());
     
-    if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) { 
+    if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) { 
       li.addText(type+" all codes defined in ");
       addCsRef(inc, li, e);
     } else { 
-      if (inc.getCode().size() > 0) {
+      if (inc.getConcept().size() > 0) {
         li.addText(type+" these codes as defined in ");
         addCsRef(inc, li, e);
       
         XhtmlNode t = li.addTag("table");
         boolean hasComments = false;
-        for (CodeType c : inc.getCode()) {
+        for (ConceptReferenceComponent c : inc.getConcept()) {
           hasComments = hasComments || c.hasExtension(ToolingExtensions.EXT_COMMENT);
         }
         if (hasComments)
           hasExtensions = true;
         addTableHeaderRowStandard(t, hasComments, false);
-        for (CodeType c : inc.getCode()) {
+        for (ConceptReferenceComponent c : inc.getConcept()) {
           XhtmlNode tr = t.addTag("tr");
-          tr.addTag("td").addText(c.getValue());
-          ValueSetDefineConceptComponent cc = getConceptForCode(e, c.getValue(), inc.getSystemSimple());
+          tr.addTag("td").addText(c.getCodeSimple());
+          ConceptDefinitionComponent cc = getConceptForCode(e, c.getCodeSimple(), inc.getSystemSimple());
           
           XhtmlNode td = tr.addTag("td");
-          if (c.hasExtension(ToolingExtensions.EXT_DISPLAY))
-            td.addText(ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_DISPLAY));
+          if (!Utilities.noString(c.getDisplaySimple()))
+            td.addText(c.getDisplaySimple());
           else if (cc != null && !Utilities.noString(cc.getDisplaySimple()))
             td.addText(cc.getDisplaySimple());
           
@@ -1635,7 +1636,7 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private <T extends Resource> ValueSetDefineConceptComponent getConceptForCode(AtomEntry<T> e, String code, String system) {
+  private <T extends Resource> ConceptDefinitionComponent getConceptForCode(AtomEntry<T> e, String code, String system) {
     if (e == null) {
       if (context.getTerminologyServices() != null)
         return context.getTerminologyServices().getCodeDefinition(system, code);
@@ -1645,8 +1646,8 @@ public class NarrativeGenerator {
     ValueSet vs = (ValueSet) e.getResource();
     if (vs.getDefine() == null)
       return null;
-    for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
-      ValueSetDefineConceptComponent v = getConceptForCode(c, code);   
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+      ConceptDefinitionComponent v = getConceptForCode(c, code);   
       if (v != null)
         return v;
     }
@@ -1655,11 +1656,11 @@ public class NarrativeGenerator {
   
   
   
-  private ValueSetDefineConceptComponent getConceptForCode(ValueSetDefineConceptComponent c, String code) {
+  private ConceptDefinitionComponent getConceptForCode(ConceptDefinitionComponent c, String code) {
     if (code.equals(c.getCodeSimple()))
       return c;
-    for (ValueSetDefineConceptComponent cc : c.getConcept()) {
-      ValueSetDefineConceptComponent v = getConceptForCode(cc, code);   
+    for (ConceptDefinitionComponent cc : c.getConcept()) {
+      ConceptDefinitionComponent v = getConceptForCode(cc, code);   
       if (v != null)
         return v;
     }
@@ -1692,17 +1693,17 @@ public class NarrativeGenerator {
 
   private  <T extends Resource> boolean codeExistsInValueSet(AtomEntry<T> cs, String code) {
     ValueSet vs = (ValueSet) cs.getResource();
-    for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
       if (inConcept(code, c))
         return true;
     }
     return false;
   }
 
-  private boolean inConcept(String code, ValueSetDefineConceptComponent c) {
+  private boolean inConcept(String code, ConceptDefinitionComponent c) {
     if (c.getCodeSimple() != null && c.getCodeSimple().equals(code))
       return true;
-    for (ValueSetDefineConceptComponent g : c.getConcept()) {
+    for (ConceptDefinitionComponent g : c.getConcept()) {
       if (inConcept(code, g))
         return true;
     }

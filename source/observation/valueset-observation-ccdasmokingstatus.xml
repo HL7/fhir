@@ -13,12 +13,24 @@ Code System(s)  SNOMED CT 2.16.840.1.113883.6.96  Note the base resource does no
 		<include>
 			<system value="http://snomed.info/sct/"/>
 			<version value="http://snomed.info/sct/US1000124/version/20140901"/>
-			<code value="449868002"/>
-			<code value="428041000124106"/>
-			<code value="8517006"/>
-			<code value="266919005"/>
-			<code value="77176002"/>
-			<code value="266927001"/>
+			<concept>
+        <code value="449868002"/>
+      </concept>
+			<concept>
+        <code value="428041000124106"/>
+      </concept>
+			<concept>
+        <code value="8517006"/>
+      </concept>
+			<concept>
+        <code value="266919005"/>
+      </concept>
+			<concept>
+        <code value="77176002"/>
+      </concept>
+			<concept>
+        <code value="266927001"/>
+      </concept>
 		</include>
 	</compose>
 </ValueSet>

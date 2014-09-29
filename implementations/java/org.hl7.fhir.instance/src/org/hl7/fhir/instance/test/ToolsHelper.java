@@ -56,7 +56,6 @@ import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.StrucResult;
 import org.hl7.fhir.instance.utils.WorkerContext;
-import org.hl7.fhir.instance.validation.ValidationEngine;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.TextFile;

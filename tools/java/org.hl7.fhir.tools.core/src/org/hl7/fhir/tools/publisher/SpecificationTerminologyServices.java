@@ -34,7 +34,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueCompone
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.utils.TerminologyServices;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -80,7 +80,7 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
   }
 
   @Override
-  public ValueSetDefineConceptComponent getCodeDefinition(String system, String code) {
+  public ConceptDefinitionComponent getCodeDefinition(String system, String code) {
     if (system == null)
       return null;
     if (system.equals("http://snomed.info/sct"))
@@ -96,12 +96,12 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
     return null;
   }
 
-  private ValueSetDefineConceptComponent locateSnomed(String code) throws Exception {
+  private ConceptDefinitionComponent locateSnomed(String code) throws Exception {
     if (!snomedCodes.containsKey(code))
       queryForTerm(code);
     if (!snomedCodes.containsKey(code))
       return null;
-    ValueSetDefineConceptComponent cc = new ValueSetDefineConceptComponent();
+    ConceptDefinitionComponent cc = new ConceptDefinitionComponent();
     cc.setCodeSimple(code);
     cc.setDisplaySimple(snomedCodes.get(code).display);
     return cc;
@@ -181,10 +181,10 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
       return null;
   }
 
-  private ValueSetDefineConceptComponent locateLoinc(String code) throws Exception {
+  private ConceptDefinitionComponent locateLoinc(String code) throws Exception {
     if (!loincCodes.containsKey(code))
       return null;
-    ValueSetDefineConceptComponent cc = new ValueSetDefineConceptComponent();
+    ConceptDefinitionComponent cc = new ConceptDefinitionComponent();
     cc.setCodeSimple(code);
     String s = loincCodes.get(code).display;
     cc.setDisplaySimple(s);

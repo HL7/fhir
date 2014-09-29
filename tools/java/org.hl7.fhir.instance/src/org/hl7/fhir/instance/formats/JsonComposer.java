@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 13:00+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -5719,15 +5719,15 @@ public class JsonComposer extends JsonComposerBase {
       composeBooleanExtras("caseSensitive", element.getCaseSensitive(), false);
       if (element.getConcept().size() > 0) {
         openArray("concept");
-        for (ValueSet.ValueSetDefineConceptComponent e : element.getConcept()) 
-          composeValueSetValueSetDefineConceptComponent(null, e);
+        for (ValueSet.ConceptDefinitionComponent e : element.getConcept()) 
+          composeValueSetConceptDefinitionComponent(null, e);
         closeArray();
       };
       close();
     }
   }
 
-  private void composeValueSetValueSetDefineConceptComponent(String name, ValueSet.ValueSetDefineConceptComponent element) throws Exception {
+  private void composeValueSetConceptDefinitionComponent(String name, ValueSet.ConceptDefinitionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeBackbone(element);
@@ -5741,8 +5741,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("definition", element.getDefinition(), false);
       if (element.getConcept().size() > 0) {
         openArray("concept");
-        for (ValueSet.ValueSetDefineConceptComponent e : element.getConcept()) 
-          composeValueSetValueSetDefineConceptComponent(null, e);
+        for (ValueSet.ConceptDefinitionComponent e : element.getConcept()) 
+          composeValueSetConceptDefinitionComponent(null, e);
         closeArray();
       };
       close();
@@ -5789,17 +5789,11 @@ public class JsonComposer extends JsonComposerBase {
       composeUriExtras("system", element.getSystem(), false);
       composeStringCore("version", element.getVersion(), false);
       composeStringExtras("version", element.getVersion(), false);
-      if (element.getCode().size() > 0) {
-        openArray("code");
-        for (CodeType e : element.getCode()) 
-          composeCodeCore(null, e, true);
+      if (element.getConcept().size() > 0) {
+        openArray("concept");
+        for (ValueSet.ConceptReferenceComponent e : element.getConcept()) 
+          composeValueSetConceptReferenceComponent(null, e);
         closeArray();
-        if (anyHasExtras(element.getCode())) {
-          openArray("_code");
-          for (CodeType e : element.getCode()) 
-            composeCodeExtras(null, e, true);
-          closeArray();
-        }
       };
       if (element.getFilter().size() > 0) {
         openArray("filter");
@@ -5807,6 +5801,18 @@ public class JsonComposer extends JsonComposerBase {
           composeValueSetConceptSetFilterComponent(null, e);
         closeArray();
       };
+      close();
+    }
+  }
+
+  private void composeValueSetConceptReferenceComponent(String name, ValueSet.ConceptReferenceComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeCodeCore("code", element.getCode(), false);
+      composeCodeExtras("code", element.getCode(), false);
+      composeStringCore("display", element.getDisplay(), false);
+      composeStringExtras("display", element.getDisplay(), false);
       close();
     }
   }
@@ -5850,6 +5856,8 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       composeUriCore("system", element.getSystem(), false);
       composeUriExtras("system", element.getSystem(), false);
+      composeStringCore("version", element.getVersion(), false);
+      composeStringExtras("version", element.getVersion(), false);
       composeCodeCore("code", element.getCode(), false);
       composeCodeExtras("code", element.getCode(), false);
       composeStringCore("display", element.getDisplay(), false);

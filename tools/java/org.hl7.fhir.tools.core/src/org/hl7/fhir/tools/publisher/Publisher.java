@@ -162,7 +162,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
 import org.hl7.fhir.instance.utils.LoincToDEConvertor;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
@@ -1835,8 +1835,8 @@ public class Publisher implements URIResolver {
     List<String> parents = new ArrayList<String>();
     List<CodeInfo> children = new ArrayList<CodeInfo>();
 
-    public void write(int lvl, StringBuilder s, ValueSet vs, List<ValueSetDefineConceptComponent> list, ValueSetDefineConceptComponent owner,
-        Map<String, ValueSetDefineConceptComponent> handled) throws Exception {
+    public void write(int lvl, StringBuilder s, ValueSet vs, List<ConceptDefinitionComponent> list, ConceptDefinitionComponent owner,
+        Map<String, ConceptDefinitionComponent> handled) throws Exception {
       if (!select && children.size() == 0)
         return;
 
@@ -1851,7 +1851,7 @@ public class Publisher implements URIResolver {
           s.append("&nbsp;&nbsp;");
         s.append("<a href=\"#" + Utilities.escapeXml(Utilities.nmtokenize(code)) + "\">" + Utilities.escapeXml(code) + "</a></td><td></td><td></td></tr>\r\n");
       } else {
-        ValueSetDefineConceptComponent concept = new ValueSet.ValueSetDefineConceptComponent();
+        ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
         handled.put(code, concept);
         concept.setCodeSimple(code);
         concept.setDisplaySimple(display);
@@ -1955,7 +1955,7 @@ public class Publisher implements URIResolver {
 
     s.append("<table class=\"grid\">\r\n");
     s.append(" <tr><td><b>Level</b></td><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr>\r\n");
-    Map<String, ValueSetDefineConceptComponent> handled = new HashMap<String, ValueSet.ValueSetDefineConceptComponent>();
+    Map<String, ConceptDefinitionComponent> handled = new HashMap<String, ValueSet.ConceptDefinitionComponent>();
     for (CodeInfo ci : codes) {
       if (ci.parents.size() == 0) {
         ci.write(1, s, vs, def.getConcept(), null, handled);
@@ -2167,15 +2167,15 @@ public class Publisher implements URIResolver {
           }
           for (String c : order) {
             if (codes.contains(c))
-              imp.addCodeSimple(c);
+              imp.addConcept().setCodeSimple(c);
           }
           for (String c : codes) {
             if (!order.contains(c))
-              imp.addCodeSimple(c);
+              imp.addConcept().setCodeSimple(c);
           }
         } else
           for (String c : codes) {
-            imp.addCodeSimple(c);
+            imp.addConcept().setCodeSimple(c);
           }
       }
     }
@@ -2286,7 +2286,7 @@ public class Publisher implements URIResolver {
         c = XMLUtil.getNextSibling(c);
       }
       String ver = ("2.1".equals(min) ? "from v2.1" : "added v" + min) + ("2.7".equals(max) ? "" : ", removed after v" + max);
-      ValueSetDefineConceptComponent concept = new ValueSet.ValueSetDefineConceptComponent();
+      ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
       concept.setCodeSimple(cd);
       concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to
                                                // be display name, not
@@ -2372,7 +2372,7 @@ public class Publisher implements URIResolver {
         c = XMLUtil.getNextSibling(c);
       }
       String ver = (minlim.equals(min) ? "from v" + minlim : "added v" + min) + (maxlim.equals(max) ? "" : ", removed after v" + max);
-      ValueSetDefineConceptComponent concept = new ValueSet.ValueSetDefineConceptComponent();
+      ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
       concept.setCodeSimple(cd);
       concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to
                                                // be display name, not
@@ -4192,7 +4192,7 @@ public class Publisher implements URIResolver {
         for (DefinedCode c : cd.getCodes()) {
           if (n.equals(c.getSystem())) {
             CodeType nc = org.hl7.fhir.instance.model.Factory.newCode(c.getCode());
-            cc.getCode().add(nc);
+            cc.addConcept().setCode(nc);
             if (!Utilities.noString(c.getComment()))
               ToolingExtensions.addComment(nc, c.getComment());
             if (!Utilities.noString(c.getDefinition()))
@@ -4417,8 +4417,8 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void addCode(ValueSet vs, List<ValueSetDefineConceptComponent> list, DefinedCode c) {
-    ValueSetDefineConceptComponent d = new ValueSet.ValueSetDefineConceptComponent();
+  private void addCode(ValueSet vs, List<ConceptDefinitionComponent> list, DefinedCode c) {
+    ConceptDefinitionComponent d = new ValueSet.ConceptDefinitionComponent();
     list.add(d);
     d.setCodeSimple(c.getCode());
     if (!Utilities.noString(c.getDisplay()))

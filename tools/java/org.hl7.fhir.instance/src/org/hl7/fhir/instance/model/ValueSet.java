@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 13:00+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -181,9 +181,9 @@ public class ValueSet extends Resource {
         /**
          * Concepts in the code system.
          */
-        protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
+        protected List<ConceptDefinitionComponent> concept = new ArrayList<ConceptDefinitionComponent>();
 
-        private static final long serialVersionUID = 819436673L;
+        private static final long serialVersionUID = 1963348227L;
 
       public ValueSetDefineComponent() {
         super();
@@ -301,7 +301,7 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #concept} (Concepts in the code system.)
          */
-        public List<ValueSetDefineConceptComponent> getConcept() { 
+        public List<ConceptDefinitionComponent> getConcept() { 
           return this.concept;
         }
 
@@ -309,8 +309,8 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #concept} (Concepts in the code system.)
          */
-        public ValueSetDefineConceptComponent addConcept() { 
-          ValueSetDefineConceptComponent t = new ValueSetDefineConceptComponent();
+        public ConceptDefinitionComponent addConcept() { 
+          ConceptDefinitionComponent t = new ConceptDefinitionComponent();
           this.concept.add(t);
           return t;
         }
@@ -328,15 +328,15 @@ public class ValueSet extends Resource {
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
         dst.caseSensitive = caseSensitive == null ? null : caseSensitive.copy();
-        dst.concept = new ArrayList<ValueSetDefineConceptComponent>();
-        for (ValueSetDefineConceptComponent i : concept)
+        dst.concept = new ArrayList<ConceptDefinitionComponent>();
+        for (ConceptDefinitionComponent i : concept)
           dst.concept.add(i.copy());
         return dst;
       }
 
   }
 
-    public static class ValueSetDefineConceptComponent extends BackboneElement {
+    public static class ConceptDefinitionComponent extends BackboneElement {
         /**
          * Code that identifies concept.
          */
@@ -360,15 +360,15 @@ public class ValueSet extends Resource {
         /**
          * Child Concepts (is-a / contains).
          */
-        protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
+        protected List<ConceptDefinitionComponent> concept = new ArrayList<ConceptDefinitionComponent>();
 
-        private static final long serialVersionUID = -1870725379L;
+        private static final long serialVersionUID = 906358655L;
 
-      public ValueSetDefineConceptComponent() {
+      public ConceptDefinitionComponent() {
         super();
       }
 
-      public ValueSetDefineConceptComponent(CodeType code) {
+      public ConceptDefinitionComponent(CodeType code) {
         super();
         this.code = code;
       }
@@ -383,7 +383,7 @@ public class ValueSet extends Resource {
         /**
          * @param value {@link #code} (Code that identifies concept.)
          */
-        public ValueSetDefineConceptComponent setCode(CodeType value) { 
+        public ConceptDefinitionComponent setCode(CodeType value) { 
           this.code = value;
           return this;
         }
@@ -398,7 +398,7 @@ public class ValueSet extends Resource {
         /**
          * @param value Code that identifies concept.
          */
-        public ValueSetDefineConceptComponent setCodeSimple(String value) { 
+        public ConceptDefinitionComponent setCodeSimple(String value) { 
             if (this.code == null)
               this.code = new CodeType();
             this.code.setValue(value);
@@ -415,7 +415,7 @@ public class ValueSet extends Resource {
         /**
          * @param value {@link #abstract_} (If this code is not for use as a real concept.)
          */
-        public ValueSetDefineConceptComponent setAbstract(BooleanType value) { 
+        public ConceptDefinitionComponent setAbstract(BooleanType value) { 
           this.abstract_ = value;
           return this;
         }
@@ -430,7 +430,7 @@ public class ValueSet extends Resource {
         /**
          * @param value If this code is not for use as a real concept.
          */
-        public ValueSetDefineConceptComponent setAbstractSimple(boolean value) { 
+        public ConceptDefinitionComponent setAbstractSimple(boolean value) { 
           if (value == false)
             this.abstract_ = null;
           else {
@@ -451,7 +451,7 @@ public class ValueSet extends Resource {
         /**
          * @param value {@link #display} (Text to Display to the user.)
          */
-        public ValueSetDefineConceptComponent setDisplay(StringType value) { 
+        public ConceptDefinitionComponent setDisplay(StringType value) { 
           this.display = value;
           return this;
         }
@@ -466,7 +466,7 @@ public class ValueSet extends Resource {
         /**
          * @param value Text to Display to the user.
          */
-        public ValueSetDefineConceptComponent setDisplaySimple(String value) { 
+        public ConceptDefinitionComponent setDisplaySimple(String value) { 
           if (value == null)
             this.display = null;
           else {
@@ -487,7 +487,7 @@ public class ValueSet extends Resource {
         /**
          * @param value {@link #definition} (The formal definition of the concept. Formal definitions are not required, because of the prevalence of legacy systems without them, but they are highly recommended, as without them there is no formal meaning associated with the concept.)
          */
-        public ValueSetDefineConceptComponent setDefinition(StringType value) { 
+        public ConceptDefinitionComponent setDefinition(StringType value) { 
           this.definition = value;
           return this;
         }
@@ -502,7 +502,7 @@ public class ValueSet extends Resource {
         /**
          * @param value The formal definition of the concept. Formal definitions are not required, because of the prevalence of legacy systems without them, but they are highly recommended, as without them there is no formal meaning associated with the concept.
          */
-        public ValueSetDefineConceptComponent setDefinitionSimple(String value) { 
+        public ConceptDefinitionComponent setDefinitionSimple(String value) { 
           if (value == null)
             this.definition = null;
           else {
@@ -516,7 +516,7 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #concept} (Child Concepts (is-a / contains).)
          */
-        public List<ValueSetDefineConceptComponent> getConcept() { 
+        public List<ConceptDefinitionComponent> getConcept() { 
           return this.concept;
         }
 
@@ -524,8 +524,8 @@ public class ValueSet extends Resource {
         /**
          * @return {@link #concept} (Child Concepts (is-a / contains).)
          */
-        public ValueSetDefineConceptComponent addConcept() { 
-          ValueSetDefineConceptComponent t = new ValueSetDefineConceptComponent();
+        public ConceptDefinitionComponent addConcept() { 
+          ConceptDefinitionComponent t = new ConceptDefinitionComponent();
           this.concept.add(t);
           return t;
         }
@@ -539,14 +539,14 @@ public class ValueSet extends Resource {
           childrenList.add(new Property("concept", "@ValueSet.define.concept", "Child Concepts (is-a / contains).", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
-      public ValueSetDefineConceptComponent copy() {
-        ValueSetDefineConceptComponent dst = new ValueSetDefineConceptComponent();
+      public ConceptDefinitionComponent copy() {
+        ConceptDefinitionComponent dst = new ConceptDefinitionComponent();
         dst.code = code == null ? null : code.copy();
         dst.abstract_ = abstract_ == null ? null : abstract_.copy();
         dst.display = display == null ? null : display.copy();
         dst.definition = definition == null ? null : definition.copy();
-        dst.concept = new ArrayList<ValueSetDefineConceptComponent>();
-        for (ValueSetDefineConceptComponent i : concept)
+        dst.concept = new ArrayList<ConceptDefinitionComponent>();
+        for (ConceptDefinitionComponent i : concept)
           dst.concept.add(i.copy());
         return dst;
       }
@@ -681,16 +681,16 @@ public class ValueSet extends Resource {
         protected StringType version;
 
         /**
-         * Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.
+         * Specifies a concept to be included or excluded.
          */
-        protected List<CodeType> code = new ArrayList<CodeType>();
+        protected List<ConceptReferenceComponent> concept = new ArrayList<ConceptReferenceComponent>();
 
         /**
          * Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.
          */
         protected List<ConceptSetFilterComponent> filter = new ArrayList<ConceptSetFilterComponent>();
 
-        private static final long serialVersionUID = -1360238143L;
+        private static final long serialVersionUID = -950487150L;
 
       public ConceptSetComponent() {
         super();
@@ -770,40 +770,20 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @return {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
+         * @return {@link #concept} (Specifies a concept to be included or excluded.)
          */
-        public List<CodeType> getCode() { 
-          return this.code;
+        public List<ConceptReferenceComponent> getConcept() { 
+          return this.concept;
         }
 
     // syntactic sugar
         /**
-         * @return {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
+         * @return {@link #concept} (Specifies a concept to be included or excluded.)
          */
-        public CodeType addCode() { 
-          CodeType t = new CodeType();
-          this.code.add(t);
+        public ConceptReferenceComponent addConcept() { 
+          ConceptReferenceComponent t = new ConceptReferenceComponent();
+          this.concept.add(t);
           return t;
-        }
-
-        /**
-         * @param value {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
-         */
-        public CodeType addCodeSimple(String value) { 
-          CodeType t = new CodeType();
-          t.setValue(value);
-          this.code.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
-         */
-        public boolean hasCodeSimple(String value) { 
-          for (CodeType v : this.code)
-            if (v.getValue().equals(value))
-              return true;
-          return false;
         }
 
         /**
@@ -827,7 +807,7 @@ public class ValueSet extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "The code system from which the selected codes come from.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("version", "string", "The version of the code system that the codes are selected from.", 0, java.lang.Integer.MAX_VALUE, version));
-          childrenList.add(new Property("code", "code", "Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("concept", "", "Specifies a concept to be included or excluded.", 0, java.lang.Integer.MAX_VALUE, concept));
           childrenList.add(new Property("filter", "", "Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.", 0, java.lang.Integer.MAX_VALUE, filter));
         }
 
@@ -835,12 +815,117 @@ public class ValueSet extends Resource {
         ConceptSetComponent dst = new ConceptSetComponent();
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
-        dst.code = new ArrayList<CodeType>();
-        for (CodeType i : code)
-          dst.code.add(i.copy());
+        dst.concept = new ArrayList<ConceptReferenceComponent>();
+        for (ConceptReferenceComponent i : concept)
+          dst.concept.add(i.copy());
         dst.filter = new ArrayList<ConceptSetFilterComponent>();
         for (ConceptSetFilterComponent i : filter)
           dst.filter.add(i.copy());
+        return dst;
+      }
+
+  }
+
+    public static class ConceptReferenceComponent extends BackboneElement {
+        /**
+         * Specifies a code for the concept to be included or excluded.
+         */
+        protected CodeType code;
+
+        /**
+         * The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.
+         */
+        protected StringType display;
+
+        private static final long serialVersionUID = -345950251L;
+
+      public ConceptReferenceComponent() {
+        super();
+      }
+
+      public ConceptReferenceComponent(CodeType code) {
+        super();
+        this.code = code;
+      }
+
+        /**
+         * @return {@link #code} (Specifies a code for the concept to be included or excluded.)
+         */
+        public CodeType getCode() { 
+          return this.code;
+        }
+
+        /**
+         * @param value {@link #code} (Specifies a code for the concept to be included or excluded.)
+         */
+        public ConceptReferenceComponent setCode(CodeType value) { 
+          this.code = value;
+          return this;
+        }
+
+        /**
+         * @return Specifies a code for the concept to be included or excluded.
+         */
+        public String getCodeSimple() { 
+          return this.code == null ? null : this.code.getValue();
+        }
+
+        /**
+         * @param value Specifies a code for the concept to be included or excluded.
+         */
+        public ConceptReferenceComponent setCodeSimple(String value) { 
+            if (this.code == null)
+              this.code = new CodeType();
+            this.code.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #display} (The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.)
+         */
+        public StringType getDisplay() { 
+          return this.display;
+        }
+
+        /**
+         * @param value {@link #display} (The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.)
+         */
+        public ConceptReferenceComponent setDisplay(StringType value) { 
+          this.display = value;
+          return this;
+        }
+
+        /**
+         * @return The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.
+         */
+        public String getDisplaySimple() { 
+          return this.display == null ? null : this.display.getValue();
+        }
+
+        /**
+         * @param value The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.
+         */
+        public ConceptReferenceComponent setDisplaySimple(String value) { 
+          if (value == null)
+            this.display = null;
+          else {
+            if (this.display == null)
+              this.display = new StringType();
+            this.display.setValue(value);
+          }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("code", "code", "Specifies a code for the concept to be included or excluded.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("display", "string", "The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.", 0, java.lang.Integer.MAX_VALUE, display));
+        }
+
+      public ConceptReferenceComponent copy() {
+        ConceptReferenceComponent dst = new ConceptReferenceComponent();
+        dst.code = code == null ? null : code.copy();
+        dst.display = display == null ? null : display.copy();
         return dst;
       }
 
@@ -1105,6 +1190,11 @@ public class ValueSet extends Resource {
         protected UriType system;
 
         /**
+         * The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.
+         */
+        protected StringType version;
+
+        /**
          * Code - if blank, this is not a choosable code.
          */
         protected CodeType code;
@@ -1119,7 +1209,7 @@ public class ValueSet extends Resource {
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
-        private static final long serialVersionUID = 1346310636L;
+        private static final long serialVersionUID = -954161949L;
 
       public ValueSetExpansionContainsComponent() {
         super();
@@ -1157,6 +1247,42 @@ public class ValueSet extends Resource {
             if (this.system == null)
               this.system = new UriType();
             this.system.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #version} (The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.)
+         */
+        public StringType getVersion() { 
+          return this.version;
+        }
+
+        /**
+         * @param value {@link #version} (The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.)
+         */
+        public ValueSetExpansionContainsComponent setVersion(StringType value) { 
+          this.version = value;
+          return this;
+        }
+
+        /**
+         * @return The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.
+         */
+        public String getVersionSimple() { 
+          return this.version == null ? null : this.version.getValue();
+        }
+
+        /**
+         * @param value The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.
+         */
+        public ValueSetExpansionContainsComponent setVersionSimple(String value) { 
+          if (value == null)
+            this.version = null;
+          else {
+            if (this.version == null)
+              this.version = new StringType();
+            this.version.setValue(value);
           }
           return this;
         }
@@ -1253,6 +1379,7 @@ public class ValueSet extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "System value for the code.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("version", "string", "The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("code", "code", "Code - if blank, this is not a choosable code.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("display", "string", "User display for the concept.", 0, java.lang.Integer.MAX_VALUE, display));
           childrenList.add(new Property("contains", "@ValueSet.expansion.contains", "Codes contained in this concept.", 0, java.lang.Integer.MAX_VALUE, contains));
@@ -1261,6 +1388,7 @@ public class ValueSet extends Resource {
       public ValueSetExpansionContainsComponent copy() {
         ValueSetExpansionContainsComponent dst = new ValueSetExpansionContainsComponent();
         dst.system = system == null ? null : system.copy();
+        dst.version = version == null ? null : version.copy();
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
         dst.contains = new ArrayList<ValueSetExpansionContainsComponent>();
@@ -1307,7 +1435,7 @@ public class ValueSet extends Resource {
     protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
 
     /**
-     * A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.
+     * A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of expected usages for the value set.
      */
     protected StringType description;
 
@@ -1352,7 +1480,7 @@ public class ValueSet extends Resource {
     protected ValueSetComposeComponent compose;
 
     /**
-     * When value set is an expansion.
+     * A value set can also be "expanded", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.
      */
     protected ValueSetExpansionComponent expansion;
 
@@ -1362,10 +1490,8 @@ public class ValueSet extends Resource {
       super();
     }
 
-    public ValueSet(StringType name, StringType description, Enumeration<ValuesetStatus> status) {
+    public ValueSet(Enumeration<ValuesetStatus> status) {
       super();
-      this.name = name;
-      this.description = description;
       this.status = status;
     }
 
@@ -1467,9 +1593,13 @@ public class ValueSet extends Resource {
      * @param value A free text natural language name describing the value set.
      */
     public ValueSet setNameSimple(String value) { 
+      if (value == null)
+        this.name = null;
+      else {
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
+      }
       return this;
     }
 
@@ -1599,14 +1729,14 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return {@link #description} (A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.)
+     * @return {@link #description} (A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of expected usages for the value set.)
      */
     public StringType getDescription() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.)
+     * @param value {@link #description} (A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of expected usages for the value set.)
      */
     public ValueSet setDescription(StringType value) { 
       this.description = value;
@@ -1614,19 +1744,23 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.
+     * @return A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of expected usages for the value set.
      */
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.
+     * @param value A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of expected usages for the value set.
      */
     public ValueSet setDescriptionSimple(String value) { 
+      if (value == null)
+        this.description = null;
+      else {
         if (this.description == null)
           this.description = new StringType();
         this.description.setValue(value);
+      }
       return this;
     }
 
@@ -1873,14 +2007,14 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return {@link #expansion} (When value set is an expansion.)
+     * @return {@link #expansion} (A value set can also be "expanded", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.)
      */
     public ValueSetExpansionComponent getExpansion() { 
       return this.expansion;
     }
 
     /**
-     * @param value {@link #expansion} (When value set is an expansion.)
+     * @param value {@link #expansion} (A value set can also be "expanded", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.)
      */
     public ValueSet setExpansion(ValueSetExpansionComponent value) { 
       this.expansion = value;
@@ -1896,7 +2030,7 @@ public class ValueSet extends Resource {
         childrenList.add(new Property("immutable", "boolean", "If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the value set.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("telecom", "ContactPoint", "Contacts of the publisher to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
-        childrenList.add(new Property("description", "string", "A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("description", "string", "A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of expected usages for the value set.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("status", "code", "The status of the value set.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
@@ -1905,7 +2039,7 @@ public class ValueSet extends Resource {
         childrenList.add(new Property("stableDate", "date", "If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.", 0, java.lang.Integer.MAX_VALUE, stableDate));
         childrenList.add(new Property("define", "", "When value set defines its own codes.", 0, java.lang.Integer.MAX_VALUE, define));
         childrenList.add(new Property("compose", "", "When value set includes codes from elsewhere.", 0, java.lang.Integer.MAX_VALUE, compose));
-        childrenList.add(new Property("expansion", "", "When value set is an expansion.", 0, java.lang.Integer.MAX_VALUE, expansion));
+        childrenList.add(new Property("expansion", "", "A value set can also be 'expanded', where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, java.lang.Integer.MAX_VALUE, expansion));
       }
 
       public ValueSet copy() {

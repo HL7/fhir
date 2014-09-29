@@ -20,27 +20,16 @@
         <include>
           <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
           <version value="1"/>
-          <code value="M"/>
-        </include>
-        <include>
-          <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-          <version value="1"/>
-          <code value="F"/>
+          <concept>
+            <code value="M"/>
+            <display value="Male"/>
+          </concept>
+          <concept>
+            <code value="F"/>
+            <display value="Female"/>
+          </concept>
         </include>
       </compose>
-      <expansion>
-        <timestamp value="2012-10-03T00:00:00"/>
-        <contains>
-          <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-          <code value="M"/>
-          <display value="Male"/>
-        </contains>
-        <contains>
-          <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-          <code value="F"/>
-          <display value="Female"/>
-        </contains>
-      </expansion>
     </ValueSet>
   </contained>
   <identifier>

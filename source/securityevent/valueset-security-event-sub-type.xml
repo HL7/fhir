@@ -18,44 +18,114 @@
   <compose>
     <include>
       <system value="http://nema.org/dicom/dcid"/>
-      <code value="110120"/>
-      <code value="110121"/>
-      <code value="110122"/>
-      <code value="110123"/>
-      <code value="110124"/>
-      <code value="110125"/>
-      <code value="110126"/>
-      <code value="110127"/>
-      <code value="110128"/>
-      <code value="110129"/>
-      <code value="110130"/>
-      <code value="110131"/>
-      <code value="110132"/>
-      <code value="110133"/>
-      <code value="110134"/>
-      <code value="110135"/>
-      <code value="110136"/>
-      <code value="110137"/>
-      <code value="110138"/>
-      <code value="110139"/>
-      <code value="110140"/>
-      <code value="110141"/>
-      <code value="110142"/>      
+      <concept>
+        <code value="110120"/>
+      </concept>
+      <concept>
+        <code value="110121"/>
+      </concept>
+      <concept>
+        <code value="110122"/>
+      </concept>
+      <concept>
+        <code value="110123"/>
+      </concept>
+      <concept>
+        <code value="110124"/>
+      </concept>
+      <concept>
+        <code value="110125"/>
+      </concept>
+      <concept>
+        <code value="110126"/>
+      </concept>
+      <concept>
+        <code value="110127"/>
+      </concept>
+      <concept>
+        <code value="110128"/>
+      </concept>
+      <concept>
+        <code value="110129"/>
+      </concept>
+      <concept>
+        <code value="110130"/>
+      </concept>
+      <concept>
+        <code value="110131"/>
+      </concept>
+      <concept>
+        <code value="110132"/>
+      </concept>
+      <concept>
+        <code value="110133"/>
+      </concept>
+      <concept>
+        <code value="110134"/>
+      </concept>
+      <concept>
+        <code value="110135"/>
+      </concept>
+      <concept>
+        <code value="110136"/>
+      </concept>
+      <concept>
+        <code value="110137"/>
+      </concept>
+      <concept>
+        <code value="110138"/>
+      </concept>
+      <concept>
+        <code value="110139"/>
+      </concept>
+      <concept>
+        <code value="110140"/>
+      </concept>
+      <concept>
+        <code value="110141"/>
+      </concept>
+      <concept>
+        <code value="110142"/>      
+      </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/restful-interaction"/>
-      <code value="read"/>
-      <code value="vread"/>
-      <code value="update"/>
-      <code value="delete"/>
-      <code value="validate"/>
-      <code value="create"/>
-      <code value="history-instance"/>
-      <code value="history-type"/>
-      <code value="history-system"/>
-      <code value="search-type"/>
-      <code value="search-system"/>
-      <code value="transaction"/>
+      <concept>
+        <code value="read"/>
+      </concept>
+      <concept>
+        <code value="vread"/>
+      </concept>
+      <concept>
+        <code value="update"/>
+      </concept>
+      <concept>
+        <code value="delete"/>
+      </concept>
+      <concept>
+        <code value="validate"/>
+      </concept>
+      <concept>
+        <code value="create"/>
+      </concept>
+      <concept>
+        <code value="history-instance"/>
+      </concept>
+      <concept>
+        <code value="history-type"/>
+      </concept>
+      <concept>
+        <code value="history-system"/>
+      </concept>
+      <concept>
+        <code value="search-type"/>
+      </concept>
+      <concept>
+        <code value="search-system"/>
+      </concept>
+      <concept>
+        <code value="transaction"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

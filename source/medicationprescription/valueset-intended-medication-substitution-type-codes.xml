@@ -23,19 +23,39 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/substanceAdminSubstitution"/>
-      <code value="E"/>
-      <code value="EC"/>
-      <code value="BC"/>
-      <code value="G"/>
-      <code value="TE"/>
-      <code value="TB"/>
-      <code value="TG"/>
-      <code value="F"/>
-      <code value="N"/>
+      <concept>
+        <code value="E"/>
+      </concept>
+      <concept>
+        <code value="EC"/>
+      </concept>
+      <concept>
+        <code value="BC"/>
+      </concept>
+      <concept>
+        <code value="G"/>
+      </concept>
+      <concept>
+        <code value="TE"/>
+      </concept>
+      <concept>
+        <code value="TB"/>
+      </concept>
+      <concept>
+        <code value="TG"/>
+      </concept>
+      <concept>
+        <code value="F"/>
+      </concept>
+      <concept>
+        <code value="N"/>
+      </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/v3/NullFlavor"/>
-      <code value="UNK"/>
+      <concept>
+        <code value="UNK"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

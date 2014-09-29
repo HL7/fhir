@@ -2,12 +2,12 @@ package org.hl7.fhir.instance.utils;
 
 import java.util.List;
 
-import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.utils.ValueSetExpander.ETooCostly;
 import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
@@ -81,21 +81,21 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
     if (!vsi.getSystemSimple().equals(system))
       return false; 
     // whether we know the system or not, we'll accept the stated codes at face value
-    for (CodeType cc : vsi.getCode())
-      if (cc.getValue().equals(code)) {
-        return false;
+    for (ConceptReferenceComponent cc : vsi.getConcept())
+      if (cc.getCodeSimple().equals(code)) {
+        return true;
       }
       
     if (context.getCodeSystems().containsKey(system)) {
       ValueSet def = context.getCodeSystems().get(system).getResource();
       if (!def.getDefine().getCaseSensitiveSimple()) {
         // well, ok, it's not case sensitive - we'll check that too now
-        for (CodeType cc : vsi.getCode())
-          if (cc.getValue().equalsIgnoreCase(code)) {
+        for (ConceptReferenceComponent cc : vsi.getConcept())
+          if (cc.getCodeSimple().equalsIgnoreCase(code)) {
             return false;
           }
       }
-      if (vsi.getCode().isEmpty() && vsi.getFilter().isEmpty()) {
+      if (vsi.getConcept().isEmpty() && vsi.getFilter().isEmpty()) {
         return codeInDefine(def.getDefine().getConcept(), code, def.getDefine().getCaseSensitiveSimple());
       }
       for (ConceptSetFilterComponent f: vsi.getFilter())
@@ -109,8 +109,8 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
       return false;
   }
 
-  private boolean codeInDefine(List<ValueSetDefineConceptComponent> concepts, String code, boolean caseSensitive) {
-    for (ValueSetDefineConceptComponent c : concepts) {
+  private boolean codeInDefine(List<ConceptDefinitionComponent> concepts, String code, boolean caseSensitive) {
+    for (ConceptDefinitionComponent c : concepts) {
       if (caseSensitive && code.equals(c.getCodeSimple()))
         return true;
       if (!caseSensitive && code.equalsIgnoreCase(c.getCodeSimple()))

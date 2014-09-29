@@ -57,10 +57,18 @@
       <version value="2.36"/>
       <!-- for LOINC, we simply include the listed codes - no subsumption in LOINC -->
       <!-- these were selected by hand -->
-      <code value="14647-2"/>
-      <code value="2093-3"/>
-      <code value="35200-5"/>
-      <code value="9342-7"/>
+      <concept>
+        <code value="14647-2"/>
+      </concept>
+      <concept>
+        <code value="2093-3"/>
+      </concept>
+      <concept>
+        <code value="35200-5"/>
+      </concept>
+      <concept>
+        <code value="9342-7"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

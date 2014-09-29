@@ -28,15 +28,15 @@ import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Range;
 import org.hl7.fhir.instance.model.Ratio;
-import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Reference;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.SampledData;
-import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
@@ -912,7 +912,7 @@ public class InstanceValidator extends BaseValidator {
       else {
         ValueSet vs = getValueSet(system);
         if (warning(errors, "code-unknown", path, vs != null, "Unknown Code System "+system)) {
-          ValueSetDefineConceptComponent def = getCodeDefinition(vs, code); 
+          ConceptDefinitionComponent def = getCodeDefinition(vs, code); 
           if (warning(errors, "code-unknown", path, def != null, "Unknown Code ("+system+"#"+code+")"))
             return warning(errors, "code-unknown", path, display == null || display.equals(def.getDisplaySimple()), "Display should be '"+def.getDisplaySimple()+"'");
         }
@@ -927,20 +927,20 @@ public class InstanceValidator extends BaseValidator {
       return true;
   }
 
-  private ValueSetDefineConceptComponent getCodeDefinition(ValueSetDefineConceptComponent c, String code) {
+  private ConceptDefinitionComponent getCodeDefinition(ConceptDefinitionComponent c, String code) {
     if (code.equals(c.getCodeSimple()))
       return c;
-    for (ValueSetDefineConceptComponent g : c.getConcept()) {
-      ValueSetDefineConceptComponent r = getCodeDefinition(g, code);
+    for (ConceptDefinitionComponent g : c.getConcept()) {
+      ConceptDefinitionComponent r = getCodeDefinition(g, code);
       if (r != null)
         return r;
     }
     return null;
   }
 
-  private ValueSetDefineConceptComponent getCodeDefinition(ValueSet vs, String code) {
-    for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
-      ValueSetDefineConceptComponent r = getCodeDefinition(c, code);
+  private ConceptDefinitionComponent getCodeDefinition(ValueSet vs, String code) {
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+      ConceptDefinitionComponent r = getCodeDefinition(c, code);
       if (r != null)
         return r;
     }

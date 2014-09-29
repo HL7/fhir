@@ -18,9 +18,15 @@
   <compose>
     <include>
       <system value="http://nema.org/dicom/dcid"/>
-      <code value="110180"/>
-      <code value="110181"/>
-      <code value="110182"/>
+      <concept>
+        <code value="110180"/>
+      </concept>
+      <concept>
+        <code value="110181"/>
+      </concept>
+      <concept>
+        <code value="110182"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

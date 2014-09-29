@@ -11,15 +11,27 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/EncounterSpecialCourtesy"/>
-      <code value="EXT"/>
-      <code value="NRM"/>
-      <code value="PRF"/>
-      <code value="STF"/>
-      <code value="VIP"/>
+      <concept>
+        <code value="EXT"/>
+      </concept>
+      <concept>
+        <code value="NRM"/>
+      </concept>
+      <concept>
+        <code value="PRF"/>
+      </concept>
+      <concept>
+        <code value="STF"/>
+      </concept>
+      <concept>
+        <code value="VIP"/>
+      </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/v3/NullFlavor"/>
-      <code value="UNK"/>
+      <concept>
+        <code value="UNK"/>
+      </concept>
     </include>
   </compose>
   

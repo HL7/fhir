@@ -10,13 +10,21 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="F"/>
-      <code value="M"/>
-      <code value="UN"/>
+      <concept>
+        <code value="F"/>
+      </concept>
+      <concept>
+        <code value="M"/>
+      </concept>
+      <concept>
+        <code value="UN"/>
+      </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/v3/NullFlavor"/>
-      <code value="UNK"/>
+      <concept>
+        <code value="UNK"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

@@ -11,9 +11,15 @@
   <compose>
     <include>
       <system value="http://loinc.org"/>
-      <code value="440622005"/>
-      <code value="394838008"/>
-      <code value="26895000"/>
+      <concept>
+        <code value="440622005"/>
+      </concept>
+      <concept>
+        <code value="394838008"/>
+      </concept>
+      <concept>
+        <code value="26895000"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

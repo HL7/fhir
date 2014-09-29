@@ -12,9 +12,15 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
-      <code value="IM"/>
-      <code value="PO"/>
-      <code value="NASINHL"/>
+      <concept>
+        <code value="IM"/>
+      </concept>
+      <concept>
+        <code value="PO"/>
+      </concept>
+      <concept>
+        <code value="NASINHL"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

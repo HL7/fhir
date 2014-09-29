@@ -33,8 +33,8 @@ package org.hl7.fhir.instance.client;
 import java.net.URI;
 import java.util.HashMap;
 
-import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Reference;
+import org.hl7.fhir.instance.model.Resource;
 
 /**
  * TODO Modify FHIR client to incorporate this class

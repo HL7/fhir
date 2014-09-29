@@ -23,14 +23,24 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ActPharmacySupplyType"/>
-      <code value="DF"/>
-      <code value="EM"/>
-      <code value="SO"/>
-      <code value="FF"/>
+      <concept>
+        <code value="DF"/>
+      </concept>
+      <concept>
+        <code value="EM"/>
+      </concept>
+      <concept>
+        <code value="SO"/>
+      </concept>
+      <concept>
+        <code value="FF"/>
+      </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/v3/NullFlavor"/>
-      <code value="UNK"/>
+      <concept>
+        <code value="UNK"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

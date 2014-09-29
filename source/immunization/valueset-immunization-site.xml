@@ -12,8 +12,12 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ActSite"/>
-      <code value="LA"/>
-      <code value="RA"/>
+      <concept>
+        <code value="LA"/>
+      </concept>
+      <concept>
+        <code value="RA"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

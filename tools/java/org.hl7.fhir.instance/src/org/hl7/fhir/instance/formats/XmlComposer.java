@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Sep 29, 2014 07:39+1000 for FHIR v0.3.0
+// Generated on Mon, Sep 29, 2014 13:00+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -3893,13 +3893,13 @@ public class XmlComposer extends XmlComposerBase {
       composeUri("system", element.getSystem());
       composeString("version", element.getVersion());
       composeBoolean("caseSensitive", element.getCaseSensitive());
-      for (ValueSet.ValueSetDefineConceptComponent e : element.getConcept()) 
-        composeValueSetValueSetDefineConceptComponent("concept", e);
+      for (ValueSet.ConceptDefinitionComponent e : element.getConcept()) 
+        composeValueSetConceptDefinitionComponent("concept", e);
       xml.close(FHIR_NS, name);
     }
   }
 
-  private void composeValueSetValueSetDefineConceptComponent(String name, ValueSet.ValueSetDefineConceptComponent element) throws Exception {
+  private void composeValueSetConceptDefinitionComponent(String name, ValueSet.ConceptDefinitionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -3908,8 +3908,8 @@ public class XmlComposer extends XmlComposerBase {
       composeBoolean("abstract", element.getAbstract());
       composeString("display", element.getDisplay());
       composeString("definition", element.getDefinition());
-      for (ValueSet.ValueSetDefineConceptComponent e : element.getConcept()) 
-        composeValueSetValueSetDefineConceptComponent("concept", e);
+      for (ValueSet.ConceptDefinitionComponent e : element.getConcept()) 
+        composeValueSetConceptDefinitionComponent("concept", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -3936,10 +3936,21 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       composeUri("system", element.getSystem());
       composeString("version", element.getVersion());
-      for (CodeType e : element.getCode()) 
-        composeCode("code", e);
+      for (ValueSet.ConceptReferenceComponent e : element.getConcept()) 
+        composeValueSetConceptReferenceComponent("concept", e);
       for (ValueSet.ConceptSetFilterComponent e : element.getFilter()) 
         composeValueSetConceptSetFilterComponent("filter", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeValueSetConceptReferenceComponent(String name, ValueSet.ConceptReferenceComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCode("code", element.getCode());
+      composeString("display", element.getDisplay());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3976,6 +3987,7 @@ public class XmlComposer extends XmlComposerBase {
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
       composeUri("system", element.getSystem());
+      composeString("version", element.getVersion());
       composeCode("code", element.getCode());
       composeString("display", element.getDisplay());
       for (ValueSet.ValueSetExpansionContainsComponent e : element.getContains()) 
