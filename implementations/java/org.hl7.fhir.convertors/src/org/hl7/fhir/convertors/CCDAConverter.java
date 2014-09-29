@@ -69,8 +69,6 @@ import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.Device;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Identifier;
-import org.hl7.fhir.instance.model.List_;
-import org.hl7.fhir.instance.model.List_.ListEntryComponent;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Location;
@@ -444,30 +442,30 @@ public class CCDAConverter {
 
 
 	private SectionComponent processProceduresSection(Element section) throws Exception {
-		List_ list = new List_();
+		SectionComponent sect = new SectionComponent();
+		sect.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
+		for (Element e : cda.getChildren(section, "id"))
+			sect.getIdentifier().add(convert.makeIdentifierFromII(e));
 		for (Element entry : cda.getChildren(section, "entry")) {
 			Element procedure = cda.getlastChild(entry);
 			
 			if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.14")) {
-		    processProcedure(list, procedure, ProcedureType.Procedure);
+		    processProcedure(sect, procedure, ProcedureType.Procedure);
 			} else if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.13")) {
-				processProcedure(list, procedure, ProcedureType.Observation);
+				processProcedure(sect, procedure, ProcedureType.Observation);
 			} else if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.12")) {
-				processProcedure(list, procedure, ProcedureType.Act);
+				processProcedure(sect, procedure, ProcedureType.Act);
 			} else
 				throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(procedure));
 		}
 		
 		// todo: text
-		SectionComponent s = new Composition.SectionComponent();
-		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
 		// todo: check subject
-		s.setContent(Factory.makeReference(addReference(list, "Procedures", makeUUIDReference())));
-		return s;
+		return sect;
 		
 	}
 
-	private void processProcedure(List_ list, Element procedure, ProcedureType type) throws Exception {
+	private void processProcedure(SectionComponent sect, Element procedure, ProcedureType type) throws Exception {
 
 
 		switch (type) {
@@ -484,7 +482,7 @@ public class CCDAConverter {
 		checkNoSubject(procedure, "Procedure ("+type.toString()+")");
 		
 		Procedure p = new Procedure();
-		addItemToList(list, p);
+		addItemToList(sect, p);
 		
 		// moodCode is either INT or EVN. INT is not handled yet. INT is deprecated anyway
    if (procedure.getAttribute("moodCode").equals("INT"))
@@ -711,26 +709,27 @@ public class CCDAConverter {
 
 
 	private SectionComponent processAdverseReactionsSection(Element section) throws Exception {
-		List_ list = new List_();
+		SectionComponent sect = new SectionComponent();
+		sect.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
+		for (Element e : cda.getChildren(section, "id"))
+			sect.getIdentifier().add(convert.makeIdentifierFromII(e));
+
 		for (Element entry : cda.getChildren(section, "entry")) {
 			Element concern = cda.getChild(entry, "act");
 			if (cda.hasTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30")) {
-		    processAllergyProblemAct(list, concern);
+		    processAllergyProblemAct(sect, concern);
 			} else
 				throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(concern));
 		}
 		
 		
 		// todo: text
-		SectionComponent s = new Composition.SectionComponent();
-		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
 		// todo: check subject
-		s.setContent(Factory.makeReference(addReference(list, "Allergies, Adverse Reactions, Alerts", makeUUIDReference())));
-		return s;
+		return sect;
   }
 
 
-	private void processAllergyProblemAct(List_ list, Element concern) throws Exception {
+	private void processAllergyProblemAct(SectionComponent sect, Element concern) throws Exception {
 		cda.checkTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30");  
 	  // Allergy Problem Act - this is a concern - we treat the concern as information about it's place in the list
 		checkNoNegationOrNullFlavor(concern, "Allergy Problem Act");
@@ -745,29 +744,24 @@ public class CCDAConverter {
   		checkNoSubject(obs, "Allergy Problem Act");
   		
 			AllergyIntolerance ai = new AllergyIntolerance();			
-			ListEntryComponent item = addItemToList(list, ai);
+			addItemToList(sect, ai);
 			
 			// this first section comes from the concern, and is processed once for each observation in the concern group
   		// SHALL contain at least one [1..*] id (CONF:7472).
 			for (Element e : cda.getChildren(concern, "id")) 
-				item.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/list-id", convert.makeIdentifierFromII(e), false));
+				ai.getIdentifier().add(convert.makeIdentifierFromII(e));
 
       // SHALL contain exactly one [1..1] statusCode, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.68 HITSPProblemStatus DYNAMIC (CONF:7485)
 		  // the status code is about the concern (e.g. the entry in the list)
 			// possible values: active, suspended, aborted, completed, with an effective time 
 			String s = cda.getStatus(concern);
-			item.getFlag().add(Factory.newCodeableConcept(s, "http://hl7.org/fhir/v3/ActStatus", s));
 			if (s.equals("aborted")) // only on this condition?
-				item.setDeletedSimple(true);
+				ai.setStatusSimple(Sensitivitystatus.refuted);
 			
 			// SHALL contain exactly one [1..1] effectiveTime (CONF:7498)
 			Period p = convert.makePeriodFromIVL(cda.getChild(concern, "effectiveTime"));
-			item.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/list-period", p,  false));
-			if (p.getEnd() != null)
-				item.setDate(p.getEnd());
-			else
-				item.setDate(p.getStart());
-						
+			ai.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/list-period", p,  false));
+
 			//ok, now process the actual observation
 			// SHALL contain at least one [1..*] id (CONF:7382)
 			for (Element e : cda.getChildren(obs, "id"))
@@ -872,36 +866,35 @@ public class CCDAConverter {
 
 
 	private SectionComponent processSocialHistorySection(Element section) throws Exception {
-		List_ list = new List_();
+		SectionComponent sect = new SectionComponent();
+		sect.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
+		for (Element e : cda.getChildren(section, "id"))
+			sect.getIdentifier().add(convert.makeIdentifierFromII(e));
+
 		for (Element entry : cda.getChildren(section, "entry")) {
 			Element observation = cda.getlastChild(entry);
 			
 			if (cda.hasTemplateId(observation, "2.16.840.1.113883.10.20.22.4.38")) {
-		    processSocialObservation(list, observation, SocialHistoryType.SocialHistory);
+		    processSocialObservation(sect, observation, SocialHistoryType.SocialHistory);
 			} else if (cda.hasTemplateId(observation, "2.16.840.1.113883.10.20.15.3.8")) {
-				processSocialObservation(list, observation, SocialHistoryType.Pregnancy);
+				processSocialObservation(sect, observation, SocialHistoryType.Pregnancy);
 			} else if (cda.hasTemplateId(observation, "2.16.840.1.113883.10.20.22.4.78")) {
-				processSocialObservation(list, observation, SocialHistoryType.SmokingStatus);
+				processSocialObservation(sect, observation, SocialHistoryType.SmokingStatus);
 			} else if (cda.hasTemplateId(observation, "2.16.840.1.113883.10.20.22.4.85")) {
-				processSocialObservation(list, observation, SocialHistoryType.TobaccoUse);
+				processSocialObservation(sect, observation, SocialHistoryType.TobaccoUse);
 			} else
 				throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(observation));
 		}
 		
-		// todo: text
-		SectionComponent s = new Composition.SectionComponent();
-		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
-		// todo: check subject
-		s.setContent(Factory.makeReference(addReference(list, "Procedures", makeUUIDReference())));
-		return s;
+		return sect;
 		
 	}
 
 	
 
-	private void processSocialObservation(List_ list, Element so,   SocialHistoryType type) throws Exception {
+	private void processSocialObservation(SectionComponent sect, Element so,   SocialHistoryType type) throws Exception {
 		Observation obs = new Observation();
-		addItemToList(list, obs);
+		addItemToList(sect, obs);
 		
 		switch (type) {
 		case SocialHistory : 
@@ -1006,15 +999,12 @@ public class CCDAConverter {
   }
 
 
-	private ListEntryComponent addItemToList(List_ list, Resource ai)
+	private void addItemToList(SectionComponent sect, Resource ai)
       throws Exception {
-	  list.getContained().add(ai);
+	  composition.getContained().add(ai);
 	  String n = nextRef();
 	  ai.setXmlId(n);
-	  ListEntryComponent item = new List_.ListEntryComponent();
-	  list.getEntry().add(item);
-	  item.setItem(Factory.makeReference("#"+n));
-	  return item;
+	  sect.getEntry().add(Factory.makeReference("#"+n));
   }
 
 
@@ -1059,26 +1049,26 @@ public class CCDAConverter {
 
 
 	private SectionComponent processVitalSignsSection(Element section) throws Exception {
-		List_ list = new List_();
+		SectionComponent sect = new SectionComponent();
+		sect.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
+		for (Element e : cda.getChildren(section, "id"))
+			sect.getIdentifier().add(convert.makeIdentifierFromII(e));
 		for (Element entry : cda.getChildren(section, "entry")) {
 			Element organizer = cda.getlastChild(entry);
 			
 			if (cda.hasTemplateId(organizer, "2.16.840.1.113883.10.20.22.4.26")) {
-		    processVitalSignsOrganizer(list, organizer);
+		    processVitalSignsOrganizer(sect, organizer);
 			} else
 				throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(organizer));
 		}
 		
 		// todo: text
-		SectionComponent s = new Composition.SectionComponent();
-		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
 		// todo: check subject
-		s.setContent(Factory.makeReference(addReference(list, "Vital Signs", makeUUIDReference())));
-		return s;
+		return sect;
 		
 	}
 
-	private void processVitalSignsOrganizer(List_ list, Element organizer) throws Exception {
+	private void processVitalSignsOrganizer(SectionComponent sect, Element organizer) throws Exception {
 
 		cda.checkTemplateId(organizer, "2.16.840.1.113883.10.20.22.4.26");
 		checkNoNegationOrNullFlavor(organizer, "Vital Signs Organizer");
@@ -1086,7 +1076,7 @@ public class CCDAConverter {
 		// moodCode is EVN. 
 		  
 		Observation obs = new Observation();
-		addItemToList(list, obs);
+		addItemToList(sect, obs);
 
 		// SHALL contain at least one [1..*] id (CONF:7282).
 		for (Element e : cda.getChildren(organizer, "id")) 
@@ -1105,12 +1095,12 @@ public class CCDAConverter {
 		for (Element e : cda.getChildren(organizer, "component")){
 			ObservationRelatedComponent ro = new ObservationRelatedComponent();
 			ro.setTypeSimple(ObservationRelationshiptypes.hascomponent);
-			ro.setTarget(Factory.makeReference("#"+processVitalSignsObservation(e, list)));
+			ro.setTarget(Factory.makeReference("#"+processVitalSignsObservation(e, sect)));
 		}
 	}
 
 
-	private String processVitalSignsObservation(Element comp, List_ list) throws Exception {
+	private String processVitalSignsObservation(Element comp, SectionComponent sect) throws Exception {
 		Element observation = cda.getChild(comp, "observation");
 		cda.checkTemplateId(observation, "2.16.840.1.113883.10.20.22.4.27");
 		checkNoNegationOrNullFlavor(observation, "Vital Signs Observation");
@@ -1153,12 +1143,12 @@ public class CCDAConverter {
 		
 		// MAY contain zero or one [0..1] author (CONF:7310).
 		if (cda.getChild(observation, "author") != null)
-			obs.getPerformer().add(makeReferenceToPractitionerForAssignedEntity(cda.getChild(observation, "author"), list));
+			obs.getPerformer().add(makeReferenceToPractitionerForAssignedEntity(cda.getChild(observation, "author"), composition));
 
 		// make a contained practitioner
 		String n = nextRef();
 		obs.setXmlId(n);
-		list.getContained().add(obs);
+		addItemToList(sect, obs);
 		return n;
   }
 }

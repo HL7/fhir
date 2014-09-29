@@ -51,8 +51,16 @@
         <code value="10164-2"/>
       </coding>
     </code>
-    <content>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Penicillin VK 10ml suspension administered by oral route at 14:30 on 1 June 2012</p>
+        <p>on the authority of prescription ref: example</p>
+        <p>to patient ref: a23</p>
+      </div>
+    </text> 
+    <entry>
       <reference value="MedicationAdministration/example"/>
-    </content>
+    </entry>
   </section>
 </Composition>

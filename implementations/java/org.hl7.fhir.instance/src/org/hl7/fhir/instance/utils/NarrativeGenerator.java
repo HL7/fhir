@@ -1938,11 +1938,8 @@ public class NarrativeGenerator {
       else if (section.getCode() != null)
         node.addTag("h"+Integer.toString(level)).addText(displayCodeableConcept(section.getCode()));
       
-      if (section.getContent() != null) {
-        Resource subject = feed.getById(section.getContent().getReferenceSimple()).getResource();
-        if (subject != null) {
-          node.getChildNodes().add(subject.getText().getDiv());
-        }
+      if (section.getText() != null) {
+        node.getChildNodes().add(section.getText().getDiv());
       }
       
       if (!section.getSection().isEmpty()) {
