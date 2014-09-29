@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2014-09-29T01:09:11Z</LastSaved>
+  <LastSaved>2014-09-29T04:12:14Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,7 @@
   <WindowWidth>18435</WindowWidth>
   <WindowTopX>405</WindowTopX>
   <WindowTopY>855</WindowTopY>
+  <ActiveSheet>10</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -168,7 +169,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="50" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="267.75"/>
@@ -624,11 +625,20 @@
     <Cell ss:Index="4" ss:StyleID="s72"><Data ss:Type="String">270;320</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Codes in the value set</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">ValueSet.expansion.contains.system</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">System value for the code</Data></Cell>
+    <Cell><Data ss:Type="String">The system in which the code for this item in the expansion is defined</Data></Cell>
+   </Row>
+   <Row ss:Height="90">
+    <Cell><Data ss:Type="String">ValueSet.expansion.contains.abstract</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">If user cannot select this entry</Data></Cell>
+    <Cell><Data ss:Type="String">If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">This shouldn't be understood to exclude it's use for searchig (e..g by subsumption testing). The client should know whether it is appropriate for the user to select an abstract code or not </Data></Cell>
    </Row>
    <Row ss:Height="60">
     <Cell><Data ss:Type="String">ValueSet.expansion.contains.version</Data></Cell>
@@ -672,11 +682,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>29</TopRowBottomPane>
+   <TopRowBottomPane>44</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -693,8 +702,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>36</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>47</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -758,7 +767,18 @@
     <Cell><Data ss:Type="String">Codes must be unique</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(descendant::f:concept)=count(distinct-values(descendant::f:concept/f:code/@value))</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:Span="1"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s78"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
+    <Cell><Data ss:Type="String">Must have a code if not abstract</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or (f:display/@value = 'true')</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s78"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
+    <Cell><Data ss:Type="String">Must have a system if a code is present</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:system) or not exists(f:code)</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -776,7 +796,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1351,7 +1372,7 @@
     <Cell><Data ss:Type="String">Resource | Instance</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Value Set Expansion</Data></Cell>
     <Cell><Data ss:Type="String">The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. &#10;&#10;If the operation is not called at the instance level, one of the in parameters identifier or valueset must be provided.&#10;&#10;An expanded value set will be returned, or an OperationOutcome with an error message</Data></Cell>
-    <Cell><Data ss:Type="String">The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.</Data></Cell>
+    <Cell><Data ss:Type="String">The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used. &#10;&#10;Different servers may return different results from expanding a value set for the following reasons:&#10;&#10;* The underlying code systems are different (e.g. different versions, possibly with different defined behaviour)&#10;* The server optimises filter includes differently, such as sorting by code frequency&#10;* Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">expand.identifier</Data></Cell>
@@ -1471,11 +1492,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

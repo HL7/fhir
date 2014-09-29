@@ -184,9 +184,15 @@ expanding a value set:
 </ul>
 <p>
 The "result set" is then represented in <i>expansion</i>. Note that the expansion structure is inherently ordered, and 
-also provides support for a hierarchical tree of codes. This specification does not fix the meaning of use of either
+also provides support for a hierarchical tree of items. This specification does not fix the meaning of use of either
 of these, and the conceptual approach described should not be understood to prohibit any implementation approach in
 these regards. There is a <a href="valueset-operations.html">defined operation</a> to ask a server to perform this expansion.
+</p>
+<p>
+An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
+for a human to use the list. These entries have no system or code, and must be marked as abstract. Note that the 
+value set define and compose offer no support for defining these, but this does not exclude servers from using
+extensions or other knowledge to introduce such groups as an implementation feature. 
 </p>
 
 
