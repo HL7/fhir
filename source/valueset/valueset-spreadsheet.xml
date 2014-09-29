@@ -232,15 +232,15 @@
     <Cell><Data ss:Type="String">There may be multiple resource versions of the value set that have the same identifier</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">ValueSet.name</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Informal name for this value set</Data></Cell>
     <Cell><Data ss:Type="String">A free text natural language name describing the value set</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Support human navigation</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Not expected to be unique</Data></Cell>
+    <Cell><Data ss:Type="String">The name is not expected to be unique. A name should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a name</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:Height="90">
@@ -297,15 +297,15 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:Height="150">
+   <Row ss:Height="240">
     <Cell><Data ss:Type="String">ValueSet.description</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Human language description of the value set</Data></Cell>
-    <Cell><Data ss:Type="String">A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of </Data></Cell>
+    <Cell><Data ss:Type="String">A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of expected usages for the value set</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Human understandability</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">The description is not intended to describe the semantics of the Value Set - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes.</Data></Cell>
+    <Cell><Data ss:Type="String">The description is not intended to describe the semantics of the Value Set - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. . A description should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a description</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:Height="90">
@@ -657,7 +657,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -674,8 +674,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>39</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
