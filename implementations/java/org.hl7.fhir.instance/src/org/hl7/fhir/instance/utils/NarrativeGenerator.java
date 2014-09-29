@@ -1262,7 +1262,7 @@ public class NarrativeGenerator {
     if (vs.getCopyright() != null)
       generateCopyright(x, vs);
 
-    XhtmlNode t = x.addTag("table");
+    XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     XhtmlNode tr = t.addTag("tr");
     tr.addTag("td").addTag("b").addText("Code");
     tr.addTag("td").addTag("b").addText("System");
@@ -1295,7 +1295,7 @@ public class NarrativeGenerator {
       generateCopyright(x, vs);
     p = x.addTag("p");
     p.addText("This value set defines its own terms in the system "+vs.getDefine().getSystemSimple());
-    XhtmlNode t = x.addTag("table");
+    XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     boolean commentS = false;
     boolean deprecated = false;
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
