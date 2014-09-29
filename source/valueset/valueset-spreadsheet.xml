@@ -467,7 +467,7 @@
     <Cell><Data ss:Type="String">The value set URI is either a logical reference to a defined value set such as a SNOMED CT reference set, or a literal reference to a value set definition (not an expansion). If the reference is a logical one, it may not reference a actual FHIR value set resource; in this case, the referenced definition of a set of coded values needs to be clear about how versions are resolved</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -476,7 +476,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Include one or more codes from a code system</Data></Cell>
     <Cell><Data ss:Type="String">Include one or more codes from a code system</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">If there are no codes or filters, the entire code system is included</Data></Cell>
+    <Cell><Data ss:Type="String">If there are no codes or filters, the entire code system is included. Note that the set of codes hat are included may contain abstract codes</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:Height="45">
@@ -676,7 +676,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>28</TopRowBottomPane>
+   <TopRowBottomPane>29</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -693,8 +693,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>36</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1011,7 +1011,7 @@
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Comments</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -1019,32 +1019,33 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=</Data></Cell>
-    <Cell><Data ss:Type="String">The property value has the concept specified by the value</Data></Cell>
+    <Cell><Data ss:Type="String">The specified property of the code equals the provided value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">is-a</Data></Cell>
-    <Cell><Data ss:Type="String">The property value has a concept that has an is-a relationship with the value</Data></Cell>
+    <Cell><Data ss:Type="String">The specified property of the code has an is-a relationship with the provided value</Data></Cell>
+    <Cell><Data ss:Type="String">The definition of is-a is that all the properties of the value are true for the specified property of the code, and so that a code has an is-a relationship with itself. To exclude the root code, add it explicitly to as an exclude</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">is-not-a</Data></Cell>
-    <Cell><Data ss:Type="String">The property value has a concept that does not have an is-a relationship with the value</Data></Cell>
+    <Cell><Data ss:Type="String">The specified property of the code does not have an is-a relationship with the provided value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">regex</Data></Cell>
-    <Cell><Data ss:Type="String">The property value representation matches the regex specified in the value</Data></Cell>
+    <Cell><Data ss:Type="String">The specified property of the code  matches the regex specified in the provided value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="String">The property value is in the set of codes or concepts identified by the value</Data></Cell>
+    <Cell><Data ss:Type="String">The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">not in</Data></Cell>
-    <Cell><Data ss:Type="String">The property value is not in the set of codes or concepts identified by the value</Data></Cell>
+    <Cell><Data ss:Type="String">The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

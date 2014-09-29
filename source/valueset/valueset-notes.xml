@@ -86,8 +86,10 @@ to compute the relationship, which might not be possible for a profile tool</li>
   appropriate properties. Note that in some cases, the underlying code system defines the 
   logical concepts but not the syntax for exercising them. In such cases, the literal 
   definitions may be provided by a third party. See below for notes about its use against common code systems</li>
+ <li>Value sets may include abstract codes - that is, codes designated by the underlying code system as 
+   not for use as a real concept. These abstract codes are typically used as a grouping/searching mechanism,
+   and can be included either by enumerating them, or by using a filter</li>
 </ul>
-
 <p>
 When a value set enumerates codes, it is also able to define an alternative display for 
 the code that is to be used where ever the value set is expanded and used in a UI. This 
