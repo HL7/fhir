@@ -20,6 +20,7 @@
   <WindowWidth>18435</WindowWidth>
   <WindowTopX>405</WindowTopX>
   <WindowTopY>855</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -681,7 +682,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -776,7 +776,7 @@
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s78"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell><Data ss:Type="String">Must have a system if a code is present</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">exists(f:system) or not exists(f:code)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:system) or not(exists(f:code))</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -792,11 +792,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
