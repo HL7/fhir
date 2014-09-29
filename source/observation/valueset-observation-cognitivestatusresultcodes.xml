@@ -1,0 +1,15 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="#CognitiveStatusResultCodes"/>
+	<publisher value="HL7 International - Orders and Observations WG"/>
+	<telecom>
+		<system value="url"/>
+		<value value="http://hl7.org/fhir"/>
+	</telecom>
+		<description value="CognitiveStatusResultCodes:  All SNOMED CT codes for now.  This is a placeholder until code set defined"/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct/"/>
+		</include>
+	</compose>
+</ValueSet>
