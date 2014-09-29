@@ -576,12 +576,14 @@
     <Cell ss:Index="13"><Data ss:Type="String">Usually this is used to selectively exclude codes that were included by subsumption in the inclusions</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">ValueSet.expansion</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">270;220</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">When value set is an expansion</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Used when the value set is &quot;expanded&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">A value set can also be &quot;expanded&quot;, where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Expansion is performed to produce a collection of codes that are ready to use for data entry or validation</Data></Cell>
    </Row>
    <Row ss:Height="75">
     <Cell><Data ss:Type="String">ValueSet.expansion.identifier</Data></Cell>
@@ -672,8 +674,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>44</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>39</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
