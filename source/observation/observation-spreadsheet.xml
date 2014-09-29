@@ -9,19 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-09-28T01:17:11Z</LastSaved>
+  <LastSaved>2014-09-29T04:52:51Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5820</WindowHeight>
+  <WindowHeight>5775</WindowHeight>
   <WindowWidth>25260</WindowWidth>
-  <WindowTopX>1620</WindowTopX>
-  <WindowTopY>4830</WindowTopY>
+  <WindowTopX>465</WindowTopX>
+  <WindowTopY>1320</WindowTopY>
   <ActiveSheet>6</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1147,9 +1146,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1157,7 +1156,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1165,8 +1163,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1178,7 +1175,7 @@
    x:FullRows="1" ss:StyleID="s85" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="14.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="201"/>
-   <Column ss:StyleID="s85" ss:Width="96"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="129"/>
    <Column ss:StyleID="s85" ss:Width="234.75"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="139.5"/>
    <Column ss:StyleID="s85" ss:Width="320.25"/>
@@ -1227,7 +1224,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1235,14 +1232,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -1644,8 +1640,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1722,11 +1718,11 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="170.25"/>
    <Column ss:Width="328.5"/>
-   <Column ss:Width="276"/>
+   <Column ss:AutoFitWidth="0" ss:Width="357"/>
    <Column ss:Width="212.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="99"/>
    <Column ss:AutoFitWidth="0" ss:Width="258.75"/>
@@ -1770,6 +1766,22 @@
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">   </Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CCDA Cognitive Status Result Observation</Data></Cell>
+    <Cell><Data ss:Type="String">CCDA Cognitive Status Result Observation template to FHIR Profile mapping</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdacognitivestatusresult-profile-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdacognitivestatusresult.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">   </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CCDA Comment Activity</Data></Cell>
+    <Cell><Data ss:Type="String">CCDA Comment Activity template to FHIR Profile mapping</Data></Cell>
+    <Cell><Data ss:Type="String">observation-ccdacommentactivity-profile-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">observation-commentactivity.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">   </Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1782,7 +1794,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1975,7 +1988,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
