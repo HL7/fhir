@@ -349,6 +349,7 @@ public class SpreadsheetParser {
 			  inv.setContext(sheet.getColumn(row, "Context"));
 			  inv.setEnglish(sheet.getColumn(row, "English"));
 			  inv.setXpath(sheet.getColumn(row, "XPath"));
+			  inv.setSeverity(sheet.getColumn(row, "Severity"));
 			  if (!Utilities.noString(sheet.getColumn(row,  "Schematron")))
 			    log.log("Value found for schematron "+getLocation(row), LogMessageType.Hint);  
 			  inv.setOcl(sheet.getColumn(row, "OCL"));
@@ -878,7 +879,7 @@ public class SpreadsheetParser {
         e.setSvgLeft(Integer.parseInt(parts[0]));
         e.setSvgTop(Integer.parseInt(parts[1]));
         if (parts.length > 2)
-          e.setSvgWidth(Integer.parseInt(parts[0]));
+          e.setSvgWidth(Integer.parseInt(parts[2]));
         e.setUmlDir("");
       } else if (uml.startsWith("break:")) {
         e.setUmlBreak(true);

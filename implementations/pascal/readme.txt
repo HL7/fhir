@@ -10,7 +10,7 @@ The delphi library is maintained by Grahame Grieve (grahame@healthintersections.
 
 1. License
 
-Copyright (c) 2011+, HL7, Inc
+Copyright (c) 2011-2013, HL7, Inc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -39,8 +39,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 2. Delphi / Lazarus Versions supported
 
-As released, this code supports all unicode versions of delphi, and should 
-work on OSX as well as Windows, though this is not yet tested. 
+As released, this code supports all unicode versions of delphi.
+The library depends on msxml, so won't work on anything but windows
 
 In addition, this code (with a different supporting library) is known to
 work in all pre-unicode versions of delphi (D5+). The support library for this
@@ -71,18 +71,27 @@ To write a stream, create an object model, and then create
 either a TFHIRXmlComposer, or a TFHIRJsonComposer, and call 
 the compose methods with appropriate parameters.
 
+There's some useful example code in FHIRTest.dpr
+
+
 4. Object life-cycle management
 
 The library uses it's own approach to managing object life 
-cycles. Each object keeps it's own internal reference count,
+cycles: manual reference counting.
+
+Each object keeps it's own internal reference count,
 and when a new pointer to the object is created, the programmer
 must increment the count. When all references to the object 
 are released, the object is automatically freed.
 
 Question: Why not use interfaces?
-Answer: well, the outcome is kind of like how interfaces
-work, but without their polymorphism problems (can't
-cast an interface to a descendent interface)
+Answers: 
+ * well, the outcome is kind of like how interfaces
+   work, but without their polymorphism problems (can't
+   cast an interface to a descendent interface)
+ * legacy, really. This approach was implemented prior to 
+   interfaces being available
+
 
 The way it works is all implemented in TAdvObject
 
@@ -139,7 +148,7 @@ begin
     // doing stuff, even if it is removed from the list
     // while this is happening 
   finally
-    obj.free; // release our reference to obj; free if this is the last reference\
+    obj.free; // release our reference to obj; free if this is the last reference
   end; 
 end;
 

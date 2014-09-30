@@ -783,7 +783,10 @@ public class ProfileGenerator {
       Invariant inv = e.getInvariants().get(in);
       con.setKeySimple(inv.getId());
       con.setNameSimple(inv.getName());
-      con.setSeveritySimple(ConstraintSeverity.error);
+      if (Utilities.noString(inv.getSeverity()))
+        con.setSeveritySimple(ConstraintSeverity.error);
+      else
+        con.setSeveritySimple(ConstraintSeverity.fromCode(inv.getSeverity()));
       con.setHumanSimple(inv.getEnglish());
       con.setXpathSimple(inv.getXpath());
       ce.getDefinition().getConstraint().add(con);

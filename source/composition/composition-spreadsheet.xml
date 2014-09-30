@@ -545,8 +545,8 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">400;200</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">The clinical service(s) being documented.</Data></Cell>
-    <Cell><Data ss:Type="String">The clinical service, such as a colonoscopy or an appendectomy, being documented.</Data></Cell>
+    <Cell><Data ss:Type="String">The clinical service(s) being documented</Data></Cell>
+    <Cell><Data ss:Type="String">The clinical service, such as a colonoscopy or an appendectomy, being documented</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Provides context for the composition and creates a linkage between a resource describing an event and the composition created describing the event.</Data></Cell>
     <Cell><Data ss:Type="String">The event needs to be consistent with the type element, though can provide further information if desired</Data></Cell>
@@ -898,7 +898,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

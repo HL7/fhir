@@ -36,6 +36,7 @@ public class Invariant {
   private String xpath;
   private String id;
   private String fixedName; // when the invariant is only one one of a set of choices
+  private String severity;
   
   public String getId()
   {
@@ -93,6 +94,14 @@ public class Invariant {
 
   public void setFixedName(String fixedName) {
     this.fixedName = fixedName;
+  }
+
+  public String getSeverity() {
+    return severity;
+  }
+
+  public void setSeverity(String value) {
+    this.severity = value;    
   }
 
   
