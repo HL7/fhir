@@ -309,6 +309,7 @@ public class Publisher implements URIResolver {
   private Map<String, Boolean> buildFlags = new HashMap<String, Boolean>();
   private IniFile cache;
   private WebMaker wm;
+  private String svnStated;
 
   public static void main(String[] args) throws Exception {
     //
@@ -323,6 +324,8 @@ public class Publisher implements URIResolver {
       pub.page.setPublicationType(getNamedParam(args, "-name"));
     if (hasParam(args, "-url"))
       pub.page.setBaseURL(getNamedParam(args, "-url"));
+    if (hasParam(args, "-svn"))
+      pub.page.setSvnRevision(getNamedParam(args, "-svn"));
     if (pub.web) {
       pub.page.setPublicationType("Development Version");
       pub.page.setPublicationNotice(PageProcessor.PUB_NOTICE);
@@ -421,7 +424,7 @@ public class Publisher implements URIResolver {
       page.getFolders().dstDir = path;
     }
     
-    if (isGenerate)
+    if (isGenerate && page.getSvnRevision() == null)
       page.setSvnRevision(checkSubversion(folder));
     registerReferencePlatforms();
 
