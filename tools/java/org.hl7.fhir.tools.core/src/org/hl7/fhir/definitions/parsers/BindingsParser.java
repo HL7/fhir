@@ -146,9 +146,11 @@ public class BindingsParser {
       c.setComment(sheet.getColumn(row, "Comment"));
       c.setV2Map(sheet.getColumn(row, "v2"));
       c.setV3Map(sheet.getColumn(row, "v3"));
+      for (String ct : sheet.columns) 
+        if (ct.startsWith("Display:") && !Utilities.noString(sheet.getColumn(row, ct)))
+          c.getLangs().put(ct.substring(8), sheet.getColumn(row, ct));
       cd.getCodes().add(c);
     }
     return true;
-    
   }
 }

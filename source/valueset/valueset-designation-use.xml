@@ -8,16 +8,13 @@
   <description value="Details of how a designation would be used"/>
   <status value="draft"/>
   
-  
   <compose>
     <include>
-      <!-- all language tags -->
-      <system value="http://tools.ietf.org/html/bcp47"/>
-    </include>
-    <include>
-      <!-- Snomed description types -->
       <system value="http://snomed.info/sct"/>
       <filter>
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display-hint">
+          <valueString value="Snomed description types"/>
+        </extension>
         <property value="concept"/>
         <op value="is-a"/>
         <value value="900000000000446008"/>

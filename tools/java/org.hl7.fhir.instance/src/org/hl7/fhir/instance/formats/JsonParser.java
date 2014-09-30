@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Sep 29, 2014 13:00+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1253,8 +1253,12 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("custodian"))
       res.setCustodian(parseReference(json.getAsJsonObject("custodian")));
-    if (json.has("event"))
-      res.setEvent(parseCompositionCompositionEventComponent(json.getAsJsonObject("event"), res));
+    if (json.has("event")) {
+      JsonArray array = json.getAsJsonArray("event");
+      for (int i = 0; i < array.size(); i++) {
+        res.getEvent().add(parseCompositionCompositionEventComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
     if (json.has("encounter"))
       res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("section")) {
@@ -1320,16 +1324,32 @@ public class JsonParser extends JsonParserBase {
       res.setTitle(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
       parseElementProperties(json.getAsJsonObject("_title"), res.getTitle());
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
-    if (json.has("content"))
-      res.setContent(parseReference(json.getAsJsonObject("content")));
+    if (json.has("text"))
+      res.setText(parseNarrative(json.getAsJsonObject("text")));
+    if (json.has("emptyReason"))
+      res.setEmptyReason(parseCodeableConcept(json.getAsJsonObject("emptyReason")));
+    if (json.has("order"))
+      res.setOrder(parseCodeableConcept(json.getAsJsonObject("order")));
     if (json.has("section")) {
       JsonArray array = json.getAsJsonArray("section");
       for (int i = 0; i < array.size(); i++) {
         res.getSection().add(parseCompositionSectionComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("entry")) {
+      JsonArray array = json.getAsJsonArray("entry");
+      for (int i = 0; i < array.size(); i++) {
+        res.getEntry().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
     return res;
@@ -6602,7 +6622,7 @@ public class JsonParser extends JsonParserBase {
     ValueSet res = new ValueSet();
     parseResourceProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseString(json.get("identifier").getAsString()));
+      res.setIdentifier(parseUri(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
       parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
     if (json.has("version"))
@@ -6711,12 +6731,34 @@ public class JsonParser extends JsonParserBase {
       res.setDefinition(parseString(json.get("definition").getAsString()));
     if (json.has("_definition"))
       parseElementProperties(json.getAsJsonObject("_definition"), res.getDefinition());
+    if (json.has("designation")) {
+      JsonArray array = json.getAsJsonArray("designation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDesignation().add(parseValueSetConceptDefinitionDesignationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
     if (json.has("concept")) {
       JsonArray array = json.getAsJsonArray("concept");
       for (int i = 0; i < array.size(); i++) {
         res.getConcept().add(parseValueSetConceptDefinitionComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
+    return res;
+  }
+
+  private ValueSet.ConceptDefinitionDesignationComponent parseValueSetConceptDefinitionDesignationComponent(JsonObject json, ValueSet owner) throws Exception {
+    ValueSet.ConceptDefinitionDesignationComponent res = new ValueSet.ConceptDefinitionDesignationComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("language"))
+      res.setLanguage(parseCode(json.get("language").getAsString()));
+    if (json.has("_language"))
+      parseElementProperties(json.getAsJsonObject("_language"), res.getLanguage());
+    if (json.has("use"))
+      res.setUse(parseCoding(json.getAsJsonObject("use")));
+    if (json.has("value"))
+      res.setValue(parseString(json.get("value").getAsString()));
+    if (json.has("_value"))
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
     return res;
   }
 
@@ -6790,6 +6832,12 @@ public class JsonParser extends JsonParserBase {
       res.setDisplay(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
       parseElementProperties(json.getAsJsonObject("_display"), res.getDisplay());
+    if (json.has("designation")) {
+      JsonArray array = json.getAsJsonArray("designation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDesignation().add(parseValueSetConceptDefinitionDesignationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
     return res;
   }
 
@@ -6836,6 +6884,10 @@ public class JsonParser extends JsonParserBase {
       res.setSystem(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
       parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+    if (json.has("abstract"))
+      res.setAbstract(parseBoolean(json.get("abstract").getAsBoolean()));
+    if (json.has("_abstract"))
+      parseElementProperties(json.getAsJsonObject("_abstract"), res.getAbstract());
     if (json.has("version"))
       res.setVersion(parseString(json.get("version").getAsString()));
     if (json.has("_version"))

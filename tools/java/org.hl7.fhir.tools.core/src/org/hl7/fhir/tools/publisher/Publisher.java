@@ -157,6 +157,7 @@ import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
@@ -4427,6 +4428,11 @@ public class Publisher implements URIResolver {
       d.setDefinitionSimple(c.getDefinition());
     for (DefinedCode g : c.getChildCodes()) {
       addCode(vs, d.getConcept(), g);
+    }
+    for (String n : c.getLangs().keySet()) {
+      ConceptDefinitionDesignationComponent designation = d.addDesignation();
+      designation.setLanguageSimple(n);
+      designation.setValueSimple(c.getLangs().get(n));
     }
   }
 

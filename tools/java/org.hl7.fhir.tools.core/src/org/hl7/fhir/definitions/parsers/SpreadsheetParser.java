@@ -584,6 +584,9 @@ public class SpreadsheetParser {
       c.setParent(sheet.getColumn(row, "Parent"));
       c.setV2Map(sheet.getColumn(row, "v2"));
       c.setV3Map(sheet.getColumn(row, "v3"));
+      for (String ct : sheet.columns) 
+        if (ct.startsWith("Display:") && !Utilities.noString(sheet.getColumn(row, ct)))
+          c.getLangs().put(ct.substring(8), sheet.getColumn(row, ct));
       if (Utilities.noString(c.getId()) && Utilities.noString(c.getSystem()))
         throw new Exception("code has no id or system ("+sheet.title+") "+getLocation(row));
 			codes.add(c);

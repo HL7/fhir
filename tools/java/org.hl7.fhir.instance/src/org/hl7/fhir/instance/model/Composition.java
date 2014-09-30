@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Sep 29, 2014 13:00+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -422,6 +422,11 @@ public class Composition extends Resource {
         protected StringType title;
 
         /**
+         * Identifier for the section assigned for business purposes outside the context of FHIR.
+         */
+        protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+        /**
          * A code identifying the kind of content contained within the section.
          */
         protected CodeableConcept code;
@@ -437,21 +442,36 @@ public class Composition extends Resource {
         protected Resource subjectTarget;
 
         /**
-         * Identifies the discrete data that provides the content for the section.
+         * A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all it's entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.
          */
-        protected Reference content;
+        protected Narrative text;
 
         /**
-         * The actual object that is the target of the reference (Identifies the discrete data that provides the content for the section.)
+         * If the section is empty, why the section is empty.
          */
-        protected Resource contentTarget;
+        protected CodeableConcept emptyReason;
+
+        /**
+         * If the items in the list or the sub-sections have a meaningful order, what that meaning is. The order of the entries should always match the order in which they are presented in the narrative.
+         */
+        protected CodeableConcept order;
 
         /**
          * A nested sub-section within this section.
          */
         protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
-        private static final long serialVersionUID = 156946755L;
+        /**
+         * Identifies the discrete data that underlies the content for the section.
+         */
+        protected List<Reference> entry = new ArrayList<Reference>();
+        /**
+         * The actual objects that are the target of the reference (Identifies the discrete data that underlies the content for the section.)
+         */
+        protected List<Resource> entryTarget = new ArrayList<Resource>();
+
+
+        private static final long serialVersionUID = 861237074L;
 
       public SectionComponent() {
         super();
@@ -491,6 +511,23 @@ public class Composition extends Resource {
             this.title.setValue(value);
           }
           return this;
+        }
+
+        /**
+         * @return {@link #identifier} (Identifier for the section assigned for business purposes outside the context of FHIR.)
+         */
+        public List<Identifier> getIdentifier() { 
+          return this.identifier;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #identifier} (Identifier for the section assigned for business purposes outside the context of FHIR.)
+         */
+        public Identifier addIdentifier() { 
+          Identifier t = new Identifier();
+          this.identifier.add(t);
+          return t;
         }
 
         /**
@@ -539,32 +576,47 @@ public class Composition extends Resource {
         }
 
         /**
-         * @return {@link #content} (Identifies the discrete data that provides the content for the section.)
+         * @return {@link #text} (A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all it's entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.)
          */
-        public Reference getContent() { 
-          return this.content;
+        public Narrative getText() { 
+          return this.text;
         }
 
         /**
-         * @param value {@link #content} (Identifies the discrete data that provides the content for the section.)
+         * @param value {@link #text} (A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all it's entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.)
          */
-        public SectionComponent setContent(Reference value) { 
-          this.content = value;
+        public SectionComponent setText(Narrative value) { 
+          this.text = value;
           return this;
         }
 
         /**
-         * @return {@link #content} (The actual object that is the target of the reference. Identifies the discrete data that provides the content for the section.)
+         * @return {@link #emptyReason} (If the section is empty, why the section is empty.)
          */
-        public Resource getContentTarget() { 
-          return this.contentTarget;
+        public CodeableConcept getEmptyReason() { 
+          return this.emptyReason;
         }
 
         /**
-         * @param value {@link #content} (The actual object that is the target of the reference. Identifies the discrete data that provides the content for the section.)
+         * @param value {@link #emptyReason} (If the section is empty, why the section is empty.)
          */
-        public SectionComponent setContentTarget(Resource value) { 
-          this.contentTarget = value;
+        public SectionComponent setEmptyReason(CodeableConcept value) { 
+          this.emptyReason = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #order} (If the items in the list or the sub-sections have a meaningful order, what that meaning is. The order of the entries should always match the order in which they are presented in the narrative.)
+         */
+        public CodeableConcept getOrder() { 
+          return this.order;
+        }
+
+        /**
+         * @param value {@link #order} (If the items in the list or the sub-sections have a meaningful order, what that meaning is. The order of the entries should always match the order in which they are presented in the narrative.)
+         */
+        public SectionComponent setOrder(CodeableConcept value) { 
+          this.order = value;
           return this;
         }
 
@@ -585,24 +637,60 @@ public class Composition extends Resource {
           return t;
         }
 
+        /**
+         * @return {@link #entry} (Identifies the discrete data that underlies the content for the section.)
+         */
+        public List<Reference> getEntry() { 
+          return this.entry;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #entry} (Identifies the discrete data that underlies the content for the section.)
+         */
+        public Reference addEntry() { 
+          Reference t = new Reference();
+          this.entry.add(t);
+          return t;
+        }
+
+        /**
+         * @return {@link #entry} (The actual objects that are the target of the reference. Identifies the discrete data that underlies the content for the section.)
+         */
+        public List<Resource> getEntryTarget() { 
+          return this.entryTarget;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("title", "string", "The heading for this particular section.  This will be part of the rendered content for the document.", 0, java.lang.Integer.MAX_VALUE, title));
+          childrenList.add(new Property("identifier", "Identifier", "Identifier for the section assigned for business purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("code", "CodeableConcept", "A code identifying the kind of content contained within the section.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("subject", "Reference(Patient|Group|Device)", "Identifies the primary subject of the section.", 0, java.lang.Integer.MAX_VALUE, subject));
-          childrenList.add(new Property("content", "Reference(Any)", "Identifies the discrete data that provides the content for the section.", 0, java.lang.Integer.MAX_VALUE, content));
+          childrenList.add(new Property("text", "Narrative", "A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all it's entries, but is required to contain sufficient detail to make it 'clinically safe' for a human to just read the narrative.", 0, java.lang.Integer.MAX_VALUE, text));
+          childrenList.add(new Property("emptyReason", "CodeableConcept", "If the section is empty, why the section is empty.", 0, java.lang.Integer.MAX_VALUE, emptyReason));
+          childrenList.add(new Property("order", "CodeableConcept", "If the items in the list or the sub-sections have a meaningful order, what that meaning is. The order of the entries should always match the order in which they are presented in the narrative.", 0, java.lang.Integer.MAX_VALUE, order));
           childrenList.add(new Property("section", "@Composition.section", "A nested sub-section within this section.", 0, java.lang.Integer.MAX_VALUE, section));
+          childrenList.add(new Property("entry", "Reference(Any)", "Identifies the discrete data that underlies the content for the section.", 0, java.lang.Integer.MAX_VALUE, entry));
         }
 
       public SectionComponent copy() {
         SectionComponent dst = new SectionComponent();
         dst.title = title == null ? null : title.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.content = content == null ? null : content.copy();
+        dst.text = text == null ? null : text.copy();
+        dst.emptyReason = emptyReason == null ? null : emptyReason.copy();
+        dst.order = order == null ? null : order.copy();
         dst.section = new ArrayList<SectionComponent>();
         for (SectionComponent i : section)
           dst.section.add(i.copy());
+        dst.entry = new ArrayList<Reference>();
+        for (Reference i : entry)
+          dst.entry.add(i.copy());
         return dst;
       }
 
@@ -679,9 +767,9 @@ public class Composition extends Resource {
     protected Organization custodianTarget;
 
     /**
-     * The main event/act/item, such as a colonoscopy or an appendectomy, being documented.
+     * The clinical service, such as a colonoscopy or an appendectomy, being documented.
      */
-    protected CompositionEventComponent event;
+    protected List<CompositionEventComponent> event = new ArrayList<CompositionEventComponent>();
 
     /**
      * Describes the clinical encounter or type of care this documentation is associated with.
@@ -698,7 +786,7 @@ public class Composition extends Resource {
      */
     protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
-    private static final long serialVersionUID = 680630411L;
+    private static final long serialVersionUID = 1344783155L;
 
     public Composition() {
       super();
@@ -975,18 +1063,20 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #event} (The main event/act/item, such as a colonoscopy or an appendectomy, being documented.)
+     * @return {@link #event} (The clinical service, such as a colonoscopy or an appendectomy, being documented.)
      */
-    public CompositionEventComponent getEvent() { 
+    public List<CompositionEventComponent> getEvent() { 
       return this.event;
     }
 
+    // syntactic sugar
     /**
-     * @param value {@link #event} (The main event/act/item, such as a colonoscopy or an appendectomy, being documented.)
+     * @return {@link #event} (The clinical service, such as a colonoscopy or an appendectomy, being documented.)
      */
-    public Composition setEvent(CompositionEventComponent value) { 
-      this.event = value;
-      return this;
+    public CompositionEventComponent addEvent() { 
+      CompositionEventComponent t = new CompositionEventComponent();
+      this.event.add(t);
+      return t;
     }
 
     /**
@@ -1049,7 +1139,7 @@ public class Composition extends Resource {
         childrenList.add(new Property("author", "Reference(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("attester", "", "A participant who has attested to the accuracy of the composition/document.", 0, java.lang.Integer.MAX_VALUE, attester));
         childrenList.add(new Property("custodian", "Reference(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.", 0, java.lang.Integer.MAX_VALUE, custodian));
-        childrenList.add(new Property("event", "", "The main event/act/item, such as a colonoscopy or an appendectomy, being documented.", 0, java.lang.Integer.MAX_VALUE, event));
+        childrenList.add(new Property("event", "", "The clinical service, such as a colonoscopy or an appendectomy, being documented.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "Describes the clinical encounter or type of care this documentation is associated with.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("section", "", "The root of the sections that make up the composition.", 0, java.lang.Integer.MAX_VALUE, section));
       }
@@ -1071,7 +1161,9 @@ public class Composition extends Resource {
         for (CompositionAttesterComponent i : attester)
           dst.attester.add(i.copy());
         dst.custodian = custodian == null ? null : custodian.copy();
-        dst.event = event == null ? null : event.copy();
+        dst.event = new ArrayList<CompositionEventComponent>();
+        for (CompositionEventComponent i : event)
+          dst.event.add(i.copy());
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.section = new ArrayList<SectionComponent>();
         for (SectionComponent i : section)

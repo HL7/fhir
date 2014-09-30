@@ -31,6 +31,7 @@ Copyright (c) 2011+, HL7, Inc
 */
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -94,6 +95,7 @@ import org.hl7.fhir.instance.model.Timing.UnitsOfTime;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
@@ -1287,6 +1289,7 @@ public class NarrativeGenerator {
         mymaps.put(a.getResource(), url);
       }
     }
+    List<String> langs = new ArrayList<String>();
 
     XhtmlNode h = x.addTag("h2");
     h.addText(vs.getNameSimple());
@@ -1302,12 +1305,48 @@ public class NarrativeGenerator {
     for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
       deprecated = deprecated || conceptsHaveDeprecated(c);
+      scanLangs(c, langs);
     }
     addMapHeaders(addTableHeaderRowStandard(t, commentS, deprecated), mymaps);
     for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
       hasExtensions = addDefineRowToTable(t, c, 0, commentS, deprecated, mymaps) || hasExtensions;
     }    
+    if (langs.size() > 0) {
+      Collections.sort(langs);
+      x.addTag("p").addTag("b").addText("Additional Language Displays");
+      t = x.addTag("table").setAttribute("class", "codes");
+      XhtmlNode tr = t.addTag("tr");
+      tr.addTag("td").addTag("b").addText("Code");
+      for (String lang : langs)
+        tr.addTag("td").addTag("b").addText(lang);
+      for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+        addLanguageRow(c, t, langs);
+      }
+    }    
     return hasExtensions;
+  }
+
+  private void addLanguageRow(ConceptDefinitionComponent c, XhtmlNode t, List<String> langs) {
+    XhtmlNode tr = t.addTag("tr");
+    tr.addTag("td").addText(c.getCodeSimple());
+    for (String lang : langs) {
+      ConceptDefinitionDesignationComponent d = null;
+      for (ConceptDefinitionDesignationComponent designation : c.getDesignation()) {
+        if (lang.equals(designation.getLanguageSimple())) 
+          d = designation;
+      }
+      tr.addTag("td").addText(d == null ? "" : d.getValueSimple());
+    }
+  }
+
+  private void scanLangs(ConceptDefinitionComponent c, List<String> langs) {
+    for (ConceptDefinitionDesignationComponent designation : c.getDesignation()) {
+      String lang = designation.getLanguageSimple();
+      if (langs != null && !langs.contains(lang))
+        langs.add(lang);
+    }
+    for (ConceptDefinitionComponent g : c.getConcept())
+      scanLangs(g, langs);
   }
 
   private void addMapHeaders(XhtmlNode tr, Map<ConceptMap, String> mymaps) {
@@ -1618,6 +1657,9 @@ public class NarrativeGenerator {
           a.setAttribute("href", prefix+getCsRef(e)+"#"+Utilities.nmtokenize(f.getValueSimple()));
         } else
           li.addText(f.getValueSimple());
+        String disp = ToolingExtensions.getDisplayHint(f);
+        if (disp != null)
+          li.addText(" ("+disp+")");
       }
     }
     return hasExtensions;
@@ -1938,11 +1980,8 @@ public class NarrativeGenerator {
       else if (section.getCode() != null)
         node.addTag("h"+Integer.toString(level)).addText(displayCodeableConcept(section.getCode()));
       
-      if (section.getContent() != null) {
-        Resource subject = feed.getById(section.getContent().getReferenceSimple()).getResource();
-        if (subject != null) {
-          node.getChildNodes().add(subject.getText().getDiv());
-        }
+      if (section.getText() != null) {
+        node.getChildNodes().add(section.getText().getDiv());
       }
       
       if (!section.getSection().isEmpty()) {

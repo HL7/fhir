@@ -1,7 +1,9 @@
 package org.hl7.fhir.definitions.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.hl7.fhir.utilities.Utilities;
 
@@ -45,6 +47,7 @@ public class DefinedCode {
 	private List<DefinedCode> childCodes;
   private String v2Map;
   private String v3Map;
+	private Map<String, String> langs = new HashMap<String, String>();
 	
 	public DefinedCode(String code, String definition, String comment) {
 		super();
@@ -142,6 +145,10 @@ public class DefinedCode {
 
   public void setV3Map(String v3Map) {
     this.v3Map = v3Map;
+  }
+
+  public Map<String, String> getLangs() {
+    return langs;
   }
 
 

@@ -1463,6 +1463,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (cd.getReferredValueSet() != null) {
       return new XhtmlComposer().compose(cd.getReferredValueSet().getText().getDiv());
     } else {
+      List<String> langs = new ArrayList<String>();
       StringBuilder s = new StringBuilder();
       s.append("    <table class=\"codes\">\r\n");
       boolean hasComment = false;
@@ -1493,8 +1494,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
       for (DefinedCode c : cd.getChildCodes()) {
         generateCode(cd, s, hasSource, hasId, hasComment, hasDefinition, hasParent, 1, c);
+        for (String lang : c.getLangs().keySet())
+          if (!langs.contains(lang))
+            langs.add(lang);
       }
       s.append("    </table>\r\n");
+      if (langs.size() > 0) {
+        Collections.sort(langs);
+        s.append("<p><b>Additional Language Displays</b></p>\r\n");
+        s.append("<table class=\"codes\">\r\n");
+        s.append("<tr><td><b>Code</b></td>");
+        for (String lang : langs)
+          s.append("<td><b>"+lang+"</b>");
+        s.append("</tr>\r\n");
+        for (DefinedCode c : cd.getCodes()) {
+          s.append("<tr><td>"+c.getCode()+"</td>");
+          for (String lang : langs) {
+            String disp = c.getLangs().get(lang);
+            s.append("<td>"+(disp == null ? "" : disp)+"</b>");
+          }
+          s.append("</tr>\r\n");
+        }
+        s.append("    </table>\r\n");
+      }
       return s.toString();
     }
   }

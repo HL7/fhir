@@ -20,6 +20,7 @@
   <WindowWidth>16155</WindowWidth>
   <WindowTopX>1140</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -160,6 +161,9 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s89">
+   <Font ss:FontName="Segoe UI" x:Family="Swiss" ss:Size="12" ss:Color="#333333"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -814,7 +818,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1074,30 +1077,38 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="link-type">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="36"/>
-   <Column ss:AutoFitWidth="0" ss:Width="86.25"/>
-   <Column ss:Width="320.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="86.25" ss:Span="1"/>
+   <Column ss:Index="4" ss:Width="320.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s83">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Display</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">Display:ru</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s83">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">replace</Data></Cell>
+    <Cell><Data ss:Type="String">replace</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">замена</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s83">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">refer</Data></Cell>
+    <Cell><Data ss:Type="String">refer</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">ссылка</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s83">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">seealso</Data></Cell>
+    <Cell><Data ss:Type="String">see also</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">&#160;смотри также</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1107,12 +1118,18 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
-     <RangeSelection>R2C2:R4C2</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

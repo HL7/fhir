@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Sep 29, 2014 13:00+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -843,7 +843,8 @@ public class XmlComposer extends XmlComposerBase {
       for (Composition.CompositionAttesterComponent e : element.getAttester()) 
         composeCompositionCompositionAttesterComponent("attester", e);
       composeReference("custodian", element.getCustodian());
-      composeCompositionCompositionEventComponent("event", element.getEvent());
+      for (Composition.CompositionEventComponent e : element.getEvent()) 
+        composeCompositionCompositionEventComponent("event", e);
       composeReference("encounter", element.getEncounter());
       for (Composition.SectionComponent e : element.getSection()) 
         composeCompositionSectionComponent("section", e);
@@ -884,11 +885,17 @@ public class XmlComposer extends XmlComposerBase {
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
       composeString("title", element.getTitle());
+      for (Identifier e : element.getIdentifier()) 
+        composeIdentifier("identifier", e);
       composeCodeableConcept("code", element.getCode());
       composeReference("subject", element.getSubject());
-      composeReference("content", element.getContent());
+      composeNarrative("text", element.getText());
+      composeCodeableConcept("emptyReason", element.getEmptyReason());
+      composeCodeableConcept("order", element.getOrder());
       for (Composition.SectionComponent e : element.getSection()) 
         composeCompositionSectionComponent("section", e);
+      for (Reference e : element.getEntry()) 
+        composeReference("entry", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -3862,7 +3869,7 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeResourceElements(element);
-      composeString("identifier", element.getIdentifier());
+      composeUri("identifier", element.getIdentifier());
       composeString("version", element.getVersion());
       composeString("name", element.getName());
       composeString("purpose", element.getPurpose());
@@ -3908,8 +3915,22 @@ public class XmlComposer extends XmlComposerBase {
       composeBoolean("abstract", element.getAbstract());
       composeString("display", element.getDisplay());
       composeString("definition", element.getDefinition());
+      for (ValueSet.ConceptDefinitionDesignationComponent e : element.getDesignation()) 
+        composeValueSetConceptDefinitionDesignationComponent("designation", e);
       for (ValueSet.ConceptDefinitionComponent e : element.getConcept()) 
         composeValueSetConceptDefinitionComponent("concept", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeValueSetConceptDefinitionDesignationComponent(String name, ValueSet.ConceptDefinitionDesignationComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCode("language", element.getLanguage());
+      composeCoding("use", element.getUse());
+      composeString("value", element.getValue());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3951,6 +3972,8 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       composeCode("code", element.getCode());
       composeString("display", element.getDisplay());
+      for (ValueSet.ConceptDefinitionDesignationComponent e : element.getDesignation()) 
+        composeValueSetConceptDefinitionDesignationComponent("designation", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -3987,6 +4010,7 @@ public class XmlComposer extends XmlComposerBase {
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
       composeUri("system", element.getSystem());
+      composeBoolean("abstract", element.getAbstract());
       composeString("version", element.getVersion());
       composeCode("code", element.getCode());
       composeString("display", element.getDisplay());

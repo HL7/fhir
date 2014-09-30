@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Sep 29, 2014 13:00+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -89,12 +89,12 @@ public class ValueSet extends Resource {
     }
 
     public enum FilterOperator {
-        equal, // The property value has the concept specified by the value.
-        isa, // The property value has a concept that has an is-a relationship with the value.
-        isnota, // The property value has a concept that does not have an is-a relationship with the value.
-        regex, // The property value representation matches the regex specified in the value.
-        in, // The property value is in the set of codes or concepts identified by the value.
-        notIn, // The property value is not in the set of codes or concepts identified by the value.
+        equal, // The specified property of the code equals the provided value.
+        isa, // The specified property of the code has an is-a relationship with the provided value.
+        isnota, // The specified property of the code does not have an is-a relationship with the provided value.
+        regex, // The specified property of the code  matches the regex specified in the provided value.
+        in, // The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).
+        notIn, // The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).
         Null; // added to help the parsers
         public static FilterOperator fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -358,11 +358,16 @@ public class ValueSet extends Resource {
         protected StringType definition;
 
         /**
+         * Additional representations for the concept - other languages, aliases, specialised purposes, used for particular purposes, etc.
+         */
+        protected List<ConceptDefinitionDesignationComponent> designation = new ArrayList<ConceptDefinitionDesignationComponent>();
+
+        /**
          * Child Concepts (is-a / contains).
          */
         protected List<ConceptDefinitionComponent> concept = new ArrayList<ConceptDefinitionComponent>();
 
-        private static final long serialVersionUID = 906358655L;
+        private static final long serialVersionUID = 1252361765L;
 
       public ConceptDefinitionComponent() {
         super();
@@ -514,6 +519,23 @@ public class ValueSet extends Resource {
         }
 
         /**
+         * @return {@link #designation} (Additional representations for the concept - other languages, aliases, specialised purposes, used for particular purposes, etc.)
+         */
+        public List<ConceptDefinitionDesignationComponent> getDesignation() { 
+          return this.designation;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #designation} (Additional representations for the concept - other languages, aliases, specialised purposes, used for particular purposes, etc.)
+         */
+        public ConceptDefinitionDesignationComponent addDesignation() { 
+          ConceptDefinitionDesignationComponent t = new ConceptDefinitionDesignationComponent();
+          this.designation.add(t);
+          return t;
+        }
+
+        /**
          * @return {@link #concept} (Child Concepts (is-a / contains).)
          */
         public List<ConceptDefinitionComponent> getConcept() { 
@@ -536,6 +558,7 @@ public class ValueSet extends Resource {
           childrenList.add(new Property("abstract", "boolean", "If this code is not for use as a real concept.", 0, java.lang.Integer.MAX_VALUE, abstract_));
           childrenList.add(new Property("display", "string", "Text to Display to the user.", 0, java.lang.Integer.MAX_VALUE, display));
           childrenList.add(new Property("definition", "string", "The formal definition of the concept. Formal definitions are not required, because of the prevalence of legacy systems without them, but they are highly recommended, as without them there is no formal meaning associated with the concept.", 0, java.lang.Integer.MAX_VALUE, definition));
+          childrenList.add(new Property("designation", "", "Additional representations for the concept - other languages, aliases, specialised purposes, used for particular purposes, etc.", 0, java.lang.Integer.MAX_VALUE, designation));
           childrenList.add(new Property("concept", "@ValueSet.define.concept", "Child Concepts (is-a / contains).", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
@@ -545,9 +568,139 @@ public class ValueSet extends Resource {
         dst.abstract_ = abstract_ == null ? null : abstract_.copy();
         dst.display = display == null ? null : display.copy();
         dst.definition = definition == null ? null : definition.copy();
+        dst.designation = new ArrayList<ConceptDefinitionDesignationComponent>();
+        for (ConceptDefinitionDesignationComponent i : designation)
+          dst.designation.add(i.copy());
         dst.concept = new ArrayList<ConceptDefinitionComponent>();
         for (ConceptDefinitionComponent i : concept)
           dst.concept.add(i.copy());
+        return dst;
+      }
+
+  }
+
+    public static class ConceptDefinitionDesignationComponent extends BackboneElement {
+        /**
+         * The language this designation is defined for.
+         */
+        protected CodeType language;
+
+        /**
+         * A code that details how this designation would be used.
+         */
+        protected Coding use;
+
+        /**
+         * The text value for this designation.
+         */
+        protected StringType value;
+
+        private static final long serialVersionUID = 1515662414L;
+
+      public ConceptDefinitionDesignationComponent() {
+        super();
+      }
+
+      public ConceptDefinitionDesignationComponent(StringType value) {
+        super();
+        this.value = value;
+      }
+
+        /**
+         * @return {@link #language} (The language this designation is defined for.)
+         */
+        public CodeType getLanguage() { 
+          return this.language;
+        }
+
+        /**
+         * @param value {@link #language} (The language this designation is defined for.)
+         */
+        public ConceptDefinitionDesignationComponent setLanguage(CodeType value) { 
+          this.language = value;
+          return this;
+        }
+
+        /**
+         * @return The language this designation is defined for.
+         */
+        public String getLanguageSimple() { 
+          return this.language == null ? null : this.language.getValue();
+        }
+
+        /**
+         * @param value The language this designation is defined for.
+         */
+        public ConceptDefinitionDesignationComponent setLanguageSimple(String value) { 
+          if (value == null)
+            this.language = null;
+          else {
+            if (this.language == null)
+              this.language = new CodeType();
+            this.language.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #use} (A code that details how this designation would be used.)
+         */
+        public Coding getUse() { 
+          return this.use;
+        }
+
+        /**
+         * @param value {@link #use} (A code that details how this designation would be used.)
+         */
+        public ConceptDefinitionDesignationComponent setUse(Coding value) { 
+          this.use = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #value} (The text value for this designation.)
+         */
+        public StringType getValue() { 
+          return this.value;
+        }
+
+        /**
+         * @param value {@link #value} (The text value for this designation.)
+         */
+        public ConceptDefinitionDesignationComponent setValue(StringType value) { 
+          this.value = value;
+          return this;
+        }
+
+        /**
+         * @return The text value for this designation.
+         */
+        public String getValueSimple() { 
+          return this.value == null ? null : this.value.getValue();
+        }
+
+        /**
+         * @param value The text value for this designation.
+         */
+        public ConceptDefinitionDesignationComponent setValueSimple(String value) { 
+            if (this.value == null)
+              this.value = new StringType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("language", "code", "The language this designation is defined for.", 0, java.lang.Integer.MAX_VALUE, language));
+          childrenList.add(new Property("use", "Coding", "A code that details how this designation would be used.", 0, java.lang.Integer.MAX_VALUE, use));
+          childrenList.add(new Property("value", "string", "The text value for this designation.", 0, java.lang.Integer.MAX_VALUE, value));
+        }
+
+      public ConceptDefinitionDesignationComponent copy() {
+        ConceptDefinitionDesignationComponent dst = new ConceptDefinitionDesignationComponent();
+        dst.language = language == null ? null : language.copy();
+        dst.use = use == null ? null : use.copy();
+        dst.value = value == null ? null : value.copy();
         return dst;
       }
 
@@ -837,7 +990,12 @@ public class ValueSet extends Resource {
          */
         protected StringType display;
 
-        private static final long serialVersionUID = -345950251L;
+        /**
+         * Additional representations for this concept when used in this value set - other languages, aliases, specialised purposes, used for particular purposes, etc.
+         */
+        protected List<ConceptDefinitionDesignationComponent> designation = new ArrayList<ConceptDefinitionDesignationComponent>();
+
+        private static final long serialVersionUID = -955988739L;
 
       public ConceptReferenceComponent() {
         super();
@@ -916,16 +1074,37 @@ public class ValueSet extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #designation} (Additional representations for this concept when used in this value set - other languages, aliases, specialised purposes, used for particular purposes, etc.)
+         */
+        public List<ConceptDefinitionDesignationComponent> getDesignation() { 
+          return this.designation;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #designation} (Additional representations for this concept when used in this value set - other languages, aliases, specialised purposes, used for particular purposes, etc.)
+         */
+        public ConceptDefinitionDesignationComponent addDesignation() { 
+          ConceptDefinitionDesignationComponent t = new ConceptDefinitionDesignationComponent();
+          this.designation.add(t);
+          return t;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Specifies a code for the concept to be included or excluded.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("display", "string", "The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.", 0, java.lang.Integer.MAX_VALUE, display));
+          childrenList.add(new Property("designation", "@ValueSet.define.concept.designation", "Additional representations for this concept when used in this value set - other languages, aliases, specialised purposes, used for particular purposes, etc.", 0, java.lang.Integer.MAX_VALUE, designation));
         }
 
       public ConceptReferenceComponent copy() {
         ConceptReferenceComponent dst = new ConceptReferenceComponent();
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
+        dst.designation = new ArrayList<ConceptDefinitionDesignationComponent>();
+        for (ConceptDefinitionDesignationComponent i : designation)
+          dst.designation.add(i.copy());
         return dst;
       }
 
@@ -1185,9 +1364,14 @@ public class ValueSet extends Resource {
 
     public static class ValueSetExpansionContainsComponent extends BackboneElement {
         /**
-         * System value for the code.
+         * The system in which the code for this item in the expansion is defined.
          */
         protected UriType system;
+
+        /**
+         * If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.
+         */
+        protected BooleanType abstract_;
 
         /**
          * The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.
@@ -1209,21 +1393,21 @@ public class ValueSet extends Resource {
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
-        private static final long serialVersionUID = -954161949L;
+        private static final long serialVersionUID = -965807666L;
 
       public ValueSetExpansionContainsComponent() {
         super();
       }
 
         /**
-         * @return {@link #system} (System value for the code.)
+         * @return {@link #system} (The system in which the code for this item in the expansion is defined.)
          */
         public UriType getSystem() { 
           return this.system;
         }
 
         /**
-         * @param value {@link #system} (System value for the code.)
+         * @param value {@link #system} (The system in which the code for this item in the expansion is defined.)
          */
         public ValueSetExpansionContainsComponent setSystem(UriType value) { 
           this.system = value;
@@ -1231,14 +1415,14 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @return System value for the code.
+         * @return The system in which the code for this item in the expansion is defined.
          */
         public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
         /**
-         * @param value System value for the code.
+         * @param value The system in which the code for this item in the expansion is defined.
          */
         public ValueSetExpansionContainsComponent setSystemSimple(String value) { 
           if (value == null)
@@ -1247,6 +1431,42 @@ public class ValueSet extends Resource {
             if (this.system == null)
               this.system = new UriType();
             this.system.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #abstract_} (If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.)
+         */
+        public BooleanType getAbstract() { 
+          return this.abstract_;
+        }
+
+        /**
+         * @param value {@link #abstract_} (If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.)
+         */
+        public ValueSetExpansionContainsComponent setAbstract(BooleanType value) { 
+          this.abstract_ = value;
+          return this;
+        }
+
+        /**
+         * @return If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.
+         */
+        public boolean getAbstractSimple() { 
+          return this.abstract_ == null ? false : this.abstract_.getValue();
+        }
+
+        /**
+         * @param value If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.
+         */
+        public ValueSetExpansionContainsComponent setAbstractSimple(boolean value) { 
+          if (value == false)
+            this.abstract_ = null;
+          else {
+            if (this.abstract_ == null)
+              this.abstract_ = new BooleanType();
+            this.abstract_.setValue(value);
           }
           return this;
         }
@@ -1378,7 +1598,8 @@ public class ValueSet extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("system", "uri", "System value for the code.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("system", "uri", "The system in which the code for this item in the expansion is defined.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("abstract", "boolean", "If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.", 0, java.lang.Integer.MAX_VALUE, abstract_));
           childrenList.add(new Property("version", "string", "The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("code", "code", "Code - if blank, this is not a choosable code.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("display", "string", "User display for the concept.", 0, java.lang.Integer.MAX_VALUE, display));
@@ -1388,6 +1609,7 @@ public class ValueSet extends Resource {
       public ValueSetExpansionContainsComponent copy() {
         ValueSetExpansionContainsComponent dst = new ValueSetExpansionContainsComponent();
         dst.system = system == null ? null : system.copy();
+        dst.abstract_ = abstract_ == null ? null : abstract_.copy();
         dst.version = version == null ? null : version.copy();
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
@@ -1402,7 +1624,7 @@ public class ValueSet extends Resource {
     /**
      * The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
-    protected StringType identifier;
+    protected UriType identifier;
 
     /**
      * The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
@@ -1484,7 +1706,7 @@ public class ValueSet extends Resource {
      */
     protected ValueSetExpansionComponent expansion;
 
-    private static final long serialVersionUID = 539185227L;
+    private static final long serialVersionUID = -1400499134L;
 
     public ValueSet() {
       super();
@@ -1498,14 +1720,14 @@ public class ValueSet extends Resource {
     /**
      * @return {@link #identifier} (The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
      */
-    public StringType getIdentifier() { 
+    public UriType getIdentifier() { 
       return this.identifier;
     }
 
     /**
      * @param value {@link #identifier} (The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
      */
-    public ValueSet setIdentifier(StringType value) { 
+    public ValueSet setIdentifier(UriType value) { 
       this.identifier = value;
       return this;
     }
@@ -1525,7 +1747,7 @@ public class ValueSet extends Resource {
         this.identifier = null;
       else {
         if (this.identifier == null)
-          this.identifier = new StringType();
+          this.identifier = new UriType();
         this.identifier.setValue(value);
       }
       return this;
@@ -2023,7 +2245,7 @@ public class ValueSet extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "uri", "The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name describing the value set.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("purpose", "string", "This should describe 'the semantic space' to be included in the value set. This can also describe the approach taken to build the value set.", 0, java.lang.Integer.MAX_VALUE, purpose));

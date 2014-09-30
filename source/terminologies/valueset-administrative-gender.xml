@@ -12,18 +12,34 @@
       <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
       <concept>
         <code value="F"/>
+        <designation>
+          <language value="ru"/>
+          <value value="">
+        </designation>
       </concept>
       <concept>
         <code value="M"/>
+        <designation>
+          <language value="ru"/>
+          <value value="">
+        </designation>
       </concept>
       <concept>
         <code value="UN"/>
+        <designation>
+          <language value="ru"/>
+          <value value="">
+        </designation>
       </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/v3/NullFlavor"/>
       <concept>
         <code value="UNK"/>
+        <designation>
+          <language value="ru"/>
+          <value value="">
+        </designation>
       </concept>
     </include>
   </compose>
