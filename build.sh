@@ -1,3 +1,6 @@
+#!/bin/bash
+set -ev
+
 NAME="Continuous Integration Build"
 SVNREV=$(git log -1 | grep svn/fhir@ | grep -oP 'svn/fhir@\K([0-9]+)')
 
