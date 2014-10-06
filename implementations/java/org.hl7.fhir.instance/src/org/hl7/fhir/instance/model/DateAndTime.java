@@ -25,6 +25,7 @@ public class DateAndTime {
 	private int fractions;
 	private int fraction;
 	private java.lang.Boolean timezone;
+	private boolean positiveOffset; //needed to represent negative offset of less than an hour (for example -00:00 or -00:30)
 	private int tzHour;
 	private int tzMin;
 
@@ -38,9 +39,11 @@ public class DateAndTime {
 		} else if (xDate.lastIndexOf("-") > 8) {
 			s = xDate.substring(0, xDate.lastIndexOf("-"));
 			t = xDate.substring(xDate.lastIndexOf("-"));
+			setTzSign(false);
 		} else if (xDate.lastIndexOf("+") > 8) {
 			s = xDate.substring(0, xDate.lastIndexOf("+"));
 			t = xDate.substring(xDate.lastIndexOf("+"));
+			setTzSign(true);
 		} else { // no timezone
 			s = xDate;
 			t = null;
@@ -75,7 +78,7 @@ public class DateAndTime {
 				setFraction(readField(s, yearlength + 16, fractions));
 			}
 			if (t != null) {
-				setTzHour(readField(t, 0, 3));
+				setTzHour(readField(t, 1, 2));
 				setTzMin(readField(t, 4, 2));
 			}
 		} catch (Exception e) {
@@ -112,9 +115,7 @@ public class DateAndTime {
     }
     if (date.getTimeZone() != null) {
     	int offset = date.getTimeZone().getOffset(date.getTime().getTime());
-    	setTzHour(offset / (60 * 60 * 1000));
-    	offset = offset - tzHour * 60 * 60 * 1000;
-    	setTzMin(offset / (60 * 1000));
+    	setOffsetMinutes(offset / 1000 / 60);
     }
   }
 
@@ -155,13 +156,12 @@ public class DateAndTime {
 					if (!timezone) {
 						b.append("Z");
 					} else {
-						if (tzHour > 0) {
+						if (positiveOffset) {
 							b.append("+");
-							b.append(Utilities.padLeft(java.lang.Integer.toString(tzHour), '0', 2));
 						} else { 
 							b.append("-");
-							b.append(Utilities.padLeft(java.lang.Integer.toString(-tzHour), '0', 2));
 						}
+						b.append(Utilities.padLeft(java.lang.Integer.toString(tzHour), '0', 2));
 						b.append(":");
 						b.append(Utilities.padLeft(java.lang.Integer.toString(tzMin), '0', 2));
 					}
@@ -178,27 +178,35 @@ public class DateAndTime {
 		} else {
 			TimeZone tz;
 			if (!timezone) {
-  		  tz = TimeZone.getTimeZone("GMT + 00 : 00");
-	  	} else {
-			if (tzHour < 0)
-			  tz = TimeZone.getTimeZone("GMT - "+Utilities.padLeft(java.lang.Integer.toString(-tzHour), '0', 2)+" : "+java.lang.Integer.toString(tzMin, 2));
-			else
-			  tz = TimeZone.getTimeZone("GMT + "+Utilities.padLeft(java.lang.Integer.toString(tzHour), '0', 2)+" : "+java.lang.Integer.toString(tzMin, 2));
-	  	}
+				tz = TimeZone.getTimeZone("GMT+00:00");
+			} else {
+				tz = TimeZone.getTimeZone("GMT"+(positiveOffset ? "+" : "-")+Utilities.padLeft(java.lang.Integer.toString(tzHour), '0', 2)+":"+Utilities.padLeft(java.lang.Integer.toString(tzMin), '0', 2));
+			}
 			cal = Calendar.getInstance(tz);
-		} 
+		}
+		
+		//default to 0 if unset
+		cal.set(Calendar.MONTH, 0);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0); 
+		cal.set(Calendar.MILLISECOND, 0);
+		
 		cal.set(Calendar.YEAR, year);
 		if (month > 0) {
 			cal.set(Calendar.MONTH, month - 1);
 			if (day > 0) {
 				cal.set(Calendar.DAY_OF_MONTH, day);
 				if (time) {
-					cal.set(Calendar.HOUR, hour);
+					cal.set(Calendar.HOUR_OF_DAY, hour);
 					cal.set(Calendar.MINUTE, minute);
 					if (seconds) {
 						cal.set(Calendar.SECOND, second); 
-						// if (fractions > 0) {
+						if (fractions > 0) {
+							cal.set(Calendar.MILLISECOND, (int)((double) fraction / Math.pow(10, fractions) * 1000.0));
 						}
+					}
 				}
 			}
 		}
@@ -294,9 +302,10 @@ public class DateAndTime {
 	}
 
 	public void setFraction(int fraction) throws Exception {
-		this.fraction = fraction;
-		if (this.fraction == 0)
+		if (this.fractions == 0)
 			throw new Exception("set 'fractions' before setting 'fraction'");
+		
+		this.fraction = fraction;
 	}
 
 	public java.lang.Boolean getTimezone() {
@@ -312,8 +321,45 @@ public class DateAndTime {
 	}
 
 	public void setTzHour(int tzHour) {
-		this.tzHour = tzHour;
+		this.tzHour = Math.abs(tzHour);
 		this.timezone = true;
+	}
+	
+	/**
+	 * @param isPositive - true if the tz offset is positive (i.e. +06:00), false if the tz offset is negative (-06:00)
+	 */
+	public void setTzSign(boolean isPositiveOffset) {
+		positiveOffset = isPositiveOffset;
+		this.timezone = true;
+	}
+	
+	/**
+	 * @return true if the tz offset is positive (i.e. +06:00), false if the tz offset is negative (-06:00)
+	 */
+	public boolean getTzSign() {
+		return positiveOffset;
+	}
+	
+	/**
+	 * @param offset in minutes
+	 */
+	public void setOffsetMinutes(int offset) {
+		boolean positive = (offset >= 0);
+		offset = Math.abs(offset);
+		setTzHour(offset / 60);
+		setTzMin(offset % 60);
+		setTzSign(positive);
+	}
+	
+	/**
+	 * @return offset in minutes
+	 */
+	public int getOffsetMinutes() {
+		if(timezone == null || !timezone) {
+			return 0;
+		} else {
+			return (positiveOffset ? 1 : -1) * (tzHour * 60 + tzMin);
+		}
 	}
 
 	public int getTzMin() {
@@ -321,16 +367,12 @@ public class DateAndTime {
 	}
 
 	public void setTzMin(int tzMin) {
-		this.tzMin = tzMin;
+		this.tzMin = Math.abs(tzMin);
 		this.timezone = true;
 	}
 
 	public static DateAndTime now() {
-		DateAndTime dt = new DateAndTime(Calendar.getInstance());
-    TimeZone tz = TimeZone.getDefault();
-    int offset = tz.getOffset(new java.util.Date().getTime());
-    dt.setTzHour(offset / (60 * 60 * 1000));
-		return dt;
+		return new DateAndTime(Calendar.getInstance());
 	}
 
   public static DateAndTime today() {
@@ -350,9 +392,11 @@ public class DateAndTime {
 		} else if (xDate.lastIndexOf("-") > 0) {
 			s = xDate.substring(0, xDate.lastIndexOf("-"));
 			t = xDate.substring(xDate.lastIndexOf("-"));
+			res.setTzSign(false);
 		} else if (xDate.lastIndexOf("+") > 0) {
 			s = xDate.substring(0, xDate.lastIndexOf("+"));
 			t = xDate.substring(xDate.lastIndexOf("+"));
+			res.setTzSign(true);
 		} else { // no timezone
 			s = xDate;
 			t = null;
@@ -383,7 +427,7 @@ public class DateAndTime {
 				res.setFraction(readField(s, 15, res.fractions));
 			}
 			if (t != null) {
-				res.setTzHour(readField(t, 0, 3));
+				res.setTzHour(readField(t, 1, 2));
 				res.setTzMin(readField(t, 3, 2));
 			}
 		} catch (Exception e) {
@@ -399,9 +443,7 @@ public class DateAndTime {
     TimeZone tz = TimeZone.getDefault();
     
     int offset = tz.getOffset(new java.util.Date().getTime());
-    setTzHour(offset / (60 * 60 * 1000));
-    offset = offset - tzHour * 60 * 60 * 1000;
-    setTzMin(offset / (60 * 1000));
+    setOffsetMinutes(offset / (60 * 1000));
     return this;
   }
 
@@ -532,20 +574,15 @@ public class DateAndTime {
   }
 
 	public boolean before(DateAndTime other) {
-		if (this.year != other.year) {
+		
+		if(this.time && other.time) {
+			return toCalendar().getTimeInMillis() < other.toCalendar().getTimeInMillis();
+		} else if (this.year != other.year) {
 			return this.year < other.year;
 		} else if (this.month != other.month) {
 			return this.month < other.month;
 		} else if (this.day != other.day) {
 			return this.day < other.day;
-		} else if (this.hour != other.hour) {
-			return this.hour < other.hour;
-		} else if (this.minute != other.minute) {
-			return this.minute < other.minute;
-		} else if (this.second != other.second) {
-			return this.second < other.second;
-		} else if (this.fraction != other.fraction) {
-			return this.fraction < other.fraction;
 		} else
 	    return false;
   }
