@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,38 +39,38 @@ import java.util.*;
 public class AppointmentResponse extends Resource {
 
     public enum Participantstatus {
-        accepted, // The appointment participant has accepted that they can attend the appointment at the time specified in the AppointmentResponse.
-        declined, // The appointment participant has declined the appointment.
-        tentative, // The appointment participant has tentatively accepted the appointment.
-        inprocess, // The participant has in-process the appointment.
-        completed, // The participant has completed the appointment.
-        needsaction, // This is the intitial status of an appointment participant until a participant has replied. It implies that there is no commitment for the appointment.
-        Null; // added to help the parsers
+        ACCEPTED, // The appointment participant has accepted that they can attend the appointment at the time specified in the AppointmentResponse.
+        DECLINED, // The appointment participant has declined the appointment.
+        TENTATIVE, // The appointment participant has tentatively accepted the appointment.
+        INPROCESS, // The participant has in-process the appointment.
+        COMPLETED, // The participant has completed the appointment.
+        NEEDSACTION, // This is the intitial status of an appointment participant until a participant has replied. It implies that there is no commitment for the appointment.
+        NULL; // added to help the parsers
         public static Participantstatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("accepted".equals(codeString))
-          return accepted;
+          return ACCEPTED;
         if ("declined".equals(codeString))
-          return declined;
+          return DECLINED;
         if ("tentative".equals(codeString))
-          return tentative;
+          return TENTATIVE;
         if ("in-process".equals(codeString))
-          return inprocess;
+          return INPROCESS;
         if ("completed".equals(codeString))
-          return completed;
+          return COMPLETED;
         if ("needs-action".equals(codeString))
-          return needsaction;
+          return NEEDSACTION;
         throw new Exception("Unknown Participantstatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case accepted: return "accepted";
-            case declined: return "declined";
-            case tentative: return "tentative";
-            case inprocess: return "in-process";
-            case completed: return "completed";
-            case needsaction: return "needs-action";
+            case ACCEPTED: return "accepted";
+            case DECLINED: return "declined";
+            case TENTATIVE: return "tentative";
+            case INPROCESS: return "in-process";
+            case COMPLETED: return "completed";
+            case NEEDSACTION: return "needs-action";
             default: return "?";
           }
         }
@@ -82,31 +82,31 @@ public class AppointmentResponse extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("accepted".equals(codeString))
-          return Participantstatus.accepted;
+          return Participantstatus.ACCEPTED;
         if ("declined".equals(codeString))
-          return Participantstatus.declined;
+          return Participantstatus.DECLINED;
         if ("tentative".equals(codeString))
-          return Participantstatus.tentative;
+          return Participantstatus.TENTATIVE;
         if ("in-process".equals(codeString))
-          return Participantstatus.inprocess;
+          return Participantstatus.INPROCESS;
         if ("completed".equals(codeString))
-          return Participantstatus.completed;
+          return Participantstatus.COMPLETED;
         if ("needs-action".equals(codeString))
-          return Participantstatus.needsaction;
+          return Participantstatus.NEEDSACTION;
         throw new Exception("Unknown Participantstatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == Participantstatus.accepted)
+      if (code == Participantstatus.ACCEPTED)
         return "accepted";
-      if (code == Participantstatus.declined)
+      if (code == Participantstatus.DECLINED)
         return "declined";
-      if (code == Participantstatus.tentative)
+      if (code == Participantstatus.TENTATIVE)
         return "tentative";
-      if (code == Participantstatus.inprocess)
+      if (code == Participantstatus.INPROCESS)
         return "in-process";
-      if (code == Participantstatus.completed)
+      if (code == Participantstatus.COMPLETED)
         return "completed";
-      if (code == Participantstatus.needsaction)
+      if (code == Participantstatus.NEEDSACTION)
         return "needs-action";
       return "?";
       }
@@ -222,14 +222,14 @@ public class AppointmentResponse extends Resource {
     }
 
     /**
-     * @return {@link #appointment} (The actual object that is the target of the reference. Parent appointment that this response is replying to.)
+     * @return {@link #appointment} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Parent appointment that this response is replying to.)
      */
     public Appointment getAppointmentTarget() { 
       return this.appointmentTarget;
     }
 
     /**
-     * @param value {@link #appointment} (The actual object that is the target of the reference. Parent appointment that this response is replying to.)
+     * @param value {@link #appointment} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Parent appointment that this response is replying to.)
      */
     public AppointmentResponse setAppointmentTarget(Appointment value) { 
       this.appointmentTarget = value;
@@ -271,23 +271,23 @@ public class AppointmentResponse extends Resource {
     }
 
     /**
-     * @return {@link #individual} (The actual objects that are the target of the reference. A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
+     * @return {@link #individual} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
      */
     public List<Resource> getIndividualTarget() { 
       return this.individualTarget;
     }
 
     /**
-     * @return {@link #participantStatus} (Participation status of the Patient.)
+     * @return {@link #participantStatus} (Participation status of the Patient.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
      */
-    public Enumeration<Participantstatus> getParticipantStatus() { 
+    public Enumeration<Participantstatus> getParticipantStatusObject() { 
       return this.participantStatus;
     }
 
     /**
-     * @param value {@link #participantStatus} (Participation status of the Patient.)
+     * @param value {@link #participantStatus} (Participation status of the Patient.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
      */
-    public AppointmentResponse setParticipantStatus(Enumeration<Participantstatus> value) { 
+    public AppointmentResponse setParticipantStatusObject(Enumeration<Participantstatus> value) { 
       this.participantStatus = value;
       return this;
     }
@@ -295,14 +295,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return Participation status of the Patient.
      */
-    public Participantstatus getParticipantStatusSimple() { 
+    public Participantstatus getParticipantStatus() { 
       return this.participantStatus == null ? null : this.participantStatus.getValue();
     }
 
     /**
      * @param value Participation status of the Patient.
      */
-    public AppointmentResponse setParticipantStatusSimple(Participantstatus value) { 
+    public AppointmentResponse setParticipantStatus(Participantstatus value) { 
         if (this.participantStatus == null)
           this.participantStatus = new Enumeration<Participantstatus>();
         this.participantStatus.setValue(value);
@@ -310,16 +310,16 @@ public class AppointmentResponse extends Resource {
     }
 
     /**
-     * @return {@link #comment} (Additional comments about the appointment.)
+     * @return {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getComment() { 
+    public StringType getCommentObject() { 
       return this.comment;
     }
 
     /**
-     * @param value {@link #comment} (Additional comments about the appointment.)
+     * @param value {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public AppointmentResponse setComment(StringType value) { 
+    public AppointmentResponse setCommentObject(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -327,14 +327,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return Additional comments about the appointment.
      */
-    public String getCommentSimple() { 
+    public String getComment() { 
       return this.comment == null ? null : this.comment.getValue();
     }
 
     /**
      * @param value Additional comments about the appointment.
      */
-    public AppointmentResponse setCommentSimple(String value) { 
+    public AppointmentResponse setComment(String value) { 
       if (value == null)
         this.comment = null;
       else {
@@ -346,16 +346,16 @@ public class AppointmentResponse extends Resource {
     }
 
     /**
-     * @return {@link #start} (Date/Time that the appointment is to take place.)
+     * @return {@link #start} (Date/Time that the appointment is to take place.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public InstantType getStart() { 
+    public InstantType getStartObject() { 
       return this.start;
     }
 
     /**
-     * @param value {@link #start} (Date/Time that the appointment is to take place.)
+     * @param value {@link #start} (Date/Time that the appointment is to take place.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public AppointmentResponse setStart(InstantType value) { 
+    public AppointmentResponse setStartObject(InstantType value) { 
       this.start = value;
       return this;
     }
@@ -363,14 +363,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return Date/Time that the appointment is to take place.
      */
-    public DateAndTime getStartSimple() { 
+    public DateAndTime getStart() { 
       return this.start == null ? null : this.start.getValue();
     }
 
     /**
      * @param value Date/Time that the appointment is to take place.
      */
-    public AppointmentResponse setStartSimple(DateAndTime value) { 
+    public AppointmentResponse setStart(DateAndTime value) { 
       if (value == null)
         this.start = null;
       else {
@@ -382,16 +382,16 @@ public class AppointmentResponse extends Resource {
     }
 
     /**
-     * @return {@link #end} (Date/Time that the appointment is to conclude.)
+     * @return {@link #end} (Date/Time that the appointment is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public InstantType getEnd() { 
+    public InstantType getEndObject() { 
       return this.end;
     }
 
     /**
-     * @param value {@link #end} (Date/Time that the appointment is to conclude.)
+     * @param value {@link #end} (Date/Time that the appointment is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public AppointmentResponse setEnd(InstantType value) { 
+    public AppointmentResponse setEndObject(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -399,14 +399,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return Date/Time that the appointment is to conclude.
      */
-    public DateAndTime getEndSimple() { 
+    public DateAndTime getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value Date/Time that the appointment is to conclude.
      */
-    public AppointmentResponse setEndSimple(DateAndTime value) { 
+    public AppointmentResponse setEnd(DateAndTime value) { 
       if (value == null)
         this.end = null;
       else {
@@ -433,14 +433,14 @@ public class AppointmentResponse extends Resource {
     }
 
     /**
-     * @return {@link #lastModifiedBy} (The actual object that is the target of the reference. Who recorded the appointment response.)
+     * @return {@link #lastModifiedBy} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who recorded the appointment response.)
      */
     public Resource getLastModifiedByTarget() { 
       return this.lastModifiedByTarget;
     }
 
     /**
-     * @param value {@link #lastModifiedBy} (The actual object that is the target of the reference. Who recorded the appointment response.)
+     * @param value {@link #lastModifiedBy} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who recorded the appointment response.)
      */
     public AppointmentResponse setLastModifiedByTarget(Resource value) { 
       this.lastModifiedByTarget = value;
@@ -448,16 +448,16 @@ public class AppointmentResponse extends Resource {
     }
 
     /**
-     * @return {@link #lastModified} (Date when the response was recorded or last updated.)
+     * @return {@link #lastModified} (Date when the response was recorded or last updated.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public DateTimeType getLastModified() { 
+    public DateTimeType getLastModifiedObject() { 
       return this.lastModified;
     }
 
     /**
-     * @param value {@link #lastModified} (Date when the response was recorded or last updated.)
+     * @param value {@link #lastModified} (Date when the response was recorded or last updated.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public AppointmentResponse setLastModified(DateTimeType value) { 
+    public AppointmentResponse setLastModifiedObject(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }
@@ -465,14 +465,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return Date when the response was recorded or last updated.
      */
-    public DateAndTime getLastModifiedSimple() { 
+    public DateAndTime getLastModified() { 
       return this.lastModified == null ? null : this.lastModified.getValue();
     }
 
     /**
      * @param value Date when the response was recorded or last updated.
      */
-    public AppointmentResponse setLastModifiedSimple(DateAndTime value) { 
+    public AppointmentResponse setLastModified(DateAndTime value) { 
       if (value == null)
         this.lastModified = null;
       else {

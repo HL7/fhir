@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -132,14 +132,14 @@ public class Other extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
      */
     public Other setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -162,14 +162,14 @@ public class Other extends Resource {
     }
 
     /**
-     * @return {@link #author} (The actual object that is the target of the reference. Indicates who was responsible for creating the resource instance.)
+     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates who was responsible for creating the resource instance.)
      */
     public Resource getAuthorTarget() { 
       return this.authorTarget;
     }
 
     /**
-     * @param value {@link #author} (The actual object that is the target of the reference. Indicates who was responsible for creating the resource instance.)
+     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates who was responsible for creating the resource instance.)
      */
     public Other setAuthorTarget(Resource value) { 
       this.authorTarget = value;
@@ -177,16 +177,16 @@ public class Other extends Resource {
     }
 
     /**
-     * @return {@link #created} (Identifies when the resource was first created.)
+     * @return {@link #created} (Identifies when the resource was first created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateType getCreated() { 
+    public DateType getCreatedObject() { 
       return this.created;
     }
 
     /**
-     * @param value {@link #created} (Identifies when the resource was first created.)
+     * @param value {@link #created} (Identifies when the resource was first created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public Other setCreated(DateType value) { 
+    public Other setCreatedObject(DateType value) { 
       this.created = value;
       return this;
     }
@@ -194,14 +194,14 @@ public class Other extends Resource {
     /**
      * @return Identifies when the resource was first created.
      */
-    public DateAndTime getCreatedSimple() { 
+    public DateAndTime getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value Identifies when the resource was first created.
      */
-    public Other setCreatedSimple(DateAndTime value) { 
+    public Other setCreated(DateAndTime value) { 
       if (value == null)
         this.created = null;
       else {

@@ -173,7 +173,7 @@ public class ValidationEngine {
         ValidationMessage o = new ValidationMessage();
         o.setSource(Source.Schematron);
         o.setType("invariant");
-        o.setLevel(IssueSeverity.error);
+        o.setLevel(IssueSeverity.ERROR);
         o.setLocation(e.getAttribute("location"));
         o.setMessage(e.getTextContent());
         outputs.add(o);

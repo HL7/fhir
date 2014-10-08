@@ -155,6 +155,10 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("    composeBackbone(element);\r\n");
     write("    if (element.getText() != null)\r\n");
     write("      composeNarrative(\"text\", element.getText());\r\n");
+    write("    if (element.getLanguageObject() != null) {\r\n");
+    write("      composeCodeCore(\"language\", element.getLanguageObject(), false);\r\n");
+    write("      composeCodeExtras(\"language\", element.getLanguageObject(), false);\r\n");
+    write("    }\r\n");
     write("    if (element.getContained().size() > 0) {\r\n");
     write("      openArray(\"contained\");\r\n");
     write("      for (Resource r : element.getContained()) {\r\n");
@@ -425,14 +429,14 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
   	    }
         write("      };\r\n");
       } else if (en != null) {
-        write("      if (element.get"+upFirst(name)+"() != null) {\r\n");
-        write("        composeEnumerationCore(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
-        write("        composeEnumerationExtras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
+        write("      if (element.get"+upFirst(getElementName(name, false))+"Object() != null) {\r\n");
+        write("        composeEnumerationCore(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Object(), new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
+        write("        composeEnumerationExtras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Object(), new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
         write("      }\r\n");
         //write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
       } else if (isPrimitive(e)) {
-        write("      "+comp+"Core(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), false);\r\n");
-        write("      "+comp+"Extras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), false);\r\n");
+        write("      "+comp+"Core(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Object(), false);\r\n");
+        write("      "+comp+"Extras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Object(), false);\r\n");
       } else  
         write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"());\r\n");
       }

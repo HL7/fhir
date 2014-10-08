@@ -139,11 +139,15 @@ var
   X509_get_pubkey : function (cert: PX509): PEVP_PKEY cdecl = nil;
   EVP_PKEY_get1_RSA : function (pkey: pEVP_PKEY): pRSA cdecl = nil;
   EVP_PKEY_set1_RSA : function (pkey: PEVP_PKEY; key: PRSA): integer cdecl = nil;
+  EVP_PKEY_get1_DSA : function (pkey: pEVP_PKEY): pDSA cdecl = nil;
+  EVP_PKEY_set1_DSA : function (pkey: PEVP_PKEY; key: PDSA): integer cdecl = nil;
   EVP_PKEY_size : function (pkey: PEVP_PKEY): integer cdecl = nil;
   EVP_DigestInit : procedure (ctx: PEVP_MD_CTX; md: PEVP_MD) cdecl = nil;
   EVP_DigestUpdate : function (ctx: PEVP_MD_CTX; data: PByte; cnt: integer): integer cdecl = nil;
   EVP_SignFinal : function (ctx: PEVP_MD_CTX; sig: PByte; var s: integer; pkey: PEVP_PKEY): integer cdecl = nil;
   EVP_VerifyFinal : function (ctx: PEVP_MD_CTX; sig: PByte; s: integer; pkey: PEVP_PKEY): integer cdecl = nil;
+  DSA_new: function: PDSA cdecl = nil;
+  DSA_free : procedure(rsa: PDSA) cdecl = nil;
 
 procedure LoadEAYExtensions;
 procedure UnloadEAYExtensions;
@@ -183,11 +187,15 @@ begin
     @X509_get_pubkey := LoadFunctionCLib('X509_get_pubkey');
     @EVP_PKEY_get1_RSA := LoadFunctionCLib('EVP_PKEY_get1_RSA');
     @EVP_PKEY_set1_RSA := LoadFunctionCLib('EVP_PKEY_set1_RSA');
+    @EVP_PKEY_get1_DSA := LoadFunctionCLib('EVP_PKEY_get1_DSA');
+    @EVP_PKEY_set1_DSA := LoadFunctionCLib('EVP_PKEY_set1_DSA');
     @EVP_PKEY_size := LoadFunctionCLib('EVP_PKEY_size');
     @EVP_DigestInit := LoadFunctionCLib('EVP_DigestInit');
     @EVP_DigestUpdate := LoadFunctionCLib('EVP_DigestUpdate');
     @EVP_SignFinal := LoadFunctionCLib('EVP_SignFinal');
     @EVP_VerifyFinal := LoadFunctionCLib('EVP_VerifyFinal');
+    @DSA_new := LoadFunctionCLib('DSA_new');
+    @DSA_free := LoadFunctionCLib('DSA_free');
   end;
 end;
 
@@ -203,11 +211,15 @@ begin
     @X509_get_pubkey := nil;
     @EVP_PKEY_get1_RSA := nil;
     @EVP_PKEY_set1_RSA := nil;
+    @EVP_PKEY_get1_DSA := nil;
+    @EVP_PKEY_set1_DSA := nil;
     @EVP_PKEY_size := nil;
     @EVP_DigestInit := nil;
     @EVP_DigestUpdate := nil;
     @EVP_SignFinal := nil;
     @EVP_VerifyFinal := nil;
+    @DSA_new := nil;
+    @DSA_free := nil;
   end;
 end;
 

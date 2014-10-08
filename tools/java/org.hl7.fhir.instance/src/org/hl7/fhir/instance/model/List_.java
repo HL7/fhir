@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,26 +39,26 @@ import java.util.*;
 public class List_ extends Resource {
 
     public enum ListMode {
-        working, // This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.
-        snapshot, // This list was prepared as a snapshot. It should not be assumed to be current.
-        changes, // The list is prepared as a statement of changes that have been made or recommended.
-        Null; // added to help the parsers
+        WORKING, // This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.
+        SNAPSHOT, // This list was prepared as a snapshot. It should not be assumed to be current.
+        CHANGES, // The list is prepared as a statement of changes that have been made or recommended.
+        NULL; // added to help the parsers
         public static ListMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("working".equals(codeString))
-          return working;
+          return WORKING;
         if ("snapshot".equals(codeString))
-          return snapshot;
+          return SNAPSHOT;
         if ("changes".equals(codeString))
-          return changes;
+          return CHANGES;
         throw new Exception("Unknown ListMode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case working: return "working";
-            case snapshot: return "snapshot";
-            case changes: return "changes";
+            case WORKING: return "working";
+            case SNAPSHOT: return "snapshot";
+            case CHANGES: return "changes";
             default: return "?";
           }
         }
@@ -70,19 +70,19 @@ public class List_ extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("working".equals(codeString))
-          return ListMode.working;
+          return ListMode.WORKING;
         if ("snapshot".equals(codeString))
-          return ListMode.snapshot;
+          return ListMode.SNAPSHOT;
         if ("changes".equals(codeString))
-          return ListMode.changes;
+          return ListMode.CHANGES;
         throw new Exception("Unknown ListMode code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ListMode.working)
+      if (code == ListMode.WORKING)
         return "working";
-      if (code == ListMode.snapshot)
+      if (code == ListMode.SNAPSHOT)
         return "snapshot";
-      if (code == ListMode.changes)
+      if (code == ListMode.CHANGES)
         return "changes";
       return "?";
       }
@@ -143,16 +143,16 @@ public class List_ extends Resource {
         }
 
         /**
-         * @return {@link #deleted} (True if this item is marked as deleted in the list.)
+         * @return {@link #deleted} (True if this item is marked as deleted in the list.). This is the underlying object with id, value and extensions. The accessor "getDeleted" gives direct access to the value
          */
-        public BooleanType getDeleted() { 
+        public BooleanType getDeletedObject() { 
           return this.deleted;
         }
 
         /**
-         * @param value {@link #deleted} (True if this item is marked as deleted in the list.)
+         * @param value {@link #deleted} (True if this item is marked as deleted in the list.). This is the underlying object with id, value and extensions. The accessor "getDeleted" gives direct access to the value
          */
-        public ListEntryComponent setDeleted(BooleanType value) { 
+        public ListEntryComponent setDeletedObject(BooleanType value) { 
           this.deleted = value;
           return this;
         }
@@ -160,14 +160,14 @@ public class List_ extends Resource {
         /**
          * @return True if this item is marked as deleted in the list.
          */
-        public boolean getDeletedSimple() { 
+        public boolean getDeleted() { 
           return this.deleted == null ? false : this.deleted.getValue();
         }
 
         /**
          * @param value True if this item is marked as deleted in the list.
          */
-        public ListEntryComponent setDeletedSimple(boolean value) { 
+        public ListEntryComponent setDeleted(boolean value) { 
           if (value == false)
             this.deleted = null;
           else {
@@ -179,16 +179,16 @@ public class List_ extends Resource {
         }
 
         /**
-         * @return {@link #date} (When this item was added to the list.)
+         * @return {@link #date} (When this item was added to the list.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDate() { 
+        public DateTimeType getDateObject() { 
           return this.date;
         }
 
         /**
-         * @param value {@link #date} (When this item was added to the list.)
+         * @param value {@link #date} (When this item was added to the list.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public ListEntryComponent setDate(DateTimeType value) { 
+        public ListEntryComponent setDateObject(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -196,14 +196,14 @@ public class List_ extends Resource {
         /**
          * @return When this item was added to the list.
          */
-        public DateAndTime getDateSimple() { 
+        public DateAndTime getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value When this item was added to the list.
          */
-        public ListEntryComponent setDateSimple(DateAndTime value) { 
+        public ListEntryComponent setDate(DateAndTime value) { 
           if (value == null)
             this.date = null;
           else {
@@ -230,14 +230,14 @@ public class List_ extends Resource {
         }
 
         /**
-         * @return {@link #item} (The actual object that is the target of the reference. A reference to the actual resource from which data was derived.)
+         * @return {@link #item} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the actual resource from which data was derived.)
          */
         public Resource getItemTarget() { 
           return this.itemTarget;
         }
 
         /**
-         * @param value {@link #item} (The actual object that is the target of the reference. A reference to the actual resource from which data was derived.)
+         * @param value {@link #item} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the actual resource from which data was derived.)
          */
         public ListEntryComponent setItemTarget(Resource value) { 
           this.itemTarget = value;
@@ -379,14 +379,14 @@ public class List_ extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The common subject (or patient) of the resources that are in the list, if there is one.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The common subject (or patient) of the resources that are in the list, if there is one.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The common subject (or patient) of the resources that are in the list, if there is one.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The common subject (or patient) of the resources that are in the list, if there is one.)
      */
     public List_ setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -409,14 +409,14 @@ public class List_ extends Resource {
     }
 
     /**
-     * @return {@link #source} (The actual object that is the target of the reference. The entity responsible for deciding what the contents of the list were.)
+     * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The entity responsible for deciding what the contents of the list were.)
      */
     public Resource getSourceTarget() { 
       return this.sourceTarget;
     }
 
     /**
-     * @param value {@link #source} (The actual object that is the target of the reference. The entity responsible for deciding what the contents of the list were.)
+     * @param value {@link #source} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The entity responsible for deciding what the contents of the list were.)
      */
     public List_ setSourceTarget(Resource value) { 
       this.sourceTarget = value;
@@ -424,16 +424,16 @@ public class List_ extends Resource {
     }
 
     /**
-     * @return {@link #date} (The date that the list was prepared.)
+     * @return {@link #date} (The date that the list was prepared.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDate() { 
+    public DateTimeType getDateObject() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The date that the list was prepared.)
+     * @param value {@link #date} (The date that the list was prepared.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public List_ setDate(DateTimeType value) { 
+    public List_ setDateObject(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -441,14 +441,14 @@ public class List_ extends Resource {
     /**
      * @return The date that the list was prepared.
      */
-    public DateAndTime getDateSimple() { 
+    public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that the list was prepared.
      */
-    public List_ setDateSimple(DateAndTime value) { 
+    public List_ setDate(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -460,16 +460,16 @@ public class List_ extends Resource {
     }
 
     /**
-     * @return {@link #ordered} (Whether items in the list have a meaningful order.)
+     * @return {@link #ordered} (Whether items in the list have a meaningful order.). This is the underlying object with id, value and extensions. The accessor "getOrdered" gives direct access to the value
      */
-    public BooleanType getOrdered() { 
+    public BooleanType getOrderedObject() { 
       return this.ordered;
     }
 
     /**
-     * @param value {@link #ordered} (Whether items in the list have a meaningful order.)
+     * @param value {@link #ordered} (Whether items in the list have a meaningful order.). This is the underlying object with id, value and extensions. The accessor "getOrdered" gives direct access to the value
      */
-    public List_ setOrdered(BooleanType value) { 
+    public List_ setOrderedObject(BooleanType value) { 
       this.ordered = value;
       return this;
     }
@@ -477,14 +477,14 @@ public class List_ extends Resource {
     /**
      * @return Whether items in the list have a meaningful order.
      */
-    public boolean getOrderedSimple() { 
+    public boolean getOrdered() { 
       return this.ordered == null ? false : this.ordered.getValue();
     }
 
     /**
      * @param value Whether items in the list have a meaningful order.
      */
-    public List_ setOrderedSimple(boolean value) { 
+    public List_ setOrdered(boolean value) { 
       if (value == false)
         this.ordered = null;
       else {
@@ -496,16 +496,16 @@ public class List_ extends Resource {
     }
 
     /**
-     * @return {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.)
+     * @return {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public Enumeration<ListMode> getMode() { 
+    public Enumeration<ListMode> getModeObject() { 
       return this.mode;
     }
 
     /**
-     * @param value {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.)
+     * @param value {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public List_ setMode(Enumeration<ListMode> value) { 
+    public List_ setModeObject(Enumeration<ListMode> value) { 
       this.mode = value;
       return this;
     }
@@ -513,14 +513,14 @@ public class List_ extends Resource {
     /**
      * @return How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
      */
-    public ListMode getModeSimple() { 
+    public ListMode getMode() { 
       return this.mode == null ? null : this.mode.getValue();
     }
 
     /**
      * @param value How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
      */
-    public List_ setModeSimple(ListMode value) { 
+    public List_ setMode(ListMode value) { 
         if (this.mode == null)
           this.mode = new Enumeration<ListMode>();
         this.mode.setValue(value);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -194,16 +194,16 @@ public class Order extends Resource {
     }
 
     /**
-     * @return {@link #date} (When the order was made.)
+     * @return {@link #date} (When the order was made.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDate() { 
+    public DateTimeType getDateObject() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (When the order was made.)
+     * @param value {@link #date} (When the order was made.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Order setDate(DateTimeType value) { 
+    public Order setDateObject(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -211,14 +211,14 @@ public class Order extends Resource {
     /**
      * @return When the order was made.
      */
-    public DateAndTime getDateSimple() { 
+    public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value When the order was made.
      */
-    public Order setDateSimple(DateAndTime value) { 
+    public Order setDate(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -245,14 +245,14 @@ public class Order extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. Patient this order is about.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient this order is about.)
      */
     public Patient getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. Patient this order is about.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Patient this order is about.)
      */
     public Order setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
@@ -275,14 +275,14 @@ public class Order extends Resource {
     }
 
     /**
-     * @return {@link #source} (The actual object that is the target of the reference. Who initiated the order.)
+     * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who initiated the order.)
      */
     public Practitioner getSourceTarget() { 
       return this.sourceTarget;
     }
 
     /**
-     * @param value {@link #source} (The actual object that is the target of the reference. Who initiated the order.)
+     * @param value {@link #source} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who initiated the order.)
      */
     public Order setSourceTarget(Practitioner value) { 
       this.sourceTarget = value;
@@ -305,14 +305,14 @@ public class Order extends Resource {
     }
 
     /**
-     * @return {@link #target} (The actual object that is the target of the reference. Who is intended to fulfill the order.)
+     * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who is intended to fulfill the order.)
      */
     public Resource getTargetTarget() { 
       return this.targetTarget;
     }
 
     /**
-     * @param value {@link #target} (The actual object that is the target of the reference. Who is intended to fulfill the order.)
+     * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who is intended to fulfill the order.)
      */
     public Order setTargetTarget(Resource value) { 
       this.targetTarget = value;
@@ -350,14 +350,14 @@ public class Order extends Resource {
     }
 
     /**
-     * @return {@link #authority} (The actual object that is the target of the reference. If required by policy.)
+     * @return {@link #authority} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (If required by policy.)
      */
     public Resource getAuthorityTarget() { 
       return this.authorityTarget;
     }
 
     /**
-     * @param value {@link #authority} (The actual object that is the target of the reference. If required by policy.)
+     * @param value {@link #authority} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (If required by policy.)
      */
     public Order setAuthorityTarget(Resource value) { 
       this.authorityTarget = value;
@@ -397,7 +397,7 @@ public class Order extends Resource {
     }
 
     /**
-     * @return {@link #detail} (The actual objects that are the target of the reference. What action is being ordered.)
+     * @return {@link #detail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. What action is being ordered.)
      */
     public List<Resource> getDetailTarget() { 
       return this.detailTarget;

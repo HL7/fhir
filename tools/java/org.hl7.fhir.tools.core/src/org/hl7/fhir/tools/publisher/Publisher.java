@@ -41,24 +41,19 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import javax.lang.model.util.ElementFilter;
 import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
@@ -111,9 +106,7 @@ import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.SourceParser;
-import org.hl7.fhir.definitions.parsers.SpreadsheetParser;
 import org.hl7.fhir.definitions.validation.ConceptMapValidator;
-import org.hl7.fhir.definitions.validation.OldProfileValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.formats.JsonComposer;
@@ -125,8 +118,6 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
-import org.hl7.fhir.instance.model.Identifier;
-import org.hl7.fhir.instance.model.OperationDefinition;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptEquivalence;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
@@ -145,32 +136,30 @@ import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.OperationDefinition;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterComponent;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationKind;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationParameterUse;
 import org.hl7.fhir.instance.model.OperationDefinition.ResourceProfileStatus;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ElementComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
-import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
 import org.hl7.fhir.instance.utils.LoincToDEConvertor;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.QuestionnaireBuilder;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
-import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ProfileValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -292,7 +281,8 @@ public class Publisher implements URIResolver {
   // private BookMaker book;
 
   private JavaGenerator javaReferencePlatform;
-
+  private DelphiGenerator delphiReferencePlatform;
+  
   private boolean isGenerate;
   private boolean noArchive;
   private boolean web;
@@ -502,12 +492,15 @@ public class Publisher implements URIResolver {
       if (files != null) {
         for (File f : files) {
           if (f.getName().endsWith(".xml")) {
+            System.out.println(f.getName());
             ResourceOrFeed rf = new XmlParser().parseGeneral(new FileInputStream(f));
             if (rf.getFeed() != null) {
+//              new XmlComposer().compose(new FileOutputStream(f), rf.getFeed(), true);
               for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> ae : rf.getFeed().getEntryList()) {
                 loadIgReference(ae);
               }
             } else {
+//              new XmlComposer().compose(new FileOutputStream(f), rf.getResource(), true);
               AtomEntry<org.hl7.fhir.instance.model.Resource> ae = new AtomEntry<org.hl7.fhir.instance.model.Resource>();
               ae.setId(page.getIg().getBaseUri()+rf.getResource().getResourceType().toString()+"/"+Utilities.fileTitle(f.getAbsolutePath()));
               ae.setResource(rf.getResource());
@@ -559,7 +552,7 @@ public class Publisher implements URIResolver {
     if (ae.getResource() instanceof ValueSet) {
       ValueSet vs = (ValueSet) ae.getResource();
       if (vs.getDefine() != null)
-        page.getCodeSystems().put(vs.getDefine().getSystemSimple(), (AtomEntry<ValueSet>) ae);
+        page.getCodeSystems().put(vs.getDefine().getSystem(), (AtomEntry<ValueSet>) ae);
       page.getValueSets().put(ae.getId(), (AtomEntry<ValueSet>) ae);
     }
     if (ae.getResource() instanceof ConceptMap) 
@@ -602,7 +595,7 @@ public class Publisher implements URIResolver {
         if (rd.getResource() instanceof Profile) {
           ProfileDefn pd = new ProfileDefn();
           pd.setSource((Profile) rd.getResource());
-          page.getDefinitions().getProfiles().put(pd.getSource().getUrlSimple(), pd);
+          page.getDefinitions().getProfiles().put(pd.getSource().getUrl(), pd);
         }
       }
     }
@@ -651,21 +644,21 @@ public class Publisher implements URIResolver {
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
     Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(pt, page.getGenDate());
-    page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
+    page.getProfiles().put(profile.getUrl(), genWrapper(profile));
     pt.setProfile(profile);
     // todo: what to do in the narrative?
   }
 
   private AtomEntry<Profile> genWrapper(Profile profile) {
     AtomEntry<Profile> e = new AtomEntry<Profile>();
-    e.setId(profile.getUrlSimple());
+    e.setId(profile.getUrl());
     e.setResource(profile);
     return e;
   }
 
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
     Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
-    page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
+    page.getProfiles().put(profile.getUrl(), genWrapper(profile));
 //    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
 //    t.setProfile(profile);
 //    t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -675,7 +668,7 @@ public class Publisher implements URIResolver {
 
   private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
     Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
-    page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
+    page.getProfiles().put(profile.getUrl(), genWrapper(profile));
 //    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
 //    t.setProfile(profile);
 //    t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -685,7 +678,7 @@ public class Publisher implements URIResolver {
 
   private void genTypeProfile(TypeDefn t) throws Exception {
     Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
-    page.getProfiles().put(profile.getUrlSimple(), genWrapper(profile));
+    page.getProfiles().put(profile.getUrl(), genWrapper(profile));
     t.setProfile(profile);
     DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
     t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -699,18 +692,18 @@ public class Publisher implements URIResolver {
     if (profile.getSource() == null) {
       Profile p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(profile, profile.metadata("id"), page.getGenDate());
       profile.setSource(p);
-      page.getProfiles().put(p.getUrlSimple(), genWrapper(p));
+      page.getProfiles().put(p.getUrl(), genWrapper(p));
     } else {
       // special case: if the profile itself doesn't claim a date, it's date is the date of this publication
       if (profile.getSource().getDate() == null)
-        profile.getSource().setDateSimple(new DateAndTime(page.getGenDate()));
+        profile.getSource().setDate(new DateAndTime(page.getGenDate()));
       for (ProfileStructureComponent c : profile.getSource().getStructure()) {
         if (c.getBase() != null && !hasSnapshot(profile.getSource(), c)) {
           // cause it probably doesn't, coming from the profile directly
-          ProfileStructureComponent base = getSnapShotForProfile(c.getBaseSimple());
-          new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, c, c.getBaseSimple().split("#")[0], profile.getSource().getNameSimple());
+          ProfileStructureComponent base = getSnapShotForProfile(c.getBase());
+          new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, c, c.getBase().split("#")[0], profile.getSource().getName());
         }
-        page.getProfiles().put(profile.getSource().getUrlSimple(), genWrapper(profile.getSource()));
+        page.getProfiles().put(profile.getSource().getUrl(), genWrapper(profile.getSource()));
       }
     }
     if (!Utilities.noString(filename))
@@ -743,11 +736,11 @@ public class Publisher implements URIResolver {
       return p.getStructure().get(0);
     }
     for (ProfileStructureComponent s : p.getStructure()) {
-      if (s.getSnapshot() == null && p.getNameSimple().equals(parts[1])) {
+      if (s.getSnapshot() == null && p.getName().equals(parts[1])) {
         ProfileDefn profile = page.getDefinitions().getProfiles().get(parts[0]);
         processProfile(profile, null);
       }
-      if (s.getSnapshot() != null && p.getNameSimple().equals(parts[1]))
+      if (s.getSnapshot() != null && p.getName().equals(parts[1]))
         return s;
     }
     throw new Exception("Unable to find snapshot for "+base);
@@ -756,17 +749,17 @@ public class Publisher implements URIResolver {
   
   private void processProfile(AtomEntry<Profile> ae) throws Exception {
     if (ae.getResource().getDate() == null)
-      ae.getResource().setDateSimple(new DateAndTime(page.getGenDate()));
+      ae.getResource().setDate(new DateAndTime(page.getGenDate()));
     for (ProfileStructureComponent c : ae.getResource().getStructure()) {
       if (c.getBase() != null && !hasSnapshot(ae.getResource(), c)) {
         // cause it probably doesn't, coming from the profile directly
         ProfileStructureComponent base;
-        base = getIgProfile(c.getBaseSimple());
+        base = getIgProfile(c.getBase());
         if (base == null)
-          base = page.getDefinitions().getSnapShotForProfile(c.getBaseSimple());
-        new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, c, c.getBaseSimple().split("#")[0], ae.getResource().getNameSimple());
+          base = page.getDefinitions().getSnapShotForProfile(c.getBase());
+        new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, c, c.getBase().split("#")[0], ae.getResource().getName());
       }
-      page.getProfiles().put(ae.getResource().getUrlSimple(), ae);
+      page.getProfiles().put(ae.getResource().getUrl(), ae);
     }
   }
   public ProfileStructureComponent getIgProfile(String base) throws Exception {
@@ -784,7 +777,7 @@ public class Publisher implements URIResolver {
       return p.getResource().getStructure().get(0);
     }
     for (ProfileStructureComponent s : p.getResource().getStructure())
-      if (s.getSnapshot() != null && p.getResource().getNameSimple().equals(parts[1]))
+      if (s.getSnapshot() != null && p.getResource().getName().equals(parts[1]))
         return s;
     throw new Exception("Unable to find snapshot for "+base);
   }
@@ -796,7 +789,7 @@ public class Publisher implements URIResolver {
     for (AtomEntry<? extends Resource> ae : page.getIgResources().values()) {
       if (ae.getResource() instanceof Profile) {
         Profile p = (Profile) ae.getResource();
-        if (p.getUrlSimple().equals(url))
+        if (p.getUrl().equals(url))
           return (AtomEntry<Profile>) ae;
       }
     }
@@ -846,18 +839,18 @@ public class Publisher implements URIResolver {
   }
 
   private void loadValueSets2() throws Exception {
-    page.log(" ...vocab #2", LogMessageType.Process);
-    generateCodeSystemsPart2();
-    generateValueSetsPart2();
-    if (page.hasIG())
-      generateIGValueSetsPart2();
-    page.saveSnomed();
     page.log(" ...resource ValueSet", LogMessageType.Process);
     ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
     if (isGenerate) {
       produceResource1(r);
       produceResource2(r);
     }
+    page.log(" ...vocab #2", LogMessageType.Process);
+    generateCodeSystemsPart2();
+    generateValueSetsPart2();
+    if (page.hasIG())
+      generateIGValueSetsPart2();
+    page.saveSnomed();
     if (isGenerate) {
       /// regenerate. TODO: this is silly - need to generate before so that xpaths are populated. but need to generate now to fill them properly
       generateConformanceStatement(true, "base");
@@ -905,47 +898,47 @@ public class Publisher implements URIResolver {
 
   private void generateConformanceStatement(boolean full, String name) throws Exception {
     Conformance conf = new Conformance();
-    conf.setIdentifierSimple("http://hl7.org/fhir/conformance-" + name);
-    conf.setVersionSimple(page.getVersion() + "-" + page.getSvnRevision());
-    conf.setNameSimple("Base FHIR Conformance Statement " + (full ? "(Full)" : "(Empty)"));
-    conf.setPublisherSimple("FHIR Project Team");
-    conf.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org/fhir"));
-    conf.setStatusSimple(ConformanceStatementStatus.draft);
-    conf.setDateSimple(new DateAndTime(page.getGenDate().getTime()));
-    conf.setFhirVersionSimple(page.getVersion());
-    conf.setAcceptUnknownSimple(false);
+    conf.setIdentifier("http://hl7.org/fhir/conformance-" + name);
+    conf.setVersion(page.getVersion() + "-" + page.getSvnRevision());
+    conf.setName("Base FHIR Conformance Statement " + (full ? "(Full)" : "(Empty)"));
+    conf.setPublisher("FHIR Project Team");
+    conf.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    conf.setStatus(ConformanceStatementStatus.DRAFT);
+    conf.setDate(new DateAndTime(page.getGenDate().getTime()));
+    conf.setFhirVersion(page.getVersion());
+    conf.setAcceptUnknown(false);
     conf.getFormat().add(Factory.newCode("xml"));
     conf.getFormat().add(Factory.newCode("json"));
     ConformanceRestComponent rest = new Conformance.ConformanceRestComponent();
     conf.getRest().add(rest);
-    rest.setModeSimple(RestfulConformanceMode.server);
+    rest.setMode(RestfulConformanceMode.SERVER);
     if (full) {
-      rest.setDocumentationSimple("All the functionality defined in FHIR");
-      conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the full set of functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from");
+      rest.setDocumentation("All the functionality defined in FHIR");
+      conf.setDescription("This is the base conformance statement for FHIR. It represents a server that provides the full set of functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from");
     } else {
-      rest.setDocumentationSimple("An empty conformance statement");
-      conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the none of the functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from. A conformance profile has to contain something, so this contains a read of a Conformance Statement");
+      rest.setDocumentation("An empty conformance statement");
+      conf.setDescription("This is the base conformance statement for FHIR. It represents a server that provides the none of the functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from. A conformance profile has to contain something, so this contains a read of a Conformance Statement");
     }
     if (full) {
-      genConfOp(conf, rest, SystemRestfulInteraction.transaction);
-      genConfOp(conf, rest, SystemRestfulInteraction.historysystem);
-      genConfOp(conf, rest, SystemRestfulInteraction.searchsystem);
+      genConfOp(conf, rest, SystemRestfulInteraction.TRANSACTION);
+      genConfOp(conf, rest, SystemRestfulInteraction.HISTORYSYSTEM);
+      genConfOp(conf, rest, SystemRestfulInteraction.SEARCHSYSTEM);
 
       for (String rn : page.getDefinitions().sortedResourceNames()) {
         ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
         ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
         rest.getResource().add(res);
-        res.setTypeSimple(rn);
+        res.setType(rn);
         res.setProfile(Factory.makeReference("http://hl7.org/fhir/" + rn));
-        genConfOp(conf, res, TypeRestfulInteraction.read);
-        genConfOp(conf, res, TypeRestfulInteraction.vread);
-        genConfOp(conf, res, TypeRestfulInteraction.update);
-        genConfOp(conf, res, TypeRestfulInteraction.delete);
-        genConfOp(conf, res, TypeRestfulInteraction.historyinstance);
-        genConfOp(conf, res, TypeRestfulInteraction.validate);
-        genConfOp(conf, res, TypeRestfulInteraction.historytype);
-        genConfOp(conf, res, TypeRestfulInteraction.create);
-        genConfOp(conf, res, TypeRestfulInteraction.searchtype);
+        genConfOp(conf, res, TypeRestfulInteraction.READ);
+        genConfOp(conf, res, TypeRestfulInteraction.VREAD);
+        genConfOp(conf, res, TypeRestfulInteraction.UPDATE);
+        genConfOp(conf, res, TypeRestfulInteraction.DELETE);
+        genConfOp(conf, res, TypeRestfulInteraction.HISTORYINSTANCE);
+        genConfOp(conf, res, TypeRestfulInteraction.VALIDATE);
+        genConfOp(conf, res, TypeRestfulInteraction.HISTORYTYPE);
+        genConfOp(conf, res, TypeRestfulInteraction.CREATE);
+        genConfOp(conf, res, TypeRestfulInteraction.SEARCHTYPE);
 
         for (SearchParameter i : rd.getSearchParams().values()) {
           res.getSearchParam().add(makeSearchParam(conf, rn, i));
@@ -954,8 +947,8 @@ public class Publisher implements URIResolver {
     } else {
       ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
       rest.getResource().add(res);
-      res.setTypeSimple("Conformance");
-      genConfOp(conf, res, TypeRestfulInteraction.read);
+      res.setType("Conformance");
+      genConfOp(conf, res, TypeRestfulInteraction.READ);
     }
 
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
@@ -974,10 +967,10 @@ public class Publisher implements URIResolver {
 
   private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameter i) {
     ConformanceRestResourceSearchParamComponent result = new Conformance.ConformanceRestResourceSearchParamComponent();
-    result.setNameSimple(i.getCode());
-    result.setDefinitionSimple("http://hl7.org/fhir/Profile/" + rn);
-    result.setTypeSimple(getSearchParamType(i.getType()));
-    result.setDocumentation(Factory.newString_(i.getDescription()));
+    result.setName(i.getCode());
+    result.setDefinition("http://hl7.org/fhir/Profile/" + rn);
+    result.setType(getSearchParamType(i.getType()));
+    result.setDocumentation(i.getDescription());
     i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths())); // used elsewhere later
     return result;
   }
@@ -985,32 +978,32 @@ public class Publisher implements URIResolver {
   private Conformance.SearchParamType getSearchParamType(SearchType type) {
     switch (type) {
     case number:
-      return Conformance.SearchParamType.number;
+      return Conformance.SearchParamType.NUMBER;
     case string:
-      return Conformance.SearchParamType.string;
+      return Conformance.SearchParamType.STRING;
     case date:
-      return Conformance.SearchParamType.date;
+      return Conformance.SearchParamType.DATE;
     case reference:
-      return Conformance.SearchParamType.reference;
+      return Conformance.SearchParamType.REFERENCE;
     case token:
-      return Conformance.SearchParamType.token;
+      return Conformance.SearchParamType.TOKEN;
     case composite:
-      return Conformance.SearchParamType.composite;
+      return Conformance.SearchParamType.COMPOSITE;
     case quantity:
-      return Conformance.SearchParamType.quantity;
+      return Conformance.SearchParamType.QUANTITY;
     }
     return null;
   }
 
   private void genConfOp(Conformance conf, ConformanceRestResourceComponent res, TypeRestfulInteraction op) {
     ResourceInteractionComponent t = new ResourceInteractionComponent();
-    t.setCodeSimple(op);
+    t.setCode(op);
     res.getInteraction().add(t);
   }
 
   private void genConfOp(Conformance conf, ConformanceRestComponent res, SystemRestfulInteraction op) {
     SystemInteractionComponent t = new SystemInteractionComponent();
-    t.setCodeSimple(op);
+    t.setCode(op);
     res.getInteraction().add(t);
   }
 
@@ -1086,9 +1079,10 @@ public class Publisher implements URIResolver {
 
   private void registerReferencePlatforms() {
     javaReferencePlatform = new JavaGenerator(page.getFolders());
+    delphiReferencePlatform = new DelphiGenerator(page.getFolders());
     page.getReferenceImplementations().add(javaReferencePlatform);
+    page.getReferenceImplementations().add(delphiReferencePlatform);
     page.getReferenceImplementations().add(new CSharpGenerator());
-    page.getReferenceImplementations().add(new DelphiGenerator());
     page.getReferenceImplementations().add(new ObjectiveCGenerator());
     page.getReferenceImplementations().add(new XMLToolsGenerator());
     page.getReferenceImplementations().add(new JavaScriptGenerator());
@@ -1197,14 +1191,14 @@ public class Publisher implements URIResolver {
     int hintCount = 0;
     int warningCount = 0;
     for (ValidationMessage e : errors) {
-      if (e.getLevel() == IssueSeverity.information) {
+      if (e.getLevel() == IssueSeverity.INFORMATION) {
         page.log(e.summary(), LogMessageType.Hint);
         page.getQa().hint(e.summary());
         hintCount++;
       }
     }
     for (ValidationMessage e : errors) {
-      if (e.getLevel() == IssueSeverity.warning) {
+      if (e.getLevel() == IssueSeverity.WARNING) {
         page.log(e.summary(), LogMessageType.Warning);
         page.getQa().warning(e.summary());
         warningCount++;
@@ -1212,7 +1206,7 @@ public class Publisher implements URIResolver {
     }
     int errorCount = 0;
     for (ValidationMessage e : errors) {
-      if (e.getLevel() == IssueSeverity.error || e.getLevel() == IssueSeverity.fatal) {
+      if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
         page.log(e.summary(), LogMessageType.Error);
         errorCount++;
       }
@@ -1241,7 +1235,7 @@ public class Publisher implements URIResolver {
           for (ExampleReference ref : refs) {
             if (!ref.getId().startsWith("cid:") && !ref.getId().startsWith("urn:") && !ref.getId().startsWith("http:") && !resolveLink(ref)) {
               errors.add(new ValidationMessage(Source.ExampleValidator, "business-rule", ref.getPath(), "Unable to resolve example reference to "
-                  + ref.describe() + " in " + e.getPath() + "\r\n   Possible Ids: " + listTargetIds(ref.getType()), IssueSeverity.error));
+                  + ref.describe() + " in " + e.getPath() + "\r\n   Possible Ids: " + listTargetIds(ref.getType()), IssueSeverity.ERROR));
             }
           }
         }
@@ -1616,9 +1610,9 @@ public class Publisher implements URIResolver {
       int ec = 0;
       for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> e : valueSetsFeed.getEntryList()) {
         ValueSet vs = (ValueSet) e.getResource();
-        if (!vs.getIdentifierSimple().equals(e.getId())) {
+        if (!vs.getIdentifier().equals(e.getId())) {
           ec++;
-          page.log("Valueset id mismatch: atom entry has '"+e.getId()+"', but value set is '"+vs.getIdentifierSimple()+"'", LogMessageType.Error);
+          page.log("Valueset id mismatch: atom entry has '"+e.getId()+"', but value set is '"+vs.getIdentifier()+"'", LogMessageType.Error);
         }
       }
       if (ec > 0)
@@ -1637,6 +1631,7 @@ public class Publisher implements URIResolver {
           "summary-instance");
       jsonToXhtml("conceptmaps", "Base concept maps (implementation assistance, for validation, derivation and product development)",
           resource2Json(conceptMapsFeed), "summary-instance");
+      delphiReferencePlatform.sign(page.getFolders().dstDir + "conceptmaps.xml", true, "dsa");
 
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples" + File.separator + "v2-tables.xml");
@@ -1848,7 +1843,7 @@ public class Publisher implements URIResolver {
         if (owner == null)
           throw new Exception("Error handling poly-heirarchy - subsequent mention is on the root");
         // ToolingExtensions.addParentCode(handled.get(code),
-        // owner.getCodeSimple());
+        // owner.getCode());
         ToolingExtensions.addSubsumes(owner, code);
         s.append(" <tr><td>" + Integer.toString(lvl) + "</td><td>");
         for (int i = 1; i < lvl; i++)
@@ -1857,10 +1852,10 @@ public class Publisher implements URIResolver {
       } else {
         ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
         handled.put(code, concept);
-        concept.setCodeSimple(code);
-        concept.setDisplaySimple(display);
-        concept.setDefinitionSimple(textDefinition);
-        concept.setAbstractSimple(!select);
+        concept.setCode(code);
+        concept.setDisplay(display);
+        concept.setDefinition(textDefinition);
+        concept.setAbstract(!select);
         String d = "";
         if (deprecated) {
           ToolingExtensions.markDeprecated(concept);
@@ -1891,20 +1886,20 @@ public class Publisher implements URIResolver {
   private ValueSet buildV3CodeSystem(String id, String date, Element e) throws Exception {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
-    vs.setIdentifierSimple("http://hl7.org/fhir/v3/vs/" + id);
-    vs.setNameSimple("v3 Code System " + id);
-    vs.setPublisherSimple("HL7, Inc");
-    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org"));
-    vs.setStatusSimple(ValuesetStatus.active);
+    vs.setIdentifier("http://hl7.org/fhir/v3/vs/" + id);
+    vs.setName("v3 Code System " + id);
+    vs.setPublisher("HL7, Inc");
+    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
+    vs.setStatus(ValuesetStatus.ACTIVE);
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
-    def.setCaseSensitiveSimple(true);
-    def.setSystemSimple("http://hl7.org/fhir/v3/" + id);
+    def.setCaseSensitive(true);
+    def.setSystem("http://hl7.org/fhir/v3/" + id);
 
     Element r = XMLUtil.getNamedChild(e, "releasedVersion");
     if (r != null) {
       s.append("<p>Release Date: " + r.getAttribute("releaseDate") + "</p>\r\n");
-      vs.setDateSimple(new DateAndTime(r.getAttribute("releaseDate")));
+      vs.setDate(new DateAndTime(r.getAttribute("releaseDate")));
     }
     r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
     if (r == null)
@@ -1913,9 +1908,9 @@ public class Publisher implements URIResolver {
       s.append("<h2>Description</h2>\r\n");
       s.append("<p>" + nodeToString(r) + "</p>\r\n");
       s.append("<hr/>\r\n");
-      vs.setDescriptionSimple(XMLUtil.htmlToXmlEscapedPlainText(r));
+      vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(r));
     } else
-      vs.setDescriptionSimple("? not found");
+      vs.setDescription("? not found");
 
     List<CodeInfo> codes = new ArrayList<CodeInfo>();
     // first, collate all the codes
@@ -1968,7 +1963,7 @@ public class Publisher implements URIResolver {
     s.append("</table>\r\n");
 
     vs.setText(new Narrative());
-    vs.getText().setStatusSimple(NarrativeStatus.generated);
+    vs.getText().setStatus(NarrativeStatus.GENERATED);
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
     new ValueSetValidator(page.getWorkerContext()).validate(vs, false);
 
@@ -2007,16 +2002,16 @@ public class Publisher implements URIResolver {
             ValueSet vs = buildV3CodeSystem(id, dt, e);
             ae.setResource(vs);
             if (vs.getDate() != null)
-              ae.setUpdated(vs.getDate().getValue().expandTime());
+              ae.setUpdated(vs.getDate().expandTime());
             else
               ae.setUpdated(DateAndTime.now());
-            ae.setTitle(vs.getDescriptionSimple());
-            ae.setAuthorName(vs.getPublisherSimple());
+            ae.setTitle(vs.getDescription());
+            ae.setAuthorName(vs.getPublisher());
             page.getV3Valuesets().getEntryList().add(ae);
-            page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
-            page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
-            page.getValueSets().put(vs.getIdentifierSimple(), ae);
-            page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+            page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
+            page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+            page.getValueSets().put(vs.getIdentifier(), ae);
+            page.getCodeSystems().put(vs.getDefine().getSystem().toString(), ae);
             codesystems.put(e.getAttribute("codeSystemId"), vs);
           } // else if (r == null)
             // page.log("unowned code system: "+id);
@@ -2041,14 +2036,14 @@ public class Publisher implements URIResolver {
           ae.getLinks().put("oid", e.getAttribute("id"));
           ae.setResource(vs);
           if (vs.getDate() != null)
-            ae.setUpdated(vs.getDate().getValue().expandTime());
+            ae.setUpdated(vs.getDate().expandTime());
           else
             ae.setUpdated(DateAndTime.now());
-          ae.setTitle(vs.getDescriptionSimple());
-          ae.setAuthorName(vs.getPublisherSimple());
+          ae.setTitle(vs.getDescription());
+          ae.setAuthorName(vs.getPublisher());
           page.getV3Valuesets().getEntryList().add(ae);
-          page.getValueSets().put(vs.getIdentifierSimple(), ae);
-          page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+          page.getValueSets().put(vs.getIdentifier(), ae);
+          page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
         }
       }
       e = XMLUtil.getNextSibling(e);
@@ -2057,37 +2052,37 @@ public class Publisher implements URIResolver {
 
   private ValueSet buildV3ValueSetAsCodeSystem(String id, Element e, String csname) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
-    vs.setIdentifierSimple("http://hl7.org/fhir/v3/vs/" + id);
-    vs.setNameSimple(id);
+    vs.setIdentifier("http://hl7.org/fhir/v3/vs/" + id);
+    vs.setName(id);
     Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"),
         "text");
     if (r != null) {
-      vs.setDescriptionSimple(XMLUtil.htmlToXmlEscapedPlainText(r) + " (OID = " + e.getAttribute("id") + ")");
+      vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(r) + " (OID = " + e.getAttribute("id") + ")");
     } else {
-      vs.setDescriptionSimple("?? (OID = " + e.getAttribute("id") + ")");
+      vs.setDescription("?? (OID = " + e.getAttribute("id") + ")");
     }
-    vs.setPublisherSimple("HL7 v3");
-    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://www.hl7.org"));
-    vs.setStatusSimple(ValuesetStatus.active);
+    vs.setPublisher("HL7 v3");
+    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
+    vs.setStatus(ValuesetStatus.ACTIVE);
 
     r = XMLUtil.getNamedChild(e, "version");
     if (r != null) 
-      vs.setVersionSimple(r.getAttribute("versionDate"));
+      vs.setVersion(r.getAttribute("versionDate"));
     String[] parts = csname.split("\\&");
     ValueSetComposeComponent compose = new ValueSet.ValueSetComposeComponent();
     vs.setCompose(compose);
     for (String cs : parts) {
       if (cs.contains(":")) {
-        compose.addInclude().setSystemSimple(cs);
+        compose.addInclude().setSystem(cs);
       } else if (cs.contains(".")) {
         String[] csp = cs.split("\\.");
         if (csp.length != 2)
           throw new Exception("unhandled value set specifier "+cs+" in ini file");
         ConceptSetComponent inc = compose.addInclude();
-        inc.setSystemSimple("http://hl7.org/fhir/v3/"+csp[0]);
-        inc.addFilter().setPropertySimple("concept").setOpSimple(FilterOperator.isa).setValueSimple(csp[1]);
+        inc.setSystem("http://hl7.org/fhir/v3/"+csp[0]);
+        inc.addFilter().setProperty("concept").setOp(FilterOperator.ISA).setValue(csp[1]);
       } else {
-        compose.addInclude().setSystemSimple("http://hl7.org/fhir/v3/"+cs);
+        compose.addInclude().setSystem("http://hl7.org/fhir/v3/"+cs);
       }
     }
     
@@ -2099,22 +2094,22 @@ public class Publisher implements URIResolver {
   
   private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, ValueSet> codesystems, IniFile vsini) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
-    vs.setIdentifierSimple("http://hl7.org/fhir/v3/vs/" + id);
-    vs.setNameSimple(id);
+    vs.setIdentifier("http://hl7.org/fhir/v3/vs/" + id);
+    vs.setName(id);
     Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"),
         "text");
     if (r != null) {
-      vs.setDescriptionSimple(XMLUtil.htmlToXmlEscapedPlainText(r) + " (OID = " + e.getAttribute("id") + ")");
+      vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(r) + " (OID = " + e.getAttribute("id") + ")");
     } else {
-      vs.setDescriptionSimple("?? (OID = " + e.getAttribute("id") + ")");
+      vs.setDescription("?? (OID = " + e.getAttribute("id") + ")");
     }
-    vs.setPublisherSimple("HL7 v3");
-    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://www.hl7.org"));
-    vs.setStatusSimple(ValuesetStatus.active);
+    vs.setPublisher("HL7 v3");
+    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
+    vs.setStatus(ValuesetStatus.ACTIVE);
 
     r = XMLUtil.getNamedChild(e, "version");
     if (r != null) {
-      vs.setVersionSimple(r.getAttribute("versionDate"));
+      vs.setVersion(r.getAttribute("versionDate"));
 
       // ok, now the content
       ValueSetComposeComponent compose = new ValueSet.ValueSetComposeComponent();
@@ -2134,7 +2129,7 @@ public class Publisher implements URIResolver {
         Element part = XMLUtil.getFirstChild(XMLUtil.getNamedChild(content, "combinedContent"));
         while (part != null) {
           if (part.getNodeName().equals("unionWithContent"))
-            compose.addImportSimple("http://hl7.org/fhir/v3/vs/" + XMLUtil.getNamedChild(part, "valueSetRef").getAttribute("name"));
+            compose.addImport("http://hl7.org/fhir/v3/vs/" + XMLUtil.getNamedChild(part, "valueSetRef").getAttribute("name"));
           else
             throw new Exception("unknown value set construction method");
           part = XMLUtil.getNextSibling(part);
@@ -2142,7 +2137,7 @@ public class Publisher implements URIResolver {
       } else {
         // simple value set
         compose.getInclude().add(imp);
-        imp.setSystemSimple(cs.getDefine().getSystemSimple());
+        imp.setSystem(cs.getDefine().getSystem());
 
         if (!XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent().equals(content.getAttribute("codeSystem")))
           throw new Exception("Unexpected codeSystem oid on content for ValueSet " + id + ": expected '"
@@ -2155,9 +2150,9 @@ public class Publisher implements URIResolver {
           if (cnt.getNodeName().equals("codeBasedContent") && (XMLUtil.getNamedChild(cnt, "includeRelatedCodes") != null)) {
             // common case: include a child and all or some of it's descendants
             ConceptSetFilterComponent f = new ValueSet.ConceptSetFilterComponent();
-            f.setOpSimple(FilterOperator.isa);
-            f.setPropertySimple("concept");
-            f.setValueSimple(cnt.getAttribute("code"));
+            f.setOp(FilterOperator.ISA);
+            f.setProperty("concept");
+            f.setValue(cnt.getAttribute("code"));
             imp.getFilter().add(f);
           } else if (cnt.getNodeName().equals("codeBasedContent") && cnt.hasAttribute("code")) {
             codes.add(cnt.getAttribute("code"));
@@ -2171,15 +2166,15 @@ public class Publisher implements URIResolver {
           }
           for (String c : order) {
             if (codes.contains(c))
-              imp.addConcept().setCodeSimple(c);
+              imp.addConcept().setCode(c);
           }
           for (String c : codes) {
             if (!order.contains(c))
-              imp.addConcept().setCodeSimple(c);
+              imp.addConcept().setCode(c);
           }
         } else
           for (String c : codes) {
-            imp.addConcept().setCodeSimple(c);
+            imp.addConcept().setCode(c);
           }
       }
     }
@@ -2239,16 +2234,16 @@ public class Publisher implements URIResolver {
 
   private ValueSet buildV2Valueset(String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
-    vs.setIdentifierSimple("http://hl7.org/fhir/v2/vs/" + id);
-    vs.setNameSimple("v2 table " + id);
-    vs.setPublisherSimple("HL7, Inc");
-    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org"));
-    vs.setStatusSimple(ValuesetStatus.active);
-    vs.setDateSimple(new DateAndTime("2011-01-28")); // v2.7 version
+    vs.setIdentifier("http://hl7.org/fhir/v2/vs/" + id);
+    vs.setName("v2 table " + id);
+    vs.setPublisher("HL7, Inc");
+    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
+    vs.setStatus(ValuesetStatus.ACTIVE);
+    vs.setDate(new DateAndTime("2011-01-28")); // v2.7 version
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
-    def.setCaseSensitiveSimple(true);
-    def.setSystemSimple("http://hl7.org/fhir/v2/" + id);
+    def.setCaseSensitive(true);
+    def.setSystem("http://hl7.org/fhir/v2/" + id);
     StringBuilder s = new StringBuilder();
 
     String desc = "";
@@ -2257,8 +2252,8 @@ public class Publisher implements URIResolver {
     Map<String, String> codes = new HashMap<String, String>();
     while (c != null) {
       desc = c.getAttribute("desc");
-      vs.setDescriptionSimple("FHIR Value set/code system definition for HL7 v2 table " + id + " ( " + desc + ")");
-      vs.setNameSimple("v2 " + desc);
+      vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ( " + desc + ")");
+      vs.setName("v2 " + desc);
 
       Element g = XMLUtil.getFirstChild(c);
       while (g != null) {
@@ -2291,8 +2286,8 @@ public class Publisher implements URIResolver {
       }
       String ver = ("2.1".equals(min) ? "from v2.1" : "added v" + min) + ("2.7".equals(max) ? "" : ", removed after v" + max);
       ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
-      concept.setCodeSimple(cd);
-      concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to
+      concept.setCode(cd);
+      concept.setDisplay(codes.get(cd)); // we deem the v2 description to
                                                // be display name, not
                                                // definition. Open for
                                                // consideration
@@ -2305,7 +2300,7 @@ public class Publisher implements URIResolver {
     }
     s.append("</table>\r\n");
     vs.setText(new Narrative());
-    vs.getText().setStatusSimple(NarrativeStatus.additional); // because we add
+    vs.getText().setStatus(NarrativeStatus.ADDITIONAL); // because we add
                                                               // v2 versioning
                                                               // information
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
@@ -2317,16 +2312,16 @@ public class Publisher implements URIResolver {
     StringBuilder s = new StringBuilder();
 
     ValueSet vs = new ValueSet();
-    vs.setIdentifierSimple("http://hl7.org/fhir/v2/vs/" + id + "/" + version);
-    vs.setNameSimple("v2 table " + id + ", Version " + version);
-    vs.setPublisherSimple("HL7, Inc");
-    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org"));
-    vs.setStatusSimple(ValuesetStatus.active);
-    vs.setDateSimple(new DateAndTime("2011-01-28")); // v2.7 version
+    vs.setIdentifier("http://hl7.org/fhir/v2/vs/" + id + "/" + version);
+    vs.setName("v2 table " + id + ", Version " + version);
+    vs.setPublisher("HL7, Inc");
+    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
+    vs.setStatus(ValuesetStatus.ACTIVE);
+    vs.setDate(new DateAndTime("2011-01-28")); // v2.7 version
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
-    def.setCaseSensitiveSimple(true);
-    def.setSystemSimple("http://hl7.org/fhir/v2/" + id + "/" + version);
+    def.setCaseSensitive(true);
+    def.setSystem("http://hl7.org/fhir/v2/" + id + "/" + version);
 
     String desc = "";
     String minlim = null;
@@ -2341,7 +2336,7 @@ public class Publisher implements URIResolver {
           minlim = c.getAttribute("version");
         maxlim = c.getAttribute("version");
         desc = c.getAttribute("desc");
-        vs.setDescriptionSimple("FHIR Value set/code system definition for HL7 v2 table " + id + " ver " + version + " ( " + desc + ")");
+        vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ver " + version + " ( " + desc + ")");
         Element g = XMLUtil.getFirstChild(c);
         while (g != null) {
           codes.put(g.getAttribute("code"), g.getAttribute("desc"));
@@ -2377,8 +2372,8 @@ public class Publisher implements URIResolver {
       }
       String ver = (minlim.equals(min) ? "from v" + minlim : "added v" + min) + (maxlim.equals(max) ? "" : ", removed after v" + max);
       ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
-      concept.setCodeSimple(cd);
-      concept.setDisplaySimple(codes.get(cd)); // we deem the v2 description to
+      concept.setCode(cd);
+      concept.setDisplay(codes.get(cd)); // we deem the v2 description to
                                                // be display name, not
                                                // definition. Open for
                                                // consideration
@@ -2388,7 +2383,7 @@ public class Publisher implements URIResolver {
     }
     s.append("</table>\r\n");
     vs.setText(new Narrative());
-    vs.getText().setStatusSimple(NarrativeStatus.additional); // because we add
+    vs.getText().setStatus(NarrativeStatus.ADDITIONAL); // because we add
                                                               // v2 versioning
                                                               // information
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
@@ -2412,10 +2407,10 @@ public class Publisher implements URIResolver {
         ae.getLinks().put("path", "v2" + File.separator + id + File.separator + "index.html");
         ValueSet vs = buildV2Valueset(id, e);
         ae.setResource(vs);
-        page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
-        page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
-        page.getValueSets().put(vs.getIdentifierSimple(), ae);
-        page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+        page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
+        page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+        page.getValueSets().put(vs.getIdentifier(), ae);
+        page.getCodeSystems().put(vs.getDefine().getSystem().toString(), ae);
       } else if ("versioned".equals(st)) {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
         List<String> versions = new ArrayList<String>();
@@ -2432,10 +2427,10 @@ public class Publisher implements URIResolver {
           ae.getLinks().put("path", "v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
           ValueSet vs = buildV2ValuesetVersioned(id, ver, e);
           ae.setResource(vs);
-          page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
-          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
-          page.getValueSets().put(vs.getIdentifierSimple(), ae);
-          page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+          page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
+          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
+          page.getValueSets().put(vs.getIdentifier(), ae);
+          page.getCodeSystems().put(vs.getDefine().getSystem().toString(), ae);
         }
       }
       e = XMLUtil.getNextSibling(e);
@@ -2773,37 +2768,37 @@ public class Publisher implements URIResolver {
   private void produceOperation(ResourceDefn r, Operation op) throws Exception {
     String name = r.getName().toLowerCase()+"-"+op.getName();
     OperationDefinition opd = new OperationDefinition();
-//    opd.setIdentifierSimple("http://hl7.org/fhir/operation-"+r.getname().toLowerCase()+"-"+op.getName());
-    opd.setTitleSimple(op.getTitle());
-    opd.setPublisherSimple("HL7 (FHIR Project)");
-    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.url, "http://hl7.org/fhir"));
-    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.email, "fhir@lists.hl7.org"));
-    opd.setDescriptionSimple(op.getDoco());
-    opd.setStatusSimple(ResourceProfileStatus.draft);
-    opd.setDateSimple(new DateAndTime(page.getGenDate()));
-    opd.setKindSimple(OperationKind.operation);
-    opd.setNameSimple(op.getName());
-    opd.setNotesSimple(op.getFooter());
-    opd.setSystemSimple(op.isSystem());
+//    opd.setIdentifier("http://hl7.org/fhir/operation-"+r.getname().toLowerCase()+"-"+op.getName());
+    opd.setTitle(op.getTitle());
+    opd.setPublisher("HL7 (FHIR Project)");
+    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
+    opd.setDescription(op.getDoco());
+    opd.setStatus(ResourceProfileStatus.DRAFT);
+    opd.setDate(new DateAndTime(page.getGenDate()));
+    opd.setKind(OperationKind.OPERATION);
+    opd.setName(op.getName());
+    opd.setNotes(op.getFooter());
+    opd.setSystem(op.isSystem());
     if (op.isType())
       opd.getType().add(new CodeType().setValue(r.getName()));
-    opd.setInstanceSimple(op.isInstance());
+    opd.setInstance(op.isInstance());
     for (OperationParameter p : op.getParameters()) {
       OperationDefinitionParameterComponent pp = new OperationDefinitionParameterComponent();
-      pp.setNameSimple(p.getName());
+      pp.setName(p.getName());
       if (p.getUse().equals("in"))
-        pp.setUseSimple(OperationParameterUse.in);
+        pp.setUse(OperationParameterUse.IN);
       else if (p.getUse().equals("out"))
-        pp.setUseSimple(OperationParameterUse.out);
+        pp.setUse(OperationParameterUse.OUT);
       else
         throw new Exception("Unable to determine parameter use: "+p.getUse()); // but this is validated elsewhere
       // todo: min and max
-      pp.setDocumentationSimple(p.getDoc());
-      pp.setMinSimple(p.getMin());
-      pp.setMaxSimple(p.getMax());
+      pp.setDocumentation(p.getDoc());
+      pp.setMin(p.getMin());
+      pp.setMax(p.getMax());
       Coding cc = new Coding();
-      cc.setSystemSimple("http://hl7.org/fhir/vs/defined-types");
-      cc.setCodeSimple(p.getType());
+      cc.setSystem("http://hl7.org/fhir/vs/defined-types");
+      cc.setCode(p.getType());
       pp.setType(cc);
       opd.getParameter().add(pp);
     }
@@ -3009,28 +3004,28 @@ public class Publisher implements URIResolver {
         ae.getLinks().put("self", n + ".html");
         ae.getLinks().put("path", n + ".html");
         ae.setResource(vs);
-        if (vs.getIdentifierSimple().startsWith("http:"))
-          page.getValueSets().put(vs.getIdentifierSimple(), ae);
+        if (vs.getIdentifier().startsWith("http:"))
+          page.getValueSets().put(vs.getIdentifier(), ae);
         if (vs.getDefine() != null) {
-          page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+          page.getCodeSystems().put(vs.getDefine().getSystem().toString(), ae);
         }
-        addToResourceFeed(vs, vs.getIdentifierSimple(), valueSetsFeed);
-        page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+        addToResourceFeed(vs, vs.getIdentifier(), valueSetsFeed);
+        page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
         if (vs.getDefine() != null) {
-          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
+          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
         }
       } else if (r instanceof ConceptMap) {
         ConceptMap cm = (ConceptMap) r;
         new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);
         if (cm.getIdentifier() == null)
           throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
-        addToResourceFeed(cm, cm.getIdentifierSimple(), conceptMapsFeed);
-        page.getDefinitions().getConceptMaps().put(cm.getIdentifierSimple(), cm);
+        addToResourceFeed(cm, cm.getIdentifier(), conceptMapsFeed);
+        page.getDefinitions().getConceptMaps().put(cm.getIdentifier(), cm);
         AtomEntry ae = new AtomEntry();
         ae.getLinks().put("self", n + ".html");
         ae.getLinks().put("path", n + ".html");
         ae.setResource(cm);
-        page.getConceptMaps().put(cm.getIdentifierSimple(), ae);
+        page.getConceptMaps().put(cm.getIdentifier(), ae);
       }
 
     String json;
@@ -3317,31 +3312,31 @@ public class Publisher implements URIResolver {
     //
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-profile.html");
     src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master, title + ".html", null, filename, examples);
-    page.getEpub().registerFile(title + ".html", "Profile " + profile.getSource().getNameSimple(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(title + ".html", "Profile " + profile.getSource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + ".html");
     
     // now, generate a page for each structure definition
     for (ProfileStructureComponent s : profile.getSource().getStructure()) {
-      String fn = Utilities.changeFileExt(filename, "."+Utilities.getFileNameForName(s.getNameSimple()))+".html";
+      String fn = Utilities.changeFileExt(filename, "."+Utilities.getFileNameForName(s.getName()))+".html";
       src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-constraint.html");
       src = page.processProfileIncludes(fn, profile, "", tx, src, exXml, intro, notes, master, title + ".html", s, filename, examples);
-      page.getEpub().registerFile(fn, "Profile " + profile.getSource().getNameSimple()+ " structure " +s.getNameSimple(), EPubManager.XHTML_TYPE);
+      page.getEpub().registerFile(fn, "Profile " + profile.getSource().getName()+ " structure " +s.getName(), EPubManager.XHTML_TYPE);
       TextFile.stringToFile(src, page.getFolders().dstDir + fn);
     }
     
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-mappings.html");
     src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master, title + ".html", null, filename, examples);
-    page.getEpub().registerFile(title + "-mappings.html", "Mappings for Profile " + profile.getSource().getNameSimple(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(title + "-mappings.html", "Mappings for Profile " + profile.getSource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-mappings.html");
     
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-examples.html");
     src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master, title + ".html", null, filename, examples);
-    page.getEpub().registerFile(title + "-examples.html", "Examples for Profile " + profile.getSource().getNameSimple(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(title + "-examples.html", "Examples for Profile " + profile.getSource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-examples.html");
     
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-definitions.html");
     src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master, title + ".html", null, filename, examples);
-    page.getEpub().registerFile(title + "-definitions.html", "Definitions for Profile " + profile.getSource().getNameSimple(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(title + "-definitions.html", "Definitions for Profile " + profile.getSource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-definitions.html");
     
     new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + title + "-review.xmlss", "HL7 FHIR Project", page.getGenDate(), profile.getSource());
@@ -3838,12 +3833,12 @@ public class Publisher implements URIResolver {
     // if (profile != null)
     // validator.validateInstanceByProfile(issues, root, profile);
     for (ValidationMessage m : issues) {
-      if (!m.getLevel().equals(IssueSeverity.information) && !m.getLevel().equals(IssueSeverity.warning))
+      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING))
         page.log("  " + m.summary(), typeforSeverity(m.getLevel()));
 
-      if (m.getLevel() == IssueSeverity.warning)
+      if (m.getLevel() == IssueSeverity.WARNING)
         warningCount++;
-      else if (m.getLevel() == IssueSeverity.information)
+      else if (m.getLevel() == IssueSeverity.INFORMATION)
         informationCount++;
       else 
         errorCount++;
@@ -3852,13 +3847,13 @@ public class Publisher implements URIResolver {
 
   private LogMessageType typeforSeverity(IssueSeverity level) {
     switch (level) {
-    case error:
+    case ERROR:
       return LogMessageType.Error;
-    case fatal:
+    case FATAL:
       return LogMessageType.Error;
-    case information:
+    case INFORMATION:
       return LogMessageType.Hint;
-    case warning:
+    case WARNING:
       return LogMessageType.Warning;
     default:
       return LogMessageType.Error;
@@ -4001,11 +3996,11 @@ public class Publisher implements URIResolver {
     for (AtomEntry<? extends Resource> ae : page.getIgResources().values()) {
       if (ae.getResource() instanceof ValueSet) {
         ValueSet vs = (ValueSet) ae.getResource();
-        page.getValueSets().put(vs.getIdentifierSimple(), (AtomEntry<ValueSet>) ae);
-        page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+        page.getValueSets().put(vs.getIdentifier(), (AtomEntry<ValueSet>) ae);
+        page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
         if (vs.getDefine() != null) {
-          page.getCodeSystems().put(vs.getDefine().getSystemSimple(), (AtomEntry<ValueSet>) ae);
-          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
+          page.getCodeSystems().put(vs.getDefine().getSystem(), (AtomEntry<ValueSet>) ae);
+          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
         }
         
       }
@@ -4014,8 +4009,9 @@ public class Publisher implements URIResolver {
   private void generateValueSetsPart1() throws Exception {
     page.log(" ...value sets", LogMessageType.Process);
     for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
-      if (Utilities.noString(bs.getOid()))
-        bs.setOid(PageProcessor.OID_VS + page.getRegistry().idForName(bs.getName()));
+      if (Utilities.noString(bs.getCsOid()) && Utilities.noString(bs.getVsOid())) {
+        bs.setVsOid(BindingSpecification.DEFAULT_OID_VS + page.getRegistry().idForName(bs.getName()));
+      }
       if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
         generateValueSetPart1(bs.getReference(), bs);
     }
@@ -4030,7 +4026,7 @@ public class Publisher implements URIResolver {
       if (ae.getResource() instanceof ValueSet) {
         ValueSet vs = (ValueSet) ae.getResource();
         String name = Utilities.fileTitle(ae.getLinks().get("path"));
-        String title = vs.getNameSimple();
+        String title = vs.getName();
         
         if (vs.getText() == null || vs.getText().getDiv() == null || vs.getText().getDiv().allChildrenAreText()
             && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
@@ -4038,7 +4034,7 @@ public class Publisher implements URIResolver {
         
         new ValueSetValidator(page.getWorkerContext()).validate(vs, true);
         
-        addToResourceFeed(vs, vs.getIdentifierSimple(), valueSetsFeed);
+        addToResourceFeed(vs, vs.getIdentifier(), valueSetsFeed);
 
         String sf = page.processPageIncludes(title + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-ig.html"), "valueSet", null, name+".html", vs);
         sf = addSectionNumbers(title + ".html", "template-valueset", sf, "??");
@@ -4052,8 +4048,8 @@ public class Publisher implements URIResolver {
         json.compose(new FileOutputStream(page.getFolders().dstDir+name + ".json"), vs, true);
         XmlComposer xml = new XmlComposer();
         xml.compose(new FileOutputStream(page.getFolders().dstDir+name + ".xml"), vs, true);
-        cloneToXhtml(name, "Definition for Value Set" + vs.getNameSimple(), false, "valueset-instance");
-        jsonToXhtml(name, "Definition for Value Set" + vs.getNameSimple(), resource2Json(vs), "valueset-instance");
+        cloneToXhtml(name, "Definition for Value Set" + vs.getName(), false, "valueset-instance");
+        jsonToXhtml(name, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance");
       }
     }
   }
@@ -4062,7 +4058,7 @@ public class Publisher implements URIResolver {
     page.log(" ...value sets (2)", LogMessageType.Process);
     for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
       if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
-        generateValueSetPart2(bs.getReference(), bs.getName(), bs.getOid());
+        generateValueSetPart2(bs.getReference(), bs.getName(), bs.getVsOid());
     }
     for (String n : page.getDefinitions().getExtraValuesets().keySet())
       generateValueSetPart2(n, n, page.getRegistry().idForName(n));
@@ -4074,15 +4070,15 @@ public class Publisher implements URIResolver {
       n = name.substring(9);
     else
       n = name;
-    cd.getReferredValueSet().setIdentifierSimple("http://hl7.org/fhir/vs/" + n);
+    cd.getReferredValueSet().setIdentifier("http://hl7.org/fhir/vs/" + n);
     ValueSet vs = cd.getReferredValueSet();
-    generateValueSetPart1(n, vs, name, cd.getOid());
+    generateValueSetPart1(n, vs, name, cd.getVsOid());
   }
 
   private void generateValueSetPart1(String name, ValueSet vs, String path, String oid) throws Exception {
     if (vs.getText() == null) {
       vs.setText(new Narrative());
-      vs.getText().setStatusSimple(NarrativeStatus.empty);
+      vs.getText().setStatus(NarrativeStatus.EMPTY);
     }
     if (vs.getText().getDiv() == null) {
       vs.getText().setDiv(new XhtmlNode(NodeType.Element));
@@ -4094,11 +4090,11 @@ public class Publisher implements URIResolver {
     ae.getLinks().put("path", path + ".html");
     ae.getLinks().put("oid", oid);
     ae.setResource(vs);
-    page.getValueSets().put(vs.getIdentifierSimple(), ae);
-    page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+    page.getValueSets().put(vs.getIdentifier(), ae);
+    page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
     if (vs.getDefine() != null) {
-      page.getCodeSystems().put(vs.getDefine().getSystemSimple(), ae);
-      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
+      page.getCodeSystems().put(vs.getDefine().getSystem(), ae);
+      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
     }
   }
 
@@ -4133,16 +4129,18 @@ public class Publisher implements URIResolver {
       json.compose(new FileOutputStream(page.getFolders().dstDir + name + ".json"), vs, true);
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir + name + ".xml"), vs, true);
-      cloneToXhtml(name, "Definition for Value Set" + vs.getNameSimple(), false, "valueset-instance");
-      jsonToXhtml(name, "Definition for Value Set" + vs.getNameSimple(), resource2Json(vs), "valueset-instance");
+      cloneToXhtml(name, "Definition for Value Set" + vs.getName(), false, "valueset-instance");
+      jsonToXhtml(name, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance");
     }
   }
 
   private void generateCodeSystemsPart1() throws Exception {
     page.log(" ...code lists", LogMessageType.Process);
     for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
-      if (Utilities.noString(bs.getOid()))
-        bs.setOid(page.getRegistry().idForName(bs.getName()));
+      if (Utilities.noString(bs.getCsOid()) && Utilities.noString(bs.getVsOid())) {
+        bs.setCsOid(BindingSpecification.DEFAULT_OID_CS + page.getRegistry().idForName(bs.getName()));
+        bs.setVsOid(BindingSpecification.DEFAULT_OID_CS + page.getRegistry().idForName(bs.getName()));
+      }
       if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
         generateCodeSystemPart1(bs.getReference().substring(1) + ".html", bs);
     }
@@ -4158,30 +4156,30 @@ public class Publisher implements URIResolver {
   private void generateCodeSystemPart1(String filename, BindingSpecification cd) throws Exception {
     ValueSet vs = new ValueSet();
     if (Utilities.noString(cd.getUri()))
-      vs.setIdentifierSimple("http://hl7.org/fhir/vs/" + Utilities.fileTitle(filename));
+      vs.setIdentifier("http://hl7.org/fhir/vs/" + Utilities.fileTitle(filename));
     else
-      vs.setIdentifierSimple(cd.getUri());
+      vs.setIdentifier(cd.getUri());
     // no version?? vs.setVersion(...
-    vs.setNameSimple(cd.getName());
-    vs.setPublisherSimple("HL7 (FHIR Project)");
+    vs.setName(cd.getName());
+    vs.setPublisher("HL7 (FHIR Project)");
     vs.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.url, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
     vs.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.email, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
-    vs.setDescriptionSimple(Utilities.noString(cd.getDescription()) ? cd.getDefinition() : cd.getDefinition() + "\r\n\r\n" + cd.getDescription());
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
+    vs.setDescription(Utilities.noString(cd.getDescription()) ? cd.getDefinition() : cd.getDefinition() + "\r\n\r\n" + cd.getDescription());
     if (!Utilities.noString(cd.getCopyright()))
-      vs.setCopyrightSimple(cd.getCopyright());
+      vs.setCopyright(cd.getCopyright());
 
-    vs.setStatusSimple(ValuesetStatus.draft); // until we publish DSTU, then
+    vs.setStatus(ValuesetStatus.DRAFT); // until we publish DSTU, then
                                               // .review
-    vs.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
+    vs.setDateObject(Factory.nowDateTime());
 
     for (String n : cd.getVSSources()) {
       if (Utilities.noString(n)) {
         if (vs.getDefine() == null) {
           vs.setDefine(new ValueSet.ValueSetDefineComponent());
-          vs.getDefine().setCaseSensitiveSimple(true);
-          vs.getDefine().setSystemSimple("http://hl7.org/fhir/" + Utilities.fileTitle(filename));
+          vs.getDefine().setCaseSensitive(true);
+          vs.getDefine().setSystem("http://hl7.org/fhir/" + Utilities.fileTitle(filename));
         }
         for (DefinedCode c : cd.getChildCodes()) {
           if (Utilities.noString(c.getSystem()))
@@ -4192,11 +4190,11 @@ public class Publisher implements URIResolver {
           vs.setCompose(new ValueSet.ValueSetComposeComponent());
         ConceptSetComponent cc = new ValueSet.ConceptSetComponent();
         vs.getCompose().getInclude().add(cc);
-        cc.setSystemSimple(n);
+        cc.setSystem(n);
         for (DefinedCode c : cd.getCodes()) {
           if (n.equals(c.getSystem())) {
             CodeType nc = org.hl7.fhir.instance.model.Factory.newCode(c.getCode());
-            cc.addConcept().setCode(nc);
+            cc.addConcept().setCodeObject(nc);
             if (!Utilities.noString(c.getComment()))
               ToolingExtensions.addComment(nc, c.getComment());
             if (!Utilities.noString(c.getDefinition()))
@@ -4212,58 +4210,58 @@ public class Publisher implements URIResolver {
     e.setResource(vs);
     e.getLinks().put("self", Utilities.changeFileExt(filename, ".html"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, ".html"));
-    e.getLinks().put("oid", cd.getOid());
+    e.getLinks().put("oid", cd.getCsOid());
     if (vs.getDefine() != null)
-      page.getCodeSystems().put(vs.getDefine().getSystemSimple(), e);
-    page.getValueSets().put(vs.getIdentifierSimple(), e);
-    page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+      page.getCodeSystems().put(vs.getDefine().getSystem(), e);
+    page.getValueSets().put(vs.getIdentifier(), e);
+    page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
     if (vs.getDefine() != null)
-      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
+      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
   }
 
   private void generateConceptMapV2(BindingSpecification cd, String filename, String src, String srcCS) throws Exception {
     ConceptMap cm = new ConceptMap();
-    cm.setIdentifierSimple("http://hl7.org/fhir/cm/v2/" + Utilities.fileTitle(filename));
+    cm.setIdentifier("http://hl7.org/fhir/cm/v2/" + Utilities.fileTitle(filename));
     // no version?? vs.setVersion(...
-    cm.setNameSimple("v2 map for " + cd.getName());
-    cm.setPublisherSimple("HL7 (FHIR Project)");
+    cm.setName("v2 map for " + cd.getName());
+    cm.setPublisher("HL7 (FHIR Project)");
     cm.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.url, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
     cm.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.email, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
     if (!Utilities.noString(cd.getCopyright()))
-      cm.setCopyrightSimple(cd.getCopyright());
+      cm.setCopyright(cd.getCopyright());
 
     Set<String> tbls = new HashSet<String>();
-    cm.setStatusSimple(ConceptMap.ValuesetStatus.draft); // until we publish
+    cm.setStatus(ConceptMap.ValuesetStatus.DRAFT); // until we publish
                                                          // DSTU, then .review
-    cm.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
+    cm.setDateObject(Factory.nowDateTime());
     cm.setSource(Factory.makeReference(src));
     cm.setTarget(Factory.makeReference(cd.getV2Map()));
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV2Map())) {
         for (String m : c.getV2Map().split(",")) {
           ConceptMapElementComponent cc = new ConceptMap.ConceptMapElementComponent();
-          cc.setCodeSystemSimple(srcCS);
-          cc.setCodeSimple(c.getCode());
+          cc.setCodeSystem(srcCS);
+          cc.setCode(c.getCode());
           ConceptMapElementMapComponent map = new ConceptMap.ConceptMapElementMapComponent();
           cc.getMap().add(map);
           cm.getElement().add(cc);
           String[] n = m.split("\\(");
           if (n.length > 1)
-            map.setCommentsSimple(n[1].substring(0, n[1].length() - 1));
+            map.setComments(n[1].substring(0, n[1].length() - 1));
           n = n[0].split("\\.");
           tbls.add(n[0].substring(1));
-          map.setCodeSystemSimple("http://hl7.org/fhir/v2/" + n[0].substring(1));
-          map.setCodeSimple(n[1].trim());
+          map.setCodeSystem("http://hl7.org/fhir/v2/" + n[0].substring(1));
+          map.setCode(n[1].trim());
           if (n[0].charAt(0) == '=')
-            map.setEquivalenceSimple(ConceptEquivalence.equal);
+            map.setEquivalence(ConceptEquivalence.EQUAL);
           if (n[0].charAt(0) == '~')
-            map.setEquivalenceSimple(ConceptEquivalence.equivalent);
+            map.setEquivalence(ConceptEquivalence.EQUIVALENT);
           if (n[0].charAt(0) == '>')
-            map.setEquivalenceSimple(ConceptEquivalence.narrower);
+            map.setEquivalence(ConceptEquivalence.NARROWER);
           if (n[0].charAt(0) == '<')
-            map.setEquivalenceSimple(ConceptEquivalence.wider);
+            map.setEquivalence(ConceptEquivalence.WIDER);
         }
       }
     }
@@ -4275,17 +4273,17 @@ public class Publisher implements URIResolver {
       first = false;
       b.append(s);
     }
-    cm.setDescriptionSimple("v2 Map (" + b.toString() + ")");
+    cm.setDescription("v2 Map (" + b.toString() + ")");
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(cm);
 
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.json")), cm, true);
     String n = Utilities.changeFileExt(filename, "-map-v2");
-    jsonToXhtml(n, cm.getNameSimple(), resource2Json(cm), "conceptmap-instance");
+    jsonToXhtml(n, cm.getName(), resource2Json(cm), "conceptmap-instance");
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.xml")), cm, true);
-    cloneToXhtml(n, cm.getNameSimple(), false, "conceptmap-instance");
+    cloneToXhtml(n, cm.getName(), false, "conceptmap-instance");
 
     // now, we create an html page from the narrative
     String narrative = new XhtmlComposer().setXmlOnly(true).compose(cm.getText().getDiv());
@@ -4295,59 +4293,59 @@ public class Publisher implements URIResolver {
 
     AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
     e.setResource(cm);
-    e.setId(cm.getIdentifierSimple());
+    e.setId(cm.getIdentifier());
     e.getLinks().put("self", Utilities.changeFileExt(filename, "-map-v2.html"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, "-map-v2.html"));
     conceptMapsFeed.getEntryList().add(e);
-    page.getConceptMaps().put(cm.getIdentifierSimple(), e);
-    page.getEpub().registerFile(n + ".html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
-    page.getEpub().registerFile(n + ".json.html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
-    page.getEpub().registerFile(n + ".xml.html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
+    page.getConceptMaps().put(cm.getIdentifier(), e);
+    page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(n + ".json.html", cm.getName(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(n + ".xml.html", cm.getName(), EPubManager.XHTML_TYPE);
   }
 
   private void generateConceptMapV3(BindingSpecification cd, String filename, String src, String srcCS) throws Exception {
     ConceptMap cm = new ConceptMap();
-    cm.setIdentifierSimple("http://hl7.org/fhir/cm/v3/" + Utilities.fileTitle(filename));
+    cm.setIdentifier("http://hl7.org/fhir/cm/v3/" + Utilities.fileTitle(filename));
     // no version?? vs.setVersion(...
-    cm.setNameSimple("v3 map for " + cd.getName());
-    cm.setPublisherSimple("HL7 (FHIR Project)");
+    cm.setName("v3 map for " + cd.getName());
+    cm.setPublisher("HL7 (FHIR Project)");
     cm.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.url, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
     cm.getTelecom().add(
-        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.email, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
+        org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
     if (!Utilities.noString(cd.getCopyright()))
-      cm.setCopyrightSimple(cd.getCopyright());
+      cm.setCopyright(cd.getCopyright());
 
     Set<String> tbls = new HashSet<String>();
-    cm.setStatusSimple(ConceptMap.ValuesetStatus.draft); // until we publish
+    cm.setStatus(ConceptMap.ValuesetStatus.DRAFT); // until we publish
                                                          // DSTU, then .review
-    cm.setDate(org.hl7.fhir.instance.model.Factory.nowDateTime());
+    cm.setDateObject(Factory.nowDateTime());
     cm.setSource(Factory.makeReference(src));
     cm.setTarget(Factory.makeReference(cd.getV3Map()));
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV3Map())) {
         for (String m : c.getV3Map().split(",")) {
           ConceptMapElementComponent cc = new ConceptMap.ConceptMapElementComponent();
-          cc.setCodeSystemSimple(srcCS);
-          cc.setCodeSimple(c.getCode());
+          cc.setCodeSystem(srcCS);
+          cc.setCode(c.getCode());
           ConceptMapElementMapComponent map = new ConceptMap.ConceptMapElementMapComponent();
           cc.getMap().add(map);
           cm.getElement().add(cc);
           String[] n = m.split("\\(");
           if (n.length > 1)
-            map.setCommentsSimple(n[1].substring(0, n[1].length() - 1));
+            map.setComments(n[1].substring(0, n[1].length() - 1));
           n = n[0].split("\\.");
           tbls.add(n[0].substring(1));
-          map.setCodeSystemSimple("http://hl7.org/fhir/v3/" + n[0].substring(1));
-          map.setCodeSimple(n[1]);
+          map.setCodeSystem("http://hl7.org/fhir/v3/" + n[0].substring(1));
+          map.setCode(n[1]);
           if (n[0].charAt(0) == '=')
-            map.setEquivalenceSimple(ConceptEquivalence.equal);
+            map.setEquivalence(ConceptEquivalence.EQUAL);
           if (n[0].charAt(0) == '~')
-            map.setEquivalenceSimple(ConceptEquivalence.equivalent);
+            map.setEquivalence(ConceptEquivalence.EQUIVALENT);
           if (n[0].charAt(0) == '>')
-            map.setEquivalenceSimple(ConceptEquivalence.narrower);
+            map.setEquivalence(ConceptEquivalence.NARROWER);
           if (n[0].charAt(0) == '<')
-            map.setEquivalenceSimple(ConceptEquivalence.wider);
+            map.setEquivalence(ConceptEquivalence.WIDER);
         }
       }
     }
@@ -4359,16 +4357,16 @@ public class Publisher implements URIResolver {
       first = false;
       b.append(s);
     }
-    cm.setDescriptionSimple("v3 Map (" + b.toString() + ")");
+    cm.setDescription("v3 Map (" + b.toString() + ")");
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(cm);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json")), cm, true);
     String n = Utilities.changeFileExt(filename, "-map-v3");
-    jsonToXhtml(n, cm.getNameSimple(), resource2Json(cm), "conceptmap-instance");
+    jsonToXhtml(n, cm.getName(), resource2Json(cm), "conceptmap-instance");
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.xml")), cm, true);
-    cloneToXhtml(n, cm.getNameSimple(), false, "conceptmap-instance");
+    cloneToXhtml(n, cm.getName(), false, "conceptmap-instance");
 
     // now, we create an html page from the narrative
     String narrative = new XhtmlComposer().setXmlOnly(true).compose(cm.getText().getDiv());
@@ -4378,14 +4376,14 @@ public class Publisher implements URIResolver {
 
     AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
     e.setResource(cm);
-    e.setId(cm.getIdentifierSimple());
+    e.setId(cm.getIdentifier());
     e.getLinks().put("self", Utilities.changeFileExt(filename, "-map-v3.html"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, "-map-v3.html"));
     conceptMapsFeed.getEntryList().add(e);
-    page.getConceptMaps().put(cm.getIdentifierSimple(), e);
-    page.getEpub().registerFile(n + ".html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
-    page.getEpub().registerFile(n + ".json.html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
-    page.getEpub().registerFile(n + ".xml.html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
+    page.getConceptMaps().put(cm.getIdentifier(), e);
+    page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(n + ".json.html", cm.getName(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(n + ".xml.html", cm.getName(), EPubManager.XHTML_TYPE);
   }
 
   private void generateCodeSystemPart2(String filename, BindingSpecification cd) throws Exception {
@@ -4397,9 +4395,9 @@ public class Publisher implements URIResolver {
     ValueSet vs = (ValueSet) e.getResource();
 
     if (!Utilities.noString(cd.getV2Map()))
-      generateConceptMapV2(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/" + Utilities.fileTitle(filename));
+      generateConceptMapV2(cd, filename, vs.getIdentifier(), "http://hl7.org/fhir/" + Utilities.fileTitle(filename));
     if (!Utilities.noString(cd.getV3Map()))
-      generateConceptMapV3(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/" + Utilities.fileTitle(filename));
+      generateConceptMapV3(cd, filename, vs.getIdentifier(), "http://hl7.org/fhir/" + Utilities.fileTitle(filename));
 
     new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
 
@@ -4407,35 +4405,35 @@ public class Publisher implements URIResolver {
       addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed);
 
       String sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx.html"), "codeSystem", null, null);
-      sf = addSectionNumbers(filename + ".html", "template-valueset", sf, Utilities.oidTail(cd.getOid()));
+      sf = addSectionNumbers(filename + ".html", "template-valueset", sf, Utilities.oidTail(cd.getCsOid()));
       TextFile.stringToFile(sf, page.getFolders().dstDir + filename);
       String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx-book.html"), "codeSystem", null);
-      cachePage(filename, src, "Code System " + vs.getNameSimple());
+      cachePage(filename, src, "Code System " + vs.getName());
 
       JsonComposer json = new JsonComposer();
       json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".json")), vs, true);
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".xml")), vs, true);
-      cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getNameSimple(), false, "valueset-instance");
-      jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getNameSimple(), resource2Json(vs), "valueset-instance");
+      cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), false, "valueset-instance");
+      jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance");
     }
   }
 
   private void addCode(ValueSet vs, List<ConceptDefinitionComponent> list, DefinedCode c) {
     ConceptDefinitionComponent d = new ValueSet.ConceptDefinitionComponent();
     list.add(d);
-    d.setCodeSimple(c.getCode());
+    d.setCode(c.getCode());
     if (!Utilities.noString(c.getDisplay()))
-      d.setDisplaySimple(c.getDisplay());
+      d.setDisplay(c.getDisplay());
     if (!Utilities.noString(c.getDefinition()))
-      d.setDefinitionSimple(c.getDefinition());
+      d.setDefinition(c.getDefinition());
     for (DefinedCode g : c.getChildCodes()) {
       addCode(vs, d.getConcept(), g);
     }
     for (String n : c.getLangs().keySet()) {
       ConceptDefinitionDesignationComponent designation = d.addDesignation();
-      designation.setLanguageSimple(n);
-      designation.setValueSimple(c.getLangs().get(n));
+      designation.setLanguage(n);
+      designation.setValue(c.getLangs().get(n));
     }
   }
 

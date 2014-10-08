@@ -35,7 +35,7 @@ public class Comparison {
 	  	throw new Exception("Not Implemented Yet");
 	  
 	  if (c1.getCoding().isEmpty() && c2.getCoding().isEmpty()) {
-	  	return matches(c1.getTextSimple(), c2.getTextSimple(), null);
+	  	return matches(c1.getText(), c2.getText(), null);
 	  } else {
 	  	// in the absence of specific guidance, we just require that all codes match
 	  	boolean ok = true;
@@ -50,8 +50,8 @@ public class Comparison {
   }
 
 	public static void merge(CodeableConcept dst, CodeableConcept src) {
-		if (dst.getText() == null && src.getText() != null)
-			dst.setText(src.getText());  
+		if (dst.getTextObject() == null && src.getTextObject() != null)
+			dst.setTextObject(src.getTextObject());  
   }
 
 	
@@ -68,7 +68,7 @@ public class Comparison {
 	  	throw new Exception("Not Implemented Yet");
 		
 	  // in the absence of a profile, we ignore version
-	  return matches(c1.getSystemSimple(), c2.getSystemSimple(), null) && matches(c1.getCodeSimple(), c2.getCodeSimple(), null);
+	  return matches(c1.getSystem(), c2.getSystem(), null) && matches(c1.getCode(), c2.getCode(), null);
   }
 
 	public static boolean matches(Identifier i1, Identifier i2, MatchProfile profile) throws Exception {
@@ -76,14 +76,14 @@ public class Comparison {
 	  	throw new Exception("Not Implemented Yet");
 		
 	  // in the absence of a profile, we ignore version
-	  return matches(i1.getSystemSimple(), i2.getSystemSimple(), null) && matches(i1.getValueSimple(), i2.getValueSimple(), null);
+	  return matches(i1.getSystem(), i2.getSystem(), null) && matches(i1.getValue(), i2.getValue(), null);
   }
 
 	public static void merge(Identifier dst, Identifier src) {
-		if (dst.getUse() == null && src.getUse() != null)
-			dst.setUse(src.getUse());  
-		if (dst.getLabel() == null && src.getLabel() != null)
-			dst.setLabel(src.getLabel());  
+		if (dst.getUseObject() == null && src.getUseObject() != null)
+			dst.setUseObject(src.getUseObject());  
+		if (dst.getLabelObject() == null && src.getLabelObject() != null)
+			dst.setLabelObject(src.getLabelObject());  
 		if (dst.getPeriod() == null && src.getPeriod() != null)
 			dst.setPeriod(src.getPeriod());  
 		if (dst.getAssigner() == null && src.getAssigner() != null)
@@ -95,12 +95,12 @@ public class Comparison {
 	  	throw new Exception("Not Implemented Yet");
 		
 	  // in the absence of a profile, we insist on system
-	  return matches(c1.getSystem(), c2.getSystem(), null) && matches(c1.getValueSimple(), c2.getValueSimple(), null);
+	  return matches(c1.getSystemObject(), c2.getSystemObject(), null) && matches(c1.getValue(), c2.getValue(), null);
   }
 
 	public static void merge(ContactPoint dst, ContactPoint src) {
-		if (dst.getUse() == null && src.getUse() != null)
-			dst.setUse(src.getUse());  
+		if (dst.getUseObject() == null && src.getUseObject() != null)
+			dst.setUseObject(src.getUseObject());  
 		if (dst.getPeriod() == null && src.getPeriod() != null)
 			dst.setPeriod(src.getPeriod());  
   }

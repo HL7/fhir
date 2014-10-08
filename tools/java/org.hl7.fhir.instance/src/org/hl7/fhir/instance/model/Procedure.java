@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,22 +39,22 @@ import java.util.*;
 public class Procedure extends Resource {
 
     public enum ProcedureRelationshipType {
-        causedby, // This procedure had to be performed because of the related one.
-        becauseof, // This procedure caused the related one to be performed.
-        Null; // added to help the parsers
+        CAUSEDBY, // This procedure had to be performed because of the related one.
+        BECAUSEOF, // This procedure caused the related one to be performed.
+        NULL; // added to help the parsers
         public static ProcedureRelationshipType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("caused-by".equals(codeString))
-          return causedby;
+          return CAUSEDBY;
         if ("because-of".equals(codeString))
-          return becauseof;
+          return BECAUSEOF;
         throw new Exception("Unknown ProcedureRelationshipType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case causedby: return "caused-by";
-            case becauseof: return "because-of";
+            case CAUSEDBY: return "caused-by";
+            case BECAUSEOF: return "because-of";
             default: return "?";
           }
         }
@@ -66,15 +66,15 @@ public class Procedure extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("caused-by".equals(codeString))
-          return ProcedureRelationshipType.causedby;
+          return ProcedureRelationshipType.CAUSEDBY;
         if ("because-of".equals(codeString))
-          return ProcedureRelationshipType.becauseof;
+          return ProcedureRelationshipType.BECAUSEOF;
         throw new Exception("Unknown ProcedureRelationshipType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ProcedureRelationshipType.causedby)
+      if (code == ProcedureRelationshipType.CAUSEDBY)
         return "caused-by";
-      if (code == ProcedureRelationshipType.becauseof)
+      if (code == ProcedureRelationshipType.BECAUSEOF)
         return "because-of";
       return "?";
       }
@@ -118,14 +118,14 @@ public class Procedure extends Resource {
         }
 
         /**
-         * @return {@link #person} (The actual object that is the target of the reference. The practitioner who was involved in the procedure.)
+         * @return {@link #person} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who was involved in the procedure.)
          */
         public Practitioner getPersonTarget() { 
           return this.personTarget;
         }
 
         /**
-         * @param value {@link #person} (The actual object that is the target of the reference. The practitioner who was involved in the procedure.)
+         * @param value {@link #person} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who was involved in the procedure.)
          */
         public ProcedurePerformerComponent setPersonTarget(Practitioner value) { 
           this.personTarget = value;
@@ -185,16 +185,16 @@ public class Procedure extends Resource {
       }
 
         /**
-         * @return {@link #type} (The nature of the relationship.)
+         * @return {@link #type} (The nature of the relationship.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ProcedureRelationshipType> getType() { 
+        public Enumeration<ProcedureRelationshipType> getTypeObject() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (The nature of the relationship.)
+         * @param value {@link #type} (The nature of the relationship.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ProcedureRelatedItemComponent setType(Enumeration<ProcedureRelationshipType> value) { 
+        public ProcedureRelatedItemComponent setTypeObject(Enumeration<ProcedureRelationshipType> value) { 
           this.type = value;
           return this;
         }
@@ -202,14 +202,14 @@ public class Procedure extends Resource {
         /**
          * @return The nature of the relationship.
          */
-        public ProcedureRelationshipType getTypeSimple() { 
+        public ProcedureRelationshipType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The nature of the relationship.
          */
-        public ProcedureRelatedItemComponent setTypeSimple(ProcedureRelationshipType value) { 
+        public ProcedureRelatedItemComponent setType(ProcedureRelationshipType value) { 
           if (value == null)
             this.type = null;
           else {
@@ -236,14 +236,14 @@ public class Procedure extends Resource {
         }
 
         /**
-         * @return {@link #target} (The actual object that is the target of the reference. The related item - e.g. a procedure.)
+         * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The related item - e.g. a procedure.)
          */
         public Resource getTargetTarget() { 
           return this.targetTarget;
         }
 
         /**
-         * @param value {@link #target} (The actual object that is the target of the reference. The related item - e.g. a procedure.)
+         * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The related item - e.g. a procedure.)
          */
         public ProcedureRelatedItemComponent setTargetTarget(Resource value) { 
           this.targetTarget = value;
@@ -395,14 +395,14 @@ public class Procedure extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The person on whom the procedure was performed.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person on whom the procedure was performed.)
      */
     public Patient getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The person on whom the procedure was performed.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person on whom the procedure was performed.)
      */
     public Procedure setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
@@ -506,14 +506,14 @@ public class Procedure extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (The actual object that is the target of the reference. The encounter during which the procedure was performed.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter during which the procedure was performed.)
      */
     public Encounter getEncounterTarget() { 
       return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #encounter} (The actual object that is the target of the reference. The encounter during which the procedure was performed.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter during which the procedure was performed.)
      */
     public Procedure setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
@@ -521,16 +521,16 @@ public class Procedure extends Resource {
     }
 
     /**
-     * @return {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.)
+     * @return {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public StringType getOutcome() { 
+    public StringType getOutcomeObject() { 
       return this.outcome;
     }
 
     /**
-     * @param value {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.)
+     * @param value {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public Procedure setOutcome(StringType value) { 
+    public Procedure setOutcomeObject(StringType value) { 
       this.outcome = value;
       return this;
     }
@@ -538,14 +538,14 @@ public class Procedure extends Resource {
     /**
      * @return What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.
      */
-    public String getOutcomeSimple() { 
+    public String getOutcome() { 
       return this.outcome == null ? null : this.outcome.getValue();
     }
 
     /**
      * @param value What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.
      */
-    public Procedure setOutcomeSimple(String value) { 
+    public Procedure setOutcome(String value) { 
       if (value == null)
         this.outcome = null;
       else {
@@ -574,7 +574,7 @@ public class Procedure extends Resource {
     }
 
     /**
-     * @return {@link #report} (The actual objects that are the target of the reference. This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.)
+     * @return {@link #report} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.)
      */
     public List<DiagnosticReport> getReportTarget() { 
       return this.reportTarget;
@@ -582,7 +582,7 @@ public class Procedure extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #report} (Add an actual object that is the target of the reference. This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.)
+     * @return {@link #report} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.)
      */
     public DiagnosticReport addReportTarget() { 
       DiagnosticReport r = new DiagnosticReport();
@@ -608,16 +608,16 @@ public class Procedure extends Resource {
     }
 
     /**
-     * @return {@link #followUp} (If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.)
+     * @return {@link #followUp} (If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.). This is the underlying object with id, value and extensions. The accessor "getFollowUp" gives direct access to the value
      */
-    public StringType getFollowUp() { 
+    public StringType getFollowUpObject() { 
       return this.followUp;
     }
 
     /**
-     * @param value {@link #followUp} (If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.)
+     * @param value {@link #followUp} (If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.). This is the underlying object with id, value and extensions. The accessor "getFollowUp" gives direct access to the value
      */
-    public Procedure setFollowUp(StringType value) { 
+    public Procedure setFollowUpObject(StringType value) { 
       this.followUp = value;
       return this;
     }
@@ -625,14 +625,14 @@ public class Procedure extends Resource {
     /**
      * @return If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.
      */
-    public String getFollowUpSimple() { 
+    public String getFollowUp() { 
       return this.followUp == null ? null : this.followUp.getValue();
     }
 
     /**
      * @param value If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.
      */
-    public Procedure setFollowUpSimple(String value) { 
+    public Procedure setFollowUp(String value) { 
       if (value == null)
         this.followUp = null;
       else {
@@ -661,16 +661,16 @@ public class Procedure extends Resource {
     }
 
     /**
-     * @return {@link #notes} (Any other notes about the procedure - e.g. the operative notes.)
+     * @return {@link #notes} (Any other notes about the procedure - e.g. the operative notes.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public StringType getNotes() { 
+    public StringType getNotesObject() { 
       return this.notes;
     }
 
     /**
-     * @param value {@link #notes} (Any other notes about the procedure - e.g. the operative notes.)
+     * @param value {@link #notes} (Any other notes about the procedure - e.g. the operative notes.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public Procedure setNotes(StringType value) { 
+    public Procedure setNotesObject(StringType value) { 
       this.notes = value;
       return this;
     }
@@ -678,14 +678,14 @@ public class Procedure extends Resource {
     /**
      * @return Any other notes about the procedure - e.g. the operative notes.
      */
-    public String getNotesSimple() { 
+    public String getNotes() { 
       return this.notes == null ? null : this.notes.getValue();
     }
 
     /**
      * @param value Any other notes about the procedure - e.g. the operative notes.
      */
-    public Procedure setNotesSimple(String value) { 
+    public Procedure setNotes(String value) { 
       if (value == null)
         this.notes = null;
       else {

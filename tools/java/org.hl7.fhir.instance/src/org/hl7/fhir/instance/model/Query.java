@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class Query extends Resource {
 
     public enum QueryOutcome {
-        ok, // The query was processed successfully.
-        limited, // The query was processed successfully, but some additional limitations were added.
-        refused, // The server refused to process the query.
-        error, // The server tried to process the query, but some error occurred.
-        Null; // added to help the parsers
+        OK, // The query was processed successfully.
+        LIMITED, // The query was processed successfully, but some additional limitations were added.
+        REFUSED, // The server refused to process the query.
+        ERROR, // The server tried to process the query, but some error occurred.
+        NULL; // added to help the parsers
         public static QueryOutcome fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("ok".equals(codeString))
-          return ok;
+          return OK;
         if ("limited".equals(codeString))
-          return limited;
+          return LIMITED;
         if ("refused".equals(codeString))
-          return refused;
+          return REFUSED;
         if ("error".equals(codeString))
-          return error;
+          return ERROR;
         throw new Exception("Unknown QueryOutcome code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case ok: return "ok";
-            case limited: return "limited";
-            case refused: return "refused";
-            case error: return "error";
+            case OK: return "ok";
+            case LIMITED: return "limited";
+            case REFUSED: return "refused";
+            case ERROR: return "error";
             default: return "?";
           }
         }
@@ -74,23 +74,23 @@ public class Query extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("ok".equals(codeString))
-          return QueryOutcome.ok;
+          return QueryOutcome.OK;
         if ("limited".equals(codeString))
-          return QueryOutcome.limited;
+          return QueryOutcome.LIMITED;
         if ("refused".equals(codeString))
-          return QueryOutcome.refused;
+          return QueryOutcome.REFUSED;
         if ("error".equals(codeString))
-          return QueryOutcome.error;
+          return QueryOutcome.ERROR;
         throw new Exception("Unknown QueryOutcome code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == QueryOutcome.ok)
+      if (code == QueryOutcome.OK)
         return "ok";
-      if (code == QueryOutcome.limited)
+      if (code == QueryOutcome.LIMITED)
         return "limited";
-      if (code == QueryOutcome.refused)
+      if (code == QueryOutcome.REFUSED)
         return "refused";
-      if (code == QueryOutcome.error)
+      if (code == QueryOutcome.ERROR)
         return "error";
       return "?";
       }
@@ -160,16 +160,16 @@ public class Query extends Resource {
       }
 
         /**
-         * @return {@link #identifier} (Links response to source query.)
+         * @return {@link #identifier} (Links response to source query.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public UriType getIdentifier() { 
+        public UriType getIdentifierObject() { 
           return this.identifier;
         }
 
         /**
-         * @param value {@link #identifier} (Links response to source query.)
+         * @param value {@link #identifier} (Links response to source query.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public QueryResponseComponent setIdentifier(UriType value) { 
+        public QueryResponseComponent setIdentifierObject(UriType value) { 
           this.identifier = value;
           return this;
         }
@@ -177,14 +177,14 @@ public class Query extends Resource {
         /**
          * @return Links response to source query.
          */
-        public String getIdentifierSimple() { 
+        public String getIdentifier() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
         /**
          * @param value Links response to source query.
          */
-        public QueryResponseComponent setIdentifierSimple(String value) { 
+        public QueryResponseComponent setIdentifier(String value) { 
             if (this.identifier == null)
               this.identifier = new UriType();
             this.identifier.setValue(value);
@@ -192,16 +192,16 @@ public class Query extends Resource {
         }
 
         /**
-         * @return {@link #outcome} (Outcome of processing the query.)
+         * @return {@link #outcome} (Outcome of processing the query.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
          */
-        public Enumeration<QueryOutcome> getOutcome() { 
+        public Enumeration<QueryOutcome> getOutcomeObject() { 
           return this.outcome;
         }
 
         /**
-         * @param value {@link #outcome} (Outcome of processing the query.)
+         * @param value {@link #outcome} (Outcome of processing the query.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
          */
-        public QueryResponseComponent setOutcome(Enumeration<QueryOutcome> value) { 
+        public QueryResponseComponent setOutcomeObject(Enumeration<QueryOutcome> value) { 
           this.outcome = value;
           return this;
         }
@@ -209,14 +209,14 @@ public class Query extends Resource {
         /**
          * @return Outcome of processing the query.
          */
-        public QueryOutcome getOutcomeSimple() { 
+        public QueryOutcome getOutcome() { 
           return this.outcome == null ? null : this.outcome.getValue();
         }
 
         /**
          * @param value Outcome of processing the query.
          */
-        public QueryResponseComponent setOutcomeSimple(QueryOutcome value) { 
+        public QueryResponseComponent setOutcome(QueryOutcome value) { 
             if (this.outcome == null)
               this.outcome = new Enumeration<QueryOutcome>();
             this.outcome.setValue(value);
@@ -224,16 +224,16 @@ public class Query extends Resource {
         }
 
         /**
-         * @return {@link #total} (Total number of matching records.)
+         * @return {@link #total} (Total number of matching records.). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
          */
-        public IntegerType getTotal() { 
+        public IntegerType getTotalObject() { 
           return this.total;
         }
 
         /**
-         * @param value {@link #total} (Total number of matching records.)
+         * @param value {@link #total} (Total number of matching records.). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
          */
-        public QueryResponseComponent setTotal(IntegerType value) { 
+        public QueryResponseComponent setTotalObject(IntegerType value) { 
           this.total = value;
           return this;
         }
@@ -241,14 +241,14 @@ public class Query extends Resource {
         /**
          * @return Total number of matching records.
          */
-        public int getTotalSimple() { 
+        public int getTotal() { 
           return this.total == null ? null : this.total.getValue();
         }
 
         /**
          * @param value Total number of matching records.
          */
-        public QueryResponseComponent setTotalSimple(int value) { 
+        public QueryResponseComponent setTotal(int value) { 
           if (value == -1)
             this.total = null;
           else {
@@ -362,7 +362,7 @@ public class Query extends Resource {
         }
 
         /**
-         * @return {@link #reference} (The actual objects that are the target of the reference. Resources that are the results of the search.)
+         * @return {@link #reference} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Resources that are the results of the search.)
          */
         public List<Resource> getReferenceTarget() { 
           return this.referenceTarget;
@@ -436,16 +436,16 @@ public class Query extends Resource {
     }
 
     /**
-     * @return {@link #identifier} (Links query and its response(s).)
+     * @return {@link #identifier} (Links query and its response(s).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public UriType getIdentifier() { 
+    public UriType getIdentifierObject() { 
       return this.identifier;
     }
 
     /**
-     * @param value {@link #identifier} (Links query and its response(s).)
+     * @param value {@link #identifier} (Links query and its response(s).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public Query setIdentifier(UriType value) { 
+    public Query setIdentifierObject(UriType value) { 
       this.identifier = value;
       return this;
     }
@@ -453,14 +453,14 @@ public class Query extends Resource {
     /**
      * @return Links query and its response(s).
      */
-    public String getIdentifierSimple() { 
+    public String getIdentifier() { 
       return this.identifier == null ? null : this.identifier.getValue();
     }
 
     /**
      * @param value Links query and its response(s).
      */
-    public Query setIdentifierSimple(String value) { 
+    public Query setIdentifier(String value) { 
         if (this.identifier == null)
           this.identifier = new UriType();
         this.identifier.setValue(value);

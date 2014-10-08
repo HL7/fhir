@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,26 +39,26 @@ import java.util.*;
 public class Media extends Resource {
 
     public enum MediaType {
-        photo, // The media consists of one or more unmoving images, including photographs, computer-generated graphs and charts, and scanned documents.
-        video, // The media consists of a series of frames that capture a moving image.
-        audio, // The media consists of a sound recording.
-        Null; // added to help the parsers
+        PHOTO, // The media consists of one or more unmoving images, including photographs, computer-generated graphs and charts, and scanned documents.
+        VIDEO, // The media consists of a series of frames that capture a moving image.
+        AUDIO, // The media consists of a sound recording.
+        NULL; // added to help the parsers
         public static MediaType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("photo".equals(codeString))
-          return photo;
+          return PHOTO;
         if ("video".equals(codeString))
-          return video;
+          return VIDEO;
         if ("audio".equals(codeString))
-          return audio;
+          return AUDIO;
         throw new Exception("Unknown MediaType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case photo: return "photo";
-            case video: return "video";
-            case audio: return "audio";
+            case PHOTO: return "photo";
+            case VIDEO: return "video";
+            case AUDIO: return "audio";
             default: return "?";
           }
         }
@@ -70,19 +70,19 @@ public class Media extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("photo".equals(codeString))
-          return MediaType.photo;
+          return MediaType.PHOTO;
         if ("video".equals(codeString))
-          return MediaType.video;
+          return MediaType.VIDEO;
         if ("audio".equals(codeString))
-          return MediaType.audio;
+          return MediaType.AUDIO;
         throw new Exception("Unknown MediaType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == MediaType.photo)
+      if (code == MediaType.PHOTO)
         return "photo";
-      if (code == MediaType.video)
+      if (code == MediaType.VIDEO)
         return "video";
-      if (code == MediaType.audio)
+      if (code == MediaType.AUDIO)
         return "audio";
       return "?";
       }
@@ -176,16 +176,16 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #type} (Whether the media is a photo (still image), an audio recording, or a video recording.)
+     * @return {@link #type} (Whether the media is a photo (still image), an audio recording, or a video recording.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<MediaType> getType() { 
+    public Enumeration<MediaType> getTypeObject() { 
       return this.type;
     }
 
     /**
-     * @param value {@link #type} (Whether the media is a photo (still image), an audio recording, or a video recording.)
+     * @param value {@link #type} (Whether the media is a photo (still image), an audio recording, or a video recording.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Media setType(Enumeration<MediaType> value) { 
+    public Media setTypeObject(Enumeration<MediaType> value) { 
       this.type = value;
       return this;
     }
@@ -193,14 +193,14 @@ public class Media extends Resource {
     /**
      * @return Whether the media is a photo (still image), an audio recording, or a video recording.
      */
-    public MediaType getTypeSimple() { 
+    public MediaType getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value Whether the media is a photo (still image), an audio recording, or a video recording.
      */
-    public Media setTypeSimple(MediaType value) { 
+    public Media setType(MediaType value) { 
         if (this.type == null)
           this.type = new Enumeration<MediaType>();
         this.type.setValue(value);
@@ -240,16 +240,16 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.)
+     * @return {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public DateTimeType getDateTime() { 
+    public DateTimeType getDateTimeObject() { 
       return this.dateTime;
     }
 
     /**
-     * @param value {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.)
+     * @param value {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public Media setDateTime(DateTimeType value) { 
+    public Media setDateTimeObject(DateTimeType value) { 
       this.dateTime = value;
       return this;
     }
@@ -257,14 +257,14 @@ public class Media extends Resource {
     /**
      * @return When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.
      */
-    public DateAndTime getDateTimeSimple() { 
+    public DateAndTime getDateTime() { 
       return this.dateTime == null ? null : this.dateTime.getValue();
     }
 
     /**
      * @param value When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.
      */
-    public Media setDateTimeSimple(DateAndTime value) { 
+    public Media setDateTime(DateAndTime value) { 
       if (value == null)
         this.dateTime = null;
       else {
@@ -291,14 +291,14 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. Who/What this Media is a record of.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who/What this Media is a record of.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. Who/What this Media is a record of.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who/What this Media is a record of.)
      */
     public Media setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -321,14 +321,14 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #operator} (The actual object that is the target of the reference. The person who administered the collection of the image.)
+     * @return {@link #operator} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who administered the collection of the image.)
      */
     public Practitioner getOperatorTarget() { 
       return this.operatorTarget;
     }
 
     /**
-     * @param value {@link #operator} (The actual object that is the target of the reference. The person who administered the collection of the image.)
+     * @param value {@link #operator} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who administered the collection of the image.)
      */
     public Media setOperatorTarget(Practitioner value) { 
       this.operatorTarget = value;
@@ -351,16 +351,16 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.)
+     * @return {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.). This is the underlying object with id, value and extensions. The accessor "getDeviceName" gives direct access to the value
      */
-    public StringType getDeviceName() { 
+    public StringType getDeviceNameObject() { 
       return this.deviceName;
     }
 
     /**
-     * @param value {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.)
+     * @param value {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.). This is the underlying object with id, value and extensions. The accessor "getDeviceName" gives direct access to the value
      */
-    public Media setDeviceName(StringType value) { 
+    public Media setDeviceNameObject(StringType value) { 
       this.deviceName = value;
       return this;
     }
@@ -368,14 +368,14 @@ public class Media extends Resource {
     /**
      * @return The name of the device / manufacturer of the device  that was used to make the recording.
      */
-    public String getDeviceNameSimple() { 
+    public String getDeviceName() { 
       return this.deviceName == null ? null : this.deviceName.getValue();
     }
 
     /**
      * @param value The name of the device / manufacturer of the device  that was used to make the recording.
      */
-    public Media setDeviceNameSimple(String value) { 
+    public Media setDeviceName(String value) { 
       if (value == null)
         this.deviceName = null;
       else {
@@ -387,16 +387,16 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #height} (Height of the image in pixels(photo/video).)
+     * @return {@link #height} (Height of the image in pixels(photo/video).). This is the underlying object with id, value and extensions. The accessor "getHeight" gives direct access to the value
      */
-    public IntegerType getHeight() { 
+    public IntegerType getHeightObject() { 
       return this.height;
     }
 
     /**
-     * @param value {@link #height} (Height of the image in pixels(photo/video).)
+     * @param value {@link #height} (Height of the image in pixels(photo/video).). This is the underlying object with id, value and extensions. The accessor "getHeight" gives direct access to the value
      */
-    public Media setHeight(IntegerType value) { 
+    public Media setHeightObject(IntegerType value) { 
       this.height = value;
       return this;
     }
@@ -404,14 +404,14 @@ public class Media extends Resource {
     /**
      * @return Height of the image in pixels(photo/video).
      */
-    public int getHeightSimple() { 
+    public int getHeight() { 
       return this.height == null ? null : this.height.getValue();
     }
 
     /**
      * @param value Height of the image in pixels(photo/video).
      */
-    public Media setHeightSimple(int value) { 
+    public Media setHeight(int value) { 
       if (value == -1)
         this.height = null;
       else {
@@ -423,16 +423,16 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #width} (Width of the image in pixels (photo/video).)
+     * @return {@link #width} (Width of the image in pixels (photo/video).). This is the underlying object with id, value and extensions. The accessor "getWidth" gives direct access to the value
      */
-    public IntegerType getWidth() { 
+    public IntegerType getWidthObject() { 
       return this.width;
     }
 
     /**
-     * @param value {@link #width} (Width of the image in pixels (photo/video).)
+     * @param value {@link #width} (Width of the image in pixels (photo/video).). This is the underlying object with id, value and extensions. The accessor "getWidth" gives direct access to the value
      */
-    public Media setWidth(IntegerType value) { 
+    public Media setWidthObject(IntegerType value) { 
       this.width = value;
       return this;
     }
@@ -440,14 +440,14 @@ public class Media extends Resource {
     /**
      * @return Width of the image in pixels (photo/video).
      */
-    public int getWidthSimple() { 
+    public int getWidth() { 
       return this.width == null ? null : this.width.getValue();
     }
 
     /**
      * @param value Width of the image in pixels (photo/video).
      */
-    public Media setWidthSimple(int value) { 
+    public Media setWidth(int value) { 
       if (value == -1)
         this.width = null;
       else {
@@ -459,16 +459,16 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.)
+     * @return {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.). This is the underlying object with id, value and extensions. The accessor "getFrames" gives direct access to the value
      */
-    public IntegerType getFrames() { 
+    public IntegerType getFramesObject() { 
       return this.frames;
     }
 
     /**
-     * @param value {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.)
+     * @param value {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.). This is the underlying object with id, value and extensions. The accessor "getFrames" gives direct access to the value
      */
-    public Media setFrames(IntegerType value) { 
+    public Media setFramesObject(IntegerType value) { 
       this.frames = value;
       return this;
     }
@@ -476,14 +476,14 @@ public class Media extends Resource {
     /**
      * @return The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
-    public int getFramesSimple() { 
+    public int getFrames() { 
       return this.frames == null ? null : this.frames.getValue();
     }
 
     /**
      * @param value The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
-    public Media setFramesSimple(int value) { 
+    public Media setFrames(int value) { 
       if (value == -1)
         this.frames = null;
       else {
@@ -495,16 +495,16 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #length} (The length of the recording in seconds - for audio and video.)
+     * @return {@link #length} (The length of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getLength" gives direct access to the value
      */
-    public IntegerType getLength() { 
+    public IntegerType getLengthObject() { 
       return this.length;
     }
 
     /**
-     * @param value {@link #length} (The length of the recording in seconds - for audio and video.)
+     * @param value {@link #length} (The length of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getLength" gives direct access to the value
      */
-    public Media setLength(IntegerType value) { 
+    public Media setLengthObject(IntegerType value) { 
       this.length = value;
       return this;
     }
@@ -512,14 +512,14 @@ public class Media extends Resource {
     /**
      * @return The length of the recording in seconds - for audio and video.
      */
-    public int getLengthSimple() { 
+    public int getLength() { 
       return this.length == null ? null : this.length.getValue();
     }
 
     /**
      * @param value The length of the recording in seconds - for audio and video.
      */
-    public Media setLengthSimple(int value) { 
+    public Media setLength(int value) { 
       if (value == -1)
         this.length = null;
       else {

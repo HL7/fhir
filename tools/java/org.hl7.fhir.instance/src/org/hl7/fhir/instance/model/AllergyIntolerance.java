@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class AllergyIntolerance extends Resource {
 
     public enum Criticality {
-        fatal, // Likely to result in death if re-exposed.
-        high, // Likely to result in reactions that will need to be treated if re-exposed.
-        medium, // Likely to result in reactions that will inconvenience the subject.
-        low, // Not likely to result in any inconveniences for the subject.
-        Null; // added to help the parsers
+        FATAL, // Likely to result in death if re-exposed.
+        HIGH, // Likely to result in reactions that will need to be treated if re-exposed.
+        MEDIUM, // Likely to result in reactions that will inconvenience the subject.
+        LOW, // Not likely to result in any inconveniences for the subject.
+        NULL; // added to help the parsers
         public static Criticality fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("fatal".equals(codeString))
-          return fatal;
+          return FATAL;
         if ("high".equals(codeString))
-          return high;
+          return HIGH;
         if ("medium".equals(codeString))
-          return medium;
+          return MEDIUM;
         if ("low".equals(codeString))
-          return low;
+          return LOW;
         throw new Exception("Unknown Criticality code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case fatal: return "fatal";
-            case high: return "high";
-            case medium: return "medium";
-            case low: return "low";
+            case FATAL: return "fatal";
+            case HIGH: return "high";
+            case MEDIUM: return "medium";
+            case LOW: return "low";
             default: return "?";
           }
         }
@@ -74,49 +74,49 @@ public class AllergyIntolerance extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("fatal".equals(codeString))
-          return Criticality.fatal;
+          return Criticality.FATAL;
         if ("high".equals(codeString))
-          return Criticality.high;
+          return Criticality.HIGH;
         if ("medium".equals(codeString))
-          return Criticality.medium;
+          return Criticality.MEDIUM;
         if ("low".equals(codeString))
-          return Criticality.low;
+          return Criticality.LOW;
         throw new Exception("Unknown Criticality code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == Criticality.fatal)
+      if (code == Criticality.FATAL)
         return "fatal";
-      if (code == Criticality.high)
+      if (code == Criticality.HIGH)
         return "high";
-      if (code == Criticality.medium)
+      if (code == Criticality.MEDIUM)
         return "medium";
-      if (code == Criticality.low)
+      if (code == Criticality.LOW)
         return "low";
       return "?";
       }
     }
 
     public enum Sensitivitytype {
-        allergy, // Allergic Reaction.
-        intolerance, // Non-Allergic Reaction.
-        unknown, // Unknown type.
-        Null; // added to help the parsers
+        ALLERGY, // Allergic Reaction.
+        INTOLERANCE, // Non-Allergic Reaction.
+        UNKNOWN, // Unknown type.
+        NULL; // added to help the parsers
         public static Sensitivitytype fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("allergy".equals(codeString))
-          return allergy;
+          return ALLERGY;
         if ("intolerance".equals(codeString))
-          return intolerance;
+          return INTOLERANCE;
         if ("unknown".equals(codeString))
-          return unknown;
+          return UNKNOWN;
         throw new Exception("Unknown Sensitivitytype code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case allergy: return "allergy";
-            case intolerance: return "intolerance";
-            case unknown: return "unknown";
+            case ALLERGY: return "allergy";
+            case INTOLERANCE: return "intolerance";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -128,49 +128,49 @@ public class AllergyIntolerance extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("allergy".equals(codeString))
-          return Sensitivitytype.allergy;
+          return Sensitivitytype.ALLERGY;
         if ("intolerance".equals(codeString))
-          return Sensitivitytype.intolerance;
+          return Sensitivitytype.INTOLERANCE;
         if ("unknown".equals(codeString))
-          return Sensitivitytype.unknown;
+          return Sensitivitytype.UNKNOWN;
         throw new Exception("Unknown Sensitivitytype code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == Sensitivitytype.allergy)
+      if (code == Sensitivitytype.ALLERGY)
         return "allergy";
-      if (code == Sensitivitytype.intolerance)
+      if (code == Sensitivitytype.INTOLERANCE)
         return "intolerance";
-      if (code == Sensitivitytype.unknown)
+      if (code == Sensitivitytype.UNKNOWN)
         return "unknown";
       return "?";
       }
     }
 
     public enum Sensitivitystatus {
-        suspected, // A suspected sensitivity to a substance.
-        confirmed, // The sensitivity has been confirmed and is active.
-        refuted, // The sensitivity has been shown to never have existed.
-        resolved, // The sensitivity used to exist but no longer does.
-        Null; // added to help the parsers
+        SUSPECTED, // A suspected sensitivity to a substance.
+        CONFIRMED, // The sensitivity has been confirmed and is active.
+        REFUTED, // The sensitivity has been shown to never have existed.
+        RESOLVED, // The sensitivity used to exist but no longer does.
+        NULL; // added to help the parsers
         public static Sensitivitystatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("suspected".equals(codeString))
-          return suspected;
+          return SUSPECTED;
         if ("confirmed".equals(codeString))
-          return confirmed;
+          return CONFIRMED;
         if ("refuted".equals(codeString))
-          return refuted;
+          return REFUTED;
         if ("resolved".equals(codeString))
-          return resolved;
+          return RESOLVED;
         throw new Exception("Unknown Sensitivitystatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case suspected: return "suspected";
-            case confirmed: return "confirmed";
-            case refuted: return "refuted";
-            case resolved: return "resolved";
+            case SUSPECTED: return "suspected";
+            case CONFIRMED: return "confirmed";
+            case REFUTED: return "refuted";
+            case RESOLVED: return "resolved";
             default: return "?";
           }
         }
@@ -182,23 +182,23 @@ public class AllergyIntolerance extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("suspected".equals(codeString))
-          return Sensitivitystatus.suspected;
+          return Sensitivitystatus.SUSPECTED;
         if ("confirmed".equals(codeString))
-          return Sensitivitystatus.confirmed;
+          return Sensitivitystatus.CONFIRMED;
         if ("refuted".equals(codeString))
-          return Sensitivitystatus.refuted;
+          return Sensitivitystatus.REFUTED;
         if ("resolved".equals(codeString))
-          return Sensitivitystatus.resolved;
+          return Sensitivitystatus.RESOLVED;
         throw new Exception("Unknown Sensitivitystatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == Sensitivitystatus.suspected)
+      if (code == Sensitivitystatus.SUSPECTED)
         return "suspected";
-      if (code == Sensitivitystatus.confirmed)
+      if (code == Sensitivitystatus.CONFIRMED)
         return "confirmed";
-      if (code == Sensitivitystatus.refuted)
+      if (code == Sensitivitystatus.REFUTED)
         return "refuted";
-      if (code == Sensitivitystatus.resolved)
+      if (code == Sensitivitystatus.RESOLVED)
         return "resolved";
       return "?";
       }
@@ -311,16 +311,16 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #criticality} (Criticality of the sensitivity.)
+     * @return {@link #criticality} (Criticality of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
-    public Enumeration<Criticality> getCriticality() { 
+    public Enumeration<Criticality> getCriticalityObject() { 
       return this.criticality;
     }
 
     /**
-     * @param value {@link #criticality} (Criticality of the sensitivity.)
+     * @param value {@link #criticality} (Criticality of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
-    public AllergyIntolerance setCriticality(Enumeration<Criticality> value) { 
+    public AllergyIntolerance setCriticalityObject(Enumeration<Criticality> value) { 
       this.criticality = value;
       return this;
     }
@@ -328,14 +328,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return Criticality of the sensitivity.
      */
-    public Criticality getCriticalitySimple() { 
+    public Criticality getCriticality() { 
       return this.criticality == null ? null : this.criticality.getValue();
     }
 
     /**
      * @param value Criticality of the sensitivity.
      */
-    public AllergyIntolerance setCriticalitySimple(Criticality value) { 
+    public AllergyIntolerance setCriticality(Criticality value) { 
       if (value == null)
         this.criticality = null;
       else {
@@ -347,16 +347,16 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #sensitivityType} (Type of the sensitivity.)
+     * @return {@link #sensitivityType} (Type of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getSensitivityType" gives direct access to the value
      */
-    public Enumeration<Sensitivitytype> getSensitivityType() { 
+    public Enumeration<Sensitivitytype> getSensitivityTypeObject() { 
       return this.sensitivityType;
     }
 
     /**
-     * @param value {@link #sensitivityType} (Type of the sensitivity.)
+     * @param value {@link #sensitivityType} (Type of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getSensitivityType" gives direct access to the value
      */
-    public AllergyIntolerance setSensitivityType(Enumeration<Sensitivitytype> value) { 
+    public AllergyIntolerance setSensitivityTypeObject(Enumeration<Sensitivitytype> value) { 
       this.sensitivityType = value;
       return this;
     }
@@ -364,14 +364,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return Type of the sensitivity.
      */
-    public Sensitivitytype getSensitivityTypeSimple() { 
+    public Sensitivitytype getSensitivityType() { 
       return this.sensitivityType == null ? null : this.sensitivityType.getValue();
     }
 
     /**
      * @param value Type of the sensitivity.
      */
-    public AllergyIntolerance setSensitivityTypeSimple(Sensitivitytype value) { 
+    public AllergyIntolerance setSensitivityType(Sensitivitytype value) { 
         if (this.sensitivityType == null)
           this.sensitivityType = new Enumeration<Sensitivitytype>();
         this.sensitivityType.setValue(value);
@@ -379,16 +379,16 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #recordedDate} (Date when the sensitivity was recorded.)
+     * @return {@link #recordedDate} (Date when the sensitivity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
-    public DateTimeType getRecordedDate() { 
+    public DateTimeType getRecordedDateObject() { 
       return this.recordedDate;
     }
 
     /**
-     * @param value {@link #recordedDate} (Date when the sensitivity was recorded.)
+     * @param value {@link #recordedDate} (Date when the sensitivity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
-    public AllergyIntolerance setRecordedDate(DateTimeType value) { 
+    public AllergyIntolerance setRecordedDateObject(DateTimeType value) { 
       this.recordedDate = value;
       return this;
     }
@@ -396,14 +396,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return Date when the sensitivity was recorded.
      */
-    public DateAndTime getRecordedDateSimple() { 
+    public DateAndTime getRecordedDate() { 
       return this.recordedDate == null ? null : this.recordedDate.getValue();
     }
 
     /**
      * @param value Date when the sensitivity was recorded.
      */
-    public AllergyIntolerance setRecordedDateSimple(DateAndTime value) { 
+    public AllergyIntolerance setRecordedDate(DateAndTime value) { 
       if (value == null)
         this.recordedDate = null;
       else {
@@ -415,16 +415,16 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #status} (Status of the sensitivity.)
+     * @return {@link #status} (Status of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<Sensitivitystatus> getStatus() { 
+    public Enumeration<Sensitivitystatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (Status of the sensitivity.)
+     * @param value {@link #status} (Status of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public AllergyIntolerance setStatus(Enumeration<Sensitivitystatus> value) { 
+    public AllergyIntolerance setStatusObject(Enumeration<Sensitivitystatus> value) { 
       this.status = value;
       return this;
     }
@@ -432,14 +432,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return Status of the sensitivity.
      */
-    public Sensitivitystatus getStatusSimple() { 
+    public Sensitivitystatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Status of the sensitivity.
      */
-    public AllergyIntolerance setStatusSimple(Sensitivitystatus value) { 
+    public AllergyIntolerance setStatus(Sensitivitystatus value) { 
         if (this.status == null)
           this.status = new Enumeration<Sensitivitystatus>();
         this.status.setValue(value);
@@ -462,14 +462,14 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The patient who has the allergy or intolerance.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who has the allergy or intolerance.)
      */
     public Patient getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The patient who has the allergy or intolerance.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who has the allergy or intolerance.)
      */
     public AllergyIntolerance setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
@@ -492,14 +492,14 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #recorder} (The actual object that is the target of the reference. Indicates who has responsibility for the record.)
+     * @return {@link #recorder} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates who has responsibility for the record.)
      */
     public Resource getRecorderTarget() { 
       return this.recorderTarget;
     }
 
     /**
-     * @param value {@link #recorder} (The actual object that is the target of the reference. Indicates who has responsibility for the record.)
+     * @param value {@link #recorder} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates who has responsibility for the record.)
      */
     public AllergyIntolerance setRecorderTarget(Resource value) { 
       this.recorderTarget = value;
@@ -522,14 +522,14 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #substance} (The actual object that is the target of the reference. The substance that causes the sensitivity.)
+     * @return {@link #substance} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The substance that causes the sensitivity.)
      */
     public Substance getSubstanceTarget() { 
       return this.substanceTarget;
     }
 
     /**
-     * @param value {@link #substance} (The actual object that is the target of the reference. The substance that causes the sensitivity.)
+     * @param value {@link #substance} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The substance that causes the sensitivity.)
      */
     public AllergyIntolerance setSubstanceTarget(Substance value) { 
       this.substanceTarget = value;
@@ -554,7 +554,7 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #reaction} (The actual objects that are the target of the reference. Reactions associated with the sensitivity.)
+     * @return {@link #reaction} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reactions associated with the sensitivity.)
      */
     public List<AdverseReaction> getReactionTarget() { 
       return this.reactionTarget;
@@ -562,7 +562,7 @@ public class AllergyIntolerance extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #reaction} (Add an actual object that is the target of the reference. Reactions associated with the sensitivity.)
+     * @return {@link #reaction} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Reactions associated with the sensitivity.)
      */
     public AdverseReaction addReactionTarget() { 
       AdverseReaction r = new AdverseReaction();
@@ -588,7 +588,7 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #sensitivityTest} (The actual objects that are the target of the reference. Observations that confirm or refute the sensitivity.)
+     * @return {@link #sensitivityTest} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Observations that confirm or refute the sensitivity.)
      */
     public List<Observation> getSensitivityTestTarget() { 
       return this.sensitivityTestTarget;
@@ -596,7 +596,7 @@ public class AllergyIntolerance extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #sensitivityTest} (Add an actual object that is the target of the reference. Observations that confirm or refute the sensitivity.)
+     * @return {@link #sensitivityTest} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Observations that confirm or refute the sensitivity.)
      */
     public Observation addSensitivityTestTarget() { 
       Observation r = new Observation();

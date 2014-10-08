@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -134,14 +134,14 @@ public class Availability extends Resource {
     }
 
     /**
-     * @return {@link #actor} (The actual object that is the target of the reference. The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
+     * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
      */
     public Resource getActorTarget() { 
       return this.actorTarget;
     }
 
     /**
-     * @param value {@link #actor} (The actual object that is the target of the reference. The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
+     * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
      */
     public Availability setActorTarget(Resource value) { 
       this.actorTarget = value;
@@ -164,16 +164,16 @@ public class Availability extends Resource {
     }
 
     /**
-     * @return {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.)
+     * @return {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getComment() { 
+    public StringType getCommentObject() { 
       return this.comment;
     }
 
     /**
-     * @param value {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.)
+     * @param value {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public Availability setComment(StringType value) { 
+    public Availability setCommentObject(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -181,14 +181,14 @@ public class Availability extends Resource {
     /**
      * @return Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.
      */
-    public String getCommentSimple() { 
+    public String getComment() { 
       return this.comment == null ? null : this.comment.getValue();
     }
 
     /**
      * @param value Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.
      */
-    public Availability setCommentSimple(String value) { 
+    public Availability setComment(String value) { 
       if (value == null)
         this.comment = null;
       else {
@@ -200,16 +200,16 @@ public class Availability extends Resource {
     }
 
     /**
-     * @return {@link #lastModified} (When this availability was created, or last revised.)
+     * @return {@link #lastModified} (When this availability was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public DateTimeType getLastModified() { 
+    public DateTimeType getLastModifiedObject() { 
       return this.lastModified;
     }
 
     /**
-     * @param value {@link #lastModified} (When this availability was created, or last revised.)
+     * @param value {@link #lastModified} (When this availability was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public Availability setLastModified(DateTimeType value) { 
+    public Availability setLastModifiedObject(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }
@@ -217,14 +217,14 @@ public class Availability extends Resource {
     /**
      * @return When this availability was created, or last revised.
      */
-    public DateAndTime getLastModifiedSimple() { 
+    public DateAndTime getLastModified() { 
       return this.lastModified == null ? null : this.lastModified.getValue();
     }
 
     /**
      * @param value When this availability was created, or last revised.
      */
-    public Availability setLastModifiedSimple(DateAndTime value) { 
+    public Availability setLastModified(DateAndTime value) { 
       if (value == null)
         this.lastModified = null;
       else {

@@ -111,7 +111,7 @@ public class Validator {
           }
           int count = 0;
           for (ValidationMessage t : exe.outputs()) {
-          	if (t.getLevel() == IssueSeverity.error || t.getLevel() == IssueSeverity.fatal)
+          	if (t.getLevel() == IssueSeverity.ERROR || t.getLevel() == IssueSeverity.FATAL)
           		count++;
           }
           if (count == 0)

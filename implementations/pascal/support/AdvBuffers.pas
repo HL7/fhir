@@ -461,7 +461,7 @@ Function TAdvBuffer.Offset(iIndex: Integer): Pointer;
 Begin 
   Assert(Condition((iIndex >= 0) And (iIndex <= Capacity), 'Offset', 'Attempted to access invalid offset in the buffer.'));
 
-  Result := Pointer(NativeUInt(Data) + iIndex);
+  Result := Pointer(NativeUInt(Data) + NativeUInt(iIndex));
 End;  
 
 

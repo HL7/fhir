@@ -216,7 +216,7 @@ Procedure TAdvStringIntegerMatch.InternalEmpty(iIndex, iLength: Integer);
 Begin 
   Inherited;
 
-  MemoryZero(Pointer(NativeUInt(FMatchArray) + (iIndex * SizeOf(TAdvStringIntegerMatchItem))), (iLength * SizeOf(TAdvStringIntegerMatchItem)));
+  MemoryZero(Pointer(NativeUInt(FMatchArray) + NativeUInt(iIndex * SizeOf(TAdvStringIntegerMatchItem))), (iLength * SizeOf(TAdvStringIntegerMatchItem)));
 End;  
 
 

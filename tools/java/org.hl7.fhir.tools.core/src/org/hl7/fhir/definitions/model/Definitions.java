@@ -360,11 +360,11 @@ public class Definitions {
     if (url.contains("#"))
       url = url.substring(0, url.indexOf('#'));
     for (ProfileDefn p : profiles.values())
-      if (p.getSource() != null && p.getSource().getUrlSimple().equals(url))
+      if (p.getSource() != null && p.getSource().getUrl().equals(url))
         return p.getSource();
     for (ResourceDefn rd : resources.values()) {
       for (RegisteredProfile p : rd.getProfiles()) {
-        if (p.getProfile().getSource().getUrlSimple().equals(url)) {
+        if (p.getProfile().getSource().getUrl().equals(url)) {
           return p.getProfile().getSource();
         }
       }
@@ -390,7 +390,7 @@ public class Definitions {
       return p.getStructure().get(0);
     }
     for (ProfileStructureComponent s : p.getStructure())
-      if (s.getSnapshot() != null && p.getNameSimple().equals(parts[1]))
+      if (s.getSnapshot() != null && p.getName().equals(parts[1]))
         return s;
     throw new Exception("Unable to find snapshot for "+base);
   }

@@ -30,9 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,13 +54,14 @@ import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
+import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
-import org.hl7.fhir.utilities.Logger.LogMessageType;
 
 /**
  * Generates the delphi reference implementation
@@ -128,7 +127,12 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   private List<String> constants = new ArrayList<String>();
   private String dcc;
   private String exe;
+  private FolderManager folders;
 
+
+  public DelphiGenerator(FolderManager folders) {
+    this.folders = folders;
+  }
 
   @Override
   public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision)  throws Exception {
@@ -139,7 +143,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
     generateElement();
     parserGap();
-    generatePrimitive(new DefinedCode("enum", "", ""), "TFhirType", true, false);
+    generatePrimitive(new DefinedCode("enum", "", ""), "TFhirPrimitiveType", true, false);
 
     for (DefinedCode n : definitions.getPrimitives().values()) {
       if (n instanceof PrimitiveType)
@@ -1922,9 +1926,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
               "\r\n"+
               "function "+tnl+"Enumerator.MoveNext : boolean;\r\n"+
               "begin\r\n"+
+              "  inc(FIndex);\r\n"+
               "  Result := FIndex < FList.count;\r\n"+
-              "  if Result then\r\n"+
-              "    Inc(FIndex);\r\n"+
               "end;\r\n"+
               "\r\n"+
               "function "+tnl+"Enumerator.GetCurrent : "+tn+";\r\n"+
@@ -3343,7 +3346,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
   public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
-
     dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\RAD Studio\\12.0\\bin\\dcc32.exe";
     exe = rootDir+"implementations\\pascal\\fhirtest.exe";
     logger.log("Compiling Pascal implementation using "+dcc, LogMessageType.Process);
@@ -3406,6 +3408,53 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   @Override
   public String getVersion() {
     return "0.80";
+  }
+
+  @Override
+  public boolean canSign() {
+    return true;
+  }
+
+  @Override
+  public void sign(String filename, boolean atom, String type) throws Exception {
+    List<String> command = new ArrayList<String>();
+    command.add(exe);
+    command.add(atom ? "-signatom" : "signprov");
+    command.add(filename);
+    command.add("-certpath");
+    command.add(Utilities.path(folders.rootDir, "implementations", "certificates"));
+    command.add("-certtype");
+    command.add(type);
+
+    ProcessBuilder builder = new ProcessBuilder().inheritIO().command(command);
+    builder.directory(new File(Utilities.getDirectoryForFile(exe)));
+
+    Process process;
+    process = builder.start();
+    process.waitFor();
+    if (new File(filename+".err").exists())
+      throw new Exception(TextFile.fileToString(filename+".err"));
+    if (!(new File(filename).exists()))
+      throw new Exception("Neither output nor error file created");
+  }
+
+  @Override
+  public void verify(String filename) throws Exception {
+    List<String> command = new ArrayList<String>();
+    command.add(exe);
+    command.add("-verify");
+    command.add(filename);
+
+    ProcessBuilder builder = new ProcessBuilder().inheritIO().command(command);
+    builder.directory(new File(Utilities.getDirectoryForFile(exe)));
+
+    Process process;
+    process = builder.start();
+    process.waitFor();
+    if (new File(filename+".err").exists())
+      throw new Exception(TextFile.fileToString(filename+".err"));
+    if (!(new File(filename).exists()))
+      throw new Exception("Neither output nor error file created");
   }
 
 }

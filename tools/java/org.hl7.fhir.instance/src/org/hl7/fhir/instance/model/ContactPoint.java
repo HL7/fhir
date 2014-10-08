@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class ContactPoint extends Type {
 
     public enum ContactPointSystem {
-        phone, // The value is a telephone number used for voice calls. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
-        fax, // The value is a fax machine. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
-        email, // The value is an email address.
-        url, // The value is a url. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses.
-        Null; // added to help the parsers
+        PHONE, // The value is a telephone number used for voice calls. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
+        FAX, // The value is a fax machine. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
+        EMAIL, // The value is an email address.
+        URL, // The value is a url. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses.
+        NULL; // added to help the parsers
         public static ContactPointSystem fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("phone".equals(codeString))
-          return phone;
+          return PHONE;
         if ("fax".equals(codeString))
-          return fax;
+          return FAX;
         if ("email".equals(codeString))
-          return email;
+          return EMAIL;
         if ("url".equals(codeString))
-          return url;
+          return URL;
         throw new Exception("Unknown ContactPointSystem code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case phone: return "phone";
-            case fax: return "fax";
-            case email: return "email";
-            case url: return "url";
+            case PHONE: return "phone";
+            case FAX: return "fax";
+            case EMAIL: return "email";
+            case URL: return "url";
             default: return "?";
           }
         }
@@ -74,57 +74,57 @@ public class ContactPoint extends Type {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("phone".equals(codeString))
-          return ContactPointSystem.phone;
+          return ContactPointSystem.PHONE;
         if ("fax".equals(codeString))
-          return ContactPointSystem.fax;
+          return ContactPointSystem.FAX;
         if ("email".equals(codeString))
-          return ContactPointSystem.email;
+          return ContactPointSystem.EMAIL;
         if ("url".equals(codeString))
-          return ContactPointSystem.url;
+          return ContactPointSystem.URL;
         throw new Exception("Unknown ContactPointSystem code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ContactPointSystem.phone)
+      if (code == ContactPointSystem.PHONE)
         return "phone";
-      if (code == ContactPointSystem.fax)
+      if (code == ContactPointSystem.FAX)
         return "fax";
-      if (code == ContactPointSystem.email)
+      if (code == ContactPointSystem.EMAIL)
         return "email";
-      if (code == ContactPointSystem.url)
+      if (code == ContactPointSystem.URL)
         return "url";
       return "?";
       }
     }
 
     public enum ContactPointUse {
-        home, // A communication contact point at a home; attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available.
-        work, // An office contact point. First choice for business related contacts during business hours.
-        temp, // A temporary contact point. The period can provide more detailed information.
-        old, // This contact point is no longer in use (or was never correct, but retained for records).
-        mobile, // A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business.
-        Null; // added to help the parsers
+        HOME, // A communication contact point at a home; attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available.
+        WORK, // An office contact point. First choice for business related contacts during business hours.
+        TEMP, // A temporary contact point. The period can provide more detailed information.
+        OLD, // This contact point is no longer in use (or was never correct, but retained for records).
+        MOBILE, // A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business.
+        NULL; // added to help the parsers
         public static ContactPointUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("home".equals(codeString))
-          return home;
+          return HOME;
         if ("work".equals(codeString))
-          return work;
+          return WORK;
         if ("temp".equals(codeString))
-          return temp;
+          return TEMP;
         if ("old".equals(codeString))
-          return old;
+          return OLD;
         if ("mobile".equals(codeString))
-          return mobile;
+          return MOBILE;
         throw new Exception("Unknown ContactPointUse code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case home: return "home";
-            case work: return "work";
-            case temp: return "temp";
-            case old: return "old";
-            case mobile: return "mobile";
+            case HOME: return "home";
+            case WORK: return "work";
+            case TEMP: return "temp";
+            case OLD: return "old";
+            case MOBILE: return "mobile";
             default: return "?";
           }
         }
@@ -136,27 +136,27 @@ public class ContactPoint extends Type {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("home".equals(codeString))
-          return ContactPointUse.home;
+          return ContactPointUse.HOME;
         if ("work".equals(codeString))
-          return ContactPointUse.work;
+          return ContactPointUse.WORK;
         if ("temp".equals(codeString))
-          return ContactPointUse.temp;
+          return ContactPointUse.TEMP;
         if ("old".equals(codeString))
-          return ContactPointUse.old;
+          return ContactPointUse.OLD;
         if ("mobile".equals(codeString))
-          return ContactPointUse.mobile;
+          return ContactPointUse.MOBILE;
         throw new Exception("Unknown ContactPointUse code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ContactPointUse.home)
+      if (code == ContactPointUse.HOME)
         return "home";
-      if (code == ContactPointUse.work)
+      if (code == ContactPointUse.WORK)
         return "work";
-      if (code == ContactPointUse.temp)
+      if (code == ContactPointUse.TEMP)
         return "temp";
-      if (code == ContactPointUse.old)
+      if (code == ContactPointUse.OLD)
         return "old";
-      if (code == ContactPointUse.mobile)
+      if (code == ContactPointUse.MOBILE)
         return "mobile";
       return "?";
       }
@@ -189,16 +189,16 @@ public class ContactPoint extends Type {
     }
 
     /**
-     * @return {@link #system} (Telecommunications form for contact point - what communications system is required to make use of the contact.)
+     * @return {@link #system} (Telecommunications form for contact point - what communications system is required to make use of the contact.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Enumeration<ContactPointSystem> getSystem() { 
+    public Enumeration<ContactPointSystem> getSystemObject() { 
       return this.system;
     }
 
     /**
-     * @param value {@link #system} (Telecommunications form for contact point - what communications system is required to make use of the contact.)
+     * @param value {@link #system} (Telecommunications form for contact point - what communications system is required to make use of the contact.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public ContactPoint setSystem(Enumeration<ContactPointSystem> value) { 
+    public ContactPoint setSystemObject(Enumeration<ContactPointSystem> value) { 
       this.system = value;
       return this;
     }
@@ -206,14 +206,14 @@ public class ContactPoint extends Type {
     /**
      * @return Telecommunications form for contact point - what communications system is required to make use of the contact.
      */
-    public ContactPointSystem getSystemSimple() { 
+    public ContactPointSystem getSystem() { 
       return this.system == null ? null : this.system.getValue();
     }
 
     /**
      * @param value Telecommunications form for contact point - what communications system is required to make use of the contact.
      */
-    public ContactPoint setSystemSimple(ContactPointSystem value) { 
+    public ContactPoint setSystem(ContactPointSystem value) { 
       if (value == null)
         this.system = null;
       else {
@@ -225,16 +225,16 @@ public class ContactPoint extends Type {
     }
 
     /**
-     * @return {@link #value} (The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).)
+     * @return {@link #value} (The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public StringType getValue() { 
+    public StringType getValueObject() { 
       return this.value;
     }
 
     /**
-     * @param value {@link #value} (The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).)
+     * @param value {@link #value} (The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public ContactPoint setValue(StringType value) { 
+    public ContactPoint setValueObject(StringType value) { 
       this.value = value;
       return this;
     }
@@ -242,14 +242,14 @@ public class ContactPoint extends Type {
     /**
      * @return The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
      */
-    public String getValueSimple() { 
+    public String getValue() { 
       return this.value == null ? null : this.value.getValue();
     }
 
     /**
      * @param value The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
      */
-    public ContactPoint setValueSimple(String value) { 
+    public ContactPoint setValue(String value) { 
       if (value == null)
         this.value = null;
       else {
@@ -261,16 +261,16 @@ public class ContactPoint extends Type {
     }
 
     /**
-     * @return {@link #use} (Identifies the purpose for the contact point.)
+     * @return {@link #use} (Identifies the purpose for the contact point.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<ContactPointUse> getUse() { 
+    public Enumeration<ContactPointUse> getUseObject() { 
       return this.use;
     }
 
     /**
-     * @param value {@link #use} (Identifies the purpose for the contact point.)
+     * @param value {@link #use} (Identifies the purpose for the contact point.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public ContactPoint setUse(Enumeration<ContactPointUse> value) { 
+    public ContactPoint setUseObject(Enumeration<ContactPointUse> value) { 
       this.use = value;
       return this;
     }
@@ -278,14 +278,14 @@ public class ContactPoint extends Type {
     /**
      * @return Identifies the purpose for the contact point.
      */
-    public ContactPointUse getUseSimple() { 
+    public ContactPointUse getUse() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
      * @param value Identifies the purpose for the contact point.
      */
-    public ContactPoint setUseSimple(ContactPointUse value) { 
+    public ContactPoint setUse(ContactPointUse value) { 
       if (value == null)
         this.use = null;
       else {

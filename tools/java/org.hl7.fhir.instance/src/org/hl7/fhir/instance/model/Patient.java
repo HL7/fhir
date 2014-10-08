@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class Patient extends Resource {
 
     public enum AdministrativeGender {
-        male, // Male
-        female, // Female
-        other, // Other
-        unknown, // Unknown
-        Null; // added to help the parsers
+        MALE, // Male
+        FEMALE, // Female
+        OTHER, // Other
+        UNKNOWN, // Unknown
+        NULL; // added to help the parsers
         public static AdministrativeGender fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("male".equals(codeString))
-          return male;
+          return MALE;
         if ("female".equals(codeString))
-          return female;
+          return FEMALE;
         if ("other".equals(codeString))
-          return other;
+          return OTHER;
         if ("unknown".equals(codeString))
-          return unknown;
+          return UNKNOWN;
         throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case male: return "male";
-            case female: return "female";
-            case other: return "other";
-            case unknown: return "unknown";
+            case MALE: return "male";
+            case FEMALE: return "female";
+            case OTHER: return "other";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -74,49 +74,49 @@ public class Patient extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("male".equals(codeString))
-          return AdministrativeGender.male;
+          return AdministrativeGender.MALE;
         if ("female".equals(codeString))
-          return AdministrativeGender.female;
+          return AdministrativeGender.FEMALE;
         if ("other".equals(codeString))
-          return AdministrativeGender.other;
+          return AdministrativeGender.OTHER;
         if ("unknown".equals(codeString))
-          return AdministrativeGender.unknown;
+          return AdministrativeGender.UNKNOWN;
         throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == AdministrativeGender.male)
+      if (code == AdministrativeGender.MALE)
         return "male";
-      if (code == AdministrativeGender.female)
+      if (code == AdministrativeGender.FEMALE)
         return "female";
-      if (code == AdministrativeGender.other)
+      if (code == AdministrativeGender.OTHER)
         return "other";
-      if (code == AdministrativeGender.unknown)
+      if (code == AdministrativeGender.UNKNOWN)
         return "unknown";
       return "?";
       }
     }
 
     public enum LinkType {
-        replace, // The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.
-        refer, // The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.
-        seealso, // The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.
-        Null; // added to help the parsers
+        REPLACE, // The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.
+        REFER, // The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.
+        SEEALSO, // The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.
+        NULL; // added to help the parsers
         public static LinkType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("replace".equals(codeString))
-          return replace;
+          return REPLACE;
         if ("refer".equals(codeString))
-          return refer;
+          return REFER;
         if ("seealso".equals(codeString))
-          return seealso;
+          return SEEALSO;
         throw new Exception("Unknown LinkType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case replace: return "replace";
-            case refer: return "refer";
-            case seealso: return "seealso";
+            case REPLACE: return "replace";
+            case REFER: return "refer";
+            case SEEALSO: return "seealso";
             default: return "?";
           }
         }
@@ -128,19 +128,19 @@ public class Patient extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("replace".equals(codeString))
-          return LinkType.replace;
+          return LinkType.REPLACE;
         if ("refer".equals(codeString))
-          return LinkType.refer;
+          return LinkType.REFER;
         if ("seealso".equals(codeString))
-          return LinkType.seealso;
+          return LinkType.SEEALSO;
         throw new Exception("Unknown LinkType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == LinkType.replace)
+      if (code == LinkType.REPLACE)
         return "replace";
-      if (code == LinkType.refer)
+      if (code == LinkType.REFER)
         return "refer";
-      if (code == LinkType.seealso)
+      if (code == LinkType.SEEALSO)
         return "seealso";
       return "?";
       }
@@ -253,16 +253,16 @@ public class Patient extends Resource {
         }
 
         /**
-         * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+         * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
-        public Enumeration<AdministrativeGender> getGender() { 
+        public Enumeration<AdministrativeGender> getGenderObject() { 
           return this.gender;
         }
 
         /**
-         * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+         * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
-        public ContactComponent setGender(Enumeration<AdministrativeGender> value) { 
+        public ContactComponent setGenderObject(Enumeration<AdministrativeGender> value) { 
           this.gender = value;
           return this;
         }
@@ -270,14 +270,14 @@ public class Patient extends Resource {
         /**
          * @return Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
          */
-        public AdministrativeGender getGenderSimple() { 
+        public AdministrativeGender getGender() { 
           return this.gender == null ? null : this.gender.getValue();
         }
 
         /**
          * @param value Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
          */
-        public ContactComponent setGenderSimple(AdministrativeGender value) { 
+        public ContactComponent setGender(AdministrativeGender value) { 
           if (value == null)
             this.gender = null;
           else {
@@ -304,14 +304,14 @@ public class Patient extends Resource {
         }
 
         /**
-         * @return {@link #organization} (The actual object that is the target of the reference. Organization on behalf of which the contact is acting or for which the contact is working.)
+         * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
         public Organization getOrganizationTarget() { 
           return this.organizationTarget;
         }
 
         /**
-         * @param value {@link #organization} (The actual object that is the target of the reference. Organization on behalf of which the contact is acting or for which the contact is working.)
+         * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
         public ContactComponent setOrganizationTarget(Organization value) { 
           this.organizationTarget = value;
@@ -478,14 +478,14 @@ public class Patient extends Resource {
         }
 
         /**
-         * @return {@link #other} (The actual object that is the target of the reference. The other patient resource that the link refers to.)
+         * @return {@link #other} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The other patient resource that the link refers to.)
          */
         public Patient getOtherTarget() { 
           return this.otherTarget;
         }
 
         /**
-         * @param value {@link #other} (The actual object that is the target of the reference. The other patient resource that the link refers to.)
+         * @param value {@link #other} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The other patient resource that the link refers to.)
          */
         public PatientLinkComponent setOtherTarget(Patient value) { 
           this.otherTarget = value;
@@ -493,16 +493,16 @@ public class Patient extends Resource {
         }
 
         /**
-         * @return {@link #type} (The type of link between this patient resource and another patient resource.)
+         * @return {@link #type} (The type of link between this patient resource and another patient resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<LinkType> getType() { 
+        public Enumeration<LinkType> getTypeObject() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (The type of link between this patient resource and another patient resource.)
+         * @param value {@link #type} (The type of link between this patient resource and another patient resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public PatientLinkComponent setType(Enumeration<LinkType> value) { 
+        public PatientLinkComponent setTypeObject(Enumeration<LinkType> value) { 
           this.type = value;
           return this;
         }
@@ -510,14 +510,14 @@ public class Patient extends Resource {
         /**
          * @return The type of link between this patient resource and another patient resource.
          */
-        public LinkType getTypeSimple() { 
+        public LinkType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of link between this patient resource and another patient resource.
          */
-        public PatientLinkComponent setTypeSimple(LinkType value) { 
+        public PatientLinkComponent setType(LinkType value) { 
             if (this.type == null)
               this.type = new Enumeration<LinkType>();
             this.type.setValue(value);
@@ -692,16 +692,16 @@ public class Patient extends Resource {
     }
 
     /**
-     * @return {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.)
+     * @return {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Enumeration<AdministrativeGender> getGender() { 
+    public Enumeration<AdministrativeGender> getGenderObject() { 
       return this.gender;
     }
 
     /**
-     * @param value {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.)
+     * @param value {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Patient setGender(Enumeration<AdministrativeGender> value) { 
+    public Patient setGenderObject(Enumeration<AdministrativeGender> value) { 
       this.gender = value;
       return this;
     }
@@ -709,14 +709,14 @@ public class Patient extends Resource {
     /**
      * @return Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
      */
-    public AdministrativeGender getGenderSimple() { 
+    public AdministrativeGender getGender() { 
       return this.gender == null ? null : this.gender.getValue();
     }
 
     /**
      * @param value Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
      */
-    public Patient setGenderSimple(AdministrativeGender value) { 
+    public Patient setGender(AdministrativeGender value) { 
       if (value == null)
         this.gender = null;
       else {
@@ -728,16 +728,16 @@ public class Patient extends Resource {
     }
 
     /**
-     * @return {@link #birthDate} (The date and time of birth for the individual.)
+     * @return {@link #birthDate} (The date and time of birth for the individual.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public DateTimeType getBirthDate() { 
+    public DateTimeType getBirthDateObject() { 
       return this.birthDate;
     }
 
     /**
-     * @param value {@link #birthDate} (The date and time of birth for the individual.)
+     * @param value {@link #birthDate} (The date and time of birth for the individual.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public Patient setBirthDate(DateTimeType value) { 
+    public Patient setBirthDateObject(DateTimeType value) { 
       this.birthDate = value;
       return this;
     }
@@ -745,14 +745,14 @@ public class Patient extends Resource {
     /**
      * @return The date and time of birth for the individual.
      */
-    public DateAndTime getBirthDateSimple() { 
+    public DateAndTime getBirthDate() { 
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
     /**
      * @param value The date and time of birth for the individual.
      */
-    public Patient setBirthDateSimple(DateAndTime value) { 
+    public Patient setBirthDate(DateAndTime value) { 
       if (value == null)
         this.birthDate = null;
       else {
@@ -909,7 +909,7 @@ public class Patient extends Resource {
     }
 
     /**
-     * @return {@link #careProvider} (The actual objects that are the target of the reference. Patient's nominated care provider.)
+     * @return {@link #careProvider} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Patient's nominated care provider.)
      */
     public List<Resource> getCareProviderTarget() { 
       return this.careProviderTarget;
@@ -931,14 +931,14 @@ public class Patient extends Resource {
     }
 
     /**
-     * @return {@link #managingOrganization} (The actual object that is the target of the reference. Organization that is the custodian of the patient record.)
+     * @return {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization that is the custodian of the patient record.)
      */
     public Organization getManagingOrganizationTarget() { 
       return this.managingOrganizationTarget;
     }
 
     /**
-     * @param value {@link #managingOrganization} (The actual object that is the target of the reference. Organization that is the custodian of the patient record.)
+     * @param value {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Organization that is the custodian of the patient record.)
      */
     public Patient setManagingOrganizationTarget(Organization value) { 
       this.managingOrganizationTarget = value;
@@ -963,16 +963,16 @@ public class Patient extends Resource {
     }
 
     /**
-     * @return {@link #active} (Whether this patient record is in active use.)
+     * @return {@link #active} (Whether this patient record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public BooleanType getActive() { 
+    public BooleanType getActiveObject() { 
       return this.active;
     }
 
     /**
-     * @param value {@link #active} (Whether this patient record is in active use.)
+     * @param value {@link #active} (Whether this patient record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public Patient setActive(BooleanType value) { 
+    public Patient setActiveObject(BooleanType value) { 
       this.active = value;
       return this;
     }
@@ -980,14 +980,14 @@ public class Patient extends Resource {
     /**
      * @return Whether this patient record is in active use.
      */
-    public boolean getActiveSimple() { 
+    public boolean getActive() { 
       return this.active == null ? false : this.active.getValue();
     }
 
     /**
      * @param value Whether this patient record is in active use.
      */
-    public Patient setActiveSimple(boolean value) { 
+    public Patient setActive(boolean value) { 
       if (value == false)
         this.active = null;
       else {

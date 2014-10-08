@@ -33,29 +33,59 @@ Type
     function GetHasKey: boolean;
     function GetHasPrivateKey: boolean;
     function GetHasPublicKey: boolean;
+    function GetG: TBytes;
+    function GetP: TBytes;
+    function GetQ: TBytes;
+    function GetX: TBytes;
+    function GetY: TBytes;
+    procedure SetG(const Value: TBytes);
+    procedure SetP(const Value: TBytes);
+    procedure SetQ(const Value: TBytes);
+    procedure SetX(const Value: TBytes);
+    procedure SetY(const Value: TBytes);
+    function GetHasG: boolean;
+    function GetHasP: boolean;
+    function GetHasQ: boolean;
+    function GetHasX: boolean;
+    function GetHasY: boolean;
   public
     constructor create(obj : TJsonObject); overload;
-    constructor create(pkey : PRSA); overload;
+    constructor create(pkey : PRSA; loadPrivate : Boolean); overload;
+    constructor create(pkey : PDSA; loadPrivate : Boolean); overload;
     destructor Destroy; override;
     Property obj : TJsonObject read FObj write setObj;
 
     property keyType : String read GetKeyType write SetKeyType;
     property id : String read GetId write SetId;
 
-    property key : TBytes read GetKey write SetKey;
-    property publicKey : TBytes read GetPublicKey write SetPublicKey;
-    property exponent : TBytes read GetExponent write SetExponent;
-    property privateKey : TBytes read GetPrivateKey write SetPrivateKey;
+    // RSA
+    property key : TBytes read GetKey write SetKey; // k
+    property publicKey : TBytes read GetPublicKey write SetPublicKey; // n
+    property exponent : TBytes read GetExponent write SetExponent; // e
+    property privateKey : TBytes read GetPrivateKey write SetPrivateKey; // d
+
+    // DSA
+    property P : TBytes read GetP write SetP;
+    property Q : TBytes read GetQ write SetQ;
+    property G : TBytes read GetG write SetG;
+    property X : TBytes read GetX write SetX;
+    property Y : TBytes read GetY write SetY;
 
     property hasKey : boolean read GetHasKey;
     property hasPublicKey : boolean read GetHasPublicKey;
     property hasExponent : boolean read GetHasExponent;
     property hasPrivateKey : boolean read GetHasPrivateKey;
+    property hasP : boolean read GetHasP;
+    property hasQ : boolean read GetHasQ;
+    property hasG : boolean read GetHasG;
+    property hasX : boolean read GetHasX;
+    property hasY : boolean read GetHasY;
 
     procedure clearKey;
     procedure clearPublicKey;
     procedure clearExponent;
     procedure clearPrivateKey;
+
     function Load(privkey : boolean) : PRSA;
   end;
 
@@ -230,15 +260,18 @@ Type
 
   TJWTUtils = class (TAdvObject)
   private
-    class function loadPrivateKey(pemfile, pempassword : AnsiString) : PRSA;
-    class function loadPublicKey(pemfile : AnsiString) : PRSA;
+    class function loadRSAPrivateKey(pemfile, pempassword : AnsiString) : PRSA;
+    class function loadRSAPublicKey(pemfile : AnsiString) : PRSA;
+//    class function loadDSAPrivateKey(pemfile, pempassword : AnsiString) : PDSA;
+    class function loadDSAPublicKey(pemfile, pempassword : AnsiString) : PDSA;
 
     class function Sign_Hmac_SHA256(input : TBytes; key: TJWK) : TBytes;
     class procedure Verify_Hmac_SHA256(input : TBytes; sig : TBytes; key: TJWK);
     class function Sign_Hmac_RSA256(input : TBytes; key: TJWK) : TBytes; overload;
-    class function Sign_Hmac_RSA256(input : TBytes; pemfile, pempassword : AnsiString) : TBytes; overload;
     class procedure Verify_Hmac_RSA256(input : TBytes; sig : TBytes; header : TJsonObject; keys: TJWKList);
   public
+    class function Sign_Hmac_RSA256(input : TBytes; pemfile, pempassword : AnsiString) : TBytes; overload;
+
 
     // general use: pack a JWT using the key speciifed. No key needed if method = none
     class function pack(jwt : TJWT; method : TJWTAlgorithm; key : TJWK) : String; overload;
@@ -258,7 +291,8 @@ Type
     class function unpack(token : string; verify : boolean; keys : TJWKList) : TJWT;
 
     // load the publi key details from the provided filename
-    class function loadKeyFromCert(filename : String) : TJWK;
+    class function loadKeyFromRSACert(filename : AnsiString) : TJWK;
+    class function loadKeyFromDSACert(filename, password : AnsiString) : TJWK;
   end;
 
 implementation
@@ -357,7 +391,7 @@ begin
   FObj.clear('n');
 end;
 
-constructor TJWK.create(pkey: PRSA);
+constructor TJWK.create(pkey: PRSA; loadPrivate : Boolean);
 var
   b : TBytes;
 begin
@@ -395,14 +429,29 @@ begin
   result := JWTDeBase64URL(FObj.vStr['e']);
 end;
 
+function TJWK.GetG: TBytes;
+begin
+  result := JWTDeBase64URL(FObj.vStr['g']);
+end;
+
 function TJWK.GetHasExponent: boolean;
 begin
   result := FObj.has('e');
 end;
 
+function TJWK.GetHasG: boolean;
+begin
+  result := FObj.has('g');
+end;
+
 function TJWK.GetHasKey: boolean;
 begin
   result := FObj.has('k');
+end;
+
+function TJWK.GetHasP: boolean;
+begin
+  result := FObj.has('p');
 end;
 
 function TJWK.GetHasPrivateKey: boolean;
@@ -413,6 +462,21 @@ end;
 function TJWK.GetHasPublicKey: boolean;
 begin
   result := FObj.has('n');
+end;
+
+function TJWK.GetHasQ: boolean;
+begin
+  result := FObj.has('q');
+end;
+
+function TJWK.GetHasX: boolean;
+begin
+  result := FObj.has('x');
+end;
+
+function TJWK.GetHasY: boolean;
+begin
+  result := FObj.has('y');
 end;
 
 function TJWK.GetId: String;
@@ -430,6 +494,11 @@ begin
   result := FObj.vStr['kty'];
 end;
 
+function TJWK.GetP: TBytes;
+begin
+  result := JWTDeBase64URL(FObj.vStr['p']);
+end;
+
 function TJWK.GetPrivateKey: TBytes;
 begin
   result := JWTDeBase64URL(FObj.vStr['d']);
@@ -440,9 +509,29 @@ begin
   result := JWTDeBase64URL(FObj.vStr['n']);
 end;
 
+function TJWK.GetQ: TBytes;
+begin
+  result := JWTDeBase64URL(FObj.vStr['q']);
+end;
+
+function TJWK.GetX: TBytes;
+begin
+  result := JWTDeBase64URL(FObj.vStr['x']);
+end;
+
+function TJWK.GetY: TBytes;
+begin
+  result := JWTDeBase64URL(FObj.vStr['y']);
+end;
+
 procedure TJWK.SetExponent(const Value: TBytes);
 begin
   FObj.vStr['e'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
+end;
+
+procedure TJWK.SetG(const Value: TBytes);
+begin
+  FObj.vStr['g'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
 end;
 
 procedure TJWK.SetId(const Value: String);
@@ -466,6 +555,11 @@ begin
   FObj := Value;
 end;
 
+procedure TJWK.SetP(const Value: TBytes);
+begin
+  FObj.vStr['p'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
+end;
+
 procedure TJWK.SetPrivateKey(const Value: TBytes);
 begin
   FObj.vStr['d'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
@@ -474,6 +568,21 @@ end;
 procedure TJWK.SetPublicKey(const Value: TBytes);
 begin
   FObj.vStr['n'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
+end;
+
+procedure TJWK.SetQ(const Value: TBytes);
+begin
+  FObj.vStr['q'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
+end;
+
+procedure TJWK.SetX(const Value: TBytes);
+begin
+  FObj.vStr['x'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
+end;
+
+procedure TJWK.SetY(const Value: TBytes);
+begin
+  FObj.vStr['y'] := String(BytesAsAnsiString(JWTBase64URL(Value)));
 end;
 
 function TJWK.Load(privKey : boolean): PRSA;
@@ -501,6 +610,46 @@ begin
     result.d := BN_bin2bn(@b[0], length(b), nil);
   end;
 end;
+
+constructor TJWK.create(pkey: PDSA; loadPrivate : Boolean);
+var
+  b : TBytes;
+begin
+  create;
+  obj := TJsonObject.Create;
+  keyType := 'DSA';
+  if (pkey.p <> nil) then
+  begin
+    setlength(b,  BN_num_bytes(pKey.p));
+    BN_bn2bin(pkey.p, @b[0]);
+    P := b;
+  end;
+  if (pkey.q <> nil) then
+  begin
+    setlength(b,  BN_num_bytes(pKey.q));
+    BN_bn2bin(pkey.q, @b[0]);
+    Q := b;
+  end;
+  if (pkey.g <> nil) then
+  begin
+    setlength(b,  BN_num_bytes(pKey.g));
+    BN_bn2bin(pkey.g, @b[0]);
+    G := b;
+  end;
+  if (pkey.pub_key <> nil) then
+  begin
+    setlength(b,  BN_num_bytes(pKey.pub_key));
+    BN_bn2bin(pkey.pub_key, @b[0]);
+    Y := b;
+  end;
+  if loadPrivate and (pkey.priv_key <> nil) then
+  begin
+    setlength(b,  BN_num_bytes(pKey.priv_key));
+    BN_bn2bin(pkey.priv_key, @b[0]);
+    X := b;
+  end;
+end;
+
 
 { TJWKList }
 
@@ -934,19 +1083,31 @@ begin
 end;
 
 
-class function TJWTUtils.loadKeyFromCert(filename: String): TJWK;
+class function TJWTUtils.loadKeyFromRSACert(filename: AnsiString): TJWK;
 var
   key : PRSA;
 begin
-  key := PRSA(LoadPublicKey(AnsiString(filename)));
+  key := PRSA(LoadRSAPublicKey(filename));
   try
-    result := TJWK.create(key);
+    result := TJWK.create(key, false);
   finally
     RSA_free(key);
   end;
 end;
 
-class function TJWTUtils.loadPrivateKey(pemfile, pempassword: AnsiString): PRSA;
+class function TJWTUtils.loadKeyFromDSACert(filename, password: AnsiString): TJWK;
+var
+  key : PDSA;
+begin
+  key := PDSA(LoadDSAPublicKey(filename, password));
+  try
+    result := TJWK.create(key, true);
+  finally
+    DSA_free(key);
+  end;
+end;
+
+class function TJWTUtils.loadRSAPrivateKey(pemfile, pempassword: AnsiString): PRSA;
 var
   bp: pBIO;
   fn, pp: PAnsiChar;
@@ -962,7 +1123,23 @@ begin
     raise Exception.Create('Private key failure.' + GetSSLErrorMessage);
 end;
 
-class function TJWTUtils.loadPublicKey(pemfile: AnsiString) : PRSA;
+//class function TJWTUtils.loadDSAPrivateKey(pemfile, pempassword: AnsiString): PDSA;
+//var
+//  bp: pBIO;
+//  fn, pp: PAnsiChar;
+//  pk: PDSA;
+//begin
+//  fn := PAnsiChar(pemfile);
+//  pp := PAnsiChar(pempassword);
+//  bp := BIO_new(BIO_s_file());
+//  BIO_read_filename(bp, fn);
+//  pk := nil;
+//  result := PEM_read_bio_DSAPrivateKey(bp, @pk, nil, pp);
+//  if result = nil then
+//    raise Exception.Create('Private key failure.' + GetSSLErrorMessage);
+//end;
+//
+class function TJWTUtils.loadRSAPublicKey(pemfile: AnsiString) : PRSA;
 var
   bp: pBIO;
   fn: PAnsiChar;
@@ -986,6 +1163,22 @@ begin
   finally
     X509_free(xk);
   end;
+end;
+
+class function TJWTUtils.loadDSAPublicKey(pemfile, pempassword: AnsiString) : PDSA;
+var
+  bp: pBIO;
+  fn, pp: PAnsiChar;
+  pk: PDSA;
+begin
+  fn := PAnsiChar(pemfile);
+  pp := PAnsiChar(pempassword);
+  bp := BIO_new(BIO_s_file());
+  BIO_read_filename(bp, fn);
+  pk := nil;
+  result := PEM_read_bio_DSAPrivateKey(bp, @pk, nil, pp);
+  if result = nil then
+    raise Exception.Create('Private key failure.' + GetSSLErrorMessage);
 end;
 
 class function TJWTUtils.pack(header, payload: String; method: TJWTAlgorithm; key : TJWK): String;
@@ -1040,6 +1233,7 @@ var
   hb, pb : TBytes;
   h, p : TJsonObject;
 begin
+  result := nil;
   StringSplit(token, '.', header, payload);
   StringSplit(payload, '.', payload, sig);
   check(header <> '', 'Header not found reading JWT');
@@ -1089,7 +1283,7 @@ begin
   keys := TJWKList.create;
   try
     // 1. Load the RSA private Key from FKey
-    rkey := loadPrivateKey(pemfile, pempassword);
+    rkey := loadRSAPrivateKey(pemfile, pempassword);
     try
       pkey := EVP_PKEY_new;
       try
@@ -1110,7 +1304,7 @@ begin
       finally
         EVP_PKEY_free(pKey);
       end;
-      keys.Add(TJWK.create(rkey));
+      keys.Add(TJWK.create(rkey, false));
     finally
       RSA_free(rkey);
     end;

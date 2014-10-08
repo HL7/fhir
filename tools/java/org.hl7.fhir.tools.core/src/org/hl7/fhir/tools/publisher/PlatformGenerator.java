@@ -143,4 +143,31 @@ public interface PlatformGenerator {
    * @return
    */
   public boolean wantListAsDownload();
+  
+  /** 
+   * find out whether the reference implementation supports the sign and verify
+   *  
+   * @return
+   */
+  public boolean canSign();
+
+  /**
+   * Sign a provenance resource or an atom feed
+   * 
+   * @param filename - the file name to sign
+   * @param atom - whether this is an atome feed or a provenance resource
+   * @param type - which type of certificate to use (rsa, dsa, or ecdsa)
+   * 
+   * @throws Exception
+   */
+  public void sign(String filename, boolean atom, String type) throws Exception;
+  
+  /**
+   * Verify that the provenance resource or an atom feed has a valid signature
+   * 
+   * @param filename - name of the file or bundle (xml or json)
+   * @throws Exception 
+   */
+  public void verify(String filename) throws Exception;
+  
 }

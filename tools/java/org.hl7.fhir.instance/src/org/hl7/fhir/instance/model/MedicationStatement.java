@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -332,14 +332,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #patient} (The actual object that is the target of the reference. The person or animal who is /was taking the medication.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or animal who is /was taking the medication.)
      */
     public Patient getPatientTarget() { 
       return this.patientTarget;
     }
 
     /**
-     * @param value {@link #patient} (The actual object that is the target of the reference. The person or animal who is /was taking the medication.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or animal who is /was taking the medication.)
      */
     public MedicationStatement setPatientTarget(Patient value) { 
       this.patientTarget = value;
@@ -347,16 +347,16 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT taken.)
+     * @return {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT taken.). This is the underlying object with id, value and extensions. The accessor "getWasNotGiven" gives direct access to the value
      */
-    public BooleanType getWasNotGiven() { 
+    public BooleanType getWasNotGivenObject() { 
       return this.wasNotGiven;
     }
 
     /**
-     * @param value {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT taken.)
+     * @param value {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT taken.). This is the underlying object with id, value and extensions. The accessor "getWasNotGiven" gives direct access to the value
      */
-    public MedicationStatement setWasNotGiven(BooleanType value) { 
+    public MedicationStatement setWasNotGivenObject(BooleanType value) { 
       this.wasNotGiven = value;
       return this;
     }
@@ -364,14 +364,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return Set this to true if the record is saying that the medication was NOT taken.
      */
-    public boolean getWasNotGivenSimple() { 
+    public boolean getWasNotGiven() { 
       return this.wasNotGiven == null ? false : this.wasNotGiven.getValue();
     }
 
     /**
      * @param value Set this to true if the record is saying that the medication was NOT taken.
      */
-    public MedicationStatement setWasNotGivenSimple(boolean value) { 
+    public MedicationStatement setWasNotGiven(boolean value) { 
       if (value == false)
         this.wasNotGiven = null;
       else {
@@ -430,14 +430,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #medication} (The actual object that is the target of the reference. Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     * @return {@link #medication} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
     public Medication getMedicationTarget() { 
       return this.medicationTarget;
     }
 
     /**
-     * @param value {@link #medication} (The actual object that is the target of the reference. Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     * @param value {@link #medication} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
     public MedicationStatement setMedicationTarget(Medication value) { 
       this.medicationTarget = value;
@@ -462,7 +462,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #device} (The actual objects that are the target of the reference. An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
+     * @return {@link #device} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
      */
     public List<Device> getDeviceTarget() { 
       return this.deviceTarget;
@@ -470,7 +470,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
     // syntactic sugar
     /**
-     * @return {@link #device} (Add an actual object that is the target of the reference. An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
+     * @return {@link #device} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
      */
     public Device addDeviceTarget() { 
       Device r = new Device();

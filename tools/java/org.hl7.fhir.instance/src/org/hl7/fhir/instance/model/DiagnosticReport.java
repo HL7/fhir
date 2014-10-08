@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,46 +39,46 @@ import java.util.*;
 public class DiagnosticReport extends Resource {
 
     public enum DiagnosticReportStatus {
-        registered, // The existence of the report is registered, but there is nothing yet available.
-        partial, // This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.
-        final_, // The report is complete and verified by an authorized person.
-        corrected, // The report has been modified subsequent to being Final, and is complete and verified by an authorized person.
-        amended, // The report has been modified subsequent to being Final, and is complete and verified by an authorized person, and data has been changed.
-        appended, // The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.
-        cancelled, // The report is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
-        enteredInError, // The report has been withdrawn following previous Final release.
-        Null; // added to help the parsers
+        REGISTERED, // The existence of the report is registered, but there is nothing yet available.
+        PARTIAL, // This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.
+        FINAL, // The report is complete and verified by an authorized person.
+        CORRECTED, // The report has been modified subsequent to being Final, and is complete and verified by an authorized person.
+        AMENDED, // The report has been modified subsequent to being Final, and is complete and verified by an authorized person, and data has been changed.
+        APPENDED, // The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.
+        CANCELLED, // The report is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
+        ENTEREDINERROR, // The report has been withdrawn following previous Final release.
+        NULL; // added to help the parsers
         public static DiagnosticReportStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("registered".equals(codeString))
-          return registered;
+          return REGISTERED;
         if ("partial".equals(codeString))
-          return partial;
+          return PARTIAL;
         if ("final".equals(codeString))
-          return final_;
+          return FINAL;
         if ("corrected".equals(codeString))
-          return corrected;
+          return CORRECTED;
         if ("amended".equals(codeString))
-          return amended;
+          return AMENDED;
         if ("appended".equals(codeString))
-          return appended;
+          return APPENDED;
         if ("cancelled".equals(codeString))
-          return cancelled;
+          return CANCELLED;
         if ("entered in error".equals(codeString))
-          return enteredInError;
+          return ENTEREDINERROR;
         throw new Exception("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case registered: return "registered";
-            case partial: return "partial";
-            case final_: return "final";
-            case corrected: return "corrected";
-            case amended: return "amended";
-            case appended: return "appended";
-            case cancelled: return "cancelled";
-            case enteredInError: return "entered in error";
+            case REGISTERED: return "registered";
+            case PARTIAL: return "partial";
+            case FINAL: return "final";
+            case CORRECTED: return "corrected";
+            case AMENDED: return "amended";
+            case APPENDED: return "appended";
+            case CANCELLED: return "cancelled";
+            case ENTEREDINERROR: return "entered in error";
             default: return "?";
           }
         }
@@ -90,39 +90,39 @@ public class DiagnosticReport extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("registered".equals(codeString))
-          return DiagnosticReportStatus.registered;
+          return DiagnosticReportStatus.REGISTERED;
         if ("partial".equals(codeString))
-          return DiagnosticReportStatus.partial;
+          return DiagnosticReportStatus.PARTIAL;
         if ("final".equals(codeString))
-          return DiagnosticReportStatus.final_;
+          return DiagnosticReportStatus.FINAL;
         if ("corrected".equals(codeString))
-          return DiagnosticReportStatus.corrected;
+          return DiagnosticReportStatus.CORRECTED;
         if ("amended".equals(codeString))
-          return DiagnosticReportStatus.amended;
+          return DiagnosticReportStatus.AMENDED;
         if ("appended".equals(codeString))
-          return DiagnosticReportStatus.appended;
+          return DiagnosticReportStatus.APPENDED;
         if ("cancelled".equals(codeString))
-          return DiagnosticReportStatus.cancelled;
+          return DiagnosticReportStatus.CANCELLED;
         if ("entered in error".equals(codeString))
-          return DiagnosticReportStatus.enteredInError;
+          return DiagnosticReportStatus.ENTEREDINERROR;
         throw new Exception("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == DiagnosticReportStatus.registered)
+      if (code == DiagnosticReportStatus.REGISTERED)
         return "registered";
-      if (code == DiagnosticReportStatus.partial)
+      if (code == DiagnosticReportStatus.PARTIAL)
         return "partial";
-      if (code == DiagnosticReportStatus.final_)
+      if (code == DiagnosticReportStatus.FINAL)
         return "final";
-      if (code == DiagnosticReportStatus.corrected)
+      if (code == DiagnosticReportStatus.CORRECTED)
         return "corrected";
-      if (code == DiagnosticReportStatus.amended)
+      if (code == DiagnosticReportStatus.AMENDED)
         return "amended";
-      if (code == DiagnosticReportStatus.appended)
+      if (code == DiagnosticReportStatus.APPENDED)
         return "appended";
-      if (code == DiagnosticReportStatus.cancelled)
+      if (code == DiagnosticReportStatus.CANCELLED)
         return "cancelled";
-      if (code == DiagnosticReportStatus.enteredInError)
+      if (code == DiagnosticReportStatus.ENTEREDINERROR)
         return "entered in error";
       return "?";
       }
@@ -156,16 +156,16 @@ public class DiagnosticReport extends Resource {
       }
 
         /**
-         * @return {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.)
+         * @return {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public StringType getComment() { 
+        public StringType getCommentObject() { 
           return this.comment;
         }
 
         /**
-         * @param value {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.)
+         * @param value {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public DiagnosticReportImageComponent setComment(StringType value) { 
+        public DiagnosticReportImageComponent setCommentObject(StringType value) { 
           this.comment = value;
           return this;
         }
@@ -173,14 +173,14 @@ public class DiagnosticReport extends Resource {
         /**
          * @return A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
-        public String getCommentSimple() { 
+        public String getComment() { 
           return this.comment == null ? null : this.comment.getValue();
         }
 
         /**
          * @param value A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
-        public DiagnosticReportImageComponent setCommentSimple(String value) { 
+        public DiagnosticReportImageComponent setComment(String value) { 
           if (value == null)
             this.comment = null;
           else {
@@ -207,14 +207,14 @@ public class DiagnosticReport extends Resource {
         }
 
         /**
-         * @return {@link #link} (The actual object that is the target of the reference. Reference to the image source.)
+         * @return {@link #link} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the image source.)
          */
         public Media getLinkTarget() { 
           return this.linkTarget;
         }
 
         /**
-         * @param value {@link #link} (The actual object that is the target of the reference. Reference to the image source.)
+         * @param value {@link #link} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the image source.)
          */
         public DiagnosticReportImageComponent setLinkTarget(Media value) { 
           this.linkTarget = value;
@@ -378,16 +378,16 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #status} (The status of the diagnostic report as a whole.)
+     * @return {@link #status} (The status of the diagnostic report as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DiagnosticReportStatus> getStatus() { 
+    public Enumeration<DiagnosticReportStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The status of the diagnostic report as a whole.)
+     * @param value {@link #status} (The status of the diagnostic report as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DiagnosticReport setStatus(Enumeration<DiagnosticReportStatus> value) { 
+    public DiagnosticReport setStatusObject(Enumeration<DiagnosticReportStatus> value) { 
       this.status = value;
       return this;
     }
@@ -395,14 +395,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return The status of the diagnostic report as a whole.
      */
-    public DiagnosticReportStatus getStatusSimple() { 
+    public DiagnosticReportStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the diagnostic report as a whole.
      */
-    public DiagnosticReport setStatusSimple(DiagnosticReportStatus value) { 
+    public DiagnosticReport setStatus(DiagnosticReportStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<DiagnosticReportStatus>();
         this.status.setValue(value);
@@ -410,16 +410,16 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #issued} (The date and/or time that this version of the report was released from the source diagnostic service.)
+     * @return {@link #issued} (The date and/or time that this version of the report was released from the source diagnostic service.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public DateTimeType getIssued() { 
+    public DateTimeType getIssuedObject() { 
       return this.issued;
     }
 
     /**
-     * @param value {@link #issued} (The date and/or time that this version of the report was released from the source diagnostic service.)
+     * @param value {@link #issued} (The date and/or time that this version of the report was released from the source diagnostic service.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public DiagnosticReport setIssued(DateTimeType value) { 
+    public DiagnosticReport setIssuedObject(DateTimeType value) { 
       this.issued = value;
       return this;
     }
@@ -427,14 +427,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return The date and/or time that this version of the report was released from the source diagnostic service.
      */
-    public DateAndTime getIssuedSimple() { 
+    public DateAndTime getIssued() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
      * @param value The date and/or time that this version of the report was released from the source diagnostic service.
      */
-    public DiagnosticReport setIssuedSimple(DateAndTime value) { 
+    public DiagnosticReport setIssued(DateAndTime value) { 
         if (this.issued == null)
           this.issued = new DateTimeType();
         this.issued.setValue(value);
@@ -457,14 +457,14 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
      */
     public DiagnosticReport setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -487,14 +487,14 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #performer} (The actual object that is the target of the reference. The diagnostic service that is responsible for issuing the report.)
+     * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The diagnostic service that is responsible for issuing the report.)
      */
     public Resource getPerformerTarget() { 
       return this.performerTarget;
     }
 
     /**
-     * @param value {@link #performer} (The actual object that is the target of the reference. The diagnostic service that is responsible for issuing the report.)
+     * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The diagnostic service that is responsible for issuing the report.)
      */
     public DiagnosticReport setPerformerTarget(Resource value) { 
       this.performerTarget = value;
@@ -534,7 +534,7 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #requestDetail} (The actual objects that are the target of the reference. Details concerning a test requested.)
+     * @return {@link #requestDetail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Details concerning a test requested.)
      */
     public List<DiagnosticOrder> getRequestDetailTarget() { 
       return this.requestDetailTarget;
@@ -542,7 +542,7 @@ public class DiagnosticReport extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #requestDetail} (Add an actual object that is the target of the reference. Details concerning a test requested.)
+     * @return {@link #requestDetail} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Details concerning a test requested.)
      */
     public DiagnosticOrder addRequestDetailTarget() { 
       DiagnosticOrder r = new DiagnosticOrder();
@@ -598,7 +598,7 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #specimen} (The actual objects that are the target of the reference. Details about the specimens on which this Disagnostic report is based.)
+     * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Details about the specimens on which this Disagnostic report is based.)
      */
     public List<Specimen> getSpecimenTarget() { 
       return this.specimenTarget;
@@ -606,7 +606,7 @@ public class DiagnosticReport extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #specimen} (Add an actual object that is the target of the reference. Details about the specimens on which this Disagnostic report is based.)
+     * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Details about the specimens on which this Disagnostic report is based.)
      */
     public Specimen addSpecimenTarget() { 
       Specimen r = new Specimen();
@@ -632,7 +632,7 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #result} (The actual objects that are the target of the reference. Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
+     * @return {@link #result} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
     public List<Observation> getResultTarget() { 
       return this.resultTarget;
@@ -640,7 +640,7 @@ public class DiagnosticReport extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #result} (Add an actual object that is the target of the reference. Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
+     * @return {@link #result} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
     public Observation addResultTarget() { 
       Observation r = new Observation();
@@ -666,7 +666,7 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #imagingStudy} (The actual objects that are the target of the reference. One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
+     * @return {@link #imagingStudy} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
     public List<ImagingStudy> getImagingStudyTarget() { 
       return this.imagingStudyTarget;
@@ -674,7 +674,7 @@ public class DiagnosticReport extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #imagingStudy} (Add an actual object that is the target of the reference. One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
+     * @return {@link #imagingStudy} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
     public ImagingStudy addImagingStudyTarget() { 
       ImagingStudy r = new ImagingStudy();
@@ -700,16 +700,16 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.)
+     * @return {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getConclusion" gives direct access to the value
      */
-    public StringType getConclusion() { 
+    public StringType getConclusionObject() { 
       return this.conclusion;
     }
 
     /**
-     * @param value {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.)
+     * @param value {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getConclusion" gives direct access to the value
      */
-    public DiagnosticReport setConclusion(StringType value) { 
+    public DiagnosticReport setConclusionObject(StringType value) { 
       this.conclusion = value;
       return this;
     }
@@ -717,14 +717,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return Concise and clinically contextualized narrative interpretation of the diagnostic report.
      */
-    public String getConclusionSimple() { 
+    public String getConclusion() { 
       return this.conclusion == null ? null : this.conclusion.getValue();
     }
 
     /**
      * @param value Concise and clinically contextualized narrative interpretation of the diagnostic report.
      */
-    public DiagnosticReport setConclusionSimple(String value) { 
+    public DiagnosticReport setConclusion(String value) { 
       if (value == null)
         this.conclusion = null;
       else {

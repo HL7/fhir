@@ -114,10 +114,10 @@ public class ProfileTagger implements Tagger {
 			Profile p = validator.getWorkerContext().getProfiles().get(n).getResource();
 
 			try {
-				if (p.getUrlSimple() != null && !p.getUrlSimple().equals("http://hl7.org/fhir/profile/"+doc.getDocumentElement().getLocalName().toLowerCase())) {
+				if (p.getUrl() != null && !p.getUrl().equals("http://hl7.org/fhir/profile/"+doc.getDocumentElement().getLocalName().toLowerCase())) {
 					boolean valid = check(doc, p, null);
 					if (valid) 
-						added.add(new AtomCategory("http://hl7.org/fhir/tag/profile", n, "Profile "+p.getNameSimple()));
+						added.add(new AtomCategory("http://hl7.org/fhir/tag/profile", n, "Profile "+p.getName()));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -131,7 +131,7 @@ public class ProfileTagger implements Tagger {
 	  validator.validateInstanceByProfile(errors, doc.getDocumentElement(), p);
 	  int i = 0;
 	  for (ValidationMessage e : errors) {
-	  	if (e.getLevel() == IssueSeverity.error || e.getLevel() == IssueSeverity.fatal) {
+	  	if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
 	  		i++;
 	  	  if (id != null)
 	  		  System.out.println(id+": "+e.getLevel().toCode()+" - "+e.getMessage()+" (@"+e.getLocation()+")");

@@ -83,7 +83,9 @@ public class BindingsParser {
 	    cd.setId(registry.idForName(cd.getName()));
 	    cd.setSource(filename);
 	    cd.setUri(sheet.getColumn(row, "Uri"));
-	    cd.setOid(sheet.getColumn(row, "Oid"));
+	    String oid = sheet.getColumn(row, "Oid");
+	    if (!Utilities.noString(oid))
+	      cd.setVsOid(oid); // no cs oid in this case
 	    cd.setWebSite(sheet.getColumn(row, "Website"));
 	    cd.setEmail(sheet.getColumn(row, "Email"));
 	    cd.setV2Map(sheet.getColumn(row, "v2"));

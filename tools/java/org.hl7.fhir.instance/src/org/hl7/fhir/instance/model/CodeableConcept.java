@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -72,16 +72,16 @@ public class CodeableConcept extends Type {
     }
 
     /**
-     * @return {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.)
+     * @return {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public StringType getText() { 
+    public StringType getTextObject() { 
       return this.text;
     }
 
     /**
-     * @param value {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.)
+     * @param value {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public CodeableConcept setText(StringType value) { 
+    public CodeableConcept setTextObject(StringType value) { 
       this.text = value;
       return this;
     }
@@ -89,14 +89,14 @@ public class CodeableConcept extends Type {
     /**
      * @return A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.
      */
-    public String getTextSimple() { 
+    public String getText() { 
       return this.text == null ? null : this.text.getValue();
     }
 
     /**
      * @param value A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.
      */
-    public CodeableConcept setTextSimple(String value) { 
+    public CodeableConcept setText(String value) { 
       if (value == null)
         this.text = null;
       else {

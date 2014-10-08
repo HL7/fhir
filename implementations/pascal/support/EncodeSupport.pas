@@ -4,27 +4,27 @@ Unit EncodeSupport;
 Copyright (c) 2001-2013, Kestral Computing Pty Ltd (http://www.kestral.com.au)
 All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification, 
+Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
- * Redistributions of source code must retain the above copyright notice, this 
+ * Redistributions of source code must retain the above copyright notice, this
    list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, 
-   this list of conditions and the following disclaimer in the documentation 
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
- * Neither the name of HL7 nor the names of its contributors may be used to 
-   endorse or promote products derived from this software without specific 
+ * Neither the name of HL7 nor the names of its contributors may be used to
+   endorse or promote products derived from this software without specific
    prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 }
 
@@ -35,13 +35,18 @@ Uses
   SysUtils,
   StringSupport, MathSupport;
 
+Type
+  TXmlEncodingMode = (xmlText, xmlAttribute);
+
+  TEolnOption = (eolnIgnore, eolnCanonical, eolnEscape);
+
 Function EncodeNYSIIS(Const sValue : String) : String;
 {
 Function EncodeBase64(Const sValue : TBytes) : AnsiString; Overload;
 Function DecodeBase64(Const sValue : AnsiString) : TBytes; Overload;
 }
 
-Function EncodeXML(Const sValue : String; bEoln : Boolean = True) : String; Overload;
+Function EncodeXML(Const sValue : String; mode : TXmlEncodingMode; eoln : TEolnOption = eolnIgnore) : String; Overload;
 Function DecodeXML(Const sValue : String) : String; Overload;
 Function EncodeQuotedString(Const sValue : String; Const cQuote : Char) : String; Overload;
 Function EncodeMIME(Const sValue : String) : String; Overload;
@@ -391,7 +396,7 @@ Begin
 End;
 
 
-Function EncodeXML(Const sValue : String; bEoln : Boolean = True) : String;
+Function EncodeXML(Const sValue : String; mode : TXmlEncodingMode; eoln : TEolnOption = eolnIgnore) : String;
 Var
   iLoop : Integer;
   cValue : Char;
@@ -404,16 +409,38 @@ Begin
 
     Case cValue Of
       #10, #13:
-      If bEoln Then
-        Begin
+      if (mode = xmlAttribute) or (cValue = #13) then
+      Begin
+        Delete(Result, iLoop, 1);
+        Insert('&#x' + IntToHex(Ord(cValue), 1) + ';', Result, iLoop);
+        Inc(iLoop, 4);
+      End
+      else
+      case eoln of
+        eolnIgnore : Inc(iLoop);
+        eolnEscape :
+          Begin
           Delete(Result, iLoop, 1);
-          Insert('&#x' + IntToHex(Ord(cValue), 2) + ';', Result, iLoop);
-          Inc(iLoop, 5);
-        End
-      Else
-        Inc(iLoop);
+          Insert('&#x' + IntToHex(Ord(cValue), 1) + ';', Result, iLoop);
+          Inc(iLoop, 4);
+          End
+      else //
+        if cValue = #13 then
+          Delete(Result, iLoop, 1)
+         else
+           Inc(iLoop);
+      end;
 
-      #0..#9, #11..#12, #14..#31, #127..#255 :
+      #9 : if mode <> xmlAttribute then
+            Inc(iLoop)
+          else
+          begin
+            Delete(Result, iLoop, 1);
+            Insert('&#x9;', Result, iLoop);
+            Inc(iLoop, 4);
+          End;
+
+      #0..#8, #11..#12, #14..#31{, #127..#255} :
       Begin
         Delete(Result, iLoop, 1);
         Insert('&#x' + IntToHex(Ord(cValue), 2) + ';', Result, iLoop);
@@ -427,12 +454,23 @@ Begin
         Inc(iLoop, 4);
       End;
 
-      '>':
-      Begin
-        Delete(Result, iLoop, 1);
-        Insert('&gt;', Result, iLoop);
-        Inc(iLoop, 4);
-      End;
+      '>': if mode = xmlAttribute then
+             Inc(iLoop)
+           else
+           Begin
+             Delete(Result, iLoop, 1);
+             Insert('&gt;', Result, iLoop);
+             Inc(iLoop, 4);
+           End;
+
+      '"' :if mode <> xmlAttribute then
+             Inc(iLoop)
+           else
+           Begin
+             Delete(Result, iLoop, 1);
+             Insert('&quot;', Result, iLoop);
+             Inc(iLoop, 6);
+           End;
 
       '&':
       Begin
@@ -503,13 +541,13 @@ Begin
         sEncodedDec := '0x'+copy(sPrefixedEncodedDec, 4, length(sPrefixedEncodedDec));
         iEncodedDec := StringToInteger32(sEncodedDec);
         iValue := iEncodedDec;
-        Delete(Result, iLoop, Length(sPrefixedEncodedDec) + 4);
+        Delete(Result, iLoop, Length(sPrefixedEncodedDec) + 1);
         Insert(Char(iValue), Result, iLoop);
       End
       Else If StringEquals(pValue, '&#', 2) Then
       Begin
         StringSplit(pValue, ';', sPrefixedEncodedDec, sRemainder);
-        sEncodedDec := StringTruncateStart(sPrefixedEncodedDec, 2);
+        sEncodedDec := sPrefixedEncodedDec.substring(2);
 
         iEncodedDec := StringToInteger32(sEncodedDec);
 

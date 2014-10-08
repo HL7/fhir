@@ -40,7 +40,7 @@ Uses
 Type
   TAdvXMLFormatter = Class(TAdvTextFormatter)
     Private
-      FAttributes : TAdvXMLAttributeMatch;
+      FAttributes : TAdvXMLAttributeList;
       FBuilder : TAdvStringBuilder;
       FLine : integer;
       FCol : integer;
@@ -52,7 +52,6 @@ Type
       procedure commitPending;
     Protected
       Function UseAttributes : String;
-      Function EncodeAttribute(Const sValue : String) : String;
 
       Procedure ProducePretty(sValue : String);
     Public
@@ -67,15 +66,17 @@ Type
       Procedure ProduceOpen(Const sName : String);
       Procedure ProduceClose(Const sName : String);
       Procedure ProduceTag(Const sName : String);
+      Procedure ProducePI(Const sName, sText : String);
       Procedure ProduceText(Const sName, sValue : String); Overload;
       Procedure ProduceTextNoEscapeEoln(Const sName, sValue: String);
-      Procedure ProduceText(Const sValue : String); Overload;
+      Procedure ProduceText(Const sValue : String; processing : TEolnOption = eolnEscape); Overload;
       Procedure ProduceComment(Const sComment : String);
+      Procedure ProduceCData(Const sText : String);
 
-      Procedure AddAttribute(Const sName, sValue : String);
+      Procedure AddAttribute(Const sName, sValue : String; sNs : String = ''); // ns is only used for sorting in canonical mode
       Procedure AddNamespace(Const sAbbreviation, sURI : String);
 
-      Property Attributes : TAdvXMLAttributeMatch Read FAttributes;
+      Property Attributes : TAdvXMLAttributeList Read FAttributes;
       property Line : integer read FLine;
       property Col : integer read FCol;
       property NoDense : Boolean read FNoDense write FNoDense;
@@ -86,11 +87,11 @@ Implementation
 
 
 Constructor TAdvXMLFormatter.Create;
-Begin 
+Begin
   Inherited;
 
   FBuilder := TAdvStringBuilder.Create;
-  FAttributes := TAdvXMLAttributeMatch.Create;
+  FAttributes := TAdvXMLAttributeList.Create;
   FLine := 1;
   FCol := 0;
   FLastText := true;
@@ -153,6 +154,14 @@ Begin
 End;  
 
 
+procedure TAdvXMLFormatter.ProduceCData(const sText: String);
+begin
+  commitPending;
+
+  FLastText := false;
+  ProducePretty('<![CDATA[' + sText + ']]>');
+end;
+
 Procedure TAdvXMLFormatter.ProduceClose(Const sName: String);
 Begin 
   Assert(Condition(sName <> '', 'ProduceClose', 'Close tag name must be specified.'));
@@ -176,7 +185,7 @@ Begin
   commitPending;
 
   FLastText := false;
-  ProducePretty('<' + sName + UseAttributes + '>' + EncodeXML(sValue, False) + '</' + sName + '>');
+  ProducePretty('<' + sName + UseAttributes + '>' + EncodeXML(sValue, xmlText) + '</' + sName + '>');
 End;
 
 
@@ -207,17 +216,20 @@ Begin
 
   commitPending;
   FLastText := false;
-  ProducePretty('<' + sName + UseAttributes + '>' + EncodeXML(sValue) + '</' + sName + '>');
+  ProducePretty('<' + sName + UseAttributes + '>' + EncodeXML(sValue, xmlText) + '</' + sName + '>');
 End;
 
 
-Procedure TAdvXMLFormatter.ProduceText(Const sValue: String);
+Procedure TAdvXMLFormatter.ProduceText(Const sValue: String; processing : TEolnOption = eolnEscape);
 var
   s : String;
-Begin 
+Begin
+  if sValue = '' then
+    exit;
+
   commitPending;
 
-  s := EncodeXML(sValue);
+  s := EncodeXML(sValue, xmlText, processing);
   Produce(s); // no pretty - might be a sequence of text
   updateForText(s);
   FLastText := true;
@@ -244,56 +256,55 @@ Begin
 End;
 
 
-Function TAdvXMLFormatter.EncodeAttribute(Const sValue : String) : String;
-Var
-  iLoop : Integer;
-Begin
-  FBuilder.Clear;
-
-  For iLoop := 1 To Length(sValue) Do
-  Begin
-    Case sValue[iLoop] Of
-      #0..#31, #127..#255 : FBuilder.Append('&#x' + inttohex(Ord(sValue[iLoop]), 2) + ';');
-      '<' : FBuilder.Append('&lt;');
-      '>' : FBuilder.Append('&gt;');
-      '&' : FBuilder.Append('&amp;');
-      '"' : FBuilder.Append('&quot;');
-    Else if ord(sValue[iLoop]) > 255 Then
-      FBuilder.Append('&#x' + inttohex(Ord(sValue[iLoop]), 4) + ';')
-    Else
-      FBuilder.Append(sValue[iLoop]);
-    End;
-  End;
-
-  Result := FBuilder.AsString;
-End;
-
-
 Function TAdvXMLFormatter.UseAttributes : String;
 Var
   iLoop : Integer;
 Begin
   Result := '';
   For iLoop := 0 To FAttributes.Count - 1 Do
-    Result := Result + SysUtils.Format(' %s="%s"', [FAttributes.KeyByIndex[iLoop], EncodeAttribute(FAttributes.ValueByIndex[iLoop])]);
+    Result := Result + SysUtils.Format(' %s="%s"', [FAttributes[iLoop].Name, EncodeXml(FAttributes[iLoop].Value, xmlAttribute)]);
 
   FAttributes.Clear;
 End;
 
 
-Procedure TAdvXMLFormatter.AddAttribute(Const sName, sValue : String);
+Procedure TAdvXMLFormatter.AddAttribute(Const sName, sValue : String; sNs : String = '');
+var
+  attr : TAdvXMLAttribute;
 Begin
-  FAttributes.SetValueByKey(sName, sValue);
+  attr := TAdvXMLAttribute.Create;
+  try
+    attr.Name := sName;
+    attr.Value := sValue;
+    if sNs <> '' then
+      attr.SortKey := sNs+#1+sName;
+    FAttributes.Add(Attr.Link);
+  finally
+    attr.Free;
+  end;
 End;
 
 
 Procedure TAdvXMLFormatter.AddNamespace(Const sAbbreviation, sURI : String);
 Begin
   If sAbbreviation = '' Then
-    AddAttribute('xmlns', sURI)
+    AddAttribute('xmlns', sURI, #0)
   Else
-    AddAttribute('xmlns:' + sAbbreviation, sURI)
+    AddAttribute('xmlns:' + sAbbreviation, sURI, #0);
 End;
+
+procedure TAdvXMLFormatter.ProducePI(const sName, sText: String);
+begin
+  Assert(Condition(sName <> '', 'ProducePI', 'PI name must be specified.'));
+  commitPending;
+
+  FLastText := false;
+
+  if sText <> '' then
+    ProducePretty('<?' + sName + ' ' + sText+ '?>')
+  else
+    ProducePretty('<?' + sName + UseAttributes + sText+ '?>');
+end;
 
 procedure TAdvXMLFormatter.ProducePretty(sValue: String);
 var

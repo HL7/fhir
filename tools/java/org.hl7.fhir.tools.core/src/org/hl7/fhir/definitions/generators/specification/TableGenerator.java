@@ -8,11 +8,9 @@ import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Cell;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Piece;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
-import org.hl7.fhir.utilities.xhtml.genImage;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Cell;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
 
 public class TableGenerator extends BaseGenerator {
   protected String dest; 

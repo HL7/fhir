@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,34 +39,34 @@ import java.util.*;
 public class Encounter extends Resource {
 
     public enum EncounterState {
-        planned, // The Encounter has not yet started.
-        inProgress, // The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
-        onleave, // The Encounter has begun, but the patient is temporarily on leave.
-        finished, // The Encounter has ended.
-        cancelled, // The Encounter has ended before it has begun.
-        Null; // added to help the parsers
+        PLANNED, // The Encounter has not yet started.
+        INPROGRESS, // The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
+        ONLEAVE, // The Encounter has begun, but the patient is temporarily on leave.
+        FINISHED, // The Encounter has ended.
+        CANCELLED, // The Encounter has ended before it has begun.
+        NULL; // added to help the parsers
         public static EncounterState fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("planned".equals(codeString))
-          return planned;
+          return PLANNED;
         if ("in progress".equals(codeString))
-          return inProgress;
+          return INPROGRESS;
         if ("onleave".equals(codeString))
-          return onleave;
+          return ONLEAVE;
         if ("finished".equals(codeString))
-          return finished;
+          return FINISHED;
         if ("cancelled".equals(codeString))
-          return cancelled;
+          return CANCELLED;
         throw new Exception("Unknown EncounterState code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case planned: return "planned";
-            case inProgress: return "in progress";
-            case onleave: return "onleave";
-            case finished: return "finished";
-            case cancelled: return "cancelled";
+            case PLANNED: return "planned";
+            case INPROGRESS: return "in progress";
+            case ONLEAVE: return "onleave";
+            case FINISHED: return "finished";
+            case CANCELLED: return "cancelled";
             default: return "?";
           }
         }
@@ -78,73 +78,73 @@ public class Encounter extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("planned".equals(codeString))
-          return EncounterState.planned;
+          return EncounterState.PLANNED;
         if ("in progress".equals(codeString))
-          return EncounterState.inProgress;
+          return EncounterState.INPROGRESS;
         if ("onleave".equals(codeString))
-          return EncounterState.onleave;
+          return EncounterState.ONLEAVE;
         if ("finished".equals(codeString))
-          return EncounterState.finished;
+          return EncounterState.FINISHED;
         if ("cancelled".equals(codeString))
-          return EncounterState.cancelled;
+          return EncounterState.CANCELLED;
         throw new Exception("Unknown EncounterState code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == EncounterState.planned)
+      if (code == EncounterState.PLANNED)
         return "planned";
-      if (code == EncounterState.inProgress)
+      if (code == EncounterState.INPROGRESS)
         return "in progress";
-      if (code == EncounterState.onleave)
+      if (code == EncounterState.ONLEAVE)
         return "onleave";
-      if (code == EncounterState.finished)
+      if (code == EncounterState.FINISHED)
         return "finished";
-      if (code == EncounterState.cancelled)
+      if (code == EncounterState.CANCELLED)
         return "cancelled";
       return "?";
       }
     }
 
     public enum EncounterClass {
-        inpatient, // An encounter during which the patient is hospitalized and stays overnight.
-        outpatient, // An encounter during which the patient is not hospitalized overnight.
-        ambulatory, // An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.
-        emergency, // An encounter where the patient needs urgent care.
-        home, // An encounter where the practitioner visits the patient at his/her home.
-        field, // An encounter taking place outside the regular environment for giving care.
-        daytime, // An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.
-        virtual, // An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.
-        Null; // added to help the parsers
+        INPATIENT, // An encounter during which the patient is hospitalized and stays overnight.
+        OUTPATIENT, // An encounter during which the patient is not hospitalized overnight.
+        AMBULATORY, // An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.
+        EMERGENCY, // An encounter where the patient needs urgent care.
+        HOME, // An encounter where the practitioner visits the patient at his/her home.
+        FIELD, // An encounter taking place outside the regular environment for giving care.
+        DAYTIME, // An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.
+        VIRTUAL, // An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.
+        NULL; // added to help the parsers
         public static EncounterClass fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("inpatient".equals(codeString))
-          return inpatient;
+          return INPATIENT;
         if ("outpatient".equals(codeString))
-          return outpatient;
+          return OUTPATIENT;
         if ("ambulatory".equals(codeString))
-          return ambulatory;
+          return AMBULATORY;
         if ("emergency".equals(codeString))
-          return emergency;
+          return EMERGENCY;
         if ("home".equals(codeString))
-          return home;
+          return HOME;
         if ("field".equals(codeString))
-          return field;
+          return FIELD;
         if ("daytime".equals(codeString))
-          return daytime;
+          return DAYTIME;
         if ("virtual".equals(codeString))
-          return virtual;
+          return VIRTUAL;
         throw new Exception("Unknown EncounterClass code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case inpatient: return "inpatient";
-            case outpatient: return "outpatient";
-            case ambulatory: return "ambulatory";
-            case emergency: return "emergency";
-            case home: return "home";
-            case field: return "field";
-            case daytime: return "daytime";
-            case virtual: return "virtual";
+            case INPATIENT: return "inpatient";
+            case OUTPATIENT: return "outpatient";
+            case AMBULATORY: return "ambulatory";
+            case EMERGENCY: return "emergency";
+            case HOME: return "home";
+            case FIELD: return "field";
+            case DAYTIME: return "daytime";
+            case VIRTUAL: return "virtual";
             default: return "?";
           }
         }
@@ -156,39 +156,39 @@ public class Encounter extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("inpatient".equals(codeString))
-          return EncounterClass.inpatient;
+          return EncounterClass.INPATIENT;
         if ("outpatient".equals(codeString))
-          return EncounterClass.outpatient;
+          return EncounterClass.OUTPATIENT;
         if ("ambulatory".equals(codeString))
-          return EncounterClass.ambulatory;
+          return EncounterClass.AMBULATORY;
         if ("emergency".equals(codeString))
-          return EncounterClass.emergency;
+          return EncounterClass.EMERGENCY;
         if ("home".equals(codeString))
-          return EncounterClass.home;
+          return EncounterClass.HOME;
         if ("field".equals(codeString))
-          return EncounterClass.field;
+          return EncounterClass.FIELD;
         if ("daytime".equals(codeString))
-          return EncounterClass.daytime;
+          return EncounterClass.DAYTIME;
         if ("virtual".equals(codeString))
-          return EncounterClass.virtual;
+          return EncounterClass.VIRTUAL;
         throw new Exception("Unknown EncounterClass code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == EncounterClass.inpatient)
+      if (code == EncounterClass.INPATIENT)
         return "inpatient";
-      if (code == EncounterClass.outpatient)
+      if (code == EncounterClass.OUTPATIENT)
         return "outpatient";
-      if (code == EncounterClass.ambulatory)
+      if (code == EncounterClass.AMBULATORY)
         return "ambulatory";
-      if (code == EncounterClass.emergency)
+      if (code == EncounterClass.EMERGENCY)
         return "emergency";
-      if (code == EncounterClass.home)
+      if (code == EncounterClass.HOME)
         return "home";
-      if (code == EncounterClass.field)
+      if (code == EncounterClass.FIELD)
         return "field";
-      if (code == EncounterClass.daytime)
+      if (code == EncounterClass.DAYTIME)
         return "daytime";
-      if (code == EncounterClass.virtual)
+      if (code == EncounterClass.VIRTUAL)
         return "virtual";
       return "?";
       }
@@ -249,14 +249,14 @@ public class Encounter extends Resource {
         }
 
         /**
-         * @return {@link #individual} (The actual object that is the target of the reference. Persons involved in the encounter other than the patient.)
+         * @return {@link #individual} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Persons involved in the encounter other than the patient.)
          */
         public Resource getIndividualTarget() { 
           return this.individualTarget;
         }
 
         /**
-         * @param value {@link #individual} (The actual object that is the target of the reference. Persons involved in the encounter other than the patient.)
+         * @param value {@link #individual} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Persons involved in the encounter other than the patient.)
          */
         public EncounterParticipantComponent setIndividualTarget(Resource value) { 
           this.individualTarget = value;
@@ -393,14 +393,14 @@ public class Encounter extends Resource {
         }
 
         /**
-         * @return {@link #origin} (The actual object that is the target of the reference. The location from which the patient came before admission.)
+         * @return {@link #origin} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The location from which the patient came before admission.)
          */
         public Location getOriginTarget() { 
           return this.originTarget;
         }
 
         /**
-         * @param value {@link #origin} (The actual object that is the target of the reference. The location from which the patient came before admission.)
+         * @param value {@link #origin} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The location from which the patient came before admission.)
          */
         public EncounterHospitalizationComponent setOriginTarget(Location value) { 
           this.originTarget = value;
@@ -519,14 +519,14 @@ public class Encounter extends Resource {
         }
 
         /**
-         * @return {@link #destination} (The actual object that is the target of the reference. Location to which the patient is discharged.)
+         * @return {@link #destination} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Location to which the patient is discharged.)
          */
         public Location getDestinationTarget() { 
           return this.destinationTarget;
         }
 
         /**
-         * @param value {@link #destination} (The actual object that is the target of the reference. Location to which the patient is discharged.)
+         * @param value {@link #destination} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Location to which the patient is discharged.)
          */
         public EncounterHospitalizationComponent setDestinationTarget(Location value) { 
           this.destinationTarget = value;
@@ -564,14 +564,14 @@ public class Encounter extends Resource {
         }
 
         /**
-         * @return {@link #dischargeDiagnosis} (The actual object that is the target of the reference. The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
+         * @return {@link #dischargeDiagnosis} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
          */
         public Resource getDischargeDiagnosisTarget() { 
           return this.dischargeDiagnosisTarget;
         }
 
         /**
-         * @param value {@link #dischargeDiagnosis} (The actual object that is the target of the reference. The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
+         * @param value {@link #dischargeDiagnosis} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
          */
         public EncounterHospitalizationComponent setDischargeDiagnosisTarget(Resource value) { 
           this.dischargeDiagnosisTarget = value;
@@ -579,16 +579,16 @@ public class Encounter extends Resource {
         }
 
         /**
-         * @return {@link #reAdmission} (Whether this hospitalization is a readmission.)
+         * @return {@link #reAdmission} (Whether this hospitalization is a readmission.). This is the underlying object with id, value and extensions. The accessor "getReAdmission" gives direct access to the value
          */
-        public BooleanType getReAdmission() { 
+        public BooleanType getReAdmissionObject() { 
           return this.reAdmission;
         }
 
         /**
-         * @param value {@link #reAdmission} (Whether this hospitalization is a readmission.)
+         * @param value {@link #reAdmission} (Whether this hospitalization is a readmission.). This is the underlying object with id, value and extensions. The accessor "getReAdmission" gives direct access to the value
          */
-        public EncounterHospitalizationComponent setReAdmission(BooleanType value) { 
+        public EncounterHospitalizationComponent setReAdmissionObject(BooleanType value) { 
           this.reAdmission = value;
           return this;
         }
@@ -596,14 +596,14 @@ public class Encounter extends Resource {
         /**
          * @return Whether this hospitalization is a readmission.
          */
-        public boolean getReAdmissionSimple() { 
+        public boolean getReAdmission() { 
           return this.reAdmission == null ? false : this.reAdmission.getValue();
         }
 
         /**
          * @param value Whether this hospitalization is a readmission.
          */
-        public EncounterHospitalizationComponent setReAdmissionSimple(boolean value) { 
+        public EncounterHospitalizationComponent setReAdmission(boolean value) { 
           if (value == false)
             this.reAdmission = null;
           else {
@@ -693,14 +693,14 @@ public class Encounter extends Resource {
         }
 
         /**
-         * @return {@link #bed} (The actual object that is the target of the reference. The bed that is assigned to the patient.)
+         * @return {@link #bed} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The bed that is assigned to the patient.)
          */
         public Location getBedTarget() { 
           return this.bedTarget;
         }
 
         /**
-         * @param value {@link #bed} (The actual object that is the target of the reference. The bed that is assigned to the patient.)
+         * @param value {@link #bed} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The bed that is assigned to the patient.)
          */
         public EncounterHospitalizationAccomodationComponent setBedTarget(Location value) { 
           this.bedTarget = value;
@@ -780,14 +780,14 @@ public class Encounter extends Resource {
         }
 
         /**
-         * @return {@link #location} (The actual object that is the target of the reference. The location where the encounter takes place.)
+         * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The location where the encounter takes place.)
          */
         public Location getLocationTarget() { 
           return this.locationTarget;
         }
 
         /**
-         * @param value {@link #location} (The actual object that is the target of the reference. The location where the encounter takes place.)
+         * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The location where the encounter takes place.)
          */
         public EncounterLocationComponent setLocationTarget(Location value) { 
           this.locationTarget = value;
@@ -959,16 +959,16 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #status} (planned | in progress | onleave | finished | cancelled.)
+     * @return {@link #status} (planned | in progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<EncounterState> getStatus() { 
+    public Enumeration<EncounterState> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (planned | in progress | onleave | finished | cancelled.)
+     * @param value {@link #status} (planned | in progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Encounter setStatus(Enumeration<EncounterState> value) { 
+    public Encounter setStatusObject(Enumeration<EncounterState> value) { 
       this.status = value;
       return this;
     }
@@ -976,14 +976,14 @@ public class Encounter extends Resource {
     /**
      * @return planned | in progress | onleave | finished | cancelled.
      */
-    public EncounterState getStatusSimple() { 
+    public EncounterState getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value planned | in progress | onleave | finished | cancelled.
      */
-    public Encounter setStatusSimple(EncounterState value) { 
+    public Encounter setStatus(EncounterState value) { 
         if (this.status == null)
           this.status = new Enumeration<EncounterState>();
         this.status.setValue(value);
@@ -991,16 +991,16 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #class_} (inpatient | outpatient | ambulatory | emergency +.)
+     * @return {@link #class_} (inpatient | outpatient | ambulatory | emergency +.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
      */
-    public Enumeration<EncounterClass> getClass_() { 
+    public Enumeration<EncounterClass> getClass_Object() { 
       return this.class_;
     }
 
     /**
-     * @param value {@link #class_} (inpatient | outpatient | ambulatory | emergency +.)
+     * @param value {@link #class_} (inpatient | outpatient | ambulatory | emergency +.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
      */
-    public Encounter setClass_(Enumeration<EncounterClass> value) { 
+    public Encounter setClass_Object(Enumeration<EncounterClass> value) { 
       this.class_ = value;
       return this;
     }
@@ -1008,14 +1008,14 @@ public class Encounter extends Resource {
     /**
      * @return inpatient | outpatient | ambulatory | emergency +.
      */
-    public EncounterClass getClass_Simple() { 
+    public EncounterClass getClass_() { 
       return this.class_ == null ? null : this.class_.getValue();
     }
 
     /**
      * @param value inpatient | outpatient | ambulatory | emergency +.
      */
-    public Encounter setClass_Simple(EncounterClass value) { 
+    public Encounter setClass_(EncounterClass value) { 
         if (this.class_ == null)
           this.class_ = new Enumeration<EncounterClass>();
         this.class_.setValue(value);
@@ -1055,14 +1055,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The patient present at the encounter.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient present at the encounter.)
      */
     public Patient getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The patient present at the encounter.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient present at the encounter.)
      */
     public Encounter setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
@@ -1102,14 +1102,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #fulfills} (The actual object that is the target of the reference. The appointment that scheduled this encounter.)
+     * @return {@link #fulfills} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The appointment that scheduled this encounter.)
      */
     public Appointment getFulfillsTarget() { 
       return this.fulfillsTarget;
     }
 
     /**
-     * @param value {@link #fulfills} (The actual object that is the target of the reference. The appointment that scheduled this encounter.)
+     * @param value {@link #fulfills} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The appointment that scheduled this encounter.)
      */
     public Encounter setFulfillsTarget(Appointment value) { 
       this.fulfillsTarget = value;
@@ -1177,14 +1177,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #indication} (The actual object that is the target of the reference. Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
+     * @return {@link #indication} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
      */
     public Resource getIndicationTarget() { 
       return this.indicationTarget;
     }
 
     /**
-     * @param value {@link #indication} (The actual object that is the target of the reference. Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
+     * @param value {@link #indication} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
      */
     public Encounter setIndicationTarget(Resource value) { 
       this.indicationTarget = value;
@@ -1254,14 +1254,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #serviceProvider} (The actual object that is the target of the reference. Department or team providing care.)
+     * @return {@link #serviceProvider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Department or team providing care.)
      */
     public Organization getServiceProviderTarget() { 
       return this.serviceProviderTarget;
     }
 
     /**
-     * @param value {@link #serviceProvider} (The actual object that is the target of the reference. Department or team providing care.)
+     * @param value {@link #serviceProvider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Department or team providing care.)
      */
     public Encounter setServiceProviderTarget(Organization value) { 
       this.serviceProviderTarget = value;
@@ -1284,14 +1284,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #partOf} (The actual object that is the target of the reference. Another Encounter of which this encounter is a part of (administratively or in time).)
+     * @return {@link #partOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
     public Encounter getPartOfTarget() { 
       return this.partOfTarget;
     }
 
     /**
-     * @param value {@link #partOf} (The actual object that is the target of the reference. Another Encounter of which this encounter is a part of (administratively or in time).)
+     * @param value {@link #partOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
     public Encounter setPartOfTarget(Encounter value) { 
       this.partOfTarget = value;

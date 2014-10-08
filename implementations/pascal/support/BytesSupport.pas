@@ -96,6 +96,8 @@ Function Fillbytes(init : TBytes; b : byte; count : Integer): TBytes; Overload;
 Function BytesStartsWith(bytes, find : TBytes) : Boolean;
 Function BytesSplit(Const sValue, sDelimiter : TBytes; Var sLeft, sRight: TBytes) : Boolean;
 function StreamToBytes(AStream: TStream): TBytes;
+function FileToBytes(filename : string) : TBytes;
+procedure BytesToFile(bytes : TBytes; filename : string);
 
 Implementation
 
@@ -756,5 +758,29 @@ begin
     end;
 end;
 
+procedure BytesToFile(bytes : TBytes; filename : string);
+var
+  f : TFileStream;
+begin
+  f :=  TFileStream.Create(filename, fmCreate);
+  try
+    f.write(bytes[0], length(bytes));
+  finally
+    f.Free;
+  end;
+end;
+
+function FileToBytes(filename : string) : TBytes;
+var
+  f : TFileStream;
+begin
+  f :=  TFileStream.Create(filename, fmOpenRead + fmShareDenyWrite);
+  try
+    setLength(result, f.Size);
+    f.Read(result[0], f.Size);
+  finally
+    f.Free;
+  end;
+end;
 
 End.

@@ -96,7 +96,7 @@ public abstract class Element implements Serializable {
     if (name == null)
       return false;
     for (Extension e : extensions) {
-      if (name.equals(e.getUrlSimple()))
+      if (name.equals(e.getUrl()))
         return true;
     }
     return false;
@@ -110,7 +110,7 @@ public abstract class Element implements Serializable {
     if (name == null)
       return null;
     for (Extension e : extensions) {
-      if (name.equals(e.getUrlSimple()))
+      if (name.equals(e.getUrl()))
         return e;
     }
     return null;

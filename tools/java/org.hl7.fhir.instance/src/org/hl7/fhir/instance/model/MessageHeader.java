@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,26 +39,26 @@ import java.util.*;
 public class MessageHeader extends Resource {
 
     public enum ResponseCode {
-        ok, // The message was accepted and processed without error.
-        transienterror, // Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.
-        fatalerror, // The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative SHALL describe what the issue is.
-        Null; // added to help the parsers
+        OK, // The message was accepted and processed without error.
+        TRANSIENTERROR, // Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.
+        FATALERROR, // The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative SHALL describe what the issue is.
+        NULL; // added to help the parsers
         public static ResponseCode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("ok".equals(codeString))
-          return ok;
+          return OK;
         if ("transient-error".equals(codeString))
-          return transienterror;
+          return TRANSIENTERROR;
         if ("fatal-error".equals(codeString))
-          return fatalerror;
+          return FATALERROR;
         throw new Exception("Unknown ResponseCode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case ok: return "ok";
-            case transienterror: return "transient-error";
-            case fatalerror: return "fatal-error";
+            case OK: return "ok";
+            case TRANSIENTERROR: return "transient-error";
+            case FATALERROR: return "fatal-error";
             default: return "?";
           }
         }
@@ -70,19 +70,19 @@ public class MessageHeader extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("ok".equals(codeString))
-          return ResponseCode.ok;
+          return ResponseCode.OK;
         if ("transient-error".equals(codeString))
-          return ResponseCode.transienterror;
+          return ResponseCode.TRANSIENTERROR;
         if ("fatal-error".equals(codeString))
-          return ResponseCode.fatalerror;
+          return ResponseCode.FATALERROR;
         throw new Exception("Unknown ResponseCode code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ResponseCode.ok)
+      if (code == ResponseCode.OK)
         return "ok";
-      if (code == ResponseCode.transienterror)
+      if (code == ResponseCode.TRANSIENTERROR)
         return "transient-error";
-      if (code == ResponseCode.fatalerror)
+      if (code == ResponseCode.FATALERROR)
         return "fatal-error";
       return "?";
       }
@@ -122,16 +122,16 @@ public class MessageHeader extends Resource {
       }
 
         /**
-         * @return {@link #identifier} (The id of the message that this message is a response to.)
+         * @return {@link #identifier} (The id of the message that this message is a response to.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public IdType getIdentifier() { 
+        public IdType getIdentifierObject() { 
           return this.identifier;
         }
 
         /**
-         * @param value {@link #identifier} (The id of the message that this message is a response to.)
+         * @param value {@link #identifier} (The id of the message that this message is a response to.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public MessageHeaderResponseComponent setIdentifier(IdType value) { 
+        public MessageHeaderResponseComponent setIdentifierObject(IdType value) { 
           this.identifier = value;
           return this;
         }
@@ -139,14 +139,14 @@ public class MessageHeader extends Resource {
         /**
          * @return The id of the message that this message is a response to.
          */
-        public String getIdentifierSimple() { 
+        public String getIdentifier() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
         /**
          * @param value The id of the message that this message is a response to.
          */
-        public MessageHeaderResponseComponent setIdentifierSimple(String value) { 
+        public MessageHeaderResponseComponent setIdentifier(String value) { 
             if (this.identifier == null)
               this.identifier = new IdType();
             this.identifier.setValue(value);
@@ -154,16 +154,16 @@ public class MessageHeader extends Resource {
         }
 
         /**
-         * @return {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.)
+         * @return {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<ResponseCode> getCode() { 
+        public Enumeration<ResponseCode> getCodeObject() { 
           return this.code;
         }
 
         /**
-         * @param value {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.)
+         * @param value {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public MessageHeaderResponseComponent setCode(Enumeration<ResponseCode> value) { 
+        public MessageHeaderResponseComponent setCodeObject(Enumeration<ResponseCode> value) { 
           this.code = value;
           return this;
         }
@@ -171,14 +171,14 @@ public class MessageHeader extends Resource {
         /**
          * @return Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
          */
-        public ResponseCode getCodeSimple() { 
+        public ResponseCode getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
          */
-        public MessageHeaderResponseComponent setCodeSimple(ResponseCode value) { 
+        public MessageHeaderResponseComponent setCode(ResponseCode value) { 
             if (this.code == null)
               this.code = new Enumeration<ResponseCode>();
             this.code.setValue(value);
@@ -201,14 +201,14 @@ public class MessageHeader extends Resource {
         }
 
         /**
-         * @return {@link #details} (The actual object that is the target of the reference. Full details of any issues found in the message.)
+         * @return {@link #details} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Full details of any issues found in the message.)
          */
         public OperationOutcome getDetailsTarget() { 
           return this.detailsTarget;
         }
 
         /**
-         * @param value {@link #details} (The actual object that is the target of the reference. Full details of any issues found in the message.)
+         * @param value {@link #details} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Full details of any issues found in the message.)
          */
         public MessageHeaderResponseComponent setDetailsTarget(OperationOutcome value) { 
           this.detailsTarget = value;
@@ -271,16 +271,16 @@ public class MessageHeader extends Resource {
       }
 
         /**
-         * @return {@link #name} (Human-readable name for the target system.)
+         * @return {@link #name} (Human-readable name for the target system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getName() { 
+        public StringType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (Human-readable name for the target system.)
+         * @param value {@link #name} (Human-readable name for the target system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public MessageSourceComponent setName(StringType value) { 
+        public MessageSourceComponent setNameObject(StringType value) { 
           this.name = value;
           return this;
         }
@@ -288,14 +288,14 @@ public class MessageHeader extends Resource {
         /**
          * @return Human-readable name for the target system.
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value Human-readable name for the target system.
          */
-        public MessageSourceComponent setNameSimple(String value) { 
+        public MessageSourceComponent setName(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -307,16 +307,16 @@ public class MessageHeader extends Resource {
         }
 
         /**
-         * @return {@link #software} (May include configuration or other information useful in debugging.)
+         * @return {@link #software} (May include configuration or other information useful in debugging.). This is the underlying object with id, value and extensions. The accessor "getSoftware" gives direct access to the value
          */
-        public StringType getSoftware() { 
+        public StringType getSoftwareObject() { 
           return this.software;
         }
 
         /**
-         * @param value {@link #software} (May include configuration or other information useful in debugging.)
+         * @param value {@link #software} (May include configuration or other information useful in debugging.). This is the underlying object with id, value and extensions. The accessor "getSoftware" gives direct access to the value
          */
-        public MessageSourceComponent setSoftware(StringType value) { 
+        public MessageSourceComponent setSoftwareObject(StringType value) { 
           this.software = value;
           return this;
         }
@@ -324,14 +324,14 @@ public class MessageHeader extends Resource {
         /**
          * @return May include configuration or other information useful in debugging.
          */
-        public String getSoftwareSimple() { 
+        public String getSoftware() { 
           return this.software == null ? null : this.software.getValue();
         }
 
         /**
          * @param value May include configuration or other information useful in debugging.
          */
-        public MessageSourceComponent setSoftwareSimple(String value) { 
+        public MessageSourceComponent setSoftware(String value) { 
             if (this.software == null)
               this.software = new StringType();
             this.software.setValue(value);
@@ -339,16 +339,16 @@ public class MessageHeader extends Resource {
         }
 
         /**
-         * @return {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.)
+         * @return {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersion() { 
+        public StringType getVersionObject() { 
           return this.version;
         }
 
         /**
-         * @param value {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.)
+         * @param value {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public MessageSourceComponent setVersion(StringType value) { 
+        public MessageSourceComponent setVersionObject(StringType value) { 
           this.version = value;
           return this;
         }
@@ -356,14 +356,14 @@ public class MessageHeader extends Resource {
         /**
          * @return Can convey versions of multiple systems in situations where a message passes through multiple hands.
          */
-        public String getVersionSimple() { 
+        public String getVersion() { 
           return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value Can convey versions of multiple systems in situations where a message passes through multiple hands.
          */
-        public MessageSourceComponent setVersionSimple(String value) { 
+        public MessageSourceComponent setVersion(String value) { 
           if (value == null)
             this.version = null;
           else {
@@ -390,16 +390,16 @@ public class MessageHeader extends Resource {
         }
 
         /**
-         * @return {@link #endpoint} (Identifies the routing target to send acknowledgements to.)
+         * @return {@link #endpoint} (Identifies the routing target to send acknowledgements to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public UriType getEndpoint() { 
+        public UriType getEndpointObject() { 
           return this.endpoint;
         }
 
         /**
-         * @param value {@link #endpoint} (Identifies the routing target to send acknowledgements to.)
+         * @param value {@link #endpoint} (Identifies the routing target to send acknowledgements to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public MessageSourceComponent setEndpoint(UriType value) { 
+        public MessageSourceComponent setEndpointObject(UriType value) { 
           this.endpoint = value;
           return this;
         }
@@ -407,14 +407,14 @@ public class MessageHeader extends Resource {
         /**
          * @return Identifies the routing target to send acknowledgements to.
          */
-        public String getEndpointSimple() { 
+        public String getEndpoint() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
         /**
          * @param value Identifies the routing target to send acknowledgements to.
          */
-        public MessageSourceComponent setEndpointSimple(String value) { 
+        public MessageSourceComponent setEndpoint(String value) { 
             if (this.endpoint == null)
               this.endpoint = new UriType();
             this.endpoint.setValue(value);
@@ -475,16 +475,16 @@ public class MessageHeader extends Resource {
       }
 
         /**
-         * @return {@link #name} (Human-readable name for the source system.)
+         * @return {@link #name} (Human-readable name for the source system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getName() { 
+        public StringType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (Human-readable name for the source system.)
+         * @param value {@link #name} (Human-readable name for the source system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public MessageDestinationComponent setName(StringType value) { 
+        public MessageDestinationComponent setNameObject(StringType value) { 
           this.name = value;
           return this;
         }
@@ -492,14 +492,14 @@ public class MessageHeader extends Resource {
         /**
          * @return Human-readable name for the source system.
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value Human-readable name for the source system.
          */
-        public MessageDestinationComponent setNameSimple(String value) { 
+        public MessageDestinationComponent setName(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -526,14 +526,14 @@ public class MessageHeader extends Resource {
         }
 
         /**
-         * @return {@link #target} (The actual object that is the target of the reference. Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
+         * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
          */
         public Device getTargetTarget() { 
           return this.targetTarget;
         }
 
         /**
-         * @param value {@link #target} (The actual object that is the target of the reference. Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
+         * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
          */
         public MessageDestinationComponent setTargetTarget(Device value) { 
           this.targetTarget = value;
@@ -541,16 +541,16 @@ public class MessageHeader extends Resource {
         }
 
         /**
-         * @return {@link #endpoint} (Indicates where the message should be routed to.)
+         * @return {@link #endpoint} (Indicates where the message should be routed to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public UriType getEndpoint() { 
+        public UriType getEndpointObject() { 
           return this.endpoint;
         }
 
         /**
-         * @param value {@link #endpoint} (Indicates where the message should be routed to.)
+         * @param value {@link #endpoint} (Indicates where the message should be routed to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public MessageDestinationComponent setEndpoint(UriType value) { 
+        public MessageDestinationComponent setEndpointObject(UriType value) { 
           this.endpoint = value;
           return this;
         }
@@ -558,14 +558,14 @@ public class MessageHeader extends Resource {
         /**
          * @return Indicates where the message should be routed to.
          */
-        public String getEndpointSimple() { 
+        public String getEndpoint() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
         /**
          * @param value Indicates where the message should be routed to.
          */
-        public MessageDestinationComponent setEndpointSimple(String value) { 
+        public MessageDestinationComponent setEndpoint(String value) { 
             if (this.endpoint == null)
               this.endpoint = new UriType();
             this.endpoint.setValue(value);
@@ -689,16 +689,16 @@ public class MessageHeader extends Resource {
     }
 
     /**
-     * @return {@link #identifier} (The identifier of this message.)
+     * @return {@link #identifier} (The identifier of this message.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public IdType getIdentifier() { 
+    public IdType getIdentifierObject() { 
       return this.identifier;
     }
 
     /**
-     * @param value {@link #identifier} (The identifier of this message.)
+     * @param value {@link #identifier} (The identifier of this message.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public MessageHeader setIdentifier(IdType value) { 
+    public MessageHeader setIdentifierObject(IdType value) { 
       this.identifier = value;
       return this;
     }
@@ -706,14 +706,14 @@ public class MessageHeader extends Resource {
     /**
      * @return The identifier of this message.
      */
-    public String getIdentifierSimple() { 
+    public String getIdentifier() { 
       return this.identifier == null ? null : this.identifier.getValue();
     }
 
     /**
      * @param value The identifier of this message.
      */
-    public MessageHeader setIdentifierSimple(String value) { 
+    public MessageHeader setIdentifier(String value) { 
         if (this.identifier == null)
           this.identifier = new IdType();
         this.identifier.setValue(value);
@@ -721,16 +721,16 @@ public class MessageHeader extends Resource {
     }
 
     /**
-     * @return {@link #timestamp} (The time that the message was sent.)
+     * @return {@link #timestamp} (The time that the message was sent.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
      */
-    public InstantType getTimestamp() { 
+    public InstantType getTimestampObject() { 
       return this.timestamp;
     }
 
     /**
-     * @param value {@link #timestamp} (The time that the message was sent.)
+     * @param value {@link #timestamp} (The time that the message was sent.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
      */
-    public MessageHeader setTimestamp(InstantType value) { 
+    public MessageHeader setTimestampObject(InstantType value) { 
       this.timestamp = value;
       return this;
     }
@@ -738,14 +738,14 @@ public class MessageHeader extends Resource {
     /**
      * @return The time that the message was sent.
      */
-    public DateAndTime getTimestampSimple() { 
+    public DateAndTime getTimestamp() { 
       return this.timestamp == null ? null : this.timestamp.getValue();
     }
 
     /**
      * @param value The time that the message was sent.
      */
-    public MessageHeader setTimestampSimple(DateAndTime value) { 
+    public MessageHeader setTimestamp(DateAndTime value) { 
         if (this.timestamp == null)
           this.timestamp = new InstantType();
         this.timestamp.setValue(value);
@@ -830,14 +830,14 @@ public class MessageHeader extends Resource {
     }
 
     /**
-     * @return {@link #enterer} (The actual object that is the target of the reference. The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
+     * @return {@link #enterer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
      */
     public Practitioner getEntererTarget() { 
       return this.entererTarget;
     }
 
     /**
-     * @param value {@link #enterer} (The actual object that is the target of the reference. The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
+     * @param value {@link #enterer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
      */
     public MessageHeader setEntererTarget(Practitioner value) { 
       this.entererTarget = value;
@@ -860,14 +860,14 @@ public class MessageHeader extends Resource {
     }
 
     /**
-     * @return {@link #author} (The actual object that is the target of the reference. The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
+     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
     public Practitioner getAuthorTarget() { 
       return this.authorTarget;
     }
 
     /**
-     * @param value {@link #author} (The actual object that is the target of the reference. The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
+     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
     public MessageHeader setAuthorTarget(Practitioner value) { 
       this.authorTarget = value;
@@ -890,14 +890,14 @@ public class MessageHeader extends Resource {
     }
 
     /**
-     * @return {@link #receiver} (The actual object that is the target of the reference. Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
+     * @return {@link #receiver} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
      */
     public Resource getReceiverTarget() { 
       return this.receiverTarget;
     }
 
     /**
-     * @param value {@link #receiver} (The actual object that is the target of the reference. Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
+     * @param value {@link #receiver} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
      */
     public MessageHeader setReceiverTarget(Resource value) { 
       this.receiverTarget = value;
@@ -920,14 +920,14 @@ public class MessageHeader extends Resource {
     }
 
     /**
-     * @return {@link #responsible} (The actual object that is the target of the reference. The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
+     * @return {@link #responsible} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
     public Resource getResponsibleTarget() { 
       return this.responsibleTarget;
     }
 
     /**
-     * @param value {@link #responsible} (The actual object that is the target of the reference. The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
+     * @param value {@link #responsible} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
     public MessageHeader setResponsibleTarget(Resource value) { 
       this.responsibleTarget = value;
@@ -967,7 +967,7 @@ public class MessageHeader extends Resource {
     }
 
     /**
-     * @return {@link #data} (The actual objects that are the target of the reference. The actual data of the message - a reference to the root/focus class of the event.)
+     * @return {@link #data} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The actual data of the message - a reference to the root/focus class of the event.)
      */
     public List<Resource> getDataTarget() { 
       return this.dataTarget;

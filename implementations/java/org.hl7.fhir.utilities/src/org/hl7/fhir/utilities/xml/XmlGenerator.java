@@ -59,7 +59,10 @@ public class XmlGenerator {
 	
 	public void generate(Element element, File file) throws Exception {
 		OutputStream stream = new FileOutputStream(file);
-		
+		generate(element, stream);
+	}	
+	
+	public void generate(Element element, OutputStream stream) throws Exception {
 		xml = new XMLWriter(stream, "UTF-8");
 		xml.start();
 		xml.setDefaultNamespace(element.getNamespaceURI());

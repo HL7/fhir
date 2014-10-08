@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -55,16 +55,16 @@ public class Reference extends Type {
     }
 
     /**
-     * @return {@link #reference} (A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.)
+     * @return {@link #reference} (A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public StringType getReference() { 
+    public StringType getReferenceObject() { 
       return this.reference;
     }
 
     /**
-     * @param value {@link #reference} (A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.)
+     * @param value {@link #reference} (A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public Reference setReference(StringType value) { 
+    public Reference setReferenceObject(StringType value) { 
       this.reference = value;
       return this;
     }
@@ -72,14 +72,14 @@ public class Reference extends Type {
     /**
      * @return A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.
      */
-    public String getReferenceSimple() { 
+    public String getReference() { 
       return this.reference == null ? null : this.reference.getValue();
     }
 
     /**
      * @param value A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.
      */
-    public Reference setReferenceSimple(String value) { 
+    public Reference setReference(String value) { 
       if (value == null)
         this.reference = null;
       else {
@@ -91,16 +91,16 @@ public class Reference extends Type {
     }
 
     /**
-     * @return {@link #display} (Plain text narrative that identifies the resource in addition to the resource reference.)
+     * @return {@link #display} (Plain text narrative that identifies the resource in addition to the resource reference.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public StringType getDisplay() { 
+    public StringType getDisplayObject() { 
       return this.display;
     }
 
     /**
-     * @param value {@link #display} (Plain text narrative that identifies the resource in addition to the resource reference.)
+     * @param value {@link #display} (Plain text narrative that identifies the resource in addition to the resource reference.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public Reference setDisplay(StringType value) { 
+    public Reference setDisplayObject(StringType value) { 
       this.display = value;
       return this;
     }
@@ -108,14 +108,14 @@ public class Reference extends Type {
     /**
      * @return Plain text narrative that identifies the resource in addition to the resource reference.
      */
-    public String getDisplaySimple() { 
+    public String getDisplay() { 
       return this.display == null ? null : this.display.getValue();
     }
 
     /**
      * @param value Plain text narrative that identifies the resource in addition to the resource reference.
      */
-    public Reference setDisplaySimple(String value) { 
+    public Reference setDisplay(String value) { 
       if (value == null)
         this.display = null;
       else {

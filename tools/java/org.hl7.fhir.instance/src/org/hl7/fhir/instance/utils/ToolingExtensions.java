@@ -67,7 +67,7 @@ public class ToolingExtensions {
   public static Extension makeIssueSource(Source source) {
     Extension ex = new Extension();
     // todo: write this up and get it published with the pack (and handle the redirect?)
-    ex.setUrlSimple(ToolingExtensions.EXT_ISSUE_SOURCE);
+    ex.setUrl(ToolingExtensions.EXT_ISSUE_SOURCE);
     CodeType c = new CodeType();
     c.setValue(source.toString());
     ex.setValue(c);
@@ -166,7 +166,7 @@ public class ToolingExtensions {
     List<CodeType> res = new ArrayList<CodeType>();
 
     for (Extension e : c.getExtensions()) {
-      if (EXT_SUBSUMES.equals(e.getUrlSimple()))
+      if (EXT_SUBSUMES.equals(e.getUrl()))
         res.add((CodeType) e.getValue());
     }
     return res;

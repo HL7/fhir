@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,50 +39,50 @@ import java.util.*;
 public class DiagnosticOrder extends Resource {
 
     public enum DiagnosticOrderStatus {
-        requested, // The request has been placed.
-        received, // The receiving system has received the order, but not yet decided whether it will be performed.
-        accepted, // The receiving system has accepted the order, but work has not yet commenced.
-        inProgress, // The work to fulfill the order is happening.
-        review, // The work is complete, and the outcomes are being reviewed for approval.
-        completed, // The work has been complete, the report(s) released, and no further work is planned.
-        suspended, // The request has been held by originating system/user request.
-        rejected, // The receiving system has declined to fulfill the request.
-        failed, // The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.
-        Null; // added to help the parsers
+        REQUESTED, // The request has been placed.
+        RECEIVED, // The receiving system has received the order, but not yet decided whether it will be performed.
+        ACCEPTED, // The receiving system has accepted the order, but work has not yet commenced.
+        INPROGRESS, // The work to fulfill the order is happening.
+        REVIEW, // The work is complete, and the outcomes are being reviewed for approval.
+        COMPLETED, // The work has been complete, the report(s) released, and no further work is planned.
+        SUSPENDED, // The request has been held by originating system/user request.
+        REJECTED, // The receiving system has declined to fulfill the request.
+        FAILED, // The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.
+        NULL; // added to help the parsers
         public static DiagnosticOrderStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("requested".equals(codeString))
-          return requested;
+          return REQUESTED;
         if ("received".equals(codeString))
-          return received;
+          return RECEIVED;
         if ("accepted".equals(codeString))
-          return accepted;
+          return ACCEPTED;
         if ("in progress".equals(codeString))
-          return inProgress;
+          return INPROGRESS;
         if ("review".equals(codeString))
-          return review;
+          return REVIEW;
         if ("completed".equals(codeString))
-          return completed;
+          return COMPLETED;
         if ("suspended".equals(codeString))
-          return suspended;
+          return SUSPENDED;
         if ("rejected".equals(codeString))
-          return rejected;
+          return REJECTED;
         if ("failed".equals(codeString))
-          return failed;
+          return FAILED;
         throw new Exception("Unknown DiagnosticOrderStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case requested: return "requested";
-            case received: return "received";
-            case accepted: return "accepted";
-            case inProgress: return "in progress";
-            case review: return "review";
-            case completed: return "completed";
-            case suspended: return "suspended";
-            case rejected: return "rejected";
-            case failed: return "failed";
+            case REQUESTED: return "requested";
+            case RECEIVED: return "received";
+            case ACCEPTED: return "accepted";
+            case INPROGRESS: return "in progress";
+            case REVIEW: return "review";
+            case COMPLETED: return "completed";
+            case SUSPENDED: return "suspended";
+            case REJECTED: return "rejected";
+            case FAILED: return "failed";
             default: return "?";
           }
         }
@@ -94,73 +94,73 @@ public class DiagnosticOrder extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("requested".equals(codeString))
-          return DiagnosticOrderStatus.requested;
+          return DiagnosticOrderStatus.REQUESTED;
         if ("received".equals(codeString))
-          return DiagnosticOrderStatus.received;
+          return DiagnosticOrderStatus.RECEIVED;
         if ("accepted".equals(codeString))
-          return DiagnosticOrderStatus.accepted;
+          return DiagnosticOrderStatus.ACCEPTED;
         if ("in progress".equals(codeString))
-          return DiagnosticOrderStatus.inProgress;
+          return DiagnosticOrderStatus.INPROGRESS;
         if ("review".equals(codeString))
-          return DiagnosticOrderStatus.review;
+          return DiagnosticOrderStatus.REVIEW;
         if ("completed".equals(codeString))
-          return DiagnosticOrderStatus.completed;
+          return DiagnosticOrderStatus.COMPLETED;
         if ("suspended".equals(codeString))
-          return DiagnosticOrderStatus.suspended;
+          return DiagnosticOrderStatus.SUSPENDED;
         if ("rejected".equals(codeString))
-          return DiagnosticOrderStatus.rejected;
+          return DiagnosticOrderStatus.REJECTED;
         if ("failed".equals(codeString))
-          return DiagnosticOrderStatus.failed;
+          return DiagnosticOrderStatus.FAILED;
         throw new Exception("Unknown DiagnosticOrderStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == DiagnosticOrderStatus.requested)
+      if (code == DiagnosticOrderStatus.REQUESTED)
         return "requested";
-      if (code == DiagnosticOrderStatus.received)
+      if (code == DiagnosticOrderStatus.RECEIVED)
         return "received";
-      if (code == DiagnosticOrderStatus.accepted)
+      if (code == DiagnosticOrderStatus.ACCEPTED)
         return "accepted";
-      if (code == DiagnosticOrderStatus.inProgress)
+      if (code == DiagnosticOrderStatus.INPROGRESS)
         return "in progress";
-      if (code == DiagnosticOrderStatus.review)
+      if (code == DiagnosticOrderStatus.REVIEW)
         return "review";
-      if (code == DiagnosticOrderStatus.completed)
+      if (code == DiagnosticOrderStatus.COMPLETED)
         return "completed";
-      if (code == DiagnosticOrderStatus.suspended)
+      if (code == DiagnosticOrderStatus.SUSPENDED)
         return "suspended";
-      if (code == DiagnosticOrderStatus.rejected)
+      if (code == DiagnosticOrderStatus.REJECTED)
         return "rejected";
-      if (code == DiagnosticOrderStatus.failed)
+      if (code == DiagnosticOrderStatus.FAILED)
         return "failed";
       return "?";
       }
     }
 
     public enum DiagnosticOrderPriority {
-        routine, // The order has a normal priority.
-        urgent, // The order should be urgently.
-        stat, // The order is time-critical.
-        asap, // The order should be acted on as soon as possible.
-        Null; // added to help the parsers
+        ROUTINE, // The order has a normal priority.
+        URGENT, // The order should be urgently.
+        STAT, // The order is time-critical.
+        ASAP, // The order should be acted on as soon as possible.
+        NULL; // added to help the parsers
         public static DiagnosticOrderPriority fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("routine".equals(codeString))
-          return routine;
+          return ROUTINE;
         if ("urgent".equals(codeString))
-          return urgent;
+          return URGENT;
         if ("stat".equals(codeString))
-          return stat;
+          return STAT;
         if ("asap".equals(codeString))
-          return asap;
+          return ASAP;
         throw new Exception("Unknown DiagnosticOrderPriority code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case routine: return "routine";
-            case urgent: return "urgent";
-            case stat: return "stat";
-            case asap: return "asap";
+            case ROUTINE: return "routine";
+            case URGENT: return "urgent";
+            case STAT: return "stat";
+            case ASAP: return "asap";
             default: return "?";
           }
         }
@@ -172,23 +172,23 @@ public class DiagnosticOrder extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("routine".equals(codeString))
-          return DiagnosticOrderPriority.routine;
+          return DiagnosticOrderPriority.ROUTINE;
         if ("urgent".equals(codeString))
-          return DiagnosticOrderPriority.urgent;
+          return DiagnosticOrderPriority.URGENT;
         if ("stat".equals(codeString))
-          return DiagnosticOrderPriority.stat;
+          return DiagnosticOrderPriority.STAT;
         if ("asap".equals(codeString))
-          return DiagnosticOrderPriority.asap;
+          return DiagnosticOrderPriority.ASAP;
         throw new Exception("Unknown DiagnosticOrderPriority code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == DiagnosticOrderPriority.routine)
+      if (code == DiagnosticOrderPriority.ROUTINE)
         return "routine";
-      if (code == DiagnosticOrderPriority.urgent)
+      if (code == DiagnosticOrderPriority.URGENT)
         return "urgent";
-      if (code == DiagnosticOrderPriority.stat)
+      if (code == DiagnosticOrderPriority.STAT)
         return "stat";
-      if (code == DiagnosticOrderPriority.asap)
+      if (code == DiagnosticOrderPriority.ASAP)
         return "asap";
       return "?";
       }
@@ -233,16 +233,16 @@ public class DiagnosticOrder extends Resource {
       }
 
         /**
-         * @return {@link #status} (The status for the event.)
+         * @return {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<DiagnosticOrderStatus> getStatus() { 
+        public Enumeration<DiagnosticOrderStatus> getStatusObject() { 
           return this.status;
         }
 
         /**
-         * @param value {@link #status} (The status for the event.)
+         * @param value {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public DiagnosticOrderEventComponent setStatus(Enumeration<DiagnosticOrderStatus> value) { 
+        public DiagnosticOrderEventComponent setStatusObject(Enumeration<DiagnosticOrderStatus> value) { 
           this.status = value;
           return this;
         }
@@ -250,14 +250,14 @@ public class DiagnosticOrder extends Resource {
         /**
          * @return The status for the event.
          */
-        public DiagnosticOrderStatus getStatusSimple() { 
+        public DiagnosticOrderStatus getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value The status for the event.
          */
-        public DiagnosticOrderEventComponent setStatusSimple(DiagnosticOrderStatus value) { 
+        public DiagnosticOrderEventComponent setStatus(DiagnosticOrderStatus value) { 
             if (this.status == null)
               this.status = new Enumeration<DiagnosticOrderStatus>();
             this.status.setValue(value);
@@ -280,16 +280,16 @@ public class DiagnosticOrder extends Resource {
         }
 
         /**
-         * @return {@link #dateTime} (The date/time at which the event occurred.)
+         * @return {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public DateTimeType getDateTime() { 
+        public DateTimeType getDateTimeObject() { 
           return this.dateTime;
         }
 
         /**
-         * @param value {@link #dateTime} (The date/time at which the event occurred.)
+         * @param value {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public DiagnosticOrderEventComponent setDateTime(DateTimeType value) { 
+        public DiagnosticOrderEventComponent setDateTimeObject(DateTimeType value) { 
           this.dateTime = value;
           return this;
         }
@@ -297,14 +297,14 @@ public class DiagnosticOrder extends Resource {
         /**
          * @return The date/time at which the event occurred.
          */
-        public DateAndTime getDateTimeSimple() { 
+        public DateAndTime getDateTime() { 
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
          * @param value The date/time at which the event occurred.
          */
-        public DiagnosticOrderEventComponent setDateTimeSimple(DateAndTime value) { 
+        public DiagnosticOrderEventComponent setDateTime(DateAndTime value) { 
             if (this.dateTime == null)
               this.dateTime = new DateTimeType();
             this.dateTime.setValue(value);
@@ -327,14 +327,14 @@ public class DiagnosticOrder extends Resource {
         }
 
         /**
-         * @return {@link #actor} (The actual object that is the target of the reference. The person who was responsible for performing or recording the action.)
+         * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who was responsible for performing or recording the action.)
          */
         public Resource getActorTarget() { 
           return this.actorTarget;
         }
 
         /**
-         * @param value {@link #actor} (The actual object that is the target of the reference. The person who was responsible for performing or recording the action.)
+         * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who was responsible for performing or recording the action.)
          */
         public DiagnosticOrderEventComponent setActorTarget(Resource value) { 
           this.actorTarget = value;
@@ -435,7 +435,7 @@ public class DiagnosticOrder extends Resource {
         }
 
         /**
-         * @return {@link #specimen} (The actual objects that are the target of the reference. If the item is related to a specific speciment.)
+         * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. If the item is related to a specific speciment.)
          */
         public List<Specimen> getSpecimenTarget() { 
           return this.specimenTarget;
@@ -443,7 +443,7 @@ public class DiagnosticOrder extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #specimen} (Add an actual object that is the target of the reference. If the item is related to a specific speciment.)
+         * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. If the item is related to a specific speciment.)
          */
         public Specimen addSpecimenTarget() { 
           Specimen r = new Specimen();
@@ -467,16 +467,16 @@ public class DiagnosticOrder extends Resource {
         }
 
         /**
-         * @return {@link #status} (The status of this individual item within the order.)
+         * @return {@link #status} (The status of this individual item within the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<DiagnosticOrderStatus> getStatus() { 
+        public Enumeration<DiagnosticOrderStatus> getStatusObject() { 
           return this.status;
         }
 
         /**
-         * @param value {@link #status} (The status of this individual item within the order.)
+         * @param value {@link #status} (The status of this individual item within the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public DiagnosticOrderItemComponent setStatus(Enumeration<DiagnosticOrderStatus> value) { 
+        public DiagnosticOrderItemComponent setStatusObject(Enumeration<DiagnosticOrderStatus> value) { 
           this.status = value;
           return this;
         }
@@ -484,14 +484,14 @@ public class DiagnosticOrder extends Resource {
         /**
          * @return The status of this individual item within the order.
          */
-        public DiagnosticOrderStatus getStatusSimple() { 
+        public DiagnosticOrderStatus getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value The status of this individual item within the order.
          */
-        public DiagnosticOrderItemComponent setStatusSimple(DiagnosticOrderStatus value) { 
+        public DiagnosticOrderItemComponent setStatus(DiagnosticOrderStatus value) { 
           if (value == null)
             this.status = null;
           else {
@@ -651,14 +651,14 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
     public DiagnosticOrder setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -681,14 +681,14 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #orderer} (The actual object that is the target of the reference. The practitioner that holds legal responsibility for ordering the investigation.)
+     * @return {@link #orderer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the investigation.)
      */
     public Practitioner getOrdererTarget() { 
       return this.ordererTarget;
     }
 
     /**
-     * @param value {@link #orderer} (The actual object that is the target of the reference. The practitioner that holds legal responsibility for ordering the investigation.)
+     * @param value {@link #orderer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the investigation.)
      */
     public DiagnosticOrder setOrdererTarget(Practitioner value) { 
       this.ordererTarget = value;
@@ -728,14 +728,14 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (The actual object that is the target of the reference. An encounter that provides additional information about the healthcare context in which this request is made.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     public Encounter getEncounterTarget() { 
       return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #encounter} (The actual object that is the target of the reference. An encounter that provides additional information about the healthcare context in which this request is made.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     public DiagnosticOrder setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
@@ -743,16 +743,16 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.)
+     * @return {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.). This is the underlying object with id, value and extensions. The accessor "getClinicalNotes" gives direct access to the value
      */
-    public StringType getClinicalNotes() { 
+    public StringType getClinicalNotesObject() { 
       return this.clinicalNotes;
     }
 
     /**
-     * @param value {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.)
+     * @param value {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.). This is the underlying object with id, value and extensions. The accessor "getClinicalNotes" gives direct access to the value
      */
-    public DiagnosticOrder setClinicalNotes(StringType value) { 
+    public DiagnosticOrder setClinicalNotesObject(StringType value) { 
       this.clinicalNotes = value;
       return this;
     }
@@ -760,14 +760,14 @@ public class DiagnosticOrder extends Resource {
     /**
      * @return An explanation or justification for why this diagnostic investigation is being requested.
      */
-    public String getClinicalNotesSimple() { 
+    public String getClinicalNotes() { 
       return this.clinicalNotes == null ? null : this.clinicalNotes.getValue();
     }
 
     /**
      * @param value An explanation or justification for why this diagnostic investigation is being requested.
      */
-    public DiagnosticOrder setClinicalNotesSimple(String value) { 
+    public DiagnosticOrder setClinicalNotes(String value) { 
       if (value == null)
         this.clinicalNotes = null;
       else {
@@ -796,7 +796,7 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #supportingInformation} (The actual objects that are the target of the reference. Additional clinical information about the patient or specimen that may influence test interpretations.)
+     * @return {@link #supportingInformation} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Additional clinical information about the patient or specimen that may influence test interpretations.)
      */
     public List<Resource> getSupportingInformationTarget() { 
       return this.supportingInformationTarget;
@@ -820,7 +820,7 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #specimen} (The actual objects that are the target of the reference. One or more specimens that the diagnostic investigation is about.)
+     * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. One or more specimens that the diagnostic investigation is about.)
      */
     public List<Specimen> getSpecimenTarget() { 
       return this.specimenTarget;
@@ -828,7 +828,7 @@ public class DiagnosticOrder extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #specimen} (Add an actual object that is the target of the reference. One or more specimens that the diagnostic investigation is about.)
+     * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. One or more specimens that the diagnostic investigation is about.)
      */
     public Specimen addSpecimenTarget() { 
       Specimen r = new Specimen();
@@ -837,16 +837,16 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #status} (The status of the order.)
+     * @return {@link #status} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DiagnosticOrderStatus> getStatus() { 
+    public Enumeration<DiagnosticOrderStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The status of the order.)
+     * @param value {@link #status} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DiagnosticOrder setStatus(Enumeration<DiagnosticOrderStatus> value) { 
+    public DiagnosticOrder setStatusObject(Enumeration<DiagnosticOrderStatus> value) { 
       this.status = value;
       return this;
     }
@@ -854,14 +854,14 @@ public class DiagnosticOrder extends Resource {
     /**
      * @return The status of the order.
      */
-    public DiagnosticOrderStatus getStatusSimple() { 
+    public DiagnosticOrderStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the order.
      */
-    public DiagnosticOrder setStatusSimple(DiagnosticOrderStatus value) { 
+    public DiagnosticOrder setStatus(DiagnosticOrderStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -873,16 +873,16 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #priority} (The clinical priority associated with this order.)
+     * @return {@link #priority} (The clinical priority associated with this order.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public Enumeration<DiagnosticOrderPriority> getPriority() { 
+    public Enumeration<DiagnosticOrderPriority> getPriorityObject() { 
       return this.priority;
     }
 
     /**
-     * @param value {@link #priority} (The clinical priority associated with this order.)
+     * @param value {@link #priority} (The clinical priority associated with this order.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public DiagnosticOrder setPriority(Enumeration<DiagnosticOrderPriority> value) { 
+    public DiagnosticOrder setPriorityObject(Enumeration<DiagnosticOrderPriority> value) { 
       this.priority = value;
       return this;
     }
@@ -890,14 +890,14 @@ public class DiagnosticOrder extends Resource {
     /**
      * @return The clinical priority associated with this order.
      */
-    public DiagnosticOrderPriority getPrioritySimple() { 
+    public DiagnosticOrderPriority getPriority() { 
       return this.priority == null ? null : this.priority.getValue();
     }
 
     /**
      * @param value The clinical priority associated with this order.
      */
-    public DiagnosticOrder setPrioritySimple(DiagnosticOrderPriority value) { 
+    public DiagnosticOrder setPriority(DiagnosticOrderPriority value) { 
       if (value == null)
         this.priority = null;
       else {

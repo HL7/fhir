@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -40,54 +40,54 @@ import java.math.*;
 public class Timing extends Type {
 
     public enum EventTiming {
-        hS, // event occurs [duration] before the hour of sleep (or trying to).
-        wAKE, // event occurs [duration] after waking.
-        aC, // event occurs [duration] before a meal (from the Latin ante cibus).
-        aCM, // event occurs [duration] before breakfast (from the Latin ante cibus matutinus).
-        aCD, // event occurs [duration] before lunch (from the Latin ante cibus diurnus).
-        aCV, // event occurs [duration] before dinner (from the Latin ante cibus vespertinus).
-        pC, // event occurs [duration] after a meal (from the Latin post cibus).
-        pCM, // event occurs [duration] after breakfast (from the Latin post cibus matutinus).
-        pCD, // event occurs [duration] after lunch (from the Latin post cibus diurnus).
-        pCV, // event occurs [duration] after dinner (from the Latin post cibus vespertinus).
-        Null; // added to help the parsers
+        HS, // event occurs [duration] before the hour of sleep (or trying to).
+        WAKE, // event occurs [duration] after waking.
+        AC, // event occurs [duration] before a meal (from the Latin ante cibus).
+        ACM, // event occurs [duration] before breakfast (from the Latin ante cibus matutinus).
+        ACD, // event occurs [duration] before lunch (from the Latin ante cibus diurnus).
+        ACV, // event occurs [duration] before dinner (from the Latin ante cibus vespertinus).
+        PC, // event occurs [duration] after a meal (from the Latin post cibus).
+        PCM, // event occurs [duration] after breakfast (from the Latin post cibus matutinus).
+        PCD, // event occurs [duration] after lunch (from the Latin post cibus diurnus).
+        PCV, // event occurs [duration] after dinner (from the Latin post cibus vespertinus).
+        NULL; // added to help the parsers
         public static EventTiming fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("HS".equals(codeString))
-          return hS;
+          return HS;
         if ("WAKE".equals(codeString))
-          return wAKE;
+          return WAKE;
         if ("AC".equals(codeString))
-          return aC;
+          return AC;
         if ("ACM".equals(codeString))
-          return aCM;
+          return ACM;
         if ("ACD".equals(codeString))
-          return aCD;
+          return ACD;
         if ("ACV".equals(codeString))
-          return aCV;
+          return ACV;
         if ("PC".equals(codeString))
-          return pC;
+          return PC;
         if ("PCM".equals(codeString))
-          return pCM;
+          return PCM;
         if ("PCD".equals(codeString))
-          return pCD;
+          return PCD;
         if ("PCV".equals(codeString))
-          return pCV;
+          return PCV;
         throw new Exception("Unknown EventTiming code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case hS: return "HS";
-            case wAKE: return "WAKE";
-            case aC: return "AC";
-            case aCM: return "ACM";
-            case aCD: return "ACD";
-            case aCV: return "ACV";
-            case pC: return "PC";
-            case pCM: return "PCM";
-            case pCD: return "PCD";
-            case pCV: return "PCV";
+            case HS: return "HS";
+            case WAKE: return "WAKE";
+            case AC: return "AC";
+            case ACM: return "ACM";
+            case ACD: return "ACD";
+            case ACV: return "ACV";
+            case PC: return "PC";
+            case PCM: return "PCM";
+            case PCD: return "PCD";
+            case PCV: return "PCV";
             default: return "?";
           }
         }
@@ -99,89 +99,89 @@ public class Timing extends Type {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("HS".equals(codeString))
-          return EventTiming.hS;
+          return EventTiming.HS;
         if ("WAKE".equals(codeString))
-          return EventTiming.wAKE;
+          return EventTiming.WAKE;
         if ("AC".equals(codeString))
-          return EventTiming.aC;
+          return EventTiming.AC;
         if ("ACM".equals(codeString))
-          return EventTiming.aCM;
+          return EventTiming.ACM;
         if ("ACD".equals(codeString))
-          return EventTiming.aCD;
+          return EventTiming.ACD;
         if ("ACV".equals(codeString))
-          return EventTiming.aCV;
+          return EventTiming.ACV;
         if ("PC".equals(codeString))
-          return EventTiming.pC;
+          return EventTiming.PC;
         if ("PCM".equals(codeString))
-          return EventTiming.pCM;
+          return EventTiming.PCM;
         if ("PCD".equals(codeString))
-          return EventTiming.pCD;
+          return EventTiming.PCD;
         if ("PCV".equals(codeString))
-          return EventTiming.pCV;
+          return EventTiming.PCV;
         throw new Exception("Unknown EventTiming code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == EventTiming.hS)
+      if (code == EventTiming.HS)
         return "HS";
-      if (code == EventTiming.wAKE)
+      if (code == EventTiming.WAKE)
         return "WAKE";
-      if (code == EventTiming.aC)
+      if (code == EventTiming.AC)
         return "AC";
-      if (code == EventTiming.aCM)
+      if (code == EventTiming.ACM)
         return "ACM";
-      if (code == EventTiming.aCD)
+      if (code == EventTiming.ACD)
         return "ACD";
-      if (code == EventTiming.aCV)
+      if (code == EventTiming.ACV)
         return "ACV";
-      if (code == EventTiming.pC)
+      if (code == EventTiming.PC)
         return "PC";
-      if (code == EventTiming.pCM)
+      if (code == EventTiming.PCM)
         return "PCM";
-      if (code == EventTiming.pCD)
+      if (code == EventTiming.PCD)
         return "PCD";
-      if (code == EventTiming.pCV)
+      if (code == EventTiming.PCV)
         return "PCV";
       return "?";
       }
     }
 
     public enum UnitsOfTime {
-        s, // second.
-        min, // minute.
-        h, // hour.
-        d, // day.
-        wk, // week.
-        mo, // month.
-        a, // year.
-        Null; // added to help the parsers
+        S, // second.
+        MIN, // minute.
+        H, // hour.
+        D, // day.
+        WK, // week.
+        MO, // month.
+        A, // year.
+        NULL; // added to help the parsers
         public static UnitsOfTime fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("s".equals(codeString))
-          return s;
+          return S;
         if ("min".equals(codeString))
-          return min;
+          return MIN;
         if ("h".equals(codeString))
-          return h;
+          return H;
         if ("d".equals(codeString))
-          return d;
+          return D;
         if ("wk".equals(codeString))
-          return wk;
+          return WK;
         if ("mo".equals(codeString))
-          return mo;
+          return MO;
         if ("a".equals(codeString))
-          return a;
+          return A;
         throw new Exception("Unknown UnitsOfTime code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case s: return "s";
-            case min: return "min";
-            case h: return "h";
-            case d: return "d";
-            case wk: return "wk";
-            case mo: return "mo";
-            case a: return "a";
+            case S: return "s";
+            case MIN: return "min";
+            case H: return "h";
+            case D: return "d";
+            case WK: return "wk";
+            case MO: return "mo";
+            case A: return "a";
             default: return "?";
           }
         }
@@ -193,35 +193,35 @@ public class Timing extends Type {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("s".equals(codeString))
-          return UnitsOfTime.s;
+          return UnitsOfTime.S;
         if ("min".equals(codeString))
-          return UnitsOfTime.min;
+          return UnitsOfTime.MIN;
         if ("h".equals(codeString))
-          return UnitsOfTime.h;
+          return UnitsOfTime.H;
         if ("d".equals(codeString))
-          return UnitsOfTime.d;
+          return UnitsOfTime.D;
         if ("wk".equals(codeString))
-          return UnitsOfTime.wk;
+          return UnitsOfTime.WK;
         if ("mo".equals(codeString))
-          return UnitsOfTime.mo;
+          return UnitsOfTime.MO;
         if ("a".equals(codeString))
-          return UnitsOfTime.a;
+          return UnitsOfTime.A;
         throw new Exception("Unknown UnitsOfTime code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == UnitsOfTime.s)
+      if (code == UnitsOfTime.S)
         return "s";
-      if (code == UnitsOfTime.min)
+      if (code == UnitsOfTime.MIN)
         return "min";
-      if (code == UnitsOfTime.h)
+      if (code == UnitsOfTime.H)
         return "h";
-      if (code == UnitsOfTime.d)
+      if (code == UnitsOfTime.D)
         return "d";
-      if (code == UnitsOfTime.wk)
+      if (code == UnitsOfTime.WK)
         return "wk";
-      if (code == UnitsOfTime.mo)
+      if (code == UnitsOfTime.MO)
         return "mo";
-      if (code == UnitsOfTime.a)
+      if (code == UnitsOfTime.A)
         return "a";
       return "?";
       }
@@ -271,16 +271,16 @@ public class Timing extends Type {
       }
 
         /**
-         * @return {@link #frequency} (Indicates how often the event should occur.)
+         * @return {@link #frequency} (Indicates how often the event should occur.). This is the underlying object with id, value and extensions. The accessor "getFrequency" gives direct access to the value
          */
-        public IntegerType getFrequency() { 
+        public IntegerType getFrequencyObject() { 
           return this.frequency;
         }
 
         /**
-         * @param value {@link #frequency} (Indicates how often the event should occur.)
+         * @param value {@link #frequency} (Indicates how often the event should occur.). This is the underlying object with id, value and extensions. The accessor "getFrequency" gives direct access to the value
          */
-        public TimingRepeatComponent setFrequency(IntegerType value) { 
+        public TimingRepeatComponent setFrequencyObject(IntegerType value) { 
           this.frequency = value;
           return this;
         }
@@ -288,14 +288,14 @@ public class Timing extends Type {
         /**
          * @return Indicates how often the event should occur.
          */
-        public int getFrequencySimple() { 
+        public int getFrequency() { 
           return this.frequency == null ? null : this.frequency.getValue();
         }
 
         /**
          * @param value Indicates how often the event should occur.
          */
-        public TimingRepeatComponent setFrequencySimple(int value) { 
+        public TimingRepeatComponent setFrequency(int value) { 
           if (value == -1)
             this.frequency = null;
           else {
@@ -307,16 +307,16 @@ public class Timing extends Type {
         }
 
         /**
-         * @return {@link #when} (Identifies the occurrence of daily life that determines timing.)
+         * @return {@link #when} (Identifies the occurrence of daily life that determines timing.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
          */
-        public Enumeration<EventTiming> getWhen() { 
+        public Enumeration<EventTiming> getWhenObject() { 
           return this.when;
         }
 
         /**
-         * @param value {@link #when} (Identifies the occurrence of daily life that determines timing.)
+         * @param value {@link #when} (Identifies the occurrence of daily life that determines timing.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
          */
-        public TimingRepeatComponent setWhen(Enumeration<EventTiming> value) { 
+        public TimingRepeatComponent setWhenObject(Enumeration<EventTiming> value) { 
           this.when = value;
           return this;
         }
@@ -324,14 +324,14 @@ public class Timing extends Type {
         /**
          * @return Identifies the occurrence of daily life that determines timing.
          */
-        public EventTiming getWhenSimple() { 
+        public EventTiming getWhen() { 
           return this.when == null ? null : this.when.getValue();
         }
 
         /**
          * @param value Identifies the occurrence of daily life that determines timing.
          */
-        public TimingRepeatComponent setWhenSimple(EventTiming value) { 
+        public TimingRepeatComponent setWhen(EventTiming value) { 
           if (value == null)
             this.when = null;
           else {
@@ -343,16 +343,16 @@ public class Timing extends Type {
         }
 
         /**
-         * @return {@link #duration} (How long each repetition should last.)
+         * @return {@link #duration} (How long each repetition should last.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
          */
-        public DecimalType getDuration() { 
+        public DecimalType getDurationObject() { 
           return this.duration;
         }
 
         /**
-         * @param value {@link #duration} (How long each repetition should last.)
+         * @param value {@link #duration} (How long each repetition should last.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
          */
-        public TimingRepeatComponent setDuration(DecimalType value) { 
+        public TimingRepeatComponent setDurationObject(DecimalType value) { 
           this.duration = value;
           return this;
         }
@@ -360,14 +360,14 @@ public class Timing extends Type {
         /**
          * @return How long each repetition should last.
          */
-        public BigDecimal getDurationSimple() { 
+        public BigDecimal getDuration() { 
           return this.duration == null ? null : this.duration.getValue();
         }
 
         /**
          * @param value How long each repetition should last.
          */
-        public TimingRepeatComponent setDurationSimple(BigDecimal value) { 
+        public TimingRepeatComponent setDuration(BigDecimal value) { 
             if (this.duration == null)
               this.duration = new DecimalType();
             this.duration.setValue(value);
@@ -375,16 +375,16 @@ public class Timing extends Type {
         }
 
         /**
-         * @return {@link #units} (The units of time for the duration.)
+         * @return {@link #units} (The units of time for the duration.). This is the underlying object with id, value and extensions. The accessor "getUnits" gives direct access to the value
          */
-        public Enumeration<UnitsOfTime> getUnits() { 
+        public Enumeration<UnitsOfTime> getUnitsObject() { 
           return this.units;
         }
 
         /**
-         * @param value {@link #units} (The units of time for the duration.)
+         * @param value {@link #units} (The units of time for the duration.). This is the underlying object with id, value and extensions. The accessor "getUnits" gives direct access to the value
          */
-        public TimingRepeatComponent setUnits(Enumeration<UnitsOfTime> value) { 
+        public TimingRepeatComponent setUnitsObject(Enumeration<UnitsOfTime> value) { 
           this.units = value;
           return this;
         }
@@ -392,14 +392,14 @@ public class Timing extends Type {
         /**
          * @return The units of time for the duration.
          */
-        public UnitsOfTime getUnitsSimple() { 
+        public UnitsOfTime getUnits() { 
           return this.units == null ? null : this.units.getValue();
         }
 
         /**
          * @param value The units of time for the duration.
          */
-        public TimingRepeatComponent setUnitsSimple(UnitsOfTime value) { 
+        public TimingRepeatComponent setUnits(UnitsOfTime value) { 
             if (this.units == null)
               this.units = new Enumeration<UnitsOfTime>();
             this.units.setValue(value);
@@ -407,16 +407,16 @@ public class Timing extends Type {
         }
 
         /**
-         * @return {@link #count} (A total count of the desired number of repetitions.)
+         * @return {@link #count} (A total count of the desired number of repetitions.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
-        public IntegerType getCount() { 
+        public IntegerType getCountObject() { 
           return this.count;
         }
 
         /**
-         * @param value {@link #count} (A total count of the desired number of repetitions.)
+         * @param value {@link #count} (A total count of the desired number of repetitions.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
-        public TimingRepeatComponent setCount(IntegerType value) { 
+        public TimingRepeatComponent setCountObject(IntegerType value) { 
           this.count = value;
           return this;
         }
@@ -424,14 +424,14 @@ public class Timing extends Type {
         /**
          * @return A total count of the desired number of repetitions.
          */
-        public int getCountSimple() { 
+        public int getCount() { 
           return this.count == null ? null : this.count.getValue();
         }
 
         /**
          * @param value A total count of the desired number of repetitions.
          */
-        public TimingRepeatComponent setCountSimple(int value) { 
+        public TimingRepeatComponent setCount(int value) { 
           if (value == -1)
             this.count = null;
           else {
@@ -443,16 +443,16 @@ public class Timing extends Type {
         }
 
         /**
-         * @return {@link #end} (When to stop repeating the timing schedule.)
+         * @return {@link #end} (When to stop repeating the timing schedule.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
-        public DateTimeType getEnd() { 
+        public DateTimeType getEndObject() { 
           return this.end;
         }
 
         /**
-         * @param value {@link #end} (When to stop repeating the timing schedule.)
+         * @param value {@link #end} (When to stop repeating the timing schedule.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
-        public TimingRepeatComponent setEnd(DateTimeType value) { 
+        public TimingRepeatComponent setEndObject(DateTimeType value) { 
           this.end = value;
           return this;
         }
@@ -460,14 +460,14 @@ public class Timing extends Type {
         /**
          * @return When to stop repeating the timing schedule.
          */
-        public DateAndTime getEndSimple() { 
+        public DateAndTime getEnd() { 
           return this.end == null ? null : this.end.getValue();
         }
 
         /**
          * @param value When to stop repeating the timing schedule.
          */
-        public TimingRepeatComponent setEndSimple(DateAndTime value) { 
+        public TimingRepeatComponent setEnd(DateAndTime value) { 
           if (value == null)
             this.end = null;
           else {

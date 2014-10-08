@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,38 +39,38 @@ import java.util.*;
 public class Observation extends Resource {
 
     public enum ObservationStatus {
-        registered, // The existence of the observation is registered, but there is no result yet available.
-        preliminary, // This is an initial or interim observation: data may be incomplete or unverified.
-        final_, // The observation is complete and verified by an authorized person.
-        amended, // The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.
-        cancelled, // The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
-        enteredInError, // The observation has been withdrawn following previous Final release.
-        Null; // added to help the parsers
+        REGISTERED, // The existence of the observation is registered, but there is no result yet available.
+        PRELIMINARY, // This is an initial or interim observation: data may be incomplete or unverified.
+        FINAL, // The observation is complete and verified by an authorized person.
+        AMENDED, // The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.
+        CANCELLED, // The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
+        ENTEREDINERROR, // The observation has been withdrawn following previous Final release.
+        NULL; // added to help the parsers
         public static ObservationStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("registered".equals(codeString))
-          return registered;
+          return REGISTERED;
         if ("preliminary".equals(codeString))
-          return preliminary;
+          return PRELIMINARY;
         if ("final".equals(codeString))
-          return final_;
+          return FINAL;
         if ("amended".equals(codeString))
-          return amended;
+          return AMENDED;
         if ("cancelled".equals(codeString))
-          return cancelled;
+          return CANCELLED;
         if ("entered in error".equals(codeString))
-          return enteredInError;
+          return ENTEREDINERROR;
         throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case registered: return "registered";
-            case preliminary: return "preliminary";
-            case final_: return "final";
-            case amended: return "amended";
-            case cancelled: return "cancelled";
-            case enteredInError: return "entered in error";
+            case REGISTERED: return "registered";
+            case PRELIMINARY: return "preliminary";
+            case FINAL: return "final";
+            case AMENDED: return "amended";
+            case CANCELLED: return "cancelled";
+            case ENTEREDINERROR: return "entered in error";
             default: return "?";
           }
         }
@@ -82,73 +82,73 @@ public class Observation extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("registered".equals(codeString))
-          return ObservationStatus.registered;
+          return ObservationStatus.REGISTERED;
         if ("preliminary".equals(codeString))
-          return ObservationStatus.preliminary;
+          return ObservationStatus.PRELIMINARY;
         if ("final".equals(codeString))
-          return ObservationStatus.final_;
+          return ObservationStatus.FINAL;
         if ("amended".equals(codeString))
-          return ObservationStatus.amended;
+          return ObservationStatus.AMENDED;
         if ("cancelled".equals(codeString))
-          return ObservationStatus.cancelled;
+          return ObservationStatus.CANCELLED;
         if ("entered in error".equals(codeString))
-          return ObservationStatus.enteredInError;
+          return ObservationStatus.ENTEREDINERROR;
         throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ObservationStatus.registered)
+      if (code == ObservationStatus.REGISTERED)
         return "registered";
-      if (code == ObservationStatus.preliminary)
+      if (code == ObservationStatus.PRELIMINARY)
         return "preliminary";
-      if (code == ObservationStatus.final_)
+      if (code == ObservationStatus.FINAL)
         return "final";
-      if (code == ObservationStatus.amended)
+      if (code == ObservationStatus.AMENDED)
         return "amended";
-      if (code == ObservationStatus.cancelled)
+      if (code == ObservationStatus.CANCELLED)
         return "cancelled";
-      if (code == ObservationStatus.enteredInError)
+      if (code == ObservationStatus.ENTEREDINERROR)
         return "entered in error";
       return "?";
       }
     }
 
     public enum ObservationReliability {
-        ok, // The result has no reliability concerns.
-        ongoing, // An early estimate of value; measurement is still occurring.
-        early, // An early estimate of value; processing is still occurring.
-        questionable, // The observation value should be treated with care.
-        calibrating, // The result has been generated while calibration is occurring.
-        error, // The observation could not be completed because of an error.
-        unknown, // No observation value was available.
-        Null; // added to help the parsers
+        OK, // The result has no reliability concerns.
+        ONGOING, // An early estimate of value; measurement is still occurring.
+        EARLY, // An early estimate of value; processing is still occurring.
+        QUESTIONABLE, // The observation value should be treated with care.
+        CALIBRATING, // The result has been generated while calibration is occurring.
+        ERROR, // The observation could not be completed because of an error.
+        UNKNOWN, // No observation value was available.
+        NULL; // added to help the parsers
         public static ObservationReliability fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("ok".equals(codeString))
-          return ok;
+          return OK;
         if ("ongoing".equals(codeString))
-          return ongoing;
+          return ONGOING;
         if ("early".equals(codeString))
-          return early;
+          return EARLY;
         if ("questionable".equals(codeString))
-          return questionable;
+          return QUESTIONABLE;
         if ("calibrating".equals(codeString))
-          return calibrating;
+          return CALIBRATING;
         if ("error".equals(codeString))
-          return error;
+          return ERROR;
         if ("unknown".equals(codeString))
-          return unknown;
+          return UNKNOWN;
         throw new Exception("Unknown ObservationReliability code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case ok: return "ok";
-            case ongoing: return "ongoing";
-            case early: return "early";
-            case questionable: return "questionable";
-            case calibrating: return "calibrating";
-            case error: return "error";
-            case unknown: return "unknown";
+            case OK: return "ok";
+            case ONGOING: return "ongoing";
+            case EARLY: return "early";
+            case QUESTIONABLE: return "questionable";
+            case CALIBRATING: return "calibrating";
+            case ERROR: return "error";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -160,77 +160,77 @@ public class Observation extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("ok".equals(codeString))
-          return ObservationReliability.ok;
+          return ObservationReliability.OK;
         if ("ongoing".equals(codeString))
-          return ObservationReliability.ongoing;
+          return ObservationReliability.ONGOING;
         if ("early".equals(codeString))
-          return ObservationReliability.early;
+          return ObservationReliability.EARLY;
         if ("questionable".equals(codeString))
-          return ObservationReliability.questionable;
+          return ObservationReliability.QUESTIONABLE;
         if ("calibrating".equals(codeString))
-          return ObservationReliability.calibrating;
+          return ObservationReliability.CALIBRATING;
         if ("error".equals(codeString))
-          return ObservationReliability.error;
+          return ObservationReliability.ERROR;
         if ("unknown".equals(codeString))
-          return ObservationReliability.unknown;
+          return ObservationReliability.UNKNOWN;
         throw new Exception("Unknown ObservationReliability code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ObservationReliability.ok)
+      if (code == ObservationReliability.OK)
         return "ok";
-      if (code == ObservationReliability.ongoing)
+      if (code == ObservationReliability.ONGOING)
         return "ongoing";
-      if (code == ObservationReliability.early)
+      if (code == ObservationReliability.EARLY)
         return "early";
-      if (code == ObservationReliability.questionable)
+      if (code == ObservationReliability.QUESTIONABLE)
         return "questionable";
-      if (code == ObservationReliability.calibrating)
+      if (code == ObservationReliability.CALIBRATING)
         return "calibrating";
-      if (code == ObservationReliability.error)
+      if (code == ObservationReliability.ERROR)
         return "error";
-      if (code == ObservationReliability.unknown)
+      if (code == ObservationReliability.UNKNOWN)
         return "unknown";
       return "?";
       }
     }
 
     public enum ObservationRelationshiptypes {
-        hascomponent, // The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure).
-        hasmember, // This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.
-        derivedfrom, // The target observation is part of the information from which this observation value is derived (e.g. calculated anion gap, Apgar score).
-        sequelto, // This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test).
-        replaces, // This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete.
-        qualifiedby, // The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure).
-        interferedby, // The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value).
-        Null; // added to help the parsers
+        HASCOMPONENT, // The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure).
+        HASMEMBER, // This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.
+        DERIVEDFROM, // The target observation is part of the information from which this observation value is derived (e.g. calculated anion gap, Apgar score).
+        SEQUELTO, // This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test).
+        REPLACES, // This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete.
+        QUALIFIEDBY, // The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure).
+        INTERFEREDBY, // The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value).
+        NULL; // added to help the parsers
         public static ObservationRelationshiptypes fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("has-component".equals(codeString))
-          return hascomponent;
+          return HASCOMPONENT;
         if ("has-member".equals(codeString))
-          return hasmember;
+          return HASMEMBER;
         if ("derived-from".equals(codeString))
-          return derivedfrom;
+          return DERIVEDFROM;
         if ("sequel-to".equals(codeString))
-          return sequelto;
+          return SEQUELTO;
         if ("replaces".equals(codeString))
-          return replaces;
+          return REPLACES;
         if ("qualified-by".equals(codeString))
-          return qualifiedby;
+          return QUALIFIEDBY;
         if ("interfered-by".equals(codeString))
-          return interferedby;
+          return INTERFEREDBY;
         throw new Exception("Unknown ObservationRelationshiptypes code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case hascomponent: return "has-component";
-            case hasmember: return "has-member";
-            case derivedfrom: return "derived-from";
-            case sequelto: return "sequel-to";
-            case replaces: return "replaces";
-            case qualifiedby: return "qualified-by";
-            case interferedby: return "interfered-by";
+            case HASCOMPONENT: return "has-component";
+            case HASMEMBER: return "has-member";
+            case DERIVEDFROM: return "derived-from";
+            case SEQUELTO: return "sequel-to";
+            case REPLACES: return "replaces";
+            case QUALIFIEDBY: return "qualified-by";
+            case INTERFEREDBY: return "interfered-by";
             default: return "?";
           }
         }
@@ -242,35 +242,35 @@ public class Observation extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("has-component".equals(codeString))
-          return ObservationRelationshiptypes.hascomponent;
+          return ObservationRelationshiptypes.HASCOMPONENT;
         if ("has-member".equals(codeString))
-          return ObservationRelationshiptypes.hasmember;
+          return ObservationRelationshiptypes.HASMEMBER;
         if ("derived-from".equals(codeString))
-          return ObservationRelationshiptypes.derivedfrom;
+          return ObservationRelationshiptypes.DERIVEDFROM;
         if ("sequel-to".equals(codeString))
-          return ObservationRelationshiptypes.sequelto;
+          return ObservationRelationshiptypes.SEQUELTO;
         if ("replaces".equals(codeString))
-          return ObservationRelationshiptypes.replaces;
+          return ObservationRelationshiptypes.REPLACES;
         if ("qualified-by".equals(codeString))
-          return ObservationRelationshiptypes.qualifiedby;
+          return ObservationRelationshiptypes.QUALIFIEDBY;
         if ("interfered-by".equals(codeString))
-          return ObservationRelationshiptypes.interferedby;
+          return ObservationRelationshiptypes.INTERFEREDBY;
         throw new Exception("Unknown ObservationRelationshiptypes code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ObservationRelationshiptypes.hascomponent)
+      if (code == ObservationRelationshiptypes.HASCOMPONENT)
         return "has-component";
-      if (code == ObservationRelationshiptypes.hasmember)
+      if (code == ObservationRelationshiptypes.HASMEMBER)
         return "has-member";
-      if (code == ObservationRelationshiptypes.derivedfrom)
+      if (code == ObservationRelationshiptypes.DERIVEDFROM)
         return "derived-from";
-      if (code == ObservationRelationshiptypes.sequelto)
+      if (code == ObservationRelationshiptypes.SEQUELTO)
         return "sequel-to";
-      if (code == ObservationRelationshiptypes.replaces)
+      if (code == ObservationRelationshiptypes.REPLACES)
         return "replaces";
-      if (code == ObservationRelationshiptypes.qualifiedby)
+      if (code == ObservationRelationshiptypes.QUALIFIEDBY)
         return "qualified-by";
-      if (code == ObservationRelationshiptypes.interferedby)
+      if (code == ObservationRelationshiptypes.INTERFEREDBY)
         return "interfered-by";
       return "?";
       }
@@ -369,16 +369,16 @@ public class Observation extends Resource {
         }
 
         /**
-         * @return {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.)
+         * @return {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getText() { 
+        public StringType getTextObject() { 
           return this.text;
         }
 
         /**
-         * @param value {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.)
+         * @param value {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public ObservationReferenceRangeComponent setText(StringType value) { 
+        public ObservationReferenceRangeComponent setTextObject(StringType value) { 
           this.text = value;
           return this;
         }
@@ -386,14 +386,14 @@ public class Observation extends Resource {
         /**
          * @return Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.
          */
-        public String getTextSimple() { 
+        public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.
          */
-        public ObservationReferenceRangeComponent setTextSimple(String value) { 
+        public ObservationReferenceRangeComponent setText(String value) { 
           if (value == null)
             this.text = null;
           else {
@@ -453,16 +453,16 @@ public class Observation extends Resource {
       }
 
         /**
-         * @return {@link #type} (A code specifying the kind of relationship that exists with the target observation.)
+         * @return {@link #type} (A code specifying the kind of relationship that exists with the target observation.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ObservationRelationshiptypes> getType() { 
+        public Enumeration<ObservationRelationshiptypes> getTypeObject() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (A code specifying the kind of relationship that exists with the target observation.)
+         * @param value {@link #type} (A code specifying the kind of relationship that exists with the target observation.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ObservationRelatedComponent setType(Enumeration<ObservationRelationshiptypes> value) { 
+        public ObservationRelatedComponent setTypeObject(Enumeration<ObservationRelationshiptypes> value) { 
           this.type = value;
           return this;
         }
@@ -470,14 +470,14 @@ public class Observation extends Resource {
         /**
          * @return A code specifying the kind of relationship that exists with the target observation.
          */
-        public ObservationRelationshiptypes getTypeSimple() { 
+        public ObservationRelationshiptypes getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value A code specifying the kind of relationship that exists with the target observation.
          */
-        public ObservationRelatedComponent setTypeSimple(ObservationRelationshiptypes value) { 
+        public ObservationRelatedComponent setType(ObservationRelationshiptypes value) { 
           if (value == null)
             this.type = null;
           else {
@@ -504,14 +504,14 @@ public class Observation extends Resource {
         }
 
         /**
-         * @return {@link #target} (The actual object that is the target of the reference. A reference to the observation that is related to this observation.)
+         * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the observation that is related to this observation.)
          */
         public Observation getTargetTarget() { 
           return this.targetTarget;
         }
 
         /**
-         * @param value {@link #target} (The actual object that is the target of the reference. A reference to the observation that is related to this observation.)
+         * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the observation that is related to this observation.)
          */
         public ObservationRelatedComponent setTargetTarget(Observation value) { 
           this.targetTarget = value;
@@ -697,16 +697,16 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #comments} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.)
+     * @return {@link #comments} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
      */
-    public StringType getComments() { 
+    public StringType getCommentsObject() { 
       return this.comments;
     }
 
     /**
-     * @param value {@link #comments} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.)
+     * @param value {@link #comments} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
      */
-    public Observation setComments(StringType value) { 
+    public Observation setCommentsObject(StringType value) { 
       this.comments = value;
       return this;
     }
@@ -714,14 +714,14 @@ public class Observation extends Resource {
     /**
      * @return May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
      */
-    public String getCommentsSimple() { 
+    public String getComments() { 
       return this.comments == null ? null : this.comments.getValue();
     }
 
     /**
      * @param value May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
      */
-    public Observation setCommentsSimple(String value) { 
+    public Observation setComments(String value) { 
       if (value == null)
         this.comments = null;
       else {
@@ -748,16 +748,16 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #issued} (Date/Time this was made available.)
+     * @return {@link #issued} (Date/Time this was made available.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public InstantType getIssued() { 
+    public InstantType getIssuedObject() { 
       return this.issued;
     }
 
     /**
-     * @param value {@link #issued} (Date/Time this was made available.)
+     * @param value {@link #issued} (Date/Time this was made available.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public Observation setIssued(InstantType value) { 
+    public Observation setIssuedObject(InstantType value) { 
       this.issued = value;
       return this;
     }
@@ -765,14 +765,14 @@ public class Observation extends Resource {
     /**
      * @return Date/Time this was made available.
      */
-    public DateAndTime getIssuedSimple() { 
+    public DateAndTime getIssued() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
      * @param value Date/Time this was made available.
      */
-    public Observation setIssuedSimple(DateAndTime value) { 
+    public Observation setIssued(DateAndTime value) { 
       if (value == null)
         this.issued = null;
       else {
@@ -784,16 +784,16 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #status} (The status of the result value.)
+     * @return {@link #status} (The status of the result value.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ObservationStatus> getStatus() { 
+    public Enumeration<ObservationStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The status of the result value.)
+     * @param value {@link #status} (The status of the result value.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Observation setStatus(Enumeration<ObservationStatus> value) { 
+    public Observation setStatusObject(Enumeration<ObservationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -801,14 +801,14 @@ public class Observation extends Resource {
     /**
      * @return The status of the result value.
      */
-    public ObservationStatus getStatusSimple() { 
+    public ObservationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the result value.
      */
-    public Observation setStatusSimple(ObservationStatus value) { 
+    public Observation setStatus(ObservationStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ObservationStatus>();
         this.status.setValue(value);
@@ -816,16 +816,16 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #reliability} (An estimate of the degree to which quality issues have impacted on the value reported.)
+     * @return {@link #reliability} (An estimate of the degree to which quality issues have impacted on the value reported.). This is the underlying object with id, value and extensions. The accessor "getReliability" gives direct access to the value
      */
-    public Enumeration<ObservationReliability> getReliability() { 
+    public Enumeration<ObservationReliability> getReliabilityObject() { 
       return this.reliability;
     }
 
     /**
-     * @param value {@link #reliability} (An estimate of the degree to which quality issues have impacted on the value reported.)
+     * @param value {@link #reliability} (An estimate of the degree to which quality issues have impacted on the value reported.). This is the underlying object with id, value and extensions. The accessor "getReliability" gives direct access to the value
      */
-    public Observation setReliability(Enumeration<ObservationReliability> value) { 
+    public Observation setReliabilityObject(Enumeration<ObservationReliability> value) { 
       this.reliability = value;
       return this;
     }
@@ -833,14 +833,14 @@ public class Observation extends Resource {
     /**
      * @return An estimate of the degree to which quality issues have impacted on the value reported.
      */
-    public ObservationReliability getReliabilitySimple() { 
+    public ObservationReliability getReliability() { 
       return this.reliability == null ? null : this.reliability.getValue();
     }
 
     /**
      * @param value An estimate of the degree to which quality issues have impacted on the value reported.
      */
-    public Observation setReliabilitySimple(ObservationReliability value) { 
+    public Observation setReliability(ObservationReliability value) { 
         if (this.reliability == null)
           this.reliability = new Enumeration<ObservationReliability>();
         this.reliability.setValue(value);
@@ -908,14 +908,14 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The thing the observation is being made about.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The thing the observation is being made about.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The thing the observation is being made about.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The thing the observation is being made about.)
      */
     public Observation setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -938,14 +938,14 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #specimen} (The actual object that is the target of the reference. The specimen that was used when this observation was made.)
+     * @return {@link #specimen} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The specimen that was used when this observation was made.)
      */
     public Specimen getSpecimenTarget() { 
       return this.specimenTarget;
     }
 
     /**
-     * @param value {@link #specimen} (The actual object that is the target of the reference. The specimen that was used when this observation was made.)
+     * @param value {@link #specimen} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The specimen that was used when this observation was made.)
      */
     public Observation setSpecimenTarget(Specimen value) { 
       this.specimenTarget = value;
@@ -970,7 +970,7 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #performer} (The actual objects that are the target of the reference. Who was responsible for asserting the observed value as "true".)
+     * @return {@link #performer} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Who was responsible for asserting the observed value as "true".)
      */
     public List<Resource> getPerformerTarget() { 
       return this.performerTarget;
@@ -992,14 +992,14 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (The actual object that is the target of the reference. The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation.)
      */
     public Encounter getEncounterTarget() { 
       return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #encounter} (The actual object that is the target of the reference. The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare event  ( e.g. a patient and healthcare provider interaction ) that relates to this observation.)
      */
     public Observation setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;

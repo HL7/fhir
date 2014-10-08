@@ -47,10 +47,10 @@ import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
+import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -214,19 +214,19 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 
   public static String describeBinding(ElementDefinitionBindingComponent def, PageProcessor page) throws Exception {
     if (def.getReference() == null) 
-      return def.getDescriptionSimple();
-    String ref = def.getReference() instanceof UriType ? ((UriType) def.getReference()).asStringValue() : ((Reference) def.getReference()).getReferenceSimple();
+      return def.getDescription();
+    String ref = def.getReference() instanceof UriType ? ((UriType) def.getReference()).asStringValue() : ((Reference) def.getReference()).getReference();
     AtomEntry<ValueSet> vs = page.getValueSets().get(ref);
     if (vs != null)
-      return def.getDescriptionSimple()+"<br/>"+conf(def)+ "<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+vs.getResource().getNameSimple()+"</a>"+confTail(def);
+      return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+vs.getResource().getName()+"</a>"+confTail(def);
     if (ref.startsWith("http:") || ref.startsWith("https:"))
-      return def.getDescriptionSimple()+"<br/>"+conf(def)+" <a href=\""+ref+"\">"+ref+"</a>"+confTail(def);
+      return def.getDescription()+"<br/>"+conf(def)+" <a href=\""+ref+"\">"+ref+"</a>"+confTail(def);
     else
-      return def.getDescriptionSimple()+"<br/>"+conf(def)+" ?? Broken Reference to "+ref+" ??"+confTail(def);
+      return def.getDescription()+"<br/>"+conf(def)+" ?? Broken Reference to "+ref+" ??"+confTail(def);
   }
   
   private static String confTail(ElementDefinitionBindingComponent def) {
-    if (def.getConformanceSimple() == BindingConformance.preferred || def.getConformanceSimple() == BindingConformance.required && def.getIsExtensibleSimple())
+    if (def.getConformance() == BindingConformance.PREFERRED || def.getConformance() == BindingConformance.REQUIRED && def.getIsExtensible())
       return "; other codes may be used where these codes are not suitable";
     else
       return "";
@@ -235,12 +235,12 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
   private static String conf(ElementDefinitionBindingComponent def) {
     if (def.getConformance() == null)
       return "For codes, see ";
-    switch (def.getConformanceSimple()) {
-    case example:
+    switch (def.getConformance()) {
+    case EXAMPLE:
       return "For example codes, see ";
-    case preferred:
+    case PREFERRED:
       return "The codes SHOULD be taken from ";
-    case required:
+    case REQUIRED:
       return "The codes SHALL be taken from ";
     default:
       return "??";
@@ -269,7 +269,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
         return cd.getBindingStrength().toString()+": <a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">Value Set Definition</a> ("+cd.getDefinition()+")";
       } else if (cd.getReferredValueSet() != null)
-        return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference()+".html\">See "+cd.getReferredValueSet().getIdentifierSimple()+"</a> ("+cd.getDefinition()+")";
+        return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference()+".html\">See "+cd.getReferredValueSet().getIdentifier()+"</a> ("+cd.getDefinition()+")";
       else
       return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference()+".html\">Value Set Definition</a> ("+cd.getDefinition()+")";
     }
@@ -362,7 +362,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     if (!cd.hasReference())
       return Utilities.escapeXml(cd.getDescription());
     else if (cd.getReferredValueSet() != null)
-      return "<a href=\""+cd.getReference()+".html\">"+Utilities.escapeXml(cd.getReferredValueSet().getNameSimple())+"</a>";      
+      return "<a href=\""+cd.getReference()+".html\">"+Utilities.escapeXml(cd.getReferredValueSet().getName())+"</a>";      
     else
       return "<a href=\""+cd.getReference()+"\">"+Utilities.escapeXml(cd.getDescription())+"</a>";
   }

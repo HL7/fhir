@@ -61,8 +61,11 @@ public class TypeParser {
 		
 		if (!Utilities.noString(profiles)) {
 		  String[] plist = profiles.split("\\|");
-		  for (int i = 0; i < plist.length; i++) 
+		  for (int i = 0; i < plist.length; i++) {
+		    if (i >= a.size())
+		      throw new Exception("The profile "+profiles+" has more choices that the type "+n);
 		    a.get(i).setProfile(plist[i]);
+		  }
 		}
 		return a;
 	}

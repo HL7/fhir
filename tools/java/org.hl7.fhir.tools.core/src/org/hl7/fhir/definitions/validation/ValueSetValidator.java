@@ -1,6 +1,5 @@
 package org.hl7.fhir.definitions.validation;
 
-import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.WorkerContext;
 

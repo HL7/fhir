@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -76,16 +76,16 @@ public class Substance extends Resource {
         }
 
         /**
-         * @return {@link #expiry} (When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.)
+         * @return {@link #expiry} (When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
          */
-        public DateTimeType getExpiry() { 
+        public DateTimeType getExpiryObject() { 
           return this.expiry;
         }
 
         /**
-         * @param value {@link #expiry} (When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.)
+         * @param value {@link #expiry} (When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
          */
-        public SubstanceInstanceComponent setExpiry(DateTimeType value) { 
+        public SubstanceInstanceComponent setExpiryObject(DateTimeType value) { 
           this.expiry = value;
           return this;
         }
@@ -93,14 +93,14 @@ public class Substance extends Resource {
         /**
          * @return When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
          */
-        public DateAndTime getExpirySimple() { 
+        public DateAndTime getExpiry() { 
           return this.expiry == null ? null : this.expiry.getValue();
         }
 
         /**
          * @param value When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
          */
-        public SubstanceInstanceComponent setExpirySimple(DateAndTime value) { 
+        public SubstanceInstanceComponent setExpiry(DateAndTime value) { 
           if (value == null)
             this.expiry = null;
           else {
@@ -201,14 +201,14 @@ public class Substance extends Resource {
         }
 
         /**
-         * @return {@link #substance} (The actual object that is the target of the reference. Another substance that is a component of this substance.)
+         * @return {@link #substance} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another substance that is a component of this substance.)
          */
         public Substance getSubstanceTarget() { 
           return this.substanceTarget;
         }
 
         /**
-         * @param value {@link #substance} (The actual object that is the target of the reference. Another substance that is a component of this substance.)
+         * @param value {@link #substance} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Another substance that is a component of this substance.)
          */
         public SubstanceIngredientComponent setSubstanceTarget(Substance value) { 
           this.substanceTarget = value;
@@ -277,16 +277,16 @@ public class Substance extends Resource {
     }
 
     /**
-     * @return {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.)
+     * @return {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescription() { 
+    public StringType getDescriptionObject() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.)
+     * @param value {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Substance setDescription(StringType value) { 
+    public Substance setDescriptionObject(StringType value) { 
       this.description = value;
       return this;
     }
@@ -294,14 +294,14 @@ public class Substance extends Resource {
     /**
      * @return A description of the substance - its appearance, handling requirements, and other usage notes.
      */
-    public String getDescriptionSimple() { 
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A description of the substance - its appearance, handling requirements, and other usage notes.
      */
-    public Substance setDescriptionSimple(String value) { 
+    public Substance setDescription(String value) { 
       if (value == null)
         this.description = null;
       else {

@@ -81,6 +81,7 @@ Type
     Function Parse(Const oSource : TStream) : IXMLDomDocument2; Overload;
     Function Parse(Const oSource : TAdvStream) : IXMLDomDocument2; Overload;
     Function Parse(Const oSource : TAdvBuffer) : IXMLDomDocument2; Overload;
+    Function ParseString(Const sSource : String) : IXMLDomDocument2; Overload;
 
     Class Function GetAttribute(oElement : IXMLDOMElement; Const sName : WideString) : WideString; overload;
     Class Function GetAttribute(oElement : IXMLDOMElement; Const sNamespace, sName : WideString) : WideString; overload;
@@ -298,7 +299,18 @@ begin
   Finally
     oMem.Free;
   End;
+end;
 
+function TMsXmlParser.ParseString(const sSource: String): IXMLDomDocument2;
+var
+  oMem : TStringStream;
+begin
+  oMem := TStringStream.Create(sSource);
+  try
+    result := Parse(oMem);
+  Finally
+    oMem.Free;
+  End;
 end;
 
 procedure TMsXmlParser.Parse(const oSource: TAdvStream; handler: TMsXmlSaxHandler);

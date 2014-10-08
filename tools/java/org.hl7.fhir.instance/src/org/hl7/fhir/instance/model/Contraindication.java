@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -86,16 +86,16 @@ public class Contraindication extends Resource {
         }
 
         /**
-         * @return {@link #date} (Indicates when the mitigating action was documented.)
+         * @return {@link #date} (Indicates when the mitigating action was documented.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDate() { 
+        public DateTimeType getDateObject() { 
           return this.date;
         }
 
         /**
-         * @param value {@link #date} (Indicates when the mitigating action was documented.)
+         * @param value {@link #date} (Indicates when the mitigating action was documented.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public ContraindicationMitigationComponent setDate(DateTimeType value) { 
+        public ContraindicationMitigationComponent setDateObject(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -103,14 +103,14 @@ public class Contraindication extends Resource {
         /**
          * @return Indicates when the mitigating action was documented.
          */
-        public DateAndTime getDateSimple() { 
+        public DateAndTime getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value Indicates when the mitigating action was documented.
          */
-        public ContraindicationMitigationComponent setDateSimple(DateAndTime value) { 
+        public ContraindicationMitigationComponent setDate(DateAndTime value) { 
           if (value == null)
             this.date = null;
           else {
@@ -137,14 +137,14 @@ public class Contraindication extends Resource {
         }
 
         /**
-         * @return {@link #author} (The actual object that is the target of the reference. Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
+         * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
         public Practitioner getAuthorTarget() { 
           return this.authorTarget;
         }
 
         /**
-         * @param value {@link #author} (The actual object that is the target of the reference. Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
+         * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
         public ContraindicationMitigationComponent setAuthorTarget(Practitioner value) { 
           this.authorTarget = value;
@@ -255,14 +255,14 @@ public class Contraindication extends Resource {
     }
 
     /**
-     * @return {@link #patient} (The actual object that is the target of the reference. Indicates the patient whose record the contraindication is associated with.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the patient whose record the contraindication is associated with.)
      */
     public Patient getPatientTarget() { 
       return this.patientTarget;
     }
 
     /**
-     * @param value {@link #patient} (The actual object that is the target of the reference. Indicates the patient whose record the contraindication is associated with.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates the patient whose record the contraindication is associated with.)
      */
     public Contraindication setPatientTarget(Patient value) { 
       this.patientTarget = value;
@@ -285,16 +285,16 @@ public class Contraindication extends Resource {
     }
 
     /**
-     * @return {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.)
+     * @return {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
      */
-    public CodeType getSeverity() { 
+    public CodeType getSeverityObject() { 
       return this.severity;
     }
 
     /**
-     * @param value {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.)
+     * @param value {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
      */
-    public Contraindication setSeverity(CodeType value) { 
+    public Contraindication setSeverityObject(CodeType value) { 
       this.severity = value;
       return this;
     }
@@ -302,14 +302,14 @@ public class Contraindication extends Resource {
     /**
      * @return Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
      */
-    public String getSeveritySimple() { 
+    public String getSeverity() { 
       return this.severity == null ? null : this.severity.getValue();
     }
 
     /**
      * @param value Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
      */
-    public Contraindication setSeveritySimple(String value) { 
+    public Contraindication setSeverity(String value) { 
       if (value == null)
         this.severity = null;
       else {
@@ -338,23 +338,23 @@ public class Contraindication extends Resource {
     }
 
     /**
-     * @return {@link #implicated} (The actual objects that are the target of the reference. Indicates the resource representing the current activity or proposed activity that.)
+     * @return {@link #implicated} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the resource representing the current activity or proposed activity that.)
      */
     public List<Resource> getImplicatedTarget() { 
       return this.implicatedTarget;
     }
 
     /**
-     * @return {@link #detail} (A textual explanation of the contraindication.)
+     * @return {@link #detail} (A textual explanation of the contraindication.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
      */
-    public StringType getDetail() { 
+    public StringType getDetailObject() { 
       return this.detail;
     }
 
     /**
-     * @param value {@link #detail} (A textual explanation of the contraindication.)
+     * @param value {@link #detail} (A textual explanation of the contraindication.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
      */
-    public Contraindication setDetail(StringType value) { 
+    public Contraindication setDetailObject(StringType value) { 
       this.detail = value;
       return this;
     }
@@ -362,14 +362,14 @@ public class Contraindication extends Resource {
     /**
      * @return A textual explanation of the contraindication.
      */
-    public String getDetailSimple() { 
+    public String getDetail() { 
       return this.detail == null ? null : this.detail.getValue();
     }
 
     /**
      * @param value A textual explanation of the contraindication.
      */
-    public Contraindication setDetailSimple(String value) { 
+    public Contraindication setDetail(String value) { 
       if (value == null)
         this.detail = null;
       else {
@@ -381,16 +381,16 @@ public class Contraindication extends Resource {
     }
 
     /**
-     * @return {@link #date} (The date or date-time when the contraindication was initially identified.)
+     * @return {@link #date} (The date or date-time when the contraindication was initially identified.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDate() { 
+    public DateTimeType getDateObject() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The date or date-time when the contraindication was initially identified.)
+     * @param value {@link #date} (The date or date-time when the contraindication was initially identified.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Contraindication setDate(DateTimeType value) { 
+    public Contraindication setDateObject(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -398,14 +398,14 @@ public class Contraindication extends Resource {
     /**
      * @return The date or date-time when the contraindication was initially identified.
      */
-    public DateAndTime getDateSimple() { 
+    public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date or date-time when the contraindication was initially identified.
      */
-    public Contraindication setDateSimple(DateAndTime value) { 
+    public Contraindication setDate(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -432,14 +432,14 @@ public class Contraindication extends Resource {
     }
 
     /**
-     * @return {@link #author} (The actual object that is the target of the reference. Identifies the provider or software that identified the.)
+     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the provider or software that identified the.)
      */
     public Resource getAuthorTarget() { 
       return this.authorTarget;
     }
 
     /**
-     * @param value {@link #author} (The actual object that is the target of the reference. Identifies the provider or software that identified the.)
+     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the provider or software that identified the.)
      */
     public Contraindication setAuthorTarget(Resource value) { 
       this.authorTarget = value;
@@ -462,16 +462,16 @@ public class Contraindication extends Resource {
     }
 
     /**
-     * @return {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.)
+     * @return {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public UriType getReference() { 
+    public UriType getReferenceObject() { 
       return this.reference;
     }
 
     /**
-     * @param value {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.)
+     * @param value {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public Contraindication setReference(UriType value) { 
+    public Contraindication setReferenceObject(UriType value) { 
       this.reference = value;
       return this;
     }
@@ -479,14 +479,14 @@ public class Contraindication extends Resource {
     /**
      * @return The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.
      */
-    public String getReferenceSimple() { 
+    public String getReference() { 
       return this.reference == null ? null : this.reference.getValue();
     }
 
     /**
      * @param value The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.
      */
-    public Contraindication setReferenceSimple(String value) { 
+    public Contraindication setReference(String value) { 
       if (value == null)
         this.reference = null;
       else {

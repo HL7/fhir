@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.InputStreamReader;
 
 import org.hl7.fhir.utilities.Logger;
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
+import org.hl7.fhir.utilities.Utilities;
 
 public class DotNetFramework {
 

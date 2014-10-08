@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -103,16 +103,16 @@ public class ImmunizationRecommendation extends Resource {
       }
 
         /**
-         * @return {@link #date} (The date the immunization recommendation was created.)
+         * @return {@link #date} (The date the immunization recommendation was created.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDate() { 
+        public DateTimeType getDateObject() { 
           return this.date;
         }
 
         /**
-         * @param value {@link #date} (The date the immunization recommendation was created.)
+         * @param value {@link #date} (The date the immunization recommendation was created.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationComponent setDate(DateTimeType value) { 
+        public ImmunizationRecommendationRecommendationComponent setDateObject(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -120,14 +120,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return The date the immunization recommendation was created.
          */
-        public DateAndTime getDateSimple() { 
+        public DateAndTime getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value The date the immunization recommendation was created.
          */
-        public ImmunizationRecommendationRecommendationComponent setDateSimple(DateAndTime value) { 
+        public ImmunizationRecommendationRecommendationComponent setDate(DateAndTime value) { 
             if (this.date == null)
               this.date = new DateTimeType();
             this.date.setValue(value);
@@ -150,16 +150,16 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return {@link #doseNumber} (This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).)
+         * @return {@link #doseNumber} (This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).). This is the underlying object with id, value and extensions. The accessor "getDoseNumber" gives direct access to the value
          */
-        public IntegerType getDoseNumber() { 
+        public IntegerType getDoseNumberObject() { 
           return this.doseNumber;
         }
 
         /**
-         * @param value {@link #doseNumber} (This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).)
+         * @param value {@link #doseNumber} (This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).). This is the underlying object with id, value and extensions. The accessor "getDoseNumber" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationComponent setDoseNumber(IntegerType value) { 
+        public ImmunizationRecommendationRecommendationComponent setDoseNumberObject(IntegerType value) { 
           this.doseNumber = value;
           return this;
         }
@@ -167,14 +167,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
          */
-        public int getDoseNumberSimple() { 
+        public int getDoseNumber() { 
           return this.doseNumber == null ? null : this.doseNumber.getValue();
         }
 
         /**
          * @param value This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
          */
-        public ImmunizationRecommendationRecommendationComponent setDoseNumberSimple(int value) { 
+        public ImmunizationRecommendationRecommendationComponent setDoseNumber(int value) { 
           if (value == -1)
             this.doseNumber = null;
           else {
@@ -250,7 +250,7 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return {@link #supportingImmunization} (The actual objects that are the target of the reference. Immunization event history that supports the status and recommendation.)
+         * @return {@link #supportingImmunization} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Immunization event history that supports the status and recommendation.)
          */
         public List<Immunization> getSupportingImmunizationTarget() { 
           return this.supportingImmunizationTarget;
@@ -258,7 +258,7 @@ public class ImmunizationRecommendation extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #supportingImmunization} (Add an actual object that is the target of the reference. Immunization event history that supports the status and recommendation.)
+         * @return {@link #supportingImmunization} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Immunization event history that supports the status and recommendation.)
          */
         public Immunization addSupportingImmunizationTarget() { 
           Immunization r = new Immunization();
@@ -284,7 +284,7 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return {@link #supportingPatientInformation} (The actual objects that are the target of the reference. Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
+         * @return {@link #supportingPatientInformation} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
          */
         public List<Resource> getSupportingPatientInformationTarget() { 
           return this.supportingPatientInformationTarget;
@@ -362,16 +362,16 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return {@link #value} (Date recommendation.)
+         * @return {@link #value} (Date recommendation.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public DateTimeType getValue() { 
+        public DateTimeType getValueObject() { 
           return this.value;
         }
 
         /**
-         * @param value {@link #value} (Date recommendation.)
+         * @param value {@link #value} (Date recommendation.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationDateCriterionComponent setValue(DateTimeType value) { 
+        public ImmunizationRecommendationRecommendationDateCriterionComponent setValueObject(DateTimeType value) { 
           this.value = value;
           return this;
         }
@@ -379,14 +379,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return Date recommendation.
          */
-        public DateAndTime getValueSimple() { 
+        public DateAndTime getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value Date recommendation.
          */
-        public ImmunizationRecommendationRecommendationDateCriterionComponent setValueSimple(DateAndTime value) { 
+        public ImmunizationRecommendationRecommendationDateCriterionComponent setValue(DateAndTime value) { 
             if (this.value == null)
               this.value = new DateTimeType();
             this.value.setValue(value);
@@ -441,16 +441,16 @@ public class ImmunizationRecommendation extends Resource {
       }
 
         /**
-         * @return {@link #doseSequence} (Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.)
+         * @return {@link #doseSequence} (Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.). This is the underlying object with id, value and extensions. The accessor "getDoseSequence" gives direct access to the value
          */
-        public IntegerType getDoseSequence() { 
+        public IntegerType getDoseSequenceObject() { 
           return this.doseSequence;
         }
 
         /**
-         * @param value {@link #doseSequence} (Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.)
+         * @param value {@link #doseSequence} (Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.). This is the underlying object with id, value and extensions. The accessor "getDoseSequence" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequence(IntegerType value) { 
+        public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequenceObject(IntegerType value) { 
           this.doseSequence = value;
           return this;
         }
@@ -458,14 +458,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
          */
-        public int getDoseSequenceSimple() { 
+        public int getDoseSequence() { 
           return this.doseSequence == null ? null : this.doseSequence.getValue();
         }
 
         /**
          * @param value Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
          */
-        public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequenceSimple(int value) { 
+        public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequence(int value) { 
           if (value == -1)
             this.doseSequence = null;
           else {
@@ -477,16 +477,16 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return {@link #description} (Contains the description about the protocol under which the vaccine was administered.)
+         * @return {@link #description} (Contains the description about the protocol under which the vaccine was administered.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescription() { 
+        public StringType getDescriptionObject() { 
           return this.description;
         }
 
         /**
-         * @param value {@link #description} (Contains the description about the protocol under which the vaccine was administered.)
+         * @param value {@link #description} (Contains the description about the protocol under which the vaccine was administered.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationProtocolComponent setDescription(StringType value) { 
+        public ImmunizationRecommendationRecommendationProtocolComponent setDescriptionObject(StringType value) { 
           this.description = value;
           return this;
         }
@@ -494,14 +494,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return Contains the description about the protocol under which the vaccine was administered.
          */
-        public String getDescriptionSimple() { 
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Contains the description about the protocol under which the vaccine was administered.
          */
-        public ImmunizationRecommendationRecommendationProtocolComponent setDescriptionSimple(String value) { 
+        public ImmunizationRecommendationRecommendationProtocolComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -528,14 +528,14 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return {@link #authority} (The actual object that is the target of the reference. Indicates the authority who published the protocol?  E.g. ACIP.)
+         * @return {@link #authority} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the authority who published the protocol?  E.g. ACIP.)
          */
         public Organization getAuthorityTarget() { 
           return this.authorityTarget;
         }
 
         /**
-         * @param value {@link #authority} (The actual object that is the target of the reference. Indicates the authority who published the protocol?  E.g. ACIP.)
+         * @param value {@link #authority} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates the authority who published the protocol?  E.g. ACIP.)
          */
         public ImmunizationRecommendationRecommendationProtocolComponent setAuthorityTarget(Organization value) { 
           this.authorityTarget = value;
@@ -543,16 +543,16 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.)
+         * @return {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.). This is the underlying object with id, value and extensions. The accessor "getSeries" gives direct access to the value
          */
-        public StringType getSeries() { 
+        public StringType getSeriesObject() { 
           return this.series;
         }
 
         /**
-         * @param value {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.)
+         * @param value {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.). This is the underlying object with id, value and extensions. The accessor "getSeries" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationProtocolComponent setSeries(StringType value) { 
+        public ImmunizationRecommendationRecommendationProtocolComponent setSeriesObject(StringType value) { 
           this.series = value;
           return this;
         }
@@ -560,14 +560,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return One possible path to achieve presumed immunity against a disease - within the context of an authority.
          */
-        public String getSeriesSimple() { 
+        public String getSeries() { 
           return this.series == null ? null : this.series.getValue();
         }
 
         /**
          * @param value One possible path to achieve presumed immunity against a disease - within the context of an authority.
          */
-        public ImmunizationRecommendationRecommendationProtocolComponent setSeriesSimple(String value) { 
+        public ImmunizationRecommendationRecommendationProtocolComponent setSeries(String value) { 
           if (value == null)
             this.series = null;
           else {
@@ -661,14 +661,14 @@ public class ImmunizationRecommendation extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The patient who is the subject of the profile.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who is the subject of the profile.)
      */
     public Patient getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The patient who is the subject of the profile.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who is the subject of the profile.)
      */
     public ImmunizationRecommendation setSubjectTarget(Patient value) { 
       this.subjectTarget = value;

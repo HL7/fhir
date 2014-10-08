@@ -27,7 +27,7 @@ public class ProfileValidator {
         checkExtensions(profile, errors, sc, "differential", ec);
       }
       if (sc.getSnapshot() == null)
-        errors.add("missing Snapshot at "+profile.getNameSimple()+"."+sc.getNameSimple());
+        errors.add("missing Snapshot at "+profile.getName()+"."+sc.getName());
       else for (ElementComponent ec : sc.getSnapshot().getElement()) {
         checkExtensions(profile, errors, sc, "snapshot", ec);
       }
@@ -36,12 +36,12 @@ public class ProfileValidator {
   }
 
   private void checkExtensions(Profile profile, List<String> errors, ProfileStructureComponent sc, String kind, ElementComponent ec) {
-    if (ec.getDefinition() != null && !ec.getDefinition().getType().isEmpty() && ec.getDefinition().getType().get(0).getCodeSimple().equals("Extension")) {
-      String url = ec.getDefinition().getType().get(0).getProfileSimple();
+    if (ec.getDefinition() != null && !ec.getDefinition().getType().isEmpty() && ec.getDefinition().getType().get(0).getCode().equals("Extension")) {
+      String url = ec.getDefinition().getType().get(0).getProfile();
       if (!Utilities.noString(url)) {
         ProfileExtensionDefnComponent defn = getExtensionDefinition(profile, url);
         if (defn == null)
-          errors.add("Unable to find Extension '"+url+"' referenced at "+profile.getUrlSimple()+"#"+sc.getNameSimple()+" "+kind+" "+ec.getPathSimple()+" ("+ec.getNameSimple()+")");
+          errors.add("Unable to find Extension '"+url+"' referenced at "+profile.getUrl()+"#"+sc.getName()+" "+kind+" "+ec.getPath()+" ("+ec.getName()+")");
       }
     }
   }
@@ -54,11 +54,11 @@ public class ProfileValidator {
     if (p == null)
       return null;
     for (ProfileExtensionDefnComponent defn : p.getExtensionDefn()) {
-      if (defn.getCodeSimple().equals(parts[1]))
+      if (defn.getCode().equals(parts[1]))
         return defn;
-      if (parts[1].contains(".") && parts[1].startsWith(defn.getCodeSimple()+".")) {
+      if (parts[1].contains(".") && parts[1].startsWith(defn.getCode()+".")) {
         for (ElementComponent ec : defn.getElement()) {
-          if (ec.getPathSimple().equals(parts[1]))
+          if (ec.getPath().equals(parts[1]))
             return defn;
         }
       }

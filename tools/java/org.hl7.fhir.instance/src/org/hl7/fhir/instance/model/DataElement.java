@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,26 +39,26 @@ import java.util.*;
 public class DataElement extends Resource {
 
     public enum ResourceObservationDefStatus {
-        draft, // This data element is still under development.
-        active, // This data element is ready for normal use.
-        retired, // This data element has been deprecated, withdrawn or superseded and should no longer be used.
-        Null; // added to help the parsers
+        DRAFT, // This data element is still under development.
+        ACTIVE, // This data element is ready for normal use.
+        RETIRED, // This data element has been deprecated, withdrawn or superseded and should no longer be used.
+        NULL; // added to help the parsers
         public static ResourceObservationDefStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return draft;
+          return DRAFT;
         if ("active".equals(codeString))
-          return active;
+          return ACTIVE;
         if ("retired".equals(codeString))
-          return retired;
+          return RETIRED;
         throw new Exception("Unknown ResourceObservationDefStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case draft: return "draft";
-            case active: return "active";
-            case retired: return "retired";
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case RETIRED: return "retired";
             default: return "?";
           }
         }
@@ -70,45 +70,45 @@ public class DataElement extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return ResourceObservationDefStatus.draft;
+          return ResourceObservationDefStatus.DRAFT;
         if ("active".equals(codeString))
-          return ResourceObservationDefStatus.active;
+          return ResourceObservationDefStatus.ACTIVE;
         if ("retired".equals(codeString))
-          return ResourceObservationDefStatus.retired;
+          return ResourceObservationDefStatus.RETIRED;
         throw new Exception("Unknown ResourceObservationDefStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ResourceObservationDefStatus.draft)
+      if (code == ResourceObservationDefStatus.DRAFT)
         return "draft";
-      if (code == ResourceObservationDefStatus.active)
+      if (code == ResourceObservationDefStatus.ACTIVE)
         return "active";
-      if (code == ResourceObservationDefStatus.retired)
+      if (code == ResourceObservationDefStatus.RETIRED)
         return "retired";
       return "?";
       }
     }
 
     public enum BindingConformance {
-        required, // Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.
-        preferred, // For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.
-        example, // The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.
-        Null; // added to help the parsers
+        REQUIRED, // Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.
+        PREFERRED, // For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.
+        EXAMPLE, // The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.
+        NULL; // added to help the parsers
         public static BindingConformance fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("required".equals(codeString))
-          return required;
+          return REQUIRED;
         if ("preferred".equals(codeString))
-          return preferred;
+          return PREFERRED;
         if ("example".equals(codeString))
-          return example;
+          return EXAMPLE;
         throw new Exception("Unknown BindingConformance code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case required: return "required";
-            case preferred: return "preferred";
-            case example: return "example";
+            case REQUIRED: return "required";
+            case PREFERRED: return "preferred";
+            case EXAMPLE: return "example";
             default: return "?";
           }
         }
@@ -120,19 +120,19 @@ public class DataElement extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("required".equals(codeString))
-          return BindingConformance.required;
+          return BindingConformance.REQUIRED;
         if ("preferred".equals(codeString))
-          return BindingConformance.preferred;
+          return BindingConformance.PREFERRED;
         if ("example".equals(codeString))
-          return BindingConformance.example;
+          return BindingConformance.EXAMPLE;
         throw new Exception("Unknown BindingConformance code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == BindingConformance.required)
+      if (code == BindingConformance.REQUIRED)
         return "required";
-      if (code == BindingConformance.preferred)
+      if (code == BindingConformance.PREFERRED)
         return "preferred";
-      if (code == BindingConformance.example)
+      if (code == BindingConformance.EXAMPLE)
         return "example";
       return "?";
       }
@@ -176,16 +176,16 @@ public class DataElement extends Resource {
       }
 
         /**
-         * @return {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.)
+         * @return {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.). This is the underlying object with id, value and extensions. The accessor "getIsExtensible" gives direct access to the value
          */
-        public BooleanType getIsExtensible() { 
+        public BooleanType getIsExtensibleObject() { 
           return this.isExtensible;
         }
 
         /**
-         * @param value {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.)
+         * @param value {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.). This is the underlying object with id, value and extensions. The accessor "getIsExtensible" gives direct access to the value
          */
-        public DataElementBindingComponent setIsExtensible(BooleanType value) { 
+        public DataElementBindingComponent setIsExtensibleObject(BooleanType value) { 
           this.isExtensible = value;
           return this;
         }
@@ -193,14 +193,14 @@ public class DataElement extends Resource {
         /**
          * @return If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
          */
-        public boolean getIsExtensibleSimple() { 
+        public boolean getIsExtensible() { 
           return this.isExtensible == null ? false : this.isExtensible.getValue();
         }
 
         /**
          * @param value If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
          */
-        public DataElementBindingComponent setIsExtensibleSimple(boolean value) { 
+        public DataElementBindingComponent setIsExtensible(boolean value) { 
             if (this.isExtensible == null)
               this.isExtensible = new BooleanType();
             this.isExtensible.setValue(value);
@@ -208,16 +208,16 @@ public class DataElement extends Resource {
         }
 
         /**
-         * @return {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.)
+         * @return {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.). This is the underlying object with id, value and extensions. The accessor "getConformance" gives direct access to the value
          */
-        public Enumeration<BindingConformance> getConformance() { 
+        public Enumeration<BindingConformance> getConformanceObject() { 
           return this.conformance;
         }
 
         /**
-         * @param value {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.)
+         * @param value {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.). This is the underlying object with id, value and extensions. The accessor "getConformance" gives direct access to the value
          */
-        public DataElementBindingComponent setConformance(Enumeration<BindingConformance> value) { 
+        public DataElementBindingComponent setConformanceObject(Enumeration<BindingConformance> value) { 
           this.conformance = value;
           return this;
         }
@@ -225,14 +225,14 @@ public class DataElement extends Resource {
         /**
          * @return Indicates the degree of conformance expectations associated with this binding.
          */
-        public BindingConformance getConformanceSimple() { 
+        public BindingConformance getConformance() { 
           return this.conformance == null ? null : this.conformance.getValue();
         }
 
         /**
          * @param value Indicates the degree of conformance expectations associated with this binding.
          */
-        public DataElementBindingComponent setConformanceSimple(BindingConformance value) { 
+        public DataElementBindingComponent setConformance(BindingConformance value) { 
           if (value == null)
             this.conformance = null;
           else {
@@ -244,16 +244,16 @@ public class DataElement extends Resource {
         }
 
         /**
-         * @return {@link #description} (Describes the intended use of this particular set of codes.)
+         * @return {@link #description} (Describes the intended use of this particular set of codes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescription() { 
+        public StringType getDescriptionObject() { 
           return this.description;
         }
 
         /**
-         * @param value {@link #description} (Describes the intended use of this particular set of codes.)
+         * @param value {@link #description} (Describes the intended use of this particular set of codes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public DataElementBindingComponent setDescription(StringType value) { 
+        public DataElementBindingComponent setDescriptionObject(StringType value) { 
           this.description = value;
           return this;
         }
@@ -261,14 +261,14 @@ public class DataElement extends Resource {
         /**
          * @return Describes the intended use of this particular set of codes.
          */
-        public String getDescriptionSimple() { 
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Describes the intended use of this particular set of codes.
          */
-        public DataElementBindingComponent setDescriptionSimple(String value) { 
+        public DataElementBindingComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -295,14 +295,14 @@ public class DataElement extends Resource {
         }
 
         /**
-         * @return {@link #valueSet} (The actual object that is the target of the reference. Points to the value set that identifies the set of codes to be used.)
+         * @return {@link #valueSet} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Points to the value set that identifies the set of codes to be used.)
          */
         public ValueSet getValueSetTarget() { 
           return this.valueSetTarget;
         }
 
         /**
-         * @param value {@link #valueSet} (The actual object that is the target of the reference. Points to the value set that identifies the set of codes to be used.)
+         * @param value {@link #valueSet} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Points to the value set that identifies the set of codes to be used.)
          */
         public DataElementBindingComponent setValueSetTarget(ValueSet value) { 
           this.valueSetTarget = value;
@@ -361,16 +361,16 @@ public class DataElement extends Resource {
       }
 
         /**
-         * @return {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
+         * @return {@link #uri} (A URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
-        public UriType getUri() { 
+        public UriType getUriObject() { 
           return this.uri;
         }
 
         /**
-         * @param value {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
+         * @param value {@link #uri} (A URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
-        public DataElementMappingComponent setUri(UriType value) { 
+        public DataElementMappingComponent setUriObject(UriType value) { 
           this.uri = value;
           return this;
         }
@@ -378,14 +378,14 @@ public class DataElement extends Resource {
         /**
          * @return A URI that identifies the specification that this mapping is expressed to.
          */
-        public String getUriSimple() { 
+        public String getUri() { 
           return this.uri == null ? null : this.uri.getValue();
         }
 
         /**
          * @param value A URI that identifies the specification that this mapping is expressed to.
          */
-        public DataElementMappingComponent setUriSimple(String value) { 
+        public DataElementMappingComponent setUri(String value) { 
           if (value == null)
             this.uri = null;
           else {
@@ -397,16 +397,16 @@ public class DataElement extends Resource {
         }
 
         /**
-         * @return {@link #name} (A name for the specification that is being mapped to.)
+         * @return {@link #name} (A name for the specification that is being mapped to.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getName() { 
+        public StringType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (A name for the specification that is being mapped to.)
+         * @param value {@link #name} (A name for the specification that is being mapped to.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public DataElementMappingComponent setName(StringType value) { 
+        public DataElementMappingComponent setNameObject(StringType value) { 
           this.name = value;
           return this;
         }
@@ -414,14 +414,14 @@ public class DataElement extends Resource {
         /**
          * @return A name for the specification that is being mapped to.
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value A name for the specification that is being mapped to.
          */
-        public DataElementMappingComponent setNameSimple(String value) { 
+        public DataElementMappingComponent setName(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -433,16 +433,16 @@ public class DataElement extends Resource {
         }
 
         /**
-         * @return {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.)
+         * @return {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public StringType getComments() { 
+        public StringType getCommentsObject() { 
           return this.comments;
         }
 
         /**
-         * @param value {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.)
+         * @param value {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public DataElementMappingComponent setComments(StringType value) { 
+        public DataElementMappingComponent setCommentsObject(StringType value) { 
           this.comments = value;
           return this;
         }
@@ -450,14 +450,14 @@ public class DataElement extends Resource {
         /**
          * @return Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public String getCommentsSimple() { 
+        public String getComments() { 
           return this.comments == null ? null : this.comments.getValue();
         }
 
         /**
          * @param value Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public DataElementMappingComponent setCommentsSimple(String value) { 
+        public DataElementMappingComponent setComments(String value) { 
           if (value == null)
             this.comments = null;
           else {
@@ -469,16 +469,16 @@ public class DataElement extends Resource {
         }
 
         /**
-         * @return {@link #map} (Expresses what part of the target specification corresponds to this element.)
+         * @return {@link #map} (Expresses what part of the target specification corresponds to this element.). This is the underlying object with id, value and extensions. The accessor "getMap" gives direct access to the value
          */
-        public StringType getMap() { 
+        public StringType getMapObject() { 
           return this.map;
         }
 
         /**
-         * @param value {@link #map} (Expresses what part of the target specification corresponds to this element.)
+         * @param value {@link #map} (Expresses what part of the target specification corresponds to this element.). This is the underlying object with id, value and extensions. The accessor "getMap" gives direct access to the value
          */
-        public DataElementMappingComponent setMap(StringType value) { 
+        public DataElementMappingComponent setMapObject(StringType value) { 
           this.map = value;
           return this;
         }
@@ -486,14 +486,14 @@ public class DataElement extends Resource {
         /**
          * @return Expresses what part of the target specification corresponds to this element.
          */
-        public String getMapSimple() { 
+        public String getMap() { 
           return this.map == null ? null : this.map.getValue();
         }
 
         /**
          * @param value Expresses what part of the target specification corresponds to this element.
          */
-        public DataElementMappingComponent setMapSimple(String value) { 
+        public DataElementMappingComponent setMap(String value) { 
             if (this.map == null)
               this.map = new StringType();
             this.map.setValue(value);
@@ -646,16 +646,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #version} (The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.)
+     * @return {@link #version} (The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersion() { 
+    public StringType getVersionObject() { 
       return this.version;
     }
 
     /**
-     * @param value {@link #version} (The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.)
+     * @param value {@link #version} (The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public DataElement setVersion(StringType value) { 
+    public DataElement setVersionObject(StringType value) { 
       this.version = value;
       return this;
     }
@@ -663,14 +663,14 @@ public class DataElement extends Resource {
     /**
      * @return The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
      */
-    public String getVersionSimple() { 
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
      */
-    public DataElement setVersionSimple(String value) { 
+    public DataElement setVersion(String value) { 
       if (value == null)
         this.version = null;
       else {
@@ -682,16 +682,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the data element.)
+     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisher() { 
+    public StringType getPublisherObject() { 
       return this.publisher;
     }
 
     /**
-     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the data element.)
+     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public DataElement setPublisher(StringType value) { 
+    public DataElement setPublisherObject(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -699,14 +699,14 @@ public class DataElement extends Resource {
     /**
      * @return Details of the individual or organization who accepts responsibility for publishing the data element.
      */
-    public String getPublisherSimple() { 
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value Details of the individual or organization who accepts responsibility for publishing the data element.
      */
-    public DataElement setPublisherSimple(String value) { 
+    public DataElement setPublisher(String value) { 
       if (value == null)
         this.publisher = null;
       else {
@@ -735,16 +735,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #status} (The status of the data element.)
+     * @return {@link #status} (The status of the data element.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ResourceObservationDefStatus> getStatus() { 
+    public Enumeration<ResourceObservationDefStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The status of the data element.)
+     * @param value {@link #status} (The status of the data element.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DataElement setStatus(Enumeration<ResourceObservationDefStatus> value) { 
+    public DataElement setStatusObject(Enumeration<ResourceObservationDefStatus> value) { 
       this.status = value;
       return this;
     }
@@ -752,14 +752,14 @@ public class DataElement extends Resource {
     /**
      * @return The status of the data element.
      */
-    public ResourceObservationDefStatus getStatusSimple() { 
+    public ResourceObservationDefStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the data element.
      */
-    public DataElement setStatusSimple(ResourceObservationDefStatus value) { 
+    public DataElement setStatus(ResourceObservationDefStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ResourceObservationDefStatus>();
         this.status.setValue(value);
@@ -767,16 +767,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #date} (The date that this version of the data element was published.)
+     * @return {@link #date} (The date that this version of the data element was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDate() { 
+    public DateTimeType getDateObject() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The date that this version of the data element was published.)
+     * @param value {@link #date} (The date that this version of the data element was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DataElement setDate(DateTimeType value) { 
+    public DataElement setDateObject(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -784,14 +784,14 @@ public class DataElement extends Resource {
     /**
      * @return The date that this version of the data element was published.
      */
-    public DateAndTime getDateSimple() { 
+    public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that this version of the data element was published.
      */
-    public DataElement setDateSimple(DateAndTime value) { 
+    public DataElement setDate(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -803,16 +803,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #name} (The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.)
+     * @return {@link #name} (The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getName() { 
+    public StringType getNameObject() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.)
+     * @param value {@link #name} (The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public DataElement setName(StringType value) { 
+    public DataElement setNameObject(StringType value) { 
       this.name = value;
       return this;
     }
@@ -820,14 +820,14 @@ public class DataElement extends Resource {
     /**
      * @return The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
      */
-    public String getNameSimple() { 
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
      */
-    public DataElement setNameSimple(String value) { 
+    public DataElement setName(String value) { 
       if (value == null)
         this.name = null;
       else {
@@ -873,16 +873,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #question} (The default/suggested phrasing to use when prompting a human to capture the data element.)
+     * @return {@link #question} (The default/suggested phrasing to use when prompting a human to capture the data element.). This is the underlying object with id, value and extensions. The accessor "getQuestion" gives direct access to the value
      */
-    public StringType getQuestion() { 
+    public StringType getQuestionObject() { 
       return this.question;
     }
 
     /**
-     * @param value {@link #question} (The default/suggested phrasing to use when prompting a human to capture the data element.)
+     * @param value {@link #question} (The default/suggested phrasing to use when prompting a human to capture the data element.). This is the underlying object with id, value and extensions. The accessor "getQuestion" gives direct access to the value
      */
-    public DataElement setQuestion(StringType value) { 
+    public DataElement setQuestionObject(StringType value) { 
       this.question = value;
       return this;
     }
@@ -890,14 +890,14 @@ public class DataElement extends Resource {
     /**
      * @return The default/suggested phrasing to use when prompting a human to capture the data element.
      */
-    public String getQuestionSimple() { 
+    public String getQuestion() { 
       return this.question == null ? null : this.question.getValue();
     }
 
     /**
      * @param value The default/suggested phrasing to use when prompting a human to capture the data element.
      */
-    public DataElement setQuestionSimple(String value) { 
+    public DataElement setQuestion(String value) { 
       if (value == null)
         this.question = null;
       else {
@@ -909,16 +909,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #definition} (Provides a complete explanation of the meaning of the data element for human readability.)
+     * @return {@link #definition} (Provides a complete explanation of the meaning of the data element for human readability.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
      */
-    public StringType getDefinition() { 
+    public StringType getDefinitionObject() { 
       return this.definition;
     }
 
     /**
-     * @param value {@link #definition} (Provides a complete explanation of the meaning of the data element for human readability.)
+     * @param value {@link #definition} (Provides a complete explanation of the meaning of the data element for human readability.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
      */
-    public DataElement setDefinition(StringType value) { 
+    public DataElement setDefinitionObject(StringType value) { 
       this.definition = value;
       return this;
     }
@@ -926,14 +926,14 @@ public class DataElement extends Resource {
     /**
      * @return Provides a complete explanation of the meaning of the data element for human readability.
      */
-    public String getDefinitionSimple() { 
+    public String getDefinition() { 
       return this.definition == null ? null : this.definition.getValue();
     }
 
     /**
      * @param value Provides a complete explanation of the meaning of the data element for human readability.
      */
-    public DataElement setDefinitionSimple(String value) { 
+    public DataElement setDefinition(String value) { 
       if (value == null)
         this.definition = null;
       else {
@@ -945,16 +945,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.)
+     * @return {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
      */
-    public StringType getComments() { 
+    public StringType getCommentsObject() { 
       return this.comments;
     }
 
     /**
-     * @param value {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.)
+     * @param value {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
      */
-    public DataElement setComments(StringType value) { 
+    public DataElement setCommentsObject(StringType value) { 
       this.comments = value;
       return this;
     }
@@ -962,14 +962,14 @@ public class DataElement extends Resource {
     /**
      * @return Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
-    public String getCommentsSimple() { 
+    public String getComments() { 
       return this.comments == null ? null : this.comments.getValue();
     }
 
     /**
      * @param value Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
-    public DataElement setCommentsSimple(String value) { 
+    public DataElement setComments(String value) { 
       if (value == null)
         this.comments = null;
       else {
@@ -981,16 +981,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.)
+     * @return {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public StringType getRequirements() { 
+    public StringType getRequirementsObject() { 
       return this.requirements;
     }
 
     /**
-     * @param value {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.)
+     * @param value {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public DataElement setRequirements(StringType value) { 
+    public DataElement setRequirementsObject(StringType value) { 
       this.requirements = value;
       return this;
     }
@@ -998,14 +998,14 @@ public class DataElement extends Resource {
     /**
      * @return Explains why this element is needed and why it's been constrained as it has.
      */
-    public String getRequirementsSimple() { 
+    public String getRequirements() { 
       return this.requirements == null ? null : this.requirements.getValue();
     }
 
     /**
      * @param value Explains why this element is needed and why it's been constrained as it has.
      */
-    public DataElement setRequirementsSimple(String value) { 
+    public DataElement setRequirements(String value) { 
       if (value == null)
         this.requirements = null;
       else {
@@ -1027,7 +1027,7 @@ public class DataElement extends Resource {
     /**
      * @return {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
-    public StringType addSynonym() { 
+    public StringType addSynonymObject() { 
       StringType t = new StringType();
       this.synonym.add(t);
       return t;
@@ -1036,7 +1036,7 @@ public class DataElement extends Resource {
     /**
      * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
-    public StringType addSynonymSimple(String value) { 
+    public StringType addSynonym(String value) { 
       StringType t = new StringType();
       t.setValue(value);
       this.synonym.add(t);
@@ -1046,7 +1046,7 @@ public class DataElement extends Resource {
     /**
      * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
-    public boolean hasSynonymSimple(String value) { 
+    public boolean hasSynonym(String value) { 
       for (StringType v : this.synonym)
         if (v.getValue().equals(value))
           return true;
@@ -1054,16 +1054,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #type} (The FHIR data type that is the type for this element.)
+     * @return {@link #type} (The FHIR data type that is the type for this element.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public CodeType getType() { 
+    public CodeType getTypeObject() { 
       return this.type;
     }
 
     /**
-     * @param value {@link #type} (The FHIR data type that is the type for this element.)
+     * @param value {@link #type} (The FHIR data type that is the type for this element.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public DataElement setType(CodeType value) { 
+    public DataElement setTypeObject(CodeType value) { 
       this.type = value;
       return this;
     }
@@ -1071,14 +1071,14 @@ public class DataElement extends Resource {
     /**
      * @return The FHIR data type that is the type for this element.
      */
-    public String getTypeSimple() { 
+    public String getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value The FHIR data type that is the type for this element.
      */
-    public DataElement setTypeSimple(String value) { 
+    public DataElement setType(String value) { 
       if (value == null)
         this.type = null;
       else {
@@ -1105,16 +1105,16 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.)
+     * @return {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.). This is the underlying object with id, value and extensions. The accessor "getMaxLength" gives direct access to the value
      */
-    public IntegerType getMaxLength() { 
+    public IntegerType getMaxLengthObject() { 
       return this.maxLength;
     }
 
     /**
-     * @param value {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.)
+     * @param value {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.). This is the underlying object with id, value and extensions. The accessor "getMaxLength" gives direct access to the value
      */
-    public DataElement setMaxLength(IntegerType value) { 
+    public DataElement setMaxLengthObject(IntegerType value) { 
       this.maxLength = value;
       return this;
     }
@@ -1122,14 +1122,14 @@ public class DataElement extends Resource {
     /**
      * @return Indicates the shortest length that SHALL be supported by conformant instances without truncation.
      */
-    public int getMaxLengthSimple() { 
+    public int getMaxLength() { 
       return this.maxLength == null ? null : this.maxLength.getValue();
     }
 
     /**
      * @param value Indicates the shortest length that SHALL be supported by conformant instances without truncation.
      */
-    public DataElement setMaxLengthSimple(int value) { 
+    public DataElement setMaxLength(int value) { 
       if (value == -1)
         this.maxLength = null;
       else {

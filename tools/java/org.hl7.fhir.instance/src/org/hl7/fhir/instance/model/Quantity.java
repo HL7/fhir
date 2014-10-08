@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -40,30 +40,30 @@ import java.math.*;
 public class Quantity extends Type {
 
     public enum QuantityComparator {
-        lessThan, // The actual value is less than the given value.
-        lessOrEqual, // The actual value is less than or equal to the given value.
-        greaterOrEqual, // The actual value is greater than or equal to the given value.
-        greaterThan, // The actual value is greater than the given value.
-        Null; // added to help the parsers
+        LESS_THAN, // The actual value is less than the given value.
+        LESS_OR_EQUAL, // The actual value is less than or equal to the given value.
+        GREATER_OR_EQUAL, // The actual value is greater than or equal to the given value.
+        GREATER_THAN, // The actual value is greater than the given value.
+        NULL; // added to help the parsers
         public static QuantityComparator fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("<".equals(codeString))
-          return lessThan;
+          return LESS_THAN;
         if ("<=".equals(codeString))
-          return lessOrEqual;
+          return LESS_OR_EQUAL;
         if (">=".equals(codeString))
-          return greaterOrEqual;
+          return GREATER_OR_EQUAL;
         if (">".equals(codeString))
-          return greaterThan;
+          return GREATER_THAN;
         throw new Exception("Unknown QuantityComparator code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case lessThan: return "<";
-            case lessOrEqual: return "<=";
-            case greaterOrEqual: return ">=";
-            case greaterThan: return ">";
+            case LESS_THAN: return "<";
+            case LESS_OR_EQUAL: return "<=";
+            case GREATER_OR_EQUAL: return ">=";
+            case GREATER_THAN: return ">";
             default: return "?";
           }
         }
@@ -75,23 +75,23 @@ public class Quantity extends Type {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("<".equals(codeString))
-          return QuantityComparator.lessThan;
+          return QuantityComparator.LESS_THAN;
         if ("<=".equals(codeString))
-          return QuantityComparator.lessOrEqual;
+          return QuantityComparator.LESS_OR_EQUAL;
         if (">=".equals(codeString))
-          return QuantityComparator.greaterOrEqual;
+          return QuantityComparator.GREATER_OR_EQUAL;
         if (">".equals(codeString))
-          return QuantityComparator.greaterThan;
+          return QuantityComparator.GREATER_THAN;
         throw new Exception("Unknown QuantityComparator code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == QuantityComparator.lessThan)
+      if (code == QuantityComparator.LESS_THAN)
         return "<";
-      if (code == QuantityComparator.lessOrEqual)
+      if (code == QuantityComparator.LESS_OR_EQUAL)
         return "<=";
-      if (code == QuantityComparator.greaterOrEqual)
+      if (code == QuantityComparator.GREATER_OR_EQUAL)
         return ">=";
-      if (code == QuantityComparator.greaterThan)
+      if (code == QuantityComparator.GREATER_THAN)
         return ">";
       return "?";
       }
@@ -129,16 +129,16 @@ public class Quantity extends Type {
     }
 
     /**
-     * @return {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.)
+     * @return {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public DecimalType getValue() { 
+    public DecimalType getValueObject() { 
       return this.value;
     }
 
     /**
-     * @param value {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.)
+     * @param value {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public Quantity setValue(DecimalType value) { 
+    public Quantity setValueObject(DecimalType value) { 
       this.value = value;
       return this;
     }
@@ -146,14 +146,14 @@ public class Quantity extends Type {
     /**
      * @return The value of the measured amount. The value includes an implicit precision in the presentation of the value.
      */
-    public BigDecimal getValueSimple() { 
+    public BigDecimal getValue() { 
       return this.value == null ? null : this.value.getValue();
     }
 
     /**
      * @param value The value of the measured amount. The value includes an implicit precision in the presentation of the value.
      */
-    public Quantity setValueSimple(BigDecimal value) { 
+    public Quantity setValue(BigDecimal value) { 
       if (value == null)
         this.value = null;
       else {
@@ -165,16 +165,16 @@ public class Quantity extends Type {
     }
 
     /**
-     * @return {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.)
+     * @return {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.). This is the underlying object with id, value and extensions. The accessor "getComparator" gives direct access to the value
      */
-    public Enumeration<QuantityComparator> getComparator() { 
+    public Enumeration<QuantityComparator> getComparatorObject() { 
       return this.comparator;
     }
 
     /**
-     * @param value {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.)
+     * @param value {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.). This is the underlying object with id, value and extensions. The accessor "getComparator" gives direct access to the value
      */
-    public Quantity setComparator(Enumeration<QuantityComparator> value) { 
+    public Quantity setComparatorObject(Enumeration<QuantityComparator> value) { 
       this.comparator = value;
       return this;
     }
@@ -182,14 +182,14 @@ public class Quantity extends Type {
     /**
      * @return How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.
      */
-    public QuantityComparator getComparatorSimple() { 
+    public QuantityComparator getComparator() { 
       return this.comparator == null ? null : this.comparator.getValue();
     }
 
     /**
      * @param value How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.
      */
-    public Quantity setComparatorSimple(QuantityComparator value) { 
+    public Quantity setComparator(QuantityComparator value) { 
       if (value == null)
         this.comparator = null;
       else {
@@ -201,16 +201,16 @@ public class Quantity extends Type {
     }
 
     /**
-     * @return {@link #units} (A human-readable form of the units.)
+     * @return {@link #units} (A human-readable form of the units.). This is the underlying object with id, value and extensions. The accessor "getUnits" gives direct access to the value
      */
-    public StringType getUnits() { 
+    public StringType getUnitsObject() { 
       return this.units;
     }
 
     /**
-     * @param value {@link #units} (A human-readable form of the units.)
+     * @param value {@link #units} (A human-readable form of the units.). This is the underlying object with id, value and extensions. The accessor "getUnits" gives direct access to the value
      */
-    public Quantity setUnits(StringType value) { 
+    public Quantity setUnitsObject(StringType value) { 
       this.units = value;
       return this;
     }
@@ -218,14 +218,14 @@ public class Quantity extends Type {
     /**
      * @return A human-readable form of the units.
      */
-    public String getUnitsSimple() { 
+    public String getUnits() { 
       return this.units == null ? null : this.units.getValue();
     }
 
     /**
      * @param value A human-readable form of the units.
      */
-    public Quantity setUnitsSimple(String value) { 
+    public Quantity setUnits(String value) { 
       if (value == null)
         this.units = null;
       else {
@@ -237,16 +237,16 @@ public class Quantity extends Type {
     }
 
     /**
-     * @return {@link #system} (The identification of the system that provides the coded form of the unit.)
+     * @return {@link #system} (The identification of the system that provides the coded form of the unit.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public UriType getSystem() { 
+    public UriType getSystemObject() { 
       return this.system;
     }
 
     /**
-     * @param value {@link #system} (The identification of the system that provides the coded form of the unit.)
+     * @param value {@link #system} (The identification of the system that provides the coded form of the unit.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Quantity setSystem(UriType value) { 
+    public Quantity setSystemObject(UriType value) { 
       this.system = value;
       return this;
     }
@@ -254,14 +254,14 @@ public class Quantity extends Type {
     /**
      * @return The identification of the system that provides the coded form of the unit.
      */
-    public String getSystemSimple() { 
+    public String getSystem() { 
       return this.system == null ? null : this.system.getValue();
     }
 
     /**
      * @param value The identification of the system that provides the coded form of the unit.
      */
-    public Quantity setSystemSimple(String value) { 
+    public Quantity setSystem(String value) { 
       if (value == null)
         this.system = null;
       else {
@@ -273,16 +273,16 @@ public class Quantity extends Type {
     }
 
     /**
-     * @return {@link #code} (A computer processable form of the units in some unit representation system.)
+     * @return {@link #code} (A computer processable form of the units in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public CodeType getCode() { 
+    public CodeType getCodeObject() { 
       return this.code;
     }
 
     /**
-     * @param value {@link #code} (A computer processable form of the units in some unit representation system.)
+     * @param value {@link #code} (A computer processable form of the units in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public Quantity setCode(CodeType value) { 
+    public Quantity setCodeObject(CodeType value) { 
       this.code = value;
       return this;
     }
@@ -290,14 +290,14 @@ public class Quantity extends Type {
     /**
      * @return A computer processable form of the units in some unit representation system.
      */
-    public String getCodeSimple() { 
+    public String getCode() { 
       return this.code == null ? null : this.code.getValue();
     }
 
     /**
      * @param value A computer processable form of the units in some unit representation system.
      */
-    public Quantity setCodeSimple(String value) { 
+    public Quantity setCode(String value) { 
       if (value == null)
         this.code = null;
       else {

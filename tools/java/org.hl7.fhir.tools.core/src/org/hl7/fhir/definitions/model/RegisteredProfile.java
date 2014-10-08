@@ -47,7 +47,6 @@ public class RegisteredProfile {
   }
 
   private String name;
-  private String description;
   private String sourceFilename;
   private String destFilename;
   private String filepath;
@@ -56,10 +55,9 @@ public class RegisteredProfile {
   private Profile resource;
   private Map<String, Example> examples = new HashMap<String, Example>();
 
-  public RegisteredProfile(String name, String description, String destFilename, String sourceFilename, String filepath, ProfileInputType type) {
+  public RegisteredProfile(String name, String destFilename, String sourceFilename, String filepath, ProfileInputType type) {
     super();
     this.name = name;
-    this.description = description;
     this.sourceFilename = sourceFilename;
     this.destFilename = destFilename;
     this.filepath = filepath;
@@ -68,12 +66,6 @@ public class RegisteredProfile {
 
   public String getName() {
     return name;
-  }
-  public String getDescription() {
-    return description;
-  }
-  public void setDescription(String description) {
-    this.description = description;
   }
   public String getSourceFilename() {
     return sourceFilename;

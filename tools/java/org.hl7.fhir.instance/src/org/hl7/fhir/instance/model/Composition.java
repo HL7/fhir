@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,34 +39,34 @@ import java.util.*;
 public class Composition extends Resource {
 
     public enum CompositionStatus {
-        preliminary, // This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.
-        final_, // The composition or document is complete and verified by an appropriate person, and no further work is planned.
-        appended, // The composition or document has been modified subsequent to being released as "final", and is complete and verified by an authorized person. The modifications added new information to the composition or document, but did not revise existing content.
-        amended, // The composition or document has been modified subsequent to being released as "final", and is complete and verified by an authorized person.
-        enteredInError, // The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.
-        Null; // added to help the parsers
+        PRELIMINARY, // This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.
+        FINAL, // The composition or document is complete and verified by an appropriate person, and no further work is planned.
+        APPENDED, // The composition or document has been modified subsequent to being released as "final", and is complete and verified by an authorized person. The modifications added new information to the composition or document, but did not revise existing content.
+        AMENDED, // The composition or document has been modified subsequent to being released as "final", and is complete and verified by an authorized person.
+        ENTEREDINERROR, // The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.
+        NULL; // added to help the parsers
         public static CompositionStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("preliminary".equals(codeString))
-          return preliminary;
+          return PRELIMINARY;
         if ("final".equals(codeString))
-          return final_;
+          return FINAL;
         if ("appended".equals(codeString))
-          return appended;
+          return APPENDED;
         if ("amended".equals(codeString))
-          return amended;
+          return AMENDED;
         if ("entered in error".equals(codeString))
-          return enteredInError;
+          return ENTEREDINERROR;
         throw new Exception("Unknown CompositionStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case preliminary: return "preliminary";
-            case final_: return "final";
-            case appended: return "appended";
-            case amended: return "amended";
-            case enteredInError: return "entered in error";
+            case PRELIMINARY: return "preliminary";
+            case FINAL: return "final";
+            case APPENDED: return "appended";
+            case AMENDED: return "amended";
+            case ENTEREDINERROR: return "entered in error";
             default: return "?";
           }
         }
@@ -78,57 +78,57 @@ public class Composition extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("preliminary".equals(codeString))
-          return CompositionStatus.preliminary;
+          return CompositionStatus.PRELIMINARY;
         if ("final".equals(codeString))
-          return CompositionStatus.final_;
+          return CompositionStatus.FINAL;
         if ("appended".equals(codeString))
-          return CompositionStatus.appended;
+          return CompositionStatus.APPENDED;
         if ("amended".equals(codeString))
-          return CompositionStatus.amended;
+          return CompositionStatus.AMENDED;
         if ("entered in error".equals(codeString))
-          return CompositionStatus.enteredInError;
+          return CompositionStatus.ENTEREDINERROR;
         throw new Exception("Unknown CompositionStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == CompositionStatus.preliminary)
+      if (code == CompositionStatus.PRELIMINARY)
         return "preliminary";
-      if (code == CompositionStatus.final_)
+      if (code == CompositionStatus.FINAL)
         return "final";
-      if (code == CompositionStatus.appended)
+      if (code == CompositionStatus.APPENDED)
         return "appended";
-      if (code == CompositionStatus.amended)
+      if (code == CompositionStatus.AMENDED)
         return "amended";
-      if (code == CompositionStatus.enteredInError)
+      if (code == CompositionStatus.ENTEREDINERROR)
         return "entered in error";
       return "?";
       }
     }
 
     public enum CompositionAttestationMode {
-        personal, // The person authenticated the content in their personal capacity.
-        professional, // The person authenticated the content in their professional capacity.
-        legal, // The person authenticated the content and accepted legal responsibility for its content.
-        official, // The organization authenticated the content as consistent with their policies and procedures.
-        Null; // added to help the parsers
+        PERSONAL, // The person authenticated the content in their personal capacity.
+        PROFESSIONAL, // The person authenticated the content in their professional capacity.
+        LEGAL, // The person authenticated the content and accepted legal responsibility for its content.
+        OFFICIAL, // The organization authenticated the content as consistent with their policies and procedures.
+        NULL; // added to help the parsers
         public static CompositionAttestationMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("personal".equals(codeString))
-          return personal;
+          return PERSONAL;
         if ("professional".equals(codeString))
-          return professional;
+          return PROFESSIONAL;
         if ("legal".equals(codeString))
-          return legal;
+          return LEGAL;
         if ("official".equals(codeString))
-          return official;
+          return OFFICIAL;
         throw new Exception("Unknown CompositionAttestationMode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case personal: return "personal";
-            case professional: return "professional";
-            case legal: return "legal";
-            case official: return "official";
+            case PERSONAL: return "personal";
+            case PROFESSIONAL: return "professional";
+            case LEGAL: return "legal";
+            case OFFICIAL: return "official";
             default: return "?";
           }
         }
@@ -140,23 +140,23 @@ public class Composition extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("personal".equals(codeString))
-          return CompositionAttestationMode.personal;
+          return CompositionAttestationMode.PERSONAL;
         if ("professional".equals(codeString))
-          return CompositionAttestationMode.professional;
+          return CompositionAttestationMode.PROFESSIONAL;
         if ("legal".equals(codeString))
-          return CompositionAttestationMode.legal;
+          return CompositionAttestationMode.LEGAL;
         if ("official".equals(codeString))
-          return CompositionAttestationMode.official;
+          return CompositionAttestationMode.OFFICIAL;
         throw new Exception("Unknown CompositionAttestationMode code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == CompositionAttestationMode.personal)
+      if (code == CompositionAttestationMode.PERSONAL)
         return "personal";
-      if (code == CompositionAttestationMode.professional)
+      if (code == CompositionAttestationMode.PROFESSIONAL)
         return "professional";
-      if (code == CompositionAttestationMode.legal)
+      if (code == CompositionAttestationMode.LEGAL)
         return "legal";
-      if (code == CompositionAttestationMode.official)
+      if (code == CompositionAttestationMode.OFFICIAL)
         return "official";
       return "?";
       }
@@ -200,7 +200,7 @@ public class Composition extends Resource {
         /**
          * @return {@link #mode} (The type of attestation the authenticator offers.)
          */
-        public Enumeration<CompositionAttestationMode> addMode() { 
+        public Enumeration<CompositionAttestationMode> addModeObject() { 
           Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>();
           this.mode.add(t);
           return t;
@@ -209,7 +209,7 @@ public class Composition extends Resource {
         /**
          * @param value {@link #mode} (The type of attestation the authenticator offers.)
          */
-        public Enumeration<CompositionAttestationMode> addModeSimple(CompositionAttestationMode value) { 
+        public Enumeration<CompositionAttestationMode> addMode(CompositionAttestationMode value) { 
           Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>();
           t.setValue(value);
           this.mode.add(t);
@@ -219,7 +219,7 @@ public class Composition extends Resource {
         /**
          * @param value {@link #mode} (The type of attestation the authenticator offers.)
          */
-        public boolean hasModeSimple(CompositionAttestationMode value) { 
+        public boolean hasMode(CompositionAttestationMode value) { 
           for (Enumeration<CompositionAttestationMode> v : this.mode)
             if (v.getValue().equals(value))
               return true;
@@ -227,16 +227,16 @@ public class Composition extends Resource {
         }
 
         /**
-         * @return {@link #time} (When composition was attested by the party.)
+         * @return {@link #time} (When composition was attested by the party.). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
          */
-        public DateTimeType getTime() { 
+        public DateTimeType getTimeObject() { 
           return this.time;
         }
 
         /**
-         * @param value {@link #time} (When composition was attested by the party.)
+         * @param value {@link #time} (When composition was attested by the party.). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
          */
-        public CompositionAttesterComponent setTime(DateTimeType value) { 
+        public CompositionAttesterComponent setTimeObject(DateTimeType value) { 
           this.time = value;
           return this;
         }
@@ -244,14 +244,14 @@ public class Composition extends Resource {
         /**
          * @return When composition was attested by the party.
          */
-        public DateAndTime getTimeSimple() { 
+        public DateAndTime getTime() { 
           return this.time == null ? null : this.time.getValue();
         }
 
         /**
          * @param value When composition was attested by the party.
          */
-        public CompositionAttesterComponent setTimeSimple(DateAndTime value) { 
+        public CompositionAttesterComponent setTime(DateAndTime value) { 
           if (value == null)
             this.time = null;
           else {
@@ -278,14 +278,14 @@ public class Composition extends Resource {
         }
 
         /**
-         * @return {@link #party} (The actual object that is the target of the reference. Who attested the composition in the specified way.)
+         * @return {@link #party} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who attested the composition in the specified way.)
          */
         public Resource getPartyTarget() { 
           return this.partyTarget;
         }
 
         /**
-         * @param value {@link #party} (The actual object that is the target of the reference. Who attested the composition in the specified way.)
+         * @param value {@link #party} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who attested the composition in the specified way.)
          */
         public CompositionAttesterComponent setPartyTarget(Resource value) { 
           this.partyTarget = value;
@@ -388,7 +388,7 @@ public class Composition extends Resource {
         }
 
         /**
-         * @return {@link #detail} (The actual objects that are the target of the reference. Full details for the event(s) the composition/documentation consents.)
+         * @return {@link #detail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Full details for the event(s) the composition/documentation consents.)
          */
         public List<Resource> getDetailTarget() { 
           return this.detailTarget;
@@ -478,16 +478,16 @@ public class Composition extends Resource {
       }
 
         /**
-         * @return {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.)
+         * @return {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitle() { 
+        public StringType getTitleObject() { 
           return this.title;
         }
 
         /**
-         * @param value {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.)
+         * @param value {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public SectionComponent setTitle(StringType value) { 
+        public SectionComponent setTitleObject(StringType value) { 
           this.title = value;
           return this;
         }
@@ -495,14 +495,14 @@ public class Composition extends Resource {
         /**
          * @return The heading for this particular section.  This will be part of the rendered content for the document.
          */
-        public String getTitleSimple() { 
+        public String getTitle() { 
           return this.title == null ? null : this.title.getValue();
         }
 
         /**
          * @param value The heading for this particular section.  This will be part of the rendered content for the document.
          */
-        public SectionComponent setTitleSimple(String value) { 
+        public SectionComponent setTitle(String value) { 
           if (value == null)
             this.title = null;
           else {
@@ -561,14 +561,14 @@ public class Composition extends Resource {
         }
 
         /**
-         * @return {@link #subject} (The actual object that is the target of the reference. Identifies the primary subject of the section.)
+         * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the primary subject of the section.)
          */
         public Resource getSubjectTarget() { 
           return this.subjectTarget;
         }
 
         /**
-         * @param value {@link #subject} (The actual object that is the target of the reference. Identifies the primary subject of the section.)
+         * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the primary subject of the section.)
          */
         public SectionComponent setSubjectTarget(Resource value) { 
           this.subjectTarget = value;
@@ -655,7 +655,7 @@ public class Composition extends Resource {
         }
 
         /**
-         * @return {@link #entry} (The actual objects that are the target of the reference. Identifies the discrete data that underlies the content for the section.)
+         * @return {@link #entry} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the discrete data that underlies the content for the section.)
          */
         public List<Resource> getEntryTarget() { 
           return this.entryTarget;
@@ -817,16 +817,16 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #date} (The composition editing time, when the composition was last logically changed by the author.)
+     * @return {@link #date} (The composition editing time, when the composition was last logically changed by the author.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDate() { 
+    public DateTimeType getDateObject() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The composition editing time, when the composition was last logically changed by the author.)
+     * @param value {@link #date} (The composition editing time, when the composition was last logically changed by the author.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Composition setDate(DateTimeType value) { 
+    public Composition setDateObject(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -834,14 +834,14 @@ public class Composition extends Resource {
     /**
      * @return The composition editing time, when the composition was last logically changed by the author.
      */
-    public DateAndTime getDateSimple() { 
+    public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The composition editing time, when the composition was last logically changed by the author.
      */
-    public Composition setDateSimple(DateAndTime value) { 
+    public Composition setDate(DateAndTime value) { 
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
@@ -879,16 +879,16 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #title} (Official human-readable label for the composition.)
+     * @return {@link #title} (Official human-readable label for the composition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitle() { 
+    public StringType getTitleObject() { 
       return this.title;
     }
 
     /**
-     * @param value {@link #title} (Official human-readable label for the composition.)
+     * @param value {@link #title} (Official human-readable label for the composition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public Composition setTitle(StringType value) { 
+    public Composition setTitleObject(StringType value) { 
       this.title = value;
       return this;
     }
@@ -896,14 +896,14 @@ public class Composition extends Resource {
     /**
      * @return Official human-readable label for the composition.
      */
-    public String getTitleSimple() { 
+    public String getTitle() { 
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
      * @param value Official human-readable label for the composition.
      */
-    public Composition setTitleSimple(String value) { 
+    public Composition setTitle(String value) { 
       if (value == null)
         this.title = null;
       else {
@@ -915,16 +915,16 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.)
+     * @return {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<CompositionStatus> getStatus() { 
+    public Enumeration<CompositionStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.)
+     * @param value {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Composition setStatus(Enumeration<CompositionStatus> value) { 
+    public Composition setStatusObject(Enumeration<CompositionStatus> value) { 
       this.status = value;
       return this;
     }
@@ -932,14 +932,14 @@ public class Composition extends Resource {
     /**
      * @return The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
      */
-    public CompositionStatus getStatusSimple() { 
+    public CompositionStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
      */
-    public Composition setStatusSimple(CompositionStatus value) { 
+    public Composition setStatus(CompositionStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<CompositionStatus>();
         this.status.setValue(value);
@@ -977,14 +977,14 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
     public Composition setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -1009,7 +1009,7 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #author} (The actual objects that are the target of the reference. Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).)
+     * @return {@link #author} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).)
      */
     public List<Resource> getAuthorTarget() { 
       return this.authorTarget;
@@ -1048,14 +1048,14 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #custodian} (The actual object that is the target of the reference. Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
+     * @return {@link #custodian} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
      */
     public Organization getCustodianTarget() { 
       return this.custodianTarget;
     }
 
     /**
-     * @param value {@link #custodian} (The actual object that is the target of the reference. Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
+     * @param value {@link #custodian} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
      */
     public Composition setCustodianTarget(Organization value) { 
       this.custodianTarget = value;
@@ -1095,14 +1095,14 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (The actual object that is the target of the reference. Describes the clinical encounter or type of care this documentation is associated with.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the clinical encounter or type of care this documentation is associated with.)
      */
     public Encounter getEncounterTarget() { 
       return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #encounter} (The actual object that is the target of the reference. Describes the clinical encounter or type of care this documentation is associated with.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the clinical encounter or type of care this documentation is associated with.)
      */
     public Composition setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;

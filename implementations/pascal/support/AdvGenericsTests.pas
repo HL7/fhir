@@ -17,7 +17,7 @@ Type
 
   TAdvGenericsTests = class (TAdvObject)
   private
-    class procedure testSimple;
+    class procedure testSimple(obj : TAdvObject);
     class procedure testiterate;
     class procedure testRemove;
     class procedure testAddAll;
@@ -40,10 +40,12 @@ begin
   x := TAdvObject.Create;
   // you should get one leak when you execute these tests. this exists to make sure that the leak tracking system is working
 
-  testSimple;
+  testSimple(x);
   testRemove;
+  testAddAll;
   testReplace;
   testIterate;
+  testMap;
 end;
 
 class procedure TAdvGenericsTests.testSimple;

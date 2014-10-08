@@ -86,6 +86,18 @@ public class HeirarchicalTableGenerator  {
       return style;
     }
 
+    public void setTag(String tag) {
+      this.tag = tag;
+    }
+
+    public void setText(String text) {
+      this.text = text;
+    }
+
+    public void setHint(String hint) {
+      this.hint = hint;
+    }
+
     public Piece setStyle(String style) {
       this.style = style;
       return this;

@@ -44,7 +44,6 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
-import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.EventDefn.Category;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
@@ -53,6 +52,7 @@ import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.ExtensionDefn.ContextType;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.Operation;
+import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.RegisteredProfile.ProfileInputType;
@@ -67,9 +67,9 @@ import org.hl7.fhir.instance.model.Profile.BindingConformance;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
-import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
 
 public class SpreadsheetParser {
@@ -228,7 +228,7 @@ public class SpreadsheetParser {
 	}
 	
 	
-	public ResourceDefn parseReference() throws Exception {
+	public ResourceDefn parseResource() throws Exception {
 	  isProfile = false;
 	  ResourceDefn root = parseCommonTypeColumns();
 
@@ -299,8 +299,8 @@ public class SpreadsheetParser {
         String name = sheet.getColumn(row, "Name");
         if (name != null && !name.equals("") && !name.startsWith("!")) {
           String desc = sheet.getColumn(row, "Description");
-          if (desc == null || desc.equals(""))
-            throw new Exception("Profile " + name + " has no description parsing " + this.name);
+//          if (!Utilities.noString(desc))
+//            throw new Exception("Profile " + name + " has a description parsing " + this.name);
           String title = sheet.getColumn(row, "Filename");
           String source = sheet.getColumn(row, "Source");
           if (Utilities.noString(source))
@@ -316,7 +316,7 @@ public class SpreadsheetParser {
             if (!efile.exists())
               throw new Exception("Profile Example " + name + " file '" + efile.getAbsolutePath() + "' not found parsing " + this.name);
           }
-          RegisteredProfile rp = new RegisteredProfile(name, desc, title, source, file.getAbsolutePath(), type);
+          RegisteredProfile rp = new RegisteredProfile(name, title, source, file.getAbsolutePath(), type);
           if (efile != null)
             rp.getExamples().put(etitle, new Example(etitle, Utilities.fileTitle(etitle), "General Example for "+title, efile, ExampleType.XmlFile, true));
           defn.getProfiles().add(rp);
@@ -492,7 +492,9 @@ public class SpreadsheetParser {
 			cd.setId(registry.idForName(cd.getName()));
 			cd.setSource(name);
       cd.setUri(sheet.getColumn(row, "Uri"));
-      cd.setOid(sheet.getColumn(row, "Oid"));
+      String oid = sheet.getColumn(row, "Oid");
+      if (!Utilities.noString(oid))
+        cd.setVsOid(oid); // no cs oid in this case
       cd.setWebSite(sheet.getColumn(row, "Website"));
       cd.setEmail(sheet.getColumn(row, "Email"));
       cd.setCopyright(sheet.getColumn(row, "Copyright"));
@@ -967,6 +969,7 @@ public class SpreadsheetParser {
       ex.setType(readContextType(sheet.getColumn(row, "Context Type"), row));
       ex.setContext(sheet.getColumn(row, "Context"));
 	  }
+	  ex.setDisplay(sheet.getColumn(row, "Display"));
 	  ElementDefn exe = new ElementDefn();
 	  exe.setName(sheet.getColumn(row, "Code"));
 	  ex.setDefinition(exe);

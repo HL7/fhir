@@ -32,9 +32,9 @@ import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.utils.TerminologyServices;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -102,8 +102,8 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
     if (!snomedCodes.containsKey(code))
       return null;
     ConceptDefinitionComponent cc = new ConceptDefinitionComponent();
-    cc.setCodeSimple(code);
-    cc.setDisplaySimple(snomedCodes.get(code).display);
+    cc.setCode(code);
+    cc.setDisplay(snomedCodes.get(code).display);
     return cc;
   }
 
@@ -115,14 +115,14 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
       if (display == null || snomedCodes.get(code).has(display))
         return null;
       else 
-        return new ValidationResult(IssueSeverity.warning, "Snomed Display Name for "+code+" must be one of '"+snomedCodes.get(code).summary()+"'");
+        return new ValidationResult(IssueSeverity.WARNING, "Snomed Display Name for "+code+" must be one of '"+snomedCodes.get(code).summary()+"'");
     
     if (response != null) // this is a wrong expression 
-      return new ValidationResult(IssueSeverity.error, "The Snomed Expression "+code+" must use the form "+response.correctExpression);
+      return new ValidationResult(IssueSeverity.ERROR, "The Snomed Expression "+code+" must use the form "+response.correctExpression);
     else  if (serverOk)
-      return new ValidationResult(IssueSeverity.error, "Unknown Snomed Code "+code);
+      return new ValidationResult(IssueSeverity.ERROR, "Unknown Snomed Code "+code);
     else
-      return new ValidationResult(IssueSeverity.warning, "Unknown Snomed Code "+code);
+      return new ValidationResult(IssueSeverity.WARNING, "Unknown Snomed Code "+code);
   }
 
   private class SnomedServerResponse  {
@@ -185,19 +185,19 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
     if (!loincCodes.containsKey(code))
       return null;
     ConceptDefinitionComponent cc = new ConceptDefinitionComponent();
-    cc.setCodeSimple(code);
+    cc.setCode(code);
     String s = loincCodes.get(code).display;
-    cc.setDisplaySimple(s);
+    cc.setDisplay(s);
     return cc;
   }
 
   private ValidationResult verifyLoinc(String code, String display) throws Exception {
     if (!loincCodes.containsKey(code))
-      return new ValidationResult(IssueSeverity.error, "Unknown Loinc Code "+code);
+      return new ValidationResult(IssueSeverity.ERROR, "Unknown Loinc Code "+code);
     if (display == null)
       return null;
     if (!loincCodes.get(code).has(display))
-      return new ValidationResult(IssueSeverity.warning, "Loinc Display Name for "+code+" must be one of '"+loincCodes.get(code).summary()+"'");
+      return new ValidationResult(IssueSeverity.WARNING, "Loinc Display Name for "+code+" must be one of '"+loincCodes.get(code).summary()+"'");
     return null;
   }
 
@@ -211,9 +211,9 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
       if (system.startsWith("http://example.org"))
         return null;
     } catch (Exception e) {
-      return new ValidationResult(IssueSeverity.error, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
+      return new ValidationResult(IssueSeverity.ERROR, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
     }
-    return new ValidationResult(IssueSeverity.warning, "Unknown code system "+system);
+    return new ValidationResult(IssueSeverity.WARNING, "Unknown code system "+system);
   }
 
   @Override
@@ -297,11 +297,11 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
     if (new File(fn).exists()) {
       ResourceOrFeed r = new JsonParser().parseGeneral(new FileInputStream(fn));
       if (r.getResource() != null)
-        throw new Exception(((OperationOutcome) r.getResource()).getIssue().get(0).getDetailsSimple());
+        throw new Exception(((OperationOutcome) r.getResource()).getIssue().get(0).getDetails());
       else
         return ((ValueSet) r.getFeed().getEntryList().get(0).getResource()).getExpansion().getContains();
     }
-    vs.setIdentifierSimple("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
+    vs.setIdentifier("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
     
         
     if (!triedServer || serverOk) {
@@ -322,7 +322,7 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
       } catch (EFhirClientException e) {
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetailsSimple());
+        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
       } catch (Exception e) {
         serverOk = false;
         throw e;
@@ -337,7 +337,7 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
       OperationOutcome op = checkVSOperation(inc, system, code);
       boolean result = true;
       for (OperationOutcomeIssueComponent issue : op.getIssue())
-        if (issue.getSeveritySimple() == IssueSeverity.fatal || issue.getSeveritySimple() == IssueSeverity.error)
+        if (issue.getSeverity() == IssueSeverity.FATAL || issue.getSeverity() == IssueSeverity.ERROR)
           result = false;
       return result;
     } catch (Exception e) {
@@ -356,11 +356,11 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
     if (new File(fn).exists()) {
       ResourceOrFeed r = new JsonParser().parseGeneral(new FileInputStream(fn));
       if (r.getResource() != null)
-        throw new Exception(((OperationOutcome) r.getResource()).getIssue().get(0).getDetailsSimple());
+        throw new Exception(((OperationOutcome) r.getResource()).getIssue().get(0).getDetails());
       else
         return ((OperationOutcome) r.getFeed().getEntryList().get(0).getResource());
     }
-    vs.setIdentifierSimple("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
+    vs.setIdentifier("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
         
     if (!triedServer || serverOk) {
       try {
@@ -381,7 +381,7 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
       } catch (EFhirClientException e) {
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetailsSimple());
+        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
       } catch (Exception e) {
         serverOk = false;
         throw e;

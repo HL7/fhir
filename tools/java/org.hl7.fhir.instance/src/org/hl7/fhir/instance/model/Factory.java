@@ -111,8 +111,8 @@ public class Factory {
   
   public static ContactPoint newContactPoint(ContactPointSystem system, String value) {
   	ContactPoint res = new ContactPoint();
-	res.setSystemSimple(system);
-	res.setValue(newString_(value));
+	res.setSystem(system);
+	res.setValue(value);
 	return res;
   }
 
@@ -120,7 +120,7 @@ public class Factory {
 		if (!evenIfNull && value == null)
 			return null;
 		Extension e = new Extension();
-		e.setUrlSimple(uri);
+		e.setUrl(uri);
 		e.setValue(value);
 	  return e;
   }
@@ -128,16 +128,16 @@ public class Factory {
 	public static CodeableConcept newCodeableConcept(String code, String system, String display) throws Exception {
 		CodeableConcept cc = new CodeableConcept();
 		Coding c = new Coding();
-		c.setCodeSimple(code);
-		c.setSystemSimple(system);
-		c.setDisplaySimple(display);
+		c.setCode(code);
+		c.setSystem(system);
+		c.setDisplay(display);
 		cc.getCoding().add(c);
 	  return cc;
   }
 
 	public static Reference makeReference(String url) throws Exception {
 	  Reference rr = new Reference();
-	  rr.setReferenceSimple(url);
+	  rr.setReference(url);
 	  return rr;
   }
   
@@ -149,7 +149,7 @@ public class Factory {
 
  public static Narrative newNarrative(NarrativeStatus status, String html) throws Exception {
     Narrative n = new Narrative();
-    n.setStatusSimple(status);
+    n.setStatus(status);
     n.setDiv(new XhtmlParser().parseFragment("<div>"+Utilities.escapeXml(html)+"</div>"));
     return n;
  }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,34 +39,34 @@ import java.util.*;
 public class MedicationDispense extends Resource {
 
     public enum MedicationDispenseStatus {
-        inProgress, // The dispense has started but has not yet completed.
-        onHold, // Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended".
-        completed, // All actions that are implied by the dispense have occurred.
-        enteredInError, // The dispense was entered in error and therefore nullified.
-        stopped, // Actions implied by the dispense have been permanently halted, before all of them occurred.
-        Null; // added to help the parsers
+        INPROGRESS, // The dispense has started but has not yet completed.
+        ONHOLD, // Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended".
+        COMPLETED, // All actions that are implied by the dispense have occurred.
+        ENTEREDINERROR, // The dispense was entered in error and therefore nullified.
+        STOPPED, // Actions implied by the dispense have been permanently halted, before all of them occurred.
+        NULL; // added to help the parsers
         public static MedicationDispenseStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("in progress".equals(codeString))
-          return inProgress;
+          return INPROGRESS;
         if ("on hold".equals(codeString))
-          return onHold;
+          return ONHOLD;
         if ("completed".equals(codeString))
-          return completed;
+          return COMPLETED;
         if ("entered in error".equals(codeString))
-          return enteredInError;
+          return ENTEREDINERROR;
         if ("stopped".equals(codeString))
-          return stopped;
+          return STOPPED;
         throw new Exception("Unknown MedicationDispenseStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case inProgress: return "in progress";
-            case onHold: return "on hold";
-            case completed: return "completed";
-            case enteredInError: return "entered in error";
-            case stopped: return "stopped";
+            case INPROGRESS: return "in progress";
+            case ONHOLD: return "on hold";
+            case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered in error";
+            case STOPPED: return "stopped";
             default: return "?";
           }
         }
@@ -78,27 +78,27 @@ public class MedicationDispense extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("in progress".equals(codeString))
-          return MedicationDispenseStatus.inProgress;
+          return MedicationDispenseStatus.INPROGRESS;
         if ("on hold".equals(codeString))
-          return MedicationDispenseStatus.onHold;
+          return MedicationDispenseStatus.ONHOLD;
         if ("completed".equals(codeString))
-          return MedicationDispenseStatus.completed;
+          return MedicationDispenseStatus.COMPLETED;
         if ("entered in error".equals(codeString))
-          return MedicationDispenseStatus.enteredInError;
+          return MedicationDispenseStatus.ENTEREDINERROR;
         if ("stopped".equals(codeString))
-          return MedicationDispenseStatus.stopped;
+          return MedicationDispenseStatus.STOPPED;
         throw new Exception("Unknown MedicationDispenseStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == MedicationDispenseStatus.inProgress)
+      if (code == MedicationDispenseStatus.INPROGRESS)
         return "in progress";
-      if (code == MedicationDispenseStatus.onHold)
+      if (code == MedicationDispenseStatus.ONHOLD)
         return "on hold";
-      if (code == MedicationDispenseStatus.completed)
+      if (code == MedicationDispenseStatus.COMPLETED)
         return "completed";
-      if (code == MedicationDispenseStatus.enteredInError)
+      if (code == MedicationDispenseStatus.ENTEREDINERROR)
         return "entered in error";
-      if (code == MedicationDispenseStatus.stopped)
+      if (code == MedicationDispenseStatus.STOPPED)
         return "stopped";
       return "?";
       }
@@ -192,16 +192,16 @@ public class MedicationDispense extends Resource {
         }
 
         /**
-         * @return {@link #status} (A code specifying the state of the dispense event.)
+         * @return {@link #status} (A code specifying the state of the dispense event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<MedicationDispenseStatus> getStatus() { 
+        public Enumeration<MedicationDispenseStatus> getStatusObject() { 
           return this.status;
         }
 
         /**
-         * @param value {@link #status} (A code specifying the state of the dispense event.)
+         * @param value {@link #status} (A code specifying the state of the dispense event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public MedicationDispenseDispenseComponent setStatus(Enumeration<MedicationDispenseStatus> value) { 
+        public MedicationDispenseDispenseComponent setStatusObject(Enumeration<MedicationDispenseStatus> value) { 
           this.status = value;
           return this;
         }
@@ -209,14 +209,14 @@ public class MedicationDispense extends Resource {
         /**
          * @return A code specifying the state of the dispense event.
          */
-        public MedicationDispenseStatus getStatusSimple() { 
+        public MedicationDispenseStatus getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value A code specifying the state of the dispense event.
          */
-        public MedicationDispenseDispenseComponent setStatusSimple(MedicationDispenseStatus value) { 
+        public MedicationDispenseDispenseComponent setStatus(MedicationDispenseStatus value) { 
           if (value == null)
             this.status = null;
           else {
@@ -273,14 +273,14 @@ public class MedicationDispense extends Resource {
         }
 
         /**
-         * @return {@link #medication} (The actual object that is the target of the reference. Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * @return {@link #medication} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
         public Medication getMedicationTarget() { 
           return this.medicationTarget;
         }
 
         /**
-         * @param value {@link #medication} (The actual object that is the target of the reference. Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * @param value {@link #medication} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
         public MedicationDispenseDispenseComponent setMedicationTarget(Medication value) { 
           this.medicationTarget = value;
@@ -288,16 +288,16 @@ public class MedicationDispense extends Resource {
         }
 
         /**
-         * @return {@link #whenPrepared} (The time when the dispensed product was packaged and reviewed.)
+         * @return {@link #whenPrepared} (The time when the dispensed product was packaged and reviewed.). This is the underlying object with id, value and extensions. The accessor "getWhenPrepared" gives direct access to the value
          */
-        public DateTimeType getWhenPrepared() { 
+        public DateTimeType getWhenPreparedObject() { 
           return this.whenPrepared;
         }
 
         /**
-         * @param value {@link #whenPrepared} (The time when the dispensed product was packaged and reviewed.)
+         * @param value {@link #whenPrepared} (The time when the dispensed product was packaged and reviewed.). This is the underlying object with id, value and extensions. The accessor "getWhenPrepared" gives direct access to the value
          */
-        public MedicationDispenseDispenseComponent setWhenPrepared(DateTimeType value) { 
+        public MedicationDispenseDispenseComponent setWhenPreparedObject(DateTimeType value) { 
           this.whenPrepared = value;
           return this;
         }
@@ -305,14 +305,14 @@ public class MedicationDispense extends Resource {
         /**
          * @return The time when the dispensed product was packaged and reviewed.
          */
-        public DateAndTime getWhenPreparedSimple() { 
+        public DateAndTime getWhenPrepared() { 
           return this.whenPrepared == null ? null : this.whenPrepared.getValue();
         }
 
         /**
          * @param value The time when the dispensed product was packaged and reviewed.
          */
-        public MedicationDispenseDispenseComponent setWhenPreparedSimple(DateAndTime value) { 
+        public MedicationDispenseDispenseComponent setWhenPrepared(DateAndTime value) { 
           if (value == null)
             this.whenPrepared = null;
           else {
@@ -324,16 +324,16 @@ public class MedicationDispense extends Resource {
         }
 
         /**
-         * @return {@link #whenHandedOver} (The time the dispensed product was provided to the patient or their representative.)
+         * @return {@link #whenHandedOver} (The time the dispensed product was provided to the patient or their representative.). This is the underlying object with id, value and extensions. The accessor "getWhenHandedOver" gives direct access to the value
          */
-        public DateTimeType getWhenHandedOver() { 
+        public DateTimeType getWhenHandedOverObject() { 
           return this.whenHandedOver;
         }
 
         /**
-         * @param value {@link #whenHandedOver} (The time the dispensed product was provided to the patient or their representative.)
+         * @param value {@link #whenHandedOver} (The time the dispensed product was provided to the patient or their representative.). This is the underlying object with id, value and extensions. The accessor "getWhenHandedOver" gives direct access to the value
          */
-        public MedicationDispenseDispenseComponent setWhenHandedOver(DateTimeType value) { 
+        public MedicationDispenseDispenseComponent setWhenHandedOverObject(DateTimeType value) { 
           this.whenHandedOver = value;
           return this;
         }
@@ -341,14 +341,14 @@ public class MedicationDispense extends Resource {
         /**
          * @return The time the dispensed product was provided to the patient or their representative.
          */
-        public DateAndTime getWhenHandedOverSimple() { 
+        public DateAndTime getWhenHandedOver() { 
           return this.whenHandedOver == null ? null : this.whenHandedOver.getValue();
         }
 
         /**
          * @param value The time the dispensed product was provided to the patient or their representative.
          */
-        public MedicationDispenseDispenseComponent setWhenHandedOverSimple(DateAndTime value) { 
+        public MedicationDispenseDispenseComponent setWhenHandedOver(DateAndTime value) { 
           if (value == null)
             this.whenHandedOver = null;
           else {
@@ -375,14 +375,14 @@ public class MedicationDispense extends Resource {
         }
 
         /**
-         * @return {@link #destination} (The actual object that is the target of the reference. Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
+         * @return {@link #destination} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
          */
         public Location getDestinationTarget() { 
           return this.destinationTarget;
         }
 
         /**
-         * @param value {@link #destination} (The actual object that is the target of the reference. Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
+         * @param value {@link #destination} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
          */
         public MedicationDispenseDispenseComponent setDestinationTarget(Location value) { 
           this.destinationTarget = value;
@@ -407,7 +407,7 @@ public class MedicationDispense extends Resource {
         }
 
         /**
-         * @return {@link #receiver} (The actual objects that are the target of the reference. Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.)
+         * @return {@link #receiver} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.)
          */
         public List<Resource> getReceiverTarget() { 
           return this.receiverTarget;
@@ -769,7 +769,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         }
 
         /**
-         * @return {@link #responsibleParty} (The actual objects that are the target of the reference. The person or organization that has primary responsibility for the substitution.)
+         * @return {@link #responsibleParty} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The person or organization that has primary responsibility for the substitution.)
          */
         public List<Practitioner> getResponsiblePartyTarget() { 
           return this.responsiblePartyTarget;
@@ -777,7 +777,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
     // syntactic sugar
         /**
-         * @return {@link #responsibleParty} (Add an actual object that is the target of the reference. The person or organization that has primary responsibility for the substitution.)
+         * @return {@link #responsibleParty} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The person or organization that has primary responsibility for the substitution.)
          */
         public Practitioner addResponsiblePartyTarget() { 
           Practitioner r = new Practitioner();
@@ -878,16 +878,16 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #status} (A code specifying the state of the set of dispense events.)
+     * @return {@link #status} (A code specifying the state of the set of dispense events.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<MedicationDispenseStatus> getStatus() { 
+    public Enumeration<MedicationDispenseStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (A code specifying the state of the set of dispense events.)
+     * @param value {@link #status} (A code specifying the state of the set of dispense events.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public MedicationDispense setStatus(Enumeration<MedicationDispenseStatus> value) { 
+    public MedicationDispense setStatusObject(Enumeration<MedicationDispenseStatus> value) { 
       this.status = value;
       return this;
     }
@@ -895,14 +895,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return A code specifying the state of the set of dispense events.
      */
-    public MedicationDispenseStatus getStatusSimple() { 
+    public MedicationDispenseStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value A code specifying the state of the set of dispense events.
      */
-    public MedicationDispense setStatusSimple(MedicationDispenseStatus value) { 
+    public MedicationDispense setStatus(MedicationDispenseStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -929,14 +929,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #patient} (The actual object that is the target of the reference. A link to a resource representing the person to whom the medication will be given.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person to whom the medication will be given.)
      */
     public Patient getPatientTarget() { 
       return this.patientTarget;
     }
 
     /**
-     * @param value {@link #patient} (The actual object that is the target of the reference. A link to a resource representing the person to whom the medication will be given.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person to whom the medication will be given.)
      */
     public MedicationDispense setPatientTarget(Patient value) { 
       this.patientTarget = value;
@@ -959,14 +959,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #dispenser} (The actual object that is the target of the reference. The individual responsible for dispensing the medication.)
+     * @return {@link #dispenser} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication.)
      */
     public Practitioner getDispenserTarget() { 
       return this.dispenserTarget;
     }
 
     /**
-     * @param value {@link #dispenser} (The actual object that is the target of the reference. The individual responsible for dispensing the medication.)
+     * @param value {@link #dispenser} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication.)
      */
     public MedicationDispense setDispenserTarget(Practitioner value) { 
       this.dispenserTarget = value;
@@ -991,7 +991,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #authorizingPrescription} (The actual objects that are the target of the reference. Indicates the medication order that is being dispensed against.)
+     * @return {@link #authorizingPrescription} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the medication order that is being dispensed against.)
      */
     public List<MedicationPrescription> getAuthorizingPrescriptionTarget() { 
       return this.authorizingPrescriptionTarget;
@@ -999,7 +999,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
     // syntactic sugar
     /**
-     * @return {@link #authorizingPrescription} (Add an actual object that is the target of the reference. Indicates the medication order that is being dispensed against.)
+     * @return {@link #authorizingPrescription} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Indicates the medication order that is being dispensed against.)
      */
     public MedicationPrescription addAuthorizingPrescriptionTarget() { 
       MedicationPrescription r = new MedicationPrescription();

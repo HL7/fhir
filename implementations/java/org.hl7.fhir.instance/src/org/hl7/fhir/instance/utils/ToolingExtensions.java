@@ -67,7 +67,7 @@ public class ToolingExtensions {
   public static Extension makeIssueSource(Source source) {
     Extension ex = new Extension();
     // todo: write this up and get it published with the pack (and handle the redirect?)
-    ex.setUrlSimple(ToolingExtensions.EXT_ISSUE_SOURCE);
+    ex.setUrl(ToolingExtensions.EXT_ISSUE_SOURCE);
     CodeType c = new CodeType();
     c.setValue(source.toString());
     ex.setValue(c);
@@ -92,12 +92,12 @@ public class ToolingExtensions {
       nc.getExtensions().add(Factory.newExtension(EXT_DEFINITION, Factory.newString_(definition), true));   
   }
 
-  public static void addDisplayHint(ElementDefinitionComponent def, String hint) throws Exception {
+  public static void addDisplayHint(Element def, String hint) throws Exception {
     if (!Utilities.noString(hint))
       def.getExtensions().add(Factory.newExtension(EXT_DISPLAY_HINT, Factory.newString_(hint), true));   
   }
 
-  public static String getDisplayHint(ElementDefinitionComponent def) throws Exception {
+  public static String getDisplayHint(Element def) throws Exception {
     return readStringExtension(def, EXT_DISPLAY_HINT);    
   }
 
@@ -166,7 +166,7 @@ public class ToolingExtensions {
     List<CodeType> res = new ArrayList<CodeType>();
 
     for (Extension e : c.getExtensions()) {
-      if (EXT_SUBSUMES.equals(e.getUrlSimple()))
+      if (EXT_SUBSUMES.equals(e.getUrl()))
         res.add((CodeType) e.getValue());
     }
     return res;

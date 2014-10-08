@@ -154,18 +154,18 @@ public class LoincToDEConvertor {
 				feed.getEntryList().add(ae);
 				DataElement cde = new DataElement();
 				Identifier id = new Identifier();
-				id.setSystemSimple("http://hl7.org/fhir/commondataelement/loinc");
-				id.setValueSimple(code);
+				id.setSystem("http://hl7.org/fhir/commondataelement/loinc");
+				id.setValue(code);
 				cde.setIdentifier(id);
-				cde.setPublisherSimple("Regenstrief + FHIR Project Team");
-//				cde.getTelecom().add(new Contact().setSystemSimple(ContactSystem.url).setValueSimple("http://hl7.org/fhir"));
-//				cde.getTelecom().add(new Contact().setSystemSimple(ContactSystem.url).setValueSimple("http://loinc.org"));
+				cde.setPublisher("Regenstrief + FHIR Project Team");
+//				cde.getTelecom().add(new Contact().setSystem(ContactSystem.url).setValue("http://hl7.org/fhir"));
+//				cde.getTelecom().add(new Contact().setSystem(ContactSystem.url).setValue("http://loinc.org"));
 				if (!col(row, "STATUS").equals("ACTIVE"))
-	 				cde.setStatusSimple(ResourceObservationDefStatus.draft); // till we get good at this
+	 				cde.setStatus(ResourceObservationDefStatus.DRAFT); // till we get good at this
 				else
-					cde.setStatusSimple(ResourceObservationDefStatus.retired);
-				cde.setDateSimple(now);
-				cde.setNameSimple(comp);
+					cde.setStatus(ResourceObservationDefStatus.RETIRED);
+				cde.setDate(now);
+				cde.setName(comp);
 				ae.setResource(cde);
 
 				// PROPERTY	ignore
@@ -173,11 +173,11 @@ public class LoincToDEConvertor {
 				// SYSTEM	
 				// SCALE_TYP	
 				// METHOD_TYP	
-				cde.getCategory().add(new CodeableConcept().setTextSimple(col(row, "CLASS")));
+				cde.getCategory().add(new CodeableConcept().setText(col(row, "CLASS")));
 				// SOURCE	
 				// DATE_LAST_CHANGED - should be in ?	
 				// CHNG_TYPE	
-				cde.setCommentsSimple(col(row , "COMMENTS"));
+				cde.setComments(col(row , "COMMENTS"));
 				if (hasCol(row, "CONSUMER_NAME"))
 					cde.getSynonym().add(new StringType().setValue(col(row, "CONSUMER_NAME")));	
 				// MOLAR_MASS	
@@ -203,9 +203,9 @@ public class LoincToDEConvertor {
 				// CDISC Code	
 				// HL7_FIELD_SUBFIELD_ID	
 				//  ------------------ EXTERNAL_COPYRIGHT_NOTICE todo	
-				cde.setDefinitionSimple(col(row, "LONG_COMMON_NAME"));	
+				cde.setDefinition(col(row, "LONG_COMMON_NAME"));	
 				// HL7_V2_DATATYPE	
-				cde.setTypeSimple(makeType(col(row, "HL7_V3_DATATYPE"), code));	
+				cde.setType(makeType(col(row, "HL7_V3_DATATYPE"), code));	
 				// todo... CURATED_RANGE_AND_UNITS	
 				// todo: DOCUMENT_SECTION	
 				// STATUS_REASON	
@@ -270,8 +270,8 @@ public class LoincToDEConvertor {
 		if (Utilities.noString(text) && Utilities.noString(ucum))
 			return null;
 		CodeableConcept cc = new CodeableConcept();
-		cc.setTextSimple(text);
-		cc.getCoding().add(new Coding().setCodeSimple(ucum).setSystemSimple("http://unitsofmeasure.org"));
+		cc.setText(text);
+		cc.getCoding().add(new Coding().setCode(ucum).setSystem("http://unitsofmeasure.org"));
 		return cc;
 	}
   public AtomFeed getFeed() {

@@ -70,24 +70,24 @@ public class AtomParserTest {
 		ResourceOrFeed r = parseFile(itemPath);
 		Resource p = r.getResource();
 		assertTrue(p != null);
-		//System.out.println("|"+p.getStatusSimple()+"|");
-		//assertTrue(p.getStatusSimple().toString().equals("active"));
+		//System.out.println("|"+p.getStatus()+"|");
+		//assertTrue(p.getStatus().toString().equals("active"));
 	}
 	
 	@Test
 	public void testResourceNotPretty() {
 		ResourceOrFeed r = parseFile(filepathResourceNotPretty);
 		MedicationPrescription p = (MedicationPrescription) r.getResource();
-		System.out.println("|"+p.getStatusSimple()+"|");
-		assertTrue(p.getStatusSimple().toString().equals("active"));
+		System.out.println("|"+p.getStatus()+"|");
+		assertTrue(p.getStatus().toString().equals("active"));
 	}
 	
 	@Test
 	public void testResourcePretty() {
 		ResourceOrFeed r = parseFile(filepathResourcePretty);
 		MedicationPrescription p = (MedicationPrescription) r.getResource();
-		System.out.println("|"+p.getStatusSimple()+"|");
-		assertTrue(p.getStatusSimple().toString().equals("active"));
+		System.out.println("|"+p.getStatus()+"|");
+		assertTrue(p.getStatus().toString().equals("active"));
 		//|active|
 	}
 	
@@ -95,8 +95,8 @@ public class AtomParserTest {
 	public void testFeedNotPretty() {
 		ResourceOrFeed r = parseFile(filepathFeedNotPretty);
 		MedicationPrescription p = (MedicationPrescription) r.getFeed().getEntryList().get(0).getResource();
-		System.out.println("|"+p.getStatusSimple()+"|");
-		assertTrue(p.getStatusSimple().toString().equals("active"));
+		System.out.println("|"+p.getStatus()+"|");
+		assertTrue(p.getStatus().toString().equals("active"));
 
 	}
 	
@@ -104,8 +104,8 @@ public class AtomParserTest {
 	public void testFeedPretty() {
 		ResourceOrFeed r = parseFile(filepathFeedPretty);
 		MedicationPrescription p = (MedicationPrescription) r.getFeed().getEntryList().get(0).getResource();
-		System.out.println("|"+p.getStatusSimple()+"|");
-		assertTrue(p.getStatusSimple().toString().equals("active"));
+		System.out.println("|"+p.getStatus()+"|");
+		assertTrue(p.getStatus().toString().equals("active"));
 
 	}
 	

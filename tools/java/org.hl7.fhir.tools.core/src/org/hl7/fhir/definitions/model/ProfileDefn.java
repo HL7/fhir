@@ -60,17 +60,17 @@ public class ProfileDefn {
   public String metadata(String name) {
     if (source != null) {
       if ("description".equals(name))
-        return source.getDescriptionSimple();
+        return source.getDescription();
       if ("name".equals(name))
-        return source.getNameSimple();
+        return source.getName();
       if ("date".equals(name))
-        return source.getDateSimple().toString();
+        return source.getDate().toString();
       if ("status".equals(name))
-        return source.getStatusSimple().toCode();
+        return source.getStatus().toCode();
       if ("author.name".equals(name))
-        return source.getPublisherSimple();
+        return source.getPublisher();
       if ("url".equals(name))
-        return source.getUrlSimple();
+        return source.getUrl();
 //      throw new Error("metadata request for "+name);
     }
     if (!metadata.containsKey(name))

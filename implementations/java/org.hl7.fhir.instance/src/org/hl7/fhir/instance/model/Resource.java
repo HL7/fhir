@@ -77,21 +77,21 @@ public abstract class Resource extends BackboneElement {
 	/**
 	 * @return The primary/base human language of the content. The value can be any valid value for xml:lang
 	 */
-  public CodeType getLanguage() { 
+  public CodeType getLanguageObject() { 
     return this.language;
   }
 
   /**
    * @param value The primary/base human language of the content. The value can be any valid value for xml:lang
    */
-  public void setLanguage(CodeType value) { 
+  public void setLanguageObject(CodeType value) { 
     this.language = value;
   }
 
 	/**
 	 * @return The primary/base human language of the content. The value can be any valid value for xml:lang
 	 */
-  public String getLanguageSimple() { 
+  public String getLanguage() { 
     return this.language == null ? null : this.language.getValue();
 
   }
@@ -99,7 +99,7 @@ public abstract class Resource extends BackboneElement {
   /**
    * @param value The primary/base human language of the content. The value can be any valid value for xml:lang
    */
-  public void setLanguageSimple(String value) { 
+  public void setLanguage(String value) { 
     if (value == null)
       this.language = null;
     else {

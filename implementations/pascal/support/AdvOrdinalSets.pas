@@ -221,7 +221,7 @@ Begin
   If FOwns Then
   Begin
     MemoryResize(FPartArray, FSize, iValue);
-    MemoryZero(Pointer(NativeUInt(FPartArray) + FSize), iValue - FSize);
+    MemoryZero(Pointer(NativeUInt(FPartArray) + NativeUInt(FSize)), iValue - FSize);
   End;
 
   FSize := iValue;

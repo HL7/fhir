@@ -17,7 +17,7 @@ public class ReviewSpreadsheetGenerator {
     XLSXmlGenerator xls = new XLSXmlGenerator(filename, author, new DateAndTime(genDate).toString());
     xls.addSimpleSheet("Review Details", generateReviewHeader(xls));
     for (ProfileStructureComponent sc : profile.getStructure())
-      xls.addSimpleSheet(sc.getNameSimple(), generateReviewSheet(xls, sc));
+      xls.addSimpleSheet(sc.getName(), generateReviewSheet(xls, sc));
     xls.finish();
   }
 
@@ -25,22 +25,22 @@ public class ReviewSpreadsheetGenerator {
     SimpleSheet res = xls.new SimpleSheet();
     res.addRow("Path", "Name", "Cardinality", "Type", "Profile", "Value Set", "Definition", "Your Comments");
     ElementComponent ed = sc.getSnapshot().getElement().get(0);
-    String path = ed.getPathSimple();
-    res.addRow(path, sc.getNameSimple(), "", sc.getTypeSimple(), "", "", ed.getDefinition().getFormalSimple(), "");
+    String path = ed.getPath();
+    res.addRow(path, sc.getName(), "", sc.getType(), "", "", ed.getDefinition().getFormal(), "");
     processRows(path, sc.getSnapshot().getElement(), 1, res);
     return res;
   }
 
   private int processRows(String path, List<ElementComponent> list, int i, SimpleSheet res) {
     ElementComponent ed = list.get(i);
-    while (i < list.size() && ed.getPathSimple().startsWith(path+".")) {
+    while (i < list.size() && ed.getPath().startsWith(path+".")) {
       if (ed.getDefinition().getType().size() == 0) {
-        res.addRow(ed.getPathSimple(), ed.getNameSimple(), describeCardinality(ed.getDefinition()), "", "", "", ed.getDefinition().getFormalSimple(), "");
-        i = processRows(ed.getPathSimple(), list, i, res);
+        res.addRow(ed.getPath(), ed.getName(), describeCardinality(ed.getDefinition()), "", "", "", ed.getDefinition().getFormal(), "");
+        i = processRows(ed.getPath(), list, i, res);
       } else if (ed.getDefinition().getType().size() == 1) {
-        res.addRow(ed.getPathSimple(), ed.getNameSimple(), describeCardinality(ed.getDefinition()), ed.getDefinition().getType().get(0).getCodeSimple(), ed.getDefinition().getType().get(0).getProfileSimple(), describeBinding(ed.getDefinition()), ed.getDefinition().getFormalSimple(), "");
+        res.addRow(ed.getPath(), ed.getName(), describeCardinality(ed.getDefinition()), ed.getDefinition().getType().get(0).getCode(), ed.getDefinition().getType().get(0).getProfile(), describeBinding(ed.getDefinition()), ed.getDefinition().getFormal(), "");
       } else {
-        res.addRow(ed.getPathSimple(), ed.getNameSimple(), describeCardinality(ed.getDefinition()), "", "", describeBinding(ed.getDefinition()), ed.getDefinition().getFormalSimple(), "");
+        res.addRow(ed.getPath(), ed.getName(), describeCardinality(ed.getDefinition()), "", "", describeBinding(ed.getDefinition()), ed.getDefinition().getFormal(), "");
       }
       i++;
       if (i < list.size())
@@ -53,11 +53,11 @@ public class ReviewSpreadsheetGenerator {
   private String describeBinding(ElementDefinitionComponent def) {
     if (def.getBinding() == null)
       return "";
-    return def.getBinding().getNameSimple();
+    return def.getBinding().getName();
   }
 
   private String describeCardinality(ElementDefinitionComponent def) {
-    return def.getMinSimple()+".."+def.getMaxSimple();
+    return def.getMin()+".."+def.getMax();
   }
 
   private List<List<String>> generateReviewHeader(XLSXmlGenerator xls) {

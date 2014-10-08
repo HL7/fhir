@@ -48,7 +48,6 @@ import org.hl7.fhir.definitions.model.TypeRef;
 public class JavaComposerXmlGenerator extends JavaBaseGenerator {
   public enum JavaGenClass { Structure, Type, Resource, Constraint, Backbone }
 
-  private Definitions definitions;
   private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
   private List<String> typeNameStrings = new ArrayList<String>();
   private List<ElementDefn> enums = new ArrayList<ElementDefn>();
@@ -165,7 +164,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
 
     write("  private void composeResourceElements(Resource element) throws Exception {\r\n");
     write("    composeBackboneElements(element);\r\n");
-    write("    composeCode(\"language\", element.getLanguage());\r\n");
+    write("    composeCode(\"language\", element.getLanguageObject());\r\n");
     write("    composeNarrative(\"text\", element.getText());\r\n");
     write("    for (Resource r : element.getContained()) {\r\n");
     write("      if (r.getXmlId() == null)\r\n");
@@ -333,8 +332,8 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
         write("      if (element.get"+upFirst(getElementName(e.getName(), true))+"() != null)\r\n");
         write("        xml.attribute(\"xml:lang\", element.get"+upFirst(getElementName(e.getName(), true))+"().toString());\r\n");
       } else if (e.isXmlAttribute()) {
-        write("      if (element.get"+upFirst(getElementName(e.getName(), true))+"() != null)\r\n");
-        write("        xml.attribute(\""+e.getName()+"\", element.get"+upFirst(getElementName(e.getName(), true))+"().getValue());\r\n");
+        write("      if (element.get"+upFirst(getElementName(e.getName(), true))+"Object() != null)\r\n");
+        write("        xml.attribute(\""+e.getName()+"\", element.get"+upFirst(getElementName(e.getName(), true))+"Object().getValue());\r\n");
       }
     }
     write("      xml.open(FHIR_NS, name);\r\n");
@@ -423,14 +422,21 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
   	    
   	    }
       } else if (en != null) {
-        write("      if (element.get"+upFirst(getElementName(name, false))+"() != null)\r\n");
-        write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+        write("      if (element.get"+upFirst(getElementName(name, false))+"Object() != null)\r\n");
+        write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Object(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
 //        write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
+      } else if (isJavaPrimitive(e)) {
+        write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Object());\r\n");
       } else {
         write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"());\r\n");
       }
     }
   }
+
+  private boolean isPrimitive(ElementDefn e) {
+    return definitions.hasPrimitiveType(e.typeCode()) || e.typeCode().equals("idref");
+  }
+
 
   private String prepEnumName(String en) {
 	String[] parts = en.split("\\.");

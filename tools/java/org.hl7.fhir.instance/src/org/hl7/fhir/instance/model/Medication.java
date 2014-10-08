@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,22 +39,22 @@ import java.util.*;
 public class Medication extends Resource {
 
     public enum MedicationKind {
-        product, // The medication is a product.
-        package_, // The medication is a package - a contained group of one of more products.
-        Null; // added to help the parsers
+        PRODUCT, // The medication is a product.
+        PACKAGE, // The medication is a package - a contained group of one of more products.
+        NULL; // added to help the parsers
         public static MedicationKind fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("product".equals(codeString))
-          return product;
+          return PRODUCT;
         if ("package".equals(codeString))
-          return package_;
+          return PACKAGE;
         throw new Exception("Unknown MedicationKind code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case product: return "product";
-            case package_: return "package";
+            case PRODUCT: return "product";
+            case PACKAGE: return "package";
             default: return "?";
           }
         }
@@ -66,15 +66,15 @@ public class Medication extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("product".equals(codeString))
-          return MedicationKind.product;
+          return MedicationKind.PRODUCT;
         if ("package".equals(codeString))
-          return MedicationKind.package_;
+          return MedicationKind.PACKAGE;
         throw new Exception("Unknown MedicationKind code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == MedicationKind.product)
+      if (code == MedicationKind.PRODUCT)
         return "product";
-      if (code == MedicationKind.package_)
+      if (code == MedicationKind.PACKAGE)
         return "package";
       return "?";
       }
@@ -189,14 +189,14 @@ public class Medication extends Resource {
         }
 
         /**
-         * @return {@link #item} (The actual object that is the target of the reference. The actual ingredient - either a substance (simple ingredient) or another medication.)
+         * @return {@link #item} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The actual ingredient - either a substance (simple ingredient) or another medication.)
          */
         public Resource getItemTarget() { 
           return this.itemTarget;
         }
 
         /**
-         * @param value {@link #item} (The actual object that is the target of the reference. The actual ingredient - either a substance (simple ingredient) or another medication.)
+         * @param value {@link #item} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The actual ingredient - either a substance (simple ingredient) or another medication.)
          */
         public MedicationProductIngredientComponent setItemTarget(Resource value) { 
           this.itemTarget = value;
@@ -342,14 +342,14 @@ public class Medication extends Resource {
         }
 
         /**
-         * @return {@link #item} (The actual object that is the target of the reference. Identifies one of the items in the package.)
+         * @return {@link #item} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies one of the items in the package.)
          */
         public Medication getItemTarget() { 
           return this.itemTarget;
         }
 
         /**
-         * @param value {@link #item} (The actual object that is the target of the reference. Identifies one of the items in the package.)
+         * @param value {@link #item} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies one of the items in the package.)
          */
         public MedicationPackageContentComponent setItemTarget(Medication value) { 
           this.itemTarget = value;
@@ -433,16 +433,16 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return {@link #name} (The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.)
+     * @return {@link #name} (The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getName() { 
+    public StringType getNameObject() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.)
+     * @param value {@link #name} (The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Medication setName(StringType value) { 
+    public Medication setNameObject(StringType value) { 
       this.name = value;
       return this;
     }
@@ -450,14 +450,14 @@ public class Medication extends Resource {
     /**
      * @return The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.
      */
-    public String getNameSimple() { 
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.
      */
-    public Medication setNameSimple(String value) { 
+    public Medication setName(String value) { 
       if (value == null)
         this.name = null;
       else {
@@ -484,16 +484,16 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).)
+     * @return {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).). This is the underlying object with id, value and extensions. The accessor "getIsBrand" gives direct access to the value
      */
-    public BooleanType getIsBrand() { 
+    public BooleanType getIsBrandObject() { 
       return this.isBrand;
     }
 
     /**
-     * @param value {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).)
+     * @param value {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).). This is the underlying object with id, value and extensions. The accessor "getIsBrand" gives direct access to the value
      */
-    public Medication setIsBrand(BooleanType value) { 
+    public Medication setIsBrandObject(BooleanType value) { 
       this.isBrand = value;
       return this;
     }
@@ -501,14 +501,14 @@ public class Medication extends Resource {
     /**
      * @return Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).
      */
-    public boolean getIsBrandSimple() { 
+    public boolean getIsBrand() { 
       return this.isBrand == null ? false : this.isBrand.getValue();
     }
 
     /**
      * @param value Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).
      */
-    public Medication setIsBrandSimple(boolean value) { 
+    public Medication setIsBrand(boolean value) { 
       if (value == false)
         this.isBrand = null;
       else {
@@ -535,14 +535,14 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return {@link #manufacturer} (The actual object that is the target of the reference. Describes the details of the manufacturer.)
+     * @return {@link #manufacturer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the details of the manufacturer.)
      */
     public Organization getManufacturerTarget() { 
       return this.manufacturerTarget;
     }
 
     /**
-     * @param value {@link #manufacturer} (The actual object that is the target of the reference. Describes the details of the manufacturer.)
+     * @param value {@link #manufacturer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the details of the manufacturer.)
      */
     public Medication setManufacturerTarget(Organization value) { 
       this.manufacturerTarget = value;
@@ -550,16 +550,16 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return {@link #kind} (Medications are either a single administrable product or a package that contains one or more products.)
+     * @return {@link #kind} (Medications are either a single administrable product or a package that contains one or more products.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Enumeration<MedicationKind> getKind() { 
+    public Enumeration<MedicationKind> getKindObject() { 
       return this.kind;
     }
 
     /**
-     * @param value {@link #kind} (Medications are either a single administrable product or a package that contains one or more products.)
+     * @param value {@link #kind} (Medications are either a single administrable product or a package that contains one or more products.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Medication setKind(Enumeration<MedicationKind> value) { 
+    public Medication setKindObject(Enumeration<MedicationKind> value) { 
       this.kind = value;
       return this;
     }
@@ -567,14 +567,14 @@ public class Medication extends Resource {
     /**
      * @return Medications are either a single administrable product or a package that contains one or more products.
      */
-    public MedicationKind getKindSimple() { 
+    public MedicationKind getKind() { 
       return this.kind == null ? null : this.kind.getValue();
     }
 
     /**
      * @param value Medications are either a single administrable product or a package that contains one or more products.
      */
-    public Medication setKindSimple(MedicationKind value) { 
+    public Medication setKind(MedicationKind value) { 
       if (value == null)
         this.kind = null;
       else {

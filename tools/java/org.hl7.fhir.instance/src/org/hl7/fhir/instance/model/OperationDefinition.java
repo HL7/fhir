@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,26 +39,26 @@ import java.util.*;
 public class OperationDefinition extends Resource {
 
     public enum ResourceProfileStatus {
-        draft, // This profile is still under development.
-        active, // This profile is ready for normal use.
-        retired, // This profile has been deprecated, withdrawn or superseded and should no longer be used.
-        Null; // added to help the parsers
+        DRAFT, // This profile is still under development.
+        ACTIVE, // This profile is ready for normal use.
+        RETIRED, // This profile has been deprecated, withdrawn or superseded and should no longer be used.
+        NULL; // added to help the parsers
         public static ResourceProfileStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return draft;
+          return DRAFT;
         if ("active".equals(codeString))
-          return active;
+          return ACTIVE;
         if ("retired".equals(codeString))
-          return retired;
+          return RETIRED;
         throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case draft: return "draft";
-            case active: return "active";
-            case retired: return "retired";
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case RETIRED: return "retired";
             default: return "?";
           }
         }
@@ -70,41 +70,41 @@ public class OperationDefinition extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return ResourceProfileStatus.draft;
+          return ResourceProfileStatus.DRAFT;
         if ("active".equals(codeString))
-          return ResourceProfileStatus.active;
+          return ResourceProfileStatus.ACTIVE;
         if ("retired".equals(codeString))
-          return ResourceProfileStatus.retired;
+          return ResourceProfileStatus.RETIRED;
         throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ResourceProfileStatus.draft)
+      if (code == ResourceProfileStatus.DRAFT)
         return "draft";
-      if (code == ResourceProfileStatus.active)
+      if (code == ResourceProfileStatus.ACTIVE)
         return "active";
-      if (code == ResourceProfileStatus.retired)
+      if (code == ResourceProfileStatus.RETIRED)
         return "retired";
       return "?";
       }
     }
 
     public enum OperationKind {
-        operation, // This operation is invoked as an operation.
-        query, // This operation is a named query, invoked using the search mechanism.
-        Null; // added to help the parsers
+        OPERATION, // This operation is invoked as an operation.
+        QUERY, // This operation is a named query, invoked using the search mechanism.
+        NULL; // added to help the parsers
         public static OperationKind fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("operation".equals(codeString))
-          return operation;
+          return OPERATION;
         if ("query".equals(codeString))
-          return query;
+          return QUERY;
         throw new Exception("Unknown OperationKind code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case operation: return "operation";
-            case query: return "query";
+            case OPERATION: return "operation";
+            case QUERY: return "query";
             default: return "?";
           }
         }
@@ -116,37 +116,37 @@ public class OperationDefinition extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("operation".equals(codeString))
-          return OperationKind.operation;
+          return OperationKind.OPERATION;
         if ("query".equals(codeString))
-          return OperationKind.query;
+          return OperationKind.QUERY;
         throw new Exception("Unknown OperationKind code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == OperationKind.operation)
+      if (code == OperationKind.OPERATION)
         return "operation";
-      if (code == OperationKind.query)
+      if (code == OperationKind.QUERY)
         return "query";
       return "?";
       }
     }
 
     public enum OperationParameterUse {
-        in, // This is an input parameter.
-        out, // This is an output parameter.
-        Null; // added to help the parsers
+        IN, // This is an input parameter.
+        OUT, // This is an output parameter.
+        NULL; // added to help the parsers
         public static OperationParameterUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("in".equals(codeString))
-          return in;
+          return IN;
         if ("out".equals(codeString))
-          return out;
+          return OUT;
         throw new Exception("Unknown OperationParameterUse code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case in: return "in";
-            case out: return "out";
+            case IN: return "in";
+            case OUT: return "out";
             default: return "?";
           }
         }
@@ -158,15 +158,15 @@ public class OperationDefinition extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("in".equals(codeString))
-          return OperationParameterUse.in;
+          return OperationParameterUse.IN;
         if ("out".equals(codeString))
-          return OperationParameterUse.out;
+          return OperationParameterUse.OUT;
         throw new Exception("Unknown OperationParameterUse code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == OperationParameterUse.in)
+      if (code == OperationParameterUse.IN)
         return "in";
-      if (code == OperationParameterUse.out)
+      if (code == OperationParameterUse.OUT)
         return "out";
       return "?";
       }
@@ -229,16 +229,16 @@ public class OperationDefinition extends Resource {
       }
 
         /**
-         * @return {@link #name} (The name of used to identify the parameter.)
+         * @return {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public CodeType getName() { 
+        public CodeType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (The name of used to identify the parameter.)
+         * @param value {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setName(CodeType value) { 
+        public OperationDefinitionParameterComponent setNameObject(CodeType value) { 
           this.name = value;
           return this;
         }
@@ -246,14 +246,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return The name of used to identify the parameter.
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of used to identify the parameter.
          */
-        public OperationDefinitionParameterComponent setNameSimple(String value) { 
+        public OperationDefinitionParameterComponent setName(String value) { 
             if (this.name == null)
               this.name = new CodeType();
             this.name.setValue(value);
@@ -261,16 +261,16 @@ public class OperationDefinition extends Resource {
         }
 
         /**
-         * @return {@link #use} (Whether this is an input or an output parameter.)
+         * @return {@link #use} (Whether this is an input or an output parameter.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
          */
-        public Enumeration<OperationParameterUse> getUse() { 
+        public Enumeration<OperationParameterUse> getUseObject() { 
           return this.use;
         }
 
         /**
-         * @param value {@link #use} (Whether this is an input or an output parameter.)
+         * @param value {@link #use} (Whether this is an input or an output parameter.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setUse(Enumeration<OperationParameterUse> value) { 
+        public OperationDefinitionParameterComponent setUseObject(Enumeration<OperationParameterUse> value) { 
           this.use = value;
           return this;
         }
@@ -278,14 +278,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return Whether this is an input or an output parameter.
          */
-        public OperationParameterUse getUseSimple() { 
+        public OperationParameterUse getUse() { 
           return this.use == null ? null : this.use.getValue();
         }
 
         /**
          * @param value Whether this is an input or an output parameter.
          */
-        public OperationDefinitionParameterComponent setUseSimple(OperationParameterUse value) { 
+        public OperationDefinitionParameterComponent setUse(OperationParameterUse value) { 
             if (this.use == null)
               this.use = new Enumeration<OperationParameterUse>();
             this.use.setValue(value);
@@ -293,16 +293,16 @@ public class OperationDefinition extends Resource {
         }
 
         /**
-         * @return {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.)
+         * @return {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public IntegerType getMin() { 
+        public IntegerType getMinObject() { 
           return this.min;
         }
 
         /**
-         * @param value {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.)
+         * @param value {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setMin(IntegerType value) { 
+        public OperationDefinitionParameterComponent setMinObject(IntegerType value) { 
           this.min = value;
           return this;
         }
@@ -310,14 +310,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return The minimum number of times this parameter SHALL appear in the request or response.
          */
-        public int getMinSimple() { 
+        public int getMin() { 
           return this.min == null ? null : this.min.getValue();
         }
 
         /**
          * @param value The minimum number of times this parameter SHALL appear in the request or response.
          */
-        public OperationDefinitionParameterComponent setMinSimple(int value) { 
+        public OperationDefinitionParameterComponent setMin(int value) { 
             if (this.min == null)
               this.min = new IntegerType();
             this.min.setValue(value);
@@ -325,16 +325,16 @@ public class OperationDefinition extends Resource {
         }
 
         /**
-         * @return {@link #max} (The maximum number of times this element is permitted to appear in the request or response.)
+         * @return {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
          */
-        public StringType getMax() { 
+        public StringType getMaxObject() { 
           return this.max;
         }
 
         /**
-         * @param value {@link #max} (The maximum number of times this element is permitted to appear in the request or response.)
+         * @param value {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setMax(StringType value) { 
+        public OperationDefinitionParameterComponent setMaxObject(StringType value) { 
           this.max = value;
           return this;
         }
@@ -342,14 +342,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return The maximum number of times this element is permitted to appear in the request or response.
          */
-        public String getMaxSimple() { 
+        public String getMax() { 
           return this.max == null ? null : this.max.getValue();
         }
 
         /**
          * @param value The maximum number of times this element is permitted to appear in the request or response.
          */
-        public OperationDefinitionParameterComponent setMaxSimple(String value) { 
+        public OperationDefinitionParameterComponent setMax(String value) { 
             if (this.max == null)
               this.max = new StringType();
             this.max.setValue(value);
@@ -357,16 +357,16 @@ public class OperationDefinition extends Resource {
         }
 
         /**
-         * @return {@link #documentation} (Describes the meaning or use of this parameter.)
+         * @return {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentation() { 
+        public StringType getDocumentationObject() { 
           return this.documentation;
         }
 
         /**
-         * @param value {@link #documentation} (Describes the meaning or use of this parameter.)
+         * @param value {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setDocumentation(StringType value) { 
+        public OperationDefinitionParameterComponent setDocumentationObject(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -374,14 +374,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return Describes the meaning or use of this parameter.
          */
-        public String getDocumentationSimple() { 
+        public String getDocumentation() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value Describes the meaning or use of this parameter.
          */
-        public OperationDefinitionParameterComponent setDocumentationSimple(String value) { 
+        public OperationDefinitionParameterComponent setDocumentation(String value) { 
           if (value == null)
             this.documentation = null;
           else {
@@ -423,14 +423,14 @@ public class OperationDefinition extends Resource {
         }
 
         /**
-         * @return {@link #profile} (The actual object that is the target of the reference. A profile the specifies the rules that this parameter must conform to.)
+         * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
          */
         public Profile getProfileTarget() { 
           return this.profileTarget;
         }
 
         /**
-         * @param value {@link #profile} (The actual object that is the target of the reference. A profile the specifies the rules that this parameter must conform to.)
+         * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
          */
         public OperationDefinitionParameterComponent setProfileTarget(Profile value) { 
           this.profileTarget = value;
@@ -574,16 +574,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
+     * @return {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public UriType getIdentifier() { 
+    public UriType getIdentifierObject() { 
       return this.identifier;
     }
 
     /**
-     * @param value {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
+     * @param value {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public OperationDefinition setIdentifier(UriType value) { 
+    public OperationDefinition setIdentifierObject(UriType value) { 
       this.identifier = value;
       return this;
     }
@@ -591,14 +591,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
-    public String getIdentifierSimple() { 
+    public String getIdentifier() { 
       return this.identifier == null ? null : this.identifier.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
-    public OperationDefinition setIdentifierSimple(String value) { 
+    public OperationDefinition setIdentifier(String value) { 
       if (value == null)
         this.identifier = null;
       else {
@@ -610,16 +610,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.)
+     * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersion() { 
+    public StringType getVersionObject() { 
       return this.version;
     }
 
     /**
-     * @param value {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.)
+     * @param value {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public OperationDefinition setVersion(StringType value) { 
+    public OperationDefinition setVersionObject(StringType value) { 
       this.version = value;
       return this;
     }
@@ -627,14 +627,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    public String getVersionSimple() { 
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    public OperationDefinition setVersionSimple(String value) { 
+    public OperationDefinition setVersion(String value) { 
       if (value == null)
         this.version = null;
       else {
@@ -646,16 +646,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #title} (A free text natural language name identifying the Profile.)
+     * @return {@link #title} (A free text natural language name identifying the Profile.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitle() { 
+    public StringType getTitleObject() { 
       return this.title;
     }
 
     /**
-     * @param value {@link #title} (A free text natural language name identifying the Profile.)
+     * @param value {@link #title} (A free text natural language name identifying the Profile.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public OperationDefinition setTitle(StringType value) { 
+    public OperationDefinition setTitleObject(StringType value) { 
       this.title = value;
       return this;
     }
@@ -663,14 +663,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return A free text natural language name identifying the Profile.
      */
-    public String getTitleSimple() { 
+    public String getTitle() { 
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
      * @param value A free text natural language name identifying the Profile.
      */
-    public OperationDefinition setTitleSimple(String value) { 
+    public OperationDefinition setTitle(String value) { 
         if (this.title == null)
           this.title = new StringType();
         this.title.setValue(value);
@@ -678,16 +678,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.)
+     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisher() { 
+    public StringType getPublisherObject() { 
       return this.publisher;
     }
 
     /**
-     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.)
+     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public OperationDefinition setPublisher(StringType value) { 
+    public OperationDefinition setPublisherObject(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -695,14 +695,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return Details of the individual or organization who accepts responsibility for publishing the profile.
      */
-    public String getPublisherSimple() { 
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value Details of the individual or organization who accepts responsibility for publishing the profile.
      */
-    public OperationDefinition setPublisherSimple(String value) { 
+    public OperationDefinition setPublisher(String value) { 
       if (value == null)
         this.publisher = null;
       else {
@@ -731,16 +731,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #description} (A free text natural language description of the profile and its use.)
+     * @return {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescription() { 
+    public StringType getDescriptionObject() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (A free text natural language description of the profile and its use.)
+     * @param value {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public OperationDefinition setDescription(StringType value) { 
+    public OperationDefinition setDescriptionObject(StringType value) { 
       this.description = value;
       return this;
     }
@@ -748,14 +748,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return A free text natural language description of the profile and its use.
      */
-    public String getDescriptionSimple() { 
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A free text natural language description of the profile and its use.
      */
-    public OperationDefinition setDescriptionSimple(String value) { 
+    public OperationDefinition setDescription(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -784,16 +784,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #status} (The status of the profile.)
+     * @return {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ResourceProfileStatus> getStatus() { 
+    public Enumeration<ResourceProfileStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The status of the profile.)
+     * @param value {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public OperationDefinition setStatus(Enumeration<ResourceProfileStatus> value) { 
+    public OperationDefinition setStatusObject(Enumeration<ResourceProfileStatus> value) { 
       this.status = value;
       return this;
     }
@@ -801,14 +801,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return The status of the profile.
      */
-    public ResourceProfileStatus getStatusSimple() { 
+    public ResourceProfileStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the profile.
      */
-    public OperationDefinition setStatusSimple(ResourceProfileStatus value) { 
+    public OperationDefinition setStatus(ResourceProfileStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ResourceProfileStatus>();
         this.status.setValue(value);
@@ -816,16 +816,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.)
+     * @return {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimental() { 
+    public BooleanType getExperimentalObject() { 
       return this.experimental;
     }
 
     /**
-     * @param value {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.)
+     * @param value {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public OperationDefinition setExperimental(BooleanType value) { 
+    public OperationDefinition setExperimentalObject(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -833,14 +833,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public boolean getExperimentalSimple() { 
+    public boolean getExperimental() { 
       return this.experimental == null ? false : this.experimental.getValue();
     }
 
     /**
      * @param value This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public OperationDefinition setExperimentalSimple(boolean value) { 
+    public OperationDefinition setExperimental(boolean value) { 
       if (value == false)
         this.experimental = null;
       else {
@@ -852,16 +852,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #date} (The date that this version of the profile was published.)
+     * @return {@link #date} (The date that this version of the profile was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDate() { 
+    public DateTimeType getDateObject() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The date that this version of the profile was published.)
+     * @param value {@link #date} (The date that this version of the profile was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public OperationDefinition setDate(DateTimeType value) { 
+    public OperationDefinition setDateObject(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -869,14 +869,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return The date that this version of the profile was published.
      */
-    public DateAndTime getDateSimple() { 
+    public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that this version of the profile was published.
      */
-    public OperationDefinition setDateSimple(DateAndTime value) { 
+    public OperationDefinition setDate(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -888,16 +888,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #kind} (Whether this is operation or named query.)
+     * @return {@link #kind} (Whether this is operation or named query.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Enumeration<OperationKind> getKind() { 
+    public Enumeration<OperationKind> getKindObject() { 
       return this.kind;
     }
 
     /**
-     * @param value {@link #kind} (Whether this is operation or named query.)
+     * @param value {@link #kind} (Whether this is operation or named query.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public OperationDefinition setKind(Enumeration<OperationKind> value) { 
+    public OperationDefinition setKindObject(Enumeration<OperationKind> value) { 
       this.kind = value;
       return this;
     }
@@ -905,14 +905,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return Whether this is operation or named query.
      */
-    public OperationKind getKindSimple() { 
+    public OperationKind getKind() { 
       return this.kind == null ? null : this.kind.getValue();
     }
 
     /**
      * @param value Whether this is operation or named query.
      */
-    public OperationDefinition setKindSimple(OperationKind value) { 
+    public OperationDefinition setKind(OperationKind value) { 
         if (this.kind == null)
           this.kind = new Enumeration<OperationKind>();
         this.kind.setValue(value);
@@ -920,16 +920,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #name} (The name used to invoke the operation.)
+     * @return {@link #name} (The name used to invoke the operation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public CodeType getName() { 
+    public CodeType getNameObject() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (The name used to invoke the operation.)
+     * @param value {@link #name} (The name used to invoke the operation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public OperationDefinition setName(CodeType value) { 
+    public OperationDefinition setNameObject(CodeType value) { 
       this.name = value;
       return this;
     }
@@ -937,14 +937,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return The name used to invoke the operation.
      */
-    public String getNameSimple() { 
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value The name used to invoke the operation.
      */
-    public OperationDefinition setNameSimple(String value) { 
+    public OperationDefinition setName(String value) { 
         if (this.name == null)
           this.name = new CodeType();
         this.name.setValue(value);
@@ -952,16 +952,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #notes} (Additional information about how to use this operation or named query.)
+     * @return {@link #notes} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public StringType getNotes() { 
+    public StringType getNotesObject() { 
       return this.notes;
     }
 
     /**
-     * @param value {@link #notes} (Additional information about how to use this operation or named query.)
+     * @param value {@link #notes} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public OperationDefinition setNotes(StringType value) { 
+    public OperationDefinition setNotesObject(StringType value) { 
       this.notes = value;
       return this;
     }
@@ -969,14 +969,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return Additional information about how to use this operation or named query.
      */
-    public String getNotesSimple() { 
+    public String getNotes() { 
       return this.notes == null ? null : this.notes.getValue();
     }
 
     /**
      * @param value Additional information about how to use this operation or named query.
      */
-    public OperationDefinition setNotesSimple(String value) { 
+    public OperationDefinition setNotes(String value) { 
       if (value == null)
         this.notes = null;
       else {
@@ -1003,14 +1003,14 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #base} (The actual object that is the target of the reference. Indicates that this operation definition is a constraining profile on the base.)
+     * @return {@link #base} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates that this operation definition is a constraining profile on the base.)
      */
     public OperationDefinition getBaseTarget() { 
       return this.baseTarget;
     }
 
     /**
-     * @param value {@link #base} (The actual object that is the target of the reference. Indicates that this operation definition is a constraining profile on the base.)
+     * @param value {@link #base} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates that this operation definition is a constraining profile on the base.)
      */
     public OperationDefinition setBaseTarget(OperationDefinition value) { 
       this.baseTarget = value;
@@ -1018,16 +1018,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).)
+     * @return {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public BooleanType getSystem() { 
+    public BooleanType getSystemObject() { 
       return this.system;
     }
 
     /**
-     * @param value {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).)
+     * @param value {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public OperationDefinition setSystem(BooleanType value) { 
+    public OperationDefinition setSystemObject(BooleanType value) { 
       this.system = value;
       return this;
     }
@@ -1035,14 +1035,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
-    public boolean getSystemSimple() { 
+    public boolean getSystem() { 
       return this.system == null ? false : this.system.getValue();
     }
 
     /**
      * @param value Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
-    public OperationDefinition setSystemSimple(boolean value) { 
+    public OperationDefinition setSystem(boolean value) { 
         if (this.system == null)
           this.system = new BooleanType();
         this.system.setValue(value);
@@ -1060,7 +1060,7 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    public CodeType addType() { 
+    public CodeType addTypeObject() { 
       CodeType t = new CodeType();
       this.type.add(t);
       return t;
@@ -1069,7 +1069,7 @@ public class OperationDefinition extends Resource {
     /**
      * @param value {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    public CodeType addTypeSimple(String value) { 
+    public CodeType addType(String value) { 
       CodeType t = new CodeType();
       t.setValue(value);
       this.type.add(t);
@@ -1079,7 +1079,7 @@ public class OperationDefinition extends Resource {
     /**
      * @param value {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    public boolean hasTypeSimple(String value) { 
+    public boolean hasType(String value) { 
       for (CodeType v : this.type)
         if (v.getValue().equals(value))
           return true;
@@ -1087,16 +1087,16 @@ public class OperationDefinition extends Resource {
     }
 
     /**
-     * @return {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.)
+     * @return {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.). This is the underlying object with id, value and extensions. The accessor "getInstance" gives direct access to the value
      */
-    public BooleanType getInstance() { 
+    public BooleanType getInstanceObject() { 
       return this.instance;
     }
 
     /**
-     * @param value {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.)
+     * @param value {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.). This is the underlying object with id, value and extensions. The accessor "getInstance" gives direct access to the value
      */
-    public OperationDefinition setInstance(BooleanType value) { 
+    public OperationDefinition setInstanceObject(BooleanType value) { 
       this.instance = value;
       return this;
     }
@@ -1104,14 +1104,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
-    public boolean getInstanceSimple() { 
+    public boolean getInstance() { 
       return this.instance == null ? false : this.instance.getValue();
     }
 
     /**
      * @param value Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
-    public OperationDefinition setInstanceSimple(boolean value) { 
+    public OperationDefinition setInstance(boolean value) { 
         if (this.instance == null)
           this.instance = new BooleanType();
         this.instance.setValue(value);

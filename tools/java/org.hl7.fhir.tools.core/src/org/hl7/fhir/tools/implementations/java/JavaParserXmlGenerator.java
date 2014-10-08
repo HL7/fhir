@@ -48,7 +48,6 @@ import org.hl7.fhir.definitions.model.TypeRef;
 public class JavaParserXmlGenerator extends JavaBaseGenerator {
   public enum JavaGenClass { Structure, Type, Resource, BackboneElement, Constraint }
 
-  private Definitions definitions;
   private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
   private List<String> typeNameStrings = new ArrayList<String>();
   private List<ElementDefn> enums = new ArrayList<ElementDefn>();
@@ -157,7 +156,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void genReference() throws Exception {
     write("  private boolean parseResourceContent(int eventType, XmlPullParser xpp, Resource res) throws Exception {\r\n");
     write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"language\")) { \r\n");
-    write("      res.setLanguage(parseCode(xpp));\r\n");
+    write("      res.setLanguageObject(parseCode(xpp));\r\n");
     write("    } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"text\")) {\r\n"); 
     write("      res.setText(parseNarrative(xpp));\r\n");
     write("    } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"contained\")) {\r\n"); 
@@ -328,7 +327,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         write("        res.set"+upFirst(getElementName(e.getName(), true))+"(Factory.newCode(xpp.getAttributeValue(null, \"xml:Id\")));\r\n");
       } else if (e.isXmlAttribute()) {
         write("    if (xpp.getAttributeValue(null, \""+e.getName()+"\") != null)\r\n");
-        write("        res.set"+upFirst(getElementName(e.getName(), true))+"Simple(xpp.getAttributeValue(null, \""+e.getName()+"\"));\r\n");        
+        write("        res.set"+upFirst(getElementName(e.getName(), true))+"(xpp.getAttributeValue(null, \""+e.getName()+"\"));\r\n");        
       }
     }    
     write("    next(xpp);\r\n");
@@ -375,7 +374,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
       if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
         String en = typeNames.get(e); // getCodeListType(cd.getBinding());
-        prsr = "parseEnumeration(xpp, "+en+".Null, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
+        prsr = "parseEnumeration(xpp, "+en+".NULL, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
         // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative.NarrativeStatusEnumFactory())
       } else {   
         String tn = typeName(root, e).replace(".", "");
@@ -421,7 +420,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         write("        res.get"+upFirst(name)+"().add("+prsr+");\r\n");
       } else {
         write("      "+(!first ? "} else " : "")+"if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\""+name+"\")) {\r\n");
-        write("        res.set"+upFirst(getElementName(name, false))+"("+prsr+");\r\n");
+        write("        res.set"+upFirst(getElementName(name, false))+(isJavaPrimitive(e) ? "Object" : "")+"("+prsr+");\r\n");
       }
     }
   }

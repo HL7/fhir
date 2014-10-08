@@ -296,7 +296,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">OrdenNutrición</translation>
         <translation lang="fr">OrdreNutrition</translation>
     </item>
-     <item id="Observation">
+    <item id="Observation">
         <translation lang="en">Observation</translation>
         <translation lang="zh">观测</translation>
         <translation lang="es">Observación</translation>

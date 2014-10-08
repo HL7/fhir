@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,26 +39,26 @@ import java.util.*;
 public class Namespace extends Resource {
 
     public enum NamespaceType {
-        codesystem, // The namespace is used to define concepts and symbols to represent those concepts.  E.g. UCUM, LOINC, NDC code, local lab codes, etc.
-        identifier, // The namespace is used to manage identifiers (e.g. license numbers, order numbers, etc.).
-        root, // The namespace is used as the root for other identifiers and namespaces.
-        Null; // added to help the parsers
+        CODESYSTEM, // The namespace is used to define concepts and symbols to represent those concepts.  E.g. UCUM, LOINC, NDC code, local lab codes, etc.
+        IDENTIFIER, // The namespace is used to manage identifiers (e.g. license numbers, order numbers, etc.).
+        ROOT, // The namespace is used as the root for other identifiers and namespaces.
+        NULL; // added to help the parsers
         public static NamespaceType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("codesystem".equals(codeString))
-          return codesystem;
+          return CODESYSTEM;
         if ("identifier".equals(codeString))
-          return identifier;
+          return IDENTIFIER;
         if ("root".equals(codeString))
-          return root;
+          return ROOT;
         throw new Exception("Unknown NamespaceType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case codesystem: return "codesystem";
-            case identifier: return "identifier";
-            case root: return "root";
+            case CODESYSTEM: return "codesystem";
+            case IDENTIFIER: return "identifier";
+            case ROOT: return "root";
             default: return "?";
           }
         }
@@ -70,45 +70,45 @@ public class Namespace extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("codesystem".equals(codeString))
-          return NamespaceType.codesystem;
+          return NamespaceType.CODESYSTEM;
         if ("identifier".equals(codeString))
-          return NamespaceType.identifier;
+          return NamespaceType.IDENTIFIER;
         if ("root".equals(codeString))
-          return NamespaceType.root;
+          return NamespaceType.ROOT;
         throw new Exception("Unknown NamespaceType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == NamespaceType.codesystem)
+      if (code == NamespaceType.CODESYSTEM)
         return "codesystem";
-      if (code == NamespaceType.identifier)
+      if (code == NamespaceType.IDENTIFIER)
         return "identifier";
-      if (code == NamespaceType.root)
+      if (code == NamespaceType.ROOT)
         return "root";
       return "?";
       }
     }
 
     public enum NamespaceStatus {
-        proposed, // System has been submitted but not yet approved.
-        active, // System is valid for use.
-        retired, // System should no longer be used.
-        Null; // added to help the parsers
+        PROPOSED, // System has been submitted but not yet approved.
+        ACTIVE, // System is valid for use.
+        RETIRED, // System should no longer be used.
+        NULL; // added to help the parsers
         public static NamespaceStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("proposed".equals(codeString))
-          return proposed;
+          return PROPOSED;
         if ("active".equals(codeString))
-          return active;
+          return ACTIVE;
         if ("retired".equals(codeString))
-          return retired;
+          return RETIRED;
         throw new Exception("Unknown NamespaceStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case proposed: return "proposed";
-            case active: return "active";
-            case retired: return "retired";
+            case PROPOSED: return "proposed";
+            case ACTIVE: return "active";
+            case RETIRED: return "retired";
             default: return "?";
           }
         }
@@ -120,49 +120,49 @@ public class Namespace extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("proposed".equals(codeString))
-          return NamespaceStatus.proposed;
+          return NamespaceStatus.PROPOSED;
         if ("active".equals(codeString))
-          return NamespaceStatus.active;
+          return NamespaceStatus.ACTIVE;
         if ("retired".equals(codeString))
-          return NamespaceStatus.retired;
+          return NamespaceStatus.RETIRED;
         throw new Exception("Unknown NamespaceStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == NamespaceStatus.proposed)
+      if (code == NamespaceStatus.PROPOSED)
         return "proposed";
-      if (code == NamespaceStatus.active)
+      if (code == NamespaceStatus.ACTIVE)
         return "active";
-      if (code == NamespaceStatus.retired)
+      if (code == NamespaceStatus.RETIRED)
         return "retired";
       return "?";
       }
     }
 
     public enum NamespaceIdentifierType {
-        oid, // An ISO object identifier.  E.g. 1.2.3.4.5.
-        uuid, // A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.
-        uri, // A uniform resource identifier (ideally a URL - uniform resource locator).  E.g. http://unitsofmeasure.org.
-        other, // Some other type of unique identifier.  E.g HL7-assigned reserved string such as LN for LOINC.
-        Null; // added to help the parsers
+        OID, // An ISO object identifier.  E.g. 1.2.3.4.5.
+        UUID, // A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.
+        URI, // A uniform resource identifier (ideally a URL - uniform resource locator).  E.g. http://unitsofmeasure.org.
+        OTHER, // Some other type of unique identifier.  E.g HL7-assigned reserved string such as LN for LOINC.
+        NULL; // added to help the parsers
         public static NamespaceIdentifierType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("oid".equals(codeString))
-          return oid;
+          return OID;
         if ("uuid".equals(codeString))
-          return uuid;
+          return UUID;
         if ("uri".equals(codeString))
-          return uri;
+          return URI;
         if ("other".equals(codeString))
-          return other;
+          return OTHER;
         throw new Exception("Unknown NamespaceIdentifierType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case oid: return "oid";
-            case uuid: return "uuid";
-            case uri: return "uri";
-            case other: return "other";
+            case OID: return "oid";
+            case UUID: return "uuid";
+            case URI: return "uri";
+            case OTHER: return "other";
             default: return "?";
           }
         }
@@ -174,23 +174,23 @@ public class Namespace extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("oid".equals(codeString))
-          return NamespaceIdentifierType.oid;
+          return NamespaceIdentifierType.OID;
         if ("uuid".equals(codeString))
-          return NamespaceIdentifierType.uuid;
+          return NamespaceIdentifierType.UUID;
         if ("uri".equals(codeString))
-          return NamespaceIdentifierType.uri;
+          return NamespaceIdentifierType.URI;
         if ("other".equals(codeString))
-          return NamespaceIdentifierType.other;
+          return NamespaceIdentifierType.OTHER;
         throw new Exception("Unknown NamespaceIdentifierType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == NamespaceIdentifierType.oid)
+      if (code == NamespaceIdentifierType.OID)
         return "oid";
-      if (code == NamespaceIdentifierType.uuid)
+      if (code == NamespaceIdentifierType.UUID)
         return "uuid";
-      if (code == NamespaceIdentifierType.uri)
+      if (code == NamespaceIdentifierType.URI)
         return "uri";
-      if (code == NamespaceIdentifierType.other)
+      if (code == NamespaceIdentifierType.OTHER)
         return "other";
       return "?";
       }
@@ -230,16 +230,16 @@ public class Namespace extends Resource {
       }
 
         /**
-         * @return {@link #type} (Identifies the unique identifier scheme used for this particular identifier.)
+         * @return {@link #type} (Identifies the unique identifier scheme used for this particular identifier.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<NamespaceIdentifierType> getType() { 
+        public Enumeration<NamespaceIdentifierType> getTypeObject() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (Identifies the unique identifier scheme used for this particular identifier.)
+         * @param value {@link #type} (Identifies the unique identifier scheme used for this particular identifier.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public NamespaceUniqueIdComponent setType(Enumeration<NamespaceIdentifierType> value) { 
+        public NamespaceUniqueIdComponent setTypeObject(Enumeration<NamespaceIdentifierType> value) { 
           this.type = value;
           return this;
         }
@@ -247,14 +247,14 @@ public class Namespace extends Resource {
         /**
          * @return Identifies the unique identifier scheme used for this particular identifier.
          */
-        public NamespaceIdentifierType getTypeSimple() { 
+        public NamespaceIdentifierType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value Identifies the unique identifier scheme used for this particular identifier.
          */
-        public NamespaceUniqueIdComponent setTypeSimple(NamespaceIdentifierType value) { 
+        public NamespaceUniqueIdComponent setType(NamespaceIdentifierType value) { 
             if (this.type == null)
               this.type = new Enumeration<NamespaceIdentifierType>();
             this.type.setValue(value);
@@ -262,16 +262,16 @@ public class Namespace extends Resource {
         }
 
         /**
-         * @return {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.)
+         * @return {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public StringType getValue() { 
+        public StringType getValueObject() { 
           return this.value;
         }
 
         /**
-         * @param value {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.)
+         * @param value {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public NamespaceUniqueIdComponent setValue(StringType value) { 
+        public NamespaceUniqueIdComponent setValueObject(StringType value) { 
           this.value = value;
           return this;
         }
@@ -279,14 +279,14 @@ public class Namespace extends Resource {
         /**
          * @return The string that should be sent over the wire to identify the code system or identifier system.
          */
-        public String getValueSimple() { 
+        public String getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value The string that should be sent over the wire to identify the code system or identifier system.
          */
-        public NamespaceUniqueIdComponent setValueSimple(String value) { 
+        public NamespaceUniqueIdComponent setValue(String value) { 
             if (this.value == null)
               this.value = new StringType();
             this.value.setValue(value);
@@ -294,16 +294,16 @@ public class Namespace extends Resource {
         }
 
         /**
-         * @return {@link #preferred} (Indicates whether this identifier is the "preferred" identifier of this type.)
+         * @return {@link #preferred} (Indicates whether this identifier is the "preferred" identifier of this type.). This is the underlying object with id, value and extensions. The accessor "getPreferred" gives direct access to the value
          */
-        public BooleanType getPreferred() { 
+        public BooleanType getPreferredObject() { 
           return this.preferred;
         }
 
         /**
-         * @param value {@link #preferred} (Indicates whether this identifier is the "preferred" identifier of this type.)
+         * @param value {@link #preferred} (Indicates whether this identifier is the "preferred" identifier of this type.). This is the underlying object with id, value and extensions. The accessor "getPreferred" gives direct access to the value
          */
-        public NamespaceUniqueIdComponent setPreferred(BooleanType value) { 
+        public NamespaceUniqueIdComponent setPreferredObject(BooleanType value) { 
           this.preferred = value;
           return this;
         }
@@ -311,14 +311,14 @@ public class Namespace extends Resource {
         /**
          * @return Indicates whether this identifier is the "preferred" identifier of this type.
          */
-        public boolean getPreferredSimple() { 
+        public boolean getPreferred() { 
           return this.preferred == null ? false : this.preferred.getValue();
         }
 
         /**
          * @param value Indicates whether this identifier is the "preferred" identifier of this type.
          */
-        public NamespaceUniqueIdComponent setPreferredSimple(boolean value) { 
+        public NamespaceUniqueIdComponent setPreferred(boolean value) { 
           if (value == false)
             this.preferred = null;
           else {
@@ -503,16 +503,16 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #type} (Indicates the purpose for the namespace - what kinds of things does it make unique?.)
+     * @return {@link #type} (Indicates the purpose for the namespace - what kinds of things does it make unique?.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<NamespaceType> getType() { 
+    public Enumeration<NamespaceType> getTypeObject() { 
       return this.type;
     }
 
     /**
-     * @param value {@link #type} (Indicates the purpose for the namespace - what kinds of things does it make unique?.)
+     * @param value {@link #type} (Indicates the purpose for the namespace - what kinds of things does it make unique?.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Namespace setType(Enumeration<NamespaceType> value) { 
+    public Namespace setTypeObject(Enumeration<NamespaceType> value) { 
       this.type = value;
       return this;
     }
@@ -520,14 +520,14 @@ public class Namespace extends Resource {
     /**
      * @return Indicates the purpose for the namespace - what kinds of things does it make unique?.
      */
-    public NamespaceType getTypeSimple() { 
+    public NamespaceType getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value Indicates the purpose for the namespace - what kinds of things does it make unique?.
      */
-    public Namespace setTypeSimple(NamespaceType value) { 
+    public Namespace setType(NamespaceType value) { 
         if (this.type == null)
           this.type = new Enumeration<NamespaceType>();
         this.type.setValue(value);
@@ -535,16 +535,16 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #name} (The descriptive name of this particular identifier type or code system.)
+     * @return {@link #name} (The descriptive name of this particular identifier type or code system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getName() { 
+    public StringType getNameObject() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (The descriptive name of this particular identifier type or code system.)
+     * @param value {@link #name} (The descriptive name of this particular identifier type or code system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Namespace setName(StringType value) { 
+    public Namespace setNameObject(StringType value) { 
       this.name = value;
       return this;
     }
@@ -552,14 +552,14 @@ public class Namespace extends Resource {
     /**
      * @return The descriptive name of this particular identifier type or code system.
      */
-    public String getNameSimple() { 
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value The descriptive name of this particular identifier type or code system.
      */
-    public Namespace setNameSimple(String value) { 
+    public Namespace setName(String value) { 
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
@@ -567,16 +567,16 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #status} (Indicates whether the namespace is "ready for use" or not.)
+     * @return {@link #status} (Indicates whether the namespace is "ready for use" or not.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<NamespaceStatus> getStatus() { 
+    public Enumeration<NamespaceStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (Indicates whether the namespace is "ready for use" or not.)
+     * @param value {@link #status} (Indicates whether the namespace is "ready for use" or not.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Namespace setStatus(Enumeration<NamespaceStatus> value) { 
+    public Namespace setStatusObject(Enumeration<NamespaceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -584,14 +584,14 @@ public class Namespace extends Resource {
     /**
      * @return Indicates whether the namespace is "ready for use" or not.
      */
-    public NamespaceStatus getStatusSimple() { 
+    public NamespaceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Indicates whether the namespace is "ready for use" or not.
      */
-    public Namespace setStatusSimple(NamespaceStatus value) { 
+    public Namespace setStatus(NamespaceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<NamespaceStatus>();
         this.status.setValue(value);
@@ -599,16 +599,16 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #country} (If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.)
+     * @return {@link #country} (If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.). This is the underlying object with id, value and extensions. The accessor "getCountry" gives direct access to the value
      */
-    public CodeType getCountry() { 
+    public CodeType getCountryObject() { 
       return this.country;
     }
 
     /**
-     * @param value {@link #country} (If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.)
+     * @param value {@link #country} (If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.). This is the underlying object with id, value and extensions. The accessor "getCountry" gives direct access to the value
      */
-    public Namespace setCountry(CodeType value) { 
+    public Namespace setCountryObject(CodeType value) { 
       this.country = value;
       return this;
     }
@@ -616,14 +616,14 @@ public class Namespace extends Resource {
     /**
      * @return If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.
      */
-    public String getCountrySimple() { 
+    public String getCountry() { 
       return this.country == null ? null : this.country.getValue();
     }
 
     /**
      * @param value If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.
      */
-    public Namespace setCountrySimple(String value) { 
+    public Namespace setCountry(String value) { 
       if (value == null)
         this.country = null;
       else {
@@ -650,16 +650,16 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.)
+     * @return {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.). This is the underlying object with id, value and extensions. The accessor "getResponsible" gives direct access to the value
      */
-    public StringType getResponsible() { 
+    public StringType getResponsibleObject() { 
       return this.responsible;
     }
 
     /**
-     * @param value {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.)
+     * @param value {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.). This is the underlying object with id, value and extensions. The accessor "getResponsible" gives direct access to the value
      */
-    public Namespace setResponsible(StringType value) { 
+    public Namespace setResponsibleObject(StringType value) { 
       this.responsible = value;
       return this;
     }
@@ -667,14 +667,14 @@ public class Namespace extends Resource {
     /**
      * @return The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
      */
-    public String getResponsibleSimple() { 
+    public String getResponsible() { 
       return this.responsible == null ? null : this.responsible.getValue();
     }
 
     /**
      * @param value The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
      */
-    public Namespace setResponsibleSimple(String value) { 
+    public Namespace setResponsible(String value) { 
       if (value == null)
         this.responsible = null;
       else {
@@ -686,16 +686,16 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.)
+     * @return {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescription() { 
+    public StringType getDescriptionObject() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.)
+     * @param value {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Namespace setDescription(StringType value) { 
+    public Namespace setDescriptionObject(StringType value) { 
       this.description = value;
       return this;
     }
@@ -703,14 +703,14 @@ public class Namespace extends Resource {
     /**
      * @return Details about what the namespace identifies including scope, granularity, version labeling, etc.
      */
-    public String getDescriptionSimple() { 
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value Details about what the namespace identifies including scope, granularity, version labeling, etc.
      */
-    public Namespace setDescriptionSimple(String value) { 
+    public Namespace setDescription(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -722,16 +722,16 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #usage} (Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.)
+     * @return {@link #usage} (Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
-    public StringType getUsage() { 
+    public StringType getUsageObject() { 
       return this.usage;
     }
 
     /**
-     * @param value {@link #usage} (Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.)
+     * @param value {@link #usage} (Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
-    public Namespace setUsage(StringType value) { 
+    public Namespace setUsageObject(StringType value) { 
       this.usage = value;
       return this;
     }
@@ -739,14 +739,14 @@ public class Namespace extends Resource {
     /**
      * @return Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.
      */
-    public String getUsageSimple() { 
+    public String getUsage() { 
       return this.usage == null ? null : this.usage.getValue();
     }
 
     /**
      * @param value Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.
      */
-    public Namespace setUsageSimple(String value) { 
+    public Namespace setUsage(String value) { 
       if (value == null)
         this.usage = null;
       else {
@@ -805,14 +805,14 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #replacedBy} (The actual object that is the target of the reference. For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
+     * @return {@link #replacedBy} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
      */
     public Namespace getReplacedByTarget() { 
       return this.replacedByTarget;
     }
 
     /**
-     * @param value {@link #replacedBy} (The actual object that is the target of the reference. For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
+     * @param value {@link #replacedBy} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
      */
     public Namespace setReplacedByTarget(Namespace value) { 
       this.replacedByTarget = value;

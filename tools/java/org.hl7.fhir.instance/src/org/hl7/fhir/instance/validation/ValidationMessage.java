@@ -108,16 +108,16 @@ public class ValidationMessage
     OperationOutcomeIssueComponent issue = new OperationOutcome.OperationOutcomeIssueComponent();
     if (type != null) {
       issue.setType(new Coding());
-      issue.getType().setSystemSimple("http://hl7.org/fhir/issue-type");
-      issue.getType().setCodeSimple(type);
+      issue.getType().setSystem("http://hl7.org/fhir/issue-type");
+      issue.getType().setCode(type);
     }
     if (location != null) {
       StringType s = new StringType();
       s.setValue(location);
       issue.getLocation().add(s);
     }
-    issue.setSeveritySimple(level);
-    issue.setDetailsSimple(message);
+    issue.setSeverity(level);
+    issue.setDetails(message);
     if (source != null) {
       issue.getExtensions().add(ToolingExtensions.makeIssueSource(source));      
     }

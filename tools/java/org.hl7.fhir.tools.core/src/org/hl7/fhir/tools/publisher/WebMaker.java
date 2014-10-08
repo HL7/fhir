@@ -42,7 +42,6 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.Operation;
-import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -155,8 +154,8 @@ public class WebMaker {
         String dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"vs"+File.separator+ref;
         buildRedirect(n, bs.getReference()+".html", dn);
         ValueSet vs = bs.getReferredValueSet();
-        if (vs != null && vs.getDefine() != null && vs.getDefine().getSystemSimple().startsWith("http://hl7.org/fhir")) {
-          dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+vs.getDefine().getSystemSimple().substring(20).replace("/", "\\");
+        if (vs != null && vs.getDefine() != null && vs.getDefine().getSystem().startsWith("http://hl7.org/fhir")) {
+          dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+vs.getDefine().getSystem().substring(20).replace("/", "\\");
           buildRedirect(n, bs.getReference()+".html", dn);          
         }
       }

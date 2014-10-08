@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,34 +39,34 @@ import java.util.*;
 public class Supply extends Resource {
 
     public enum ValuesetSupplyStatus {
-        requested, // Supply has been requested, but not dispensed.
-        dispensed, // Supply is part of a pharmacy order and has been dispensed.
-        received, // Supply has been received by the requestor.
-        failed, // The supply will not be completed because the supplier was unable or unwilling to supply the item.
-        cancelled, // The orderer of the supply cancelled the request.
-        Null; // added to help the parsers
+        REQUESTED, // Supply has been requested, but not dispensed.
+        DISPENSED, // Supply is part of a pharmacy order and has been dispensed.
+        RECEIVED, // Supply has been received by the requestor.
+        FAILED, // The supply will not be completed because the supplier was unable or unwilling to supply the item.
+        CANCELLED, // The orderer of the supply cancelled the request.
+        NULL; // added to help the parsers
         public static ValuesetSupplyStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("requested".equals(codeString))
-          return requested;
+          return REQUESTED;
         if ("dispensed".equals(codeString))
-          return dispensed;
+          return DISPENSED;
         if ("received".equals(codeString))
-          return received;
+          return RECEIVED;
         if ("failed".equals(codeString))
-          return failed;
+          return FAILED;
         if ("cancelled".equals(codeString))
-          return cancelled;
+          return CANCELLED;
         throw new Exception("Unknown ValuesetSupplyStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case requested: return "requested";
-            case dispensed: return "dispensed";
-            case received: return "received";
-            case failed: return "failed";
-            case cancelled: return "cancelled";
+            case REQUESTED: return "requested";
+            case DISPENSED: return "dispensed";
+            case RECEIVED: return "received";
+            case FAILED: return "failed";
+            case CANCELLED: return "cancelled";
             default: return "?";
           }
         }
@@ -78,53 +78,53 @@ public class Supply extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("requested".equals(codeString))
-          return ValuesetSupplyStatus.requested;
+          return ValuesetSupplyStatus.REQUESTED;
         if ("dispensed".equals(codeString))
-          return ValuesetSupplyStatus.dispensed;
+          return ValuesetSupplyStatus.DISPENSED;
         if ("received".equals(codeString))
-          return ValuesetSupplyStatus.received;
+          return ValuesetSupplyStatus.RECEIVED;
         if ("failed".equals(codeString))
-          return ValuesetSupplyStatus.failed;
+          return ValuesetSupplyStatus.FAILED;
         if ("cancelled".equals(codeString))
-          return ValuesetSupplyStatus.cancelled;
+          return ValuesetSupplyStatus.CANCELLED;
         throw new Exception("Unknown ValuesetSupplyStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ValuesetSupplyStatus.requested)
+      if (code == ValuesetSupplyStatus.REQUESTED)
         return "requested";
-      if (code == ValuesetSupplyStatus.dispensed)
+      if (code == ValuesetSupplyStatus.DISPENSED)
         return "dispensed";
-      if (code == ValuesetSupplyStatus.received)
+      if (code == ValuesetSupplyStatus.RECEIVED)
         return "received";
-      if (code == ValuesetSupplyStatus.failed)
+      if (code == ValuesetSupplyStatus.FAILED)
         return "failed";
-      if (code == ValuesetSupplyStatus.cancelled)
+      if (code == ValuesetSupplyStatus.CANCELLED)
         return "cancelled";
       return "?";
       }
     }
 
     public enum ValuesetSupplyDispenseStatus {
-        inProgress, // Supply has been requested, but not dispensed.
-        dispensed, // Supply is part of a pharmacy order and has been dispensed.
-        abandoned, // Dispensing was not completed.
-        Null; // added to help the parsers
+        INPROGRESS, // Supply has been requested, but not dispensed.
+        DISPENSED, // Supply is part of a pharmacy order and has been dispensed.
+        ABANDONED, // Dispensing was not completed.
+        NULL; // added to help the parsers
         public static ValuesetSupplyDispenseStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("in progress".equals(codeString))
-          return inProgress;
+          return INPROGRESS;
         if ("dispensed".equals(codeString))
-          return dispensed;
+          return DISPENSED;
         if ("abandoned".equals(codeString))
-          return abandoned;
+          return ABANDONED;
         throw new Exception("Unknown ValuesetSupplyDispenseStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case inProgress: return "in progress";
-            case dispensed: return "dispensed";
-            case abandoned: return "abandoned";
+            case INPROGRESS: return "in progress";
+            case DISPENSED: return "dispensed";
+            case ABANDONED: return "abandoned";
             default: return "?";
           }
         }
@@ -136,19 +136,19 @@ public class Supply extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("in progress".equals(codeString))
-          return ValuesetSupplyDispenseStatus.inProgress;
+          return ValuesetSupplyDispenseStatus.INPROGRESS;
         if ("dispensed".equals(codeString))
-          return ValuesetSupplyDispenseStatus.dispensed;
+          return ValuesetSupplyDispenseStatus.DISPENSED;
         if ("abandoned".equals(codeString))
-          return ValuesetSupplyDispenseStatus.abandoned;
+          return ValuesetSupplyDispenseStatus.ABANDONED;
         throw new Exception("Unknown ValuesetSupplyDispenseStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ValuesetSupplyDispenseStatus.inProgress)
+      if (code == ValuesetSupplyDispenseStatus.INPROGRESS)
         return "in progress";
-      if (code == ValuesetSupplyDispenseStatus.dispensed)
+      if (code == ValuesetSupplyDispenseStatus.DISPENSED)
         return "dispensed";
-      if (code == ValuesetSupplyDispenseStatus.abandoned)
+      if (code == ValuesetSupplyDispenseStatus.ABANDONED)
         return "abandoned";
       return "?";
       }
@@ -247,16 +247,16 @@ public class Supply extends Resource {
         }
 
         /**
-         * @return {@link #status} (A code specifying the state of the dispense event.)
+         * @return {@link #status} (A code specifying the state of the dispense event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<ValuesetSupplyDispenseStatus> getStatus() { 
+        public Enumeration<ValuesetSupplyDispenseStatus> getStatusObject() { 
           return this.status;
         }
 
         /**
-         * @param value {@link #status} (A code specifying the state of the dispense event.)
+         * @param value {@link #status} (A code specifying the state of the dispense event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public SupplyDispenseComponent setStatus(Enumeration<ValuesetSupplyDispenseStatus> value) { 
+        public SupplyDispenseComponent setStatusObject(Enumeration<ValuesetSupplyDispenseStatus> value) { 
           this.status = value;
           return this;
         }
@@ -264,14 +264,14 @@ public class Supply extends Resource {
         /**
          * @return A code specifying the state of the dispense event.
          */
-        public ValuesetSupplyDispenseStatus getStatusSimple() { 
+        public ValuesetSupplyDispenseStatus getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value A code specifying the state of the dispense event.
          */
-        public SupplyDispenseComponent setStatusSimple(ValuesetSupplyDispenseStatus value) { 
+        public SupplyDispenseComponent setStatus(ValuesetSupplyDispenseStatus value) { 
           if (value == null)
             this.status = null;
           else {
@@ -328,14 +328,14 @@ public class Supply extends Resource {
         }
 
         /**
-         * @return {@link #suppliedItem} (The actual object that is the target of the reference. Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * @return {@link #suppliedItem} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
         public Resource getSuppliedItemTarget() { 
           return this.suppliedItemTarget;
         }
 
         /**
-         * @param value {@link #suppliedItem} (The actual object that is the target of the reference. Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * @param value {@link #suppliedItem} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
         public SupplyDispenseComponent setSuppliedItemTarget(Resource value) { 
           this.suppliedItemTarget = value;
@@ -358,14 +358,14 @@ public class Supply extends Resource {
         }
 
         /**
-         * @return {@link #supplier} (The actual object that is the target of the reference. The individual responsible for dispensing the medication.)
+         * @return {@link #supplier} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication.)
          */
         public Practitioner getSupplierTarget() { 
           return this.supplierTarget;
         }
 
         /**
-         * @param value {@link #supplier} (The actual object that is the target of the reference. The individual responsible for dispensing the medication.)
+         * @param value {@link #supplier} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication.)
          */
         public SupplyDispenseComponent setSupplierTarget(Practitioner value) { 
           this.supplierTarget = value;
@@ -418,14 +418,14 @@ public class Supply extends Resource {
         }
 
         /**
-         * @return {@link #destination} (The actual object that is the target of the reference. Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
+         * @return {@link #destination} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
          */
         public Location getDestinationTarget() { 
           return this.destinationTarget;
         }
 
         /**
-         * @param value {@link #destination} (The actual object that is the target of the reference. Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
+         * @param value {@link #destination} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
          */
         public SupplyDispenseComponent setDestinationTarget(Location value) { 
           this.destinationTarget = value;
@@ -450,7 +450,7 @@ public class Supply extends Resource {
         }
 
         /**
-         * @return {@link #receiver} (The actual objects that are the target of the reference. Identifies the person who picked up the Supply.)
+         * @return {@link #receiver} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the person who picked up the Supply.)
          */
         public List<Practitioner> getReceiverTarget() { 
           return this.receiverTarget;
@@ -458,7 +458,7 @@ public class Supply extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #receiver} (Add an actual object that is the target of the reference. Identifies the person who picked up the Supply.)
+         * @return {@link #receiver} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Identifies the person who picked up the Supply.)
          */
         public Practitioner addReceiverTarget() { 
           Practitioner r = new Practitioner();
@@ -576,16 +576,16 @@ public class Supply extends Resource {
     }
 
     /**
-     * @return {@link #status} (Status of the supply request.)
+     * @return {@link #status} (Status of the supply request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ValuesetSupplyStatus> getStatus() { 
+    public Enumeration<ValuesetSupplyStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (Status of the supply request.)
+     * @param value {@link #status} (Status of the supply request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Supply setStatus(Enumeration<ValuesetSupplyStatus> value) { 
+    public Supply setStatusObject(Enumeration<ValuesetSupplyStatus> value) { 
       this.status = value;
       return this;
     }
@@ -593,14 +593,14 @@ public class Supply extends Resource {
     /**
      * @return Status of the supply request.
      */
-    public ValuesetSupplyStatus getStatusSimple() { 
+    public ValuesetSupplyStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Status of the supply request.
      */
-    public Supply setStatusSimple(ValuesetSupplyStatus value) { 
+    public Supply setStatus(ValuesetSupplyStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -627,14 +627,14 @@ public class Supply extends Resource {
     }
 
     /**
-     * @return {@link #orderedItem} (The actual object that is the target of the reference. The item that is requested to be supplied.)
+     * @return {@link #orderedItem} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The item that is requested to be supplied.)
      */
     public Resource getOrderedItemTarget() { 
       return this.orderedItemTarget;
     }
 
     /**
-     * @param value {@link #orderedItem} (The actual object that is the target of the reference. The item that is requested to be supplied.)
+     * @param value {@link #orderedItem} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The item that is requested to be supplied.)
      */
     public Supply setOrderedItemTarget(Resource value) { 
       this.orderedItemTarget = value;
@@ -657,14 +657,14 @@ public class Supply extends Resource {
     }
 
     /**
-     * @return {@link #patient} (The actual object that is the target of the reference. A link to a resource representing the person whom the ordered item is for.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person whom the ordered item is for.)
      */
     public Patient getPatientTarget() { 
       return this.patientTarget;
     }
 
     /**
-     * @param value {@link #patient} (The actual object that is the target of the reference. A link to a resource representing the person whom the ordered item is for.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person whom the ordered item is for.)
      */
     public Supply setPatientTarget(Patient value) { 
       this.patientTarget = value;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,26 +39,26 @@ import java.util.*;
 public class Profile extends Resource {
 
     public enum ResourceProfileStatus {
-        draft, // This profile is still under development.
-        active, // This profile is ready for normal use.
-        retired, // This profile has been deprecated, withdrawn or superseded and should no longer be used.
-        Null; // added to help the parsers
+        DRAFT, // This profile is still under development.
+        ACTIVE, // This profile is ready for normal use.
+        RETIRED, // This profile has been deprecated, withdrawn or superseded and should no longer be used.
+        NULL; // added to help the parsers
         public static ResourceProfileStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return draft;
+          return DRAFT;
         if ("active".equals(codeString))
-          return active;
+          return ACTIVE;
         if ("retired".equals(codeString))
-          return retired;
+          return RETIRED;
         throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case draft: return "draft";
-            case active: return "active";
-            case retired: return "retired";
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case RETIRED: return "retired";
             default: return "?";
           }
         }
@@ -70,37 +70,37 @@ public class Profile extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return ResourceProfileStatus.draft;
+          return ResourceProfileStatus.DRAFT;
         if ("active".equals(codeString))
-          return ResourceProfileStatus.active;
+          return ResourceProfileStatus.ACTIVE;
         if ("retired".equals(codeString))
-          return ResourceProfileStatus.retired;
+          return ResourceProfileStatus.RETIRED;
         throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ResourceProfileStatus.draft)
+      if (code == ResourceProfileStatus.DRAFT)
         return "draft";
-      if (code == ResourceProfileStatus.active)
+      if (code == ResourceProfileStatus.ACTIVE)
         return "active";
-      if (code == ResourceProfileStatus.retired)
+      if (code == ResourceProfileStatus.RETIRED)
         return "retired";
       return "?";
       }
     }
 
     public enum PropertyRepresentation {
-        xmlAttr, // In XML, this property is represented as an attribute not an element.
-        Null; // added to help the parsers
+        XMLATTR, // In XML, this property is represented as an attribute not an element.
+        NULL; // added to help the parsers
         public static PropertyRepresentation fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("xmlAttr".equals(codeString))
-          return xmlAttr;
+          return XMLATTR;
         throw new Exception("Unknown PropertyRepresentation code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case xmlAttr: return "xmlAttr";
+            case XMLATTR: return "xmlAttr";
             default: return "?";
           }
         }
@@ -112,37 +112,37 @@ public class Profile extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("xmlAttr".equals(codeString))
-          return PropertyRepresentation.xmlAttr;
+          return PropertyRepresentation.XMLATTR;
         throw new Exception("Unknown PropertyRepresentation code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == PropertyRepresentation.xmlAttr)
+      if (code == PropertyRepresentation.XMLATTR)
         return "xmlAttr";
       return "?";
       }
     }
 
     public enum ResourceSlicingRules {
-        closed, // No additional content is allowed other than that described by the slices in this profile.
-        open, // Additional content is allowed anywhere in the list.
-        openAtEnd, // Additional content is allowed, but only at the end of the list.
-        Null; // added to help the parsers
+        CLOSED, // No additional content is allowed other than that described by the slices in this profile.
+        OPEN, // Additional content is allowed anywhere in the list.
+        OPENATEND, // Additional content is allowed, but only at the end of the list.
+        NULL; // added to help the parsers
         public static ResourceSlicingRules fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("closed".equals(codeString))
-          return closed;
+          return CLOSED;
         if ("open".equals(codeString))
-          return open;
+          return OPEN;
         if ("openAtEnd".equals(codeString))
-          return openAtEnd;
+          return OPENATEND;
         throw new Exception("Unknown ResourceSlicingRules code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case closed: return "closed";
-            case open: return "open";
-            case openAtEnd: return "openAtEnd";
+            case CLOSED: return "closed";
+            case OPEN: return "open";
+            case OPENATEND: return "openAtEnd";
             default: return "?";
           }
         }
@@ -154,45 +154,45 @@ public class Profile extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("closed".equals(codeString))
-          return ResourceSlicingRules.closed;
+          return ResourceSlicingRules.CLOSED;
         if ("open".equals(codeString))
-          return ResourceSlicingRules.open;
+          return ResourceSlicingRules.OPEN;
         if ("openAtEnd".equals(codeString))
-          return ResourceSlicingRules.openAtEnd;
+          return ResourceSlicingRules.OPENATEND;
         throw new Exception("Unknown ResourceSlicingRules code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ResourceSlicingRules.closed)
+      if (code == ResourceSlicingRules.CLOSED)
         return "closed";
-      if (code == ResourceSlicingRules.open)
+      if (code == ResourceSlicingRules.OPEN)
         return "open";
-      if (code == ResourceSlicingRules.openAtEnd)
+      if (code == ResourceSlicingRules.OPENATEND)
         return "openAtEnd";
       return "?";
       }
     }
 
     public enum ResourceAggregationMode {
-        contained, // The reference is a local reference to a contained resource.
-        referenced, // The reference to to a resource that has to be resolved externally to the resource that includes the reference.
-        bundled, // The resource the reference points to will be found in the same bundle as the resource that includes the reference.
-        Null; // added to help the parsers
+        CONTAINED, // The reference is a local reference to a contained resource.
+        REFERENCED, // The reference to to a resource that has to be resolved externally to the resource that includes the reference.
+        BUNDLED, // The resource the reference points to will be found in the same bundle as the resource that includes the reference.
+        NULL; // added to help the parsers
         public static ResourceAggregationMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("contained".equals(codeString))
-          return contained;
+          return CONTAINED;
         if ("referenced".equals(codeString))
-          return referenced;
+          return REFERENCED;
         if ("bundled".equals(codeString))
-          return bundled;
+          return BUNDLED;
         throw new Exception("Unknown ResourceAggregationMode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case contained: return "contained";
-            case referenced: return "referenced";
-            case bundled: return "bundled";
+            case CONTAINED: return "contained";
+            case REFERENCED: return "referenced";
+            case BUNDLED: return "bundled";
             default: return "?";
           }
         }
@@ -204,41 +204,41 @@ public class Profile extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("contained".equals(codeString))
-          return ResourceAggregationMode.contained;
+          return ResourceAggregationMode.CONTAINED;
         if ("referenced".equals(codeString))
-          return ResourceAggregationMode.referenced;
+          return ResourceAggregationMode.REFERENCED;
         if ("bundled".equals(codeString))
-          return ResourceAggregationMode.bundled;
+          return ResourceAggregationMode.BUNDLED;
         throw new Exception("Unknown ResourceAggregationMode code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ResourceAggregationMode.contained)
+      if (code == ResourceAggregationMode.CONTAINED)
         return "contained";
-      if (code == ResourceAggregationMode.referenced)
+      if (code == ResourceAggregationMode.REFERENCED)
         return "referenced";
-      if (code == ResourceAggregationMode.bundled)
+      if (code == ResourceAggregationMode.BUNDLED)
         return "bundled";
       return "?";
       }
     }
 
     public enum ConstraintSeverity {
-        error, // If the constraint is violated, the resource is not conformant.
-        warning, // If the constraint is violated, the resource is conformant, but it is not necessarily following best practice.
-        Null; // added to help the parsers
+        ERROR, // If the constraint is violated, the resource is not conformant.
+        WARNING, // If the constraint is violated, the resource is conformant, but it is not necessarily following best practice.
+        NULL; // added to help the parsers
         public static ConstraintSeverity fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("error".equals(codeString))
-          return error;
+          return ERROR;
         if ("warning".equals(codeString))
-          return warning;
+          return WARNING;
         throw new Exception("Unknown ConstraintSeverity code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case error: return "error";
-            case warning: return "warning";
+            case ERROR: return "error";
+            case WARNING: return "warning";
             default: return "?";
           }
         }
@@ -250,41 +250,41 @@ public class Profile extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("error".equals(codeString))
-          return ConstraintSeverity.error;
+          return ConstraintSeverity.ERROR;
         if ("warning".equals(codeString))
-          return ConstraintSeverity.warning;
+          return ConstraintSeverity.WARNING;
         throw new Exception("Unknown ConstraintSeverity code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ConstraintSeverity.error)
+      if (code == ConstraintSeverity.ERROR)
         return "error";
-      if (code == ConstraintSeverity.warning)
+      if (code == ConstraintSeverity.WARNING)
         return "warning";
       return "?";
       }
     }
 
     public enum BindingConformance {
-        required, // Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.
-        preferred, // For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.
-        example, // The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.
-        Null; // added to help the parsers
+        REQUIRED, // Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.
+        PREFERRED, // For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.
+        EXAMPLE, // The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.
+        NULL; // added to help the parsers
         public static BindingConformance fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("required".equals(codeString))
-          return required;
+          return REQUIRED;
         if ("preferred".equals(codeString))
-          return preferred;
+          return PREFERRED;
         if ("example".equals(codeString))
-          return example;
+          return EXAMPLE;
         throw new Exception("Unknown BindingConformance code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case required: return "required";
-            case preferred: return "preferred";
-            case example: return "example";
+            case REQUIRED: return "required";
+            case PREFERRED: return "preferred";
+            case EXAMPLE: return "example";
             default: return "?";
           }
         }
@@ -296,61 +296,61 @@ public class Profile extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("required".equals(codeString))
-          return BindingConformance.required;
+          return BindingConformance.REQUIRED;
         if ("preferred".equals(codeString))
-          return BindingConformance.preferred;
+          return BindingConformance.PREFERRED;
         if ("example".equals(codeString))
-          return BindingConformance.example;
+          return BindingConformance.EXAMPLE;
         throw new Exception("Unknown BindingConformance code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == BindingConformance.required)
+      if (code == BindingConformance.REQUIRED)
         return "required";
-      if (code == BindingConformance.preferred)
+      if (code == BindingConformance.PREFERRED)
         return "preferred";
-      if (code == BindingConformance.example)
+      if (code == BindingConformance.EXAMPLE)
         return "example";
       return "?";
       }
     }
 
     public enum SearchParamType {
-        number, // Search parameter SHALL be a number (a whole number, or a decimal).
-        date, // Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
-        string, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
-        token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
-        reference, // A reference to another resource.
-        composite, // A composite search parameter that combines a search on two values together.
-        quantity, // A search parameter that searches on a quantity.
-        Null; // added to help the parsers
+        NUMBER, // Search parameter SHALL be a number (a whole number, or a decimal).
+        DATE, // Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
+        STRING, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
+        TOKEN, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
+        REFERENCE, // A reference to another resource.
+        COMPOSITE, // A composite search parameter that combines a search on two values together.
+        QUANTITY, // A search parameter that searches on a quantity.
+        NULL; // added to help the parsers
         public static SearchParamType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("number".equals(codeString))
-          return number;
+          return NUMBER;
         if ("date".equals(codeString))
-          return date;
+          return DATE;
         if ("string".equals(codeString))
-          return string;
+          return STRING;
         if ("token".equals(codeString))
-          return token;
+          return TOKEN;
         if ("reference".equals(codeString))
-          return reference;
+          return REFERENCE;
         if ("composite".equals(codeString))
-          return composite;
+          return COMPOSITE;
         if ("quantity".equals(codeString))
-          return quantity;
+          return QUANTITY;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case number: return "number";
-            case date: return "date";
-            case string: return "string";
-            case token: return "token";
-            case reference: return "reference";
-            case composite: return "composite";
-            case quantity: return "quantity";
+            case NUMBER: return "number";
+            case DATE: return "date";
+            case STRING: return "string";
+            case TOKEN: return "token";
+            case REFERENCE: return "reference";
+            case COMPOSITE: return "composite";
+            case QUANTITY: return "quantity";
             default: return "?";
           }
         }
@@ -362,65 +362,65 @@ public class Profile extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("number".equals(codeString))
-          return SearchParamType.number;
+          return SearchParamType.NUMBER;
         if ("date".equals(codeString))
-          return SearchParamType.date;
+          return SearchParamType.DATE;
         if ("string".equals(codeString))
-          return SearchParamType.string;
+          return SearchParamType.STRING;
         if ("token".equals(codeString))
-          return SearchParamType.token;
+          return SearchParamType.TOKEN;
         if ("reference".equals(codeString))
-          return SearchParamType.reference;
+          return SearchParamType.REFERENCE;
         if ("composite".equals(codeString))
-          return SearchParamType.composite;
+          return SearchParamType.COMPOSITE;
         if ("quantity".equals(codeString))
-          return SearchParamType.quantity;
+          return SearchParamType.QUANTITY;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == SearchParamType.number)
+      if (code == SearchParamType.NUMBER)
         return "number";
-      if (code == SearchParamType.date)
+      if (code == SearchParamType.DATE)
         return "date";
-      if (code == SearchParamType.string)
+      if (code == SearchParamType.STRING)
         return "string";
-      if (code == SearchParamType.token)
+      if (code == SearchParamType.TOKEN)
         return "token";
-      if (code == SearchParamType.reference)
+      if (code == SearchParamType.REFERENCE)
         return "reference";
-      if (code == SearchParamType.composite)
+      if (code == SearchParamType.COMPOSITE)
         return "composite";
-      if (code == SearchParamType.quantity)
+      if (code == SearchParamType.QUANTITY)
         return "quantity";
       return "?";
       }
     }
 
     public enum ExtensionContext {
-        resource, // The context is all elements matching a particular resource element path.
-        datatype, // The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
-        mapping, // The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.
-        extension, // The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code.
-        Null; // added to help the parsers
+        RESOURCE, // The context is all elements matching a particular resource element path.
+        DATATYPE, // The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
+        MAPPING, // The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.
+        EXTENSION, // The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code.
+        NULL; // added to help the parsers
         public static ExtensionContext fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("resource".equals(codeString))
-          return resource;
+          return RESOURCE;
         if ("datatype".equals(codeString))
-          return datatype;
+          return DATATYPE;
         if ("mapping".equals(codeString))
-          return mapping;
+          return MAPPING;
         if ("extension".equals(codeString))
-          return extension;
+          return EXTENSION;
         throw new Exception("Unknown ExtensionContext code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case resource: return "resource";
-            case datatype: return "datatype";
-            case mapping: return "mapping";
-            case extension: return "extension";
+            case RESOURCE: return "resource";
+            case DATATYPE: return "datatype";
+            case MAPPING: return "mapping";
+            case EXTENSION: return "extension";
             default: return "?";
           }
         }
@@ -432,23 +432,23 @@ public class Profile extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("resource".equals(codeString))
-          return ExtensionContext.resource;
+          return ExtensionContext.RESOURCE;
         if ("datatype".equals(codeString))
-          return ExtensionContext.datatype;
+          return ExtensionContext.DATATYPE;
         if ("mapping".equals(codeString))
-          return ExtensionContext.mapping;
+          return ExtensionContext.MAPPING;
         if ("extension".equals(codeString))
-          return ExtensionContext.extension;
+          return ExtensionContext.EXTENSION;
         throw new Exception("Unknown ExtensionContext code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ExtensionContext.resource)
+      if (code == ExtensionContext.RESOURCE)
         return "resource";
-      if (code == ExtensionContext.datatype)
+      if (code == ExtensionContext.DATATYPE)
         return "datatype";
-      if (code == ExtensionContext.mapping)
+      if (code == ExtensionContext.MAPPING)
         return "mapping";
-      if (code == ExtensionContext.extension)
+      if (code == ExtensionContext.EXTENSION)
         return "extension";
       return "?";
       }
@@ -487,16 +487,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #identity} (An Internal id that is used to identify this mapping set when specific mappings are made.)
+         * @return {@link #identity} (An Internal id that is used to identify this mapping set when specific mappings are made.). This is the underlying object with id, value and extensions. The accessor "getIdentity" gives direct access to the value
          */
-        public IdType getIdentity() { 
+        public IdType getIdentityObject() { 
           return this.identity;
         }
 
         /**
-         * @param value {@link #identity} (An Internal id that is used to identify this mapping set when specific mappings are made.)
+         * @param value {@link #identity} (An Internal id that is used to identify this mapping set when specific mappings are made.). This is the underlying object with id, value and extensions. The accessor "getIdentity" gives direct access to the value
          */
-        public ProfileMappingComponent setIdentity(IdType value) { 
+        public ProfileMappingComponent setIdentityObject(IdType value) { 
           this.identity = value;
           return this;
         }
@@ -504,14 +504,14 @@ public class Profile extends Resource {
         /**
          * @return An Internal id that is used to identify this mapping set when specific mappings are made.
          */
-        public String getIdentitySimple() { 
+        public String getIdentity() { 
           return this.identity == null ? null : this.identity.getValue();
         }
 
         /**
          * @param value An Internal id that is used to identify this mapping set when specific mappings are made.
          */
-        public ProfileMappingComponent setIdentitySimple(String value) { 
+        public ProfileMappingComponent setIdentity(String value) { 
             if (this.identity == null)
               this.identity = new IdType();
             this.identity.setValue(value);
@@ -519,16 +519,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
+         * @return {@link #uri} (A URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
-        public UriType getUri() { 
+        public UriType getUriObject() { 
           return this.uri;
         }
 
         /**
-         * @param value {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
+         * @param value {@link #uri} (A URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
-        public ProfileMappingComponent setUri(UriType value) { 
+        public ProfileMappingComponent setUriObject(UriType value) { 
           this.uri = value;
           return this;
         }
@@ -536,14 +536,14 @@ public class Profile extends Resource {
         /**
          * @return A URI that identifies the specification that this mapping is expressed to.
          */
-        public String getUriSimple() { 
+        public String getUri() { 
           return this.uri == null ? null : this.uri.getValue();
         }
 
         /**
          * @param value A URI that identifies the specification that this mapping is expressed to.
          */
-        public ProfileMappingComponent setUriSimple(String value) { 
+        public ProfileMappingComponent setUri(String value) { 
           if (value == null)
             this.uri = null;
           else {
@@ -555,16 +555,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #name} (A name for the specification that is being mapped to.)
+         * @return {@link #name} (A name for the specification that is being mapped to.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getName() { 
+        public StringType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (A name for the specification that is being mapped to.)
+         * @param value {@link #name} (A name for the specification that is being mapped to.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ProfileMappingComponent setName(StringType value) { 
+        public ProfileMappingComponent setNameObject(StringType value) { 
           this.name = value;
           return this;
         }
@@ -572,14 +572,14 @@ public class Profile extends Resource {
         /**
          * @return A name for the specification that is being mapped to.
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value A name for the specification that is being mapped to.
          */
-        public ProfileMappingComponent setNameSimple(String value) { 
+        public ProfileMappingComponent setName(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -591,16 +591,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.)
+         * @return {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public StringType getComments() { 
+        public StringType getCommentsObject() { 
           return this.comments;
         }
 
         /**
-         * @param value {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.)
+         * @param value {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public ProfileMappingComponent setComments(StringType value) { 
+        public ProfileMappingComponent setCommentsObject(StringType value) { 
           this.comments = value;
           return this;
         }
@@ -608,14 +608,14 @@ public class Profile extends Resource {
         /**
          * @return Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public String getCommentsSimple() { 
+        public String getComments() { 
           return this.comments == null ? null : this.comments.getValue();
         }
 
         /**
          * @param value Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public ProfileMappingComponent setCommentsSimple(String value) { 
+        public ProfileMappingComponent setComments(String value) { 
           if (value == null)
             this.comments = null;
           else {
@@ -698,16 +698,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #type} (The Resource or Data type being described.)
+         * @return {@link #type} (The Resource or Data type being described.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public CodeType getType() { 
+        public CodeType getTypeObject() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (The Resource or Data type being described.)
+         * @param value {@link #type} (The Resource or Data type being described.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ProfileStructureComponent setType(CodeType value) { 
+        public ProfileStructureComponent setTypeObject(CodeType value) { 
           this.type = value;
           return this;
         }
@@ -715,14 +715,14 @@ public class Profile extends Resource {
         /**
          * @return The Resource or Data type being described.
          */
-        public String getTypeSimple() { 
+        public String getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The Resource or Data type being described.
          */
-        public ProfileStructureComponent setTypeSimple(String value) { 
+        public ProfileStructureComponent setType(String value) { 
             if (this.type == null)
               this.type = new CodeType();
             this.type.setValue(value);
@@ -730,16 +730,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #base} (The structure that is the base on which this set of constraints is derived from.)
+         * @return {@link #base} (The structure that is the base on which this set of constraints is derived from.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
          */
-        public UriType getBase() { 
+        public UriType getBaseObject() { 
           return this.base;
         }
 
         /**
-         * @param value {@link #base} (The structure that is the base on which this set of constraints is derived from.)
+         * @param value {@link #base} (The structure that is the base on which this set of constraints is derived from.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
          */
-        public ProfileStructureComponent setBase(UriType value) { 
+        public ProfileStructureComponent setBaseObject(UriType value) { 
           this.base = value;
           return this;
         }
@@ -747,14 +747,14 @@ public class Profile extends Resource {
         /**
          * @return The structure that is the base on which this set of constraints is derived from.
          */
-        public String getBaseSimple() { 
+        public String getBase() { 
           return this.base == null ? null : this.base.getValue();
         }
 
         /**
          * @param value The structure that is the base on which this set of constraints is derived from.
          */
-        public ProfileStructureComponent setBaseSimple(String value) { 
+        public ProfileStructureComponent setBase(String value) { 
           if (value == null)
             this.base = null;
           else {
@@ -766,16 +766,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).)
+         * @return {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getName() { 
+        public StringType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).)
+         * @param value {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ProfileStructureComponent setName(StringType value) { 
+        public ProfileStructureComponent setNameObject(StringType value) { 
           this.name = value;
           return this;
         }
@@ -783,14 +783,14 @@ public class Profile extends Resource {
         /**
          * @return The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).
          */
-        public ProfileStructureComponent setNameSimple(String value) { 
+        public ProfileStructureComponent setName(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -802,16 +802,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #publish} (This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.)
+         * @return {@link #publish} (This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.). This is the underlying object with id, value and extensions. The accessor "getPublish" gives direct access to the value
          */
-        public BooleanType getPublish() { 
+        public BooleanType getPublishObject() { 
           return this.publish;
         }
 
         /**
-         * @param value {@link #publish} (This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.)
+         * @param value {@link #publish} (This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.). This is the underlying object with id, value and extensions. The accessor "getPublish" gives direct access to the value
          */
-        public ProfileStructureComponent setPublish(BooleanType value) { 
+        public ProfileStructureComponent setPublishObject(BooleanType value) { 
           this.publish = value;
           return this;
         }
@@ -819,14 +819,14 @@ public class Profile extends Resource {
         /**
          * @return This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.
          */
-        public boolean getPublishSimple() { 
+        public boolean getPublish() { 
           return this.publish == null ? false : this.publish.getValue();
         }
 
         /**
          * @param value This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.
          */
-        public ProfileStructureComponent setPublishSimple(boolean value) { 
+        public ProfileStructureComponent setPublish(boolean value) { 
           if (value == false)
             this.publish = null;
           else {
@@ -838,16 +838,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #purpose} (Human summary: why describe this resource?.)
+         * @return {@link #purpose} (Human summary: why describe this resource?.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
          */
-        public StringType getPurpose() { 
+        public StringType getPurposeObject() { 
           return this.purpose;
         }
 
         /**
-         * @param value {@link #purpose} (Human summary: why describe this resource?.)
+         * @param value {@link #purpose} (Human summary: why describe this resource?.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
          */
-        public ProfileStructureComponent setPurpose(StringType value) { 
+        public ProfileStructureComponent setPurposeObject(StringType value) { 
           this.purpose = value;
           return this;
         }
@@ -855,14 +855,14 @@ public class Profile extends Resource {
         /**
          * @return Human summary: why describe this resource?.
          */
-        public String getPurposeSimple() { 
+        public String getPurpose() { 
           return this.purpose == null ? null : this.purpose.getValue();
         }
 
         /**
          * @param value Human summary: why describe this resource?.
          */
-        public ProfileStructureComponent setPurposeSimple(String value) { 
+        public ProfileStructureComponent setPurpose(String value) { 
           if (value == null)
             this.purpose = null;
           else {
@@ -1031,16 +1031,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #path} (The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource.)
+         * @return {@link #path} (The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public StringType getPath() { 
+        public StringType getPathObject() { 
           return this.path;
         }
 
         /**
-         * @param value {@link #path} (The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource.)
+         * @param value {@link #path} (The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public ElementComponent setPath(StringType value) { 
+        public ElementComponent setPathObject(StringType value) { 
           this.path = value;
           return this;
         }
@@ -1048,14 +1048,14 @@ public class Profile extends Resource {
         /**
          * @return The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource.
          */
-        public String getPathSimple() { 
+        public String getPath() { 
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
          * @param value The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource.
          */
-        public ElementComponent setPathSimple(String value) { 
+        public ElementComponent setPath(String value) { 
             if (this.path == null)
               this.path = new StringType();
             this.path.setValue(value);
@@ -1073,7 +1073,7 @@ public class Profile extends Resource {
         /**
          * @return {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
          */
-        public Enumeration<PropertyRepresentation> addRepresentation() { 
+        public Enumeration<PropertyRepresentation> addRepresentationObject() { 
           Enumeration<PropertyRepresentation> t = new Enumeration<PropertyRepresentation>();
           this.representation.add(t);
           return t;
@@ -1082,7 +1082,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
          */
-        public Enumeration<PropertyRepresentation> addRepresentationSimple(PropertyRepresentation value) { 
+        public Enumeration<PropertyRepresentation> addRepresentation(PropertyRepresentation value) { 
           Enumeration<PropertyRepresentation> t = new Enumeration<PropertyRepresentation>();
           t.setValue(value);
           this.representation.add(t);
@@ -1092,7 +1092,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
          */
-        public boolean hasRepresentationSimple(PropertyRepresentation value) { 
+        public boolean hasRepresentation(PropertyRepresentation value) { 
           for (Enumeration<PropertyRepresentation> v : this.representation)
             if (v.getValue().equals(value))
               return true;
@@ -1100,16 +1100,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #name} (The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.)
+         * @return {@link #name} (The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getName() { 
+        public StringType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.)
+         * @param value {@link #name} (The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ElementComponent setName(StringType value) { 
+        public ElementComponent setNameObject(StringType value) { 
           this.name = value;
           return this;
         }
@@ -1117,14 +1117,14 @@ public class Profile extends Resource {
         /**
          * @return The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
          */
-        public ElementComponent setNameSimple(String value) { 
+        public ElementComponent setName(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -1216,16 +1216,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #discriminator} (Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.)
+         * @return {@link #discriminator} (Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.). This is the underlying object with id, value and extensions. The accessor "getDiscriminator" gives direct access to the value
          */
-        public IdType getDiscriminator() { 
+        public IdType getDiscriminatorObject() { 
           return this.discriminator;
         }
 
         /**
-         * @param value {@link #discriminator} (Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.)
+         * @param value {@link #discriminator} (Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.). This is the underlying object with id, value and extensions. The accessor "getDiscriminator" gives direct access to the value
          */
-        public ElementSlicingComponent setDiscriminator(IdType value) { 
+        public ElementSlicingComponent setDiscriminatorObject(IdType value) { 
           this.discriminator = value;
           return this;
         }
@@ -1233,14 +1233,14 @@ public class Profile extends Resource {
         /**
          * @return Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.
          */
-        public String getDiscriminatorSimple() { 
+        public String getDiscriminator() { 
           return this.discriminator == null ? null : this.discriminator.getValue();
         }
 
         /**
          * @param value Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.
          */
-        public ElementSlicingComponent setDiscriminatorSimple(String value) { 
+        public ElementSlicingComponent setDiscriminator(String value) { 
           if (value == null)
             this.discriminator = null;
           else {
@@ -1252,16 +1252,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #ordered} (If the matching elements have to occur in the same order as defined in the profile.)
+         * @return {@link #ordered} (If the matching elements have to occur in the same order as defined in the profile.). This is the underlying object with id, value and extensions. The accessor "getOrdered" gives direct access to the value
          */
-        public BooleanType getOrdered() { 
+        public BooleanType getOrderedObject() { 
           return this.ordered;
         }
 
         /**
-         * @param value {@link #ordered} (If the matching elements have to occur in the same order as defined in the profile.)
+         * @param value {@link #ordered} (If the matching elements have to occur in the same order as defined in the profile.). This is the underlying object with id, value and extensions. The accessor "getOrdered" gives direct access to the value
          */
-        public ElementSlicingComponent setOrdered(BooleanType value) { 
+        public ElementSlicingComponent setOrderedObject(BooleanType value) { 
           this.ordered = value;
           return this;
         }
@@ -1269,14 +1269,14 @@ public class Profile extends Resource {
         /**
          * @return If the matching elements have to occur in the same order as defined in the profile.
          */
-        public boolean getOrderedSimple() { 
+        public boolean getOrdered() { 
           return this.ordered == null ? false : this.ordered.getValue();
         }
 
         /**
          * @param value If the matching elements have to occur in the same order as defined in the profile.
          */
-        public ElementSlicingComponent setOrderedSimple(boolean value) { 
+        public ElementSlicingComponent setOrdered(boolean value) { 
           if (value == false)
             this.ordered = null;
           else {
@@ -1288,16 +1288,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #rules} (Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.)
+         * @return {@link #rules} (Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.). This is the underlying object with id, value and extensions. The accessor "getRules" gives direct access to the value
          */
-        public Enumeration<ResourceSlicingRules> getRules() { 
+        public Enumeration<ResourceSlicingRules> getRulesObject() { 
           return this.rules;
         }
 
         /**
-         * @param value {@link #rules} (Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.)
+         * @param value {@link #rules} (Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.). This is the underlying object with id, value and extensions. The accessor "getRules" gives direct access to the value
          */
-        public ElementSlicingComponent setRules(Enumeration<ResourceSlicingRules> value) { 
+        public ElementSlicingComponent setRulesObject(Enumeration<ResourceSlicingRules> value) { 
           this.rules = value;
           return this;
         }
@@ -1305,14 +1305,14 @@ public class Profile extends Resource {
         /**
          * @return Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.
          */
-        public ResourceSlicingRules getRulesSimple() { 
+        public ResourceSlicingRules getRules() { 
           return this.rules == null ? null : this.rules.getValue();
         }
 
         /**
          * @param value Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.
          */
-        public ElementSlicingComponent setRulesSimple(ResourceSlicingRules value) { 
+        public ElementSlicingComponent setRules(ResourceSlicingRules value) { 
             if (this.rules == null)
               this.rules = new Enumeration<ResourceSlicingRules>();
             this.rules.setValue(value);
@@ -1434,16 +1434,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #short_} (A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).)
+         * @return {@link #short_} (A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).). This is the underlying object with id, value and extensions. The accessor "getShort" gives direct access to the value
          */
-        public StringType getShort() { 
+        public StringType getShortObject() { 
           return this.short_;
         }
 
         /**
-         * @param value {@link #short_} (A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).)
+         * @param value {@link #short_} (A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).). This is the underlying object with id, value and extensions. The accessor "getShort" gives direct access to the value
          */
-        public ElementDefinitionComponent setShort(StringType value) { 
+        public ElementDefinitionComponent setShortObject(StringType value) { 
           this.short_ = value;
           return this;
         }
@@ -1451,14 +1451,14 @@ public class Profile extends Resource {
         /**
          * @return A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).
          */
-        public String getShortSimple() { 
+        public String getShort() { 
           return this.short_ == null ? null : this.short_.getValue();
         }
 
         /**
          * @param value A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).
          */
-        public ElementDefinitionComponent setShortSimple(String value) { 
+        public ElementDefinitionComponent setShort(String value) { 
           if (value == null)
             this.short_ = null;
           else {
@@ -1470,16 +1470,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #formal} (The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.)
+         * @return {@link #formal} (The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.). This is the underlying object with id, value and extensions. The accessor "getFormal" gives direct access to the value
          */
-        public StringType getFormal() { 
+        public StringType getFormalObject() { 
           return this.formal;
         }
 
         /**
-         * @param value {@link #formal} (The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.)
+         * @param value {@link #formal} (The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.). This is the underlying object with id, value and extensions. The accessor "getFormal" gives direct access to the value
          */
-        public ElementDefinitionComponent setFormal(StringType value) { 
+        public ElementDefinitionComponent setFormalObject(StringType value) { 
           this.formal = value;
           return this;
         }
@@ -1487,14 +1487,14 @@ public class Profile extends Resource {
         /**
          * @return The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
          */
-        public String getFormalSimple() { 
+        public String getFormal() { 
           return this.formal == null ? null : this.formal.getValue();
         }
 
         /**
          * @param value The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
          */
-        public ElementDefinitionComponent setFormalSimple(String value) { 
+        public ElementDefinitionComponent setFormal(String value) { 
           if (value == null)
             this.formal = null;
           else {
@@ -1506,16 +1506,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.)
+         * @return {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public StringType getComments() { 
+        public StringType getCommentsObject() { 
           return this.comments;
         }
 
         /**
-         * @param value {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.)
+         * @param value {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public ElementDefinitionComponent setComments(StringType value) { 
+        public ElementDefinitionComponent setCommentsObject(StringType value) { 
           this.comments = value;
           return this;
         }
@@ -1523,14 +1523,14 @@ public class Profile extends Resource {
         /**
          * @return Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
          */
-        public String getCommentsSimple() { 
+        public String getComments() { 
           return this.comments == null ? null : this.comments.getValue();
         }
 
         /**
          * @param value Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
          */
-        public ElementDefinitionComponent setCommentsSimple(String value) { 
+        public ElementDefinitionComponent setComments(String value) { 
           if (value == null)
             this.comments = null;
           else {
@@ -1542,16 +1542,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.)
+         * @return {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
          */
-        public StringType getRequirements() { 
+        public StringType getRequirementsObject() { 
           return this.requirements;
         }
 
         /**
-         * @param value {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.)
+         * @param value {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
          */
-        public ElementDefinitionComponent setRequirements(StringType value) { 
+        public ElementDefinitionComponent setRequirementsObject(StringType value) { 
           this.requirements = value;
           return this;
         }
@@ -1559,14 +1559,14 @@ public class Profile extends Resource {
         /**
          * @return Explains why this element is needed and why it's been constrained as it has.
          */
-        public String getRequirementsSimple() { 
+        public String getRequirements() { 
           return this.requirements == null ? null : this.requirements.getValue();
         }
 
         /**
          * @param value Explains why this element is needed and why it's been constrained as it has.
          */
-        public ElementDefinitionComponent setRequirementsSimple(String value) { 
+        public ElementDefinitionComponent setRequirements(String value) { 
           if (value == null)
             this.requirements = null;
           else {
@@ -1588,7 +1588,7 @@ public class Profile extends Resource {
         /**
          * @return {@link #synonym} (Identifies additional names by which this element might also be known.)
          */
-        public StringType addSynonym() { 
+        public StringType addSynonymObject() { 
           StringType t = new StringType();
           this.synonym.add(t);
           return t;
@@ -1597,7 +1597,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
          */
-        public StringType addSynonymSimple(String value) { 
+        public StringType addSynonym(String value) { 
           StringType t = new StringType();
           t.setValue(value);
           this.synonym.add(t);
@@ -1607,7 +1607,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
          */
-        public boolean hasSynonymSimple(String value) { 
+        public boolean hasSynonym(String value) { 
           for (StringType v : this.synonym)
             if (v.getValue().equals(value))
               return true;
@@ -1615,16 +1615,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #min} (The minimum number of times this element SHALL appear in the instance.)
+         * @return {@link #min} (The minimum number of times this element SHALL appear in the instance.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public IntegerType getMin() { 
+        public IntegerType getMinObject() { 
           return this.min;
         }
 
         /**
-         * @param value {@link #min} (The minimum number of times this element SHALL appear in the instance.)
+         * @param value {@link #min} (The minimum number of times this element SHALL appear in the instance.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public ElementDefinitionComponent setMin(IntegerType value) { 
+        public ElementDefinitionComponent setMinObject(IntegerType value) { 
           this.min = value;
           return this;
         }
@@ -1632,14 +1632,14 @@ public class Profile extends Resource {
         /**
          * @return The minimum number of times this element SHALL appear in the instance.
          */
-        public int getMinSimple() { 
+        public int getMin() { 
           return this.min == null ? null : this.min.getValue();
         }
 
         /**
          * @param value The minimum number of times this element SHALL appear in the instance.
          */
-        public ElementDefinitionComponent setMinSimple(int value) { 
+        public ElementDefinitionComponent setMin(int value) { 
           if (value == -1)
             this.min = null;
           else {
@@ -1651,16 +1651,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #max} (The maximum number of times this element is permitted to appear in the instance.)
+         * @return {@link #max} (The maximum number of times this element is permitted to appear in the instance.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
          */
-        public StringType getMax() { 
+        public StringType getMaxObject() { 
           return this.max;
         }
 
         /**
-         * @param value {@link #max} (The maximum number of times this element is permitted to appear in the instance.)
+         * @param value {@link #max} (The maximum number of times this element is permitted to appear in the instance.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
          */
-        public ElementDefinitionComponent setMax(StringType value) { 
+        public ElementDefinitionComponent setMaxObject(StringType value) { 
           this.max = value;
           return this;
         }
@@ -1668,14 +1668,14 @@ public class Profile extends Resource {
         /**
          * @return The maximum number of times this element is permitted to appear in the instance.
          */
-        public String getMaxSimple() { 
+        public String getMax() { 
           return this.max == null ? null : this.max.getValue();
         }
 
         /**
          * @param value The maximum number of times this element is permitted to appear in the instance.
          */
-        public ElementDefinitionComponent setMaxSimple(String value) { 
+        public ElementDefinitionComponent setMax(String value) { 
           if (value == null)
             this.max = null;
           else {
@@ -1704,16 +1704,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #nameReference} (Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.)
+         * @return {@link #nameReference} (Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.). This is the underlying object with id, value and extensions. The accessor "getNameReference" gives direct access to the value
          */
-        public StringType getNameReference() { 
+        public StringType getNameReferenceObject() { 
           return this.nameReference;
         }
 
         /**
-         * @param value {@link #nameReference} (Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.)
+         * @param value {@link #nameReference} (Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.). This is the underlying object with id, value and extensions. The accessor "getNameReference" gives direct access to the value
          */
-        public ElementDefinitionComponent setNameReference(StringType value) { 
+        public ElementDefinitionComponent setNameReferenceObject(StringType value) { 
           this.nameReference = value;
           return this;
         }
@@ -1721,14 +1721,14 @@ public class Profile extends Resource {
         /**
          * @return Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.
          */
-        public String getNameReferenceSimple() { 
+        public String getNameReference() { 
           return this.nameReference == null ? null : this.nameReference.getValue();
         }
 
         /**
          * @param value Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.
          */
-        public ElementDefinitionComponent setNameReferenceSimple(String value) { 
+        public ElementDefinitionComponent setNameReference(String value) { 
           if (value == null)
             this.nameReference = null;
           else {
@@ -1770,16 +1770,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.)
+         * @return {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.). This is the underlying object with id, value and extensions. The accessor "getMaxLength" gives direct access to the value
          */
-        public IntegerType getMaxLength() { 
+        public IntegerType getMaxLengthObject() { 
           return this.maxLength;
         }
 
         /**
-         * @param value {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.)
+         * @param value {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.). This is the underlying object with id, value and extensions. The accessor "getMaxLength" gives direct access to the value
          */
-        public ElementDefinitionComponent setMaxLength(IntegerType value) { 
+        public ElementDefinitionComponent setMaxLengthObject(IntegerType value) { 
           this.maxLength = value;
           return this;
         }
@@ -1787,14 +1787,14 @@ public class Profile extends Resource {
         /**
          * @return Indicates the shortest length that SHALL be supported by conformant instances without truncation.
          */
-        public int getMaxLengthSimple() { 
+        public int getMaxLength() { 
           return this.maxLength == null ? null : this.maxLength.getValue();
         }
 
         /**
          * @param value Indicates the shortest length that SHALL be supported by conformant instances without truncation.
          */
-        public ElementDefinitionComponent setMaxLengthSimple(int value) { 
+        public ElementDefinitionComponent setMaxLength(int value) { 
           if (value == -1)
             this.maxLength = null;
           else {
@@ -1816,7 +1816,7 @@ public class Profile extends Resource {
         /**
          * @return {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
          */
-        public IdType addCondition() { 
+        public IdType addConditionObject() { 
           IdType t = new IdType();
           this.condition.add(t);
           return t;
@@ -1825,7 +1825,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
          */
-        public IdType addConditionSimple(String value) { 
+        public IdType addCondition(String value) { 
           IdType t = new IdType();
           t.setValue(value);
           this.condition.add(t);
@@ -1835,7 +1835,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
          */
-        public boolean hasConditionSimple(String value) { 
+        public boolean hasCondition(String value) { 
           for (IdType v : this.condition)
             if (v.getValue().equals(value))
               return true;
@@ -1860,16 +1860,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #mustSupport} (If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.)
+         * @return {@link #mustSupport} (If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.). This is the underlying object with id, value and extensions. The accessor "getMustSupport" gives direct access to the value
          */
-        public BooleanType getMustSupport() { 
+        public BooleanType getMustSupportObject() { 
           return this.mustSupport;
         }
 
         /**
-         * @param value {@link #mustSupport} (If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.)
+         * @param value {@link #mustSupport} (If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.). This is the underlying object with id, value and extensions. The accessor "getMustSupport" gives direct access to the value
          */
-        public ElementDefinitionComponent setMustSupport(BooleanType value) { 
+        public ElementDefinitionComponent setMustSupportObject(BooleanType value) { 
           this.mustSupport = value;
           return this;
         }
@@ -1877,14 +1877,14 @@ public class Profile extends Resource {
         /**
          * @return If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.
          */
-        public boolean getMustSupportSimple() { 
+        public boolean getMustSupport() { 
           return this.mustSupport == null ? false : this.mustSupport.getValue();
         }
 
         /**
          * @param value If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.
          */
-        public ElementDefinitionComponent setMustSupportSimple(boolean value) { 
+        public ElementDefinitionComponent setMustSupport(boolean value) { 
           if (value == false)
             this.mustSupport = null;
           else {
@@ -1896,16 +1896,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #isModifier} (If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.)
+         * @return {@link #isModifier} (If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.). This is the underlying object with id, value and extensions. The accessor "getIsModifier" gives direct access to the value
          */
-        public BooleanType getIsModifier() { 
+        public BooleanType getIsModifierObject() { 
           return this.isModifier;
         }
 
         /**
-         * @param value {@link #isModifier} (If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.)
+         * @param value {@link #isModifier} (If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.). This is the underlying object with id, value and extensions. The accessor "getIsModifier" gives direct access to the value
          */
-        public ElementDefinitionComponent setIsModifier(BooleanType value) { 
+        public ElementDefinitionComponent setIsModifierObject(BooleanType value) { 
           this.isModifier = value;
           return this;
         }
@@ -1913,14 +1913,14 @@ public class Profile extends Resource {
         /**
          * @return If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
          */
-        public boolean getIsModifierSimple() { 
+        public boolean getIsModifier() { 
           return this.isModifier == null ? false : this.isModifier.getValue();
         }
 
         /**
          * @param value If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
          */
-        public ElementDefinitionComponent setIsModifierSimple(boolean value) { 
+        public ElementDefinitionComponent setIsModifier(boolean value) { 
           if (value == false)
             this.isModifier = null;
           else {
@@ -2048,16 +2048,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #code} (Name of Data type or Resource.)
+         * @return {@link #code} (Name of Data type or Resource.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public CodeType getCode() { 
+        public CodeType getCodeObject() { 
           return this.code;
         }
 
         /**
-         * @param value {@link #code} (Name of Data type or Resource.)
+         * @param value {@link #code} (Name of Data type or Resource.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public TypeRefComponent setCode(CodeType value) { 
+        public TypeRefComponent setCodeObject(CodeType value) { 
           this.code = value;
           return this;
         }
@@ -2065,14 +2065,14 @@ public class Profile extends Resource {
         /**
          * @return Name of Data type or Resource.
          */
-        public String getCodeSimple() { 
+        public String getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value Name of Data type or Resource.
          */
-        public TypeRefComponent setCodeSimple(String value) { 
+        public TypeRefComponent setCode(String value) { 
             if (this.code == null)
               this.code = new CodeType();
             this.code.setValue(value);
@@ -2080,16 +2080,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #profile} (Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.)
+         * @return {@link #profile} (Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
-        public UriType getProfile() { 
+        public UriType getProfileObject() { 
           return this.profile;
         }
 
         /**
-         * @param value {@link #profile} (Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.)
+         * @param value {@link #profile} (Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
-        public TypeRefComponent setProfile(UriType value) { 
+        public TypeRefComponent setProfileObject(UriType value) { 
           this.profile = value;
           return this;
         }
@@ -2097,14 +2097,14 @@ public class Profile extends Resource {
         /**
          * @return Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
          */
-        public String getProfileSimple() { 
+        public String getProfile() { 
           return this.profile == null ? null : this.profile.getValue();
         }
 
         /**
          * @param value Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
          */
-        public TypeRefComponent setProfileSimple(String value) { 
+        public TypeRefComponent setProfile(String value) { 
           if (value == null)
             this.profile = null;
           else {
@@ -2126,7 +2126,7 @@ public class Profile extends Resource {
         /**
          * @return {@link #aggregation} (If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.)
          */
-        public Enumeration<ResourceAggregationMode> addAggregation() { 
+        public Enumeration<ResourceAggregationMode> addAggregationObject() { 
           Enumeration<ResourceAggregationMode> t = new Enumeration<ResourceAggregationMode>();
           this.aggregation.add(t);
           return t;
@@ -2135,7 +2135,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #aggregation} (If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.)
          */
-        public Enumeration<ResourceAggregationMode> addAggregationSimple(ResourceAggregationMode value) { 
+        public Enumeration<ResourceAggregationMode> addAggregation(ResourceAggregationMode value) { 
           Enumeration<ResourceAggregationMode> t = new Enumeration<ResourceAggregationMode>();
           t.setValue(value);
           this.aggregation.add(t);
@@ -2145,7 +2145,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #aggregation} (If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.)
          */
-        public boolean hasAggregationSimple(ResourceAggregationMode value) { 
+        public boolean hasAggregation(ResourceAggregationMode value) { 
           for (Enumeration<ResourceAggregationMode> v : this.aggregation)
             if (v.getValue().equals(value))
               return true;
@@ -2212,16 +2212,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #key} (Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.)
+         * @return {@link #key} (Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.). This is the underlying object with id, value and extensions. The accessor "getKey" gives direct access to the value
          */
-        public IdType getKey() { 
+        public IdType getKeyObject() { 
           return this.key;
         }
 
         /**
-         * @param value {@link #key} (Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.)
+         * @param value {@link #key} (Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.). This is the underlying object with id, value and extensions. The accessor "getKey" gives direct access to the value
          */
-        public ElementDefinitionConstraintComponent setKey(IdType value) { 
+        public ElementDefinitionConstraintComponent setKeyObject(IdType value) { 
           this.key = value;
           return this;
         }
@@ -2229,14 +2229,14 @@ public class Profile extends Resource {
         /**
          * @return Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.
          */
-        public String getKeySimple() { 
+        public String getKey() { 
           return this.key == null ? null : this.key.getValue();
         }
 
         /**
          * @param value Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.
          */
-        public ElementDefinitionConstraintComponent setKeySimple(String value) { 
+        public ElementDefinitionConstraintComponent setKey(String value) { 
             if (this.key == null)
               this.key = new IdType();
             this.key.setValue(value);
@@ -2244,16 +2244,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #name} (Used to label the constraint in OCL or in short displays incapable of displaying the full human description.)
+         * @return {@link #name} (Used to label the constraint in OCL or in short displays incapable of displaying the full human description.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getName() { 
+        public StringType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (Used to label the constraint in OCL or in short displays incapable of displaying the full human description.)
+         * @param value {@link #name} (Used to label the constraint in OCL or in short displays incapable of displaying the full human description.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ElementDefinitionConstraintComponent setName(StringType value) { 
+        public ElementDefinitionConstraintComponent setNameObject(StringType value) { 
           this.name = value;
           return this;
         }
@@ -2261,14 +2261,14 @@ public class Profile extends Resource {
         /**
          * @return Used to label the constraint in OCL or in short displays incapable of displaying the full human description.
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value Used to label the constraint in OCL or in short displays incapable of displaying the full human description.
          */
-        public ElementDefinitionConstraintComponent setNameSimple(String value) { 
+        public ElementDefinitionConstraintComponent setName(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -2280,16 +2280,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #severity} (Identifies the impact constraint violation has on the conformance of the instance.)
+         * @return {@link #severity} (Identifies the impact constraint violation has on the conformance of the instance.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public Enumeration<ConstraintSeverity> getSeverity() { 
+        public Enumeration<ConstraintSeverity> getSeverityObject() { 
           return this.severity;
         }
 
         /**
-         * @param value {@link #severity} (Identifies the impact constraint violation has on the conformance of the instance.)
+         * @param value {@link #severity} (Identifies the impact constraint violation has on the conformance of the instance.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public ElementDefinitionConstraintComponent setSeverity(Enumeration<ConstraintSeverity> value) { 
+        public ElementDefinitionConstraintComponent setSeverityObject(Enumeration<ConstraintSeverity> value) { 
           this.severity = value;
           return this;
         }
@@ -2297,14 +2297,14 @@ public class Profile extends Resource {
         /**
          * @return Identifies the impact constraint violation has on the conformance of the instance.
          */
-        public ConstraintSeverity getSeveritySimple() { 
+        public ConstraintSeverity getSeverity() { 
           return this.severity == null ? null : this.severity.getValue();
         }
 
         /**
          * @param value Identifies the impact constraint violation has on the conformance of the instance.
          */
-        public ElementDefinitionConstraintComponent setSeveritySimple(ConstraintSeverity value) { 
+        public ElementDefinitionConstraintComponent setSeverity(ConstraintSeverity value) { 
             if (this.severity == null)
               this.severity = new Enumeration<ConstraintSeverity>();
             this.severity.setValue(value);
@@ -2312,16 +2312,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #human} (Text that can be used to describe the constraint in messages identifying that the constraint has been violated.)
+         * @return {@link #human} (Text that can be used to describe the constraint in messages identifying that the constraint has been violated.). This is the underlying object with id, value and extensions. The accessor "getHuman" gives direct access to the value
          */
-        public StringType getHuman() { 
+        public StringType getHumanObject() { 
           return this.human;
         }
 
         /**
-         * @param value {@link #human} (Text that can be used to describe the constraint in messages identifying that the constraint has been violated.)
+         * @param value {@link #human} (Text that can be used to describe the constraint in messages identifying that the constraint has been violated.). This is the underlying object with id, value and extensions. The accessor "getHuman" gives direct access to the value
          */
-        public ElementDefinitionConstraintComponent setHuman(StringType value) { 
+        public ElementDefinitionConstraintComponent setHumanObject(StringType value) { 
           this.human = value;
           return this;
         }
@@ -2329,14 +2329,14 @@ public class Profile extends Resource {
         /**
          * @return Text that can be used to describe the constraint in messages identifying that the constraint has been violated.
          */
-        public String getHumanSimple() { 
+        public String getHuman() { 
           return this.human == null ? null : this.human.getValue();
         }
 
         /**
          * @param value Text that can be used to describe the constraint in messages identifying that the constraint has been violated.
          */
-        public ElementDefinitionConstraintComponent setHumanSimple(String value) { 
+        public ElementDefinitionConstraintComponent setHuman(String value) { 
             if (this.human == null)
               this.human = new StringType();
             this.human.setValue(value);
@@ -2344,16 +2344,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #xpath} (XPath expression of constraint.)
+         * @return {@link #xpath} (XPath expression of constraint.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
          */
-        public StringType getXpath() { 
+        public StringType getXpathObject() { 
           return this.xpath;
         }
 
         /**
-         * @param value {@link #xpath} (XPath expression of constraint.)
+         * @param value {@link #xpath} (XPath expression of constraint.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
          */
-        public ElementDefinitionConstraintComponent setXpath(StringType value) { 
+        public ElementDefinitionConstraintComponent setXpathObject(StringType value) { 
           this.xpath = value;
           return this;
         }
@@ -2361,14 +2361,14 @@ public class Profile extends Resource {
         /**
          * @return XPath expression of constraint.
          */
-        public String getXpathSimple() { 
+        public String getXpath() { 
           return this.xpath == null ? null : this.xpath.getValue();
         }
 
         /**
          * @param value XPath expression of constraint.
          */
-        public ElementDefinitionConstraintComponent setXpathSimple(String value) { 
+        public ElementDefinitionConstraintComponent setXpath(String value) { 
             if (this.xpath == null)
               this.xpath = new StringType();
             this.xpath.setValue(value);
@@ -2435,16 +2435,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.)
+         * @return {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getName() { 
+        public StringType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.)
+         * @param value {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ElementDefinitionBindingComponent setName(StringType value) { 
+        public ElementDefinitionBindingComponent setNameObject(StringType value) { 
           this.name = value;
           return this;
         }
@@ -2452,14 +2452,14 @@ public class Profile extends Resource {
         /**
          * @return A descriptive name for this - can be useful for generating implementation artifacts.
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value A descriptive name for this - can be useful for generating implementation artifacts.
          */
-        public ElementDefinitionBindingComponent setNameSimple(String value) { 
+        public ElementDefinitionBindingComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -2467,16 +2467,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.)
+         * @return {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.). This is the underlying object with id, value and extensions. The accessor "getIsExtensible" gives direct access to the value
          */
-        public BooleanType getIsExtensible() { 
+        public BooleanType getIsExtensibleObject() { 
           return this.isExtensible;
         }
 
         /**
-         * @param value {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.)
+         * @param value {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.). This is the underlying object with id, value and extensions. The accessor "getIsExtensible" gives direct access to the value
          */
-        public ElementDefinitionBindingComponent setIsExtensible(BooleanType value) { 
+        public ElementDefinitionBindingComponent setIsExtensibleObject(BooleanType value) { 
           this.isExtensible = value;
           return this;
         }
@@ -2484,14 +2484,14 @@ public class Profile extends Resource {
         /**
          * @return If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
          */
-        public boolean getIsExtensibleSimple() { 
+        public boolean getIsExtensible() { 
           return this.isExtensible == null ? false : this.isExtensible.getValue();
         }
 
         /**
          * @param value If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
          */
-        public ElementDefinitionBindingComponent setIsExtensibleSimple(boolean value) { 
+        public ElementDefinitionBindingComponent setIsExtensible(boolean value) { 
             if (this.isExtensible == null)
               this.isExtensible = new BooleanType();
             this.isExtensible.setValue(value);
@@ -2499,16 +2499,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.)
+         * @return {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.). This is the underlying object with id, value and extensions. The accessor "getConformance" gives direct access to the value
          */
-        public Enumeration<BindingConformance> getConformance() { 
+        public Enumeration<BindingConformance> getConformanceObject() { 
           return this.conformance;
         }
 
         /**
-         * @param value {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.)
+         * @param value {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.). This is the underlying object with id, value and extensions. The accessor "getConformance" gives direct access to the value
          */
-        public ElementDefinitionBindingComponent setConformance(Enumeration<BindingConformance> value) { 
+        public ElementDefinitionBindingComponent setConformanceObject(Enumeration<BindingConformance> value) { 
           this.conformance = value;
           return this;
         }
@@ -2516,14 +2516,14 @@ public class Profile extends Resource {
         /**
          * @return Indicates the degree of conformance expectations associated with this binding.
          */
-        public BindingConformance getConformanceSimple() { 
+        public BindingConformance getConformance() { 
           return this.conformance == null ? null : this.conformance.getValue();
         }
 
         /**
          * @param value Indicates the degree of conformance expectations associated with this binding.
          */
-        public ElementDefinitionBindingComponent setConformanceSimple(BindingConformance value) { 
+        public ElementDefinitionBindingComponent setConformance(BindingConformance value) { 
           if (value == null)
             this.conformance = null;
           else {
@@ -2535,16 +2535,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #description} (Describes the intended use of this particular set of codes.)
+         * @return {@link #description} (Describes the intended use of this particular set of codes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescription() { 
+        public StringType getDescriptionObject() { 
           return this.description;
         }
 
         /**
-         * @param value {@link #description} (Describes the intended use of this particular set of codes.)
+         * @param value {@link #description} (Describes the intended use of this particular set of codes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ElementDefinitionBindingComponent setDescription(StringType value) { 
+        public ElementDefinitionBindingComponent setDescriptionObject(StringType value) { 
           this.description = value;
           return this;
         }
@@ -2552,14 +2552,14 @@ public class Profile extends Resource {
         /**
          * @return Describes the intended use of this particular set of codes.
          */
-        public String getDescriptionSimple() { 
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Describes the intended use of this particular set of codes.
          */
-        public ElementDefinitionBindingComponent setDescriptionSimple(String value) { 
+        public ElementDefinitionBindingComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -2630,16 +2630,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #identity} (An internal reference to the definition of a mapping.)
+         * @return {@link #identity} (An internal reference to the definition of a mapping.). This is the underlying object with id, value and extensions. The accessor "getIdentity" gives direct access to the value
          */
-        public IdType getIdentity() { 
+        public IdType getIdentityObject() { 
           return this.identity;
         }
 
         /**
-         * @param value {@link #identity} (An internal reference to the definition of a mapping.)
+         * @param value {@link #identity} (An internal reference to the definition of a mapping.). This is the underlying object with id, value and extensions. The accessor "getIdentity" gives direct access to the value
          */
-        public ElementDefinitionMappingComponent setIdentity(IdType value) { 
+        public ElementDefinitionMappingComponent setIdentityObject(IdType value) { 
           this.identity = value;
           return this;
         }
@@ -2647,14 +2647,14 @@ public class Profile extends Resource {
         /**
          * @return An internal reference to the definition of a mapping.
          */
-        public String getIdentitySimple() { 
+        public String getIdentity() { 
           return this.identity == null ? null : this.identity.getValue();
         }
 
         /**
          * @param value An internal reference to the definition of a mapping.
          */
-        public ElementDefinitionMappingComponent setIdentitySimple(String value) { 
+        public ElementDefinitionMappingComponent setIdentity(String value) { 
             if (this.identity == null)
               this.identity = new IdType();
             this.identity.setValue(value);
@@ -2662,16 +2662,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #map} (Expresses what part of the target specification corresponds to this element.)
+         * @return {@link #map} (Expresses what part of the target specification corresponds to this element.). This is the underlying object with id, value and extensions. The accessor "getMap" gives direct access to the value
          */
-        public StringType getMap() { 
+        public StringType getMapObject() { 
           return this.map;
         }
 
         /**
-         * @param value {@link #map} (Expresses what part of the target specification corresponds to this element.)
+         * @param value {@link #map} (Expresses what part of the target specification corresponds to this element.). This is the underlying object with id, value and extensions. The accessor "getMap" gives direct access to the value
          */
-        public ElementDefinitionMappingComponent setMap(StringType value) { 
+        public ElementDefinitionMappingComponent setMapObject(StringType value) { 
           this.map = value;
           return this;
         }
@@ -2679,14 +2679,14 @@ public class Profile extends Resource {
         /**
          * @return Expresses what part of the target specification corresponds to this element.
          */
-        public String getMapSimple() { 
+        public String getMap() { 
           return this.map == null ? null : this.map.getValue();
         }
 
         /**
          * @param value Expresses what part of the target specification corresponds to this element.
          */
-        public ElementDefinitionMappingComponent setMapSimple(String value) { 
+        public ElementDefinitionMappingComponent setMap(String value) { 
             if (this.map == null)
               this.map = new StringType();
             this.map.setValue(value);
@@ -2748,16 +2748,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #name} (The name of the standard or custom search parameter.)
+         * @return {@link #name} (The name of the standard or custom search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getName() { 
+        public StringType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (The name of the standard or custom search parameter.)
+         * @param value {@link #name} (The name of the standard or custom search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ProfileStructureSearchParamComponent setName(StringType value) { 
+        public ProfileStructureSearchParamComponent setNameObject(StringType value) { 
           this.name = value;
           return this;
         }
@@ -2765,14 +2765,14 @@ public class Profile extends Resource {
         /**
          * @return The name of the standard or custom search parameter.
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of the standard or custom search parameter.
          */
-        public ProfileStructureSearchParamComponent setNameSimple(String value) { 
+        public ProfileStructureSearchParamComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -2780,16 +2780,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.)
+         * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<SearchParamType> getType() { 
+        public Enumeration<SearchParamType> getTypeObject() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.)
+         * @param value {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ProfileStructureSearchParamComponent setType(Enumeration<SearchParamType> value) { 
+        public ProfileStructureSearchParamComponent setTypeObject(Enumeration<SearchParamType> value) { 
           this.type = value;
           return this;
         }
@@ -2797,14 +2797,14 @@ public class Profile extends Resource {
         /**
          * @return The type of value a search parameter refers to, and how the content is interpreted.
          */
-        public SearchParamType getTypeSimple() { 
+        public SearchParamType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of value a search parameter refers to, and how the content is interpreted.
          */
-        public ProfileStructureSearchParamComponent setTypeSimple(SearchParamType value) { 
+        public ProfileStructureSearchParamComponent setType(SearchParamType value) { 
             if (this.type == null)
               this.type = new Enumeration<SearchParamType>();
             this.type.setValue(value);
@@ -2812,16 +2812,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.)
+         * @return {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentation() { 
+        public StringType getDocumentationObject() { 
           return this.documentation;
         }
 
         /**
-         * @param value {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.)
+         * @param value {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ProfileStructureSearchParamComponent setDocumentation(StringType value) { 
+        public ProfileStructureSearchParamComponent setDocumentationObject(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -2829,14 +2829,14 @@ public class Profile extends Resource {
         /**
          * @return A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
          */
-        public String getDocumentationSimple() { 
+        public String getDocumentation() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
          */
-        public ProfileStructureSearchParamComponent setDocumentationSimple(String value) { 
+        public ProfileStructureSearchParamComponent setDocumentation(String value) { 
             if (this.documentation == null)
               this.documentation = new StringType();
             this.documentation.setValue(value);
@@ -2844,16 +2844,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.)
+         * @return {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
          */
-        public StringType getXpath() { 
+        public StringType getXpathObject() { 
           return this.xpath;
         }
 
         /**
-         * @param value {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.)
+         * @param value {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
          */
-        public ProfileStructureSearchParamComponent setXpath(StringType value) { 
+        public ProfileStructureSearchParamComponent setXpathObject(StringType value) { 
           this.xpath = value;
           return this;
         }
@@ -2861,14 +2861,14 @@ public class Profile extends Resource {
         /**
          * @return An XPath expression that returns a set of elements for the search parameter.
          */
-        public String getXpathSimple() { 
+        public String getXpath() { 
           return this.xpath == null ? null : this.xpath.getValue();
         }
 
         /**
          * @param value An XPath expression that returns a set of elements for the search parameter.
          */
-        public ProfileStructureSearchParamComponent setXpathSimple(String value) { 
+        public ProfileStructureSearchParamComponent setXpath(String value) { 
           if (value == null)
             this.xpath = null;
           else {
@@ -2890,7 +2890,7 @@ public class Profile extends Resource {
         /**
          * @return {@link #target} (Types of resource (if a resource is referenced).)
          */
-        public CodeType addTarget() { 
+        public CodeType addTargetObject() { 
           CodeType t = new CodeType();
           this.target.add(t);
           return t;
@@ -2899,7 +2899,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #target} (Types of resource (if a resource is referenced).)
          */
-        public CodeType addTargetSimple(String value) { 
+        public CodeType addTarget(String value) { 
           CodeType t = new CodeType();
           t.setValue(value);
           this.target.add(t);
@@ -2909,7 +2909,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #target} (Types of resource (if a resource is referenced).)
          */
-        public boolean hasTargetSimple(String value) { 
+        public boolean hasTarget(String value) { 
           for (CodeType v : this.target)
             if (v.getValue().equals(value))
               return true;
@@ -2978,16 +2978,16 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #code} (A unique code (within the profile) used to identify the extension.)
+         * @return {@link #code} (A unique code (within the profile) used to identify the extension.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public CodeType getCode() { 
+        public CodeType getCodeObject() { 
           return this.code;
         }
 
         /**
-         * @param value {@link #code} (A unique code (within the profile) used to identify the extension.)
+         * @param value {@link #code} (A unique code (within the profile) used to identify the extension.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public ProfileExtensionDefnComponent setCode(CodeType value) { 
+        public ProfileExtensionDefnComponent setCodeObject(CodeType value) { 
           this.code = value;
           return this;
         }
@@ -2995,14 +2995,14 @@ public class Profile extends Resource {
         /**
          * @return A unique code (within the profile) used to identify the extension.
          */
-        public String getCodeSimple() { 
+        public String getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value A unique code (within the profile) used to identify the extension.
          */
-        public ProfileExtensionDefnComponent setCodeSimple(String value) { 
+        public ProfileExtensionDefnComponent setCode(String value) { 
             if (this.code == null)
               this.code = new CodeType();
             this.code.setValue(value);
@@ -3010,16 +3010,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #display} (Defined so that applications can use this name when displaying the value of the extension to the user.)
+         * @return {@link #display} (Defined so that applications can use this name when displaying the value of the extension to the user.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
          */
-        public StringType getDisplay() { 
+        public StringType getDisplayObject() { 
           return this.display;
         }
 
         /**
-         * @param value {@link #display} (Defined so that applications can use this name when displaying the value of the extension to the user.)
+         * @param value {@link #display} (Defined so that applications can use this name when displaying the value of the extension to the user.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
          */
-        public ProfileExtensionDefnComponent setDisplay(StringType value) { 
+        public ProfileExtensionDefnComponent setDisplayObject(StringType value) { 
           this.display = value;
           return this;
         }
@@ -3027,14 +3027,14 @@ public class Profile extends Resource {
         /**
          * @return Defined so that applications can use this name when displaying the value of the extension to the user.
          */
-        public String getDisplaySimple() { 
+        public String getDisplay() { 
           return this.display == null ? null : this.display.getValue();
         }
 
         /**
          * @param value Defined so that applications can use this name when displaying the value of the extension to the user.
          */
-        public ProfileExtensionDefnComponent setDisplaySimple(String value) { 
+        public ProfileExtensionDefnComponent setDisplay(String value) { 
           if (value == null)
             this.display = null;
           else {
@@ -3046,16 +3046,16 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #contextType} (Identifies the type of context to which the extension applies.)
+         * @return {@link #contextType} (Identifies the type of context to which the extension applies.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
          */
-        public Enumeration<ExtensionContext> getContextType() { 
+        public Enumeration<ExtensionContext> getContextTypeObject() { 
           return this.contextType;
         }
 
         /**
-         * @param value {@link #contextType} (Identifies the type of context to which the extension applies.)
+         * @param value {@link #contextType} (Identifies the type of context to which the extension applies.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
          */
-        public ProfileExtensionDefnComponent setContextType(Enumeration<ExtensionContext> value) { 
+        public ProfileExtensionDefnComponent setContextTypeObject(Enumeration<ExtensionContext> value) { 
           this.contextType = value;
           return this;
         }
@@ -3063,14 +3063,14 @@ public class Profile extends Resource {
         /**
          * @return Identifies the type of context to which the extension applies.
          */
-        public ExtensionContext getContextTypeSimple() { 
+        public ExtensionContext getContextType() { 
           return this.contextType == null ? null : this.contextType.getValue();
         }
 
         /**
          * @param value Identifies the type of context to which the extension applies.
          */
-        public ProfileExtensionDefnComponent setContextTypeSimple(ExtensionContext value) { 
+        public ProfileExtensionDefnComponent setContextType(ExtensionContext value) { 
             if (this.contextType == null)
               this.contextType = new Enumeration<ExtensionContext>();
             this.contextType.setValue(value);
@@ -3088,7 +3088,7 @@ public class Profile extends Resource {
         /**
          * @return {@link #context} (Identifies the types of resource or data type elements to which the extension can be applied.)
          */
-        public StringType addContext() { 
+        public StringType addContextObject() { 
           StringType t = new StringType();
           this.context.add(t);
           return t;
@@ -3097,7 +3097,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #context} (Identifies the types of resource or data type elements to which the extension can be applied.)
          */
-        public StringType addContextSimple(String value) { 
+        public StringType addContext(String value) { 
           StringType t = new StringType();
           t.setValue(value);
           this.context.add(t);
@@ -3107,7 +3107,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #context} (Identifies the types of resource or data type elements to which the extension can be applied.)
          */
-        public boolean hasContextSimple(String value) { 
+        public boolean hasContext(String value) { 
           for (StringType v : this.context)
             if (v.getValue().equals(value))
               return true;
@@ -3250,16 +3250,16 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #url} (The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.)
+     * @return {@link #url} (The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrl() { 
+    public UriType getUrlObject() { 
       return this.url;
     }
 
     /**
-     * @param value {@link #url} (The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.)
+     * @param value {@link #url} (The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public Profile setUrl(UriType value) { 
+    public Profile setUrlObject(UriType value) { 
       this.url = value;
       return this;
     }
@@ -3267,14 +3267,14 @@ public class Profile extends Resource {
     /**
      * @return The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.
      */
-    public String getUrlSimple() { 
+    public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.
      */
-    public Profile setUrlSimple(String value) { 
+    public Profile setUrl(String value) { 
         if (this.url == null)
           this.url = new UriType();
         this.url.setValue(value);
@@ -3299,16 +3299,16 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.)
+     * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersion() { 
+    public StringType getVersionObject() { 
       return this.version;
     }
 
     /**
-     * @param value {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.)
+     * @param value {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public Profile setVersion(StringType value) { 
+    public Profile setVersionObject(StringType value) { 
       this.version = value;
       return this;
     }
@@ -3316,14 +3316,14 @@ public class Profile extends Resource {
     /**
      * @return The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    public String getVersionSimple() { 
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    public Profile setVersionSimple(String value) { 
+    public Profile setVersion(String value) { 
       if (value == null)
         this.version = null;
       else {
@@ -3335,16 +3335,16 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the Profile.)
+     * @return {@link #name} (A free text natural language name identifying the Profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getName() { 
+    public StringType getNameObject() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the Profile.)
+     * @param value {@link #name} (A free text natural language name identifying the Profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Profile setName(StringType value) { 
+    public Profile setNameObject(StringType value) { 
       this.name = value;
       return this;
     }
@@ -3352,14 +3352,14 @@ public class Profile extends Resource {
     /**
      * @return A free text natural language name identifying the Profile.
      */
-    public String getNameSimple() { 
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A free text natural language name identifying the Profile.
      */
-    public Profile setNameSimple(String value) { 
+    public Profile setName(String value) { 
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
@@ -3367,16 +3367,16 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.)
+     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisher() { 
+    public StringType getPublisherObject() { 
       return this.publisher;
     }
 
     /**
-     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.)
+     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public Profile setPublisher(StringType value) { 
+    public Profile setPublisherObject(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -3384,14 +3384,14 @@ public class Profile extends Resource {
     /**
      * @return Details of the individual or organization who accepts responsibility for publishing the profile.
      */
-    public String getPublisherSimple() { 
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value Details of the individual or organization who accepts responsibility for publishing the profile.
      */
-    public Profile setPublisherSimple(String value) { 
+    public Profile setPublisher(String value) { 
       if (value == null)
         this.publisher = null;
       else {
@@ -3420,16 +3420,16 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #description} (A free text natural language description of the profile and its use.)
+     * @return {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescription() { 
+    public StringType getDescriptionObject() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (A free text natural language description of the profile and its use.)
+     * @param value {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Profile setDescription(StringType value) { 
+    public Profile setDescriptionObject(StringType value) { 
       this.description = value;
       return this;
     }
@@ -3437,14 +3437,14 @@ public class Profile extends Resource {
     /**
      * @return A free text natural language description of the profile and its use.
      */
-    public String getDescriptionSimple() { 
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A free text natural language description of the profile and its use.
      */
-    public Profile setDescriptionSimple(String value) { 
+    public Profile setDescription(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -3473,16 +3473,16 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #status} (The status of the profile.)
+     * @return {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ResourceProfileStatus> getStatus() { 
+    public Enumeration<ResourceProfileStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The status of the profile.)
+     * @param value {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Profile setStatus(Enumeration<ResourceProfileStatus> value) { 
+    public Profile setStatusObject(Enumeration<ResourceProfileStatus> value) { 
       this.status = value;
       return this;
     }
@@ -3490,14 +3490,14 @@ public class Profile extends Resource {
     /**
      * @return The status of the profile.
      */
-    public ResourceProfileStatus getStatusSimple() { 
+    public ResourceProfileStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the profile.
      */
-    public Profile setStatusSimple(ResourceProfileStatus value) { 
+    public Profile setStatus(ResourceProfileStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ResourceProfileStatus>();
         this.status.setValue(value);
@@ -3505,16 +3505,16 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.)
+     * @return {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimental() { 
+    public BooleanType getExperimentalObject() { 
       return this.experimental;
     }
 
     /**
-     * @param value {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.)
+     * @param value {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public Profile setExperimental(BooleanType value) { 
+    public Profile setExperimentalObject(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -3522,14 +3522,14 @@ public class Profile extends Resource {
     /**
      * @return This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public boolean getExperimentalSimple() { 
+    public boolean getExperimental() { 
       return this.experimental == null ? false : this.experimental.getValue();
     }
 
     /**
      * @param value This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public Profile setExperimentalSimple(boolean value) { 
+    public Profile setExperimental(boolean value) { 
       if (value == false)
         this.experimental = null;
       else {
@@ -3541,16 +3541,16 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #date} (The date that this version of the profile was published.)
+     * @return {@link #date} (The date that this version of the profile was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDate() { 
+    public DateTimeType getDateObject() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The date that this version of the profile was published.)
+     * @param value {@link #date} (The date that this version of the profile was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Profile setDate(DateTimeType value) { 
+    public Profile setDateObject(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -3558,14 +3558,14 @@ public class Profile extends Resource {
     /**
      * @return The date that this version of the profile was published.
      */
-    public DateAndTime getDateSimple() { 
+    public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that this version of the profile was published.
      */
-    public Profile setDateSimple(DateAndTime value) { 
+    public Profile setDate(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -3577,16 +3577,16 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #requirements} (The Scope and Usage that this profile was created to meet.)
+     * @return {@link #requirements} (The Scope and Usage that this profile was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public StringType getRequirements() { 
+    public StringType getRequirementsObject() { 
       return this.requirements;
     }
 
     /**
-     * @param value {@link #requirements} (The Scope and Usage that this profile was created to meet.)
+     * @param value {@link #requirements} (The Scope and Usage that this profile was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public Profile setRequirements(StringType value) { 
+    public Profile setRequirementsObject(StringType value) { 
       this.requirements = value;
       return this;
     }
@@ -3594,14 +3594,14 @@ public class Profile extends Resource {
     /**
      * @return The Scope and Usage that this profile was created to meet.
      */
-    public String getRequirementsSimple() { 
+    public String getRequirements() { 
       return this.requirements == null ? null : this.requirements.getValue();
     }
 
     /**
      * @param value The Scope and Usage that this profile was created to meet.
      */
-    public Profile setRequirementsSimple(String value) { 
+    public Profile setRequirements(String value) { 
       if (value == null)
         this.requirements = null;
       else {
@@ -3613,16 +3613,16 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #fhirVersion} (The version of the FHIR specification on which this profile is based.)
+     * @return {@link #fhirVersion} (The version of the FHIR specification on which this profile is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public IdType getFhirVersion() { 
+    public IdType getFhirVersionObject() { 
       return this.fhirVersion;
     }
 
     /**
-     * @param value {@link #fhirVersion} (The version of the FHIR specification on which this profile is based.)
+     * @param value {@link #fhirVersion} (The version of the FHIR specification on which this profile is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public Profile setFhirVersion(IdType value) { 
+    public Profile setFhirVersionObject(IdType value) { 
       this.fhirVersion = value;
       return this;
     }
@@ -3630,14 +3630,14 @@ public class Profile extends Resource {
     /**
      * @return The version of the FHIR specification on which this profile is based.
      */
-    public String getFhirVersionSimple() { 
+    public String getFhirVersion() { 
       return this.fhirVersion == null ? null : this.fhirVersion.getValue();
     }
 
     /**
      * @param value The version of the FHIR specification on which this profile is based.
      */
-    public Profile setFhirVersionSimple(String value) { 
+    public Profile setFhirVersion(String value) { 
       if (value == null)
         this.fhirVersion = null;
       else {

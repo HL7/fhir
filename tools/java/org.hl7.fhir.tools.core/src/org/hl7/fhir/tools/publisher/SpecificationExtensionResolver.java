@@ -52,7 +52,7 @@ public class SpecificationExtensionResolver implements ExtensionLocatorService {
 	       profiles.put(filename, profile);
 	    }
 	    for (ProfileExtensionDefnComponent ext : profile.getExtensionDefn()) {
-	    	if (ext.getCodeSimple().equals(path[1]))
+	    	if (ext.getCode().equals(path[1]))
 	  			return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.Located, ext, null);
 	    }
 			return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.NotAllowed, null, "Extension code '"+path[1]+"' not found");

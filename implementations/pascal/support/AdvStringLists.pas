@@ -205,7 +205,7 @@ Procedure TAdvStringList.InternalEmpty(iIndex, iLength: Integer);
 Begin
   Inherited;
 
-  MemoryZero(Pointer(NativeUInt(FStringArray) + (iIndex * SizeOf(TAdvStringListItem))), (iLength * SizeOf(TAdvStringListItem)));
+  MemoryZero(Pointer(NativeUInt(FStringArray) + NativeUInt(iIndex * SizeOf(TAdvStringListItem))), (iLength * SizeOf(TAdvStringListItem)));
 End;
 
 

@@ -20,6 +20,7 @@ Type
 
     procedure TestPacking;
     procedure TestUnpacking;
+    procedure TestCert;
   End;
 
 Implementation
@@ -30,6 +31,20 @@ var
 
 { TJWTTests }
 
+
+procedure TJWTTests.TestCert;
+var
+  jwk : TJWK;
+  s: String;
+begin
+  jwk := TJWTUtils.loadKeyFromRSACert('C:\work\fhirserver\Exec\jwt-test.key.crt');
+  try
+    s := TJSONWriter.writeObjectStr(jwk.obj, true);
+    Writeln(s);
+  finally
+    jwk.Free;
+  end;
+end;
 
 procedure TJWTTests.TestPacking;
 var
@@ -162,6 +177,7 @@ begin
   try
     this.TestPacking;
     this.TestUnPacking;
+    this.TestCert;
   finally
     this.Free;
   end;

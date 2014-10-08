@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,26 +39,26 @@ import java.util.*;
 public class Alert extends Resource {
 
     public enum AlertStatus {
-        active, // A current alert that should be displayed to a user. A system may use the category to determine which roles should view the alert.
-        inactive, // The alert does not need to be displayed any more.
-        enteredInError, // The alert was added in error, and should no longer be displayed.
-        Null; // added to help the parsers
+        ACTIVE, // A current alert that should be displayed to a user. A system may use the category to determine which roles should view the alert.
+        INACTIVE, // The alert does not need to be displayed any more.
+        ENTEREDINERROR, // The alert was added in error, and should no longer be displayed.
+        NULL; // added to help the parsers
         public static AlertStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
-          return active;
+          return ACTIVE;
         if ("inactive".equals(codeString))
-          return inactive;
+          return INACTIVE;
         if ("entered in error".equals(codeString))
-          return enteredInError;
+          return ENTEREDINERROR;
         throw new Exception("Unknown AlertStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case active: return "active";
-            case inactive: return "inactive";
-            case enteredInError: return "entered in error";
+            case ACTIVE: return "active";
+            case INACTIVE: return "inactive";
+            case ENTEREDINERROR: return "entered in error";
             default: return "?";
           }
         }
@@ -70,19 +70,19 @@ public class Alert extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
-          return AlertStatus.active;
+          return AlertStatus.ACTIVE;
         if ("inactive".equals(codeString))
-          return AlertStatus.inactive;
+          return AlertStatus.INACTIVE;
         if ("entered in error".equals(codeString))
-          return AlertStatus.enteredInError;
+          return AlertStatus.ENTEREDINERROR;
         throw new Exception("Unknown AlertStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == AlertStatus.active)
+      if (code == AlertStatus.ACTIVE)
         return "active";
-      if (code == AlertStatus.inactive)
+      if (code == AlertStatus.INACTIVE)
         return "inactive";
-      if (code == AlertStatus.enteredInError)
+      if (code == AlertStatus.ENTEREDINERROR)
         return "entered in error";
       return "?";
       }
@@ -174,16 +174,16 @@ public class Alert extends Resource {
     }
 
     /**
-     * @return {@link #status} (Supports basic workflow.)
+     * @return {@link #status} (Supports basic workflow.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<AlertStatus> getStatus() { 
+    public Enumeration<AlertStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (Supports basic workflow.)
+     * @param value {@link #status} (Supports basic workflow.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Alert setStatus(Enumeration<AlertStatus> value) { 
+    public Alert setStatusObject(Enumeration<AlertStatus> value) { 
       this.status = value;
       return this;
     }
@@ -191,14 +191,14 @@ public class Alert extends Resource {
     /**
      * @return Supports basic workflow.
      */
-    public AlertStatus getStatusSimple() { 
+    public AlertStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Supports basic workflow.
      */
-    public Alert setStatusSimple(AlertStatus value) { 
+    public Alert setStatus(AlertStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<AlertStatus>();
         this.status.setValue(value);
@@ -221,14 +221,14 @@ public class Alert extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The person who this alert concerns.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who this alert concerns.)
      */
     public Patient getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The person who this alert concerns.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who this alert concerns.)
      */
     public Alert setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
@@ -251,14 +251,14 @@ public class Alert extends Resource {
     }
 
     /**
-     * @return {@link #author} (The actual object that is the target of the reference. The person or device that created the alert.)
+     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or device that created the alert.)
      */
     public Resource getAuthorTarget() { 
       return this.authorTarget;
     }
 
     /**
-     * @param value {@link #author} (The actual object that is the target of the reference. The person or device that created the alert.)
+     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or device that created the alert.)
      */
     public Alert setAuthorTarget(Resource value) { 
       this.authorTarget = value;
@@ -266,16 +266,16 @@ public class Alert extends Resource {
     }
 
     /**
-     * @return {@link #note} (The textual component of the alert to display to the user.)
+     * @return {@link #note} (The textual component of the alert to display to the user.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public StringType getNote() { 
+    public StringType getNoteObject() { 
       return this.note;
     }
 
     /**
-     * @param value {@link #note} (The textual component of the alert to display to the user.)
+     * @param value {@link #note} (The textual component of the alert to display to the user.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public Alert setNote(StringType value) { 
+    public Alert setNoteObject(StringType value) { 
       this.note = value;
       return this;
     }
@@ -283,14 +283,14 @@ public class Alert extends Resource {
     /**
      * @return The textual component of the alert to display to the user.
      */
-    public String getNoteSimple() { 
+    public String getNote() { 
       return this.note == null ? null : this.note.getValue();
     }
 
     /**
      * @param value The textual component of the alert to display to the user.
      */
-    public Alert setNoteSimple(String value) { 
+    public Alert setNote(String value) { 
         if (this.note == null)
           this.note = new StringType();
         this.note.setValue(value);

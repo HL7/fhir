@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,22 +39,22 @@ import java.util.*;
 public class Specimen extends Resource {
 
     public enum HierarchicalRelationshipType {
-        parent, // The target resource is the parent of the focal specimen resource.
-        child, // The target resource is the child of the focal specimen resource.
-        Null; // added to help the parsers
+        PARENT, // The target resource is the parent of the focal specimen resource.
+        CHILD, // The target resource is the child of the focal specimen resource.
+        NULL; // added to help the parsers
         public static HierarchicalRelationshipType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("parent".equals(codeString))
-          return parent;
+          return PARENT;
         if ("child".equals(codeString))
-          return child;
+          return CHILD;
         throw new Exception("Unknown HierarchicalRelationshipType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case parent: return "parent";
-            case child: return "child";
+            case PARENT: return "parent";
+            case CHILD: return "child";
             default: return "?";
           }
         }
@@ -66,15 +66,15 @@ public class Specimen extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("parent".equals(codeString))
-          return HierarchicalRelationshipType.parent;
+          return HierarchicalRelationshipType.PARENT;
         if ("child".equals(codeString))
-          return HierarchicalRelationshipType.child;
+          return HierarchicalRelationshipType.CHILD;
         throw new Exception("Unknown HierarchicalRelationshipType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == HierarchicalRelationshipType.parent)
+      if (code == HierarchicalRelationshipType.PARENT)
         return "parent";
-      if (code == HierarchicalRelationshipType.child)
+      if (code == HierarchicalRelationshipType.CHILD)
         return "child";
       return "?";
       }
@@ -108,16 +108,16 @@ public class Specimen extends Resource {
       }
 
         /**
-         * @return {@link #relationship} (Whether this relationship is to a parent or to a child.)
+         * @return {@link #relationship} (Whether this relationship is to a parent or to a child.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
          */
-        public Enumeration<HierarchicalRelationshipType> getRelationship() { 
+        public Enumeration<HierarchicalRelationshipType> getRelationshipObject() { 
           return this.relationship;
         }
 
         /**
-         * @param value {@link #relationship} (Whether this relationship is to a parent or to a child.)
+         * @param value {@link #relationship} (Whether this relationship is to a parent or to a child.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
          */
-        public SpecimenSourceComponent setRelationship(Enumeration<HierarchicalRelationshipType> value) { 
+        public SpecimenSourceComponent setRelationshipObject(Enumeration<HierarchicalRelationshipType> value) { 
           this.relationship = value;
           return this;
         }
@@ -125,14 +125,14 @@ public class Specimen extends Resource {
         /**
          * @return Whether this relationship is to a parent or to a child.
          */
-        public HierarchicalRelationshipType getRelationshipSimple() { 
+        public HierarchicalRelationshipType getRelationship() { 
           return this.relationship == null ? null : this.relationship.getValue();
         }
 
         /**
          * @param value Whether this relationship is to a parent or to a child.
          */
-        public SpecimenSourceComponent setRelationshipSimple(HierarchicalRelationshipType value) { 
+        public SpecimenSourceComponent setRelationship(HierarchicalRelationshipType value) { 
             if (this.relationship == null)
               this.relationship = new Enumeration<HierarchicalRelationshipType>();
             this.relationship.setValue(value);
@@ -157,7 +157,7 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #target} (The actual objects that are the target of the reference. The specimen resource that is the target of this relationship.)
+         * @return {@link #target} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The specimen resource that is the target of this relationship.)
          */
         public List<Specimen> getTargetTarget() { 
           return this.targetTarget;
@@ -165,7 +165,7 @@ public class Specimen extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #target} (Add an actual object that is the target of the reference. The specimen resource that is the target of this relationship.)
+         * @return {@link #target} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The specimen resource that is the target of this relationship.)
          */
         public Specimen addTargetTarget() { 
           Specimen r = new Specimen();
@@ -253,14 +253,14 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #collector} (The actual object that is the target of the reference. Person who collected the specimen.)
+         * @return {@link #collector} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who collected the specimen.)
          */
         public Practitioner getCollectorTarget() { 
           return this.collectorTarget;
         }
 
         /**
-         * @param value {@link #collector} (The actual object that is the target of the reference. Person who collected the specimen.)
+         * @param value {@link #collector} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Person who collected the specimen.)
          */
         public SpecimenCollectionComponent setCollectorTarget(Practitioner value) { 
           this.collectorTarget = value;
@@ -278,7 +278,7 @@ public class Specimen extends Resource {
         /**
          * @return {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public StringType addComment() { 
+        public StringType addCommentObject() { 
           StringType t = new StringType();
           this.comment.add(t);
           return t;
@@ -287,7 +287,7 @@ public class Specimen extends Resource {
         /**
          * @param value {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public StringType addCommentSimple(String value) { 
+        public StringType addComment(String value) { 
           StringType t = new StringType();
           t.setValue(value);
           this.comment.add(t);
@@ -297,7 +297,7 @@ public class Specimen extends Resource {
         /**
          * @param value {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public boolean hasCommentSimple(String value) { 
+        public boolean hasComment(String value) { 
           for (StringType v : this.comment)
             if (v.getValue().equals(value))
               return true;
@@ -417,16 +417,16 @@ public class Specimen extends Resource {
       }
 
         /**
-         * @return {@link #description} (Textual description of procedure.)
+         * @return {@link #description} (Textual description of procedure.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescription() { 
+        public StringType getDescriptionObject() { 
           return this.description;
         }
 
         /**
-         * @param value {@link #description} (Textual description of procedure.)
+         * @param value {@link #description} (Textual description of procedure.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SpecimenTreatmentComponent setDescription(StringType value) { 
+        public SpecimenTreatmentComponent setDescriptionObject(StringType value) { 
           this.description = value;
           return this;
         }
@@ -434,14 +434,14 @@ public class Specimen extends Resource {
         /**
          * @return Textual description of procedure.
          */
-        public String getDescriptionSimple() { 
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Textual description of procedure.
          */
-        public SpecimenTreatmentComponent setDescriptionSimple(String value) { 
+        public SpecimenTreatmentComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -485,7 +485,7 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #additive} (The actual objects that are the target of the reference. Material used in the processing step.)
+         * @return {@link #additive} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Material used in the processing step.)
          */
         public List<Substance> getAdditiveTarget() { 
           return this.additiveTarget;
@@ -493,7 +493,7 @@ public class Specimen extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #additive} (Add an actual object that is the target of the reference. Material used in the processing step.)
+         * @return {@link #additive} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Material used in the processing step.)
          */
         public Substance addAdditiveTarget() { 
           Substance r = new Substance();
@@ -580,16 +580,16 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #description} (Textual description of the container.)
+         * @return {@link #description} (Textual description of the container.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescription() { 
+        public StringType getDescriptionObject() { 
           return this.description;
         }
 
         /**
-         * @param value {@link #description} (Textual description of the container.)
+         * @param value {@link #description} (Textual description of the container.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SpecimenContainerComponent setDescription(StringType value) { 
+        public SpecimenContainerComponent setDescriptionObject(StringType value) { 
           this.description = value;
           return this;
         }
@@ -597,14 +597,14 @@ public class Specimen extends Resource {
         /**
          * @return Textual description of the container.
          */
-        public String getDescriptionSimple() { 
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Textual description of the container.
          */
-        public SpecimenContainerComponent setDescriptionSimple(String value) { 
+        public SpecimenContainerComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -676,14 +676,14 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #additive} (The actual object that is the target of the reference. Additive associated with the container.)
+         * @return {@link #additive} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Additive associated with the container.)
          */
         public Substance getAdditiveTarget() { 
           return this.additiveTarget;
         }
 
         /**
-         * @param value {@link #additive} (The actual object that is the target of the reference. Additive associated with the container.)
+         * @param value {@link #additive} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Additive associated with the container.)
          */
         public SpecimenContainerComponent setAdditiveTarget(Substance value) { 
           this.additiveTarget = value;
@@ -841,14 +841,14 @@ public class Specimen extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
      */
     public Specimen setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -871,16 +871,16 @@ public class Specimen extends Resource {
     }
 
     /**
-     * @return {@link #receivedTime} (Time when specimen was received for processing or testing.)
+     * @return {@link #receivedTime} (Time when specimen was received for processing or testing.). This is the underlying object with id, value and extensions. The accessor "getReceivedTime" gives direct access to the value
      */
-    public DateTimeType getReceivedTime() { 
+    public DateTimeType getReceivedTimeObject() { 
       return this.receivedTime;
     }
 
     /**
-     * @param value {@link #receivedTime} (Time when specimen was received for processing or testing.)
+     * @param value {@link #receivedTime} (Time when specimen was received for processing or testing.). This is the underlying object with id, value and extensions. The accessor "getReceivedTime" gives direct access to the value
      */
-    public Specimen setReceivedTime(DateTimeType value) { 
+    public Specimen setReceivedTimeObject(DateTimeType value) { 
       this.receivedTime = value;
       return this;
     }
@@ -888,14 +888,14 @@ public class Specimen extends Resource {
     /**
      * @return Time when specimen was received for processing or testing.
      */
-    public DateAndTime getReceivedTimeSimple() { 
+    public DateAndTime getReceivedTime() { 
       return this.receivedTime == null ? null : this.receivedTime.getValue();
     }
 
     /**
      * @param value Time when specimen was received for processing or testing.
      */
-    public Specimen setReceivedTimeSimple(DateAndTime value) { 
+    public Specimen setReceivedTime(DateAndTime value) { 
       if (value == null)
         this.receivedTime = null;
       else {

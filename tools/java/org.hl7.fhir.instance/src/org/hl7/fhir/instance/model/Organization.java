@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class Organization extends Resource {
 
     public enum AdministrativeGender {
-        male, // Male
-        female, // Female
-        other, // Other
-        unknown, // Unknown
-        Null; // added to help the parsers
+        MALE, // Male
+        FEMALE, // Female
+        OTHER, // Other
+        UNKNOWN, // Unknown
+        NULL; // added to help the parsers
         public static AdministrativeGender fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("male".equals(codeString))
-          return male;
+          return MALE;
         if ("female".equals(codeString))
-          return female;
+          return FEMALE;
         if ("other".equals(codeString))
-          return other;
+          return OTHER;
         if ("unknown".equals(codeString))
-          return unknown;
+          return UNKNOWN;
         throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case male: return "male";
-            case female: return "female";
-            case other: return "other";
-            case unknown: return "unknown";
+            case MALE: return "male";
+            case FEMALE: return "female";
+            case OTHER: return "other";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -74,23 +74,23 @@ public class Organization extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("male".equals(codeString))
-          return AdministrativeGender.male;
+          return AdministrativeGender.MALE;
         if ("female".equals(codeString))
-          return AdministrativeGender.female;
+          return AdministrativeGender.FEMALE;
         if ("other".equals(codeString))
-          return AdministrativeGender.other;
+          return AdministrativeGender.OTHER;
         if ("unknown".equals(codeString))
-          return AdministrativeGender.unknown;
+          return AdministrativeGender.UNKNOWN;
         throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == AdministrativeGender.male)
+      if (code == AdministrativeGender.MALE)
         return "male";
-      if (code == AdministrativeGender.female)
+      if (code == AdministrativeGender.FEMALE)
         return "female";
-      if (code == AdministrativeGender.other)
+      if (code == AdministrativeGender.OTHER)
         return "other";
-      if (code == AdministrativeGender.unknown)
+      if (code == AdministrativeGender.UNKNOWN)
         return "unknown";
       return "?";
       }
@@ -191,16 +191,16 @@ public class Organization extends Resource {
         }
 
         /**
-         * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+         * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
-        public Enumeration<AdministrativeGender> getGender() { 
+        public Enumeration<AdministrativeGender> getGenderObject() { 
           return this.gender;
         }
 
         /**
-         * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+         * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
-        public OrganizationContactComponent setGender(Enumeration<AdministrativeGender> value) { 
+        public OrganizationContactComponent setGenderObject(Enumeration<AdministrativeGender> value) { 
           this.gender = value;
           return this;
         }
@@ -208,14 +208,14 @@ public class Organization extends Resource {
         /**
          * @return Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
          */
-        public AdministrativeGender getGenderSimple() { 
+        public AdministrativeGender getGender() { 
           return this.gender == null ? null : this.gender.getValue();
         }
 
         /**
          * @param value Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
          */
-        public OrganizationContactComponent setGenderSimple(AdministrativeGender value) { 
+        public OrganizationContactComponent setGender(AdministrativeGender value) { 
           if (value == null)
             this.gender = null;
           else {
@@ -328,16 +328,16 @@ public class Organization extends Resource {
     }
 
     /**
-     * @return {@link #name} (A name associated with the organization.)
+     * @return {@link #name} (A name associated with the organization.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getName() { 
+    public StringType getNameObject() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (A name associated with the organization.)
+     * @param value {@link #name} (A name associated with the organization.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Organization setName(StringType value) { 
+    public Organization setNameObject(StringType value) { 
       this.name = value;
       return this;
     }
@@ -345,14 +345,14 @@ public class Organization extends Resource {
     /**
      * @return A name associated with the organization.
      */
-    public String getNameSimple() { 
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A name associated with the organization.
      */
-    public Organization setNameSimple(String value) { 
+    public Organization setName(String value) { 
       if (value == null)
         this.name = null;
       else {
@@ -428,14 +428,14 @@ public class Organization extends Resource {
     }
 
     /**
-     * @return {@link #partOf} (The actual object that is the target of the reference. The organization of which this organization forms a part.)
+     * @return {@link #partOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization of which this organization forms a part.)
      */
     public Organization getPartOfTarget() { 
       return this.partOfTarget;
     }
 
     /**
-     * @param value {@link #partOf} (The actual object that is the target of the reference. The organization of which this organization forms a part.)
+     * @param value {@link #partOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization of which this organization forms a part.)
      */
     public Organization setPartOfTarget(Organization value) { 
       this.partOfTarget = value;
@@ -477,7 +477,7 @@ public class Organization extends Resource {
     }
 
     /**
-     * @return {@link #location} (The actual objects that are the target of the reference. Location(s) the organization uses to provide services.)
+     * @return {@link #location} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Location(s) the organization uses to provide services.)
      */
     public List<Location> getLocationTarget() { 
       return this.locationTarget;
@@ -485,7 +485,7 @@ public class Organization extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #location} (Add an actual object that is the target of the reference. Location(s) the organization uses to provide services.)
+     * @return {@link #location} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Location(s) the organization uses to provide services.)
      */
     public Location addLocationTarget() { 
       Location r = new Location();
@@ -494,16 +494,16 @@ public class Organization extends Resource {
     }
 
     /**
-     * @return {@link #active} (Whether the organization's record is still in active use.)
+     * @return {@link #active} (Whether the organization's record is still in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public BooleanType getActive() { 
+    public BooleanType getActiveObject() { 
       return this.active;
     }
 
     /**
-     * @param value {@link #active} (Whether the organization's record is still in active use.)
+     * @param value {@link #active} (Whether the organization's record is still in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public Organization setActive(BooleanType value) { 
+    public Organization setActiveObject(BooleanType value) { 
       this.active = value;
       return this;
     }
@@ -511,14 +511,14 @@ public class Organization extends Resource {
     /**
      * @return Whether the organization's record is still in active use.
      */
-    public boolean getActiveSimple() { 
+    public boolean getActive() { 
       return this.active == null ? false : this.active.getValue();
     }
 
     /**
      * @param value Whether the organization's record is still in active use.
      */
-    public Organization setActiveSimple(boolean value) { 
+    public Organization setActive(boolean value) { 
       if (value == false)
         this.active = null;
       else {

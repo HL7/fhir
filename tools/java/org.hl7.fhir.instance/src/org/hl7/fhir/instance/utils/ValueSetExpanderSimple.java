@@ -68,7 +68,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     try {
       focus = source.copy();
       focus.setExpansion(new ValueSet.ValueSetExpansionComponent());
-      focus.getExpansion().setTimestampSimple(DateAndTime.now());
+      focus.getExpansion().setTimestamp(DateAndTime.now());
 
 
       handleDefine(source);
@@ -108,40 +108,40 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  if (vso.getService() != null)
       throw new Exception("Unable to expand imported value set "+value);
 	  for (ValueSetExpansionContainsComponent c : vso.getValueset().getExpansion().getContains()) {
-	  	addCode(c.getSystemSimple(), c.getCodeSimple(), c.getDisplaySimple());
+	  	addCode(c.getSystem(), c.getCode(), c.getDisplay());
 	  }	  
   }
 
 	private void includeCodes(ConceptSetComponent inc) throws Exception {
-	  if (context.getTerminologyServices() != null && context.getTerminologyServices().supportsSystem(inc.getSystemSimple())) {
+	  if (context.getTerminologyServices() != null && context.getTerminologyServices().supportsSystem(inc.getSystem())) {
         addCodes(context.getTerminologyServices().expandVS(inc));
       return;
 	  }
 	    
-	  AtomEntry<ValueSet> ae = context.getCodeSystems().get(inc.getSystemSimple());
+	  AtomEntry<ValueSet> ae = context.getCodeSystems().get(inc.getSystem());
 	  if (ae == null)
-      throw new Exception("unable to find code system "+inc.getSystemSimple().toString());
+	  	throw new Exception("unable to find code system "+inc.getSystem().toString());
     ValueSet cs = ae.getResource();
 	  if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
 	    // special case - add all the code system
 	    for (ConceptDefinitionComponent def : cs.getDefine().getConcept()) {
-        addCodeAndDescendents(inc.getSystemSimple(), def);
+        addCodeAndDescendents(inc.getSystem(), def);
 	    }
 	  }
 	    
 	  for (ConceptReferenceComponent c : inc.getConcept()) {
-	  	addCode(inc.getSystemSimple(), c.getCodeSimple(), Utilities.noString(c.getDisplaySimple()) ? getCodeDisplay(cs, c.getCodeSimple()) : c.getDisplaySimple());
+	  	addCode(inc.getSystem(), c.getCode(), Utilities.noString(c.getDisplay()) ? getCodeDisplay(cs, c.getCode()) : c.getDisplay());
 	  }
 	  if (inc.getFilter().size() > 1)
 	    throw new Exception("Multiple filters not handled yet"); // need to and them, and this isn't done yet. But this shouldn't arise in non loinc and snomed value sets
     if (inc.getFilter().size() == 1) {
 	    ConceptSetFilterComponent fc = inc.getFilter().get(0);
-	  	if ("concept".equals(fc.getPropertySimple()) && fc.getOpSimple() == FilterOperator.isa) {
+	  	if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.ISA) {
 	  		// special: all non-abstract codes in the target code system under the value
-	  		ConceptDefinitionComponent def = getConceptForCode(cs.getDefine().getConcept(), fc.getValueSimple());
+	  		ConceptDefinitionComponent def = getConceptForCode(cs.getDefine().getConcept(), fc.getValue());
 	  		if (def == null)
-	  			throw new Exception("Code '"+fc.getValueSimple()+"' not found in system '"+inc.getSystemSimple()+"'");
-	  		addCodeAndDescendents(inc.getSystemSimple(), def);
+	  			throw new Exception("Code '"+fc.getValue()+"' not found in system '"+inc.getSystem()+"'");
+	  		addCodeAndDescendents(inc.getSystem(), def);
 	  	} else
 	  		throw new Exception("not done yet");
 	  }
@@ -151,34 +151,34 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  if (expand.size() > 500) 
 	    throw new ETooCostly("Too many codes to display (>"+Integer.toString(expand.size())+")");
     for (ValueSetExpansionContainsComponent c : expand) {
-      addCode(c.getSystemSimple(), c.getCodeSimple(), c.getDisplaySimple());
+      addCode(c.getSystem(), c.getCode(), c.getDisplay());
     }   
   }
 
 	private void addCodeAndDescendents(String system, ConceptDefinitionComponent def) {
 		if (!ToolingExtensions.hasDeprecated(def)) {  
-			if (def.getAbstract() == null || !def.getAbstractSimple())
-				addCode(system, def.getCodeSimple(), def.getDisplaySimple());
+			if (def.getAbstractObject() == null || !def.getAbstract())
+				addCode(system, def.getCode(), def.getDisplay());
 			for (ConceptDefinitionComponent c : def.getConcept()) 
 				addCodeAndDescendents(system, c);
 		}
   }
 
 	private void excludeCodes(ConceptSetComponent inc) throws Exception {
-	  ValueSet cs = context.getCodeSystems().get(inc.getSystemSimple().toString()).getResource();
+	  ValueSet cs = context.getCodeSystems().get(inc.getSystem().toString()).getResource();
 	  if (cs == null)
-	  	throw new Exception("unable to find value set "+inc.getSystemSimple().toString());
+	  	throw new Exception("unable to find value set "+inc.getSystem().toString());
     if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
       // special case - add all the code system
 //      for (ConceptDefinitionComponent def : cs.getDefine().getConcept()) {
-//!!!!        addCodeAndDescendents(inc.getSystemSimple(), def);
+//!!!!        addCodeAndDescendents(inc.getSystem(), def);
 //      }
     }
       
 
 	  for (ConceptReferenceComponent c : inc.getConcept()) {
 	  	// we don't need to check whether the codes are valid here- they can't have gotten into this list if they aren't valid
-	  	map.remove(key(inc.getSystemSimple(), c.getCodeSimple()));
+	  	map.remove(key(inc.getSystem(), c.getCode()));
 	  }
 	  if (inc.getFilter().size() > 0)
 	  	throw new Exception("not done yet");
@@ -188,13 +188,13 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	private String getCodeDisplay(ValueSet cs, String code) throws Exception {
 		ConceptDefinitionComponent def = getConceptForCode(cs.getDefine().getConcept(), code);
 		if (def == null)
-			throw new Exception("Unable to find code '"+code+"' in code system "+cs.getDefine().getSystemSimple());
-		return def.getDisplaySimple();
+			throw new Exception("Unable to find code '"+code+"' in code system "+cs.getDefine().getSystem());
+		return def.getDisplay();
   }
 
 	private ConceptDefinitionComponent getConceptForCode(List<ConceptDefinitionComponent> clist, String code) {
 		for (ConceptDefinitionComponent c : clist) {
-			if (code.equals(c.getCodeSimple()))
+			if (code.equals(c.getCode()))
 			  return c;
 			ConceptDefinitionComponent v = getConceptForCode(c.getConcept(), code);   
 			if (v != null)
@@ -207,12 +207,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  if (vs.getDefine() != null) {
       // simple case: just generate the return
     	for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) 
-    		addDefinedCode(vs, vs.getDefine().getSystemSimple(), c);
+    		addDefinedCode(vs, vs.getDefine().getSystem(), c);
    	}
   }
 
 	private String key(ValueSetExpansionContainsComponent c) {
-		return key(c.getSystemSimple(), c.getCodeSimple());
+		return key(c.getSystem(), c.getCode());
 	}
 
 	private String key(String uri, String code) {
@@ -222,19 +222,19 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	private void addDefinedCode(ValueSet vs, String system, ConceptDefinitionComponent c) {
 		if (!ToolingExtensions.hasDeprecated(c)) { 
 
-			if (c.getAbstract() == null || !c.getAbstractSimple()) {
-				addCode(system, c.getCodeSimple(), c.getDisplaySimple());
+			if (c.getAbstractObject() == null || !c.getAbstract()) {
+				addCode(system, c.getCode(), c.getDisplay());
 			}
 			for (ConceptDefinitionComponent g : c.getConcept()) 
-				addDefinedCode(vs, vs.getDefine().getSystemSimple(), g);
+				addDefinedCode(vs, vs.getDefine().getSystem(), g);
 		}
   }
 
 	private void addCode(String system, String code, String display) {
 		ValueSetExpansionContainsComponent n = new ValueSet.ValueSetExpansionContainsComponent();
-		n.setSystemSimple(system);
-	  n.setCodeSimple(code);
-	  n.setDisplaySimple(display);
+		n.setSystem(system);
+	  n.setCode(code);
+	  n.setDisplay(display);
 	  String s = key(n);
 	  if (!map.containsKey(s)) { 
 	  	codes.add(n);

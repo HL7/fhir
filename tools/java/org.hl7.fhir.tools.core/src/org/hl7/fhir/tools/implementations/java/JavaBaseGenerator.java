@@ -45,7 +45,15 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 		super(out, "UTF-8");
 	}
 
-	
+  protected boolean isJavaPrimitive(ElementDefn e) {
+    return e.getTypes().size() == 1 && (isPrimitive(e.typeCode()) || e.getTypes().get(0).isIdRef() || e.typeCode().equals("xml:lang"));
+  }
+
+  protected boolean isPrimitive(String name) {
+    return definitions.hasPrimitiveType(name) || (name.endsWith("Type") && definitions.getPrimitives().containsKey(name.substring(0, name.length()-4)));
+  }
+
+
 	protected String getElementName(String name, boolean alone) {
 	  if (name.equals("[type]"))
 	    return "value";

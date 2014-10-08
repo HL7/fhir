@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class Slot extends Resource {
 
     public enum Slotstatus {
-        bUSY, // Indicates that the time interval is busy because one  or more events have been scheduled for that interval.
-        fREE, // Indicates that the time interval is free for scheduling.
-        bUSYUNAVAILABLE, // Indicates that the time interval is busy and that the interval can not be scheduled.
-        bUSYTENTATIVE, // Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.
-        Null; // added to help the parsers
+        BUSY, // Indicates that the time interval is busy because one  or more events have been scheduled for that interval.
+        FREE, // Indicates that the time interval is free for scheduling.
+        BUSYUNAVAILABLE, // Indicates that the time interval is busy and that the interval can not be scheduled.
+        BUSYTENTATIVE, // Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.
+        NULL; // added to help the parsers
         public static Slotstatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("BUSY".equals(codeString))
-          return bUSY;
+          return BUSY;
         if ("FREE".equals(codeString))
-          return fREE;
+          return FREE;
         if ("BUSY-UNAVAILABLE".equals(codeString))
-          return bUSYUNAVAILABLE;
+          return BUSYUNAVAILABLE;
         if ("BUSY-TENTATIVE".equals(codeString))
-          return bUSYTENTATIVE;
+          return BUSYTENTATIVE;
         throw new Exception("Unknown Slotstatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case bUSY: return "BUSY";
-            case fREE: return "FREE";
-            case bUSYUNAVAILABLE: return "BUSY-UNAVAILABLE";
-            case bUSYTENTATIVE: return "BUSY-TENTATIVE";
+            case BUSY: return "BUSY";
+            case FREE: return "FREE";
+            case BUSYUNAVAILABLE: return "BUSY-UNAVAILABLE";
+            case BUSYTENTATIVE: return "BUSY-TENTATIVE";
             default: return "?";
           }
         }
@@ -74,23 +74,23 @@ public class Slot extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("BUSY".equals(codeString))
-          return Slotstatus.bUSY;
+          return Slotstatus.BUSY;
         if ("FREE".equals(codeString))
-          return Slotstatus.fREE;
+          return Slotstatus.FREE;
         if ("BUSY-UNAVAILABLE".equals(codeString))
-          return Slotstatus.bUSYUNAVAILABLE;
+          return Slotstatus.BUSYUNAVAILABLE;
         if ("BUSY-TENTATIVE".equals(codeString))
-          return Slotstatus.bUSYTENTATIVE;
+          return Slotstatus.BUSYTENTATIVE;
         throw new Exception("Unknown Slotstatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == Slotstatus.bUSY)
+      if (code == Slotstatus.BUSY)
         return "BUSY";
-      if (code == Slotstatus.fREE)
+      if (code == Slotstatus.FREE)
         return "FREE";
-      if (code == Slotstatus.bUSYUNAVAILABLE)
+      if (code == Slotstatus.BUSYUNAVAILABLE)
         return "BUSY-UNAVAILABLE";
-      if (code == Slotstatus.bUSYTENTATIVE)
+      if (code == Slotstatus.BUSYTENTATIVE)
         return "BUSY-TENTATIVE";
       return "?";
       }
@@ -208,14 +208,14 @@ public class Slot extends Resource {
     }
 
     /**
-     * @return {@link #availability} (The actual object that is the target of the reference. The availability resource that this slot defines an interval of status information.)
+     * @return {@link #availability} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The availability resource that this slot defines an interval of status information.)
      */
     public Availability getAvailabilityTarget() { 
       return this.availabilityTarget;
     }
 
     /**
-     * @param value {@link #availability} (The actual object that is the target of the reference. The availability resource that this slot defines an interval of status information.)
+     * @param value {@link #availability} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The availability resource that this slot defines an interval of status information.)
      */
     public Slot setAvailabilityTarget(Availability value) { 
       this.availabilityTarget = value;
@@ -223,16 +223,16 @@ public class Slot extends Resource {
     }
 
     /**
-     * @return {@link #freeBusyType} (BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.)
+     * @return {@link #freeBusyType} (BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.). This is the underlying object with id, value and extensions. The accessor "getFreeBusyType" gives direct access to the value
      */
-    public Enumeration<Slotstatus> getFreeBusyType() { 
+    public Enumeration<Slotstatus> getFreeBusyTypeObject() { 
       return this.freeBusyType;
     }
 
     /**
-     * @param value {@link #freeBusyType} (BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.)
+     * @param value {@link #freeBusyType} (BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.). This is the underlying object with id, value and extensions. The accessor "getFreeBusyType" gives direct access to the value
      */
-    public Slot setFreeBusyType(Enumeration<Slotstatus> value) { 
+    public Slot setFreeBusyTypeObject(Enumeration<Slotstatus> value) { 
       this.freeBusyType = value;
       return this;
     }
@@ -240,14 +240,14 @@ public class Slot extends Resource {
     /**
      * @return BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.
      */
-    public Slotstatus getFreeBusyTypeSimple() { 
+    public Slotstatus getFreeBusyType() { 
       return this.freeBusyType == null ? null : this.freeBusyType.getValue();
     }
 
     /**
      * @param value BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.
      */
-    public Slot setFreeBusyTypeSimple(Slotstatus value) { 
+    public Slot setFreeBusyType(Slotstatus value) { 
         if (this.freeBusyType == null)
           this.freeBusyType = new Enumeration<Slotstatus>();
         this.freeBusyType.setValue(value);
@@ -255,16 +255,16 @@ public class Slot extends Resource {
     }
 
     /**
-     * @return {@link #start} (Date/Time that the slot is to begin.)
+     * @return {@link #start} (Date/Time that the slot is to begin.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public InstantType getStart() { 
+    public InstantType getStartObject() { 
       return this.start;
     }
 
     /**
-     * @param value {@link #start} (Date/Time that the slot is to begin.)
+     * @param value {@link #start} (Date/Time that the slot is to begin.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public Slot setStart(InstantType value) { 
+    public Slot setStartObject(InstantType value) { 
       this.start = value;
       return this;
     }
@@ -272,14 +272,14 @@ public class Slot extends Resource {
     /**
      * @return Date/Time that the slot is to begin.
      */
-    public DateAndTime getStartSimple() { 
+    public DateAndTime getStart() { 
       return this.start == null ? null : this.start.getValue();
     }
 
     /**
      * @param value Date/Time that the slot is to begin.
      */
-    public Slot setStartSimple(DateAndTime value) { 
+    public Slot setStart(DateAndTime value) { 
         if (this.start == null)
           this.start = new InstantType();
         this.start.setValue(value);
@@ -287,16 +287,16 @@ public class Slot extends Resource {
     }
 
     /**
-     * @return {@link #end} (Date/Time that the slot is to conclude.)
+     * @return {@link #end} (Date/Time that the slot is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public InstantType getEnd() { 
+    public InstantType getEndObject() { 
       return this.end;
     }
 
     /**
-     * @param value {@link #end} (Date/Time that the slot is to conclude.)
+     * @param value {@link #end} (Date/Time that the slot is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public Slot setEnd(InstantType value) { 
+    public Slot setEndObject(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -304,14 +304,14 @@ public class Slot extends Resource {
     /**
      * @return Date/Time that the slot is to conclude.
      */
-    public DateAndTime getEndSimple() { 
+    public DateAndTime getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value Date/Time that the slot is to conclude.
      */
-    public Slot setEndSimple(DateAndTime value) { 
+    public Slot setEnd(DateAndTime value) { 
         if (this.end == null)
           this.end = new InstantType();
         this.end.setValue(value);
@@ -319,16 +319,16 @@ public class Slot extends Resource {
     }
 
     /**
-     * @return {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.)
+     * @return {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.). This is the underlying object with id, value and extensions. The accessor "getOverbooked" gives direct access to the value
      */
-    public BooleanType getOverbooked() { 
+    public BooleanType getOverbookedObject() { 
       return this.overbooked;
     }
 
     /**
-     * @param value {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.)
+     * @param value {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.). This is the underlying object with id, value and extensions. The accessor "getOverbooked" gives direct access to the value
      */
-    public Slot setOverbooked(BooleanType value) { 
+    public Slot setOverbookedObject(BooleanType value) { 
       this.overbooked = value;
       return this;
     }
@@ -336,14 +336,14 @@ public class Slot extends Resource {
     /**
      * @return This slot has already been overbooked, appointments are unlikely to be accepted for this time.
      */
-    public boolean getOverbookedSimple() { 
+    public boolean getOverbooked() { 
       return this.overbooked == null ? false : this.overbooked.getValue();
     }
 
     /**
      * @param value This slot has already been overbooked, appointments are unlikely to be accepted for this time.
      */
-    public Slot setOverbookedSimple(boolean value) { 
+    public Slot setOverbooked(boolean value) { 
       if (value == false)
         this.overbooked = null;
       else {
@@ -355,16 +355,16 @@ public class Slot extends Resource {
     }
 
     /**
-     * @return {@link #comment} (Comments on the slot to describe any extended information. Such as custom constraints on the slot.)
+     * @return {@link #comment} (Comments on the slot to describe any extended information. Such as custom constraints on the slot.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getComment() { 
+    public StringType getCommentObject() { 
       return this.comment;
     }
 
     /**
-     * @param value {@link #comment} (Comments on the slot to describe any extended information. Such as custom constraints on the slot.)
+     * @param value {@link #comment} (Comments on the slot to describe any extended information. Such as custom constraints on the slot.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public Slot setComment(StringType value) { 
+    public Slot setCommentObject(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -372,14 +372,14 @@ public class Slot extends Resource {
     /**
      * @return Comments on the slot to describe any extended information. Such as custom constraints on the slot.
      */
-    public String getCommentSimple() { 
+    public String getComment() { 
       return this.comment == null ? null : this.comment.getValue();
     }
 
     /**
      * @param value Comments on the slot to describe any extended information. Such as custom constraints on the slot.
      */
-    public Slot setCommentSimple(String value) { 
+    public Slot setComment(String value) { 
       if (value == null)
         this.comment = null;
       else {
@@ -391,16 +391,16 @@ public class Slot extends Resource {
     }
 
     /**
-     * @return {@link #lastModified} (When this slot was created, or last revised.)
+     * @return {@link #lastModified} (When this slot was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public DateTimeType getLastModified() { 
+    public DateTimeType getLastModifiedObject() { 
       return this.lastModified;
     }
 
     /**
-     * @param value {@link #lastModified} (When this slot was created, or last revised.)
+     * @param value {@link #lastModified} (When this slot was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public Slot setLastModified(DateTimeType value) { 
+    public Slot setLastModifiedObject(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }
@@ -408,14 +408,14 @@ public class Slot extends Resource {
     /**
      * @return When this slot was created, or last revised.
      */
-    public DateAndTime getLastModifiedSimple() { 
+    public DateAndTime getLastModified() { 
       return this.lastModified == null ? null : this.lastModified.getValue();
     }
 
     /**
      * @param value When this slot was created, or last revised.
      */
-    public Slot setLastModifiedSimple(DateAndTime value) { 
+    public Slot setLastModified(DateAndTime value) { 
       if (value == null)
         this.lastModified = null;
       else {

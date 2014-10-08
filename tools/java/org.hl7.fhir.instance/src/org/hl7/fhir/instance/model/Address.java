@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class Address extends Type {
 
     public enum AddressUse {
-        home, // A communication address at a home.
-        work, // An office address. First choice for business related contacts during business hours.
-        temp, // A temporary address. The period can provide more detailed information.
-        old, // This address is no longer in use (or was never correct, but retained for records).
-        Null; // added to help the parsers
+        HOME, // A communication address at a home.
+        WORK, // An office address. First choice for business related contacts during business hours.
+        TEMP, // A temporary address. The period can provide more detailed information.
+        OLD, // This address is no longer in use (or was never correct, but retained for records).
+        NULL; // added to help the parsers
         public static AddressUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("home".equals(codeString))
-          return home;
+          return HOME;
         if ("work".equals(codeString))
-          return work;
+          return WORK;
         if ("temp".equals(codeString))
-          return temp;
+          return TEMP;
         if ("old".equals(codeString))
-          return old;
+          return OLD;
         throw new Exception("Unknown AddressUse code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case home: return "home";
-            case work: return "work";
-            case temp: return "temp";
-            case old: return "old";
+            case HOME: return "home";
+            case WORK: return "work";
+            case TEMP: return "temp";
+            case OLD: return "old";
             default: return "?";
           }
         }
@@ -74,23 +74,23 @@ public class Address extends Type {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("home".equals(codeString))
-          return AddressUse.home;
+          return AddressUse.HOME;
         if ("work".equals(codeString))
-          return AddressUse.work;
+          return AddressUse.WORK;
         if ("temp".equals(codeString))
-          return AddressUse.temp;
+          return AddressUse.TEMP;
         if ("old".equals(codeString))
-          return AddressUse.old;
+          return AddressUse.OLD;
         throw new Exception("Unknown AddressUse code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == AddressUse.home)
+      if (code == AddressUse.HOME)
         return "home";
-      if (code == AddressUse.work)
+      if (code == AddressUse.WORK)
         return "work";
-      if (code == AddressUse.temp)
+      if (code == AddressUse.TEMP)
         return "temp";
-      if (code == AddressUse.old)
+      if (code == AddressUse.OLD)
         return "old";
       return "?";
       }
@@ -144,16 +144,16 @@ P.O. Box number, delivery hints, and similar address information.
     }
 
     /**
-     * @return {@link #use} (The purpose of this address.)
+     * @return {@link #use} (The purpose of this address.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<AddressUse> getUse() { 
+    public Enumeration<AddressUse> getUseObject() { 
       return this.use;
     }
 
     /**
-     * @param value {@link #use} (The purpose of this address.)
+     * @param value {@link #use} (The purpose of this address.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Address setUse(Enumeration<AddressUse> value) { 
+    public Address setUseObject(Enumeration<AddressUse> value) { 
       this.use = value;
       return this;
     }
@@ -161,14 +161,14 @@ P.O. Box number, delivery hints, and similar address information.
     /**
      * @return The purpose of this address.
      */
-    public AddressUse getUseSimple() { 
+    public AddressUse getUse() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
      * @param value The purpose of this address.
      */
-    public Address setUseSimple(AddressUse value) { 
+    public Address setUse(AddressUse value) { 
       if (value == null)
         this.use = null;
       else {
@@ -180,16 +180,16 @@ P.O. Box number, delivery hints, and similar address information.
     }
 
     /**
-     * @return {@link #text} (A full text representation of the address.)
+     * @return {@link #text} (A full text representation of the address.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public StringType getText() { 
+    public StringType getTextObject() { 
       return this.text;
     }
 
     /**
-     * @param value {@link #text} (A full text representation of the address.)
+     * @param value {@link #text} (A full text representation of the address.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public Address setText(StringType value) { 
+    public Address setTextObject(StringType value) { 
       this.text = value;
       return this;
     }
@@ -197,14 +197,14 @@ P.O. Box number, delivery hints, and similar address information.
     /**
      * @return A full text representation of the address.
      */
-    public String getTextSimple() { 
+    public String getText() { 
       return this.text == null ? null : this.text.getValue();
     }
 
     /**
      * @param value A full text representation of the address.
      */
-    public Address setTextSimple(String value) { 
+    public Address setText(String value) { 
       if (value == null)
         this.text = null;
       else {
@@ -228,7 +228,7 @@ P.O. Box number, delivery hints, and similar address information.)
      * @return {@link #line} (This component contains the house number, apartment number, street name, street direction, 
 P.O. Box number, delivery hints, and similar address information.)
      */
-    public StringType addLine() { 
+    public StringType addLineObject() { 
       StringType t = new StringType();
       this.line.add(t);
       return t;
@@ -238,7 +238,7 @@ P.O. Box number, delivery hints, and similar address information.)
      * @param value {@link #line} (This component contains the house number, apartment number, street name, street direction, 
 P.O. Box number, delivery hints, and similar address information.)
      */
-    public StringType addLineSimple(String value) { 
+    public StringType addLine(String value) { 
       StringType t = new StringType();
       t.setValue(value);
       this.line.add(t);
@@ -249,7 +249,7 @@ P.O. Box number, delivery hints, and similar address information.)
      * @param value {@link #line} (This component contains the house number, apartment number, street name, street direction, 
 P.O. Box number, delivery hints, and similar address information.)
      */
-    public boolean hasLineSimple(String value) { 
+    public boolean hasLine(String value) { 
       for (StringType v : this.line)
         if (v.getValue().equals(value))
           return true;
@@ -257,16 +257,16 @@ P.O. Box number, delivery hints, and similar address information.)
     }
 
     /**
-     * @return {@link #city} (The name of the city, town, village or other community or delivery center.)
+     * @return {@link #city} (The name of the city, town, village or other community or delivery center.). This is the underlying object with id, value and extensions. The accessor "getCity" gives direct access to the value
      */
-    public StringType getCity() { 
+    public StringType getCityObject() { 
       return this.city;
     }
 
     /**
-     * @param value {@link #city} (The name of the city, town, village or other community or delivery center.)
+     * @param value {@link #city} (The name of the city, town, village or other community or delivery center.). This is the underlying object with id, value and extensions. The accessor "getCity" gives direct access to the value
      */
-    public Address setCity(StringType value) { 
+    public Address setCityObject(StringType value) { 
       this.city = value;
       return this;
     }
@@ -274,14 +274,14 @@ P.O. Box number, delivery hints, and similar address information.)
     /**
      * @return The name of the city, town, village or other community or delivery center.
      */
-    public String getCitySimple() { 
+    public String getCity() { 
       return this.city == null ? null : this.city.getValue();
     }
 
     /**
      * @param value The name of the city, town, village or other community or delivery center.
      */
-    public Address setCitySimple(String value) { 
+    public Address setCity(String value) { 
       if (value == null)
         this.city = null;
       else {
@@ -293,16 +293,16 @@ P.O. Box number, delivery hints, and similar address information.)
     }
 
     /**
-     * @return {@link #state} (Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).)
+     * @return {@link #state} (Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).). This is the underlying object with id, value and extensions. The accessor "getState" gives direct access to the value
      */
-    public StringType getState() { 
+    public StringType getStateObject() { 
       return this.state;
     }
 
     /**
-     * @param value {@link #state} (Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).)
+     * @param value {@link #state} (Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).). This is the underlying object with id, value and extensions. The accessor "getState" gives direct access to the value
      */
-    public Address setState(StringType value) { 
+    public Address setStateObject(StringType value) { 
       this.state = value;
       return this;
     }
@@ -310,14 +310,14 @@ P.O. Box number, delivery hints, and similar address information.)
     /**
      * @return Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).
      */
-    public String getStateSimple() { 
+    public String getState() { 
       return this.state == null ? null : this.state.getValue();
     }
 
     /**
      * @param value Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).
      */
-    public Address setStateSimple(String value) { 
+    public Address setState(String value) { 
       if (value == null)
         this.state = null;
       else {
@@ -329,16 +329,16 @@ P.O. Box number, delivery hints, and similar address information.)
     }
 
     /**
-     * @return {@link #zip} (A postal code designating a region defined by the postal service.)
+     * @return {@link #zip} (A postal code designating a region defined by the postal service.). This is the underlying object with id, value and extensions. The accessor "getZip" gives direct access to the value
      */
-    public StringType getZip() { 
+    public StringType getZipObject() { 
       return this.zip;
     }
 
     /**
-     * @param value {@link #zip} (A postal code designating a region defined by the postal service.)
+     * @param value {@link #zip} (A postal code designating a region defined by the postal service.). This is the underlying object with id, value and extensions. The accessor "getZip" gives direct access to the value
      */
-    public Address setZip(StringType value) { 
+    public Address setZipObject(StringType value) { 
       this.zip = value;
       return this;
     }
@@ -346,14 +346,14 @@ P.O. Box number, delivery hints, and similar address information.)
     /**
      * @return A postal code designating a region defined by the postal service.
      */
-    public String getZipSimple() { 
+    public String getZip() { 
       return this.zip == null ? null : this.zip.getValue();
     }
 
     /**
      * @param value A postal code designating a region defined by the postal service.
      */
-    public Address setZipSimple(String value) { 
+    public Address setZip(String value) { 
       if (value == null)
         this.zip = null;
       else {
@@ -365,16 +365,16 @@ P.O. Box number, delivery hints, and similar address information.)
     }
 
     /**
-     * @return {@link #country} (Country - a nation as commonly understood or generally accepted.)
+     * @return {@link #country} (Country - a nation as commonly understood or generally accepted.). This is the underlying object with id, value and extensions. The accessor "getCountry" gives direct access to the value
      */
-    public StringType getCountry() { 
+    public StringType getCountryObject() { 
       return this.country;
     }
 
     /**
-     * @param value {@link #country} (Country - a nation as commonly understood or generally accepted.)
+     * @param value {@link #country} (Country - a nation as commonly understood or generally accepted.). This is the underlying object with id, value and extensions. The accessor "getCountry" gives direct access to the value
      */
-    public Address setCountry(StringType value) { 
+    public Address setCountryObject(StringType value) { 
       this.country = value;
       return this;
     }
@@ -382,14 +382,14 @@ P.O. Box number, delivery hints, and similar address information.)
     /**
      * @return Country - a nation as commonly understood or generally accepted.
      */
-    public String getCountrySimple() { 
+    public String getCountry() { 
       return this.country == null ? null : this.country.getValue();
     }
 
     /**
      * @param value Country - a nation as commonly understood or generally accepted.
      */
-    public Address setCountrySimple(String value) { 
+    public Address setCountry(String value) { 
       if (value == null)
         this.country = null;
       else {

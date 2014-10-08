@@ -45,6 +45,7 @@ public class ExtensionDefn {
   private String code;
   private ContextType type;
   private String context;
+  private String display;
   private List<ExtensionDefn> children = new ArrayList<ExtensionDefn>();
   
   public ElementDefn getDefinition() {
@@ -73,6 +74,12 @@ public class ExtensionDefn {
   }
   public List<ExtensionDefn> getChildren() {
     return children;
+  }
+  public String getDisplay() {
+    return display;
+  }
+  public void setDisplay(String display) {
+    this.display = display;
   }
   
   

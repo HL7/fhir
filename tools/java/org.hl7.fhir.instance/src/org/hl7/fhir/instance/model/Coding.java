@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -80,16 +80,16 @@ public class Coding extends Type {
     }
 
     /**
-     * @return {@link #system} (The identification of the code system that defines the meaning of the symbol in the code.)
+     * @return {@link #system} (The identification of the code system that defines the meaning of the symbol in the code.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public UriType getSystem() { 
+    public UriType getSystemObject() { 
       return this.system;
     }
 
     /**
-     * @param value {@link #system} (The identification of the code system that defines the meaning of the symbol in the code.)
+     * @param value {@link #system} (The identification of the code system that defines the meaning of the symbol in the code.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Coding setSystem(UriType value) { 
+    public Coding setSystemObject(UriType value) { 
       this.system = value;
       return this;
     }
@@ -97,14 +97,14 @@ public class Coding extends Type {
     /**
      * @return The identification of the code system that defines the meaning of the symbol in the code.
      */
-    public String getSystemSimple() { 
+    public String getSystem() { 
       return this.system == null ? null : this.system.getValue();
     }
 
     /**
      * @param value The identification of the code system that defines the meaning of the symbol in the code.
      */
-    public Coding setSystemSimple(String value) { 
+    public Coding setSystem(String value) { 
       if (value == null)
         this.system = null;
       else {
@@ -116,16 +116,16 @@ public class Coding extends Type {
     }
 
     /**
-     * @return {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.)
+     * @return {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersion() { 
+    public StringType getVersionObject() { 
       return this.version;
     }
 
     /**
-     * @param value {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.)
+     * @param value {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public Coding setVersion(StringType value) { 
+    public Coding setVersionObject(StringType value) { 
       this.version = value;
       return this;
     }
@@ -133,14 +133,14 @@ public class Coding extends Type {
     /**
      * @return The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.
      */
-    public String getVersionSimple() { 
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.
      */
-    public Coding setVersionSimple(String value) { 
+    public Coding setVersion(String value) { 
       if (value == null)
         this.version = null;
       else {
@@ -152,16 +152,16 @@ public class Coding extends Type {
     }
 
     /**
-     * @return {@link #code} (A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).)
+     * @return {@link #code} (A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public CodeType getCode() { 
+    public CodeType getCodeObject() { 
       return this.code;
     }
 
     /**
-     * @param value {@link #code} (A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).)
+     * @param value {@link #code} (A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public Coding setCode(CodeType value) { 
+    public Coding setCodeObject(CodeType value) { 
       this.code = value;
       return this;
     }
@@ -169,14 +169,14 @@ public class Coding extends Type {
     /**
      * @return A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).
      */
-    public String getCodeSimple() { 
+    public String getCode() { 
       return this.code == null ? null : this.code.getValue();
     }
 
     /**
      * @param value A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).
      */
-    public Coding setCodeSimple(String value) { 
+    public Coding setCode(String value) { 
       if (value == null)
         this.code = null;
       else {
@@ -188,16 +188,16 @@ public class Coding extends Type {
     }
 
     /**
-     * @return {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.)
+     * @return {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public StringType getDisplay() { 
+    public StringType getDisplayObject() { 
       return this.display;
     }
 
     /**
-     * @param value {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.)
+     * @param value {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public Coding setDisplay(StringType value) { 
+    public Coding setDisplayObject(StringType value) { 
       this.display = value;
       return this;
     }
@@ -205,14 +205,14 @@ public class Coding extends Type {
     /**
      * @return A representation of the meaning of the code in the system, following the rules of the system.
      */
-    public String getDisplaySimple() { 
+    public String getDisplay() { 
       return this.display == null ? null : this.display.getValue();
     }
 
     /**
      * @param value A representation of the meaning of the code in the system, following the rules of the system.
      */
-    public Coding setDisplaySimple(String value) { 
+    public Coding setDisplay(String value) { 
       if (value == null)
         this.display = null;
       else {
@@ -224,16 +224,16 @@ public class Coding extends Type {
     }
 
     /**
-     * @return {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).)
+     * @return {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).). This is the underlying object with id, value and extensions. The accessor "getPrimary" gives direct access to the value
      */
-    public BooleanType getPrimary() { 
+    public BooleanType getPrimaryObject() { 
       return this.primary;
     }
 
     /**
-     * @param value {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).)
+     * @param value {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).). This is the underlying object with id, value and extensions. The accessor "getPrimary" gives direct access to the value
      */
-    public Coding setPrimary(BooleanType value) { 
+    public Coding setPrimaryObject(BooleanType value) { 
       this.primary = value;
       return this;
     }
@@ -241,14 +241,14 @@ public class Coding extends Type {
     /**
      * @return Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).
      */
-    public boolean getPrimarySimple() { 
+    public boolean getPrimary() { 
       return this.primary == null ? false : this.primary.getValue();
     }
 
     /**
      * @param value Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).
      */
-    public Coding setPrimarySimple(boolean value) { 
+    public Coding setPrimary(boolean value) { 
       if (value == false)
         this.primary = null;
       else {
@@ -275,14 +275,14 @@ public class Coding extends Type {
     }
 
     /**
-     * @return {@link #valueSet} (The actual object that is the target of the reference. The set of possible coded values this coding was chosen from or constrained by.)
+     * @return {@link #valueSet} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The set of possible coded values this coding was chosen from or constrained by.)
      */
     public ValueSet getValueSetTarget() { 
       return this.valueSetTarget;
     }
 
     /**
-     * @param value {@link #valueSet} (The actual object that is the target of the reference. The set of possible coded values this coding was chosen from or constrained by.)
+     * @param value {@link #valueSet} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The set of possible coded values this coding was chosen from or constrained by.)
      */
     public Coding setValueSetTarget(ValueSet value) { 
       this.valueSetTarget = value;

@@ -212,7 +212,7 @@ Procedure TAdvStringLargeIntegerMatch.InternalEmpty(iIndex, iLength: Integer);
 Begin 
   Inherited;
 
-  MemoryZero(Pointer(NativeUInt(FMatchArray) + (iIndex * SizeOf(TAdvStringLargeIntegerMatchItem))), (iLength * SizeOf(TAdvStringLargeIntegerMatchItem)));
+  MemoryZero(Pointer(NativeUInt(FMatchArray) + NativeUInt(iIndex * SizeOf(TAdvStringLargeIntegerMatchItem))), (iLength * SizeOf(TAdvStringLargeIntegerMatchItem)));
 End;
 
 

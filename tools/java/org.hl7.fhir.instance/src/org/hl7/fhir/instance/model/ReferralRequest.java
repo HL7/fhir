@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,38 +39,38 @@ import java.util.*;
 public class ReferralRequest extends Resource {
 
     public enum Referralstatus {
-        draft, // A draft referral that has yet to be send.
-        sent, // The referral has been transmitted, but not yet acknowledged by the recipient.
-        active, // The referral has been acknowledged by the recipient, and is in the process of being actioned.
-        cancelled, // The referral has been cancelled without being completed. For example it is no longer needed.
-        refused, // The recipient has declined to accept the referral.
-        completed, // The referral has been completely actioned.
-        Null; // added to help the parsers
+        DRAFT, // A draft referral that has yet to be send.
+        SENT, // The referral has been transmitted, but not yet acknowledged by the recipient.
+        ACTIVE, // The referral has been acknowledged by the recipient, and is in the process of being actioned.
+        CANCELLED, // The referral has been cancelled without being completed. For example it is no longer needed.
+        REFUSED, // The recipient has declined to accept the referral.
+        COMPLETED, // The referral has been completely actioned.
+        NULL; // added to help the parsers
         public static Referralstatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return draft;
+          return DRAFT;
         if ("sent".equals(codeString))
-          return sent;
+          return SENT;
         if ("active".equals(codeString))
-          return active;
+          return ACTIVE;
         if ("cancelled".equals(codeString))
-          return cancelled;
+          return CANCELLED;
         if ("refused".equals(codeString))
-          return refused;
+          return REFUSED;
         if ("completed".equals(codeString))
-          return completed;
+          return COMPLETED;
         throw new Exception("Unknown Referralstatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case draft: return "draft";
-            case sent: return "sent";
-            case active: return "active";
-            case cancelled: return "cancelled";
-            case refused: return "refused";
-            case completed: return "completed";
+            case DRAFT: return "draft";
+            case SENT: return "sent";
+            case ACTIVE: return "active";
+            case CANCELLED: return "cancelled";
+            case REFUSED: return "refused";
+            case COMPLETED: return "completed";
             default: return "?";
           }
         }
@@ -82,31 +82,31 @@ public class ReferralRequest extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return Referralstatus.draft;
+          return Referralstatus.DRAFT;
         if ("sent".equals(codeString))
-          return Referralstatus.sent;
+          return Referralstatus.SENT;
         if ("active".equals(codeString))
-          return Referralstatus.active;
+          return Referralstatus.ACTIVE;
         if ("cancelled".equals(codeString))
-          return Referralstatus.cancelled;
+          return Referralstatus.CANCELLED;
         if ("refused".equals(codeString))
-          return Referralstatus.refused;
+          return Referralstatus.REFUSED;
         if ("completed".equals(codeString))
-          return Referralstatus.completed;
+          return Referralstatus.COMPLETED;
         throw new Exception("Unknown Referralstatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == Referralstatus.draft)
+      if (code == Referralstatus.DRAFT)
         return "draft";
-      if (code == Referralstatus.sent)
+      if (code == Referralstatus.SENT)
         return "sent";
-      if (code == Referralstatus.active)
+      if (code == Referralstatus.ACTIVE)
         return "active";
-      if (code == Referralstatus.cancelled)
+      if (code == Referralstatus.CANCELLED)
         return "cancelled";
-      if (code == Referralstatus.refused)
+      if (code == Referralstatus.REFUSED)
         return "refused";
-      if (code == Referralstatus.completed)
+      if (code == Referralstatus.COMPLETED)
         return "completed";
       return "?";
       }
@@ -224,16 +224,16 @@ public class ReferralRequest extends Resource {
     }
 
     /**
-     * @return {@link #status} (The workflow status of the referral or transfer of care request.)
+     * @return {@link #status} (The workflow status of the referral or transfer of care request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<Referralstatus> getStatus() { 
+    public Enumeration<Referralstatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The workflow status of the referral or transfer of care request.)
+     * @param value {@link #status} (The workflow status of the referral or transfer of care request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ReferralRequest setStatus(Enumeration<Referralstatus> value) { 
+    public ReferralRequest setStatusObject(Enumeration<Referralstatus> value) { 
       this.status = value;
       return this;
     }
@@ -241,14 +241,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return The workflow status of the referral or transfer of care request.
      */
-    public Referralstatus getStatusSimple() { 
+    public Referralstatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The workflow status of the referral or transfer of care request.
      */
-    public ReferralRequest setStatusSimple(Referralstatus value) { 
+    public ReferralRequest setStatus(Referralstatus value) { 
         if (this.status == null)
           this.status = new Enumeration<Referralstatus>();
         this.status.setValue(value);
@@ -333,14 +333,14 @@ public class ReferralRequest extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The patient who is the subject of a referral or transfer of care request.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
      */
     public Patient getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The patient who is the subject of a referral or transfer of care request.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
      */
     public ReferralRequest setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
@@ -363,14 +363,14 @@ public class ReferralRequest extends Resource {
     }
 
     /**
-     * @return {@link #requester} (The actual object that is the target of the reference. The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).)
+     * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).)
      */
     public Resource getRequesterTarget() { 
       return this.requesterTarget;
     }
 
     /**
-     * @param value {@link #requester} (The actual object that is the target of the reference. The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).)
+     * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).)
      */
     public ReferralRequest setRequesterTarget(Resource value) { 
       this.requesterTarget = value;
@@ -395,7 +395,7 @@ public class ReferralRequest extends Resource {
     }
 
     /**
-     * @return {@link #recipient} (The actual objects that are the target of the reference. The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.)
+     * @return {@link #recipient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.)
      */
     public List<Resource> getRecipientTarget() { 
       return this.recipientTarget;
@@ -417,14 +417,14 @@ public class ReferralRequest extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (The actual object that is the target of the reference. The encounter at which the request for referral or transfer of care is initiated.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter at which the request for referral or transfer of care is initiated.)
      */
     public Encounter getEncounterTarget() { 
       return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #encounter} (The actual object that is the target of the reference. The encounter at which the request for referral or transfer of care is initiated.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter at which the request for referral or transfer of care is initiated.)
      */
     public ReferralRequest setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
@@ -432,16 +432,16 @@ public class ReferralRequest extends Resource {
     }
 
     /**
-     * @return {@link #dateSent} (Date/DateTime the request for referral or transfer of care is sent by the author.)
+     * @return {@link #dateSent} (Date/DateTime the request for referral or transfer of care is sent by the author.). This is the underlying object with id, value and extensions. The accessor "getDateSent" gives direct access to the value
      */
-    public DateTimeType getDateSent() { 
+    public DateTimeType getDateSentObject() { 
       return this.dateSent;
     }
 
     /**
-     * @param value {@link #dateSent} (Date/DateTime the request for referral or transfer of care is sent by the author.)
+     * @param value {@link #dateSent} (Date/DateTime the request for referral or transfer of care is sent by the author.). This is the underlying object with id, value and extensions. The accessor "getDateSent" gives direct access to the value
      */
-    public ReferralRequest setDateSent(DateTimeType value) { 
+    public ReferralRequest setDateSentObject(DateTimeType value) { 
       this.dateSent = value;
       return this;
     }
@@ -449,14 +449,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return Date/DateTime the request for referral or transfer of care is sent by the author.
      */
-    public DateAndTime getDateSentSimple() { 
+    public DateAndTime getDateSent() { 
       return this.dateSent == null ? null : this.dateSent.getValue();
     }
 
     /**
      * @param value Date/DateTime the request for referral or transfer of care is sent by the author.
      */
-    public ReferralRequest setDateSentSimple(DateAndTime value) { 
+    public ReferralRequest setDateSent(DateAndTime value) { 
       if (value == null)
         this.dateSent = null;
       else {
@@ -483,16 +483,16 @@ public class ReferralRequest extends Resource {
     }
 
     /**
-     * @return {@link #description} (The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.)
+     * @return {@link #description} (The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescription() { 
+    public StringType getDescriptionObject() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.)
+     * @param value {@link #description} (The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ReferralRequest setDescription(StringType value) { 
+    public ReferralRequest setDescriptionObject(StringType value) { 
       this.description = value;
       return this;
     }
@@ -500,14 +500,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.
      */
-    public String getDescriptionSimple() { 
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.
      */
-    public ReferralRequest setDescriptionSimple(String value) { 
+    public ReferralRequest setDescription(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -553,7 +553,7 @@ public class ReferralRequest extends Resource {
     }
 
     /**
-     * @return {@link #supportingInformation} (The actual objects that are the target of the reference. Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.)
+     * @return {@link #supportingInformation} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.)
      */
     public List<Resource> getSupportingInformationTarget() { 
       return this.supportingInformationTarget;

@@ -2,27 +2,17 @@ package org.hl7.fhir.definitions.generators.specification;
 
 import java.util.List;
 
-import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ExtensionDefn;
-import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
-import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.tools.publisher.PageProcessor;
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Cell;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Piece;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
-import org.hl7.fhir.utilities.xhtml.genImage;
 
 public class ProfileTableGenerator extends TableGenerator {
   public ProfileTableGenerator(String dest, PageProcessor page, String pageName, boolean inlineGraphics) throws Exception {
@@ -52,19 +42,19 @@ public class ProfileTableGenerator extends TableGenerator {
       Row r = gen.new Row();
       rows.add(r);
       r.setIcon("icon_profile.png");
-      r.getCells().add(gen.new Cell(null, null, profile.getNameSimple(), null, null));
+      r.getCells().add(gen.new Cell(null, null, profile.getName(), null, null));
       r.getCells().add(gen.new Cell());
       r.getCells().add(gen.new Cell(null, null, "Profile", null, null));
-      r.getCells().add(gen.new Cell(null, null, profile.getDescriptionSimple(), null, null));
+      r.getCells().add(gen.new Cell(null, null, profile.getDescription(), null, null));
 
       for (ProfileStructureComponent s : profile.getStructure()) {
         Row re = gen.new Row();
         r.getSubRows().add(re);
         re.setIcon("icon_resource.png");
-        re.getCells().add(gen.new Cell(null, null, s.getNameSimple(), null, null));
+        re.getCells().add(gen.new Cell(null, null, s.getName(), null, null));
         re.getCells().add(gen.new Cell(null, null, "", null, null));
-        re.getCells().add(gen.new Cell(null, null, s.getTypeSimple(), null, null));
-        re.getCells().add(gen.new Cell(null, null, s.getBaseSimple(), null, null));
+        re.getCells().add(gen.new Cell(null, null, s.getType(), null, null));
+        re.getCells().add(gen.new Cell(null, null, s.getBase(), null, null));
       }
     }
     
@@ -75,7 +65,7 @@ public class ProfileTableGenerator extends TableGenerator {
       re.getCells().add(gen.new Cell(null, null, "Extensions", null, null));
       re.getCells().add(gen.new Cell());
       re.getCells().add(gen.new Cell());
-      re.getCells().add(gen.new Cell(null, null, "Extensions defined by the URL \""+profile.getUrlSimple()+"\"", null, null));
+      re.getCells().add(gen.new Cell(null, null, "Extensions defined by the URL \""+profile.getUrl()+"\"", null, null));
 
       for (ExtensionDefn ext : p.getExtensions()) {
         genExtension(gen, re.getSubRows(), ext, true);

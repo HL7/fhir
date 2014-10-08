@@ -82,7 +82,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
-import org.hl7.fhir.instance.model.ResourceUtilities;
+import org.hl7.fhir.instance.utils.ResourceUtilities;
 
 /**
  * Helper class handling lower level HTTP transport concerns.
@@ -407,7 +407,7 @@ public class ClientUtils {
 	
 	private static boolean hasError(OperationOutcome oo) {
 		for (OperationOutcomeIssueComponent t : oo.getIssue())
-			if (t.getSeveritySimple() == IssueSeverity.error || t.getSeveritySimple() == IssueSeverity.fatal)
+			if (t.getSeverity() == IssueSeverity.ERROR || t.getSeverity() == IssueSeverity.FATAL)
 				return true;
 	  return false;
   }

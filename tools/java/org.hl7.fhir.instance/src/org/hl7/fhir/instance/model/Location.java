@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -40,26 +40,26 @@ import java.math.*;
 public class Location extends Resource {
 
     public enum LocationStatus {
-        active, // The location is operational.
-        suspended, // The location is temporarily closed.
-        inactive, // The location is no longer used.
-        Null; // added to help the parsers
+        ACTIVE, // The location is operational.
+        SUSPENDED, // The location is temporarily closed.
+        INACTIVE, // The location is no longer used.
+        NULL; // added to help the parsers
         public static LocationStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
-          return active;
+          return ACTIVE;
         if ("suspended".equals(codeString))
-          return suspended;
+          return SUSPENDED;
         if ("inactive".equals(codeString))
-          return inactive;
+          return INACTIVE;
         throw new Exception("Unknown LocationStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case active: return "active";
-            case suspended: return "suspended";
-            case inactive: return "inactive";
+            case ACTIVE: return "active";
+            case SUSPENDED: return "suspended";
+            case INACTIVE: return "inactive";
             default: return "?";
           }
         }
@@ -71,41 +71,41 @@ public class Location extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
-          return LocationStatus.active;
+          return LocationStatus.ACTIVE;
         if ("suspended".equals(codeString))
-          return LocationStatus.suspended;
+          return LocationStatus.SUSPENDED;
         if ("inactive".equals(codeString))
-          return LocationStatus.inactive;
+          return LocationStatus.INACTIVE;
         throw new Exception("Unknown LocationStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == LocationStatus.active)
+      if (code == LocationStatus.ACTIVE)
         return "active";
-      if (code == LocationStatus.suspended)
+      if (code == LocationStatus.SUSPENDED)
         return "suspended";
-      if (code == LocationStatus.inactive)
+      if (code == LocationStatus.INACTIVE)
         return "inactive";
       return "?";
       }
     }
 
     public enum LocationMode {
-        instance, // The Location resource represents a specific instance of a Location.
-        kind, // The Location represents a class of Locations.
-        Null; // added to help the parsers
+        INSTANCE, // The Location resource represents a specific instance of a Location.
+        KIND, // The Location represents a class of Locations.
+        NULL; // added to help the parsers
         public static LocationMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("instance".equals(codeString))
-          return instance;
+          return INSTANCE;
         if ("kind".equals(codeString))
-          return kind;
+          return KIND;
         throw new Exception("Unknown LocationMode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case instance: return "instance";
-            case kind: return "kind";
+            case INSTANCE: return "instance";
+            case KIND: return "kind";
             default: return "?";
           }
         }
@@ -117,15 +117,15 @@ public class Location extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("instance".equals(codeString))
-          return LocationMode.instance;
+          return LocationMode.INSTANCE;
         if ("kind".equals(codeString))
-          return LocationMode.kind;
+          return LocationMode.KIND;
         throw new Exception("Unknown LocationMode code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == LocationMode.instance)
+      if (code == LocationMode.INSTANCE)
         return "instance";
-      if (code == LocationMode.kind)
+      if (code == LocationMode.KIND)
         return "kind";
       return "?";
       }
@@ -160,16 +160,16 @@ public class Location extends Resource {
       }
 
         /**
-         * @return {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).)
+         * @return {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLongitude" gives direct access to the value
          */
-        public DecimalType getLongitude() { 
+        public DecimalType getLongitudeObject() { 
           return this.longitude;
         }
 
         /**
-         * @param value {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).)
+         * @param value {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLongitude" gives direct access to the value
          */
-        public LocationPositionComponent setLongitude(DecimalType value) { 
+        public LocationPositionComponent setLongitudeObject(DecimalType value) { 
           this.longitude = value;
           return this;
         }
@@ -177,14 +177,14 @@ public class Location extends Resource {
         /**
          * @return Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
          */
-        public BigDecimal getLongitudeSimple() { 
+        public BigDecimal getLongitude() { 
           return this.longitude == null ? null : this.longitude.getValue();
         }
 
         /**
          * @param value Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
          */
-        public LocationPositionComponent setLongitudeSimple(BigDecimal value) { 
+        public LocationPositionComponent setLongitude(BigDecimal value) { 
             if (this.longitude == null)
               this.longitude = new DecimalType();
             this.longitude.setValue(value);
@@ -192,16 +192,16 @@ public class Location extends Resource {
         }
 
         /**
-         * @return {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).)
+         * @return {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLatitude" gives direct access to the value
          */
-        public DecimalType getLatitude() { 
+        public DecimalType getLatitudeObject() { 
           return this.latitude;
         }
 
         /**
-         * @param value {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).)
+         * @param value {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLatitude" gives direct access to the value
          */
-        public LocationPositionComponent setLatitude(DecimalType value) { 
+        public LocationPositionComponent setLatitudeObject(DecimalType value) { 
           this.latitude = value;
           return this;
         }
@@ -209,14 +209,14 @@ public class Location extends Resource {
         /**
          * @return Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
          */
-        public BigDecimal getLatitudeSimple() { 
+        public BigDecimal getLatitude() { 
           return this.latitude == null ? null : this.latitude.getValue();
         }
 
         /**
          * @param value Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
          */
-        public LocationPositionComponent setLatitudeSimple(BigDecimal value) { 
+        public LocationPositionComponent setLatitude(BigDecimal value) { 
             if (this.latitude == null)
               this.latitude = new DecimalType();
             this.latitude.setValue(value);
@@ -224,16 +224,16 @@ public class Location extends Resource {
         }
 
         /**
-         * @return {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).)
+         * @return {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getAltitude" gives direct access to the value
          */
-        public DecimalType getAltitude() { 
+        public DecimalType getAltitudeObject() { 
           return this.altitude;
         }
 
         /**
-         * @param value {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).)
+         * @param value {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getAltitude" gives direct access to the value
          */
-        public LocationPositionComponent setAltitude(DecimalType value) { 
+        public LocationPositionComponent setAltitudeObject(DecimalType value) { 
           this.altitude = value;
           return this;
         }
@@ -241,14 +241,14 @@ public class Location extends Resource {
         /**
          * @return Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
          */
-        public BigDecimal getAltitudeSimple() { 
+        public BigDecimal getAltitude() { 
           return this.altitude == null ? null : this.altitude.getValue();
         }
 
         /**
          * @param value Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
          */
-        public LocationPositionComponent setAltitudeSimple(BigDecimal value) { 
+        public LocationPositionComponent setAltitude(BigDecimal value) { 
           if (value == null)
             this.altitude = null;
           else {
@@ -370,16 +370,16 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #name} (Name of the location as used by humans. Does not need to be unique.)
+     * @return {@link #name} (Name of the location as used by humans. Does not need to be unique.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getName() { 
+    public StringType getNameObject() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (Name of the location as used by humans. Does not need to be unique.)
+     * @param value {@link #name} (Name of the location as used by humans. Does not need to be unique.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Location setName(StringType value) { 
+    public Location setNameObject(StringType value) { 
       this.name = value;
       return this;
     }
@@ -387,14 +387,14 @@ public class Location extends Resource {
     /**
      * @return Name of the location as used by humans. Does not need to be unique.
      */
-    public String getNameSimple() { 
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value Name of the location as used by humans. Does not need to be unique.
      */
-    public Location setNameSimple(String value) { 
+    public Location setName(String value) { 
       if (value == null)
         this.name = null;
       else {
@@ -406,16 +406,16 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #description} (Description of the Location, which helps in finding or referencing the place.)
+     * @return {@link #description} (Description of the Location, which helps in finding or referencing the place.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescription() { 
+    public StringType getDescriptionObject() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (Description of the Location, which helps in finding or referencing the place.)
+     * @param value {@link #description} (Description of the Location, which helps in finding or referencing the place.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Location setDescription(StringType value) { 
+    public Location setDescriptionObject(StringType value) { 
       this.description = value;
       return this;
     }
@@ -423,14 +423,14 @@ public class Location extends Resource {
     /**
      * @return Description of the Location, which helps in finding or referencing the place.
      */
-    public String getDescriptionSimple() { 
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value Description of the Location, which helps in finding or referencing the place.
      */
-    public Location setDescriptionSimple(String value) { 
+    public Location setDescription(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -534,14 +534,14 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #managingOrganization} (The actual object that is the target of the reference. The organization that is responsible for the provisioning and upkeep of the location.)
+     * @return {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization that is responsible for the provisioning and upkeep of the location.)
      */
     public Organization getManagingOrganizationTarget() { 
       return this.managingOrganizationTarget;
     }
 
     /**
-     * @param value {@link #managingOrganization} (The actual object that is the target of the reference. The organization that is responsible for the provisioning and upkeep of the location.)
+     * @param value {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization that is responsible for the provisioning and upkeep of the location.)
      */
     public Location setManagingOrganizationTarget(Organization value) { 
       this.managingOrganizationTarget = value;
@@ -549,16 +549,16 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #status} (active | suspended | inactive.)
+     * @return {@link #status} (active | suspended | inactive.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<LocationStatus> getStatus() { 
+    public Enumeration<LocationStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (active | suspended | inactive.)
+     * @param value {@link #status} (active | suspended | inactive.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Location setStatus(Enumeration<LocationStatus> value) { 
+    public Location setStatusObject(Enumeration<LocationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -566,14 +566,14 @@ public class Location extends Resource {
     /**
      * @return active | suspended | inactive.
      */
-    public LocationStatus getStatusSimple() { 
+    public LocationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value active | suspended | inactive.
      */
-    public Location setStatusSimple(LocationStatus value) { 
+    public Location setStatus(LocationStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -600,14 +600,14 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #partOf} (The actual object that is the target of the reference. Another Location which this Location is physically part of.)
+     * @return {@link #partOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another Location which this Location is physically part of.)
      */
     public Location getPartOfTarget() { 
       return this.partOfTarget;
     }
 
     /**
-     * @param value {@link #partOf} (The actual object that is the target of the reference. Another Location which this Location is physically part of.)
+     * @param value {@link #partOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Another Location which this Location is physically part of.)
      */
     public Location setPartOfTarget(Location value) { 
       this.partOfTarget = value;
@@ -615,16 +615,16 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.)
+     * @return {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public Enumeration<LocationMode> getMode() { 
+    public Enumeration<LocationMode> getModeObject() { 
       return this.mode;
     }
 
     /**
-     * @param value {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.)
+     * @param value {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public Location setMode(Enumeration<LocationMode> value) { 
+    public Location setModeObject(Enumeration<LocationMode> value) { 
       this.mode = value;
       return this;
     }
@@ -632,14 +632,14 @@ public class Location extends Resource {
     /**
      * @return Indicates whether a resource instance represents a specific location or a class of locations.
      */
-    public LocationMode getModeSimple() { 
+    public LocationMode getMode() { 
       return this.mode == null ? null : this.mode.getValue();
     }
 
     /**
      * @param value Indicates whether a resource instance represents a specific location or a class of locations.
      */
-    public Location setModeSimple(LocationMode value) { 
+    public Location setMode(LocationMode value) { 
       if (value == null)
         this.mode = null;
       else {

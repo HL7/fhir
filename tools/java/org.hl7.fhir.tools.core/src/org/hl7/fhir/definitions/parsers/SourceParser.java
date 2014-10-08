@@ -87,7 +87,6 @@ import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.xml.sax.Parser;
 
 /**
  * This class parses the master source for FHIR into a single definitions object
@@ -351,7 +350,7 @@ public class SourceParser {
   private void loadValueSet(String n) throws FileNotFoundException, Exception {
     XmlParser xml = new XmlParser();
     ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar)));
-    vs.setIdentifierSimple("http://hl7.org/fhir/vs/"+n);
+    vs.setIdentifier("http://hl7.org/fhir/vs/"+n);
     definitions.getExtraValuesets().put(n, vs);
   }
 
@@ -537,7 +536,7 @@ public class SourceParser {
 				spreadsheet), spreadsheet.getName(), definitions, src, logger, registry);
 		ResourceDefn root;
 		try {
-		  root = sparser.parseReference();
+		  root = sparser.parseResource();
 		} catch (Exception e) {
 		  throw new Exception("Error Parsing Resource "+n+": "+e.getMessage(), e);
 		}

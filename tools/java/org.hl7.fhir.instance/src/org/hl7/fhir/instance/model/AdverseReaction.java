@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class AdverseReaction extends Resource {
 
     public enum ReactionSeverity {
-        severe, // Severe complications arose due to the reaction.
-        serious, // Serious inconvenience to the subject.
-        moderate, // Moderate inconvenience to the subject.
-        minor, // Minor inconvenience to the subject.
-        Null; // added to help the parsers
+        SEVERE, // Severe complications arose due to the reaction.
+        SERIOUS, // Serious inconvenience to the subject.
+        MODERATE, // Moderate inconvenience to the subject.
+        MINOR, // Minor inconvenience to the subject.
+        NULL; // added to help the parsers
         public static ReactionSeverity fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("severe".equals(codeString))
-          return severe;
+          return SEVERE;
         if ("serious".equals(codeString))
-          return serious;
+          return SERIOUS;
         if ("moderate".equals(codeString))
-          return moderate;
+          return MODERATE;
         if ("minor".equals(codeString))
-          return minor;
+          return MINOR;
         throw new Exception("Unknown ReactionSeverity code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case severe: return "severe";
-            case serious: return "serious";
-            case moderate: return "moderate";
-            case minor: return "minor";
+            case SEVERE: return "severe";
+            case SERIOUS: return "serious";
+            case MODERATE: return "moderate";
+            case MINOR: return "minor";
             default: return "?";
           }
         }
@@ -74,49 +74,49 @@ public class AdverseReaction extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("severe".equals(codeString))
-          return ReactionSeverity.severe;
+          return ReactionSeverity.SEVERE;
         if ("serious".equals(codeString))
-          return ReactionSeverity.serious;
+          return ReactionSeverity.SERIOUS;
         if ("moderate".equals(codeString))
-          return ReactionSeverity.moderate;
+          return ReactionSeverity.MODERATE;
         if ("minor".equals(codeString))
-          return ReactionSeverity.minor;
+          return ReactionSeverity.MINOR;
         throw new Exception("Unknown ReactionSeverity code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ReactionSeverity.severe)
+      if (code == ReactionSeverity.SEVERE)
         return "severe";
-      if (code == ReactionSeverity.serious)
+      if (code == ReactionSeverity.SERIOUS)
         return "serious";
-      if (code == ReactionSeverity.moderate)
+      if (code == ReactionSeverity.MODERATE)
         return "moderate";
-      if (code == ReactionSeverity.minor)
+      if (code == ReactionSeverity.MINOR)
         return "minor";
       return "?";
       }
     }
 
     public enum ExposureType {
-        drugadmin, // Drug Administration.
-        immuniz, // Immunization.
-        coincidental, // In the same area as the substance.
-        Null; // added to help the parsers
+        DRUGADMIN, // Drug Administration.
+        IMMUNIZ, // Immunization.
+        COINCIDENTAL, // In the same area as the substance.
+        NULL; // added to help the parsers
         public static ExposureType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("drugadmin".equals(codeString))
-          return drugadmin;
+          return DRUGADMIN;
         if ("immuniz".equals(codeString))
-          return immuniz;
+          return IMMUNIZ;
         if ("coincidental".equals(codeString))
-          return coincidental;
+          return COINCIDENTAL;
         throw new Exception("Unknown ExposureType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case drugadmin: return "drugadmin";
-            case immuniz: return "immuniz";
-            case coincidental: return "coincidental";
+            case DRUGADMIN: return "drugadmin";
+            case IMMUNIZ: return "immuniz";
+            case COINCIDENTAL: return "coincidental";
             default: return "?";
           }
         }
@@ -128,49 +128,49 @@ public class AdverseReaction extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("drugadmin".equals(codeString))
-          return ExposureType.drugadmin;
+          return ExposureType.DRUGADMIN;
         if ("immuniz".equals(codeString))
-          return ExposureType.immuniz;
+          return ExposureType.IMMUNIZ;
         if ("coincidental".equals(codeString))
-          return ExposureType.coincidental;
+          return ExposureType.COINCIDENTAL;
         throw new Exception("Unknown ExposureType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ExposureType.drugadmin)
+      if (code == ExposureType.DRUGADMIN)
         return "drugadmin";
-      if (code == ExposureType.immuniz)
+      if (code == ExposureType.IMMUNIZ)
         return "immuniz";
-      if (code == ExposureType.coincidental)
+      if (code == ExposureType.COINCIDENTAL)
         return "coincidental";
       return "?";
       }
     }
 
     public enum CausalityExpectation {
-        likely, // Likely that this specific exposure caused the reaction.
-        unlikely, // Unlikely that this specific exposure caused the reaction - the exposure is being linked to for information purposes.
-        confirmed, // It has been confirmed that this exposure was one of the causes of the reaction.
-        unknown, // It is unknown whether this exposure had anything to do with the reaction.
-        Null; // added to help the parsers
+        LIKELY, // Likely that this specific exposure caused the reaction.
+        UNLIKELY, // Unlikely that this specific exposure caused the reaction - the exposure is being linked to for information purposes.
+        CONFIRMED, // It has been confirmed that this exposure was one of the causes of the reaction.
+        UNKNOWN, // It is unknown whether this exposure had anything to do with the reaction.
+        NULL; // added to help the parsers
         public static CausalityExpectation fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("likely".equals(codeString))
-          return likely;
+          return LIKELY;
         if ("unlikely".equals(codeString))
-          return unlikely;
+          return UNLIKELY;
         if ("confirmed".equals(codeString))
-          return confirmed;
+          return CONFIRMED;
         if ("unknown".equals(codeString))
-          return unknown;
+          return UNKNOWN;
         throw new Exception("Unknown CausalityExpectation code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case likely: return "likely";
-            case unlikely: return "unlikely";
-            case confirmed: return "confirmed";
-            case unknown: return "unknown";
+            case LIKELY: return "likely";
+            case UNLIKELY: return "unlikely";
+            case CONFIRMED: return "confirmed";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -182,23 +182,23 @@ public class AdverseReaction extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("likely".equals(codeString))
-          return CausalityExpectation.likely;
+          return CausalityExpectation.LIKELY;
         if ("unlikely".equals(codeString))
-          return CausalityExpectation.unlikely;
+          return CausalityExpectation.UNLIKELY;
         if ("confirmed".equals(codeString))
-          return CausalityExpectation.confirmed;
+          return CausalityExpectation.CONFIRMED;
         if ("unknown".equals(codeString))
-          return CausalityExpectation.unknown;
+          return CausalityExpectation.UNKNOWN;
         throw new Exception("Unknown CausalityExpectation code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == CausalityExpectation.likely)
+      if (code == CausalityExpectation.LIKELY)
         return "likely";
-      if (code == CausalityExpectation.unlikely)
+      if (code == CausalityExpectation.UNLIKELY)
         return "unlikely";
-      if (code == CausalityExpectation.confirmed)
+      if (code == CausalityExpectation.CONFIRMED)
         return "confirmed";
-      if (code == CausalityExpectation.unknown)
+      if (code == CausalityExpectation.UNKNOWN)
         return "unknown";
       return "?";
       }
@@ -242,16 +242,16 @@ public class AdverseReaction extends Resource {
         }
 
         /**
-         * @return {@link #severity} (The severity of the sign or symptom.)
+         * @return {@link #severity} (The severity of the sign or symptom.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public Enumeration<ReactionSeverity> getSeverity() { 
+        public Enumeration<ReactionSeverity> getSeverityObject() { 
           return this.severity;
         }
 
         /**
-         * @param value {@link #severity} (The severity of the sign or symptom.)
+         * @param value {@link #severity} (The severity of the sign or symptom.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public AdverseReactionSymptomComponent setSeverity(Enumeration<ReactionSeverity> value) { 
+        public AdverseReactionSymptomComponent setSeverityObject(Enumeration<ReactionSeverity> value) { 
           this.severity = value;
           return this;
         }
@@ -259,14 +259,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return The severity of the sign or symptom.
          */
-        public ReactionSeverity getSeveritySimple() { 
+        public ReactionSeverity getSeverity() { 
           return this.severity == null ? null : this.severity.getValue();
         }
 
         /**
          * @param value The severity of the sign or symptom.
          */
-        public AdverseReactionSymptomComponent setSeveritySimple(ReactionSeverity value) { 
+        public AdverseReactionSymptomComponent setSeverity(ReactionSeverity value) { 
           if (value == null)
             this.severity = null;
           else {
@@ -325,16 +325,16 @@ public class AdverseReaction extends Resource {
       }
 
         /**
-         * @return {@link #date} (Identifies the initial date of the exposure that is suspected to be related to the reaction.)
+         * @return {@link #date} (Identifies the initial date of the exposure that is suspected to be related to the reaction.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDate() { 
+        public DateTimeType getDateObject() { 
           return this.date;
         }
 
         /**
-         * @param value {@link #date} (Identifies the initial date of the exposure that is suspected to be related to the reaction.)
+         * @param value {@link #date} (Identifies the initial date of the exposure that is suspected to be related to the reaction.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public AdverseReactionExposureComponent setDate(DateTimeType value) { 
+        public AdverseReactionExposureComponent setDateObject(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -342,14 +342,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return Identifies the initial date of the exposure that is suspected to be related to the reaction.
          */
-        public DateAndTime getDateSimple() { 
+        public DateAndTime getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value Identifies the initial date of the exposure that is suspected to be related to the reaction.
          */
-        public AdverseReactionExposureComponent setDateSimple(DateAndTime value) { 
+        public AdverseReactionExposureComponent setDate(DateAndTime value) { 
           if (value == null)
             this.date = null;
           else {
@@ -361,16 +361,16 @@ public class AdverseReaction extends Resource {
         }
 
         /**
-         * @return {@link #type} (The type of exposure: Drug Administration, Immunization, Coincidental.)
+         * @return {@link #type} (The type of exposure: Drug Administration, Immunization, Coincidental.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ExposureType> getType() { 
+        public Enumeration<ExposureType> getTypeObject() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (The type of exposure: Drug Administration, Immunization, Coincidental.)
+         * @param value {@link #type} (The type of exposure: Drug Administration, Immunization, Coincidental.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public AdverseReactionExposureComponent setType(Enumeration<ExposureType> value) { 
+        public AdverseReactionExposureComponent setTypeObject(Enumeration<ExposureType> value) { 
           this.type = value;
           return this;
         }
@@ -378,14 +378,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return The type of exposure: Drug Administration, Immunization, Coincidental.
          */
-        public ExposureType getTypeSimple() { 
+        public ExposureType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of exposure: Drug Administration, Immunization, Coincidental.
          */
-        public AdverseReactionExposureComponent setTypeSimple(ExposureType value) { 
+        public AdverseReactionExposureComponent setType(ExposureType value) { 
           if (value == null)
             this.type = null;
           else {
@@ -397,16 +397,16 @@ public class AdverseReaction extends Resource {
         }
 
         /**
-         * @return {@link #causalityExpectation} (A statement of how confident that the recorder was that this exposure caused the reaction.)
+         * @return {@link #causalityExpectation} (A statement of how confident that the recorder was that this exposure caused the reaction.). This is the underlying object with id, value and extensions. The accessor "getCausalityExpectation" gives direct access to the value
          */
-        public Enumeration<CausalityExpectation> getCausalityExpectation() { 
+        public Enumeration<CausalityExpectation> getCausalityExpectationObject() { 
           return this.causalityExpectation;
         }
 
         /**
-         * @param value {@link #causalityExpectation} (A statement of how confident that the recorder was that this exposure caused the reaction.)
+         * @param value {@link #causalityExpectation} (A statement of how confident that the recorder was that this exposure caused the reaction.). This is the underlying object with id, value and extensions. The accessor "getCausalityExpectation" gives direct access to the value
          */
-        public AdverseReactionExposureComponent setCausalityExpectation(Enumeration<CausalityExpectation> value) { 
+        public AdverseReactionExposureComponent setCausalityExpectationObject(Enumeration<CausalityExpectation> value) { 
           this.causalityExpectation = value;
           return this;
         }
@@ -414,14 +414,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return A statement of how confident that the recorder was that this exposure caused the reaction.
          */
-        public CausalityExpectation getCausalityExpectationSimple() { 
+        public CausalityExpectation getCausalityExpectation() { 
           return this.causalityExpectation == null ? null : this.causalityExpectation.getValue();
         }
 
         /**
          * @param value A statement of how confident that the recorder was that this exposure caused the reaction.
          */
-        public AdverseReactionExposureComponent setCausalityExpectationSimple(CausalityExpectation value) { 
+        public AdverseReactionExposureComponent setCausalityExpectation(CausalityExpectation value) { 
           if (value == null)
             this.causalityExpectation = null;
           else {
@@ -448,14 +448,14 @@ public class AdverseReaction extends Resource {
         }
 
         /**
-         * @return {@link #substance} (The actual object that is the target of the reference. Substance that is presumed to have caused the adverse reaction.)
+         * @return {@link #substance} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Substance that is presumed to have caused the adverse reaction.)
          */
         public Substance getSubstanceTarget() { 
           return this.substanceTarget;
         }
 
         /**
-         * @param value {@link #substance} (The actual object that is the target of the reference. Substance that is presumed to have caused the adverse reaction.)
+         * @param value {@link #substance} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Substance that is presumed to have caused the adverse reaction.)
          */
         public AdverseReactionExposureComponent setSubstanceTarget(Substance value) { 
           this.substanceTarget = value;
@@ -556,16 +556,16 @@ public class AdverseReaction extends Resource {
     }
 
     /**
-     * @return {@link #date} (The date (and possibly time) when the reaction began.)
+     * @return {@link #date} (The date (and possibly time) when the reaction began.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDate() { 
+    public DateTimeType getDateObject() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The date (and possibly time) when the reaction began.)
+     * @param value {@link #date} (The date (and possibly time) when the reaction began.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public AdverseReaction setDate(DateTimeType value) { 
+    public AdverseReaction setDateObject(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -573,14 +573,14 @@ public class AdverseReaction extends Resource {
     /**
      * @return The date (and possibly time) when the reaction began.
      */
-    public DateAndTime getDateSimple() { 
+    public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date (and possibly time) when the reaction began.
      */
-    public AdverseReaction setDateSimple(DateAndTime value) { 
+    public AdverseReaction setDate(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -607,14 +607,14 @@ public class AdverseReaction extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The subject of the adverse reaction.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The subject of the adverse reaction.)
      */
     public Patient getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The subject of the adverse reaction.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The subject of the adverse reaction.)
      */
     public AdverseReaction setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
@@ -622,16 +622,16 @@ public class AdverseReaction extends Resource {
     }
 
     /**
-     * @return {@link #didNotOccurFlag} (If true, indicates that no reaction occurred.)
+     * @return {@link #didNotOccurFlag} (If true, indicates that no reaction occurred.). This is the underlying object with id, value and extensions. The accessor "getDidNotOccurFlag" gives direct access to the value
      */
-    public BooleanType getDidNotOccurFlag() { 
+    public BooleanType getDidNotOccurFlagObject() { 
       return this.didNotOccurFlag;
     }
 
     /**
-     * @param value {@link #didNotOccurFlag} (If true, indicates that no reaction occurred.)
+     * @param value {@link #didNotOccurFlag} (If true, indicates that no reaction occurred.). This is the underlying object with id, value and extensions. The accessor "getDidNotOccurFlag" gives direct access to the value
      */
-    public AdverseReaction setDidNotOccurFlag(BooleanType value) { 
+    public AdverseReaction setDidNotOccurFlagObject(BooleanType value) { 
       this.didNotOccurFlag = value;
       return this;
     }
@@ -639,14 +639,14 @@ public class AdverseReaction extends Resource {
     /**
      * @return If true, indicates that no reaction occurred.
      */
-    public boolean getDidNotOccurFlagSimple() { 
+    public boolean getDidNotOccurFlag() { 
       return this.didNotOccurFlag == null ? false : this.didNotOccurFlag.getValue();
     }
 
     /**
      * @param value If true, indicates that no reaction occurred.
      */
-    public AdverseReaction setDidNotOccurFlagSimple(boolean value) { 
+    public AdverseReaction setDidNotOccurFlag(boolean value) { 
         if (this.didNotOccurFlag == null)
           this.didNotOccurFlag = new BooleanType();
         this.didNotOccurFlag.setValue(value);
@@ -669,14 +669,14 @@ public class AdverseReaction extends Resource {
     }
 
     /**
-     * @return {@link #recorder} (The actual object that is the target of the reference. Identifies the individual responsible for the information in the reaction record.)
+     * @return {@link #recorder} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the individual responsible for the information in the reaction record.)
      */
     public Resource getRecorderTarget() { 
       return this.recorderTarget;
     }
 
     /**
-     * @param value {@link #recorder} (The actual object that is the target of the reference. Identifies the individual responsible for the information in the reaction record.)
+     * @param value {@link #recorder} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the individual responsible for the information in the reaction record.)
      */
     public AdverseReaction setRecorderTarget(Resource value) { 
       this.recorderTarget = value;

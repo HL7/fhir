@@ -171,14 +171,14 @@ public class OldProfileValidator extends BaseValidator {
   }
 
   private String terminalName(ElementComponent e) {
-    String res = e.getPath().getValue().substring(e.getPath().getValue().lastIndexOf(".")+1);
+    String res = e.getPath().substring(e.getPath().lastIndexOf(".")+1);
     return res;
   }
 
   private List<ElementComponent> collectChildren(String path) {
     List<ElementComponent> results = new ArrayList<ElementComponent>();
     for (ElementComponent r : profile.getStructure().get(0).getDifferential().getElement())
-      if (r.getPath().getValue().startsWith(path+".") && !r.getPath().getValue().substring(path.length()+1).contains(".")) 
+      if (r.getPath().startsWith(path+".") && !r.getPath().substring(path.length()+1).contains(".")) 
         results.add(r);
     return results;
   }
@@ -186,22 +186,22 @@ public class OldProfileValidator extends BaseValidator {
   private void filloutElementDefn(ElementDefn n, ElementComponent e) {
     n.setName(terminalName(e));
     n.setInherited(true);
-    n.setComments(e.getDefinition().getComments() == null ? null : e.getDefinition().getComments().getValue());
-    n.setBindingName(e.getDefinition().getBinding() == null ? null : e.getDefinition().getBinding().getNameSimple());
-    n.setShortDefn(e.getDefinition().getShort().getValue());
-    n.setDefinition(e.getDefinition().getFormal().getValue());
-    n.setMaxCardinality("*".equals(e.getDefinition().getMax().getValue()) ? null : Integer.parseInt(e.getDefinition().getMax().getValue()));
-    n.setMinCardinality(e.getDefinition().getMin().getValue());
-    n.setIsModifier(e.getDefinition().getMustSupport() == null ? false : e.getDefinition().getMustSupport().getValue());
+    n.setComments(e.getDefinition().getComments() == null ? null : e.getDefinition().getComments());
+    n.setBindingName(e.getDefinition().getBinding() == null ? null : e.getDefinition().getBinding().getName());
+    n.setShortDefn(e.getDefinition().getShort());
+    n.setDefinition(e.getDefinition().getFormal());
+    n.setMaxCardinality("*".equals(e.getDefinition().getMax()) ? null : Integer.parseInt(e.getDefinition().getMax()));
+    n.setMinCardinality(e.getDefinition().getMin());
+    n.setIsModifier(e.getDefinition().getMustSupportObject() == null ? false : e.getDefinition().getMustSupport());
     for (TypeRefComponent t : e.getDefinition().getType()) {
       TypeParser tp = new TypeParser();
       try {
         TypeRef tr = new TypeRef();
-        if (t.getCodeSimple().equals("ResourceReference")) {
+        if (t.getCode().equals("ResourceReference")) {
           tr.setName("Resource");
-          tr.getParams().add(t.getProfileSimple()); // TODO: a uri, not a simple code. But stripping down to a simple codes losts information. Does this matter?
+          tr.getParams().add(t.getProfile()); // TODO: a uri, not a simple code. But stripping down to a simple codes losts information. Does this matter?
         } else
-          tr.setName(t.getCodeSimple());
+          tr.setName(t.getCode());
         n.getTypes().add(tr);
       } catch (Exception ex) {
         errors.add("invalid type "+t+" on "+e.getPath()+" in underlying resource definition");
@@ -211,7 +211,7 @@ public class OldProfileValidator extends BaseValidator {
 //  todo
 //    n.setRimMapping(e.get);
 //    n.setV2Mapping(e.get);
-    for (ElementComponent c : collectChildren(e.getPath().getValue())) {
+    for (ElementComponent c : collectChildren(e.getPath())) {
       ElementDefn nc = new ElementDefn();
       filloutElementDefn(nc, c);
       n.getElements().add(nc);
@@ -270,7 +270,7 @@ public class OldProfileValidator extends BaseValidator {
     if (pr == null)
       return null;
     for (ProfileStructureComponent p : pr.getStructure()) {
-      if (p.getType().getValue().equals(type))
+      if (p.getType().equals(type))
         return p;
     }
     return null;
@@ -282,32 +282,32 @@ public class OldProfileValidator extends BaseValidator {
 
   private void completeFromDerivation(ElementDefn target, ElementComponent source) {
     if (!target.hasComments())
-      target.setComments(source.getDefinition().getComments() == null ? null : source.getDefinition().getComments().getValue());
+      target.setComments(source.getDefinition().getComments() == null ? null : source.getDefinition().getComments());
     if (!target.hasBindingName())
-      target.setBindingName(source.getDefinition().getBinding() == null ? null : source.getDefinition().getBinding().getNameSimple());
+      target.setBindingName(source.getDefinition().getBinding() == null ? null : source.getDefinition().getBinding().getName());
     if (!target.hasShortDefn())
-      target.setShortDefn(source.getDefinition().getShort().getValue());
+      target.setShortDefn(source.getDefinition().getShort());
     if (!target.hasDefinition())
-      target.setDefinition(source.getDefinition().getFormal().getValue());    
+      target.setDefinition(source.getDefinition().getFormal());    
   }
 
   private ElementComponent getConstraintByPath(String path) {
     if (typePoints.empty()) {
       for (ElementComponent e : profile.getStructure().get(0).getDifferential().getElement()) {
-        String p = e.getPath().getValue();
-        if (!Utilities.noString(e.getDefinition().getNameReferenceSimple()) && path.startsWith(p))
+        String p = e.getPath();
+        if (!Utilities.noString(e.getDefinition().getNameReference()) && path.startsWith(p))
           if (path.length() > p.length())
-            return getConstraintByPath(e.getDefinition().getNameReferenceSimple()+"."+path.substring(p.length()+1));
+            return getConstraintByPath(e.getDefinition().getNameReference()+"."+path.substring(p.length()+1));
           else
-            return getConstraintByPath(e.getDefinition().getNameReferenceSimple());
+            return getConstraintByPath(e.getDefinition().getNameReference());
         
         if (p.equals(path) || (p.endsWith("[x]") && path.length() > p.length() && p.substring(0, p.length()-3).equals(path.substring(0, p.length()-3)) && isType(path.substring(p.length()-3))))
           return e;
       }
     } else {
       for (ElementComponent e : typePoints.peek().getType().getDifferential().getElement()) {
-        if (e.getPath().getValue().contains(".")) { // skip the first one
-          String p = typePoints.peek().getPrefix()+"."+e.getPath().getValue().substring(e.getPath().getValue().indexOf(".")+1);
+        if (e.getPath().contains(".")) { // skip the first one
+          String p = typePoints.peek().getPrefix()+"."+e.getPath().substring(e.getPath().indexOf(".")+1);
           if (p.equals(path) || (p.endsWith("[x]") && path.length() > p.length() && p.substring(0, p.length()-3).equals(path.substring(0, p.length()-3)) && isType(path.substring(p.length()-3))))
             return e;
         }        

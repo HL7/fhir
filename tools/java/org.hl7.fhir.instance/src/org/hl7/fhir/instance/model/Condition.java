@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class Condition extends Resource {
 
     public enum ConditionStatus {
-        provisional, // This is a tentative diagnosis - still a candidate that is under consideration.
-        working, // The patient is being treated on the basis that this is the condition, but it is still not confirmed.
-        confirmed, // There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
-        refuted, // This condition has been ruled out by diagnostic and clinical evidence.
-        Null; // added to help the parsers
+        PROVISIONAL, // This is a tentative diagnosis - still a candidate that is under consideration.
+        WORKING, // The patient is being treated on the basis that this is the condition, but it is still not confirmed.
+        CONFIRMED, // There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
+        REFUTED, // This condition has been ruled out by diagnostic and clinical evidence.
+        NULL; // added to help the parsers
         public static ConditionStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("provisional".equals(codeString))
-          return provisional;
+          return PROVISIONAL;
         if ("working".equals(codeString))
-          return working;
+          return WORKING;
         if ("confirmed".equals(codeString))
-          return confirmed;
+          return CONFIRMED;
         if ("refuted".equals(codeString))
-          return refuted;
+          return REFUTED;
         throw new Exception("Unknown ConditionStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case provisional: return "provisional";
-            case working: return "working";
-            case confirmed: return "confirmed";
-            case refuted: return "refuted";
+            case PROVISIONAL: return "provisional";
+            case WORKING: return "working";
+            case CONFIRMED: return "confirmed";
+            case REFUTED: return "refuted";
             default: return "?";
           }
         }
@@ -74,45 +74,45 @@ public class Condition extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("provisional".equals(codeString))
-          return ConditionStatus.provisional;
+          return ConditionStatus.PROVISIONAL;
         if ("working".equals(codeString))
-          return ConditionStatus.working;
+          return ConditionStatus.WORKING;
         if ("confirmed".equals(codeString))
-          return ConditionStatus.confirmed;
+          return ConditionStatus.CONFIRMED;
         if ("refuted".equals(codeString))
-          return ConditionStatus.refuted;
+          return ConditionStatus.REFUTED;
         throw new Exception("Unknown ConditionStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ConditionStatus.provisional)
+      if (code == ConditionStatus.PROVISIONAL)
         return "provisional";
-      if (code == ConditionStatus.working)
+      if (code == ConditionStatus.WORKING)
         return "working";
-      if (code == ConditionStatus.confirmed)
+      if (code == ConditionStatus.CONFIRMED)
         return "confirmed";
-      if (code == ConditionStatus.refuted)
+      if (code == ConditionStatus.REFUTED)
         return "refuted";
       return "?";
       }
     }
 
     public enum ConditionRelationshipType {
-        dueto, // this condition follows the identified condition/procedure/substance and is a consequence of it.
-        following, // this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked.
-        Null; // added to help the parsers
+        DUETO, // this condition follows the identified condition/procedure/substance and is a consequence of it.
+        FOLLOWING, // this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked.
+        NULL; // added to help the parsers
         public static ConditionRelationshipType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("due-to".equals(codeString))
-          return dueto;
+          return DUETO;
         if ("following".equals(codeString))
-          return following;
+          return FOLLOWING;
         throw new Exception("Unknown ConditionRelationshipType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case dueto: return "due-to";
-            case following: return "following";
+            case DUETO: return "due-to";
+            case FOLLOWING: return "following";
             default: return "?";
           }
         }
@@ -124,15 +124,15 @@ public class Condition extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("due-to".equals(codeString))
-          return ConditionRelationshipType.dueto;
+          return ConditionRelationshipType.DUETO;
         if ("following".equals(codeString))
-          return ConditionRelationshipType.following;
+          return ConditionRelationshipType.FOLLOWING;
         throw new Exception("Unknown ConditionRelationshipType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ConditionRelationshipType.dueto)
+      if (code == ConditionRelationshipType.DUETO)
         return "due-to";
-      if (code == ConditionRelationshipType.following)
+      if (code == ConditionRelationshipType.FOLLOWING)
         return "following";
       return "?";
       }
@@ -193,7 +193,7 @@ public class Condition extends Resource {
         }
 
         /**
-         * @return {@link #assessment} (The actual objects that are the target of the reference. Reference to a formal record of the evidence on which the staging assessment is based.)
+         * @return {@link #assessment} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reference to a formal record of the evidence on which the staging assessment is based.)
          */
         public List<Resource> getAssessmentTarget() { 
           return this.assessmentTarget;
@@ -271,7 +271,7 @@ public class Condition extends Resource {
         }
 
         /**
-         * @return {@link #detail} (The actual objects that are the target of the reference. Links to other relevant information, including pathology reports.)
+         * @return {@link #detail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Links to other relevant information, including pathology reports.)
          */
         public List<Resource> getDetailTarget() { 
           return this.detailTarget;
@@ -327,16 +327,16 @@ public class Condition extends Resource {
         }
 
         /**
-         * @return {@link #detail} (Detailed anatomical location information.)
+         * @return {@link #detail} (Detailed anatomical location information.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
          */
-        public StringType getDetail() { 
+        public StringType getDetailObject() { 
           return this.detail;
         }
 
         /**
-         * @param value {@link #detail} (Detailed anatomical location information.)
+         * @param value {@link #detail} (Detailed anatomical location information.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
          */
-        public ConditionLocationComponent setDetail(StringType value) { 
+        public ConditionLocationComponent setDetailObject(StringType value) { 
           this.detail = value;
           return this;
         }
@@ -344,14 +344,14 @@ public class Condition extends Resource {
         /**
          * @return Detailed anatomical location information.
          */
-        public String getDetailSimple() { 
+        public String getDetail() { 
           return this.detail == null ? null : this.detail.getValue();
         }
 
         /**
          * @param value Detailed anatomical location information.
          */
-        public ConditionLocationComponent setDetailSimple(String value) { 
+        public ConditionLocationComponent setDetail(String value) { 
           if (value == null)
             this.detail = null;
           else {
@@ -410,16 +410,16 @@ public class Condition extends Resource {
       }
 
         /**
-         * @return {@link #type} (The type of relationship that this condition has to the related item.)
+         * @return {@link #type} (The type of relationship that this condition has to the related item.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ConditionRelationshipType> getType() { 
+        public Enumeration<ConditionRelationshipType> getTypeObject() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (The type of relationship that this condition has to the related item.)
+         * @param value {@link #type} (The type of relationship that this condition has to the related item.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ConditionRelatedItemComponent setType(Enumeration<ConditionRelationshipType> value) { 
+        public ConditionRelatedItemComponent setTypeObject(Enumeration<ConditionRelationshipType> value) { 
           this.type = value;
           return this;
         }
@@ -427,14 +427,14 @@ public class Condition extends Resource {
         /**
          * @return The type of relationship that this condition has to the related item.
          */
-        public ConditionRelationshipType getTypeSimple() { 
+        public ConditionRelationshipType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of relationship that this condition has to the related item.
          */
-        public ConditionRelatedItemComponent setTypeSimple(ConditionRelationshipType value) { 
+        public ConditionRelatedItemComponent setType(ConditionRelationshipType value) { 
             if (this.type == null)
               this.type = new Enumeration<ConditionRelationshipType>();
             this.type.setValue(value);
@@ -472,14 +472,14 @@ public class Condition extends Resource {
         }
 
         /**
-         * @return {@link #target} (The actual object that is the target of the reference. Target of the relationship.)
+         * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Target of the relationship.)
          */
         public Resource getTargetTarget() { 
           return this.targetTarget;
         }
 
         /**
-         * @param value {@link #target} (The actual object that is the target of the reference. Target of the relationship.)
+         * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Target of the relationship.)
          */
         public ConditionRelatedItemComponent setTargetTarget(Resource value) { 
           this.targetTarget = value;
@@ -649,14 +649,14 @@ public class Condition extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. Indicates the patient who the condition record is associated with.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the patient who the condition record is associated with.)
      */
     public Patient getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. Indicates the patient who the condition record is associated with.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates the patient who the condition record is associated with.)
      */
     public Condition setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
@@ -679,14 +679,14 @@ public class Condition extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (The actual object that is the target of the reference. Encounter during which the condition was first asserted.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Encounter during which the condition was first asserted.)
      */
     public Encounter getEncounterTarget() { 
       return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #encounter} (The actual object that is the target of the reference. Encounter during which the condition was first asserted.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Encounter during which the condition was first asserted.)
      */
     public Condition setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
@@ -709,14 +709,14 @@ public class Condition extends Resource {
     }
 
     /**
-     * @return {@link #asserter} (The actual object that is the target of the reference. Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     * @return {@link #asserter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
      */
     public Resource getAsserterTarget() { 
       return this.asserterTarget;
     }
 
     /**
-     * @param value {@link #asserter} (The actual object that is the target of the reference. Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     * @param value {@link #asserter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
      */
     public Condition setAsserterTarget(Resource value) { 
       this.asserterTarget = value;
@@ -724,16 +724,16 @@ public class Condition extends Resource {
     }
 
     /**
-     * @return {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.)
+     * @return {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
      */
-    public DateType getDateAsserted() { 
+    public DateType getDateAssertedObject() { 
       return this.dateAsserted;
     }
 
     /**
-     * @param value {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.)
+     * @param value {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
      */
-    public Condition setDateAsserted(DateType value) { 
+    public Condition setDateAssertedObject(DateType value) { 
       this.dateAsserted = value;
       return this;
     }
@@ -741,14 +741,14 @@ public class Condition extends Resource {
     /**
      * @return Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
      */
-    public DateAndTime getDateAssertedSimple() { 
+    public DateAndTime getDateAsserted() { 
       return this.dateAsserted == null ? null : this.dateAsserted.getValue();
     }
 
     /**
      * @param value Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
      */
-    public Condition setDateAssertedSimple(DateAndTime value) { 
+    public Condition setDateAsserted(DateAndTime value) { 
       if (value == null)
         this.dateAsserted = null;
       else {
@@ -790,16 +790,16 @@ public class Condition extends Resource {
     }
 
     /**
-     * @return {@link #status} (The clinical status of the condition.)
+     * @return {@link #status} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConditionStatus> getStatus() { 
+    public Enumeration<ConditionStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The clinical status of the condition.)
+     * @param value {@link #status} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Condition setStatus(Enumeration<ConditionStatus> value) { 
+    public Condition setStatusObject(Enumeration<ConditionStatus> value) { 
       this.status = value;
       return this;
     }
@@ -807,14 +807,14 @@ public class Condition extends Resource {
     /**
      * @return The clinical status of the condition.
      */
-    public ConditionStatus getStatusSimple() { 
+    public ConditionStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The clinical status of the condition.
      */
-    public Condition setStatusSimple(ConditionStatus value) { 
+    public Condition setStatus(ConditionStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ConditionStatus>();
         this.status.setValue(value);
@@ -948,16 +948,16 @@ public class Condition extends Resource {
     }
 
     /**
-     * @return {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.)
+     * @return {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public StringType getNotes() { 
+    public StringType getNotesObject() { 
       return this.notes;
     }
 
     /**
-     * @param value {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.)
+     * @param value {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public Condition setNotes(StringType value) { 
+    public Condition setNotesObject(StringType value) { 
       this.notes = value;
       return this;
     }
@@ -965,14 +965,14 @@ public class Condition extends Resource {
     /**
      * @return Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
-    public String getNotesSimple() { 
+    public String getNotes() { 
       return this.notes == null ? null : this.notes.getValue();
     }
 
     /**
      * @param value Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
-    public Condition setNotesSimple(String value) { 
+    public Condition setNotes(String value) { 
       if (value == null)
         this.notes = null;
       else {

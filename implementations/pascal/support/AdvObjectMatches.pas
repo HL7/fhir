@@ -237,7 +237,7 @@ Procedure TAdvObjectMatch.InternalEmpty(iIndex, iLength : Integer);
 Begin 
   Inherited;
 
-  MemoryZero(Pointer(NativeUInt(FMatchArray) + (iIndex * SizeOf(TAdvObjectMatchItem))), (iLength * SizeOf(TAdvObjectMatchItem)));
+  MemoryZero(Pointer(NativeUInt(FMatchArray) + NativeUInt(iIndex * SizeOf(TAdvObjectMatchItem))), (iLength * SizeOf(TAdvObjectMatchItem)));
 End;
 
 

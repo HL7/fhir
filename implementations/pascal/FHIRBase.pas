@@ -51,6 +51,7 @@ Uses
   AdvStringLists,
   DateSupport,
   EncodeSupport,
+  EncdDecd,
   DecimalSupport;
 
 Type
@@ -515,46 +516,7 @@ type
     property results : TFHIRObjectList read FResults;
   end;
 
-                   (*
-{ TFHIRType }
-
-function TFHIRType.Clone: TFHIRType;
-begin
-  result := TFHIRType(Inherited Clone);
-end;
-
-procedure TFHIRType.GetChildrenByName(name: string; list: TFHIRObjectList);
-begin
-  inherited;
-end;
-
-function TFHIRType.Link: TFHIRType;
-begin
-  result := TFHIRType(Inherited Link);
-end;
-*)
-(*
-{ TFhirReference }
-
-procedure TFhirReference.Assign(oSource: TAdvObject);
-begin
-  inherited;
-  resourceType := TFhirReference(oSource).resourceType;
-  id := TFhirReference(oSource).id;
-  version := TFhirReference(oSource).version;
-  text := TFhirReference(oSource).text;
-end;
-
-function TFhirReference.Clone: TFhirReference;
-begin
-  result := TFhirReference(Inherited Clone);
-end;
-
-function TFhirReference.Link: TFhirReference;
-begin
-  result := TFhirReference(Inherited Link);
-end;
-  *)
+              
 
 { TFHIRBase }
 
@@ -1351,7 +1313,7 @@ begin
   Create;
   FName := sName;
   FType := sType;
-  FList := oList;
+  FList := oList.Link;
 end;
 
 constructor TFHIRProperty.Create(oOwner: TFHIRObject; const sName, sType: String; sValue: String);
@@ -1360,6 +1322,7 @@ begin
   FName := sName;
   FType := sType;
   FList := TFHIRObjectList.Create;
+  if (sValue <> '') then
   FList.Add(TFhirString.Create(sValue));
 end;
 

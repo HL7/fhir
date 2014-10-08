@@ -112,7 +112,7 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_XML);
 			Conformance stmt = testClient.getConformanceStatement();
-			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName());
 			printResourceToSystemOut(stmt, false);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -125,7 +125,7 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_JSON);
 			Conformance stmt = testClient.getConformanceStatement(true);
-			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName());
 			printResourceToSystemOut(stmt, true);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -138,7 +138,7 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_XML);
 			Conformance stmt = testClient.getConformanceStatement(true);
-			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName());
 			printResourceToSystemOut(stmt, false);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -151,7 +151,7 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_XML);
 			Conformance stmt = testClient.getConformanceStatement(false);
-			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName());
 			printResourceToSystemOut(stmt, false);
 		} catch(Exception e) {
 			fail(e.getMessage());
@@ -163,7 +163,7 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_JSON);
 			Conformance stmt = testClient.getConformanceStatement(false);
-			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName());
 			printResourceToSystemOut(stmt, true);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -175,7 +175,7 @@ public class FHIRSimpleClientTest {
 	public void testRead() {
 		loadPatientReference();
 		AtomEntry<Patient> fetchedPatient = testClient.read(Patient.class, testPatientId);
-		assertEqualDate(fetchedPatient.getResource().getBirthDate().getValue(),testDateAndTime);
+		assertEqualDate(fetchedPatient.getResource().getBirthDate(),testDateAndTime);
 		assertEquals(2, fetchedPatient.getTags().size());
 		unloadPatientReference();
 	}
@@ -185,14 +185,14 @@ public class FHIRSimpleClientTest {
 		try {
 			loadPatientReference();
 			AtomEntry<Patient> fetchedPatient = testClient.vread(Patient.class, testPatientId, testPatientVersion);
-			assertEqualDate(fetchedPatient.getResource().getBirthDate().getValue(),testDateAndTime);
+			assertEqualDate(fetchedPatient.getResource().getBirthDate(),testDateAndTime);
 			assertEquals(2, fetchedPatient.getTags().size());
 			unloadPatientReference();
 		} catch(EFhirClientException e) {
 			List<OperationOutcome> outcomes = e.getServerErrors();
 			for(OperationOutcome outcome : outcomes) {
 				for(OperationOutcomeIssueComponent issue : outcome.getIssue()) {
-					System.out.println(issue.getDetailsSimple());
+					System.out.println(issue.getDetails());
 				}
 			}
 			e.printStackTrace();
@@ -208,7 +208,7 @@ public class FHIRSimpleClientTest {
 			String originalEntryVersion = getEntryVersion(originalPatientEntry);
 			DateTimeType modifiedBirthday = new DateTimeType();
 			modifiedBirthday.setValue(new DateAndTime("2002-09-09"));
-			originalPatientEntry.getResource().setBirthDate(modifiedBirthday);
+			originalPatientEntry.getResource().setBirthDateObject(modifiedBirthday);
 			AtomEntry<Patient> updatedResult = testClient.update(Patient.class, originalPatientEntry.getResource(), testPatientId);
 			if(updatedResult.getResource() == null) {
 				updatedResult = testClient.read(Patient.class, testPatientId);
@@ -220,7 +220,7 @@ public class FHIRSimpleClientTest {
 			assertEquals("Patient", resourceType);
 			assertEquals(Integer.parseInt(originalEntryVersion) + 1, Integer.parseInt(entryVersion));
 			AtomEntry<Patient> fetchedUpdatedPatientEntry = testClient.read(Patient.class, testPatientId);
-			assertEqualDate(new DateAndTime("2002-09-09"), fetchedUpdatedPatientEntry.getResource().getBirthDateSimple());
+			assertEqualDate(new DateAndTime("2002-09-09"), fetchedUpdatedPatientEntry.getResource().getBirthDate());
 			unloadPatientReference();
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -258,7 +258,7 @@ public class FHIRSimpleClientTest {
 			Patient patient = testClient.read(Patient.class, testPatientId).getResource();
 			DateTimeType modifiedBirthday = new DateTimeType();
 			modifiedBirthday.setValue(new DateAndTime("2009-08-08"));
-			patient.setBirthDate(modifiedBirthday);
+			patient.setBirthDateObject(modifiedBirthday);
 			AtomEntry<OperationOutcome> validate = testClient.validate(Patient.class, patient, testPatientId);
 			assertTrue(validate.getResource().getIssue().size() == 0);//TODO not sure why bad syntax
 			unloadPatientReference();
@@ -375,17 +375,17 @@ public class FHIRSimpleClientTest {
 		try {
 			Patient patient = buildPatient();
 			AtomEntry<OperationOutcome> createdPatientEntry = testClient.create(Patient.class, patient);
-			patient.setBirthDateSimple(new DateAndTime("1966-01-10"));
+			patient.setBirthDate(new DateAndTime("1966-01-10"));
 			Reference patientReference = new Reference();
 			AtomEntry<Patient> patientEntry = new AtomEntry<Patient>();
 			patientEntry.setResource(patient);
 			patientEntry.setId(getEntryPath(createdPatientEntry));
 			patientEntry.getLinks().put("self", createdPatientEntry.getLinks().get("self"));
-			patientReference.setReferenceSimple(getEntryPath(createdPatientEntry));
+			patientReference.setReference(getEntryPath(createdPatientEntry));
 			AdverseReaction adverseReaction = new AdverseReaction();
 			adverseReaction.setSubject(patientReference);
-			adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
-			adverseReaction.setDidNotOccurFlagSimple(false);
+			adverseReaction.setDate(new DateAndTime("2013-01-10"));
+			adverseReaction.setDidNotOccurFlag(false);
 			AtomEntry<OperationOutcome> createdAdverseReactionEntry = testClient.create(AdverseReaction.class, adverseReaction);
 			AtomEntry<AdverseReaction> adverseReactionEntry = new AtomEntry<AdverseReaction>();
 			adverseReactionEntry.setResource(adverseReaction);
@@ -432,7 +432,7 @@ public class FHIRSimpleClientTest {
 		try {
 			Patient patient = buildPatient();
 			AtomEntry<OperationOutcome> createdPatientEntry = testClient.create(Patient.class, patient);
-			patient.setBirthDateSimple(new DateAndTime("1966-01-10"));
+			patient.setBirthDate(new DateAndTime("1966-01-10"));
 			AtomFeed batchFeed = new AtomFeed();
 			AtomEntry<Patient> patientEntry = new AtomEntry<Patient>();
 			patientEntry.getLinks().put("self", createdPatientEntry.getLinks().get("self"));
@@ -460,7 +460,7 @@ public class FHIRSimpleClientTest {
 		try {
 			Patient patient = buildPatient();
 			AtomEntry<OperationOutcome> createdPatientEntry = testClient.create(Patient.class, patient);
-			patient.setBirthDateSimple(new DateAndTime("1966-01-10"));
+			patient.setBirthDate(new DateAndTime("1966-01-10"));
 			AtomFeed batchFeed = new AtomFeed();
 			AtomEntry<Patient> patientEntry = new AtomEntry<Patient>();
 			patientEntry.getLinks().put("self", createdPatientEntry.getLinks().get("self"));
@@ -567,7 +567,7 @@ public class FHIRSimpleClientTest {
 			List<OperationOutcome> outcomes = e.getServerErrors();
 			for(OperationOutcome outcome : outcomes) {
 				for(OperationOutcomeIssueComponent issue : outcome.getIssue()) {
-					System.out.println(issue.getDetailsSimple());
+					System.out.println(issue.getDetails());
 				}
 			}
 			e.printStackTrace();
@@ -595,7 +595,7 @@ public class FHIRSimpleClientTest {
 			AtomEntry<Condition> retrievedConditionEntry = testClient.read(Condition.class, getEntryId(createdConditionEntry));
 			//Check that subject is patient
 			condition = retrievedConditionEntry.getReference();
-			String patientReference = condition.getSubject().getReferenceSimple();
+			String patientReference = condition.getSubject().getReference();
 			System.out.println(patientReference);
 			assertTrue(patientReference.equalsIgnoreCase("patient/@"+getEntryId(createdPatientEntry)));
 			//Delete patient resource
@@ -628,15 +628,15 @@ public class FHIRSimpleClientTest {
 			AtomEntry<Condition> retrievedConditionEntry1 = testClient.read(Condition.class, getEntryId(createdConditionEntry1));
 			//Check that subject is patient
 			condition1 = retrievedConditionEntry1.getReference();
-			String patientReference = condition1.getSubject().getReferenceSimple();
+			String patientReference = condition1.getSubject().getReference();
 			assertTrue(patientReference.equalsIgnoreCase("patient/@"+getEntryId(createdPatientEntry)));
 			//Get all conditions for this patient
 			AtomFeed preexistingConditions = testClient.search(Condition.class, searchParameters);
 			assertTrue(preexistingConditions.getEntryList().size() == 1);
 			AtomEntry<Condition> preexistingConditionEntry = (AtomEntry<Condition>)preexistingConditions.getEntryList().get(0);
-			assertTrue(preexistingConditionEntry.getReference().getCode().getCoding().get(0).getCodeSimple().equalsIgnoreCase("29530003"));
-			assertNotNull(preexistingConditionEntry.getReference().getCode().getCoding().get(0).getSystemSimple().equalsIgnoreCase("http://snomed.info/id"));
-			assertTrue(preexistingConditionEntry.getReference().getCode().getCoding().get(0).getDisplaySimple().equalsIgnoreCase("Fungal granuloma (disorder)"));
+			assertTrue(preexistingConditionEntry.getReference().getCode().getCoding().get(0).getCode().equalsIgnoreCase("29530003"));
+			assertNotNull(preexistingConditionEntry.getReference().getCode().getCoding().get(0).getSystem().equalsIgnoreCase("http://snomed.info/id"));
+			assertTrue(preexistingConditionEntry.getReference().getCode().getCoding().get(0).getDisplay().equalsIgnoreCase("Fungal granuloma (disorder)"));
 			//Add new condition
 			AtomEntry<Condition> createdConditionEntry2 = testClient.create(Condition.class, condition2);
 			preexistingConditions = testClient.search(Condition.class, searchParameters);
@@ -658,9 +658,9 @@ public class FHIRSimpleClientTest {
 	private CodeableConcept createCodeableConcept(String code, String system, String displayNameSimple) {
 		CodeableConcept conditionCode = new CodeableConcept();
 		Coding coding = conditionCode.addCoding();
-		coding.setCodeSimple(code);
-		coding.setSystemSimple(system);
-		coding.setDisplaySimple(displayNameSimple);
+		coding.setCode(code);
+		coding.setSystem(system);
+		coding.setDisplay(displayNameSimple);
 		return conditionCode;
 	}
 	
@@ -675,10 +675,10 @@ public class FHIRSimpleClientTest {
 		try {
 			condition = new Condition();
 			Reference patientReference = new Reference();
-			patientReference.setReferenceSimple("patient/@"+getEntryId(patientEntry));
+			patientReference.setReference("patient/@"+getEntryId(patientEntry));
 			condition.setSubject(patientReference);
 			condition.setCode(conditionCode);
-			condition.setStatusSimple(ConditionStatus.confirmed);
+			condition.setStatus(ConditionStatus.CONFIRMED);
 		} catch (Exception e) {
 			fail();
 		}
@@ -693,13 +693,13 @@ public class FHIRSimpleClientTest {
 		Patient patient = new Patient();
 		try {
 			HumanName name = patient.addName();
-			name.setTextSimple(fullName);
-			name.addGivenSimple(givenName);
-			name.addFamilySimple(familyName);
+			name.setText(fullName);
+			name.addGiven(givenName);
+			name.addFamily(familyName);
 			DateTimeType birthday = new DateTimeType();
 			birthday.setValue(new DateAndTime("2008-08-08"));
-			patient.setBirthDate(birthday);
-			patient.setGenderSimple(AdministrativeGender.female); // This is now a Simple code value
+			patient.setBirthDateObject(birthday);
+			patient.setGender(AdministrativeGender.FEMALE); // This is now a Simple code value
 		} catch (ParseException e) {
 			e.printStackTrace();
 			fail();

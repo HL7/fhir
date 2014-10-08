@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,38 +39,38 @@ import java.util.*;
 public class MedicationPrescription extends Resource {
 
     public enum MedicationPrescriptionStatus {
-        active, // The prescription is 'actionable', but not all actions that are implied by it have occurred yet.
-        onHold, // Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called "suspended".
-        completed, // All actions that are implied by the prescription have occurred (this will rarely be made explicit).
-        enteredInError, // The prescription was entered in error and therefore nullified.
-        stopped, // Actions implied by the prescription have been permanently halted, before all of them occurred.
-        superceded, // The prescription was replaced by a newer one, which encompasses all the information in the previous one.
-        Null; // added to help the parsers
+        ACTIVE, // The prescription is 'actionable', but not all actions that are implied by it have occurred yet.
+        ONHOLD, // Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called "suspended".
+        COMPLETED, // All actions that are implied by the prescription have occurred (this will rarely be made explicit).
+        ENTEREDINERROR, // The prescription was entered in error and therefore nullified.
+        STOPPED, // Actions implied by the prescription have been permanently halted, before all of them occurred.
+        SUPERCEDED, // The prescription was replaced by a newer one, which encompasses all the information in the previous one.
+        NULL; // added to help the parsers
         public static MedicationPrescriptionStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
-          return active;
+          return ACTIVE;
         if ("on hold".equals(codeString))
-          return onHold;
+          return ONHOLD;
         if ("completed".equals(codeString))
-          return completed;
+          return COMPLETED;
         if ("entered in error".equals(codeString))
-          return enteredInError;
+          return ENTEREDINERROR;
         if ("stopped".equals(codeString))
-          return stopped;
+          return STOPPED;
         if ("superceded".equals(codeString))
-          return superceded;
+          return SUPERCEDED;
         throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case active: return "active";
-            case onHold: return "on hold";
-            case completed: return "completed";
-            case enteredInError: return "entered in error";
-            case stopped: return "stopped";
-            case superceded: return "superceded";
+            case ACTIVE: return "active";
+            case ONHOLD: return "on hold";
+            case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered in error";
+            case STOPPED: return "stopped";
+            case SUPERCEDED: return "superceded";
             default: return "?";
           }
         }
@@ -82,31 +82,31 @@ public class MedicationPrescription extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
-          return MedicationPrescriptionStatus.active;
+          return MedicationPrescriptionStatus.ACTIVE;
         if ("on hold".equals(codeString))
-          return MedicationPrescriptionStatus.onHold;
+          return MedicationPrescriptionStatus.ONHOLD;
         if ("completed".equals(codeString))
-          return MedicationPrescriptionStatus.completed;
+          return MedicationPrescriptionStatus.COMPLETED;
         if ("entered in error".equals(codeString))
-          return MedicationPrescriptionStatus.enteredInError;
+          return MedicationPrescriptionStatus.ENTEREDINERROR;
         if ("stopped".equals(codeString))
-          return MedicationPrescriptionStatus.stopped;
+          return MedicationPrescriptionStatus.STOPPED;
         if ("superceded".equals(codeString))
-          return MedicationPrescriptionStatus.superceded;
+          return MedicationPrescriptionStatus.SUPERCEDED;
         throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == MedicationPrescriptionStatus.active)
+      if (code == MedicationPrescriptionStatus.ACTIVE)
         return "active";
-      if (code == MedicationPrescriptionStatus.onHold)
+      if (code == MedicationPrescriptionStatus.ONHOLD)
         return "on hold";
-      if (code == MedicationPrescriptionStatus.completed)
+      if (code == MedicationPrescriptionStatus.COMPLETED)
         return "completed";
-      if (code == MedicationPrescriptionStatus.enteredInError)
+      if (code == MedicationPrescriptionStatus.ENTEREDINERROR)
         return "entered in error";
-      if (code == MedicationPrescriptionStatus.stopped)
+      if (code == MedicationPrescriptionStatus.STOPPED)
         return "stopped";
-      if (code == MedicationPrescriptionStatus.superceded)
+      if (code == MedicationPrescriptionStatus.SUPERCEDED)
         return "superceded";
       return "?";
       }
@@ -172,16 +172,16 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       }
 
         /**
-         * @return {@link #text} (Free text dosage instructions for cases where the instructions are too complex to code.)
+         * @return {@link #text} (Free text dosage instructions for cases where the instructions are too complex to code.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getText() { 
+        public StringType getTextObject() { 
           return this.text;
         }
 
         /**
-         * @param value {@link #text} (Free text dosage instructions for cases where the instructions are too complex to code.)
+         * @param value {@link #text} (Free text dosage instructions for cases where the instructions are too complex to code.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public MedicationPrescriptionDosageInstructionComponent setText(StringType value) { 
+        public MedicationPrescriptionDosageInstructionComponent setTextObject(StringType value) { 
           this.text = value;
           return this;
         }
@@ -189,14 +189,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * @return Free text dosage instructions for cases where the instructions are too complex to code.
          */
-        public String getTextSimple() { 
+        public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Free text dosage instructions for cases where the instructions are too complex to code.
          */
-        public MedicationPrescriptionDosageInstructionComponent setTextSimple(String value) { 
+        public MedicationPrescriptionDosageInstructionComponent setText(String value) { 
           if (value == null)
             this.text = null;
           else {
@@ -434,14 +434,14 @@ In some situations, this attribute may be used instead of quantity to identify t
         }
 
         /**
-         * @return {@link #medication} (The actual object that is the target of the reference. Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * @return {@link #medication} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
         public Medication getMedicationTarget() { 
           return this.medicationTarget;
         }
 
         /**
-         * @param value {@link #medication} (The actual object that is the target of the reference. Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * @param value {@link #medication} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
          */
         public MedicationPrescriptionDispenseComponent setMedicationTarget(Medication value) { 
           this.medicationTarget = value;
@@ -469,17 +469,17 @@ Rationale: Indicates when the Prescription becomes valid, and when it ceases to 
 
         /**
          * @return {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense. 
-UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.)
+UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
          */
-        public IntegerType getNumberOfRepeatsAllowed() { 
+        public IntegerType getNumberOfRepeatsAllowedObject() { 
           return this.numberOfRepeatsAllowed;
         }
 
         /**
          * @param value {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense. 
-UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.)
+UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
          */
-        public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowed(IntegerType value) { 
+        public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowedObject(IntegerType value) { 
           this.numberOfRepeatsAllowed = value;
           return this;
         }
@@ -488,7 +488,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
          * @return An integer indicating the number of repeats of the Dispense. 
 UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
          */
-        public int getNumberOfRepeatsAllowedSimple() { 
+        public int getNumberOfRepeatsAllowed() { 
           return this.numberOfRepeatsAllowed == null ? null : this.numberOfRepeatsAllowed.getValue();
         }
 
@@ -496,7 +496,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
          * @param value An integer indicating the number of repeats of the Dispense. 
 UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
          */
-        public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowedSimple(int value) { 
+        public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowed(int value) { 
           if (value == -1)
             this.numberOfRepeatsAllowed = null;
           else {
@@ -726,16 +726,16 @@ In some situations, this attribute may be used instead of quantity to identify t
     }
 
     /**
-     * @return {@link #dateWritten} (The date (and perhaps time) when the prescription was written.)
+     * @return {@link #dateWritten} (The date (and perhaps time) when the prescription was written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
      */
-    public DateTimeType getDateWritten() { 
+    public DateTimeType getDateWrittenObject() { 
       return this.dateWritten;
     }
 
     /**
-     * @param value {@link #dateWritten} (The date (and perhaps time) when the prescription was written.)
+     * @param value {@link #dateWritten} (The date (and perhaps time) when the prescription was written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
      */
-    public MedicationPrescription setDateWritten(DateTimeType value) { 
+    public MedicationPrescription setDateWrittenObject(DateTimeType value) { 
       this.dateWritten = value;
       return this;
     }
@@ -743,14 +743,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return The date (and perhaps time) when the prescription was written.
      */
-    public DateAndTime getDateWrittenSimple() { 
+    public DateAndTime getDateWritten() { 
       return this.dateWritten == null ? null : this.dateWritten.getValue();
     }
 
     /**
      * @param value The date (and perhaps time) when the prescription was written.
      */
-    public MedicationPrescription setDateWrittenSimple(DateAndTime value) { 
+    public MedicationPrescription setDateWritten(DateAndTime value) { 
       if (value == null)
         this.dateWritten = null;
       else {
@@ -762,16 +762,16 @@ In some situations, this attribute may be used instead of quantity to identify t
     }
 
     /**
-     * @return {@link #status} (A code specifying the state of the order.  Generally this will be active or completed state.)
+     * @return {@link #status} (A code specifying the state of the order.  Generally this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<MedicationPrescriptionStatus> getStatus() { 
+    public Enumeration<MedicationPrescriptionStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (A code specifying the state of the order.  Generally this will be active or completed state.)
+     * @param value {@link #status} (A code specifying the state of the order.  Generally this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public MedicationPrescription setStatus(Enumeration<MedicationPrescriptionStatus> value) { 
+    public MedicationPrescription setStatusObject(Enumeration<MedicationPrescriptionStatus> value) { 
       this.status = value;
       return this;
     }
@@ -779,14 +779,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return A code specifying the state of the order.  Generally this will be active or completed state.
      */
-    public MedicationPrescriptionStatus getStatusSimple() { 
+    public MedicationPrescriptionStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value A code specifying the state of the order.  Generally this will be active or completed state.
      */
-    public MedicationPrescription setStatusSimple(MedicationPrescriptionStatus value) { 
+    public MedicationPrescription setStatus(MedicationPrescriptionStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -813,14 +813,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     }
 
     /**
-     * @return {@link #patient} (The actual object that is the target of the reference. A link to a resource representing the person to whom the medication will be given.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person to whom the medication will be given.)
      */
     public Patient getPatientTarget() { 
       return this.patientTarget;
     }
 
     /**
-     * @param value {@link #patient} (The actual object that is the target of the reference. A link to a resource representing the person to whom the medication will be given.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person to whom the medication will be given.)
      */
     public MedicationPrescription setPatientTarget(Patient value) { 
       this.patientTarget = value;
@@ -843,14 +843,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     }
 
     /**
-     * @return {@link #prescriber} (The actual object that is the target of the reference. The healthcare professional responsible for authorizing the prescription.)
+     * @return {@link #prescriber} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for authorizing the prescription.)
      */
     public Practitioner getPrescriberTarget() { 
       return this.prescriberTarget;
     }
 
     /**
-     * @param value {@link #prescriber} (The actual object that is the target of the reference. The healthcare professional responsible for authorizing the prescription.)
+     * @param value {@link #prescriber} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for authorizing the prescription.)
      */
     public MedicationPrescription setPrescriberTarget(Practitioner value) { 
       this.prescriberTarget = value;
@@ -873,14 +873,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     }
 
     /**
-     * @return {@link #encounter} (The actual object that is the target of the reference. A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
      */
     public Encounter getEncounterTarget() { 
       return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #encounter} (The actual object that is the target of the reference. A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
      */
     public MedicationPrescription setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
@@ -918,14 +918,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     }
 
     /**
-     * @return {@link #medication} (The actual object that is the target of the reference. Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     * @return {@link #medication} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
     public Medication getMedicationTarget() { 
       return this.medicationTarget;
     }
 
     /**
-     * @param value {@link #medication} (The actual object that is the target of the reference. Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     * @param value {@link #medication} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
     public MedicationPrescription setMedicationTarget(Medication value) { 
       this.medicationTarget = value;

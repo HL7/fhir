@@ -58,6 +58,7 @@ Type
       FNamespace : String;
       FName : String;
       FValue : String;
+      FSortKey : String;
 
     Protected
       Function ErrorClass : EAdvExceptionClass; Override;
@@ -72,6 +73,7 @@ Type
       Property Namespace : String Read FNamespace Write FNamespace;
       Property Name : String Read FName Write FName;
       Property Value : String Read FValue Write FValue;
+      Property SortKey : String read FSortKey write FSortKey;
   End;
 
   TAdvXMLAttributeList = Class(TAdvPersistentList)
@@ -82,43 +84,46 @@ Type
     Protected
       Function ItemClass : TAdvObjectClass; Override;
 
-      Function CompareByNamespacedName(pA, pB : Pointer) : Integer; 
-      Function CompareByNamespace(pA, pB : Pointer) : Integer; 
-      Function CompareByName(pA, pB : Pointer) : Integer; 
-      Function CompareByValue(pA, pB : Pointer) : Integer; 
+      Function CompareByNamespacedName(pA, pB : Pointer) : Integer;
+      Function CompareByNamespace(pA, pB : Pointer) : Integer;
+      Function CompareByName(pA, pB : Pointer) : Integer;
+      Function CompareByValue(pA, pB : Pointer) : Integer;
+      Function CompareBySortKey(pA, pB : Pointer) : Integer;
 
-      Function Get(Const aValue : Integer) : TAdvXMLAttribute; Reintroduce; 
+      Function Get(Const aValue : Integer) : TAdvXMLAttribute; Reintroduce;
 
     Public
       Function Link : TAdvXMLAttributeList;
-      Function Clone : TAdvXMLAttributeList; 
+      Function Clone : TAdvXMLAttributeList;
 
       Function New : TAdvXMLAttribute; Reintroduce;
 
       Function IndexByNamespacedName(Const aNamespace, aName : String) : Integer;
       Function IndexByNamespace(Const aValue : String) : Integer;
-      Function IndexByName(Const aValue : String) : Integer; 
-      Function IndexByValue(Const aValue : String) : Integer; 
+      Function IndexByName(Const aValue : String) : Integer;
+      Function IndexByValue(Const aValue : String) : Integer;
 
-      Function GetByNamespacedName(Const aNamespace, aName : String) : TAdvXMLAttribute; 
-      Function GetByNamespace(Const aValue : String) : TAdvXMLAttribute; 
-      Function GetByName(Const aValue : String) : TAdvXMLAttribute; 
-      Function GetByValue(Const aValue : String) : TAdvXMLAttribute; 
+      Function GetByNamespacedName(Const aNamespace, aName : String) : TAdvXMLAttribute;
+      Function GetByNamespace(Const aValue : String) : TAdvXMLAttribute;
+      Function GetByName(Const aValue : String) : TAdvXMLAttribute;
+      Function GetByValue(Const aValue : String) : TAdvXMLAttribute;
 
-      Function ExistsByNamespacedName(Const aNamespace, aName : String) : Boolean; 
-      Function ExistsByNamespace(Const aValue : String) : Boolean; 
-      Function ExistsByName(Const aValue : String) : Boolean; 
-      Function ExistsByValue(Const aValue : String) : Boolean; 
+      Function ExistsByNamespacedName(Const aNamespace, aName : String) : Boolean;
+      Function ExistsByNamespace(Const aValue : String) : Boolean;
+      Function ExistsByName(Const aValue : String) : Boolean;
+      Function ExistsByValue(Const aValue : String) : Boolean;
 
-      Procedure SortedByNamespacedName; 
-      Procedure SortedByNamespace; 
-      Procedure SortedByName; 
-      Procedure SortedByValue; 
+      Procedure SortedByNamespacedName;
+      Procedure SortedByNamespace;
+      Procedure SortedByName;
+      Procedure SortedByValue;
+      Procedure SortedBySortKey;
 
       Function IsSortedByNamespacedName : Boolean;
       Function IsSortedByNamespace : Boolean;
       Function IsSortedByName : Boolean;
       Function IsSortedByValue : Boolean;
+      Function IsSortedBySortKey : Boolean;
 
       Property ElementByIndex[Const iIndex : Integer] : TAdvXMLAttribute Read GetElementByIndex Write SetElementByIndex; Default;
   End;
@@ -428,6 +433,7 @@ Begin
   Namespace := TAdvXMLAttribute(oObject).Namespace;
   Name := TAdvXMLAttribute(oObject).Name;
   Value := TAdvXMLAttribute(oObject).Value;
+  SortKey := TAdvXMLAttribute(oObject).SortKey;
 End;
 
 
@@ -438,6 +444,7 @@ Begin
   oFiler['Namespace'].DefineString(FNamespace);
   oFiler['Name'].DefineString(FName);
   oFiler['Value'].DefineString(FValue);
+  oFiler['SortKey'].DefineString(FSortKey);
 End;
 
 
@@ -490,6 +497,11 @@ Begin
     Result := StringSupport.StringCompare(TAdvXMLAttribute(pA).Name, TAdvXMLAttribute(pB).Name);
 End;
 
+
+function TAdvXMLAttributeList.CompareBySortKey(pA, pB: Pointer): Integer;
+begin
+  Result := StringSupport.StringCompare(TAdvXMLAttribute(pA).SortKey, TAdvXMLAttribute(pB).SortKey);
+end;
 
 Function TAdvXMLAttributeList.CompareByNamespace(pA, pB : Pointer) : Integer;
 Begin
@@ -642,6 +654,11 @@ Begin
 End;
 
 
+procedure TAdvXMLAttributeList.SortedBySortKey;
+begin
+  SortedBy(CompareBySortKey);
+end;
+
 Procedure TAdvXMLAttributeList.SortedByNamespace;
 Begin
   SortedBy(CompareByNamespace);
@@ -665,6 +682,11 @@ Begin
   Result := IsSortedBy(CompareByNamespacedName);
 End;
 
+
+function TAdvXMLAttributeList.IsSortedBySortKey: Boolean;
+begin
+  Result := IsSortedBy(CompareBySortKey);
+end;
 
 Function TAdvXMLAttributeList.IsSortedByNamespace : Boolean;
 Begin

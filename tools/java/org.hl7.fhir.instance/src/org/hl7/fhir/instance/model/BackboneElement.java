@@ -69,7 +69,7 @@ public abstract class BackboneElement extends Element {
     if (name == null)
       return false;
     for (Extension e : modifierExtensions) {
-      if (name.equals(e.getUrlSimple()))
+      if (name.equals(e.getUrl()))
         return true;
     }
     return super.hasExtension(name);
@@ -84,7 +84,7 @@ public abstract class BackboneElement extends Element {
     if (name == null)
       return null;
     for (Extension e : modifierExtensions) {
-      if (name.equals(e.getUrlSimple()))
+      if (name.equals(e.getUrl()))
         return e;
     }
     return super.getExtension(name);
@@ -105,7 +105,7 @@ public abstract class BackboneElement extends Element {
     if (name == null)
       return false;
     for (Extension e : modifierExtensions) {
-      if (name.equals(e.getUrlSimple()))
+      if (name.equals(e.getUrl()))
         return true;
     }
     return false;
@@ -119,7 +119,7 @@ public abstract class BackboneElement extends Element {
     if (name == null)
       return null;
     for (Extension e : modifierExtensions) {
-      if (name.equals(e.getUrlSimple()))
+      if (name.equals(e.getUrl()))
         return e;
     }
     return null;

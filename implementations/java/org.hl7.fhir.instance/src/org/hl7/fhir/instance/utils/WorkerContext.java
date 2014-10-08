@@ -174,25 +174,25 @@ public class WorkerContext {
       else if (r instanceof ValueSet)
         seeValueSet((AtomEntry<ValueSet>) e);
       else if (r instanceof ConceptMap)
-        maps.put(((ConceptMap) r).getIdentifierSimple(), (AtomEntry<ConceptMap>) e);
+        maps.put(((ConceptMap) r).getIdentifier(), (AtomEntry<ConceptMap>) e);
     }
   }
 
   public void seeValueSet(AtomEntry<ValueSet> e) {
 	  ValueSet vs = (ValueSet) e.getResource();
-	  valueSets.put(vs.getIdentifierSimple(), e);
+	  valueSets.put(vs.getIdentifier(), e);
 	  if (vs.getDefine() != null) {
-	    codeSystems.put(vs.getDefine().getSystemSimple().toString(), e);
+	    codeSystems.put(vs.getDefine().getSystem().toString(), e);
 	  }
   }
 
   public void seeProfile(AtomEntry<Profile> e) {
 	  Profile p = (Profile) e.getResource();
 	  if (!p.getStructure().isEmpty()) {
-	  	if (p.getStructure().get(0).getName() != null)
-	  		profiles.put(p.getStructure().get(0).getNameSimple(), e);
+	  	if (p.getStructure().get(0).getNameObject() != null)
+	  		profiles.put(p.getStructure().get(0).getName(), e);
 	  	else 
-	  		profiles.put(p.getStructure().get(0).getTypeSimple(), e);
+	  		profiles.put(p.getStructure().get(0).getType(), e);
 	  }
 	  profiles.put(e.getId(), e);
   }

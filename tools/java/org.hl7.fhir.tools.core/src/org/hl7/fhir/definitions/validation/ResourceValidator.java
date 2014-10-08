@@ -49,15 +49,13 @@ import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xml.XMLUtil;
-import org.w3c.dom.Element;
 
 
 /** todo
@@ -163,7 +161,7 @@ public class ResourceValidator extends BaseValidator {
             ElementDefn e;
             e = parent.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path");
             for (TypeRef t : e.getTypes()) {
-              if (t.getName().equals("Resource")) {
+              if (t.getName().equals("Reference")) {
                 for (String pn : t.getParams()) {
                   p.getTargets().add(pn);
                 }
@@ -521,7 +519,7 @@ public class ResourceValidator extends BaseValidator {
     Set<String> names = new HashSet<String>();
     for (BindingSpecification b : bindings.values()) {
       if (names.contains(b.getName())) 
-        errors.add(new ValidationMessage(source, "structure", "binding "+b.getName(), "Duplicate Binding Name "+b.getName(), IssueSeverity.error));        
+        errors.add(new ValidationMessage(source, "structure", "binding "+b.getName(), "Duplicate Binding Name "+b.getName(), IssueSeverity.ERROR));        
       else
         names.add(b.getName());
     }

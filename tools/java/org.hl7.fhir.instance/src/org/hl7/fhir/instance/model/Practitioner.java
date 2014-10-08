@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class Practitioner extends Resource {
 
     public enum AdministrativeGender {
-        male, // Male
-        female, // Female
-        other, // Other
-        unknown, // Unknown
-        Null; // added to help the parsers
+        MALE, // Male
+        FEMALE, // Female
+        OTHER, // Other
+        UNKNOWN, // Unknown
+        NULL; // added to help the parsers
         public static AdministrativeGender fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("male".equals(codeString))
-          return male;
+          return MALE;
         if ("female".equals(codeString))
-          return female;
+          return FEMALE;
         if ("other".equals(codeString))
-          return other;
+          return OTHER;
         if ("unknown".equals(codeString))
-          return unknown;
+          return UNKNOWN;
         throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case male: return "male";
-            case female: return "female";
-            case other: return "other";
-            case unknown: return "unknown";
+            case MALE: return "male";
+            case FEMALE: return "female";
+            case OTHER: return "other";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -74,23 +74,23 @@ public class Practitioner extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("male".equals(codeString))
-          return AdministrativeGender.male;
+          return AdministrativeGender.MALE;
         if ("female".equals(codeString))
-          return AdministrativeGender.female;
+          return AdministrativeGender.FEMALE;
         if ("other".equals(codeString))
-          return AdministrativeGender.other;
+          return AdministrativeGender.OTHER;
         if ("unknown".equals(codeString))
-          return AdministrativeGender.unknown;
+          return AdministrativeGender.UNKNOWN;
         throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == AdministrativeGender.male)
+      if (code == AdministrativeGender.MALE)
         return "male";
-      if (code == AdministrativeGender.female)
+      if (code == AdministrativeGender.FEMALE)
         return "female";
-      if (code == AdministrativeGender.other)
+      if (code == AdministrativeGender.OTHER)
         return "other";
-      if (code == AdministrativeGender.unknown)
+      if (code == AdministrativeGender.UNKNOWN)
         return "unknown";
       return "?";
       }
@@ -196,14 +196,14 @@ public class Practitioner extends Resource {
         }
 
         /**
-         * @return {@link #issuer} (The actual object that is the target of the reference. Organization that regulates and issues the qualification.)
+         * @return {@link #issuer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization that regulates and issues the qualification.)
          */
         public Organization getIssuerTarget() { 
           return this.issuerTarget;
         }
 
         /**
-         * @param value {@link #issuer} (The actual object that is the target of the reference. Organization that regulates and issues the qualification.)
+         * @param value {@link #issuer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Organization that regulates and issues the qualification.)
          */
         public PractitionerQualificationComponent setIssuerTarget(Organization value) { 
           this.issuerTarget = value;
@@ -384,16 +384,16 @@ public class Practitioner extends Resource {
     }
 
     /**
-     * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+     * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Enumeration<AdministrativeGender> getGender() { 
+    public Enumeration<AdministrativeGender> getGenderObject() { 
       return this.gender;
     }
 
     /**
-     * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+     * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Practitioner setGender(Enumeration<AdministrativeGender> value) { 
+    public Practitioner setGenderObject(Enumeration<AdministrativeGender> value) { 
       this.gender = value;
       return this;
     }
@@ -401,14 +401,14 @@ public class Practitioner extends Resource {
     /**
      * @return Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
      */
-    public AdministrativeGender getGenderSimple() { 
+    public AdministrativeGender getGender() { 
       return this.gender == null ? null : this.gender.getValue();
     }
 
     /**
      * @param value Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
      */
-    public Practitioner setGenderSimple(AdministrativeGender value) { 
+    public Practitioner setGender(AdministrativeGender value) { 
       if (value == null)
         this.gender = null;
       else {
@@ -420,16 +420,16 @@ public class Practitioner extends Resource {
     }
 
     /**
-     * @return {@link #birthDate} (The date and time of birth for the practitioner.)
+     * @return {@link #birthDate} (The date and time of birth for the practitioner.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public DateTimeType getBirthDate() { 
+    public DateTimeType getBirthDateObject() { 
       return this.birthDate;
     }
 
     /**
-     * @param value {@link #birthDate} (The date and time of birth for the practitioner.)
+     * @param value {@link #birthDate} (The date and time of birth for the practitioner.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public Practitioner setBirthDate(DateTimeType value) { 
+    public Practitioner setBirthDateObject(DateTimeType value) { 
       this.birthDate = value;
       return this;
     }
@@ -437,14 +437,14 @@ public class Practitioner extends Resource {
     /**
      * @return The date and time of birth for the practitioner.
      */
-    public DateAndTime getBirthDateSimple() { 
+    public DateAndTime getBirthDate() { 
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
     /**
      * @param value The date and time of birth for the practitioner.
      */
-    public Practitioner setBirthDateSimple(DateAndTime value) { 
+    public Practitioner setBirthDate(DateAndTime value) { 
       if (value == null)
         this.birthDate = null;
       else {
@@ -488,14 +488,14 @@ public class Practitioner extends Resource {
     }
 
     /**
-     * @return {@link #organization} (The actual object that is the target of the reference. The organization that the practitioner represents.)
+     * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization that the practitioner represents.)
      */
     public Organization getOrganizationTarget() { 
       return this.organizationTarget;
     }
 
     /**
-     * @param value {@link #organization} (The actual object that is the target of the reference. The organization that the practitioner represents.)
+     * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization that the practitioner represents.)
      */
     public Practitioner setOrganizationTarget(Organization value) { 
       this.organizationTarget = value;
@@ -569,7 +569,7 @@ public class Practitioner extends Resource {
     }
 
     /**
-     * @return {@link #location} (The actual objects that are the target of the reference. The location(s) at which this practitioner provides care.)
+     * @return {@link #location} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The location(s) at which this practitioner provides care.)
      */
     public List<Location> getLocationTarget() { 
       return this.locationTarget;
@@ -577,7 +577,7 @@ public class Practitioner extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #location} (Add an actual object that is the target of the reference. The location(s) at which this practitioner provides care.)
+     * @return {@link #location} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The location(s) at which this practitioner provides care.)
      */
     public Location addLocationTarget() { 
       Location r = new Location();

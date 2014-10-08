@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -107,16 +107,16 @@ public class RiskAssessment extends Resource {
         }
 
         /**
-         * @return {@link #relativeRisk} (Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).)
+         * @return {@link #relativeRisk} (Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).). This is the underlying object with id, value and extensions. The accessor "getRelativeRisk" gives direct access to the value
          */
-        public DecimalType getRelativeRisk() { 
+        public DecimalType getRelativeRiskObject() { 
           return this.relativeRisk;
         }
 
         /**
-         * @param value {@link #relativeRisk} (Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).)
+         * @param value {@link #relativeRisk} (Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).). This is the underlying object with id, value and extensions. The accessor "getRelativeRisk" gives direct access to the value
          */
-        public RiskAssessmentPredictionComponent setRelativeRisk(DecimalType value) { 
+        public RiskAssessmentPredictionComponent setRelativeRiskObject(DecimalType value) { 
           this.relativeRisk = value;
           return this;
         }
@@ -124,14 +124,14 @@ public class RiskAssessment extends Resource {
         /**
          * @return Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).
          */
-        public BigDecimal getRelativeRiskSimple() { 
+        public BigDecimal getRelativeRisk() { 
           return this.relativeRisk == null ? null : this.relativeRisk.getValue();
         }
 
         /**
          * @param value Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).
          */
-        public RiskAssessmentPredictionComponent setRelativeRiskSimple(BigDecimal value) { 
+        public RiskAssessmentPredictionComponent setRelativeRisk(BigDecimal value) { 
           if (value == null)
             this.relativeRisk = null;
           else {
@@ -158,16 +158,16 @@ public class RiskAssessment extends Resource {
         }
 
         /**
-         * @return {@link #rationale} (Additional information explaining the basis for the prediction.)
+         * @return {@link #rationale} (Additional information explaining the basis for the prediction.). This is the underlying object with id, value and extensions. The accessor "getRationale" gives direct access to the value
          */
-        public StringType getRationale() { 
+        public StringType getRationaleObject() { 
           return this.rationale;
         }
 
         /**
-         * @param value {@link #rationale} (Additional information explaining the basis for the prediction.)
+         * @param value {@link #rationale} (Additional information explaining the basis for the prediction.). This is the underlying object with id, value and extensions. The accessor "getRationale" gives direct access to the value
          */
-        public RiskAssessmentPredictionComponent setRationale(StringType value) { 
+        public RiskAssessmentPredictionComponent setRationaleObject(StringType value) { 
           this.rationale = value;
           return this;
         }
@@ -175,14 +175,14 @@ public class RiskAssessment extends Resource {
         /**
          * @return Additional information explaining the basis for the prediction.
          */
-        public String getRationaleSimple() { 
+        public String getRationale() { 
           return this.rationale == null ? null : this.rationale.getValue();
         }
 
         /**
          * @param value Additional information explaining the basis for the prediction.
          */
-        public RiskAssessmentPredictionComponent setRationaleSimple(String value) { 
+        public RiskAssessmentPredictionComponent setRationale(String value) { 
           if (value == null)
             this.rationale = null;
           else {
@@ -301,14 +301,14 @@ public class RiskAssessment extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The patient or group the risk assessment applies to.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient or group the risk assessment applies to.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The patient or group the risk assessment applies to.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient or group the risk assessment applies to.)
      */
     public RiskAssessment setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -316,16 +316,16 @@ public class RiskAssessment extends Resource {
     }
 
     /**
-     * @return {@link #date} (The date (and possibly time) the risk assessment was performed.)
+     * @return {@link #date} (The date (and possibly time) the risk assessment was performed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDate() { 
+    public DateTimeType getDateObject() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The date (and possibly time) the risk assessment was performed.)
+     * @param value {@link #date} (The date (and possibly time) the risk assessment was performed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public RiskAssessment setDate(DateTimeType value) { 
+    public RiskAssessment setDateObject(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -333,14 +333,14 @@ public class RiskAssessment extends Resource {
     /**
      * @return The date (and possibly time) the risk assessment was performed.
      */
-    public DateAndTime getDateSimple() { 
+    public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date (and possibly time) the risk assessment was performed.
      */
-    public RiskAssessment setDateSimple(DateAndTime value) { 
+    public RiskAssessment setDate(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -367,14 +367,14 @@ public class RiskAssessment extends Resource {
     }
 
     /**
-     * @return {@link #condition} (The actual object that is the target of the reference. For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
+     * @return {@link #condition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
      */
     public Condition getConditionTarget() { 
       return this.conditionTarget;
     }
 
     /**
-     * @param value {@link #condition} (The actual object that is the target of the reference. For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
+     * @param value {@link #condition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
      */
     public RiskAssessment setConditionTarget(Condition value) { 
       this.conditionTarget = value;
@@ -397,14 +397,14 @@ public class RiskAssessment extends Resource {
     }
 
     /**
-     * @return {@link #performer} (The actual object that is the target of the reference. The provider or software application that performed the assessment.)
+     * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The provider or software application that performed the assessment.)
      */
     public Resource getPerformerTarget() { 
       return this.performerTarget;
     }
 
     /**
-     * @param value {@link #performer} (The actual object that is the target of the reference. The provider or software application that performed the assessment.)
+     * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The provider or software application that performed the assessment.)
      */
     public RiskAssessment setPerformerTarget(Resource value) { 
       this.performerTarget = value;
@@ -459,7 +459,7 @@ public class RiskAssessment extends Resource {
     }
 
     /**
-     * @return {@link #basis} (The actual objects that are the target of the reference. Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
+     * @return {@link #basis} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
     public List<Resource> getBasisTarget() { 
       return this.basisTarget;
@@ -483,16 +483,16 @@ public class RiskAssessment extends Resource {
     }
 
     /**
-     * @return {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).)
+     * @return {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).). This is the underlying object with id, value and extensions. The accessor "getMitigation" gives direct access to the value
      */
-    public StringType getMitigation() { 
+    public StringType getMitigationObject() { 
       return this.mitigation;
     }
 
     /**
-     * @param value {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).)
+     * @param value {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).). This is the underlying object with id, value and extensions. The accessor "getMitigation" gives direct access to the value
      */
-    public RiskAssessment setMitigation(StringType value) { 
+    public RiskAssessment setMitigationObject(StringType value) { 
       this.mitigation = value;
       return this;
     }
@@ -500,14 +500,14 @@ public class RiskAssessment extends Resource {
     /**
      * @return A description of the steps that might be taken to reduce the identified risk(s).
      */
-    public String getMitigationSimple() { 
+    public String getMitigation() { 
       return this.mitigation == null ? null : this.mitigation.getValue();
     }
 
     /**
      * @param value A description of the steps that might be taken to reduce the identified risk(s).
      */
-    public RiskAssessment setMitigationSimple(String value) { 
+    public RiskAssessment setMitigation(String value) { 
       if (value == null)
         this.mitigation = null;
       else {

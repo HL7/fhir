@@ -313,7 +313,7 @@ begin
       result := result and CharInset(s[i], ['0'..'9', 'a'..'z', 'A'..'Z', '-', '.']);
 end;
 
-procedure iterateReferences(node : TFHIRObject; list : TFhirReferenceList);
+procedure iterateReferences(path : String; node : TFHIRObject; list : TFhirReferenceList);
 var
   iter : TFHIRPropertyIterator;
   i : integer;
@@ -325,14 +325,17 @@ begin
       if StringStartsWith(iter.Current.Type_, 'Reference(') then
       begin
         for i := 0 to iter.Current.List.count - 1 do
-          if not StringStartsWith(TFhirReference(iter.current.list[i]).reference, '#') then
+          if (iter.current.list[i] <> nil)  and not StringStartsWith(TFhirReference(iter.current.list[i]).reference, '#') then
             list.add(iter.Current.list[i].Link)
       end
       else if iter.Current.Type_ = 'Resource' then
-        iterateReferences(TFhirReference(iter.current.list[0]), list)
-      else
+      begin
+        for i := 0 to iter.Current.List.count - 1 do
+          iterateReferences(path+'/'+iter.Current.Name, TFhirReference(iter.current.list[i]), list)
+      end
+      else if (iter.Current.list <> nil) and not ((node is TFHIRPrimitiveType) and (iter.current.name = 'value')) then
         for i := 0 to iter.Current.list.Count - 1 Do
-          iterateReferences(iter.Current.list[i], list);
+          iterateReferences(path+'/'+iter.Current.Name, iter.Current.list[i], list);
       iter.Next;
     end;
   finally
@@ -342,10 +345,10 @@ end;
 
 procedure listReferences(resource : TFhirResource; list : TFhirReferenceList);
 begin
-  iterateReferences(resource, list);
+  iterateReferences(CODES_TFhirResourceType[resource.resourceType], resource, list);
 end;
 
-procedure iterateAttachments(node : TFHIRObject; list : TFhirAttachmentList);
+procedure iterateAttachments(path : String; node : TFHIRObject; list : TFhirAttachmentList);
 var
   iter : TFHIRPropertyIterator;
   i : integer;
@@ -354,11 +357,12 @@ begin
   try
     while iter.More do
     begin
-      for i := 0 to iter.Current.List.Count - 1 do
-        if (iter.Current.Type_ = 'Attachment') then
-          list.add(iter.Current.list[i].Link)
-        else
-          iterateAttachments(iter.Current.list[i], list);
+      if (iter.Current.List <> nil)  then
+        for i := 0 to iter.Current.List.Count - 1 do
+          if (iter.Current.Type_ = 'Attachment') then
+            list.add(iter.Current.list[i].Link)
+          else if not ((node is TFHIRPrimitiveType) and (iter.current.name = 'value'))  then
+            iterateAttachments(path+'/'+iter.Current.Name, iter.Current.list[i], list);
       iter.Next;
     end;
   finally
@@ -368,7 +372,7 @@ end;
 
 procedure listAttachments(resource : TFhirResource; list : TFhirAttachmentList);
 begin
-  iterateAttachments(resource, list);
+  iterateAttachments(CODES_TFhirResourceType[resource.resourceType], resource, list);
 end;
 
 

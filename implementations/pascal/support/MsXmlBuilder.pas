@@ -34,7 +34,7 @@ Uses
   SysUtils, Classes,
   StringSupport, EncodeSupport, TextUtilities,
   AdvStreams, AdvVCLStreams,  AdvObjects,
-  IdSoapMsXml, XmlBuilder;
+  IdSoapMsXml, XmlBuilder, Xml.XmlIntf;
 
 Type
   TMsXmlBuilder = class (TXmlBuilder)
@@ -59,18 +59,23 @@ Type
     Function Build : String;  Overload; override;
 
     Function SourceLocation : TSourceLocation; override;
-    Procedure Comment(Const sContent : WideString); override;
-    Procedure AddAttribute(Const sName, sValue : WideString); override;
-    Procedure AddAttributeNS(Const sNamespace, sName, sValue : WideString); override;
-    function Tag(Const sName : WideString) : TSourceLocation; override;
-    function Open(Const sName : WideString) : TSourceLocation; override;
-    Procedure Close(Const sName : WideString); override;
-    function Text(Const sValue : WideString) : TSourceLocation; override;
-    function Entity(Const sValue : WideString) : TSourceLocation; override;
-    function TagText(Const sName, sValue : WideString) : TSourceLocation; override;
+    Procedure Comment(Const sContent : String); override;
+    Procedure AddAttribute(Const sName, sValue : String); override;
+    Procedure AddAttributeNS(Const sNamespace, sName, sValue : String); override;
+    function Tag(Const sName : String) : TSourceLocation; override;
+    function Open(Const sName : String) : TSourceLocation; override;
+    Procedure Close(Const sName : String); override;
+    function Text(Const sValue : String) : TSourceLocation; override;
+    function Entity(Const sValue : String) : TSourceLocation; override;
+    function TagText(Const sName, sValue : String) : TSourceLocation; override;
     Procedure WriteXml(iElement : IXMLDomElement); override;
+    procedure ProcessingInstruction(sName, sText : String); override;
+    procedure DocType(sText : String); override;
+    Procedure WriteXmlNode(iDoc : IXMLDOMNode); override;
 
-
+    Procedure WriteXml(iElement : IXMLNode; first : boolean); override;
+    Procedure WriteXmlNode(iDoc : IXMLNode; first : boolean); override;
+    Procedure WriteXmlDocument(iDoc : IXMLDocument); overload; override;
   End;
 
 Implementation
@@ -168,16 +173,16 @@ Begin
   End;
 End;
 
-function TMsXmlBuilder.Open(const sName: WideString) : TSourceLocation;
+function TMsXmlBuilder.Open(const sName: String) : TSourceLocation;
 var
   oElem : IXMLDOMElement;
   oParent : IXMLDOMNode;
   iLoop : integer;
   len : integer;
 begin
-  if FNamespace <> '' Then
+  if CurrentNamespaces.DefaultNS <> '' Then
   begin
-    oElem := FDom.createNode(NODE_ELEMENT, sName, FNamespace) as IXMLDOMElement;
+    oElem := FDom.createNode(NODE_ELEMENT, sName, CurrentNamespaces.DefaultNS) as IXMLDOMElement;
     len := length(sName)+3
   end
   Else
@@ -203,7 +208,7 @@ begin
   result.col := FSourceLocation.col;
 end;
 
-procedure TMsXmlBuilder.Close(const sName: WideString);
+procedure TMsXmlBuilder.Close(const sName: String);
 var
   oElem : IXMLDOMElement;
 begin
@@ -217,7 +222,7 @@ begin
 end;
 
 
-procedure TMsXmlBuilder.AddAttribute(const sName, sValue: WideString);
+procedure TMsXmlBuilder.AddAttribute(const sName, sValue: String);
 var
   oAttr : IXMLDOMAttribute;
 begin
@@ -227,7 +232,7 @@ begin
   ReadTextLengthWithEscapes(sName+'="', sValue, '"');
 end;
 
-function TMsXmlBuilder.Text(const sValue: WideString) : TSourceLocation;
+function TMsXmlBuilder.Text(const sValue: String) : TSourceLocation;
 var
   oElem : IXMLDOMNode;
 begin
@@ -237,7 +242,7 @@ begin
   result.col := FSourceLocation.col;
 end;
 
-function TMsXmlBuilder.Entity(const sValue: WideString) : TSourceLocation;
+function TMsXmlBuilder.Entity(const sValue: String) : TSourceLocation;
 var
   oElem : IXMLDOMElement;
 begin
@@ -248,7 +253,7 @@ begin
   result.col := FSourceLocation.col;
 end;
 
-function TMsXmlBuilder.Tag(const sName: WideString) : TSourceLocation;
+function TMsXmlBuilder.Tag(const sName: String) : TSourceLocation;
 begin
   Open(sName);
   Close(sName);
@@ -256,7 +261,7 @@ begin
   result.col := FSourceLocation.col;
 end;
 
-function TMsXmlBuilder.TagText(const sName, sValue: WideString) : TSourceLocation;
+function TMsXmlBuilder.TagText(const sName, sValue: String) : TSourceLocation;
 begin
   result := Open(sName);
   if (sValue <> '') Then
@@ -273,6 +278,11 @@ begin
     result[iLoop] := ' ';
 end;
 
+
+procedure TMsXmlBuilder.ProcessingInstruction(sName, sText: String);
+begin
+  raise Exception.Create('Not supported yet');
+end;
 
 function TMsXmlBuilder.ReadTextLength(s: string): String;
 var
@@ -297,11 +307,11 @@ end;
 function TMsXmlBuilder.ReadTextLengthWithEscapes(pfx, s, sfx: string): String;
 begin
   ReadTextLength(pfx);
-  ReadTextLength(EncodeXml(s, false));
+  ReadTextLength(EncodeXml(s, xmlText));
   ReadTextLength(sfx);
 end;
 
-Procedure TMsXmlBuilder.Comment(Const sContent : WideString);
+Procedure TMsXmlBuilder.Comment(Const sContent : String);
 var
   oElem : IXMLDOMNode;
 begin
@@ -329,8 +339,13 @@ end;
 constructor TMsXmlBuilder.Create;
 begin
   inherited;
-  Namespace := 'urn:hl7-org:v3';
+  CurrentNamespaces.DefaultNS := 'urn:hl7-org:v3';
   CharEncoding := 'UTF-8';
+end;
+
+procedure TMsXmlBuilder.DocType(sText: String);
+begin
+  raise Exception.Create('Not supported yet');
 end;
 
 procedure TMsXmlBuilder.WriteXml(iElement: IXMLDomElement);
@@ -344,7 +359,7 @@ begin
       oElem.appendChild(iElement.childNodes[i].CloneNode(true));
 end;
 
-procedure TMsXmlBuilder.AddAttributeNS(const sNamespace, sName, sValue: WideString);
+procedure TMsXmlBuilder.AddAttributeNS(const sNamespace, sName, sValue: String);
 var
   oAttr : IXMLDOMAttribute;
 begin
@@ -375,6 +390,26 @@ begin
   FStack.Add(FFragment);
   FSourceLocation.line := 0;
   FSourceLocation.col := 0;
+end;
+
+procedure TMsXmlBuilder.WriteXml(iElement: IXMLNode; first : boolean);
+begin
+  raise Exception.Create('Not supported yet');
+end;
+
+procedure TMsXmlBuilder.WriteXmlDocument(iDoc: IXMLDocument);
+begin
+  raise Exception.Create('Not supported yet');
+end;
+
+procedure TMsXmlBuilder.WriteXmlNode(iDoc: IXMLDOMNode);
+begin
+  raise Exception.Create('Not supported yet');
+end;
+
+procedure TMsXmlBuilder.WriteXmlNode(iDoc: IXMLNode; first : boolean);
+begin
+  raise Exception.Create('Not supported yet');
 end;
 
 End.

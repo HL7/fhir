@@ -628,9 +628,9 @@ public class FHIRSimpleClient implements FHIRClient {
   public VersionInfo getVersions() {
 		SimpleVersionInfo vinfo = new SimpleVersionInfo(Version.VERSION, Constants.VERSION, Constants.REVISION);
 		Conformance conf = getConformanceStatement();
-		vinfo.fhirServerVersion = conf.getFhirVersionSimple();
+		vinfo.fhirServerVersion = conf.getFhirVersion();
 		if (conf.getSoftware() != null)
-		  vinfo.fhirServerSoftware = conf.getSoftware().getVersionSimple();
+		  vinfo.fhirServerSoftware = conf.getSoftware().getVersion();
 		return vinfo;
   }
 

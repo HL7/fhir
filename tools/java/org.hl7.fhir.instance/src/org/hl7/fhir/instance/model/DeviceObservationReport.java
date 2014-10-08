@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -208,14 +208,14 @@ public class DeviceObservationReport extends Resource {
         }
 
         /**
-         * @return {@link #observation} (The actual object that is the target of the reference. The data for the metric.)
+         * @return {@link #observation} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The data for the metric.)
          */
         public Observation getObservationTarget() { 
           return this.observationTarget;
         }
 
         /**
-         * @param value {@link #observation} (The actual object that is the target of the reference. The data for the metric.)
+         * @param value {@link #observation} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The data for the metric.)
          */
         public DeviceObservationReportVirtualDeviceChannelMetricComponent setObservationTarget(Observation value) { 
           this.observationTarget = value;
@@ -283,16 +283,16 @@ public class DeviceObservationReport extends Resource {
     }
 
     /**
-     * @return {@link #instant} (The point in time that the values are reported.)
+     * @return {@link #instant} (The point in time that the values are reported.). This is the underlying object with id, value and extensions. The accessor "getInstant" gives direct access to the value
      */
-    public InstantType getInstant() { 
+    public InstantType getInstantObject() { 
       return this.instant;
     }
 
     /**
-     * @param value {@link #instant} (The point in time that the values are reported.)
+     * @param value {@link #instant} (The point in time that the values are reported.). This is the underlying object with id, value and extensions. The accessor "getInstant" gives direct access to the value
      */
-    public DeviceObservationReport setInstant(InstantType value) { 
+    public DeviceObservationReport setInstantObject(InstantType value) { 
       this.instant = value;
       return this;
     }
@@ -300,14 +300,14 @@ public class DeviceObservationReport extends Resource {
     /**
      * @return The point in time that the values are reported.
      */
-    public DateAndTime getInstantSimple() { 
+    public DateAndTime getInstant() { 
       return this.instant == null ? null : this.instant.getValue();
     }
 
     /**
      * @param value The point in time that the values are reported.
      */
-    public DeviceObservationReport setInstantSimple(DateAndTime value) { 
+    public DeviceObservationReport setInstant(DateAndTime value) { 
         if (this.instant == null)
           this.instant = new InstantType();
         this.instant.setValue(value);
@@ -345,14 +345,14 @@ public class DeviceObservationReport extends Resource {
     }
 
     /**
-     * @return {@link #source} (The actual object that is the target of the reference. Identification information for the device that is the source of the data.)
+     * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identification information for the device that is the source of the data.)
      */
     public Device getSourceTarget() { 
       return this.sourceTarget;
     }
 
     /**
-     * @param value {@link #source} (The actual object that is the target of the reference. Identification information for the device that is the source of the data.)
+     * @param value {@link #source} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identification information for the device that is the source of the data.)
      */
     public DeviceObservationReport setSourceTarget(Device value) { 
       this.sourceTarget = value;
@@ -375,14 +375,14 @@ public class DeviceObservationReport extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The subject of the measurement.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The subject of the measurement.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The subject of the measurement.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The subject of the measurement.)
      */
     public DeviceObservationReport setSubjectTarget(Resource value) { 
       this.subjectTarget = value;

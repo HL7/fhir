@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -60,16 +60,16 @@ public class Extension extends Element {
     }
 
     /**
-     * @return {@link #url} (Source of the definition for the extension code - a logical name or a URL.)
+     * @return {@link #url} (Source of the definition for the extension code - a logical name or a URL.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrl() { 
+    public UriType getUrlObject() { 
       return this.url;
     }
 
     /**
-     * @param value {@link #url} (Source of the definition for the extension code - a logical name or a URL.)
+     * @param value {@link #url} (Source of the definition for the extension code - a logical name or a URL.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public Extension setUrl(UriType value) { 
+    public Extension setUrlObject(UriType value) { 
       this.url = value;
       return this;
     }
@@ -77,14 +77,14 @@ public class Extension extends Element {
     /**
      * @return Source of the definition for the extension code - a logical name or a URL.
      */
-    public String getUrlSimple() { 
+    public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value Source of the definition for the extension code - a logical name or a URL.
      */
-    public Extension setUrlSimple(String value) { 
+    public Extension setUrl(String value) { 
         if (this.url == null)
           this.url = new UriType();
         this.url.setValue(value);

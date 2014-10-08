@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,26 +39,26 @@ import java.util.*;
 public class Questionnaire extends Resource {
 
     public enum QuestionnaireStatus {
-        draft, // This Questionnaire is not ready for official use.
-        published, // This Questionnaire is ready for use.
-        retired, // This Questionnaire should no longer be used to gather data.
-        Null; // added to help the parsers
+        DRAFT, // This Questionnaire is not ready for official use.
+        PUBLISHED, // This Questionnaire is ready for use.
+        RETIRED, // This Questionnaire should no longer be used to gather data.
+        NULL; // added to help the parsers
         public static QuestionnaireStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return draft;
+          return DRAFT;
         if ("published".equals(codeString))
-          return published;
+          return PUBLISHED;
         if ("retired".equals(codeString))
-          return retired;
+          return RETIRED;
         throw new Exception("Unknown QuestionnaireStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case draft: return "draft";
-            case published: return "published";
-            case retired: return "retired";
+            case DRAFT: return "draft";
+            case PUBLISHED: return "published";
+            case RETIRED: return "retired";
             default: return "?";
           }
         }
@@ -70,89 +70,89 @@ public class Questionnaire extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return QuestionnaireStatus.draft;
+          return QuestionnaireStatus.DRAFT;
         if ("published".equals(codeString))
-          return QuestionnaireStatus.published;
+          return QuestionnaireStatus.PUBLISHED;
         if ("retired".equals(codeString))
-          return QuestionnaireStatus.retired;
+          return QuestionnaireStatus.RETIRED;
         throw new Exception("Unknown QuestionnaireStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == QuestionnaireStatus.draft)
+      if (code == QuestionnaireStatus.DRAFT)
         return "draft";
-      if (code == QuestionnaireStatus.published)
+      if (code == QuestionnaireStatus.PUBLISHED)
         return "published";
-      if (code == QuestionnaireStatus.retired)
+      if (code == QuestionnaireStatus.RETIRED)
         return "retired";
       return "?";
       }
     }
 
     public enum AnswerFormat {
-        boolean_, // Answer is a yes/no answer.
-        decimal, // Answer is a floating point number.
-        integer, // Answer is an integer.
-        date, // Answer is a date.
-        dateTime, // Answer is a date and time.
-        instant, // Answer is a system timestamp.
-        time, // Answer is a time independent of date.
-        string, // Answer is a short (few words to short sentence) free-text entry.
-        text, // Answer is a long (potentially multi-paragram) free-text entry.
-        choice, // Answer is a choice from a list of options.
-        openchoice, // Answer is a choice from a list of options or a free-text entry.
-        attachment, // Answer is binary content such as a image, PDF, etc.
-        reference, // Answer is a reference to another resource (practitioner, organization, etc.).
-        quantity, // Answer is a combination of a numeric value and unit.
-        Null; // added to help the parsers
+        BOOLEAN, // Answer is a yes/no answer.
+        DECIMAL, // Answer is a floating point number.
+        INTEGER, // Answer is an integer.
+        DATE, // Answer is a date.
+        DATETIME, // Answer is a date and time.
+        INSTANT, // Answer is a system timestamp.
+        TIME, // Answer is a time independent of date.
+        STRING, // Answer is a short (few words to short sentence) free-text entry.
+        TEXT, // Answer is a long (potentially multi-paragram) free-text entry.
+        CHOICE, // Answer is a choice from a list of options.
+        OPENCHOICE, // Answer is a choice from a list of options or a free-text entry.
+        ATTACHMENT, // Answer is binary content such as a image, PDF, etc.
+        REFERENCE, // Answer is a reference to another resource (practitioner, organization, etc.).
+        QUANTITY, // Answer is a combination of a numeric value and unit.
+        NULL; // added to help the parsers
         public static AnswerFormat fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("boolean".equals(codeString))
-          return boolean_;
+          return BOOLEAN;
         if ("decimal".equals(codeString))
-          return decimal;
+          return DECIMAL;
         if ("integer".equals(codeString))
-          return integer;
+          return INTEGER;
         if ("date".equals(codeString))
-          return date;
+          return DATE;
         if ("dateTime".equals(codeString))
-          return dateTime;
+          return DATETIME;
         if ("instant".equals(codeString))
-          return instant;
+          return INSTANT;
         if ("time".equals(codeString))
-          return time;
+          return TIME;
         if ("string".equals(codeString))
-          return string;
+          return STRING;
         if ("text".equals(codeString))
-          return text;
+          return TEXT;
         if ("choice".equals(codeString))
-          return choice;
+          return CHOICE;
         if ("open-choice".equals(codeString))
-          return openchoice;
+          return OPENCHOICE;
         if ("attachment".equals(codeString))
-          return attachment;
+          return ATTACHMENT;
         if ("reference".equals(codeString))
-          return reference;
+          return REFERENCE;
         if ("quantity".equals(codeString))
-          return quantity;
+          return QUANTITY;
         throw new Exception("Unknown AnswerFormat code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case boolean_: return "boolean";
-            case decimal: return "decimal";
-            case integer: return "integer";
-            case date: return "date";
-            case dateTime: return "dateTime";
-            case instant: return "instant";
-            case time: return "time";
-            case string: return "string";
-            case text: return "text";
-            case choice: return "choice";
-            case openchoice: return "open-choice";
-            case attachment: return "attachment";
-            case reference: return "reference";
-            case quantity: return "quantity";
+            case BOOLEAN: return "boolean";
+            case DECIMAL: return "decimal";
+            case INTEGER: return "integer";
+            case DATE: return "date";
+            case DATETIME: return "dateTime";
+            case INSTANT: return "instant";
+            case TIME: return "time";
+            case STRING: return "string";
+            case TEXT: return "text";
+            case CHOICE: return "choice";
+            case OPENCHOICE: return "open-choice";
+            case ATTACHMENT: return "attachment";
+            case REFERENCE: return "reference";
+            case QUANTITY: return "quantity";
             default: return "?";
           }
         }
@@ -164,63 +164,63 @@ public class Questionnaire extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("boolean".equals(codeString))
-          return AnswerFormat.boolean_;
+          return AnswerFormat.BOOLEAN;
         if ("decimal".equals(codeString))
-          return AnswerFormat.decimal;
+          return AnswerFormat.DECIMAL;
         if ("integer".equals(codeString))
-          return AnswerFormat.integer;
+          return AnswerFormat.INTEGER;
         if ("date".equals(codeString))
-          return AnswerFormat.date;
+          return AnswerFormat.DATE;
         if ("dateTime".equals(codeString))
-          return AnswerFormat.dateTime;
+          return AnswerFormat.DATETIME;
         if ("instant".equals(codeString))
-          return AnswerFormat.instant;
+          return AnswerFormat.INSTANT;
         if ("time".equals(codeString))
-          return AnswerFormat.time;
+          return AnswerFormat.TIME;
         if ("string".equals(codeString))
-          return AnswerFormat.string;
+          return AnswerFormat.STRING;
         if ("text".equals(codeString))
-          return AnswerFormat.text;
+          return AnswerFormat.TEXT;
         if ("choice".equals(codeString))
-          return AnswerFormat.choice;
+          return AnswerFormat.CHOICE;
         if ("open-choice".equals(codeString))
-          return AnswerFormat.openchoice;
+          return AnswerFormat.OPENCHOICE;
         if ("attachment".equals(codeString))
-          return AnswerFormat.attachment;
+          return AnswerFormat.ATTACHMENT;
         if ("reference".equals(codeString))
-          return AnswerFormat.reference;
+          return AnswerFormat.REFERENCE;
         if ("quantity".equals(codeString))
-          return AnswerFormat.quantity;
+          return AnswerFormat.QUANTITY;
         throw new Exception("Unknown AnswerFormat code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == AnswerFormat.boolean_)
+      if (code == AnswerFormat.BOOLEAN)
         return "boolean";
-      if (code == AnswerFormat.decimal)
+      if (code == AnswerFormat.DECIMAL)
         return "decimal";
-      if (code == AnswerFormat.integer)
+      if (code == AnswerFormat.INTEGER)
         return "integer";
-      if (code == AnswerFormat.date)
+      if (code == AnswerFormat.DATE)
         return "date";
-      if (code == AnswerFormat.dateTime)
+      if (code == AnswerFormat.DATETIME)
         return "dateTime";
-      if (code == AnswerFormat.instant)
+      if (code == AnswerFormat.INSTANT)
         return "instant";
-      if (code == AnswerFormat.time)
+      if (code == AnswerFormat.TIME)
         return "time";
-      if (code == AnswerFormat.string)
+      if (code == AnswerFormat.STRING)
         return "string";
-      if (code == AnswerFormat.text)
+      if (code == AnswerFormat.TEXT)
         return "text";
-      if (code == AnswerFormat.choice)
+      if (code == AnswerFormat.CHOICE)
         return "choice";
-      if (code == AnswerFormat.openchoice)
+      if (code == AnswerFormat.OPENCHOICE)
         return "open-choice";
-      if (code == AnswerFormat.attachment)
+      if (code == AnswerFormat.ATTACHMENT)
         return "attachment";
-      if (code == AnswerFormat.reference)
+      if (code == AnswerFormat.REFERENCE)
         return "reference";
-      if (code == AnswerFormat.quantity)
+      if (code == AnswerFormat.QUANTITY)
         return "quantity";
       return "?";
       }
@@ -274,16 +274,16 @@ public class Questionnaire extends Resource {
       }
 
         /**
-         * @return {@link #linkId} (A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.)
+         * @return {@link #linkId} (A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public StringType getLinkId() { 
+        public StringType getLinkIdObject() { 
           return this.linkId;
         }
 
         /**
-         * @param value {@link #linkId} (A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.)
+         * @param value {@link #linkId} (A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public GroupComponent setLinkId(StringType value) { 
+        public GroupComponent setLinkIdObject(StringType value) { 
           this.linkId = value;
           return this;
         }
@@ -291,14 +291,14 @@ public class Questionnaire extends Resource {
         /**
          * @return A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
-        public String getLinkIdSimple() { 
+        public String getLinkId() { 
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
          * @param value A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
-        public GroupComponent setLinkIdSimple(String value) { 
+        public GroupComponent setLinkId(String value) { 
           if (value == null)
             this.linkId = null;
           else {
@@ -310,16 +310,16 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #title} (The human-readable name for this section of the questionnaire.)
+         * @return {@link #title} (The human-readable name for this section of the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitle() { 
+        public StringType getTitleObject() { 
           return this.title;
         }
 
         /**
-         * @param value {@link #title} (The human-readable name for this section of the questionnaire.)
+         * @param value {@link #title} (The human-readable name for this section of the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public GroupComponent setTitle(StringType value) { 
+        public GroupComponent setTitleObject(StringType value) { 
           this.title = value;
           return this;
         }
@@ -327,14 +327,14 @@ public class Questionnaire extends Resource {
         /**
          * @return The human-readable name for this section of the questionnaire.
          */
-        public String getTitleSimple() { 
+        public String getTitle() { 
           return this.title == null ? null : this.title.getValue();
         }
 
         /**
          * @param value The human-readable name for this section of the questionnaire.
          */
-        public GroupComponent setTitleSimple(String value) { 
+        public GroupComponent setTitle(String value) { 
           if (value == null)
             this.title = null;
           else {
@@ -363,16 +363,16 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #text} (Additional text for the group, used for display purposes.)
+         * @return {@link #text} (Additional text for the group, used for display purposes.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getText() { 
+        public StringType getTextObject() { 
           return this.text;
         }
 
         /**
-         * @param value {@link #text} (Additional text for the group, used for display purposes.)
+         * @param value {@link #text} (Additional text for the group, used for display purposes.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public GroupComponent setText(StringType value) { 
+        public GroupComponent setTextObject(StringType value) { 
           this.text = value;
           return this;
         }
@@ -380,14 +380,14 @@ public class Questionnaire extends Resource {
         /**
          * @return Additional text for the group, used for display purposes.
          */
-        public String getTextSimple() { 
+        public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Additional text for the group, used for display purposes.
          */
-        public GroupComponent setTextSimple(String value) { 
+        public GroupComponent setText(String value) { 
           if (value == null)
             this.text = null;
           else {
@@ -399,16 +399,16 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.)
+         * @return {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public BooleanType getRequired() { 
+        public BooleanType getRequiredObject() { 
           return this.required;
         }
 
         /**
-         * @param value {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.)
+         * @param value {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public GroupComponent setRequired(BooleanType value) { 
+        public GroupComponent setRequiredObject(BooleanType value) { 
           this.required = value;
           return this;
         }
@@ -416,14 +416,14 @@ public class Questionnaire extends Resource {
         /**
          * @return If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
          */
-        public boolean getRequiredSimple() { 
+        public boolean getRequired() { 
           return this.required == null ? false : this.required.getValue();
         }
 
         /**
          * @param value If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
          */
-        public GroupComponent setRequiredSimple(boolean value) { 
+        public GroupComponent setRequired(boolean value) { 
           if (value == false)
             this.required = null;
           else {
@@ -435,16 +435,16 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.)
+         * @return {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.). This is the underlying object with id, value and extensions. The accessor "getRepeats" gives direct access to the value
          */
-        public BooleanType getRepeats() { 
+        public BooleanType getRepeatsObject() { 
           return this.repeats;
         }
 
         /**
-         * @param value {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.)
+         * @param value {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.). This is the underlying object with id, value and extensions. The accessor "getRepeats" gives direct access to the value
          */
-        public GroupComponent setRepeats(BooleanType value) { 
+        public GroupComponent setRepeatsObject(BooleanType value) { 
           this.repeats = value;
           return this;
         }
@@ -452,14 +452,14 @@ public class Questionnaire extends Resource {
         /**
          * @return Whether the group may occur multiple times in the instance, containing multiple sets of answers.
          */
-        public boolean getRepeatsSimple() { 
+        public boolean getRepeats() { 
           return this.repeats == null ? false : this.repeats.getValue();
         }
 
         /**
          * @param value Whether the group may occur multiple times in the instance, containing multiple sets of answers.
          */
-        public GroupComponent setRepeatsSimple(boolean value) { 
+        public GroupComponent setRepeats(boolean value) { 
           if (value == false)
             this.repeats = null;
           else {
@@ -590,16 +590,16 @@ public class Questionnaire extends Resource {
       }
 
         /**
-         * @return {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.)
+         * @return {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public StringType getLinkId() { 
+        public StringType getLinkIdObject() { 
           return this.linkId;
         }
 
         /**
-         * @param value {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.)
+         * @param value {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public QuestionComponent setLinkId(StringType value) { 
+        public QuestionComponent setLinkIdObject(StringType value) { 
           this.linkId = value;
           return this;
         }
@@ -607,14 +607,14 @@ public class Questionnaire extends Resource {
         /**
          * @return An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
          */
-        public String getLinkIdSimple() { 
+        public String getLinkId() { 
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
          * @param value An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
          */
-        public QuestionComponent setLinkIdSimple(String value) { 
+        public QuestionComponent setLinkId(String value) { 
           if (value == null)
             this.linkId = null;
           else {
@@ -643,16 +643,16 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #text} (Text of the question as it is shown to the user.)
+         * @return {@link #text} (Text of the question as it is shown to the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getText() { 
+        public StringType getTextObject() { 
           return this.text;
         }
 
         /**
-         * @param value {@link #text} (Text of the question as it is shown to the user.)
+         * @param value {@link #text} (Text of the question as it is shown to the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public QuestionComponent setText(StringType value) { 
+        public QuestionComponent setTextObject(StringType value) { 
           this.text = value;
           return this;
         }
@@ -660,14 +660,14 @@ public class Questionnaire extends Resource {
         /**
          * @return Text of the question as it is shown to the user.
          */
-        public String getTextSimple() { 
+        public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Text of the question as it is shown to the user.
          */
-        public QuestionComponent setTextSimple(String value) { 
+        public QuestionComponent setText(String value) { 
           if (value == null)
             this.text = null;
           else {
@@ -679,16 +679,16 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #type} (The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.)
+         * @return {@link #type} (The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<AnswerFormat> getType() { 
+        public Enumeration<AnswerFormat> getTypeObject() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.)
+         * @param value {@link #type} (The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public QuestionComponent setType(Enumeration<AnswerFormat> value) { 
+        public QuestionComponent setTypeObject(Enumeration<AnswerFormat> value) { 
           this.type = value;
           return this;
         }
@@ -696,14 +696,14 @@ public class Questionnaire extends Resource {
         /**
          * @return The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.
          */
-        public AnswerFormat getTypeSimple() { 
+        public AnswerFormat getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.
          */
-        public QuestionComponent setTypeSimple(AnswerFormat value) { 
+        public QuestionComponent setType(AnswerFormat value) { 
           if (value == null)
             this.type = null;
           else {
@@ -715,16 +715,16 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.)
+         * @return {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public BooleanType getRequired() { 
+        public BooleanType getRequiredObject() { 
           return this.required;
         }
 
         /**
-         * @param value {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.)
+         * @param value {@link #required} (If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public QuestionComponent setRequired(BooleanType value) { 
+        public QuestionComponent setRequiredObject(BooleanType value) { 
           this.required = value;
           return this;
         }
@@ -732,14 +732,14 @@ public class Questionnaire extends Resource {
         /**
          * @return If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
          */
-        public boolean getRequiredSimple() { 
+        public boolean getRequired() { 
           return this.required == null ? false : this.required.getValue();
         }
 
         /**
          * @param value If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
          */
-        public QuestionComponent setRequiredSimple(boolean value) { 
+        public QuestionComponent setRequired(boolean value) { 
           if (value == false)
             this.required = null;
           else {
@@ -751,16 +751,16 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.)
+         * @return {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.). This is the underlying object with id, value and extensions. The accessor "getRepeats" gives direct access to the value
          */
-        public BooleanType getRepeats() { 
+        public BooleanType getRepeatsObject() { 
           return this.repeats;
         }
 
         /**
-         * @param value {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.)
+         * @param value {@link #repeats} (Whether the group may occur multiple times in the instance, containing multiple sets of answers.). This is the underlying object with id, value and extensions. The accessor "getRepeats" gives direct access to the value
          */
-        public QuestionComponent setRepeats(BooleanType value) { 
+        public QuestionComponent setRepeatsObject(BooleanType value) { 
           this.repeats = value;
           return this;
         }
@@ -768,14 +768,14 @@ public class Questionnaire extends Resource {
         /**
          * @return Whether the group may occur multiple times in the instance, containing multiple sets of answers.
          */
-        public boolean getRepeatsSimple() { 
+        public boolean getRepeats() { 
           return this.repeats == null ? false : this.repeats.getValue();
         }
 
         /**
          * @param value Whether the group may occur multiple times in the instance, containing multiple sets of answers.
          */
-        public QuestionComponent setRepeatsSimple(boolean value) { 
+        public QuestionComponent setRepeats(boolean value) { 
           if (value == false)
             this.repeats = null;
           else {
@@ -802,14 +802,14 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #options} (The actual object that is the target of the reference. Reference to a valueset containing the possible options.)
+         * @return {@link #options} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to a valueset containing the possible options.)
          */
         public ValueSet getOptionsTarget() { 
           return this.optionsTarget;
         }
 
         /**
-         * @param value {@link #options} (The actual object that is the target of the reference. Reference to a valueset containing the possible options.)
+         * @param value {@link #options} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to a valueset containing the possible options.)
          */
         public QuestionComponent setOptionsTarget(ValueSet value) { 
           this.optionsTarget = value;
@@ -924,16 +924,16 @@ public class Questionnaire extends Resource {
     }
 
     /**
-     * @return {@link #version} (The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.)
+     * @return {@link #version} (The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersion() { 
+    public StringType getVersionObject() { 
       return this.version;
     }
 
     /**
-     * @param value {@link #version} (The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.)
+     * @param value {@link #version} (The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public Questionnaire setVersion(StringType value) { 
+    public Questionnaire setVersionObject(StringType value) { 
       this.version = value;
       return this;
     }
@@ -941,14 +941,14 @@ public class Questionnaire extends Resource {
     /**
      * @return The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.
      */
-    public String getVersionSimple() { 
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.
      */
-    public Questionnaire setVersionSimple(String value) { 
+    public Questionnaire setVersion(String value) { 
       if (value == null)
         this.version = null;
       else {
@@ -960,16 +960,16 @@ public class Questionnaire extends Resource {
     }
 
     /**
-     * @return {@link #status} (The lifecycle status of the questionnaire as a whole.)
+     * @return {@link #status} (The lifecycle status of the questionnaire as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<QuestionnaireStatus> getStatus() { 
+    public Enumeration<QuestionnaireStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The lifecycle status of the questionnaire as a whole.)
+     * @param value {@link #status} (The lifecycle status of the questionnaire as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Questionnaire setStatus(Enumeration<QuestionnaireStatus> value) { 
+    public Questionnaire setStatusObject(Enumeration<QuestionnaireStatus> value) { 
       this.status = value;
       return this;
     }
@@ -977,14 +977,14 @@ public class Questionnaire extends Resource {
     /**
      * @return The lifecycle status of the questionnaire as a whole.
      */
-    public QuestionnaireStatus getStatusSimple() { 
+    public QuestionnaireStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The lifecycle status of the questionnaire as a whole.
      */
-    public Questionnaire setStatusSimple(QuestionnaireStatus value) { 
+    public Questionnaire setStatus(QuestionnaireStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<QuestionnaireStatus>();
         this.status.setValue(value);
@@ -992,16 +992,16 @@ public class Questionnaire extends Resource {
     }
 
     /**
-     * @return {@link #date} (The date that this version of the questionnaire was authored.)
+     * @return {@link #date} (The date that this version of the questionnaire was authored.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDate() { 
+    public DateTimeType getDateObject() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The date that this version of the questionnaire was authored.)
+     * @param value {@link #date} (The date that this version of the questionnaire was authored.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Questionnaire setDate(DateTimeType value) { 
+    public Questionnaire setDateObject(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -1009,14 +1009,14 @@ public class Questionnaire extends Resource {
     /**
      * @return The date that this version of the questionnaire was authored.
      */
-    public DateAndTime getDateSimple() { 
+    public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that this version of the questionnaire was authored.
      */
-    public Questionnaire setDateSimple(DateAndTime value) { 
+    public Questionnaire setDate(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1028,16 +1028,16 @@ public class Questionnaire extends Resource {
     }
 
     /**
-     * @return {@link #publisher} (Organization responsible for developing and maintaining the questionnaire.)
+     * @return {@link #publisher} (Organization responsible for developing and maintaining the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisher() { 
+    public StringType getPublisherObject() { 
       return this.publisher;
     }
 
     /**
-     * @param value {@link #publisher} (Organization responsible for developing and maintaining the questionnaire.)
+     * @param value {@link #publisher} (Organization responsible for developing and maintaining the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public Questionnaire setPublisher(StringType value) { 
+    public Questionnaire setPublisherObject(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -1045,14 +1045,14 @@ public class Questionnaire extends Resource {
     /**
      * @return Organization responsible for developing and maintaining the questionnaire.
      */
-    public String getPublisherSimple() { 
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value Organization responsible for developing and maintaining the questionnaire.
      */
-    public Questionnaire setPublisherSimple(String value) { 
+    public Questionnaire setPublisher(String value) { 
       if (value == null)
         this.publisher = null;
       else {

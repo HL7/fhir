@@ -1,5 +1,6 @@
-package org.hl7.fhir.instance.model;
+package org.hl7.fhir.instance.utils;
 
+import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -13,9 +14,9 @@ public class ResourceUtilities {
 
 	public static boolean isAnError(OperationOutcome error) {
 		for (OperationOutcomeIssueComponent t : error.getIssue())
-			if (t.getSeveritySimple() == IssueSeverity.error)
+			if (t.getSeverity() == IssueSeverity.ERROR)
 				return true;
-			else if (t.getSeveritySimple() == IssueSeverity.fatal)
+			else if (t.getSeverity() == IssueSeverity.FATAL)
 				return true;
 		return false;
 	}
@@ -26,14 +27,14 @@ public class ResourceUtilities {
 		
 		StringBuilder b = new StringBuilder();
 		for (OperationOutcomeIssueComponent t : error.getIssue())
-			if (t.getSeveritySimple() == IssueSeverity.error)
-				b.append("Error:" +t.getDetailsSimple()+"\r\n");
-			else if (t.getSeveritySimple() == IssueSeverity.fatal)
-				b.append("Fatal:" +t.getDetailsSimple()+"\r\n");
-			else if (t.getSeveritySimple() == IssueSeverity.warning)
-				b.append("Warning:" +t.getDetailsSimple()+"\r\n");
-			else if (t.getSeveritySimple() == IssueSeverity.information)
-				b.append("Information:" +t.getDetailsSimple()+"\r\n");
+			if (t.getSeverity() == IssueSeverity.ERROR)
+				b.append("Error:" +t.getDetails()+"\r\n");
+			else if (t.getSeverity() == IssueSeverity.FATAL)
+				b.append("Fatal:" +t.getDetails()+"\r\n");
+			else if (t.getSeverity() == IssueSeverity.WARNING)
+				b.append("Warning:" +t.getDetails()+"\r\n");
+			else if (t.getSeverity() == IssueSeverity.INFORMATION)
+				b.append("Information:" +t.getDetails()+"\r\n");
 		return b.toString();
   }
 

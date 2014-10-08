@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class Subscription extends Resource {
 
     public enum SubscriptionStatus {
-        requested, // The client has requested the subscription, and the server has not yet set it up.
-        active, // The subscription is active.
-        error, // The server has an error executing the notification.
-        off, // Too many errors have occurred or the subscription has expired.
-        Null; // added to help the parsers
+        REQUESTED, // The client has requested the subscription, and the server has not yet set it up.
+        ACTIVE, // The subscription is active.
+        ERROR, // The server has an error executing the notification.
+        OFF, // Too many errors have occurred or the subscription has expired.
+        NULL; // added to help the parsers
         public static SubscriptionStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("requested".equals(codeString))
-          return requested;
+          return REQUESTED;
         if ("active".equals(codeString))
-          return active;
+          return ACTIVE;
         if ("error".equals(codeString))
-          return error;
+          return ERROR;
         if ("off".equals(codeString))
-          return off;
+          return OFF;
         throw new Exception("Unknown SubscriptionStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case requested: return "requested";
-            case active: return "active";
-            case error: return "error";
-            case off: return "off";
+            case REQUESTED: return "requested";
+            case ACTIVE: return "active";
+            case ERROR: return "error";
+            case OFF: return "off";
             default: return "?";
           }
         }
@@ -74,57 +74,57 @@ public class Subscription extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("requested".equals(codeString))
-          return SubscriptionStatus.requested;
+          return SubscriptionStatus.REQUESTED;
         if ("active".equals(codeString))
-          return SubscriptionStatus.active;
+          return SubscriptionStatus.ACTIVE;
         if ("error".equals(codeString))
-          return SubscriptionStatus.error;
+          return SubscriptionStatus.ERROR;
         if ("off".equals(codeString))
-          return SubscriptionStatus.off;
+          return SubscriptionStatus.OFF;
         throw new Exception("Unknown SubscriptionStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == SubscriptionStatus.requested)
+      if (code == SubscriptionStatus.REQUESTED)
         return "requested";
-      if (code == SubscriptionStatus.active)
+      if (code == SubscriptionStatus.ACTIVE)
         return "active";
-      if (code == SubscriptionStatus.error)
+      if (code == SubscriptionStatus.ERROR)
         return "error";
-      if (code == SubscriptionStatus.off)
+      if (code == SubscriptionStatus.OFF)
         return "off";
       return "?";
       }
     }
 
     public enum SubscriptionChannelType {
-        resthook, // The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made.
-        websocket, // The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL.
-        email, // The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:).
-        sms, // The channel is executed by sending an SMS message to the phone number identified in the URL (tel:).
-        message, // The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc) to the application identified in the URI.
-        Null; // added to help the parsers
+        RESTHOOK, // The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made.
+        WEBSOCKET, // The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL.
+        EMAIL, // The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:).
+        SMS, // The channel is executed by sending an SMS message to the phone number identified in the URL (tel:).
+        MESSAGE, // The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc) to the application identified in the URI.
+        NULL; // added to help the parsers
         public static SubscriptionChannelType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("rest-hook".equals(codeString))
-          return resthook;
+          return RESTHOOK;
         if ("websocket".equals(codeString))
-          return websocket;
+          return WEBSOCKET;
         if ("email".equals(codeString))
-          return email;
+          return EMAIL;
         if ("sms".equals(codeString))
-          return sms;
+          return SMS;
         if ("message".equals(codeString))
-          return message;
+          return MESSAGE;
         throw new Exception("Unknown SubscriptionChannelType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case resthook: return "rest-hook";
-            case websocket: return "websocket";
-            case email: return "email";
-            case sms: return "sms";
-            case message: return "message";
+            case RESTHOOK: return "rest-hook";
+            case WEBSOCKET: return "websocket";
+            case EMAIL: return "email";
+            case SMS: return "sms";
+            case MESSAGE: return "message";
             default: return "?";
           }
         }
@@ -136,27 +136,27 @@ public class Subscription extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("rest-hook".equals(codeString))
-          return SubscriptionChannelType.resthook;
+          return SubscriptionChannelType.RESTHOOK;
         if ("websocket".equals(codeString))
-          return SubscriptionChannelType.websocket;
+          return SubscriptionChannelType.WEBSOCKET;
         if ("email".equals(codeString))
-          return SubscriptionChannelType.email;
+          return SubscriptionChannelType.EMAIL;
         if ("sms".equals(codeString))
-          return SubscriptionChannelType.sms;
+          return SubscriptionChannelType.SMS;
         if ("message".equals(codeString))
-          return SubscriptionChannelType.message;
+          return SubscriptionChannelType.MESSAGE;
         throw new Exception("Unknown SubscriptionChannelType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == SubscriptionChannelType.resthook)
+      if (code == SubscriptionChannelType.RESTHOOK)
         return "rest-hook";
-      if (code == SubscriptionChannelType.websocket)
+      if (code == SubscriptionChannelType.WEBSOCKET)
         return "websocket";
-      if (code == SubscriptionChannelType.email)
+      if (code == SubscriptionChannelType.EMAIL)
         return "email";
-      if (code == SubscriptionChannelType.sms)
+      if (code == SubscriptionChannelType.SMS)
         return "sms";
-      if (code == SubscriptionChannelType.message)
+      if (code == SubscriptionChannelType.MESSAGE)
         return "message";
       return "?";
       }
@@ -196,16 +196,16 @@ public class Subscription extends Resource {
       }
 
         /**
-         * @return {@link #type} (Todo.)
+         * @return {@link #type} (Todo.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<SubscriptionChannelType> getType() { 
+        public Enumeration<SubscriptionChannelType> getTypeObject() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (Todo.)
+         * @param value {@link #type} (Todo.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public SubscriptionChannelComponent setType(Enumeration<SubscriptionChannelType> value) { 
+        public SubscriptionChannelComponent setTypeObject(Enumeration<SubscriptionChannelType> value) { 
           this.type = value;
           return this;
         }
@@ -213,14 +213,14 @@ public class Subscription extends Resource {
         /**
          * @return Todo.
          */
-        public SubscriptionChannelType getTypeSimple() { 
+        public SubscriptionChannelType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value Todo.
          */
-        public SubscriptionChannelComponent setTypeSimple(SubscriptionChannelType value) { 
+        public SubscriptionChannelComponent setType(SubscriptionChannelType value) { 
             if (this.type == null)
               this.type = new Enumeration<SubscriptionChannelType>();
             this.type.setValue(value);
@@ -228,16 +228,16 @@ public class Subscription extends Resource {
         }
 
         /**
-         * @return {@link #url} (Todo.)
+         * @return {@link #url} (Todo.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrl() { 
+        public UriType getUrlObject() { 
           return this.url;
         }
 
         /**
-         * @param value {@link #url} (Todo.)
+         * @param value {@link #url} (Todo.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public SubscriptionChannelComponent setUrl(UriType value) { 
+        public SubscriptionChannelComponent setUrlObject(UriType value) { 
           this.url = value;
           return this;
         }
@@ -245,14 +245,14 @@ public class Subscription extends Resource {
         /**
          * @return Todo.
          */
-        public String getUrlSimple() { 
+        public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value Todo.
          */
-        public SubscriptionChannelComponent setUrlSimple(String value) { 
+        public SubscriptionChannelComponent setUrl(String value) { 
           if (value == null)
             this.url = null;
           else {
@@ -264,16 +264,16 @@ public class Subscription extends Resource {
         }
 
         /**
-         * @return {@link #payload} (ToDo.)
+         * @return {@link #payload} (ToDo.). This is the underlying object with id, value and extensions. The accessor "getPayload" gives direct access to the value
          */
-        public StringType getPayload() { 
+        public StringType getPayloadObject() { 
           return this.payload;
         }
 
         /**
-         * @param value {@link #payload} (ToDo.)
+         * @param value {@link #payload} (ToDo.). This is the underlying object with id, value and extensions. The accessor "getPayload" gives direct access to the value
          */
-        public SubscriptionChannelComponent setPayload(StringType value) { 
+        public SubscriptionChannelComponent setPayloadObject(StringType value) { 
           this.payload = value;
           return this;
         }
@@ -281,14 +281,14 @@ public class Subscription extends Resource {
         /**
          * @return ToDo.
          */
-        public String getPayloadSimple() { 
+        public String getPayload() { 
           return this.payload == null ? null : this.payload.getValue();
         }
 
         /**
          * @param value ToDo.
          */
-        public SubscriptionChannelComponent setPayloadSimple(String value) { 
+        public SubscriptionChannelComponent setPayload(String value) { 
             if (this.payload == null)
               this.payload = new StringType();
             this.payload.setValue(value);
@@ -296,16 +296,16 @@ public class Subscription extends Resource {
         }
 
         /**
-         * @return {@link #header} (Usage depends on the channel type.)
+         * @return {@link #header} (Usage depends on the channel type.). This is the underlying object with id, value and extensions. The accessor "getHeader" gives direct access to the value
          */
-        public StringType getHeader() { 
+        public StringType getHeaderObject() { 
           return this.header;
         }
 
         /**
-         * @param value {@link #header} (Usage depends on the channel type.)
+         * @param value {@link #header} (Usage depends on the channel type.). This is the underlying object with id, value and extensions. The accessor "getHeader" gives direct access to the value
          */
-        public SubscriptionChannelComponent setHeader(StringType value) { 
+        public SubscriptionChannelComponent setHeaderObject(StringType value) { 
           this.header = value;
           return this;
         }
@@ -313,14 +313,14 @@ public class Subscription extends Resource {
         /**
          * @return Usage depends on the channel type.
          */
-        public String getHeaderSimple() { 
+        public String getHeader() { 
           return this.header == null ? null : this.header.getValue();
         }
 
         /**
          * @param value Usage depends on the channel type.
          */
-        public SubscriptionChannelComponent setHeaderSimple(String value) { 
+        public SubscriptionChannelComponent setHeader(String value) { 
           if (value == null)
             this.header = null;
           else {
@@ -379,16 +379,16 @@ public class Subscription extends Resource {
       }
 
         /**
-         * @return {@link #term} (Todo.)
+         * @return {@link #term} (Todo.). This is the underlying object with id, value and extensions. The accessor "getTerm" gives direct access to the value
          */
-        public UriType getTerm() { 
+        public UriType getTermObject() { 
           return this.term;
         }
 
         /**
-         * @param value {@link #term} (Todo.)
+         * @param value {@link #term} (Todo.). This is the underlying object with id, value and extensions. The accessor "getTerm" gives direct access to the value
          */
-        public SubscriptionTagComponent setTerm(UriType value) { 
+        public SubscriptionTagComponent setTermObject(UriType value) { 
           this.term = value;
           return this;
         }
@@ -396,14 +396,14 @@ public class Subscription extends Resource {
         /**
          * @return Todo.
          */
-        public String getTermSimple() { 
+        public String getTerm() { 
           return this.term == null ? null : this.term.getValue();
         }
 
         /**
          * @param value Todo.
          */
-        public SubscriptionTagComponent setTermSimple(String value) { 
+        public SubscriptionTagComponent setTerm(String value) { 
             if (this.term == null)
               this.term = new UriType();
             this.term.setValue(value);
@@ -411,16 +411,16 @@ public class Subscription extends Resource {
         }
 
         /**
-         * @return {@link #scheme} (Todo.)
+         * @return {@link #scheme} (Todo.). This is the underlying object with id, value and extensions. The accessor "getScheme" gives direct access to the value
          */
-        public UriType getScheme() { 
+        public UriType getSchemeObject() { 
           return this.scheme;
         }
 
         /**
-         * @param value {@link #scheme} (Todo.)
+         * @param value {@link #scheme} (Todo.). This is the underlying object with id, value and extensions. The accessor "getScheme" gives direct access to the value
          */
-        public SubscriptionTagComponent setScheme(UriType value) { 
+        public SubscriptionTagComponent setSchemeObject(UriType value) { 
           this.scheme = value;
           return this;
         }
@@ -428,14 +428,14 @@ public class Subscription extends Resource {
         /**
          * @return Todo.
          */
-        public String getSchemeSimple() { 
+        public String getScheme() { 
           return this.scheme == null ? null : this.scheme.getValue();
         }
 
         /**
          * @param value Todo.
          */
-        public SubscriptionTagComponent setSchemeSimple(String value) { 
+        public SubscriptionTagComponent setScheme(String value) { 
             if (this.scheme == null)
               this.scheme = new UriType();
             this.scheme.setValue(value);
@@ -443,16 +443,16 @@ public class Subscription extends Resource {
         }
 
         /**
-         * @return {@link #description} (Todo.)
+         * @return {@link #description} (Todo.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescription() { 
+        public StringType getDescriptionObject() { 
           return this.description;
         }
 
         /**
-         * @param value {@link #description} (Todo.)
+         * @param value {@link #description} (Todo.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SubscriptionTagComponent setDescription(StringType value) { 
+        public SubscriptionTagComponent setDescriptionObject(StringType value) { 
           this.description = value;
           return this;
         }
@@ -460,14 +460,14 @@ public class Subscription extends Resource {
         /**
          * @return Todo.
          */
-        public String getDescriptionSimple() { 
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Todo.
          */
-        public SubscriptionTagComponent setDescriptionSimple(String value) { 
+        public SubscriptionTagComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -550,16 +550,16 @@ public class Subscription extends Resource {
     }
 
     /**
-     * @return {@link #criteria} (Todo.)
+     * @return {@link #criteria} (Todo.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
      */
-    public StringType getCriteria() { 
+    public StringType getCriteriaObject() { 
       return this.criteria;
     }
 
     /**
-     * @param value {@link #criteria} (Todo.)
+     * @param value {@link #criteria} (Todo.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
      */
-    public Subscription setCriteria(StringType value) { 
+    public Subscription setCriteriaObject(StringType value) { 
       this.criteria = value;
       return this;
     }
@@ -567,14 +567,14 @@ public class Subscription extends Resource {
     /**
      * @return Todo.
      */
-    public String getCriteriaSimple() { 
+    public String getCriteria() { 
       return this.criteria == null ? null : this.criteria.getValue();
     }
 
     /**
      * @param value Todo.
      */
-    public Subscription setCriteriaSimple(String value) { 
+    public Subscription setCriteria(String value) { 
         if (this.criteria == null)
           this.criteria = new StringType();
         this.criteria.setValue(value);
@@ -599,16 +599,16 @@ public class Subscription extends Resource {
     }
 
     /**
-     * @return {@link #reason} (Todo.)
+     * @return {@link #reason} (Todo.). This is the underlying object with id, value and extensions. The accessor "getReason" gives direct access to the value
      */
-    public StringType getReason() { 
+    public StringType getReasonObject() { 
       return this.reason;
     }
 
     /**
-     * @param value {@link #reason} (Todo.)
+     * @param value {@link #reason} (Todo.). This is the underlying object with id, value and extensions. The accessor "getReason" gives direct access to the value
      */
-    public Subscription setReason(StringType value) { 
+    public Subscription setReasonObject(StringType value) { 
       this.reason = value;
       return this;
     }
@@ -616,14 +616,14 @@ public class Subscription extends Resource {
     /**
      * @return Todo.
      */
-    public String getReasonSimple() { 
+    public String getReason() { 
       return this.reason == null ? null : this.reason.getValue();
     }
 
     /**
      * @param value Todo.
      */
-    public Subscription setReasonSimple(String value) { 
+    public Subscription setReason(String value) { 
         if (this.reason == null)
           this.reason = new StringType();
         this.reason.setValue(value);
@@ -631,16 +631,16 @@ public class Subscription extends Resource {
     }
 
     /**
-     * @return {@link #status} (Todo.)
+     * @return {@link #status} (Todo.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<SubscriptionStatus> getStatus() { 
+    public Enumeration<SubscriptionStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (Todo.)
+     * @param value {@link #status} (Todo.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Subscription setStatus(Enumeration<SubscriptionStatus> value) { 
+    public Subscription setStatusObject(Enumeration<SubscriptionStatus> value) { 
       this.status = value;
       return this;
     }
@@ -648,14 +648,14 @@ public class Subscription extends Resource {
     /**
      * @return Todo.
      */
-    public SubscriptionStatus getStatusSimple() { 
+    public SubscriptionStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Todo.
      */
-    public Subscription setStatusSimple(SubscriptionStatus value) { 
+    public Subscription setStatus(SubscriptionStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<SubscriptionStatus>();
         this.status.setValue(value);
@@ -663,16 +663,16 @@ public class Subscription extends Resource {
     }
 
     /**
-     * @return {@link #error} (Todo.)
+     * @return {@link #error} (Todo.). This is the underlying object with id, value and extensions. The accessor "getError" gives direct access to the value
      */
-    public StringType getError() { 
+    public StringType getErrorObject() { 
       return this.error;
     }
 
     /**
-     * @param value {@link #error} (Todo.)
+     * @param value {@link #error} (Todo.). This is the underlying object with id, value and extensions. The accessor "getError" gives direct access to the value
      */
-    public Subscription setError(StringType value) { 
+    public Subscription setErrorObject(StringType value) { 
       this.error = value;
       return this;
     }
@@ -680,14 +680,14 @@ public class Subscription extends Resource {
     /**
      * @return Todo.
      */
-    public String getErrorSimple() { 
+    public String getError() { 
       return this.error == null ? null : this.error.getValue();
     }
 
     /**
      * @param value Todo.
      */
-    public Subscription setErrorSimple(String value) { 
+    public Subscription setError(String value) { 
       if (value == null)
         this.error = null;
       else {
@@ -714,16 +714,16 @@ public class Subscription extends Resource {
     }
 
     /**
-     * @return {@link #end} (Todo.)
+     * @return {@link #end} (Todo.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public InstantType getEnd() { 
+    public InstantType getEndObject() { 
       return this.end;
     }
 
     /**
-     * @param value {@link #end} (Todo.)
+     * @param value {@link #end} (Todo.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public Subscription setEnd(InstantType value) { 
+    public Subscription setEndObject(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -731,14 +731,14 @@ public class Subscription extends Resource {
     /**
      * @return Todo.
      */
-    public DateAndTime getEndSimple() { 
+    public DateAndTime getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value Todo.
      */
-    public Subscription setEndSimple(DateAndTime value) { 
+    public Subscription setEnd(DateAndTime value) { 
       if (value == null)
         this.end = null;
       else {

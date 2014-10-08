@@ -1,6 +1,7 @@
 package org.hl7.fhir.tools.implementations.emf;
 import java.util.Date;
 import java.util.List;
+
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -139,5 +140,20 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
     return false;
   }
 
+  @Override
+  public boolean canSign() {
+    return false;
+  }
+
+  @Override
+  public void sign(String filename, boolean atom, String type) throws Exception {
+    throw new Exception("this should not be called");
+    
+  }
+
+  @Override
+  public void verify(String filename) throws Exception {
+    throw new Exception("this should not be called");
+  }
 
 }

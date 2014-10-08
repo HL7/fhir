@@ -224,9 +224,9 @@ public class CCDAConverter {
 				 cda.getDescendent(doc, "custodian/assignedCustodian/representedCustodianOrganization"), "Custodian")));
 		// todo: informationRecipient		
 		for (Element e : cda.getChildren(doc, "legalAuthenticator"))
-			composition.getAttester().add(makeAttester(e, CompositionAttestationMode.legal, "Legal Authenticator"));
+			composition.getAttester().add(makeAttester(e, CompositionAttestationMode.LEGAL, "Legal Authenticator"));
 		for (Element e : cda.getChildren(doc, "authenticator"))
-			composition.getAttester().add(makeAttester(e, CompositionAttestationMode.professional, "Authenticator"));
+			composition.getAttester().add(makeAttester(e, CompositionAttestationMode.PROFESSIONAL, "Authenticator"));
 		
 		// process the contents
 		// we do this by section - keep the original section order
@@ -240,7 +240,7 @@ public class CCDAConverter {
 		if (r.getText() == null)
 			r.setText(new Narrative());
 		if (r.getText().getDiv() == null) {
-			r.getText().setStatusSimple(NarrativeStatus.generated);
+			r.getText().setStatus(NarrativeStatus.GENERATED);
 			new NarrativeGenerator("", context).generate(r);
 		}
 		AtomEntry<Resource> e = new AtomEntry<Resource>();
@@ -261,7 +261,7 @@ public class CCDAConverter {
 			feed.setTitle("Clinical Composition (generated from CCDA Composition)");
 		} else {
 			feed.setTitle(title.getTextContent());
-			composition.setTitleSimple(title.getTextContent());			
+			composition.setTitle(title.getTextContent());			
 		}
 		if (cda.getChild(doc, "setId") != null) {
  			feed.setId(convert.makeURIfromII(cda.getChild(doc, "id")));
@@ -269,11 +269,11 @@ public class CCDAConverter {
 		} else
 			composition.setIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "id"))); // well, we fall back to id
 			
-		composition.setDate(convert.makeDateTimeFromTS(cda.getChild(doc, "effectiveTime")));
+		composition.setDateObject(convert.makeDateTimeFromTS(cda.getChild(doc, "effectiveTime")));
 		composition.setType(convert.makeCodeableConceptFromCD(cda.getChild(doc, "code")));
 		composition.setConfidentiality(convert.makeCodingFromCV(cda.getChild(doc, "confidentialityCode")));
 		if (cda.getChild(doc, "confidentialityCode") != null)
-			composition.setLanguageSimple(cda.getChild(doc, "confidentialityCode").getAttribute("value")); // todo - fix streaming for this
+			composition.setLanguage(cda.getChild(doc, "confidentialityCode").getAttribute("value")); // todo - fix streaming for this
 		
 		Element ee = cda.getChild(doc, "componentOf");
 		if (ee != null)
@@ -284,10 +284,10 @@ public class CCDAConverter {
 				visit.getIdentifier().add(convert.makeIdentifierFromII(e));
 			visit.setHospitalization(new Encounter.EncounterHospitalizationComponent());
 			visit.getHospitalization().setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
-			composition.setEvent(new Composition.CompositionEventComponent());
-			composition.getEvent().getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
-			composition.getEvent().setPeriod(visit.getHospitalization().getPeriod());
-			composition.getEvent().getDetail().add(Factory.makeReference(addReference(visit, "Encounter", makeUUIDReference())));			
+			composition.getEvent().add(new Composition.CompositionEventComponent());
+			composition.getEvent().get(0).getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
+			composition.getEvent().get(0).setPeriod(visit.getHospitalization().getPeriod());
+			composition.getEvent().get(0).getDetail().add(Factory.makeReference(addReference(visit, "Encounter", makeUUIDReference())));			
 		}
 		
 		// main todo: fill out the narrative, but before we can do that, we have to convert everything else
@@ -308,8 +308,8 @@ public class CCDAConverter {
 			pat.getTelecom().add(convert.makeContactFromTEL(e));
 		for (Element e : cda.getChildren(p, "name"))
 			pat.getName().add(convert.makeNameFromEN(e));
-		pat.setGenderSimple(convert.makeGenderFromCD(cda.getChild(p, "administrativeGenderCode")));
-		pat.setBirthDate(convert.makeDateTimeFromTS(cda.getChild(p, "birthTime")));
+		pat.setGender(convert.makeGenderFromCD(cda.getChild(p, "administrativeGenderCode")));
+		pat.setBirthDateObject(convert.makeDateTimeFromTS(cda.getChild(p, "birthTime")));
 		pat.setMaritalStatus(convert.makeCodeableConceptFromCD(cda.getChild(p, "maritalStatusCode")));
 		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_RELIGION, convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
 		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_RACE, convert.makeCodeableConceptFromCD(cda.getChild(p, "raceCode")), false));
@@ -333,7 +333,7 @@ public class CCDAConverter {
 	  Element l = cda.getChild(p, "languageCommunication");
 	  CodeableConcept cc = new CodeableConcept();
 	  Coding c = new Coding();
-	  c.setCodeSimple(cda.getChild(l, "languageCode").getAttribute("code"));
+	  c.setCode(cda.getChild(l, "languageCode").getAttribute("code"));
 	  cc.getCoding().add(c);
 		pat.getCommunication().add(cc); 
 
@@ -350,7 +350,7 @@ public class CCDAConverter {
 		for (Element e : cda.getChildren(org, "id"))
 			o.getIdentifier().add(convert.makeIdentifierFromII(e));
 		for (Element e : cda.getChildren(org, "name"))
-			o.setNameSimple(e.getTextContent());
+			o.setName(e.getTextContent());
 		for (Element e : cda.getChildren(org, "addr"))
 			o.getAddress().add(convert.makeAddressFromAD(e));
 		for (Element e : cda.getChildren(org, "telecom"))
@@ -401,8 +401,8 @@ public class CCDAConverter {
 		
 
 		CompositionAttesterComponent att = new CompositionAttesterComponent();
-		att.addModeSimple(mode);
-		att.setTime(convert.makeDateTimeFromTS(cda.getChild(a1,"time")));
+		att.addMode(mode);
+		att.setTimeObject(convert.makeDateTimeFromTS(cda.getChild(a1,"time")));
 	  att.setParty(Factory.makeReference(addReference(pr, title, makeUUIDReference())));
 	  return att;
   }
@@ -584,7 +584,7 @@ public class CCDAConverter {
 	  
 		Element place = cda.getChild(participantRole, "playingDevice");
 		if (cda.getChild(place, "name") != null)
-    	l.setNameSimple(cda.getChild(place, "name").getTextContent());
+    	l.setName(cda.getChild(place, "name").getTextContent());
 
   	String id = nextRef();
   	l.setXmlId(id);
@@ -605,7 +605,7 @@ public class CCDAConverter {
 
   	// CCDA has an id - this is manufacturer? We just call it the name, but what to do about this?
 		Element org = cda.getChild(participantRole, "scopingEntity");
-  	d.setManufacturerSimple(convert.makeURIfromII(cda.getChild(org, "id")));
+  	d.setManufacturer(convert.makeURIfromII(cda.getChild(org, "id")));
   	
   	String id = nextRef();
   	d.setXmlId(id);
@@ -756,7 +756,7 @@ public class CCDAConverter {
 			// possible values: active, suspended, aborted, completed, with an effective time 
 			String s = cda.getStatus(concern);
 			if (s.equals("aborted")) // only on this condition?
-				ai.setStatusSimple(Sensitivitystatus.refuted);
+				ai.setStatus(Sensitivitystatus.REFUTED);
 			
 			// SHALL contain exactly one [1..1] effectiveTime (CONF:7498)
 			Period p = convert.makePeriodFromIVL(cda.getChild(concern, "effectiveTime"));
@@ -774,13 +774,13 @@ public class CCDAConverter {
 			// SHALL contain exactly one [1..1] value with @xsi:type="CD" (CONF:7390)
 			CodeableConcept type = convert.makeCodeableConceptFromCD(cda.getChild(obs, "value"));
 			// This value SHALL contain @code, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.3221.6.2 Allergy/Adverse Event Type
-			String ss = type.getCoding().get(0).getCode().getValue();
+			String ss = type.getCoding().get(0).getCode();
 			if (ss.equals("416098002") || ss.equals("414285001"))
-				ai.setSensitivityTypeSimple(Sensitivitytype.allergy);
+				ai.setSensitivityType(Sensitivitytype.ALLERGY);
 			else if (ss.equals("59037007") || ss.equals("235719002"))
-				ai.setSensitivityTypeSimple(Sensitivitytype.intolerance);
+				ai.setSensitivityType(Sensitivitytype.INTOLERANCE);
 			else
-				ai.setSensitivityTypeSimple(Sensitivitytype.unknown);
+				ai.setSensitivityType(Sensitivitytype.UNKNOWN);
 			ai.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/allergy-category", type, false));
 			
 			// SHOULD contain zero or one [0..1] participant (CONF:7402) such that it
@@ -803,9 +803,9 @@ public class CCDAConverter {
 		  		// 413322009  SNOMED CT  Resolved
 		  		String sc = cda.getChild(child, "value").getAttribute("code");
 		  		if (sc.equals("55561003"))
-		  			ai.setStatusSimple(Sensitivitystatus.confirmed);
+		  			ai.setStatus(Sensitivitystatus.CONFIRMED);
 		  		else
-		  			ai.setStatusSimple(Sensitivitystatus.resolved);
+		  			ai.setStatus(Sensitivitystatus.RESOLVED);
 		  	} else if (cda.hasTemplateId(child, "2.16.840.1.113883.10.20.22.4.9")) {
 		  		AdverseReaction reaction = processAdverseReactionObservation(child);
 		  		n = nextRef();
@@ -816,7 +816,7 @@ public class CCDAConverter {
 		  }
 			
 			//  SHOULD contain zero or one [0..1] entryRelationship (CONF:9961) such that it SHALL contain exactly one [1..1] Severity Observation (templateId:2.16.840.1.113883.10.20.22.4.8) (CONF:9963).
-			ai.setCriticalitySimple(readCriticality(cda.getSeverity(obs)));
+			ai.setCriticality(readCriticality(cda.getSeverity(obs)));
 		}
   }
 
@@ -843,7 +843,7 @@ public class CCDAConverter {
 		//  	a.  This effectiveTime SHOULD contain zero or one [0..1] low (CONF:7333). 
 		//  	b.  This effectiveTime SHOULD contain zero or one [0..1] high (CONF:7334).
 		// !this is a problem because FHIR just has a date, not a period.
-		ar.setDate(convert.makeDateTimeFromIVL(cda.getChild(reaction, "effectiveTime")));
+		ar.setDateObject(convert.makeDateTimeFromIVL(cda.getChild(reaction, "effectiveTime")));
 
 		// SHALL contain exactly one [1..1] value with @xsi:type="CD", where the @code SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.3221.7.4 Problem	DYNAMIC (CONF:7335).
 		AdverseReactionSymptomComponent symptom = new AdverseReactionSymptomComponent();
@@ -851,7 +851,7 @@ public class CCDAConverter {
 		symptom.setCode(convert.makeCodeableConceptFromCD(cda.getChild(reaction, "value")));
 		
 	  // SHOULD contain zero or one [0..1] entryRelationship (CONF:7580) such that it SHALL contain exactly one [1..1] Severity Observation  (templateId:2.16.840.1.113883.10.20.22.4.8) (CONF:7582).
-		symptom.setSeveritySimple(readSeverity(cda.getSeverity(reaction)));
+		symptom.setSeverity(readSeverity(cda.getSeverity(reaction)));
 
 		// MAY contain zero or more [0..*] entryRelationship (CONF:7337) such that it SHALL contain exactly one [1..1] Procedure Activity Procedure (templateId:2.16.840.1.113883.10.20.22.4.14) (CONF:7339). 
 		// i.  This procedure activity is intended to contain information about procedures that were performed in response to an allergy reaction
@@ -928,7 +928,7 @@ public class CCDAConverter {
 		
 		// SHALL contain exactly one [1..1] statusCode (CONF:8553/455/14809).
 		// a.	This statusCode SHALL contain exactly one [1..1] @code="completed" Completed (CodeSystem: ActStatus 2.16.840.1.113883.5.14 STATIC) (CONF:19117).
-		obs.setStatusSimple(ObservationStatus.final_);
+		obs.setStatus(ObservationStatus.FINAL);
 
 		// SHOULD contain zero or one [0..1] effectiveTime (CONF:2018/14814).
 		// for smoking status/tobacco: low only. in R2, this is just value. So we treat low only as just a value
@@ -974,7 +974,7 @@ public class CCDAConverter {
 				obs.getContained().add(co);
 				ObservationRelatedComponent or = new ObservationRelatedComponent();
 				obs.getRelated().add(or);
-				or.setTypeSimple(ObservationRelationshiptypes.hascomponent);
+				or.setType(ObservationRelationshiptypes.HASCOMPONENT);
 				or.setTarget(Factory.makeReference("#"+id));
 				co.setName(Factory.newCodeableConcept("11778-8", "http://loinc.org", "Delivery date Estimated"));
 				co.setValue(convert.makeDateTimeFromTS(cda.getChild(dd, "value"))); // not legal, see gForge http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=3125&start=0 
@@ -982,7 +982,7 @@ public class CCDAConverter {
 		}
 		
 		// lastly, we assume that these are to be marked as reliable observations:
-		obs.setReliabilitySimple(ObservationReliability.ok);
+		obs.setReliability(ObservationReliability.OK);
   }
 
 
@@ -1016,34 +1016,34 @@ public class CCDAConverter {
 
 	private Criticality readCriticality(String severity) {
 		if ("255604002".equals(severity)) // Mild 
-			return Criticality.low; 
+			return Criticality.LOW; 
 		if ("371923003".equals(severity)) //  Mild to moderate 
-			return Criticality.low; 
+			return Criticality.LOW; 
 		if ("6736007".equals(severity)) // Moderate
-			return Criticality.medium; 
+			return Criticality.MEDIUM; 
 		if ("371924009".equals(severity)) // Moderate to severe
-			return Criticality.medium; 
+			return Criticality.MEDIUM; 
 		if ("24484000".equals(severity)) // Severe
-			return Criticality.high; 
+			return Criticality.HIGH; 
 		if ("399166001".equals(severity)) // Fatal
-			return Criticality.fatal; 
+			return Criticality.FATAL; 
 	  return null;
   }
 
 
 	private ReactionSeverity readSeverity(String severity) {
 		if ("255604002".equals(severity)) // Mild 
-			return ReactionSeverity.minor; 
+			return ReactionSeverity.MINOR; 
 		if ("371923003".equals(severity)) //  Mild to moderate 
-			return ReactionSeverity.moderate; 
+			return ReactionSeverity.MODERATE; 
 		if ("6736007".equals(severity)) // Moderate
-			return ReactionSeverity.moderate; 
+			return ReactionSeverity.MODERATE; 
 		if ("371924009".equals(severity)) // Moderate to severe
-			return ReactionSeverity.serious; 
+			return ReactionSeverity.SERIOUS; 
 		if ("24484000".equals(severity)) // Severe
-			return ReactionSeverity.severe; 
+			return ReactionSeverity.SEVERE; 
 		if ("399166001".equals(severity)) // Fatal
-			return ReactionSeverity.severe; 
+			return ReactionSeverity.SEVERE; 
 	  return null;
   }
 
@@ -1094,7 +1094,7 @@ public class CCDAConverter {
 		// SHALL contain exactly one [1..1] Vital Sign Observation (templateId:2.16.840.1.113883.10.20.22.4.27) (CONF:15946).
 		for (Element e : cda.getChildren(organizer, "component")){
 			ObservationRelatedComponent ro = new ObservationRelatedComponent();
-			ro.setTypeSimple(ObservationRelationshiptypes.hascomponent);
+			ro.setType(ObservationRelationshiptypes.HASCOMPONENT);
 			ro.setTarget(Factory.makeReference("#"+processVitalSignsObservation(e, sect)));
 		}
 	}

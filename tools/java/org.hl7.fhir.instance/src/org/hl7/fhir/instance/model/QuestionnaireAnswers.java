@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,26 +39,26 @@ import java.util.*;
 public class QuestionnaireAnswers extends Resource {
 
     public enum QuestionnaireAnswersStatus {
-        inProgress, // This QuestionnaireAnswers has been partially filled out with answers, but changes or additions are still expected to be made to it.
-        completed, // This QuestionnaireAnswers has been filled out with answers, and the current content is regarded as definitive.
-        amended, // This QuestionnaireAnswers has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.
-        Null; // added to help the parsers
+        INPROGRESS, // This QuestionnaireAnswers has been partially filled out with answers, but changes or additions are still expected to be made to it.
+        COMPLETED, // This QuestionnaireAnswers has been filled out with answers, and the current content is regarded as definitive.
+        AMENDED, // This QuestionnaireAnswers has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.
+        NULL; // added to help the parsers
         public static QuestionnaireAnswersStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("in progress".equals(codeString))
-          return inProgress;
+          return INPROGRESS;
         if ("completed".equals(codeString))
-          return completed;
+          return COMPLETED;
         if ("amended".equals(codeString))
-          return amended;
+          return AMENDED;
         throw new Exception("Unknown QuestionnaireAnswersStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case inProgress: return "in progress";
-            case completed: return "completed";
-            case amended: return "amended";
+            case INPROGRESS: return "in progress";
+            case COMPLETED: return "completed";
+            case AMENDED: return "amended";
             default: return "?";
           }
         }
@@ -70,19 +70,19 @@ public class QuestionnaireAnswers extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("in progress".equals(codeString))
-          return QuestionnaireAnswersStatus.inProgress;
+          return QuestionnaireAnswersStatus.INPROGRESS;
         if ("completed".equals(codeString))
-          return QuestionnaireAnswersStatus.completed;
+          return QuestionnaireAnswersStatus.COMPLETED;
         if ("amended".equals(codeString))
-          return QuestionnaireAnswersStatus.amended;
+          return QuestionnaireAnswersStatus.AMENDED;
         throw new Exception("Unknown QuestionnaireAnswersStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == QuestionnaireAnswersStatus.inProgress)
+      if (code == QuestionnaireAnswersStatus.INPROGRESS)
         return "in progress";
-      if (code == QuestionnaireAnswersStatus.completed)
+      if (code == QuestionnaireAnswersStatus.COMPLETED)
         return "completed";
-      if (code == QuestionnaireAnswersStatus.amended)
+      if (code == QuestionnaireAnswersStatus.AMENDED)
         return "amended";
       return "?";
       }
@@ -131,16 +131,16 @@ public class QuestionnaireAnswers extends Resource {
       }
 
         /**
-         * @return {@link #linkId} (Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.)
+         * @return {@link #linkId} (Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public StringType getLinkId() { 
+        public StringType getLinkIdObject() { 
           return this.linkId;
         }
 
         /**
-         * @param value {@link #linkId} (Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.)
+         * @param value {@link #linkId} (Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public GroupComponent setLinkId(StringType value) { 
+        public GroupComponent setLinkIdObject(StringType value) { 
           this.linkId = value;
           return this;
         }
@@ -148,14 +148,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.
          */
-        public String getLinkIdSimple() { 
+        public String getLinkId() { 
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
          * @param value Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.
          */
-        public GroupComponent setLinkIdSimple(String value) { 
+        public GroupComponent setLinkId(String value) { 
           if (value == null)
             this.linkId = null;
           else {
@@ -167,16 +167,16 @@ public class QuestionnaireAnswers extends Resource {
         }
 
         /**
-         * @return {@link #title} (Text that is displayed above the contents of the group.)
+         * @return {@link #title} (Text that is displayed above the contents of the group.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitle() { 
+        public StringType getTitleObject() { 
           return this.title;
         }
 
         /**
-         * @param value {@link #title} (Text that is displayed above the contents of the group.)
+         * @param value {@link #title} (Text that is displayed above the contents of the group.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public GroupComponent setTitle(StringType value) { 
+        public GroupComponent setTitleObject(StringType value) { 
           this.title = value;
           return this;
         }
@@ -184,14 +184,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return Text that is displayed above the contents of the group.
          */
-        public String getTitleSimple() { 
+        public String getTitle() { 
           return this.title == null ? null : this.title.getValue();
         }
 
         /**
          * @param value Text that is displayed above the contents of the group.
          */
-        public GroupComponent setTitleSimple(String value) { 
+        public GroupComponent setTitle(String value) { 
           if (value == null)
             this.title = null;
           else {
@@ -203,16 +203,16 @@ public class QuestionnaireAnswers extends Resource {
         }
 
         /**
-         * @return {@link #text} (Additional text for the group, used for display purposes.)
+         * @return {@link #text} (Additional text for the group, used for display purposes.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getText() { 
+        public StringType getTextObject() { 
           return this.text;
         }
 
         /**
-         * @param value {@link #text} (Additional text for the group, used for display purposes.)
+         * @param value {@link #text} (Additional text for the group, used for display purposes.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public GroupComponent setText(StringType value) { 
+        public GroupComponent setTextObject(StringType value) { 
           this.text = value;
           return this;
         }
@@ -220,14 +220,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return Additional text for the group, used for display purposes.
          */
-        public String getTextSimple() { 
+        public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Additional text for the group, used for display purposes.
          */
-        public GroupComponent setTextSimple(String value) { 
+        public GroupComponent setText(String value) { 
           if (value == null)
             this.text = null;
           else {
@@ -254,14 +254,14 @@ public class QuestionnaireAnswers extends Resource {
         }
 
         /**
-         * @return {@link #subject} (The actual object that is the target of the reference. More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.)
+         * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.)
          */
         public Resource getSubjectTarget() { 
           return this.subjectTarget;
         }
 
         /**
-         * @param value {@link #subject} (The actual object that is the target of the reference. More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.)
+         * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.)
          */
         public GroupComponent setSubjectTarget(Resource value) { 
           this.subjectTarget = value;
@@ -357,16 +357,16 @@ public class QuestionnaireAnswers extends Resource {
       }
 
         /**
-         * @return {@link #linkId} (Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.)
+         * @return {@link #linkId} (Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public StringType getLinkId() { 
+        public StringType getLinkIdObject() { 
           return this.linkId;
         }
 
         /**
-         * @param value {@link #linkId} (Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.)
+         * @param value {@link #linkId} (Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public QuestionComponent setLinkId(StringType value) { 
+        public QuestionComponent setLinkIdObject(StringType value) { 
           this.linkId = value;
           return this;
         }
@@ -374,14 +374,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.
          */
-        public String getLinkIdSimple() { 
+        public String getLinkId() { 
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
          * @param value Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.
          */
-        public QuestionComponent setLinkIdSimple(String value) { 
+        public QuestionComponent setLinkId(String value) { 
           if (value == null)
             this.linkId = null;
           else {
@@ -393,16 +393,16 @@ public class QuestionnaireAnswers extends Resource {
         }
 
         /**
-         * @return {@link #text} (Text of the question as it is shown to the user.)
+         * @return {@link #text} (Text of the question as it is shown to the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getText() { 
+        public StringType getTextObject() { 
           return this.text;
         }
 
         /**
-         * @param value {@link #text} (Text of the question as it is shown to the user.)
+         * @param value {@link #text} (Text of the question as it is shown to the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public QuestionComponent setText(StringType value) { 
+        public QuestionComponent setTextObject(StringType value) { 
           this.text = value;
           return this;
         }
@@ -410,14 +410,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return Text of the question as it is shown to the user.
          */
-        public String getTextSimple() { 
+        public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Text of the question as it is shown to the user.
          */
-        public QuestionComponent setTextSimple(String value) { 
+        public QuestionComponent setText(String value) { 
           if (value == null)
             this.text = null;
           else {
@@ -638,14 +638,14 @@ public class QuestionnaireAnswers extends Resource {
     }
 
     /**
-     * @return {@link #questionnaire} (The actual object that is the target of the reference. Indicates the Questionnaire resource that defines the form for which answers are being provided.)
+     * @return {@link #questionnaire} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the Questionnaire resource that defines the form for which answers are being provided.)
      */
     public Questionnaire getQuestionnaireTarget() { 
       return this.questionnaireTarget;
     }
 
     /**
-     * @param value {@link #questionnaire} (The actual object that is the target of the reference. Indicates the Questionnaire resource that defines the form for which answers are being provided.)
+     * @param value {@link #questionnaire} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates the Questionnaire resource that defines the form for which answers are being provided.)
      */
     public QuestionnaireAnswers setQuestionnaireTarget(Questionnaire value) { 
       this.questionnaireTarget = value;
@@ -653,16 +653,16 @@ public class QuestionnaireAnswers extends Resource {
     }
 
     /**
-     * @return {@link #status} (The lifecycle status of the questionnaire answers as a whole.)
+     * @return {@link #status} (The lifecycle status of the questionnaire answers as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<QuestionnaireAnswersStatus> getStatus() { 
+    public Enumeration<QuestionnaireAnswersStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The lifecycle status of the questionnaire answers as a whole.)
+     * @param value {@link #status} (The lifecycle status of the questionnaire answers as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public QuestionnaireAnswers setStatus(Enumeration<QuestionnaireAnswersStatus> value) { 
+    public QuestionnaireAnswers setStatusObject(Enumeration<QuestionnaireAnswersStatus> value) { 
       this.status = value;
       return this;
     }
@@ -670,14 +670,14 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * @return The lifecycle status of the questionnaire answers as a whole.
      */
-    public QuestionnaireAnswersStatus getStatusSimple() { 
+    public QuestionnaireAnswersStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The lifecycle status of the questionnaire answers as a whole.
      */
-    public QuestionnaireAnswers setStatusSimple(QuestionnaireAnswersStatus value) { 
+    public QuestionnaireAnswers setStatus(QuestionnaireAnswersStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<QuestionnaireAnswersStatus>();
         this.status.setValue(value);
@@ -700,14 +700,14 @@ public class QuestionnaireAnswers extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
      */
     public QuestionnaireAnswers setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -730,14 +730,14 @@ public class QuestionnaireAnswers extends Resource {
     }
 
     /**
-     * @return {@link #author} (The actual object that is the target of the reference. Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.)
+     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.)
      */
     public Resource getAuthorTarget() { 
       return this.authorTarget;
     }
 
     /**
-     * @param value {@link #author} (The actual object that is the target of the reference. Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.)
+     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.)
      */
     public QuestionnaireAnswers setAuthorTarget(Resource value) { 
       this.authorTarget = value;
@@ -745,16 +745,16 @@ public class QuestionnaireAnswers extends Resource {
     }
 
     /**
-     * @return {@link #authored} (The date and/or time that this version of the questionnaire answers was authored.)
+     * @return {@link #authored} (The date and/or time that this version of the questionnaire answers was authored.). This is the underlying object with id, value and extensions. The accessor "getAuthored" gives direct access to the value
      */
-    public DateTimeType getAuthored() { 
+    public DateTimeType getAuthoredObject() { 
       return this.authored;
     }
 
     /**
-     * @param value {@link #authored} (The date and/or time that this version of the questionnaire answers was authored.)
+     * @param value {@link #authored} (The date and/or time that this version of the questionnaire answers was authored.). This is the underlying object with id, value and extensions. The accessor "getAuthored" gives direct access to the value
      */
-    public QuestionnaireAnswers setAuthored(DateTimeType value) { 
+    public QuestionnaireAnswers setAuthoredObject(DateTimeType value) { 
       this.authored = value;
       return this;
     }
@@ -762,14 +762,14 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * @return The date and/or time that this version of the questionnaire answers was authored.
      */
-    public DateAndTime getAuthoredSimple() { 
+    public DateAndTime getAuthored() { 
       return this.authored == null ? null : this.authored.getValue();
     }
 
     /**
      * @param value The date and/or time that this version of the questionnaire answers was authored.
      */
-    public QuestionnaireAnswers setAuthoredSimple(DateAndTime value) { 
+    public QuestionnaireAnswers setAuthored(DateAndTime value) { 
         if (this.authored == null)
           this.authored = new DateTimeType();
         this.authored.setValue(value);
@@ -792,14 +792,14 @@ public class QuestionnaireAnswers extends Resource {
     }
 
     /**
-     * @return {@link #source} (The actual object that is the target of the reference. The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
+     * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
      */
     public Resource getSourceTarget() { 
       return this.sourceTarget;
     }
 
     /**
-     * @param value {@link #source} (The actual object that is the target of the reference. The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
+     * @param value {@link #source} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
      */
     public QuestionnaireAnswers setSourceTarget(Resource value) { 
       this.sourceTarget = value;
@@ -822,14 +822,14 @@ public class QuestionnaireAnswers extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (The actual object that is the target of the reference. Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
      */
     public Encounter getEncounterTarget() { 
       return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #encounter} (The actual object that is the target of the reference. Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
      */
     public QuestionnaireAnswers setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;

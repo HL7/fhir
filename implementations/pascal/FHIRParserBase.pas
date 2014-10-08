@@ -705,7 +705,7 @@ begin
     xml := TAdvXmlBuilder.Create;
     try
       xml.IsPretty := isPretty;
-      xml.Namespace := FHIR_NS;
+      xml.CurrentNamespaces.DefaultNS := FHIR_NS;
       xml.Start;
       if FComment <> '' then
         xml.Comment(FComment);
@@ -732,7 +732,7 @@ begin
   xml := TMsXmlBuilder.Create;
   try
     TMsXmlBuilder(xml).Start(node);
-    xml.Namespace := FHIR_NS;
+    xml.CurrentNamespaces.DefaultNS := FHIR_NS;
     if FComment <> '' then
       xml.Comment(FComment);
     ComposeResource(xml, statedType, id, ver, oResource, links);
@@ -749,15 +749,13 @@ begin
 end;
 
 procedure TFHIRXmlComposerBase.ComposeXHtmlNode(xml : TXmlBuilder; name: String; value: TFhirXHtmlNode);
-var
-  s : String;
 begin
 //   attribute('xmlns', XHTML_NS);
-  s := xml.Namespace;
-  xml.Namespace := XHTML_NS;
+  xml.NSPush;
+  xml.CurrentNamespaces.DefaultNS := XHTML_NS;
   if value <> nil then
     ComposeXhtmlNode(xml, value, false);
-  xml.Namespace := s;
+  xml.NSPop
 end;
 
 function TFHIRXmlComposerBase.MimeType: String;
@@ -808,7 +806,7 @@ begin
   xml := TAdvXmlBuilder.Create;
   try
     xml.IsPretty := isPretty;
-    xml.Namespace := FHIR_NS;
+    xml.CurrentNamespaces.DefaultNS := FHIR_NS;
     xml.Start;
     if FComment <> '' then
       xml.Comment(FComment);
@@ -904,7 +902,7 @@ begin
     try
       xml.IsPretty := false;
       xml.CharEncoding := '';
-      xml.Namespace := XHTML_NS;
+      xml.CurrentNamespaces.DefaultNS := XHTML_NS;
       xml.NoHeader := true;
       {
       xml.StartFragment;
@@ -1477,7 +1475,7 @@ begin
   xml := TAdvXmlBuilder.Create;
   try
     xml.IsPretty := isPretty;
-    xml.Namespace := ATOM_NS;
+    xml.CurrentNamespaces.DefaultNS := ATOM_NS;
     xml.Start;
     if FComment <> '' then
       xml.Comment(FComment);
@@ -1533,9 +1531,10 @@ begin
 
   if (feed.isSearch) and ((feed.SearchTotal > 0) or (feed.entries.Count = 0)) then
   begin
-    xml.Namespace := 'http://a9.com/-/spec/opensearch/1.1/';
+    xml.NSPush;
+    xml.CurrentNamespaces.DefaultNS := 'http://a9.com/-/spec/opensearch/1.1/';
     xml.TagText('totalResults', inttostr(feed.SearchTotal));
-    xml.Namespace := ATOM_NS;
+    xml.NSPop;
   end;
 
   for i := 0 to feed.entries.count - 1 Do
@@ -1550,7 +1549,8 @@ var
 begin
   if entry.deleted then
   begin
-    xml.Namespace := 'http://purl.org/atompub/tombstones/1.0';
+    xml.NSPush;
+    xml.CurrentNamespaces.DefaultNS := 'http://purl.org/atompub/tombstones/1.0';
     xml.AddAttribute('ref', entry.id);
     xml.AddAttribute('when', entry.updated.AsXml);
     xml.Open('deleted-entry');
@@ -1571,12 +1571,10 @@ begin
       xml.Close('by');
     end;
     xml.Close('deleted-entry');
-    xml.Namespace := ATOM_NS;
+    xml.NSPop;
   end
   else
   begin
-    if xml.Namespace <> ATOM_NS  then
-      xml.Namespace := ATOM_NS;
     xml.Open('entry');
     composeAtomBase(xml, entry);
     if (entry.published_ <> nil) Then
@@ -1586,22 +1584,24 @@ begin
 //      xml.AddAttribute('type', 'application/xml+fhir');
       xml.AddAttribute('type', 'text/xml');
       xml.Open('content');
-      xml.Namespace := FHIR_NS;
+      xml.NSPush;
+      xml.CurrentNamespaces.DefaultNS := FHIR_NS;
       if entry.resource is TFhirBinary then
         ComposeBinary(xml, TFhirBinary(entry.resource))
       else
         ComposeResource(xml, '', entry.id, tail(entry.links.rel['self']), entry.resource, entry.Links);
-      xml.Namespace := ATOM_NS;
       xml.Close('content');
+      xml.NSPop;
     end;
     if entry.summary <> nil then
     begin
+      xml.NSPush;
       xml.AddAttribute('type', 'xhtml');
       xml.Open('summary');
-      xml.Namespace := XHTML_NS;
+      xml.CurrentNamespaces.DefaultNS := XHTML_NS;
       ComposeXHtmlNode(xml, entry.summary, false);
-      xml.Namespace := ATOM_NS;
       xml.Close('summary');
+      xml.NSPop;
     end;
     commentsEnd(xml, entry);
     xml.Close('entry');
@@ -2394,11 +2394,12 @@ end;
 
 procedure TFHIRComposer.ComposeBinary(xml: TXmlBuilder; binary: TFhirBinary);
 begin
-  if (xml.Namespace <> FHIR_NS) then
-    xml.Namespace := FHIR_NS;
+  xml.NSPush;
+  xml.CurrentNamespaces.DefaultNS := FHIR_NS;
   xml.AddAttribute('id', binary.xmlId);
   xml.AddAttribute('contentType', binary.ContentType);
   xml.TagText('Binary', StringReplace(string(EncodeBase64(binary.Content.Data, binary.Content.Size)), #13#10, ''));
+  xml.NSPop;
 end;
 
 function isRelativeReference(s : string) : boolean;

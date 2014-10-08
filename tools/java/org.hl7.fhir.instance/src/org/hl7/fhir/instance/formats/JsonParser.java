@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -186,9 +186,9 @@ public class JsonParser extends JsonParserBase {
     Extension res = new Extension();
     parseElementProperties(json, res);
     if (json.has("url"))
-      res.setUrl(parseUri(json.get("url").getAsString()));
+      res.setUrlObject(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrl());
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlObject());
     Type value = parseType("value", json);
     if (value != null)
       res.setValue(value);
@@ -199,9 +199,9 @@ public class JsonParser extends JsonParserBase {
     Narrative res = new Narrative();
     parseElementProperties(json, res);
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Narrative.NarrativeStatus.Null, new Narrative.NarrativeStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Narrative.NarrativeStatus.NULL, new Narrative.NarrativeStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("div"))
       res.setDiv(parseXhtml(json.get("div").getAsString()));
     return res;
@@ -211,13 +211,13 @@ public class JsonParser extends JsonParserBase {
     Period res = new Period();
     parseTypeProperties(json, res);
     if (json.has("start"))
-      res.setStart(parseDateTime(json.get("start").getAsString()));
+      res.setStartObject(parseDateTime(json.get("start").getAsString()));
     if (json.has("_start"))
-      parseElementProperties(json.getAsJsonObject("_start"), res.getStart());
+      parseElementProperties(json.getAsJsonObject("_start"), res.getStartObject());
     if (json.has("end"))
-      res.setEnd(parseDateTime(json.get("end").getAsString()));
+      res.setEndObject(parseDateTime(json.get("end").getAsString()));
     if (json.has("_end"))
-      parseElementProperties(json.getAsJsonObject("_end"), res.getEnd());
+      parseElementProperties(json.getAsJsonObject("_end"), res.getEndObject());
     return res;
   }
 
@@ -225,25 +225,25 @@ public class JsonParser extends JsonParserBase {
     Coding res = new Coding();
     parseTypeProperties(json, res);
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("display"))
-      res.setDisplay(parseString(json.get("display").getAsString()));
+      res.setDisplayObject(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
-      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplay());
+      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayObject());
     if (json.has("primary"))
-      res.setPrimary(parseBoolean(json.get("primary").getAsBoolean()));
+      res.setPrimaryObject(parseBoolean(json.get("primary").getAsBoolean()));
     if (json.has("_primary"))
-      parseElementProperties(json.getAsJsonObject("_primary"), res.getPrimary());
+      parseElementProperties(json.getAsJsonObject("_primary"), res.getPrimaryObject());
     if (json.has("valueSet"))
       res.setValueSet(parseReference(json.getAsJsonObject("valueSet")));
     return res;
@@ -263,25 +263,25 @@ public class JsonParser extends JsonParserBase {
     Quantity res = new Quantity();
     parseTypeProperties(json, res);
     if (json.has("value"))
-      res.setValue(parseDecimal(json.get("value").getAsBigDecimal()));
+      res.setValueObject(parseDecimal(json.get("value").getAsBigDecimal()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     if (json.has("comparator"))
-      res.setComparator(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.Null, new Quantity.QuantityComparatorEnumFactory()));
+      res.setComparatorObject(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
-      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparator());
+      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorObject());
     if (json.has("units"))
-      res.setUnits(parseString(json.get("units").getAsString()));
+      res.setUnitsObject(parseString(json.get("units").getAsString()));
     if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnits());
+      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsObject());
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     return res;
   }
 
@@ -289,33 +289,33 @@ public class JsonParser extends JsonParserBase {
     Attachment res = new Attachment();
     parseTypeProperties(json, res);
     if (json.has("contentType"))
-      res.setContentType(parseCode(json.get("contentType").getAsString()));
+      res.setContentTypeObject(parseCode(json.get("contentType").getAsString()));
     if (json.has("_contentType"))
-      parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentType());
+      parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentTypeObject());
     if (json.has("language"))
-      res.setLanguage(parseCode(json.get("language").getAsString()));
+      res.setLanguageObject(parseCode(json.get("language").getAsString()));
     if (json.has("_language"))
-      parseElementProperties(json.getAsJsonObject("_language"), res.getLanguage());
+      parseElementProperties(json.getAsJsonObject("_language"), res.getLanguageObject());
     if (json.has("data"))
-      res.setData(parseBase64Binary(json.get("data").getAsString()));
+      res.setDataObject(parseBase64Binary(json.get("data").getAsString()));
     if (json.has("_data"))
-      parseElementProperties(json.getAsJsonObject("_data"), res.getData());
+      parseElementProperties(json.getAsJsonObject("_data"), res.getDataObject());
     if (json.has("url"))
-      res.setUrl(parseUri(json.get("url").getAsString()));
+      res.setUrlObject(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrl());
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlObject());
     if (json.has("size"))
-      res.setSize(parseInteger(json.get("size").getAsLong()));
+      res.setSizeObject(parseInteger(json.get("size").getAsLong()));
     if (json.has("_size"))
-      parseElementProperties(json.getAsJsonObject("_size"), res.getSize());
+      parseElementProperties(json.getAsJsonObject("_size"), res.getSizeObject());
     if (json.has("hash"))
-      res.setHash(parseBase64Binary(json.get("hash").getAsString()));
+      res.setHashObject(parseBase64Binary(json.get("hash").getAsString()));
     if (json.has("_hash"))
-      parseElementProperties(json.getAsJsonObject("_hash"), res.getHash());
+      parseElementProperties(json.getAsJsonObject("_hash"), res.getHashObject());
     if (json.has("title"))
-      res.setTitle(parseString(json.get("title").getAsString()));
+      res.setTitleObject(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
-      parseElementProperties(json.getAsJsonObject("_title"), res.getTitle());
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleObject());
     return res;
   }
 
@@ -335,29 +335,29 @@ public class JsonParser extends JsonParserBase {
     if (json.has("origin"))
       res.setOrigin(parseQuantity(json.getAsJsonObject("origin")));
     if (json.has("period"))
-      res.setPeriod(parseDecimal(json.get("period").getAsBigDecimal()));
+      res.setPeriodObject(parseDecimal(json.get("period").getAsBigDecimal()));
     if (json.has("_period"))
-      parseElementProperties(json.getAsJsonObject("_period"), res.getPeriod());
+      parseElementProperties(json.getAsJsonObject("_period"), res.getPeriodObject());
     if (json.has("factor"))
-      res.setFactor(parseDecimal(json.get("factor").getAsBigDecimal()));
+      res.setFactorObject(parseDecimal(json.get("factor").getAsBigDecimal()));
     if (json.has("_factor"))
-      parseElementProperties(json.getAsJsonObject("_factor"), res.getFactor());
+      parseElementProperties(json.getAsJsonObject("_factor"), res.getFactorObject());
     if (json.has("lowerLimit"))
-      res.setLowerLimit(parseDecimal(json.get("lowerLimit").getAsBigDecimal()));
+      res.setLowerLimitObject(parseDecimal(json.get("lowerLimit").getAsBigDecimal()));
     if (json.has("_lowerLimit"))
-      parseElementProperties(json.getAsJsonObject("_lowerLimit"), res.getLowerLimit());
+      parseElementProperties(json.getAsJsonObject("_lowerLimit"), res.getLowerLimitObject());
     if (json.has("upperLimit"))
-      res.setUpperLimit(parseDecimal(json.get("upperLimit").getAsBigDecimal()));
+      res.setUpperLimitObject(parseDecimal(json.get("upperLimit").getAsBigDecimal()));
     if (json.has("_upperLimit"))
-      parseElementProperties(json.getAsJsonObject("_upperLimit"), res.getUpperLimit());
+      parseElementProperties(json.getAsJsonObject("_upperLimit"), res.getUpperLimitObject());
     if (json.has("dimensions"))
-      res.setDimensions(parseInteger(json.get("dimensions").getAsLong()));
+      res.setDimensionsObject(parseInteger(json.get("dimensions").getAsLong()));
     if (json.has("_dimensions"))
-      parseElementProperties(json.getAsJsonObject("_dimensions"), res.getDimensions());
+      parseElementProperties(json.getAsJsonObject("_dimensions"), res.getDimensionsObject());
     if (json.has("data"))
-      res.setData(parseString(json.get("data").getAsString()));
+      res.setDataObject(parseString(json.get("data").getAsString()));
     if (json.has("_data"))
-      parseElementProperties(json.getAsJsonObject("_data"), res.getData());
+      parseElementProperties(json.getAsJsonObject("_data"), res.getDataObject());
     return res;
   }
 
@@ -365,13 +365,13 @@ public class JsonParser extends JsonParserBase {
     Reference res = new Reference();
     parseTypeProperties(json, res);
     if (json.has("reference"))
-      res.setReference(parseString(json.get("reference").getAsString()));
+      res.setReferenceObject(parseString(json.get("reference").getAsString()));
     if (json.has("_reference"))
-      parseElementProperties(json.getAsJsonObject("_reference"), res.getReference());
+      parseElementProperties(json.getAsJsonObject("_reference"), res.getReferenceObject());
     if (json.has("display"))
-      res.setDisplay(parseString(json.get("display").getAsString()));
+      res.setDisplayObject(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
-      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplay());
+      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayObject());
     return res;
   }
 
@@ -385,9 +385,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("text"))
-      res.setText(parseString(json.get("text").getAsString()));
+      res.setTextObject(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
-      parseElementProperties(json.getAsJsonObject("_text"), res.getText());
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextObject());
     return res;
   }
 
@@ -395,21 +395,21 @@ public class JsonParser extends JsonParserBase {
     Identifier res = new Identifier();
     parseTypeProperties(json, res);
     if (json.has("use"))
-      res.setUse(parseEnumeration(json.get("use").getAsString(), Identifier.IdentifierUse.Null, new Identifier.IdentifierUseEnumFactory()));
+      res.setUseObject(parseEnumeration(json.get("use").getAsString(), Identifier.IdentifierUse.NULL, new Identifier.IdentifierUseEnumFactory()));
     if (json.has("_use"))
-      parseElementProperties(json.getAsJsonObject("_use"), res.getUse());
+      parseElementProperties(json.getAsJsonObject("_use"), res.getUseObject());
     if (json.has("label"))
-      res.setLabel(parseString(json.get("label").getAsString()));
+      res.setLabelObject(parseString(json.get("label").getAsString()));
     if (json.has("_label"))
-      parseElementProperties(json.getAsJsonObject("_label"), res.getLabel());
+      parseElementProperties(json.getAsJsonObject("_label"), res.getLabelObject());
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("value"))
-      res.setValue(parseString(json.get("value").getAsString()));
+      res.setValueObject(parseString(json.get("value").getAsString()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     if (json.has("assigner"))
@@ -421,25 +421,25 @@ public class JsonParser extends JsonParserBase {
     Age res = new Age();
     parseElementProperties(json, res);
     if (json.has("value"))
-      res.setValue(parseDecimal(json.get("value").getAsBigDecimal()));
+      res.setValueObject(parseDecimal(json.get("value").getAsBigDecimal()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     if (json.has("comparator"))
-      res.setComparator(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.Null, new Quantity.QuantityComparatorEnumFactory()));
+      res.setComparatorObject(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
-      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparator());
+      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorObject());
     if (json.has("units"))
-      res.setUnits(parseString(json.get("units").getAsString()));
+      res.setUnitsObject(parseString(json.get("units").getAsString()));
     if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnits());
+      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsObject());
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     return res;
   }
 
@@ -447,25 +447,25 @@ public class JsonParser extends JsonParserBase {
     Count res = new Count();
     parseElementProperties(json, res);
     if (json.has("value"))
-      res.setValue(parseDecimal(json.get("value").getAsBigDecimal()));
+      res.setValueObject(parseDecimal(json.get("value").getAsBigDecimal()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     if (json.has("comparator"))
-      res.setComparator(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.Null, new Quantity.QuantityComparatorEnumFactory()));
+      res.setComparatorObject(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
-      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparator());
+      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorObject());
     if (json.has("units"))
-      res.setUnits(parseString(json.get("units").getAsString()));
+      res.setUnitsObject(parseString(json.get("units").getAsString()));
     if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnits());
+      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsObject());
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     return res;
   }
 
@@ -473,25 +473,25 @@ public class JsonParser extends JsonParserBase {
     Money res = new Money();
     parseElementProperties(json, res);
     if (json.has("value"))
-      res.setValue(parseDecimal(json.get("value").getAsBigDecimal()));
+      res.setValueObject(parseDecimal(json.get("value").getAsBigDecimal()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     if (json.has("comparator"))
-      res.setComparator(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.Null, new Quantity.QuantityComparatorEnumFactory()));
+      res.setComparatorObject(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
-      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparator());
+      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorObject());
     if (json.has("units"))
-      res.setUnits(parseString(json.get("units").getAsString()));
+      res.setUnitsObject(parseString(json.get("units").getAsString()));
     if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnits());
+      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsObject());
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     return res;
   }
 
@@ -499,25 +499,25 @@ public class JsonParser extends JsonParserBase {
     Distance res = new Distance();
     parseElementProperties(json, res);
     if (json.has("value"))
-      res.setValue(parseDecimal(json.get("value").getAsBigDecimal()));
+      res.setValueObject(parseDecimal(json.get("value").getAsBigDecimal()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     if (json.has("comparator"))
-      res.setComparator(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.Null, new Quantity.QuantityComparatorEnumFactory()));
+      res.setComparatorObject(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
-      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparator());
+      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorObject());
     if (json.has("units"))
-      res.setUnits(parseString(json.get("units").getAsString()));
+      res.setUnitsObject(parseString(json.get("units").getAsString()));
     if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnits());
+      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsObject());
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     return res;
   }
 
@@ -525,25 +525,25 @@ public class JsonParser extends JsonParserBase {
     Duration res = new Duration();
     parseElementProperties(json, res);
     if (json.has("value"))
-      res.setValue(parseDecimal(json.get("value").getAsBigDecimal()));
+      res.setValueObject(parseDecimal(json.get("value").getAsBigDecimal()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     if (json.has("comparator"))
-      res.setComparator(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.Null, new Quantity.QuantityComparatorEnumFactory()));
+      res.setComparatorObject(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
     if (json.has("_comparator"))
-      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparator());
+      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorObject());
     if (json.has("units"))
-      res.setUnits(parseString(json.get("units").getAsString()));
+      res.setUnitsObject(parseString(json.get("units").getAsString()));
     if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnits());
+      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsObject());
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     return res;
   }
 
@@ -565,29 +565,29 @@ public class JsonParser extends JsonParserBase {
     Timing.TimingRepeatComponent res = new Timing.TimingRepeatComponent();
     parseElementProperties(json, res);
     if (json.has("frequency"))
-      res.setFrequency(parseInteger(json.get("frequency").getAsLong()));
+      res.setFrequencyObject(parseInteger(json.get("frequency").getAsLong()));
     if (json.has("_frequency"))
-      parseElementProperties(json.getAsJsonObject("_frequency"), res.getFrequency());
+      parseElementProperties(json.getAsJsonObject("_frequency"), res.getFrequencyObject());
     if (json.has("when"))
-      res.setWhen(parseEnumeration(json.get("when").getAsString(), Timing.EventTiming.Null, new Timing.EventTimingEnumFactory()));
+      res.setWhenObject(parseEnumeration(json.get("when").getAsString(), Timing.EventTiming.NULL, new Timing.EventTimingEnumFactory()));
     if (json.has("_when"))
-      parseElementProperties(json.getAsJsonObject("_when"), res.getWhen());
+      parseElementProperties(json.getAsJsonObject("_when"), res.getWhenObject());
     if (json.has("duration"))
-      res.setDuration(parseDecimal(json.get("duration").getAsBigDecimal()));
+      res.setDurationObject(parseDecimal(json.get("duration").getAsBigDecimal()));
     if (json.has("_duration"))
-      parseElementProperties(json.getAsJsonObject("_duration"), res.getDuration());
+      parseElementProperties(json.getAsJsonObject("_duration"), res.getDurationObject());
     if (json.has("units"))
-      res.setUnits(parseEnumeration(json.get("units").getAsString(), Timing.UnitsOfTime.Null, new Timing.UnitsOfTimeEnumFactory()));
+      res.setUnitsObject(parseEnumeration(json.get("units").getAsString(), Timing.UnitsOfTime.NULL, new Timing.UnitsOfTimeEnumFactory()));
     if (json.has("_units"))
-      parseElementProperties(json.getAsJsonObject("_units"), res.getUnits());
+      parseElementProperties(json.getAsJsonObject("_units"), res.getUnitsObject());
     if (json.has("count"))
-      res.setCount(parseInteger(json.get("count").getAsLong()));
+      res.setCountObject(parseInteger(json.get("count").getAsLong()));
     if (json.has("_count"))
-      parseElementProperties(json.getAsJsonObject("_count"), res.getCount());
+      parseElementProperties(json.getAsJsonObject("_count"), res.getCountObject());
     if (json.has("end"))
-      res.setEnd(parseDateTime(json.get("end").getAsString()));
+      res.setEndObject(parseDateTime(json.get("end").getAsString()));
     if (json.has("_end"))
-      parseElementProperties(json.getAsJsonObject("_end"), res.getEnd());
+      parseElementProperties(json.getAsJsonObject("_end"), res.getEndObject());
     return res;
   }
 
@@ -595,13 +595,13 @@ public class JsonParser extends JsonParserBase {
     Address res = new Address();
     parseElementProperties(json, res);
     if (json.has("use"))
-      res.setUse(parseEnumeration(json.get("use").getAsString(), Address.AddressUse.Null, new Address.AddressUseEnumFactory()));
+      res.setUseObject(parseEnumeration(json.get("use").getAsString(), Address.AddressUse.NULL, new Address.AddressUseEnumFactory()));
     if (json.has("_use"))
-      parseElementProperties(json.getAsJsonObject("_use"), res.getUse());
+      parseElementProperties(json.getAsJsonObject("_use"), res.getUseObject());
     if (json.has("text"))
-      res.setText(parseString(json.get("text").getAsString()));
+      res.setTextObject(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
-      parseElementProperties(json.getAsJsonObject("_text"), res.getText());
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextObject());
     if (json.has("line")) {
       JsonArray array = json.getAsJsonArray("line");
       for (int i = 0; i < array.size(); i++) {
@@ -618,21 +618,21 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("city"))
-      res.setCity(parseString(json.get("city").getAsString()));
+      res.setCityObject(parseString(json.get("city").getAsString()));
     if (json.has("_city"))
-      parseElementProperties(json.getAsJsonObject("_city"), res.getCity());
+      parseElementProperties(json.getAsJsonObject("_city"), res.getCityObject());
     if (json.has("state"))
-      res.setState(parseString(json.get("state").getAsString()));
+      res.setStateObject(parseString(json.get("state").getAsString()));
     if (json.has("_state"))
-      parseElementProperties(json.getAsJsonObject("_state"), res.getState());
+      parseElementProperties(json.getAsJsonObject("_state"), res.getStateObject());
     if (json.has("zip"))
-      res.setZip(parseString(json.get("zip").getAsString()));
+      res.setZipObject(parseString(json.get("zip").getAsString()));
     if (json.has("_zip"))
-      parseElementProperties(json.getAsJsonObject("_zip"), res.getZip());
+      parseElementProperties(json.getAsJsonObject("_zip"), res.getZipObject());
     if (json.has("country"))
-      res.setCountry(parseString(json.get("country").getAsString()));
+      res.setCountryObject(parseString(json.get("country").getAsString()));
     if (json.has("_country"))
-      parseElementProperties(json.getAsJsonObject("_country"), res.getCountry());
+      parseElementProperties(json.getAsJsonObject("_country"), res.getCountryObject());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     return res;
@@ -642,13 +642,13 @@ public class JsonParser extends JsonParserBase {
     HumanName res = new HumanName();
     parseElementProperties(json, res);
     if (json.has("use"))
-      res.setUse(parseEnumeration(json.get("use").getAsString(), HumanName.NameUse.Null, new HumanName.NameUseEnumFactory()));
+      res.setUseObject(parseEnumeration(json.get("use").getAsString(), HumanName.NameUse.NULL, new HumanName.NameUseEnumFactory()));
     if (json.has("_use"))
-      parseElementProperties(json.getAsJsonObject("_use"), res.getUse());
+      parseElementProperties(json.getAsJsonObject("_use"), res.getUseObject());
     if (json.has("text"))
-      res.setText(parseString(json.get("text").getAsString()));
+      res.setTextObject(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
-      parseElementProperties(json.getAsJsonObject("_text"), res.getText());
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextObject());
     if (json.has("family")) {
       JsonArray array = json.getAsJsonArray("family");
       for (int i = 0; i < array.size(); i++) {
@@ -718,17 +718,17 @@ public class JsonParser extends JsonParserBase {
     ContactPoint res = new ContactPoint();
     parseElementProperties(json, res);
     if (json.has("system"))
-      res.setSystem(parseEnumeration(json.get("system").getAsString(), ContactPoint.ContactPointSystem.Null, new ContactPoint.ContactPointSystemEnumFactory()));
+      res.setSystemObject(parseEnumeration(json.get("system").getAsString(), ContactPoint.ContactPointSystem.NULL, new ContactPoint.ContactPointSystemEnumFactory()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("value"))
-      res.setValue(parseString(json.get("value").getAsString()));
+      res.setValueObject(parseString(json.get("value").getAsString()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     if (json.has("use"))
-      res.setUse(parseEnumeration(json.get("use").getAsString(), ContactPoint.ContactPointUse.Null, new ContactPoint.ContactPointUseEnumFactory()));
+      res.setUseObject(parseEnumeration(json.get("use").getAsString(), ContactPoint.ContactPointUse.NULL, new ContactPoint.ContactPointUseEnumFactory()));
     if (json.has("_use"))
-      parseElementProperties(json.getAsJsonObject("_use"), res.getUse());
+      parseElementProperties(json.getAsJsonObject("_use"), res.getUseObject());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     return res;
@@ -737,9 +737,9 @@ public class JsonParser extends JsonParserBase {
   protected void parseResourceProperties(JsonObject json, Resource res) throws Exception {
     parseBackboneProperties(json, res); 
     if (json.has("language"))
-      res.setLanguage(parseCode(json.get("language").getAsString()));
+      res.setLanguageObject(parseCode(json.get("language").getAsString()));
     if (json.has("_language"))
-      parseElementProperties(json.getAsJsonObject("_language"), res.getLanguage());
+      parseElementProperties(json.getAsJsonObject("_language"), res.getLanguageObject());
     if (json.has("text"))
       res.setText(parseNarrative(json.getAsJsonObject("text")));
     if (json.has("contained")) {
@@ -760,15 +760,15 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("didNotOccurFlag"))
-      res.setDidNotOccurFlag(parseBoolean(json.get("didNotOccurFlag").getAsBoolean()));
+      res.setDidNotOccurFlagObject(parseBoolean(json.get("didNotOccurFlag").getAsBoolean()));
     if (json.has("_didNotOccurFlag"))
-      parseElementProperties(json.getAsJsonObject("_didNotOccurFlag"), res.getDidNotOccurFlag());
+      parseElementProperties(json.getAsJsonObject("_didNotOccurFlag"), res.getDidNotOccurFlagObject());
     if (json.has("recorder"))
       res.setRecorder(parseReference(json.getAsJsonObject("recorder")));
     if (json.has("symptom")) {
@@ -792,9 +792,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("severity"))
-      res.setSeverity(parseEnumeration(json.get("severity").getAsString(), AdverseReaction.ReactionSeverity.Null, new AdverseReaction.ReactionSeverityEnumFactory()));
+      res.setSeverityObject(parseEnumeration(json.get("severity").getAsString(), AdverseReaction.ReactionSeverity.NULL, new AdverseReaction.ReactionSeverityEnumFactory()));
     if (json.has("_severity"))
-      parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverity());
+      parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverityObject());
     return res;
   }
 
@@ -802,17 +802,17 @@ public class JsonParser extends JsonParserBase {
     AdverseReaction.AdverseReactionExposureComponent res = new AdverseReaction.AdverseReactionExposureComponent();
     parseBackboneProperties(json, res);
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), AdverseReaction.ExposureType.Null, new AdverseReaction.ExposureTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), AdverseReaction.ExposureType.NULL, new AdverseReaction.ExposureTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("causalityExpectation"))
-      res.setCausalityExpectation(parseEnumeration(json.get("causalityExpectation").getAsString(), AdverseReaction.CausalityExpectation.Null, new AdverseReaction.CausalityExpectationEnumFactory()));
+      res.setCausalityExpectationObject(parseEnumeration(json.get("causalityExpectation").getAsString(), AdverseReaction.CausalityExpectation.NULL, new AdverseReaction.CausalityExpectationEnumFactory()));
     if (json.has("_causalityExpectation"))
-      parseElementProperties(json.getAsJsonObject("_causalityExpectation"), res.getCausalityExpectation());
+      parseElementProperties(json.getAsJsonObject("_causalityExpectation"), res.getCausalityExpectationObject());
     if (json.has("substance"))
       res.setSubstance(parseReference(json.getAsJsonObject("substance")));
     return res;
@@ -830,17 +830,17 @@ public class JsonParser extends JsonParserBase {
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Alert.AlertStatus.Null, new Alert.AlertStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Alert.AlertStatus.NULL, new Alert.AlertStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("author"))
       res.setAuthor(parseReference(json.getAsJsonObject("author")));
     if (json.has("note"))
-      res.setNote(parseString(json.get("note").getAsString()));
+      res.setNoteObject(parseString(json.get("note").getAsString()));
     if (json.has("_note"))
-      parseElementProperties(json.getAsJsonObject("_note"), res.getNote());
+      parseElementProperties(json.getAsJsonObject("_note"), res.getNoteObject());
     return res;
   }
 
@@ -854,21 +854,21 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("criticality"))
-      res.setCriticality(parseEnumeration(json.get("criticality").getAsString(), AllergyIntolerance.Criticality.Null, new AllergyIntolerance.CriticalityEnumFactory()));
+      res.setCriticalityObject(parseEnumeration(json.get("criticality").getAsString(), AllergyIntolerance.Criticality.NULL, new AllergyIntolerance.CriticalityEnumFactory()));
     if (json.has("_criticality"))
-      parseElementProperties(json.getAsJsonObject("_criticality"), res.getCriticality());
+      parseElementProperties(json.getAsJsonObject("_criticality"), res.getCriticalityObject());
     if (json.has("sensitivityType"))
-      res.setSensitivityType(parseEnumeration(json.get("sensitivityType").getAsString(), AllergyIntolerance.Sensitivitytype.Null, new AllergyIntolerance.SensitivitytypeEnumFactory()));
+      res.setSensitivityTypeObject(parseEnumeration(json.get("sensitivityType").getAsString(), AllergyIntolerance.Sensitivitytype.NULL, new AllergyIntolerance.SensitivitytypeEnumFactory()));
     if (json.has("_sensitivityType"))
-      parseElementProperties(json.getAsJsonObject("_sensitivityType"), res.getSensitivityType());
+      parseElementProperties(json.getAsJsonObject("_sensitivityType"), res.getSensitivityTypeObject());
     if (json.has("recordedDate"))
-      res.setRecordedDate(parseDateTime(json.get("recordedDate").getAsString()));
+      res.setRecordedDateObject(parseDateTime(json.get("recordedDate").getAsString()));
     if (json.has("_recordedDate"))
-      parseElementProperties(json.getAsJsonObject("_recordedDate"), res.getRecordedDate());
+      parseElementProperties(json.getAsJsonObject("_recordedDate"), res.getRecordedDateObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), AllergyIntolerance.Sensitivitystatus.Null, new AllergyIntolerance.SensitivitystatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), AllergyIntolerance.Sensitivitystatus.NULL, new AllergyIntolerance.SensitivitystatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("recorder"))
@@ -900,29 +900,29 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("priority"))
-      res.setPriority(parseInteger(json.get("priority").getAsLong()));
+      res.setPriorityObject(parseInteger(json.get("priority").getAsLong()));
     if (json.has("_priority"))
-      parseElementProperties(json.getAsJsonObject("_priority"), res.getPriority());
+      parseElementProperties(json.getAsJsonObject("_priority"), res.getPriorityObject());
     if (json.has("status"))
-      res.setStatus(parseCode(json.get("status").getAsString()));
+      res.setStatusObject(parseCode(json.get("status").getAsString()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("reason"))
       res.setReason(parseCodeableConcept(json.getAsJsonObject("reason")));
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("start"))
-      res.setStart(parseInstant(json.get("start").getAsString()));
+      res.setStartObject(parseInstant(json.get("start").getAsString()));
     if (json.has("_start"))
-      parseElementProperties(json.getAsJsonObject("_start"), res.getStart());
+      parseElementProperties(json.getAsJsonObject("_start"), res.getStartObject());
     if (json.has("end"))
-      res.setEnd(parseInstant(json.get("end").getAsString()));
+      res.setEndObject(parseInstant(json.get("end").getAsString()));
     if (json.has("_end"))
-      parseElementProperties(json.getAsJsonObject("_end"), res.getEnd());
+      parseElementProperties(json.getAsJsonObject("_end"), res.getEndObject());
     if (json.has("slot")) {
       JsonArray array = json.getAsJsonArray("slot");
       for (int i = 0; i < array.size(); i++) {
@@ -932,9 +932,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("location"))
       res.setLocation(parseReference(json.getAsJsonObject("location")));
     if (json.has("comment"))
-      res.setComment(parseString(json.get("comment").getAsString()));
+      res.setCommentObject(parseString(json.get("comment").getAsString()));
     if (json.has("_comment"))
-      parseElementProperties(json.getAsJsonObject("_comment"), res.getComment());
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentObject());
     if (json.has("order"))
       res.setOrder(parseReference(json.getAsJsonObject("order")));
     if (json.has("participant")) {
@@ -946,9 +946,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("lastModifiedBy"))
       res.setLastModifiedBy(parseReference(json.getAsJsonObject("lastModifiedBy")));
     if (json.has("lastModified"))
-      res.setLastModified(parseDateTime(json.get("lastModified").getAsString()));
+      res.setLastModifiedObject(parseDateTime(json.get("lastModified").getAsString()));
     if (json.has("_lastModified"))
-      parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModified());
+      parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModifiedObject());
     return res;
   }
 
@@ -964,13 +964,13 @@ public class JsonParser extends JsonParserBase {
     if (json.has("actor"))
       res.setActor(parseReference(json.getAsJsonObject("actor")));
     if (json.has("required"))
-      res.setRequired(parseEnumeration(json.get("required").getAsString(), Appointment.Participantrequired.Null, new Appointment.ParticipantrequiredEnumFactory()));
+      res.setRequiredObject(parseEnumeration(json.get("required").getAsString(), Appointment.Participantrequired.NULL, new Appointment.ParticipantrequiredEnumFactory()));
     if (json.has("_required"))
-      parseElementProperties(json.getAsJsonObject("_required"), res.getRequired());
+      parseElementProperties(json.getAsJsonObject("_required"), res.getRequiredObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Appointment.Participationstatus.Null, new Appointment.ParticipationstatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Appointment.Participationstatus.NULL, new Appointment.ParticipationstatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     return res;
   }
 
@@ -998,27 +998,27 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("participantStatus"))
-      res.setParticipantStatus(parseEnumeration(json.get("participantStatus").getAsString(), AppointmentResponse.Participantstatus.Null, new AppointmentResponse.ParticipantstatusEnumFactory()));
+      res.setParticipantStatusObject(parseEnumeration(json.get("participantStatus").getAsString(), AppointmentResponse.Participantstatus.NULL, new AppointmentResponse.ParticipantstatusEnumFactory()));
     if (json.has("_participantStatus"))
-      parseElementProperties(json.getAsJsonObject("_participantStatus"), res.getParticipantStatus());
+      parseElementProperties(json.getAsJsonObject("_participantStatus"), res.getParticipantStatusObject());
     if (json.has("comment"))
-      res.setComment(parseString(json.get("comment").getAsString()));
+      res.setCommentObject(parseString(json.get("comment").getAsString()));
     if (json.has("_comment"))
-      parseElementProperties(json.getAsJsonObject("_comment"), res.getComment());
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentObject());
     if (json.has("start"))
-      res.setStart(parseInstant(json.get("start").getAsString()));
+      res.setStartObject(parseInstant(json.get("start").getAsString()));
     if (json.has("_start"))
-      parseElementProperties(json.getAsJsonObject("_start"), res.getStart());
+      parseElementProperties(json.getAsJsonObject("_start"), res.getStartObject());
     if (json.has("end"))
-      res.setEnd(parseInstant(json.get("end").getAsString()));
+      res.setEndObject(parseInstant(json.get("end").getAsString()));
     if (json.has("_end"))
-      parseElementProperties(json.getAsJsonObject("_end"), res.getEnd());
+      parseElementProperties(json.getAsJsonObject("_end"), res.getEndObject());
     if (json.has("lastModifiedBy"))
       res.setLastModifiedBy(parseReference(json.getAsJsonObject("lastModifiedBy")));
     if (json.has("lastModified"))
-      res.setLastModified(parseDateTime(json.get("lastModified").getAsString()));
+      res.setLastModifiedObject(parseDateTime(json.get("lastModified").getAsString()));
     if (json.has("_lastModified"))
-      parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModified());
+      parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModifiedObject());
     return res;
   }
 
@@ -1042,13 +1042,13 @@ public class JsonParser extends JsonParserBase {
     if (json.has("planningHorizon"))
       res.setPlanningHorizon(parsePeriod(json.getAsJsonObject("planningHorizon")));
     if (json.has("comment"))
-      res.setComment(parseString(json.get("comment").getAsString()));
+      res.setCommentObject(parseString(json.get("comment").getAsString()));
     if (json.has("_comment"))
-      parseElementProperties(json.getAsJsonObject("_comment"), res.getComment());
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentObject());
     if (json.has("lastModified"))
-      res.setLastModified(parseDateTime(json.get("lastModified").getAsString()));
+      res.setLastModifiedObject(parseDateTime(json.get("lastModified").getAsString()));
     if (json.has("_lastModified"))
-      parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModified());
+      parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModifiedObject());
     return res;
   }
 
@@ -1064,15 +1064,15 @@ public class JsonParser extends JsonParserBase {
     if (json.has("patient"))
       res.setPatient(parseReference(json.getAsJsonObject("patient")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), CarePlan.CarePlanStatus.Null, new CarePlan.CarePlanStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), CarePlan.CarePlanStatus.NULL, new CarePlan.CarePlanStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     if (json.has("modified"))
-      res.setModified(parseDateTime(json.get("modified").getAsString()));
+      res.setModifiedObject(parseDateTime(json.get("modified").getAsString()));
     if (json.has("_modified"))
-      parseElementProperties(json.getAsJsonObject("_modified"), res.getModified());
+      parseElementProperties(json.getAsJsonObject("_modified"), res.getModifiedObject());
     if (json.has("concern")) {
       JsonArray array = json.getAsJsonArray("concern");
       for (int i = 0; i < array.size(); i++) {
@@ -1098,9 +1098,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("notes"))
-      res.setNotes(parseString(json.get("notes").getAsString()));
+      res.setNotesObject(parseString(json.get("notes").getAsString()));
     if (json.has("_notes"))
-      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotes());
+      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotesObject());
     return res;
   }
 
@@ -1118,17 +1118,17 @@ public class JsonParser extends JsonParserBase {
     CarePlan.CarePlanGoalComponent res = new CarePlan.CarePlanGoalComponent();
     parseBackboneProperties(json, res);
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), CarePlan.CarePlanGoalStatus.Null, new CarePlan.CarePlanGoalStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), CarePlan.CarePlanGoalStatus.NULL, new CarePlan.CarePlanGoalStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("notes"))
-      res.setNotes(parseString(json.get("notes").getAsString()));
+      res.setNotesObject(parseString(json.get("notes").getAsString()));
     if (json.has("_notes"))
-      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotes());
+      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotesObject());
     if (json.has("concern")) {
       JsonArray array = json.getAsJsonArray("concern");
       for (int i = 0; i < array.size(); i++) {
@@ -1157,13 +1157,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), CarePlan.CarePlanActivityStatus.Null, new CarePlan.CarePlanActivityStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), CarePlan.CarePlanActivityStatus.NULL, new CarePlan.CarePlanActivityStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("prohibited"))
-      res.setProhibited(parseBoolean(json.get("prohibited").getAsBoolean()));
+      res.setProhibitedObject(parseBoolean(json.get("prohibited").getAsBoolean()));
     if (json.has("_prohibited"))
-      parseElementProperties(json.getAsJsonObject("_prohibited"), res.getProhibited());
+      parseElementProperties(json.getAsJsonObject("_prohibited"), res.getProhibitedObject());
     if (json.has("actionResulting")) {
       JsonArray array = json.getAsJsonArray("actionResulting");
       for (int i = 0; i < array.size(); i++) {
@@ -1171,9 +1171,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("notes"))
-      res.setNotes(parseString(json.get("notes").getAsString()));
+      res.setNotesObject(parseString(json.get("notes").getAsString()));
     if (json.has("_notes"))
-      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotes());
+      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotesObject());
     if (json.has("detail"))
       res.setDetail(parseReference(json.getAsJsonObject("detail")));
     if (json.has("simple"))
@@ -1185,9 +1185,9 @@ public class JsonParser extends JsonParserBase {
     CarePlan.CarePlanActivitySimpleComponent res = new CarePlan.CarePlanActivitySimpleComponent();
     parseBackboneProperties(json, res);
     if (json.has("category"))
-      res.setCategory(parseEnumeration(json.get("category").getAsString(), CarePlan.CarePlanActivityCategory.Null, new CarePlan.CarePlanActivityCategoryEnumFactory()));
+      res.setCategoryObject(parseEnumeration(json.get("category").getAsString(), CarePlan.CarePlanActivityCategory.NULL, new CarePlan.CarePlanActivityCategoryEnumFactory()));
     if (json.has("_category"))
-      parseElementProperties(json.getAsJsonObject("_category"), res.getCategory());
+      parseElementProperties(json.getAsJsonObject("_category"), res.getCategoryObject());
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     Type scheduled = parseType("scheduled", json);
@@ -1208,9 +1208,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("quantity"))
       res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
     if (json.has("details"))
-      res.setDetails(parseString(json.get("details").getAsString()));
+      res.setDetailsObject(parseString(json.get("details").getAsString()));
     if (json.has("_details"))
-      parseElementProperties(json.getAsJsonObject("_details"), res.getDetails());
+      parseElementProperties(json.getAsJsonObject("_details"), res.getDetailsObject());
     return res;
   }
 
@@ -1220,21 +1220,21 @@ public class JsonParser extends JsonParserBase {
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("class"))
       res.setClass_(parseCodeableConcept(json.getAsJsonObject("class")));
     if (json.has("title"))
-      res.setTitle(parseString(json.get("title").getAsString()));
+      res.setTitleObject(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
-      parseElementProperties(json.getAsJsonObject("_title"), res.getTitle());
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Composition.CompositionStatus.Null, new Composition.CompositionStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Composition.CompositionStatus.NULL, new Composition.CompositionStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("confidentiality"))
       res.setConfidentiality(parseCoding(json.getAsJsonObject("confidentiality")));
     if (json.has("subject"))
@@ -1276,22 +1276,22 @@ public class JsonParser extends JsonParserBase {
     if (json.has("mode")) {
       JsonArray array = json.getAsJsonArray("mode");
       for (int i = 0; i < array.size(); i++) {
-        res.getMode().add(parseEnumeration(array.get(i).getAsString(), Composition.CompositionAttestationMode.Null, new Composition.CompositionAttestationModeEnumFactory()));
+        res.getMode().add(parseEnumeration(array.get(i).getAsString(), Composition.CompositionAttestationMode.NULL, new Composition.CompositionAttestationModeEnumFactory()));
       }
     };
     if (json.has("_mode")) {
       JsonArray array = json.getAsJsonArray("_mode");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getMode().size())
-          res.getMode().add(parseEnumeration(null, Composition.CompositionAttestationMode.Null, new Composition.CompositionAttestationModeEnumFactory()));
+          res.getMode().add(parseEnumeration(null, Composition.CompositionAttestationMode.NULL, new Composition.CompositionAttestationModeEnumFactory()));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getMode().get(i));
       }
     };
     if (json.has("time"))
-      res.setTime(parseDateTime(json.get("time").getAsString()));
+      res.setTimeObject(parseDateTime(json.get("time").getAsString()));
     if (json.has("_time"))
-      parseElementProperties(json.getAsJsonObject("_time"), res.getTime());
+      parseElementProperties(json.getAsJsonObject("_time"), res.getTimeObject());
     if (json.has("party"))
       res.setParty(parseReference(json.getAsJsonObject("party")));
     return res;
@@ -1321,9 +1321,9 @@ public class JsonParser extends JsonParserBase {
     Composition.SectionComponent res = new Composition.SectionComponent();
     parseBackboneProperties(json, res);
     if (json.has("title"))
-      res.setTitle(parseString(json.get("title").getAsString()));
+      res.setTitleObject(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
-      parseElementProperties(json.getAsJsonObject("_title"), res.getTitle());
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleObject());
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -1359,21 +1359,21 @@ public class JsonParser extends JsonParserBase {
     ConceptMap res = new ConceptMap();
     parseResourceProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseString(json.get("identifier").getAsString()));
+      res.setIdentifierObject(parseString(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("publisher"))
-      res.setPublisher(parseString(json.get("publisher").getAsString()));
+      res.setPublisherObject(parseString(json.get("publisher").getAsString()));
     if (json.has("_publisher"))
-      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisher());
+      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherObject());
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
@@ -1381,25 +1381,25 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("copyright"))
-      res.setCopyright(parseString(json.get("copyright").getAsString()));
+      res.setCopyrightObject(parseString(json.get("copyright").getAsString()));
     if (json.has("_copyright"))
-      parseElementProperties(json.getAsJsonObject("_copyright"), res.getCopyright());
+      parseElementProperties(json.getAsJsonObject("_copyright"), res.getCopyrightObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), ConceptMap.ValuesetStatus.Null, new ConceptMap.ValuesetStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), ConceptMap.ValuesetStatus.NULL, new ConceptMap.ValuesetStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("experimental"))
-      res.setExperimental(parseBoolean(json.get("experimental").getAsBoolean()));
+      res.setExperimentalObject(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
-      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimental());
+      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalObject());
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     Type source = parseType("source", json);
     if (source != null)
       res.setSource(source);
@@ -1419,13 +1419,13 @@ public class JsonParser extends JsonParserBase {
     ConceptMap.ConceptMapElementComponent res = new ConceptMap.ConceptMapElementComponent();
     parseBackboneProperties(json, res);
     if (json.has("codeSystem"))
-      res.setCodeSystem(parseUri(json.get("codeSystem").getAsString()));
+      res.setCodeSystemObject(parseUri(json.get("codeSystem").getAsString()));
     if (json.has("_codeSystem"))
-      parseElementProperties(json.getAsJsonObject("_codeSystem"), res.getCodeSystem());
+      parseElementProperties(json.getAsJsonObject("_codeSystem"), res.getCodeSystemObject());
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("dependsOn")) {
       JsonArray array = json.getAsJsonArray("dependsOn");
       for (int i = 0; i < array.size(); i++) {
@@ -1445,17 +1445,17 @@ public class JsonParser extends JsonParserBase {
     ConceptMap.OtherElementComponent res = new ConceptMap.OtherElementComponent();
     parseBackboneProperties(json, res);
     if (json.has("element"))
-      res.setElement(parseUri(json.get("element").getAsString()));
+      res.setElementObject(parseUri(json.get("element").getAsString()));
     if (json.has("_element"))
-      parseElementProperties(json.getAsJsonObject("_element"), res.getElement());
+      parseElementProperties(json.getAsJsonObject("_element"), res.getElementObject());
     if (json.has("codeSystem"))
-      res.setCodeSystem(parseUri(json.get("codeSystem").getAsString()));
+      res.setCodeSystemObject(parseUri(json.get("codeSystem").getAsString()));
     if (json.has("_codeSystem"))
-      parseElementProperties(json.getAsJsonObject("_codeSystem"), res.getCodeSystem());
+      parseElementProperties(json.getAsJsonObject("_codeSystem"), res.getCodeSystemObject());
     if (json.has("code"))
-      res.setCode(parseString(json.get("code").getAsString()));
+      res.setCodeObject(parseString(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     return res;
   }
 
@@ -1463,21 +1463,21 @@ public class JsonParser extends JsonParserBase {
     ConceptMap.ConceptMapElementMapComponent res = new ConceptMap.ConceptMapElementMapComponent();
     parseBackboneProperties(json, res);
     if (json.has("codeSystem"))
-      res.setCodeSystem(parseUri(json.get("codeSystem").getAsString()));
+      res.setCodeSystemObject(parseUri(json.get("codeSystem").getAsString()));
     if (json.has("_codeSystem"))
-      parseElementProperties(json.getAsJsonObject("_codeSystem"), res.getCodeSystem());
+      parseElementProperties(json.getAsJsonObject("_codeSystem"), res.getCodeSystemObject());
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("equivalence"))
-      res.setEquivalence(parseEnumeration(json.get("equivalence").getAsString(), ConceptMap.ConceptEquivalence.Null, new ConceptMap.ConceptEquivalenceEnumFactory()));
+      res.setEquivalenceObject(parseEnumeration(json.get("equivalence").getAsString(), ConceptMap.ConceptEquivalence.NULL, new ConceptMap.ConceptEquivalenceEnumFactory()));
     if (json.has("_equivalence"))
-      parseElementProperties(json.getAsJsonObject("_equivalence"), res.getEquivalence());
+      parseElementProperties(json.getAsJsonObject("_equivalence"), res.getEquivalenceObject());
     if (json.has("comments"))
-      res.setComments(parseString(json.get("comments").getAsString()));
+      res.setCommentsObject(parseString(json.get("comments").getAsString()));
     if (json.has("_comments"))
-      parseElementProperties(json.getAsJsonObject("_comments"), res.getComments());
+      parseElementProperties(json.getAsJsonObject("_comments"), res.getCommentsObject());
     if (json.has("product")) {
       JsonArray array = json.getAsJsonArray("product");
       for (int i = 0; i < array.size(); i++) {
@@ -1503,17 +1503,17 @@ public class JsonParser extends JsonParserBase {
     if (json.has("asserter"))
       res.setAsserter(parseReference(json.getAsJsonObject("asserter")));
     if (json.has("dateAsserted"))
-      res.setDateAsserted(parseDate(json.get("dateAsserted").getAsString()));
+      res.setDateAssertedObject(parseDate(json.get("dateAsserted").getAsString()));
     if (json.has("_dateAsserted"))
-      parseElementProperties(json.getAsJsonObject("_dateAsserted"), res.getDateAsserted());
+      parseElementProperties(json.getAsJsonObject("_dateAsserted"), res.getDateAssertedObject());
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Condition.ConditionStatus.Null, new Condition.ConditionStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Condition.ConditionStatus.NULL, new Condition.ConditionStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("certainty"))
       res.setCertainty(parseCodeableConcept(json.getAsJsonObject("certainty")));
     if (json.has("severity"))
@@ -1545,9 +1545,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("notes"))
-      res.setNotes(parseString(json.get("notes").getAsString()));
+      res.setNotesObject(parseString(json.get("notes").getAsString()));
     if (json.has("_notes"))
-      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotes());
+      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotesObject());
     return res;
   }
 
@@ -1585,9 +1585,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("detail"))
-      res.setDetail(parseString(json.get("detail").getAsString()));
+      res.setDetailObject(parseString(json.get("detail").getAsString()));
     if (json.has("_detail"))
-      parseElementProperties(json.getAsJsonObject("_detail"), res.getDetail());
+      parseElementProperties(json.getAsJsonObject("_detail"), res.getDetailObject());
     return res;
   }
 
@@ -1595,9 +1595,9 @@ public class JsonParser extends JsonParserBase {
     Condition.ConditionRelatedItemComponent res = new Condition.ConditionRelatedItemComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Condition.ConditionRelationshipType.Null, new Condition.ConditionRelationshipTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Condition.ConditionRelationshipType.NULL, new Condition.ConditionRelationshipTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("target"))
@@ -1609,21 +1609,21 @@ public class JsonParser extends JsonParserBase {
     Conformance res = new Conformance();
     parseResourceProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseString(json.get("identifier").getAsString()));
+      res.setIdentifierObject(parseString(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("publisher"))
-      res.setPublisher(parseString(json.get("publisher").getAsString()));
+      res.setPublisherObject(parseString(json.get("publisher").getAsString()));
     if (json.has("_publisher"))
-      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisher());
+      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherObject());
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
@@ -1631,33 +1631,33 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Conformance.ConformanceStatementStatus.Null, new Conformance.ConformanceStatementStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Conformance.ConformanceStatementStatus.NULL, new Conformance.ConformanceStatementStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("experimental"))
-      res.setExperimental(parseBoolean(json.get("experimental").getAsBoolean()));
+      res.setExperimentalObject(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
-      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimental());
+      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalObject());
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("software"))
       res.setSoftware(parseConformanceConformanceSoftwareComponent(json.getAsJsonObject("software"), res));
     if (json.has("implementation"))
       res.setImplementation(parseConformanceConformanceImplementationComponent(json.getAsJsonObject("implementation"), res));
     if (json.has("fhirVersion"))
-      res.setFhirVersion(parseId(json.get("fhirVersion").getAsString()));
+      res.setFhirVersionObject(parseId(json.get("fhirVersion").getAsString()));
     if (json.has("_fhirVersion"))
-      parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersion());
+      parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionObject());
     if (json.has("acceptUnknown"))
-      res.setAcceptUnknown(parseBoolean(json.get("acceptUnknown").getAsBoolean()));
+      res.setAcceptUnknownObject(parseBoolean(json.get("acceptUnknown").getAsBoolean()));
     if (json.has("_acceptUnknown"))
-      parseElementProperties(json.getAsJsonObject("_acceptUnknown"), res.getAcceptUnknown());
+      parseElementProperties(json.getAsJsonObject("_acceptUnknown"), res.getAcceptUnknownObject());
     if (json.has("format")) {
       JsonArray array = json.getAsJsonArray("format");
       for (int i = 0; i < array.size(); i++) {
@@ -1704,17 +1704,17 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceSoftwareComponent res = new Conformance.ConformanceSoftwareComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("releaseDate"))
-      res.setReleaseDate(parseDateTime(json.get("releaseDate").getAsString()));
+      res.setReleaseDateObject(parseDateTime(json.get("releaseDate").getAsString()));
     if (json.has("_releaseDate"))
-      parseElementProperties(json.getAsJsonObject("_releaseDate"), res.getReleaseDate());
+      parseElementProperties(json.getAsJsonObject("_releaseDate"), res.getReleaseDateObject());
     return res;
   }
 
@@ -1722,13 +1722,13 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceImplementationComponent res = new Conformance.ConformanceImplementationComponent();
     parseBackboneProperties(json, res);
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("url"))
-      res.setUrl(parseUri(json.get("url").getAsString()));
+      res.setUrlObject(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrl());
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlObject());
     return res;
   }
 
@@ -1736,13 +1736,13 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceRestComponent res = new Conformance.ConformanceRestComponent();
     parseBackboneProperties(json, res);
     if (json.has("mode"))
-      res.setMode(parseEnumeration(json.get("mode").getAsString(), Conformance.RestfulConformanceMode.Null, new Conformance.RestfulConformanceModeEnumFactory()));
+      res.setModeObject(parseEnumeration(json.get("mode").getAsString(), Conformance.RestfulConformanceMode.NULL, new Conformance.RestfulConformanceModeEnumFactory()));
     if (json.has("_mode"))
-      parseElementProperties(json.getAsJsonObject("_mode"), res.getMode());
+      parseElementProperties(json.getAsJsonObject("_mode"), res.getModeObject());
     if (json.has("documentation"))
-      res.setDocumentation(parseString(json.get("documentation").getAsString()));
+      res.setDocumentationObject(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
-      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentation());
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationObject());
     if (json.has("security"))
       res.setSecurity(parseConformanceConformanceRestSecurityComponent(json.getAsJsonObject("security"), owner));
     if (json.has("resource")) {
@@ -1785,9 +1785,9 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceRestSecurityComponent res = new Conformance.ConformanceRestSecurityComponent();
     parseBackboneProperties(json, res);
     if (json.has("cors"))
-      res.setCors(parseBoolean(json.get("cors").getAsBoolean()));
+      res.setCorsObject(parseBoolean(json.get("cors").getAsBoolean()));
     if (json.has("_cors"))
-      parseElementProperties(json.getAsJsonObject("_cors"), res.getCors());
+      parseElementProperties(json.getAsJsonObject("_cors"), res.getCorsObject());
     if (json.has("service")) {
       JsonArray array = json.getAsJsonArray("service");
       for (int i = 0; i < array.size(); i++) {
@@ -1795,9 +1795,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("certificate")) {
       JsonArray array = json.getAsJsonArray("certificate");
       for (int i = 0; i < array.size(); i++) {
@@ -1811,13 +1811,13 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceRestSecurityCertificateComponent res = new Conformance.ConformanceRestSecurityCertificateComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setType(parseCode(json.get("type").getAsString()));
+      res.setTypeObject(parseCode(json.get("type").getAsString()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("blob"))
-      res.setBlob(parseBase64Binary(json.get("blob").getAsString()));
+      res.setBlobObject(parseBase64Binary(json.get("blob").getAsString()));
     if (json.has("_blob"))
-      parseElementProperties(json.getAsJsonObject("_blob"), res.getBlob());
+      parseElementProperties(json.getAsJsonObject("_blob"), res.getBlobObject());
     return res;
   }
 
@@ -1825,9 +1825,9 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setType(parseCode(json.get("type").getAsString()));
+      res.setTypeObject(parseCode(json.get("type").getAsString()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("profile"))
       res.setProfile(parseReference(json.getAsJsonObject("profile")));
     if (json.has("interaction")) {
@@ -1837,13 +1837,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("readHistory"))
-      res.setReadHistory(parseBoolean(json.get("readHistory").getAsBoolean()));
+      res.setReadHistoryObject(parseBoolean(json.get("readHistory").getAsBoolean()));
     if (json.has("_readHistory"))
-      parseElementProperties(json.getAsJsonObject("_readHistory"), res.getReadHistory());
+      parseElementProperties(json.getAsJsonObject("_readHistory"), res.getReadHistoryObject());
     if (json.has("updateCreate"))
-      res.setUpdateCreate(parseBoolean(json.get("updateCreate").getAsBoolean()));
+      res.setUpdateCreateObject(parseBoolean(json.get("updateCreate").getAsBoolean()));
     if (json.has("_updateCreate"))
-      parseElementProperties(json.getAsJsonObject("_updateCreate"), res.getUpdateCreate());
+      parseElementProperties(json.getAsJsonObject("_updateCreate"), res.getUpdateCreateObject());
     if (json.has("searchInclude")) {
       JsonArray array = json.getAsJsonArray("searchInclude");
       for (int i = 0; i < array.size(); i++) {
@@ -1872,13 +1872,13 @@ public class JsonParser extends JsonParserBase {
     Conformance.ResourceInteractionComponent res = new Conformance.ResourceInteractionComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
-      res.setCode(parseEnumeration(json.get("code").getAsString(), Conformance.TypeRestfulInteraction.Null, new Conformance.TypeRestfulInteractionEnumFactory()));
+      res.setCodeObject(parseEnumeration(json.get("code").getAsString(), Conformance.TypeRestfulInteraction.NULL, new Conformance.TypeRestfulInteractionEnumFactory()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("documentation"))
-      res.setDocumentation(parseString(json.get("documentation").getAsString()));
+      res.setDocumentationObject(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
-      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentation());
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationObject());
     return res;
   }
 
@@ -1886,21 +1886,21 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceRestResourceSearchParamComponent res = new Conformance.ConformanceRestResourceSearchParamComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("definition"))
-      res.setDefinition(parseUri(json.get("definition").getAsString()));
+      res.setDefinitionObject(parseUri(json.get("definition").getAsString()));
     if (json.has("_definition"))
-      parseElementProperties(json.getAsJsonObject("_definition"), res.getDefinition());
+      parseElementProperties(json.getAsJsonObject("_definition"), res.getDefinitionObject());
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Conformance.SearchParamType.Null, new Conformance.SearchParamTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Conformance.SearchParamType.NULL, new Conformance.SearchParamTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("documentation"))
-      res.setDocumentation(parseString(json.get("documentation").getAsString()));
+      res.setDocumentationObject(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
-      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentation());
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationObject());
     if (json.has("target")) {
       JsonArray array = json.getAsJsonArray("target");
       for (int i = 0; i < array.size(); i++) {
@@ -1938,13 +1938,13 @@ public class JsonParser extends JsonParserBase {
     Conformance.SystemInteractionComponent res = new Conformance.SystemInteractionComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
-      res.setCode(parseEnumeration(json.get("code").getAsString(), Conformance.SystemRestfulInteraction.Null, new Conformance.SystemRestfulInteractionEnumFactory()));
+      res.setCodeObject(parseEnumeration(json.get("code").getAsString(), Conformance.SystemRestfulInteraction.NULL, new Conformance.SystemRestfulInteractionEnumFactory()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("documentation"))
-      res.setDocumentation(parseString(json.get("documentation").getAsString()));
+      res.setDocumentationObject(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
-      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentation());
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationObject());
     return res;
   }
 
@@ -1952,9 +1952,9 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceRestOperationComponent res = new Conformance.ConformanceRestOperationComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("definition"))
       res.setDefinition(parseReference(json.getAsJsonObject("definition")));
     return res;
@@ -1964,17 +1964,17 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceMessagingComponent res = new Conformance.ConformanceMessagingComponent();
     parseBackboneProperties(json, res);
     if (json.has("endpoint"))
-      res.setEndpoint(parseUri(json.get("endpoint").getAsString()));
+      res.setEndpointObject(parseUri(json.get("endpoint").getAsString()));
     if (json.has("_endpoint"))
-      parseElementProperties(json.getAsJsonObject("_endpoint"), res.getEndpoint());
+      parseElementProperties(json.getAsJsonObject("_endpoint"), res.getEndpointObject());
     if (json.has("reliableCache"))
-      res.setReliableCache(parseInteger(json.get("reliableCache").getAsLong()));
+      res.setReliableCacheObject(parseInteger(json.get("reliableCache").getAsLong()));
     if (json.has("_reliableCache"))
-      parseElementProperties(json.getAsJsonObject("_reliableCache"), res.getReliableCache());
+      parseElementProperties(json.getAsJsonObject("_reliableCache"), res.getReliableCacheObject());
     if (json.has("documentation"))
-      res.setDocumentation(parseString(json.get("documentation").getAsString()));
+      res.setDocumentationObject(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
-      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentation());
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationObject());
     if (json.has("event")) {
       JsonArray array = json.getAsJsonArray("event");
       for (int i = 0; i < array.size(); i++) {
@@ -1990,13 +1990,13 @@ public class JsonParser extends JsonParserBase {
     if (json.has("code"))
       res.setCode(parseCoding(json.getAsJsonObject("code")));
     if (json.has("category"))
-      res.setCategory(parseEnumeration(json.get("category").getAsString(), Conformance.MessageSignificanceCategory.Null, new Conformance.MessageSignificanceCategoryEnumFactory()));
+      res.setCategoryObject(parseEnumeration(json.get("category").getAsString(), Conformance.MessageSignificanceCategory.NULL, new Conformance.MessageSignificanceCategoryEnumFactory()));
     if (json.has("_category"))
-      parseElementProperties(json.getAsJsonObject("_category"), res.getCategory());
+      parseElementProperties(json.getAsJsonObject("_category"), res.getCategoryObject());
     if (json.has("mode"))
-      res.setMode(parseEnumeration(json.get("mode").getAsString(), Conformance.MessageConformanceEventMode.Null, new Conformance.MessageConformanceEventModeEnumFactory()));
+      res.setModeObject(parseEnumeration(json.get("mode").getAsString(), Conformance.MessageConformanceEventMode.NULL, new Conformance.MessageConformanceEventModeEnumFactory()));
     if (json.has("_mode"))
-      parseElementProperties(json.getAsJsonObject("_mode"), res.getMode());
+      parseElementProperties(json.getAsJsonObject("_mode"), res.getModeObject());
     if (json.has("protocol")) {
       JsonArray array = json.getAsJsonArray("protocol");
       for (int i = 0; i < array.size(); i++) {
@@ -2004,17 +2004,17 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("focus"))
-      res.setFocus(parseCode(json.get("focus").getAsString()));
+      res.setFocusObject(parseCode(json.get("focus").getAsString()));
     if (json.has("_focus"))
-      parseElementProperties(json.getAsJsonObject("_focus"), res.getFocus());
+      parseElementProperties(json.getAsJsonObject("_focus"), res.getFocusObject());
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
     if (json.has("response"))
       res.setResponse(parseReference(json.getAsJsonObject("response")));
     if (json.has("documentation"))
-      res.setDocumentation(parseString(json.get("documentation").getAsString()));
+      res.setDocumentationObject(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
-      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentation());
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationObject());
     return res;
   }
 
@@ -2022,13 +2022,13 @@ public class JsonParser extends JsonParserBase {
     Conformance.ConformanceDocumentComponent res = new Conformance.ConformanceDocumentComponent();
     parseBackboneProperties(json, res);
     if (json.has("mode"))
-      res.setMode(parseEnumeration(json.get("mode").getAsString(), Conformance.DocumentMode.Null, new Conformance.DocumentModeEnumFactory()));
+      res.setModeObject(parseEnumeration(json.get("mode").getAsString(), Conformance.DocumentMode.NULL, new Conformance.DocumentModeEnumFactory()));
     if (json.has("_mode"))
-      parseElementProperties(json.getAsJsonObject("_mode"), res.getMode());
+      parseElementProperties(json.getAsJsonObject("_mode"), res.getModeObject());
     if (json.has("documentation"))
-      res.setDocumentation(parseString(json.get("documentation").getAsString()));
+      res.setDocumentationObject(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
-      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentation());
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationObject());
     if (json.has("profile"))
       res.setProfile(parseReference(json.getAsJsonObject("profile")));
     return res;
@@ -2042,9 +2042,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
     if (json.has("severity"))
-      res.setSeverity(parseCode(json.get("severity").getAsString()));
+      res.setSeverityObject(parseCode(json.get("severity").getAsString()));
     if (json.has("_severity"))
-      parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverity());
+      parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverityObject());
     if (json.has("implicated")) {
       JsonArray array = json.getAsJsonArray("implicated");
       for (int i = 0; i < array.size(); i++) {
@@ -2052,21 +2052,21 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("detail"))
-      res.setDetail(parseString(json.get("detail").getAsString()));
+      res.setDetailObject(parseString(json.get("detail").getAsString()));
     if (json.has("_detail"))
-      parseElementProperties(json.getAsJsonObject("_detail"), res.getDetail());
+      parseElementProperties(json.getAsJsonObject("_detail"), res.getDetailObject());
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("author"))
       res.setAuthor(parseReference(json.getAsJsonObject("author")));
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("reference"))
-      res.setReference(parseUri(json.get("reference").getAsString()));
+      res.setReferenceObject(parseUri(json.get("reference").getAsString()));
     if (json.has("_reference"))
-      parseElementProperties(json.getAsJsonObject("_reference"), res.getReference());
+      parseElementProperties(json.getAsJsonObject("_reference"), res.getReferenceObject());
     if (json.has("mitigation")) {
       JsonArray array = json.getAsJsonArray("mitigation");
       for (int i = 0; i < array.size(); i++) {
@@ -2082,9 +2082,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("action"))
       res.setAction(parseCodeableConcept(json.getAsJsonObject("action")));
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("author"))
       res.setAuthor(parseReference(json.getAsJsonObject("author")));
     return res;
@@ -2096,13 +2096,13 @@ public class JsonParser extends JsonParserBase {
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("publisher"))
-      res.setPublisher(parseString(json.get("publisher").getAsString()));
+      res.setPublisherObject(parseString(json.get("publisher").getAsString()));
     if (json.has("_publisher"))
-      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisher());
+      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherObject());
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
@@ -2110,17 +2110,17 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), DataElement.ResourceObservationDefStatus.Null, new DataElement.ResourceObservationDefStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), DataElement.ResourceObservationDefStatus.NULL, new DataElement.ResourceObservationDefStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("category")) {
       JsonArray array = json.getAsJsonArray("category");
       for (int i = 0; i < array.size(); i++) {
@@ -2134,21 +2134,21 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("question"))
-      res.setQuestion(parseString(json.get("question").getAsString()));
+      res.setQuestionObject(parseString(json.get("question").getAsString()));
     if (json.has("_question"))
-      parseElementProperties(json.getAsJsonObject("_question"), res.getQuestion());
+      parseElementProperties(json.getAsJsonObject("_question"), res.getQuestionObject());
     if (json.has("definition"))
-      res.setDefinition(parseString(json.get("definition").getAsString()));
+      res.setDefinitionObject(parseString(json.get("definition").getAsString()));
     if (json.has("_definition"))
-      parseElementProperties(json.getAsJsonObject("_definition"), res.getDefinition());
+      parseElementProperties(json.getAsJsonObject("_definition"), res.getDefinitionObject());
     if (json.has("comments"))
-      res.setComments(parseString(json.get("comments").getAsString()));
+      res.setCommentsObject(parseString(json.get("comments").getAsString()));
     if (json.has("_comments"))
-      parseElementProperties(json.getAsJsonObject("_comments"), res.getComments());
+      parseElementProperties(json.getAsJsonObject("_comments"), res.getCommentsObject());
     if (json.has("requirements"))
-      res.setRequirements(parseString(json.get("requirements").getAsString()));
+      res.setRequirementsObject(parseString(json.get("requirements").getAsString()));
     if (json.has("_requirements"))
-      parseElementProperties(json.getAsJsonObject("_requirements"), res.getRequirements());
+      parseElementProperties(json.getAsJsonObject("_requirements"), res.getRequirementsObject());
     if (json.has("synonym")) {
       JsonArray array = json.getAsJsonArray("synonym");
       for (int i = 0; i < array.size(); i++) {
@@ -2165,16 +2165,16 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("type"))
-      res.setType(parseCode(json.get("type").getAsString()));
+      res.setTypeObject(parseCode(json.get("type").getAsString()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     Type example = parseType("example", json);
     if (example != null)
       res.setExample(example);
     if (json.has("maxLength"))
-      res.setMaxLength(parseInteger(json.get("maxLength").getAsLong()));
+      res.setMaxLengthObject(parseInteger(json.get("maxLength").getAsLong()));
     if (json.has("_maxLength"))
-      parseElementProperties(json.getAsJsonObject("_maxLength"), res.getMaxLength());
+      parseElementProperties(json.getAsJsonObject("_maxLength"), res.getMaxLengthObject());
     if (json.has("units"))
       res.setUnits(parseCodeableConcept(json.getAsJsonObject("units")));
     if (json.has("binding"))
@@ -2192,17 +2192,17 @@ public class JsonParser extends JsonParserBase {
     DataElement.DataElementBindingComponent res = new DataElement.DataElementBindingComponent();
     parseBackboneProperties(json, res);
     if (json.has("isExtensible"))
-      res.setIsExtensible(parseBoolean(json.get("isExtensible").getAsBoolean()));
+      res.setIsExtensibleObject(parseBoolean(json.get("isExtensible").getAsBoolean()));
     if (json.has("_isExtensible"))
-      parseElementProperties(json.getAsJsonObject("_isExtensible"), res.getIsExtensible());
+      parseElementProperties(json.getAsJsonObject("_isExtensible"), res.getIsExtensibleObject());
     if (json.has("conformance"))
-      res.setConformance(parseEnumeration(json.get("conformance").getAsString(), DataElement.BindingConformance.Null, new DataElement.BindingConformanceEnumFactory()));
+      res.setConformanceObject(parseEnumeration(json.get("conformance").getAsString(), DataElement.BindingConformance.NULL, new DataElement.BindingConformanceEnumFactory()));
     if (json.has("_conformance"))
-      parseElementProperties(json.getAsJsonObject("_conformance"), res.getConformance());
+      parseElementProperties(json.getAsJsonObject("_conformance"), res.getConformanceObject());
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("valueSet"))
       res.setValueSet(parseReference(json.getAsJsonObject("valueSet")));
     return res;
@@ -2212,21 +2212,21 @@ public class JsonParser extends JsonParserBase {
     DataElement.DataElementMappingComponent res = new DataElement.DataElementMappingComponent();
     parseBackboneProperties(json, res);
     if (json.has("uri"))
-      res.setUri(parseUri(json.get("uri").getAsString()));
+      res.setUriObject(parseUri(json.get("uri").getAsString()));
     if (json.has("_uri"))
-      parseElementProperties(json.getAsJsonObject("_uri"), res.getUri());
+      parseElementProperties(json.getAsJsonObject("_uri"), res.getUriObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("comments"))
-      res.setComments(parseString(json.get("comments").getAsString()));
+      res.setCommentsObject(parseString(json.get("comments").getAsString()));
     if (json.has("_comments"))
-      parseElementProperties(json.getAsJsonObject("_comments"), res.getComments());
+      parseElementProperties(json.getAsJsonObject("_comments"), res.getCommentsObject());
     if (json.has("map"))
-      res.setMap(parseString(json.get("map").getAsString()));
+      res.setMapObject(parseString(json.get("map").getAsString()));
     if (json.has("_map"))
-      parseElementProperties(json.getAsJsonObject("_map"), res.getMap());
+      parseElementProperties(json.getAsJsonObject("_map"), res.getMapObject());
     return res;
   }
 
@@ -2242,29 +2242,29 @@ public class JsonParser extends JsonParserBase {
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("manufacturer"))
-      res.setManufacturer(parseString(json.get("manufacturer").getAsString()));
+      res.setManufacturerObject(parseString(json.get("manufacturer").getAsString()));
     if (json.has("_manufacturer"))
-      parseElementProperties(json.getAsJsonObject("_manufacturer"), res.getManufacturer());
+      parseElementProperties(json.getAsJsonObject("_manufacturer"), res.getManufacturerObject());
     if (json.has("model"))
-      res.setModel(parseString(json.get("model").getAsString()));
+      res.setModelObject(parseString(json.get("model").getAsString()));
     if (json.has("_model"))
-      parseElementProperties(json.getAsJsonObject("_model"), res.getModel());
+      parseElementProperties(json.getAsJsonObject("_model"), res.getModelObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("expiry"))
-      res.setExpiry(parseDate(json.get("expiry").getAsString()));
+      res.setExpiryObject(parseDate(json.get("expiry").getAsString()));
     if (json.has("_expiry"))
-      parseElementProperties(json.getAsJsonObject("_expiry"), res.getExpiry());
+      parseElementProperties(json.getAsJsonObject("_expiry"), res.getExpiryObject());
     if (json.has("udi"))
-      res.setUdi(parseString(json.get("udi").getAsString()));
+      res.setUdiObject(parseString(json.get("udi").getAsString()));
     if (json.has("_udi"))
-      parseElementProperties(json.getAsJsonObject("_udi"), res.getUdi());
+      parseElementProperties(json.getAsJsonObject("_udi"), res.getUdiObject());
     if (json.has("lotNumber"))
-      res.setLotNumber(parseString(json.get("lotNumber").getAsString()));
+      res.setLotNumberObject(parseString(json.get("lotNumber").getAsString()));
     if (json.has("_lotNumber"))
-      parseElementProperties(json.getAsJsonObject("_lotNumber"), res.getLotNumber());
+      parseElementProperties(json.getAsJsonObject("_lotNumber"), res.getLotNumberObject());
     if (json.has("owner"))
       res.setOwner(parseReference(json.getAsJsonObject("owner")));
     if (json.has("location"))
@@ -2278,9 +2278,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("url"))
-      res.setUrl(parseUri(json.get("url").getAsString()));
+      res.setUrlObject(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrl());
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlObject());
     return res;
   }
 
@@ -2288,9 +2288,9 @@ public class JsonParser extends JsonParserBase {
     DeviceObservationReport res = new DeviceObservationReport();
     parseResourceProperties(json, res);
     if (json.has("instant"))
-      res.setInstant(parseInstant(json.get("instant").getAsString()));
+      res.setInstantObject(parseInstant(json.get("instant").getAsString()));
     if (json.has("_instant"))
-      parseElementProperties(json.getAsJsonObject("_instant"), res.getInstant());
+      parseElementProperties(json.getAsJsonObject("_instant"), res.getInstantObject());
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("source"))
@@ -2358,9 +2358,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("encounter"))
       res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("clinicalNotes"))
-      res.setClinicalNotes(parseString(json.get("clinicalNotes").getAsString()));
+      res.setClinicalNotesObject(parseString(json.get("clinicalNotes").getAsString()));
     if (json.has("_clinicalNotes"))
-      parseElementProperties(json.getAsJsonObject("_clinicalNotes"), res.getClinicalNotes());
+      parseElementProperties(json.getAsJsonObject("_clinicalNotes"), res.getClinicalNotesObject());
     if (json.has("supportingInformation")) {
       JsonArray array = json.getAsJsonArray("supportingInformation");
       for (int i = 0; i < array.size(); i++) {
@@ -2374,13 +2374,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), DiagnosticOrder.DiagnosticOrderStatus.Null, new DiagnosticOrder.DiagnosticOrderStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), DiagnosticOrder.DiagnosticOrderStatus.NULL, new DiagnosticOrder.DiagnosticOrderStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("priority"))
-      res.setPriority(parseEnumeration(json.get("priority").getAsString(), DiagnosticOrder.DiagnosticOrderPriority.Null, new DiagnosticOrder.DiagnosticOrderPriorityEnumFactory()));
+      res.setPriorityObject(parseEnumeration(json.get("priority").getAsString(), DiagnosticOrder.DiagnosticOrderPriority.NULL, new DiagnosticOrder.DiagnosticOrderPriorityEnumFactory()));
     if (json.has("_priority"))
-      parseElementProperties(json.getAsJsonObject("_priority"), res.getPriority());
+      parseElementProperties(json.getAsJsonObject("_priority"), res.getPriorityObject());
     if (json.has("event")) {
       JsonArray array = json.getAsJsonArray("event");
       for (int i = 0; i < array.size(); i++) {
@@ -2400,15 +2400,15 @@ public class JsonParser extends JsonParserBase {
     DiagnosticOrder.DiagnosticOrderEventComponent res = new DiagnosticOrder.DiagnosticOrderEventComponent();
     parseBackboneProperties(json, res);
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), DiagnosticOrder.DiagnosticOrderStatus.Null, new DiagnosticOrder.DiagnosticOrderStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), DiagnosticOrder.DiagnosticOrderStatus.NULL, new DiagnosticOrder.DiagnosticOrderStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("description"))
       res.setDescription(parseCodeableConcept(json.getAsJsonObject("description")));
     if (json.has("dateTime"))
-      res.setDateTime(parseDateTime(json.get("dateTime").getAsString()));
+      res.setDateTimeObject(parseDateTime(json.get("dateTime").getAsString()));
     if (json.has("_dateTime"))
-      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTime());
+      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeObject());
     if (json.has("actor"))
       res.setActor(parseReference(json.getAsJsonObject("actor")));
     return res;
@@ -2428,9 +2428,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("bodySite"))
       res.setBodySite(parseCodeableConcept(json.getAsJsonObject("bodySite")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), DiagnosticOrder.DiagnosticOrderStatus.Null, new DiagnosticOrder.DiagnosticOrderStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), DiagnosticOrder.DiagnosticOrderStatus.NULL, new DiagnosticOrder.DiagnosticOrderStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("event")) {
       JsonArray array = json.getAsJsonArray("event");
       for (int i = 0; i < array.size(); i++) {
@@ -2446,13 +2446,13 @@ public class JsonParser extends JsonParserBase {
     if (json.has("name"))
       res.setName(parseCodeableConcept(json.getAsJsonObject("name")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), DiagnosticReport.DiagnosticReportStatus.Null, new DiagnosticReport.DiagnosticReportStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), DiagnosticReport.DiagnosticReportStatus.NULL, new DiagnosticReport.DiagnosticReportStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("issued"))
-      res.setIssued(parseDateTime(json.get("issued").getAsString()));
+      res.setIssuedObject(parseDateTime(json.get("issued").getAsString()));
     if (json.has("_issued"))
-      parseElementProperties(json.getAsJsonObject("_issued"), res.getIssued());
+      parseElementProperties(json.getAsJsonObject("_issued"), res.getIssuedObject());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("performer"))
@@ -2495,9 +2495,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("conclusion"))
-      res.setConclusion(parseString(json.get("conclusion").getAsString()));
+      res.setConclusionObject(parseString(json.get("conclusion").getAsString()));
     if (json.has("_conclusion"))
-      parseElementProperties(json.getAsJsonObject("_conclusion"), res.getConclusion());
+      parseElementProperties(json.getAsJsonObject("_conclusion"), res.getConclusionObject());
     if (json.has("codedDiagnosis")) {
       JsonArray array = json.getAsJsonArray("codedDiagnosis");
       for (int i = 0; i < array.size(); i++) {
@@ -2517,9 +2517,9 @@ public class JsonParser extends JsonParserBase {
     DiagnosticReport.DiagnosticReportImageComponent res = new DiagnosticReport.DiagnosticReportImageComponent();
     parseBackboneProperties(json, res);
     if (json.has("comment"))
-      res.setComment(parseString(json.get("comment").getAsString()));
+      res.setCommentObject(parseString(json.get("comment").getAsString()));
     if (json.has("_comment"))
-      parseElementProperties(json.getAsJsonObject("_comment"), res.getComment());
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentObject());
     if (json.has("link"))
       res.setLink(parseReference(json.getAsJsonObject("link")));
     return res;
@@ -2557,23 +2557,23 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("created"))
-      res.setCreated(parseDateTime(json.get("created").getAsString()));
+      res.setCreatedObject(parseDateTime(json.get("created").getAsString()));
     if (json.has("_created"))
-      parseElementProperties(json.getAsJsonObject("_created"), res.getCreated());
+      parseElementProperties(json.getAsJsonObject("_created"), res.getCreatedObject());
     if (json.has("source"))
-      res.setSource(parseUri(json.get("source").getAsString()));
+      res.setSourceObject(parseUri(json.get("source").getAsString()));
     if (json.has("_source"))
-      parseElementProperties(json.getAsJsonObject("_source"), res.getSource());
+      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), DocumentManifest.DocumentReferenceStatus.Null, new DocumentManifest.DocumentReferenceStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), DocumentManifest.DocumentReferenceStatus.NULL, new DocumentManifest.DocumentReferenceStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("supercedes"))
       res.setSupercedes(parseReference(json.getAsJsonObject("supercedes")));
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("confidentiality"))
       res.setConfidentiality(parseCodeableConcept(json.getAsJsonObject("confidentiality")));
     if (json.has("content")) {
@@ -2611,23 +2611,23 @@ public class JsonParser extends JsonParserBase {
     if (json.has("custodian"))
       res.setCustodian(parseReference(json.getAsJsonObject("custodian")));
     if (json.has("policyManager"))
-      res.setPolicyManager(parseUri(json.get("policyManager").getAsString()));
+      res.setPolicyManagerObject(parseUri(json.get("policyManager").getAsString()));
     if (json.has("_policyManager"))
-      parseElementProperties(json.getAsJsonObject("_policyManager"), res.getPolicyManager());
+      parseElementProperties(json.getAsJsonObject("_policyManager"), res.getPolicyManagerObject());
     if (json.has("authenticator"))
       res.setAuthenticator(parseReference(json.getAsJsonObject("authenticator")));
     if (json.has("created"))
-      res.setCreated(parseDateTime(json.get("created").getAsString()));
+      res.setCreatedObject(parseDateTime(json.get("created").getAsString()));
     if (json.has("_created"))
-      parseElementProperties(json.getAsJsonObject("_created"), res.getCreated());
+      parseElementProperties(json.getAsJsonObject("_created"), res.getCreatedObject());
     if (json.has("indexed"))
-      res.setIndexed(parseInstant(json.get("indexed").getAsString()));
+      res.setIndexedObject(parseInstant(json.get("indexed").getAsString()));
     if (json.has("_indexed"))
-      parseElementProperties(json.getAsJsonObject("_indexed"), res.getIndexed());
+      parseElementProperties(json.getAsJsonObject("_indexed"), res.getIndexedObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), DocumentReference.DocumentReferenceStatus.Null, new DocumentReference.DocumentReferenceStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), DocumentReference.DocumentReferenceStatus.NULL, new DocumentReference.DocumentReferenceStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("docStatus"))
       res.setDocStatus(parseCodeableConcept(json.getAsJsonObject("docStatus")));
     if (json.has("relatesTo")) {
@@ -2637,9 +2637,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("confidentiality")) {
       JsonArray array = json.getAsJsonArray("confidentiality");
       for (int i = 0; i < array.size(); i++) {
@@ -2647,13 +2647,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("primaryLanguage"))
-      res.setPrimaryLanguage(parseCode(json.get("primaryLanguage").getAsString()));
+      res.setPrimaryLanguageObject(parseCode(json.get("primaryLanguage").getAsString()));
     if (json.has("_primaryLanguage"))
-      parseElementProperties(json.getAsJsonObject("_primaryLanguage"), res.getPrimaryLanguage());
+      parseElementProperties(json.getAsJsonObject("_primaryLanguage"), res.getPrimaryLanguageObject());
     if (json.has("mimeType"))
-      res.setMimeType(parseCode(json.get("mimeType").getAsString()));
+      res.setMimeTypeObject(parseCode(json.get("mimeType").getAsString()));
     if (json.has("_mimeType"))
-      parseElementProperties(json.getAsJsonObject("_mimeType"), res.getMimeType());
+      parseElementProperties(json.getAsJsonObject("_mimeType"), res.getMimeTypeObject());
     if (json.has("format")) {
       JsonArray array = json.getAsJsonArray("format");
       for (int i = 0; i < array.size(); i++) {
@@ -2670,17 +2670,17 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("size"))
-      res.setSize(parseInteger(json.get("size").getAsLong()));
+      res.setSizeObject(parseInteger(json.get("size").getAsLong()));
     if (json.has("_size"))
-      parseElementProperties(json.getAsJsonObject("_size"), res.getSize());
+      parseElementProperties(json.getAsJsonObject("_size"), res.getSizeObject());
     if (json.has("hash"))
-      res.setHash(parseString(json.get("hash").getAsString()));
+      res.setHashObject(parseString(json.get("hash").getAsString()));
     if (json.has("_hash"))
-      parseElementProperties(json.getAsJsonObject("_hash"), res.getHash());
+      parseElementProperties(json.getAsJsonObject("_hash"), res.getHashObject());
     if (json.has("location"))
-      res.setLocation(parseUri(json.get("location").getAsString()));
+      res.setLocationObject(parseUri(json.get("location").getAsString()));
     if (json.has("_location"))
-      parseElementProperties(json.getAsJsonObject("_location"), res.getLocation());
+      parseElementProperties(json.getAsJsonObject("_location"), res.getLocationObject());
     if (json.has("service"))
       res.setService(parseDocumentReferenceDocumentReferenceServiceComponent(json.getAsJsonObject("service"), res));
     if (json.has("context"))
@@ -2692,9 +2692,9 @@ public class JsonParser extends JsonParserBase {
     DocumentReference.DocumentReferenceRelatesToComponent res = new DocumentReference.DocumentReferenceRelatesToComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
-      res.setCode(parseEnumeration(json.get("code").getAsString(), DocumentReference.DocumentRelationshipType.Null, new DocumentReference.DocumentRelationshipTypeEnumFactory()));
+      res.setCodeObject(parseEnumeration(json.get("code").getAsString(), DocumentReference.DocumentRelationshipType.NULL, new DocumentReference.DocumentRelationshipTypeEnumFactory()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("target"))
       res.setTarget(parseReference(json.getAsJsonObject("target")));
     return res;
@@ -2706,9 +2706,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("address"))
-      res.setAddress(parseString(json.get("address").getAsString()));
+      res.setAddressObject(parseString(json.get("address").getAsString()));
     if (json.has("_address"))
-      parseElementProperties(json.getAsJsonObject("_address"), res.getAddress());
+      parseElementProperties(json.getAsJsonObject("_address"), res.getAddressObject());
     if (json.has("parameter")) {
       JsonArray array = json.getAsJsonArray("parameter");
       for (int i = 0; i < array.size(); i++) {
@@ -2722,13 +2722,13 @@ public class JsonParser extends JsonParserBase {
     DocumentReference.DocumentReferenceServiceParameterComponent res = new DocumentReference.DocumentReferenceServiceParameterComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("value"))
-      res.setValue(parseString(json.get("value").getAsString()));
+      res.setValueObject(parseString(json.get("value").getAsString()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     return res;
   }
 
@@ -2758,13 +2758,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Encounter.EncounterState.Null, new Encounter.EncounterStateEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Encounter.EncounterState.NULL, new Encounter.EncounterStateEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("class"))
-      res.setClass_(parseEnumeration(json.get("class").getAsString(), Encounter.EncounterClass.Null, new Encounter.EncounterClassEnumFactory()));
+      res.setClass_Object(parseEnumeration(json.get("class").getAsString(), Encounter.EncounterClass.NULL, new Encounter.EncounterClassEnumFactory()));
     if (json.has("_class"))
-      parseElementProperties(json.getAsJsonObject("_class"), res.getClass_());
+      parseElementProperties(json.getAsJsonObject("_class"), res.getClass_Object());
     if (json.has("type")) {
       JsonArray array = json.getAsJsonArray("type");
       for (int i = 0; i < array.size(); i++) {
@@ -2858,9 +2858,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("dischargeDiagnosis"))
       res.setDischargeDiagnosis(parseReference(json.getAsJsonObject("dischargeDiagnosis")));
     if (json.has("reAdmission"))
-      res.setReAdmission(parseBoolean(json.get("reAdmission").getAsBoolean()));
+      res.setReAdmissionObject(parseBoolean(json.get("reAdmission").getAsBoolean()));
     if (json.has("_reAdmission"))
-      parseElementProperties(json.getAsJsonObject("_reAdmission"), res.getReAdmission());
+      parseElementProperties(json.getAsJsonObject("_reAdmission"), res.getReAdmissionObject());
     return res;
   }
 
@@ -2896,13 +2896,13 @@ public class JsonParser extends JsonParserBase {
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("note"))
-      res.setNote(parseString(json.get("note").getAsString()));
+      res.setNoteObject(parseString(json.get("note").getAsString()));
     if (json.has("_note"))
-      parseElementProperties(json.getAsJsonObject("_note"), res.getNote());
+      parseElementProperties(json.getAsJsonObject("_note"), res.getNoteObject());
     if (json.has("relation")) {
       JsonArray array = json.getAsJsonArray("relation");
       for (int i = 0; i < array.size(); i++) {
@@ -2916,9 +2916,9 @@ public class JsonParser extends JsonParserBase {
     FamilyHistory.FamilyHistoryRelationComponent res = new FamilyHistory.FamilyHistoryRelationComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("relationship"))
       res.setRelationship(parseCodeableConcept(json.getAsJsonObject("relationship")));
     Type born = parseType("born", json);
@@ -2931,9 +2931,9 @@ public class JsonParser extends JsonParserBase {
     if (deceased != null)
       res.setDeceased(deceased);
     if (json.has("note"))
-      res.setNote(parseString(json.get("note").getAsString()));
+      res.setNoteObject(parseString(json.get("note").getAsString()));
     if (json.has("_note"))
-      parseElementProperties(json.getAsJsonObject("_note"), res.getNote());
+      parseElementProperties(json.getAsJsonObject("_note"), res.getNoteObject());
     if (json.has("condition")) {
       JsonArray array = json.getAsJsonArray("condition");
       for (int i = 0; i < array.size(); i++) {
@@ -2954,9 +2954,9 @@ public class JsonParser extends JsonParserBase {
     if (onset != null)
       res.setOnset(onset);
     if (json.has("note"))
-      res.setNote(parseString(json.get("note").getAsString()));
+      res.setNoteObject(parseString(json.get("note").getAsString()));
     if (json.has("_note"))
-      parseElementProperties(json.getAsJsonObject("_note"), res.getNote());
+      parseElementProperties(json.getAsJsonObject("_note"), res.getNoteObject());
     return res;
   }
 
@@ -2966,23 +2966,23 @@ public class JsonParser extends JsonParserBase {
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Group.GroupType.Null, new Group.GroupTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Group.GroupType.NULL, new Group.GroupTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("actual"))
-      res.setActual(parseBoolean(json.get("actual").getAsBoolean()));
+      res.setActualObject(parseBoolean(json.get("actual").getAsBoolean()));
     if (json.has("_actual"))
-      parseElementProperties(json.getAsJsonObject("_actual"), res.getActual());
+      parseElementProperties(json.getAsJsonObject("_actual"), res.getActualObject());
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("quantity"))
-      res.setQuantity(parseInteger(json.get("quantity").getAsLong()));
+      res.setQuantityObject(parseInteger(json.get("quantity").getAsLong()));
     if (json.has("_quantity"))
-      parseElementProperties(json.getAsJsonObject("_quantity"), res.getQuantity());
+      parseElementProperties(json.getAsJsonObject("_quantity"), res.getQuantityObject());
     if (json.has("characteristic")) {
       JsonArray array = json.getAsJsonArray("characteristic");
       for (int i = 0; i < array.size(); i++) {
@@ -3007,9 +3007,9 @@ public class JsonParser extends JsonParserBase {
     if (value != null)
       res.setValue(value);
     if (json.has("exclude"))
-      res.setExclude(parseBoolean(json.get("exclude").getAsBoolean()));
+      res.setExcludeObject(parseBoolean(json.get("exclude").getAsBoolean()));
     if (json.has("_exclude"))
-      parseElementProperties(json.getAsJsonObject("_exclude"), res.getExclude());
+      parseElementProperties(json.getAsJsonObject("_exclude"), res.getExcludeObject());
     return res;
   }
 
@@ -3017,15 +3017,15 @@ public class JsonParser extends JsonParserBase {
     ImagingStudy res = new ImagingStudy();
     parseResourceProperties(json, res);
     if (json.has("dateTime"))
-      res.setDateTime(parseDateTime(json.get("dateTime").getAsString()));
+      res.setDateTimeObject(parseDateTime(json.get("dateTime").getAsString()));
     if (json.has("_dateTime"))
-      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTime());
+      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeObject());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("uid"))
-      res.setUid(parseOid(json.get("uid").getAsString()));
+      res.setUidObject(parseOid(json.get("uid").getAsString()));
     if (json.has("_uid"))
-      parseElementProperties(json.getAsJsonObject("_uid"), res.getUid());
+      parseElementProperties(json.getAsJsonObject("_uid"), res.getUidObject());
     if (json.has("accessionNo"))
       res.setAccessionNo(parseIdentifier(json.getAsJsonObject("accessionNo")));
     if (json.has("identifier")) {
@@ -3043,14 +3043,14 @@ public class JsonParser extends JsonParserBase {
     if (json.has("modality")) {
       JsonArray array = json.getAsJsonArray("modality");
       for (int i = 0; i < array.size(); i++) {
-        res.getModality().add(parseEnumeration(array.get(i).getAsString(), ImagingStudy.ImagingModality.Null, new ImagingStudy.ImagingModalityEnumFactory()));
+        res.getModality().add(parseEnumeration(array.get(i).getAsString(), ImagingStudy.ImagingModality.NULL, new ImagingStudy.ImagingModalityEnumFactory()));
       }
     };
     if (json.has("_modality")) {
       JsonArray array = json.getAsJsonArray("_modality");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getModality().size())
-          res.getModality().add(parseEnumeration(null, ImagingStudy.ImagingModality.Null, new ImagingStudy.ImagingModalityEnumFactory()));
+          res.getModality().add(parseEnumeration(null, ImagingStudy.ImagingModality.NULL, new ImagingStudy.ImagingModalityEnumFactory()));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getModality().get(i));
       }
@@ -3058,25 +3058,25 @@ public class JsonParser extends JsonParserBase {
     if (json.has("referrer"))
       res.setReferrer(parseReference(json.getAsJsonObject("referrer")));
     if (json.has("availability"))
-      res.setAvailability(parseEnumeration(json.get("availability").getAsString(), ImagingStudy.InstanceAvailability.Null, new ImagingStudy.InstanceAvailabilityEnumFactory()));
+      res.setAvailabilityObject(parseEnumeration(json.get("availability").getAsString(), ImagingStudy.InstanceAvailability.NULL, new ImagingStudy.InstanceAvailabilityEnumFactory()));
     if (json.has("_availability"))
-      parseElementProperties(json.getAsJsonObject("_availability"), res.getAvailability());
+      parseElementProperties(json.getAsJsonObject("_availability"), res.getAvailabilityObject());
     if (json.has("url"))
-      res.setUrl(parseUri(json.get("url").getAsString()));
+      res.setUrlObject(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrl());
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlObject());
     if (json.has("numberOfSeries"))
-      res.setNumberOfSeries(parseInteger(json.get("numberOfSeries").getAsLong()));
+      res.setNumberOfSeriesObject(parseInteger(json.get("numberOfSeries").getAsLong()));
     if (json.has("_numberOfSeries"))
-      parseElementProperties(json.getAsJsonObject("_numberOfSeries"), res.getNumberOfSeries());
+      parseElementProperties(json.getAsJsonObject("_numberOfSeries"), res.getNumberOfSeriesObject());
     if (json.has("numberOfInstances"))
-      res.setNumberOfInstances(parseInteger(json.get("numberOfInstances").getAsLong()));
+      res.setNumberOfInstancesObject(parseInteger(json.get("numberOfInstances").getAsLong()));
     if (json.has("_numberOfInstances"))
-      parseElementProperties(json.getAsJsonObject("_numberOfInstances"), res.getNumberOfInstances());
+      parseElementProperties(json.getAsJsonObject("_numberOfInstances"), res.getNumberOfInstancesObject());
     if (json.has("clinicalInformation"))
-      res.setClinicalInformation(parseString(json.get("clinicalInformation").getAsString()));
+      res.setClinicalInformationObject(parseString(json.get("clinicalInformation").getAsString()));
     if (json.has("_clinicalInformation"))
-      parseElementProperties(json.getAsJsonObject("_clinicalInformation"), res.getClinicalInformation());
+      parseElementProperties(json.getAsJsonObject("_clinicalInformation"), res.getClinicalInformationObject());
     if (json.has("procedure")) {
       JsonArray array = json.getAsJsonArray("procedure");
       for (int i = 0; i < array.size(); i++) {
@@ -3086,9 +3086,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("interpreter"))
       res.setInterpreter(parseReference(json.getAsJsonObject("interpreter")));
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("series")) {
       JsonArray array = json.getAsJsonArray("series");
       for (int i = 0; i < array.size(); i++) {
@@ -3102,39 +3102,39 @@ public class JsonParser extends JsonParserBase {
     ImagingStudy.ImagingStudySeriesComponent res = new ImagingStudy.ImagingStudySeriesComponent();
     parseBackboneProperties(json, res);
     if (json.has("number"))
-      res.setNumber(parseInteger(json.get("number").getAsLong()));
+      res.setNumberObject(parseInteger(json.get("number").getAsLong()));
     if (json.has("_number"))
-      parseElementProperties(json.getAsJsonObject("_number"), res.getNumber());
+      parseElementProperties(json.getAsJsonObject("_number"), res.getNumberObject());
     if (json.has("modality"))
-      res.setModality(parseEnumeration(json.get("modality").getAsString(), ImagingStudy.Modality.Null, new ImagingStudy.ModalityEnumFactory()));
+      res.setModalityObject(parseEnumeration(json.get("modality").getAsString(), ImagingStudy.Modality.NULL, new ImagingStudy.ModalityEnumFactory()));
     if (json.has("_modality"))
-      parseElementProperties(json.getAsJsonObject("_modality"), res.getModality());
+      parseElementProperties(json.getAsJsonObject("_modality"), res.getModalityObject());
     if (json.has("uid"))
-      res.setUid(parseOid(json.get("uid").getAsString()));
+      res.setUidObject(parseOid(json.get("uid").getAsString()));
     if (json.has("_uid"))
-      parseElementProperties(json.getAsJsonObject("_uid"), res.getUid());
+      parseElementProperties(json.getAsJsonObject("_uid"), res.getUidObject());
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("numberOfInstances"))
-      res.setNumberOfInstances(parseInteger(json.get("numberOfInstances").getAsLong()));
+      res.setNumberOfInstancesObject(parseInteger(json.get("numberOfInstances").getAsLong()));
     if (json.has("_numberOfInstances"))
-      parseElementProperties(json.getAsJsonObject("_numberOfInstances"), res.getNumberOfInstances());
+      parseElementProperties(json.getAsJsonObject("_numberOfInstances"), res.getNumberOfInstancesObject());
     if (json.has("availability"))
-      res.setAvailability(parseEnumeration(json.get("availability").getAsString(), ImagingStudy.InstanceAvailability.Null, new ImagingStudy.InstanceAvailabilityEnumFactory()));
+      res.setAvailabilityObject(parseEnumeration(json.get("availability").getAsString(), ImagingStudy.InstanceAvailability.NULL, new ImagingStudy.InstanceAvailabilityEnumFactory()));
     if (json.has("_availability"))
-      parseElementProperties(json.getAsJsonObject("_availability"), res.getAvailability());
+      parseElementProperties(json.getAsJsonObject("_availability"), res.getAvailabilityObject());
     if (json.has("url"))
-      res.setUrl(parseUri(json.get("url").getAsString()));
+      res.setUrlObject(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrl());
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlObject());
     if (json.has("bodySite"))
       res.setBodySite(parseCoding(json.getAsJsonObject("bodySite")));
     if (json.has("dateTime"))
-      res.setDateTime(parseDateTime(json.get("dateTime").getAsString()));
+      res.setDateTimeObject(parseDateTime(json.get("dateTime").getAsString()));
     if (json.has("_dateTime"))
-      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTime());
+      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeObject());
     if (json.has("instance")) {
       JsonArray array = json.getAsJsonArray("instance");
       for (int i = 0; i < array.size(); i++) {
@@ -3148,29 +3148,29 @@ public class JsonParser extends JsonParserBase {
     ImagingStudy.ImagingStudySeriesInstanceComponent res = new ImagingStudy.ImagingStudySeriesInstanceComponent();
     parseBackboneProperties(json, res);
     if (json.has("number"))
-      res.setNumber(parseInteger(json.get("number").getAsLong()));
+      res.setNumberObject(parseInteger(json.get("number").getAsLong()));
     if (json.has("_number"))
-      parseElementProperties(json.getAsJsonObject("_number"), res.getNumber());
+      parseElementProperties(json.getAsJsonObject("_number"), res.getNumberObject());
     if (json.has("uid"))
-      res.setUid(parseOid(json.get("uid").getAsString()));
+      res.setUidObject(parseOid(json.get("uid").getAsString()));
     if (json.has("_uid"))
-      parseElementProperties(json.getAsJsonObject("_uid"), res.getUid());
+      parseElementProperties(json.getAsJsonObject("_uid"), res.getUidObject());
     if (json.has("sopclass"))
-      res.setSopclass(parseOid(json.get("sopclass").getAsString()));
+      res.setSopclassObject(parseOid(json.get("sopclass").getAsString()));
     if (json.has("_sopclass"))
-      parseElementProperties(json.getAsJsonObject("_sopclass"), res.getSopclass());
+      parseElementProperties(json.getAsJsonObject("_sopclass"), res.getSopclassObject());
     if (json.has("type"))
-      res.setType(parseString(json.get("type").getAsString()));
+      res.setTypeObject(parseString(json.get("type").getAsString()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("title"))
-      res.setTitle(parseString(json.get("title").getAsString()));
+      res.setTitleObject(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
-      parseElementProperties(json.getAsJsonObject("_title"), res.getTitle());
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleObject());
     if (json.has("url"))
-      res.setUrl(parseUri(json.get("url").getAsString()));
+      res.setUrlObject(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrl());
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlObject());
     if (json.has("attachment"))
       res.setAttachment(parseReference(json.getAsJsonObject("attachment")));
     return res;
@@ -3186,21 +3186,21 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("vaccineType"))
       res.setVaccineType(parseCodeableConcept(json.getAsJsonObject("vaccineType")));
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("refusedIndicator"))
-      res.setRefusedIndicator(parseBoolean(json.get("refusedIndicator").getAsBoolean()));
+      res.setRefusedIndicatorObject(parseBoolean(json.get("refusedIndicator").getAsBoolean()));
     if (json.has("_refusedIndicator"))
-      parseElementProperties(json.getAsJsonObject("_refusedIndicator"), res.getRefusedIndicator());
+      parseElementProperties(json.getAsJsonObject("_refusedIndicator"), res.getRefusedIndicatorObject());
     if (json.has("reported"))
-      res.setReported(parseBoolean(json.get("reported").getAsBoolean()));
+      res.setReportedObject(parseBoolean(json.get("reported").getAsBoolean()));
     if (json.has("_reported"))
-      parseElementProperties(json.getAsJsonObject("_reported"), res.getReported());
+      parseElementProperties(json.getAsJsonObject("_reported"), res.getReportedObject());
     if (json.has("performer"))
       res.setPerformer(parseReference(json.getAsJsonObject("performer")));
     if (json.has("requester"))
@@ -3210,13 +3210,13 @@ public class JsonParser extends JsonParserBase {
     if (json.has("location"))
       res.setLocation(parseReference(json.getAsJsonObject("location")));
     if (json.has("lotNumber"))
-      res.setLotNumber(parseString(json.get("lotNumber").getAsString()));
+      res.setLotNumberObject(parseString(json.get("lotNumber").getAsString()));
     if (json.has("_lotNumber"))
-      parseElementProperties(json.getAsJsonObject("_lotNumber"), res.getLotNumber());
+      parseElementProperties(json.getAsJsonObject("_lotNumber"), res.getLotNumberObject());
     if (json.has("expirationDate"))
-      res.setExpirationDate(parseDate(json.get("expirationDate").getAsString()));
+      res.setExpirationDateObject(parseDate(json.get("expirationDate").getAsString()));
     if (json.has("_expirationDate"))
-      parseElementProperties(json.getAsJsonObject("_expirationDate"), res.getExpirationDate());
+      parseElementProperties(json.getAsJsonObject("_expirationDate"), res.getExpirationDateObject());
     if (json.has("site"))
       res.setSite(parseCodeableConcept(json.getAsJsonObject("site")));
     if (json.has("route"))
@@ -3262,15 +3262,15 @@ public class JsonParser extends JsonParserBase {
     Immunization.ImmunizationReactionComponent res = new Immunization.ImmunizationReactionComponent();
     parseBackboneProperties(json, res);
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("detail"))
       res.setDetail(parseReference(json.getAsJsonObject("detail")));
     if (json.has("reported"))
-      res.setReported(parseBoolean(json.get("reported").getAsBoolean()));
+      res.setReportedObject(parseBoolean(json.get("reported").getAsBoolean()));
     if (json.has("_reported"))
-      parseElementProperties(json.getAsJsonObject("_reported"), res.getReported());
+      parseElementProperties(json.getAsJsonObject("_reported"), res.getReportedObject());
     return res;
   }
 
@@ -3278,23 +3278,23 @@ public class JsonParser extends JsonParserBase {
     Immunization.ImmunizationVaccinationProtocolComponent res = new Immunization.ImmunizationVaccinationProtocolComponent();
     parseBackboneProperties(json, res);
     if (json.has("doseSequence"))
-      res.setDoseSequence(parseInteger(json.get("doseSequence").getAsLong()));
+      res.setDoseSequenceObject(parseInteger(json.get("doseSequence").getAsLong()));
     if (json.has("_doseSequence"))
-      parseElementProperties(json.getAsJsonObject("_doseSequence"), res.getDoseSequence());
+      parseElementProperties(json.getAsJsonObject("_doseSequence"), res.getDoseSequenceObject());
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("authority"))
       res.setAuthority(parseReference(json.getAsJsonObject("authority")));
     if (json.has("series"))
-      res.setSeries(parseString(json.get("series").getAsString()));
+      res.setSeriesObject(parseString(json.get("series").getAsString()));
     if (json.has("_series"))
-      parseElementProperties(json.getAsJsonObject("_series"), res.getSeries());
+      parseElementProperties(json.getAsJsonObject("_series"), res.getSeriesObject());
     if (json.has("seriesDoses"))
-      res.setSeriesDoses(parseInteger(json.get("seriesDoses").getAsLong()));
+      res.setSeriesDosesObject(parseInteger(json.get("seriesDoses").getAsLong()));
     if (json.has("_seriesDoses"))
-      parseElementProperties(json.getAsJsonObject("_seriesDoses"), res.getSeriesDoses());
+      parseElementProperties(json.getAsJsonObject("_seriesDoses"), res.getSeriesDosesObject());
     if (json.has("doseTarget"))
       res.setDoseTarget(parseCodeableConcept(json.getAsJsonObject("doseTarget")));
     if (json.has("doseStatus"))
@@ -3328,15 +3328,15 @@ public class JsonParser extends JsonParserBase {
     ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent res = new ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent();
     parseBackboneProperties(json, res);
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("vaccineType"))
       res.setVaccineType(parseCodeableConcept(json.getAsJsonObject("vaccineType")));
     if (json.has("doseNumber"))
-      res.setDoseNumber(parseInteger(json.get("doseNumber").getAsLong()));
+      res.setDoseNumberObject(parseInteger(json.get("doseNumber").getAsLong()));
     if (json.has("_doseNumber"))
-      parseElementProperties(json.getAsJsonObject("_doseNumber"), res.getDoseNumber());
+      parseElementProperties(json.getAsJsonObject("_doseNumber"), res.getDoseNumberObject());
     if (json.has("forecastStatus"))
       res.setForecastStatus(parseCodeableConcept(json.getAsJsonObject("forecastStatus")));
     if (json.has("dateCriterion")) {
@@ -3368,9 +3368,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("value"))
-      res.setValue(parseDateTime(json.get("value").getAsString()));
+      res.setValueObject(parseDateTime(json.get("value").getAsString()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     return res;
   }
 
@@ -3378,19 +3378,19 @@ public class JsonParser extends JsonParserBase {
     ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent res = new ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent();
     parseBackboneProperties(json, res);
     if (json.has("doseSequence"))
-      res.setDoseSequence(parseInteger(json.get("doseSequence").getAsLong()));
+      res.setDoseSequenceObject(parseInteger(json.get("doseSequence").getAsLong()));
     if (json.has("_doseSequence"))
-      parseElementProperties(json.getAsJsonObject("_doseSequence"), res.getDoseSequence());
+      parseElementProperties(json.getAsJsonObject("_doseSequence"), res.getDoseSequenceObject());
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("authority"))
       res.setAuthority(parseReference(json.getAsJsonObject("authority")));
     if (json.has("series"))
-      res.setSeries(parseString(json.get("series").getAsString()));
+      res.setSeriesObject(parseString(json.get("series").getAsString()));
     if (json.has("_series"))
-      parseElementProperties(json.getAsJsonObject("_series"), res.getSeries());
+      parseElementProperties(json.getAsJsonObject("_series"), res.getSeriesObject());
     return res;
   }
 
@@ -3410,17 +3410,17 @@ public class JsonParser extends JsonParserBase {
     if (json.has("source"))
       res.setSource(parseReference(json.getAsJsonObject("source")));
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("ordered"))
-      res.setOrdered(parseBoolean(json.get("ordered").getAsBoolean()));
+      res.setOrderedObject(parseBoolean(json.get("ordered").getAsBoolean()));
     if (json.has("_ordered"))
-      parseElementProperties(json.getAsJsonObject("_ordered"), res.getOrdered());
+      parseElementProperties(json.getAsJsonObject("_ordered"), res.getOrderedObject());
     if (json.has("mode"))
-      res.setMode(parseEnumeration(json.get("mode").getAsString(), List_.ListMode.Null, new List_.ListModeEnumFactory()));
+      res.setModeObject(parseEnumeration(json.get("mode").getAsString(), List_.ListMode.NULL, new List_.ListModeEnumFactory()));
     if (json.has("_mode"))
-      parseElementProperties(json.getAsJsonObject("_mode"), res.getMode());
+      parseElementProperties(json.getAsJsonObject("_mode"), res.getModeObject());
     if (json.has("entry")) {
       JsonArray array = json.getAsJsonArray("entry");
       for (int i = 0; i < array.size(); i++) {
@@ -3442,13 +3442,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("deleted"))
-      res.setDeleted(parseBoolean(json.get("deleted").getAsBoolean()));
+      res.setDeletedObject(parseBoolean(json.get("deleted").getAsBoolean()));
     if (json.has("_deleted"))
-      parseElementProperties(json.getAsJsonObject("_deleted"), res.getDeleted());
+      parseElementProperties(json.getAsJsonObject("_deleted"), res.getDeletedObject());
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("item"))
       res.setItem(parseReference(json.getAsJsonObject("item")));
     return res;
@@ -3464,13 +3464,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("telecom")) {
@@ -3488,15 +3488,15 @@ public class JsonParser extends JsonParserBase {
     if (json.has("managingOrganization"))
       res.setManagingOrganization(parseReference(json.getAsJsonObject("managingOrganization")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Location.LocationStatus.Null, new Location.LocationStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Location.LocationStatus.NULL, new Location.LocationStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("partOf"))
       res.setPartOf(parseReference(json.getAsJsonObject("partOf")));
     if (json.has("mode"))
-      res.setMode(parseEnumeration(json.get("mode").getAsString(), Location.LocationMode.Null, new Location.LocationModeEnumFactory()));
+      res.setModeObject(parseEnumeration(json.get("mode").getAsString(), Location.LocationMode.NULL, new Location.LocationModeEnumFactory()));
     if (json.has("_mode"))
-      parseElementProperties(json.getAsJsonObject("_mode"), res.getMode());
+      parseElementProperties(json.getAsJsonObject("_mode"), res.getModeObject());
     return res;
   }
 
@@ -3504,17 +3504,17 @@ public class JsonParser extends JsonParserBase {
     Location.LocationPositionComponent res = new Location.LocationPositionComponent();
     parseBackboneProperties(json, res);
     if (json.has("longitude"))
-      res.setLongitude(parseDecimal(json.get("longitude").getAsBigDecimal()));
+      res.setLongitudeObject(parseDecimal(json.get("longitude").getAsBigDecimal()));
     if (json.has("_longitude"))
-      parseElementProperties(json.getAsJsonObject("_longitude"), res.getLongitude());
+      parseElementProperties(json.getAsJsonObject("_longitude"), res.getLongitudeObject());
     if (json.has("latitude"))
-      res.setLatitude(parseDecimal(json.get("latitude").getAsBigDecimal()));
+      res.setLatitudeObject(parseDecimal(json.get("latitude").getAsBigDecimal()));
     if (json.has("_latitude"))
-      parseElementProperties(json.getAsJsonObject("_latitude"), res.getLatitude());
+      parseElementProperties(json.getAsJsonObject("_latitude"), res.getLatitudeObject());
     if (json.has("altitude"))
-      res.setAltitude(parseDecimal(json.get("altitude").getAsBigDecimal()));
+      res.setAltitudeObject(parseDecimal(json.get("altitude").getAsBigDecimal()));
     if (json.has("_altitude"))
-      parseElementProperties(json.getAsJsonObject("_altitude"), res.getAltitude());
+      parseElementProperties(json.getAsJsonObject("_altitude"), res.getAltitudeObject());
     return res;
   }
 
@@ -3522,9 +3522,9 @@ public class JsonParser extends JsonParserBase {
     Media res = new Media();
     parseResourceProperties(json, res);
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Media.MediaType.Null, new Media.MediaTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Media.MediaType.NULL, new Media.MediaTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("subtype"))
       res.setSubtype(parseCodeableConcept(json.getAsJsonObject("subtype")));
     if (json.has("identifier")) {
@@ -3534,9 +3534,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("dateTime"))
-      res.setDateTime(parseDateTime(json.get("dateTime").getAsString()));
+      res.setDateTimeObject(parseDateTime(json.get("dateTime").getAsString()));
     if (json.has("_dateTime"))
-      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTime());
+      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeObject());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("operator"))
@@ -3544,25 +3544,25 @@ public class JsonParser extends JsonParserBase {
     if (json.has("view"))
       res.setView(parseCodeableConcept(json.getAsJsonObject("view")));
     if (json.has("deviceName"))
-      res.setDeviceName(parseString(json.get("deviceName").getAsString()));
+      res.setDeviceNameObject(parseString(json.get("deviceName").getAsString()));
     if (json.has("_deviceName"))
-      parseElementProperties(json.getAsJsonObject("_deviceName"), res.getDeviceName());
+      parseElementProperties(json.getAsJsonObject("_deviceName"), res.getDeviceNameObject());
     if (json.has("height"))
-      res.setHeight(parseInteger(json.get("height").getAsLong()));
+      res.setHeightObject(parseInteger(json.get("height").getAsLong()));
     if (json.has("_height"))
-      parseElementProperties(json.getAsJsonObject("_height"), res.getHeight());
+      parseElementProperties(json.getAsJsonObject("_height"), res.getHeightObject());
     if (json.has("width"))
-      res.setWidth(parseInteger(json.get("width").getAsLong()));
+      res.setWidthObject(parseInteger(json.get("width").getAsLong()));
     if (json.has("_width"))
-      parseElementProperties(json.getAsJsonObject("_width"), res.getWidth());
+      parseElementProperties(json.getAsJsonObject("_width"), res.getWidthObject());
     if (json.has("frames"))
-      res.setFrames(parseInteger(json.get("frames").getAsLong()));
+      res.setFramesObject(parseInteger(json.get("frames").getAsLong()));
     if (json.has("_frames"))
-      parseElementProperties(json.getAsJsonObject("_frames"), res.getFrames());
+      parseElementProperties(json.getAsJsonObject("_frames"), res.getFramesObject());
     if (json.has("length"))
-      res.setLength(parseInteger(json.get("length").getAsLong()));
+      res.setLengthObject(parseInteger(json.get("length").getAsLong()));
     if (json.has("_length"))
-      parseElementProperties(json.getAsJsonObject("_length"), res.getLength());
+      parseElementProperties(json.getAsJsonObject("_length"), res.getLengthObject());
     if (json.has("content"))
       res.setContent(parseAttachment(json.getAsJsonObject("content")));
     return res;
@@ -3572,21 +3572,21 @@ public class JsonParser extends JsonParserBase {
     Medication res = new Medication();
     parseResourceProperties(json, res);
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("isBrand"))
-      res.setIsBrand(parseBoolean(json.get("isBrand").getAsBoolean()));
+      res.setIsBrandObject(parseBoolean(json.get("isBrand").getAsBoolean()));
     if (json.has("_isBrand"))
-      parseElementProperties(json.getAsJsonObject("_isBrand"), res.getIsBrand());
+      parseElementProperties(json.getAsJsonObject("_isBrand"), res.getIsBrandObject());
     if (json.has("manufacturer"))
       res.setManufacturer(parseReference(json.getAsJsonObject("manufacturer")));
     if (json.has("kind"))
-      res.setKind(parseEnumeration(json.get("kind").getAsString(), Medication.MedicationKind.Null, new Medication.MedicationKindEnumFactory()));
+      res.setKindObject(parseEnumeration(json.get("kind").getAsString(), Medication.MedicationKind.NULL, new Medication.MedicationKindEnumFactory()));
     if (json.has("_kind"))
-      parseElementProperties(json.getAsJsonObject("_kind"), res.getKind());
+      parseElementProperties(json.getAsJsonObject("_kind"), res.getKindObject());
     if (json.has("product"))
       res.setProduct(parseMedicationMedicationProductComponent(json.getAsJsonObject("product"), res));
     if (json.has("package"))
@@ -3652,9 +3652,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), MedicationAdministration.MedicationAdminStatus.Null, new MedicationAdministration.MedicationAdminStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), MedicationAdministration.MedicationAdminStatus.NULL, new MedicationAdministration.MedicationAdminStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("patient"))
       res.setPatient(parseReference(json.getAsJsonObject("patient")));
     if (json.has("practitioner"))
@@ -3664,9 +3664,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("prescription"))
       res.setPrescription(parseReference(json.getAsJsonObject("prescription")));
     if (json.has("wasNotGiven"))
-      res.setWasNotGiven(parseBoolean(json.get("wasNotGiven").getAsBoolean()));
+      res.setWasNotGivenObject(parseBoolean(json.get("wasNotGiven").getAsBoolean()));
     if (json.has("_wasNotGiven"))
-      parseElementProperties(json.getAsJsonObject("_wasNotGiven"), res.getWasNotGiven());
+      parseElementProperties(json.getAsJsonObject("_wasNotGiven"), res.getWasNotGivenObject());
     if (json.has("reasonNotGiven")) {
       JsonArray array = json.getAsJsonArray("reasonNotGiven");
       for (int i = 0; i < array.size(); i++) {
@@ -3723,9 +3723,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), MedicationDispense.MedicationDispenseStatus.Null, new MedicationDispense.MedicationDispenseStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), MedicationDispense.MedicationDispenseStatus.NULL, new MedicationDispense.MedicationDispenseStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("patient"))
       res.setPatient(parseReference(json.getAsJsonObject("patient")));
     if (json.has("dispenser"))
@@ -3753,9 +3753,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), MedicationDispense.MedicationDispenseStatus.Null, new MedicationDispense.MedicationDispenseStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), MedicationDispense.MedicationDispenseStatus.NULL, new MedicationDispense.MedicationDispenseStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("quantity"))
@@ -3763,13 +3763,13 @@ public class JsonParser extends JsonParserBase {
     if (json.has("medication"))
       res.setMedication(parseReference(json.getAsJsonObject("medication")));
     if (json.has("whenPrepared"))
-      res.setWhenPrepared(parseDateTime(json.get("whenPrepared").getAsString()));
+      res.setWhenPreparedObject(parseDateTime(json.get("whenPrepared").getAsString()));
     if (json.has("_whenPrepared"))
-      parseElementProperties(json.getAsJsonObject("_whenPrepared"), res.getWhenPrepared());
+      parseElementProperties(json.getAsJsonObject("_whenPrepared"), res.getWhenPreparedObject());
     if (json.has("whenHandedOver"))
-      res.setWhenHandedOver(parseDateTime(json.get("whenHandedOver").getAsString()));
+      res.setWhenHandedOverObject(parseDateTime(json.get("whenHandedOver").getAsString()));
     if (json.has("_whenHandedOver"))
-      parseElementProperties(json.getAsJsonObject("_whenHandedOver"), res.getWhenHandedOver());
+      parseElementProperties(json.getAsJsonObject("_whenHandedOver"), res.getWhenHandedOverObject());
     if (json.has("destination"))
       res.setDestination(parseReference(json.getAsJsonObject("destination")));
     if (json.has("receiver")) {
@@ -3843,13 +3843,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("dateWritten"))
-      res.setDateWritten(parseDateTime(json.get("dateWritten").getAsString()));
+      res.setDateWrittenObject(parseDateTime(json.get("dateWritten").getAsString()));
     if (json.has("_dateWritten"))
-      parseElementProperties(json.getAsJsonObject("_dateWritten"), res.getDateWritten());
+      parseElementProperties(json.getAsJsonObject("_dateWritten"), res.getDateWrittenObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), MedicationPrescription.MedicationPrescriptionStatus.Null, new MedicationPrescription.MedicationPrescriptionStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), MedicationPrescription.MedicationPrescriptionStatus.NULL, new MedicationPrescription.MedicationPrescriptionStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("patient"))
       res.setPatient(parseReference(json.getAsJsonObject("patient")));
     if (json.has("prescriber"))
@@ -3878,9 +3878,9 @@ public class JsonParser extends JsonParserBase {
     MedicationPrescription.MedicationPrescriptionDosageInstructionComponent res = new MedicationPrescription.MedicationPrescriptionDosageInstructionComponent();
     parseBackboneProperties(json, res);
     if (json.has("text"))
-      res.setText(parseString(json.get("text").getAsString()));
+      res.setTextObject(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
-      parseElementProperties(json.getAsJsonObject("_text"), res.getText());
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextObject());
     if (json.has("additionalInstructions"))
       res.setAdditionalInstructions(parseCodeableConcept(json.getAsJsonObject("additionalInstructions")));
     Type scheduled = parseType("scheduled", json);
@@ -3912,9 +3912,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("validityPeriod"))
       res.setValidityPeriod(parsePeriod(json.getAsJsonObject("validityPeriod")));
     if (json.has("numberOfRepeatsAllowed"))
-      res.setNumberOfRepeatsAllowed(parseInteger(json.get("numberOfRepeatsAllowed").getAsLong()));
+      res.setNumberOfRepeatsAllowedObject(parseInteger(json.get("numberOfRepeatsAllowed").getAsLong()));
     if (json.has("_numberOfRepeatsAllowed"))
-      parseElementProperties(json.getAsJsonObject("_numberOfRepeatsAllowed"), res.getNumberOfRepeatsAllowed());
+      parseElementProperties(json.getAsJsonObject("_numberOfRepeatsAllowed"), res.getNumberOfRepeatsAllowedObject());
     if (json.has("quantity"))
       res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
     if (json.has("expectedSupplyDuration"))
@@ -3944,9 +3944,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("patient"))
       res.setPatient(parseReference(json.getAsJsonObject("patient")));
     if (json.has("wasNotGiven"))
-      res.setWasNotGiven(parseBoolean(json.get("wasNotGiven").getAsBoolean()));
+      res.setWasNotGivenObject(parseBoolean(json.get("wasNotGiven").getAsBoolean()));
     if (json.has("_wasNotGiven"))
-      parseElementProperties(json.getAsJsonObject("_wasNotGiven"), res.getWasNotGiven());
+      parseElementProperties(json.getAsJsonObject("_wasNotGiven"), res.getWasNotGivenObject());
     if (json.has("reasonNotGiven")) {
       JsonArray array = json.getAsJsonArray("reasonNotGiven");
       for (int i = 0; i < array.size(); i++) {
@@ -3999,13 +3999,13 @@ public class JsonParser extends JsonParserBase {
     MessageHeader res = new MessageHeader();
     parseResourceProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseId(json.get("identifier").getAsString()));
+      res.setIdentifierObject(parseId(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierObject());
     if (json.has("timestamp"))
-      res.setTimestamp(parseInstant(json.get("timestamp").getAsString()));
+      res.setTimestampObject(parseInstant(json.get("timestamp").getAsString()));
     if (json.has("_timestamp"))
-      parseElementProperties(json.getAsJsonObject("_timestamp"), res.getTimestamp());
+      parseElementProperties(json.getAsJsonObject("_timestamp"), res.getTimestampObject());
     if (json.has("event"))
       res.setEvent(parseCoding(json.getAsJsonObject("event")));
     if (json.has("response"))
@@ -4041,13 +4041,13 @@ public class JsonParser extends JsonParserBase {
     MessageHeader.MessageHeaderResponseComponent res = new MessageHeader.MessageHeaderResponseComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseId(json.get("identifier").getAsString()));
+      res.setIdentifierObject(parseId(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierObject());
     if (json.has("code"))
-      res.setCode(parseEnumeration(json.get("code").getAsString(), MessageHeader.ResponseCode.Null, new MessageHeader.ResponseCodeEnumFactory()));
+      res.setCodeObject(parseEnumeration(json.get("code").getAsString(), MessageHeader.ResponseCode.NULL, new MessageHeader.ResponseCodeEnumFactory()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("details"))
       res.setDetails(parseReference(json.getAsJsonObject("details")));
     return res;
@@ -4057,23 +4057,23 @@ public class JsonParser extends JsonParserBase {
     MessageHeader.MessageSourceComponent res = new MessageHeader.MessageSourceComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("software"))
-      res.setSoftware(parseString(json.get("software").getAsString()));
+      res.setSoftwareObject(parseString(json.get("software").getAsString()));
     if (json.has("_software"))
-      parseElementProperties(json.getAsJsonObject("_software"), res.getSoftware());
+      parseElementProperties(json.getAsJsonObject("_software"), res.getSoftwareObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("contact"))
       res.setContact(parseContactPoint(json.getAsJsonObject("contact")));
     if (json.has("endpoint"))
-      res.setEndpoint(parseUri(json.get("endpoint").getAsString()));
+      res.setEndpointObject(parseUri(json.get("endpoint").getAsString()));
     if (json.has("_endpoint"))
-      parseElementProperties(json.getAsJsonObject("_endpoint"), res.getEndpoint());
+      parseElementProperties(json.getAsJsonObject("_endpoint"), res.getEndpointObject());
     return res;
   }
 
@@ -4081,15 +4081,15 @@ public class JsonParser extends JsonParserBase {
     MessageHeader.MessageDestinationComponent res = new MessageHeader.MessageDestinationComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("target"))
       res.setTarget(parseReference(json.getAsJsonObject("target")));
     if (json.has("endpoint"))
-      res.setEndpoint(parseUri(json.get("endpoint").getAsString()));
+      res.setEndpointObject(parseUri(json.get("endpoint").getAsString()));
     if (json.has("_endpoint"))
-      parseElementProperties(json.getAsJsonObject("_endpoint"), res.getEndpoint());
+      parseElementProperties(json.getAsJsonObject("_endpoint"), res.getEndpointObject());
     return res;
   }
 
@@ -4097,35 +4097,35 @@ public class JsonParser extends JsonParserBase {
     Namespace res = new Namespace();
     parseResourceProperties(json, res);
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Namespace.NamespaceType.Null, new Namespace.NamespaceTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Namespace.NamespaceType.NULL, new Namespace.NamespaceTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Namespace.NamespaceStatus.Null, new Namespace.NamespaceStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Namespace.NamespaceStatus.NULL, new Namespace.NamespaceStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("country"))
-      res.setCountry(parseCode(json.get("country").getAsString()));
+      res.setCountryObject(parseCode(json.get("country").getAsString()));
     if (json.has("_country"))
-      parseElementProperties(json.getAsJsonObject("_country"), res.getCountry());
+      parseElementProperties(json.getAsJsonObject("_country"), res.getCountryObject());
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
     if (json.has("responsible"))
-      res.setResponsible(parseString(json.get("responsible").getAsString()));
+      res.setResponsibleObject(parseString(json.get("responsible").getAsString()));
     if (json.has("_responsible"))
-      parseElementProperties(json.getAsJsonObject("_responsible"), res.getResponsible());
+      parseElementProperties(json.getAsJsonObject("_responsible"), res.getResponsibleObject());
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("usage"))
-      res.setUsage(parseString(json.get("usage").getAsString()));
+      res.setUsageObject(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
-      parseElementProperties(json.getAsJsonObject("_usage"), res.getUsage());
+      parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageObject());
     if (json.has("uniqueId")) {
       JsonArray array = json.getAsJsonArray("uniqueId");
       for (int i = 0; i < array.size(); i++) {
@@ -4143,17 +4143,17 @@ public class JsonParser extends JsonParserBase {
     Namespace.NamespaceUniqueIdComponent res = new Namespace.NamespaceUniqueIdComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Namespace.NamespaceIdentifierType.Null, new Namespace.NamespaceIdentifierTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Namespace.NamespaceIdentifierType.NULL, new Namespace.NamespaceIdentifierTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("value"))
-      res.setValue(parseString(json.get("value").getAsString()));
+      res.setValueObject(parseString(json.get("value").getAsString()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     if (json.has("preferred"))
-      res.setPreferred(parseBoolean(json.get("preferred").getAsBoolean()));
+      res.setPreferredObject(parseBoolean(json.get("preferred").getAsBoolean()));
     if (json.has("_preferred"))
-      parseElementProperties(json.getAsJsonObject("_preferred"), res.getPreferred());
+      parseElementProperties(json.getAsJsonObject("_preferred"), res.getPreferredObject());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     return res;
@@ -4189,9 +4189,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("encounter"))
       res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("dateTime"))
-      res.setDateTime(parseDateTime(json.get("dateTime").getAsString()));
+      res.setDateTimeObject(parseDateTime(json.get("dateTime").getAsString()));
     if (json.has("_dateTime"))
-      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTime());
+      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeObject());
     if (json.has("allergyIntolerance")) {
       JsonArray array = json.getAsJsonArray("allergyIntolerance");
       for (int i = 0; i < array.size(); i++) {
@@ -4217,9 +4217,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), NutritionOrder.NutritionOrderStatus.Null, new NutritionOrder.NutritionOrderStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), NutritionOrder.NutritionOrderStatus.NULL, new NutritionOrder.NutritionOrderStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     return res;
   }
 
@@ -4230,9 +4230,9 @@ public class JsonParser extends JsonParserBase {
     if (scheduled != null)
       res.setScheduled(scheduled);
     if (json.has("isInEffect"))
-      res.setIsInEffect(parseBoolean(json.get("isInEffect").getAsBoolean()));
+      res.setIsInEffectObject(parseBoolean(json.get("isInEffect").getAsBoolean()));
     if (json.has("_isInEffect"))
-      parseElementProperties(json.getAsJsonObject("_isInEffect"), res.getIsInEffect());
+      parseElementProperties(json.getAsJsonObject("_isInEffect"), res.getIsInEffectObject());
     if (json.has("oralDiet"))
       res.setOralDiet(parseNutritionOrderNutritionOrderItemOralDietComponent(json.getAsJsonObject("oralDiet"), owner));
     if (json.has("supplement"))
@@ -4279,9 +4279,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     return res;
   }
 
@@ -4297,9 +4297,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("quantity"))
       res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     return res;
   }
 
@@ -4333,9 +4333,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("baseFormulaName"))
-      res.setBaseFormulaName(parseString(json.get("baseFormulaName").getAsString()));
+      res.setBaseFormulaNameObject(parseString(json.get("baseFormulaName").getAsString()));
     if (json.has("_baseFormulaName"))
-      parseElementProperties(json.getAsJsonObject("_baseFormulaName"), res.getBaseFormulaName());
+      parseElementProperties(json.getAsJsonObject("_baseFormulaName"), res.getBaseFormulaNameObject());
     return res;
   }
 
@@ -4350,24 +4350,24 @@ public class JsonParser extends JsonParserBase {
     if (json.has("interpretation"))
       res.setInterpretation(parseCodeableConcept(json.getAsJsonObject("interpretation")));
     if (json.has("comments"))
-      res.setComments(parseString(json.get("comments").getAsString()));
+      res.setCommentsObject(parseString(json.get("comments").getAsString()));
     if (json.has("_comments"))
-      parseElementProperties(json.getAsJsonObject("_comments"), res.getComments());
+      parseElementProperties(json.getAsJsonObject("_comments"), res.getCommentsObject());
     Type applies = parseType("applies", json);
     if (applies != null)
       res.setApplies(applies);
     if (json.has("issued"))
-      res.setIssued(parseInstant(json.get("issued").getAsString()));
+      res.setIssuedObject(parseInstant(json.get("issued").getAsString()));
     if (json.has("_issued"))
-      parseElementProperties(json.getAsJsonObject("_issued"), res.getIssued());
+      parseElementProperties(json.getAsJsonObject("_issued"), res.getIssuedObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Observation.ObservationStatus.Null, new Observation.ObservationStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Observation.ObservationStatus.NULL, new Observation.ObservationStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("reliability"))
-      res.setReliability(parseEnumeration(json.get("reliability").getAsString(), Observation.ObservationReliability.Null, new Observation.ObservationReliabilityEnumFactory()));
+      res.setReliabilityObject(parseEnumeration(json.get("reliability").getAsString(), Observation.ObservationReliability.NULL, new Observation.ObservationReliabilityEnumFactory()));
     if (json.has("_reliability"))
-      parseElementProperties(json.getAsJsonObject("_reliability"), res.getReliability());
+      parseElementProperties(json.getAsJsonObject("_reliability"), res.getReliabilityObject());
     if (json.has("bodySite"))
       res.setBodySite(parseCodeableConcept(json.getAsJsonObject("bodySite")));
     if (json.has("method"))
@@ -4413,9 +4413,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("age"))
       res.setAge(parseRange(json.getAsJsonObject("age")));
     if (json.has("text"))
-      res.setText(parseString(json.get("text").getAsString()));
+      res.setTextObject(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
-      parseElementProperties(json.getAsJsonObject("_text"), res.getText());
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextObject());
     return res;
   }
 
@@ -4423,9 +4423,9 @@ public class JsonParser extends JsonParserBase {
     Observation.ObservationRelatedComponent res = new Observation.ObservationRelatedComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Observation.ObservationRelationshiptypes.Null, new Observation.ObservationRelationshiptypesEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Observation.ObservationRelationshiptypes.NULL, new Observation.ObservationRelationshiptypesEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("target"))
       res.setTarget(parseReference(json.getAsJsonObject("target")));
     return res;
@@ -4435,21 +4435,21 @@ public class JsonParser extends JsonParserBase {
     OperationDefinition res = new OperationDefinition();
     parseResourceProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseUri(json.get("identifier").getAsString()));
+      res.setIdentifierObject(parseUri(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("title"))
-      res.setTitle(parseString(json.get("title").getAsString()));
+      res.setTitleObject(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
-      parseElementProperties(json.getAsJsonObject("_title"), res.getTitle());
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleObject());
     if (json.has("publisher"))
-      res.setPublisher(parseString(json.get("publisher").getAsString()));
+      res.setPublisherObject(parseString(json.get("publisher").getAsString()));
     if (json.has("_publisher"))
-      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisher());
+      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherObject());
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
@@ -4457,9 +4457,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("code")) {
       JsonArray array = json.getAsJsonArray("code");
       for (int i = 0; i < array.size(); i++) {
@@ -4467,35 +4467,35 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), OperationDefinition.ResourceProfileStatus.Null, new OperationDefinition.ResourceProfileStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), OperationDefinition.ResourceProfileStatus.NULL, new OperationDefinition.ResourceProfileStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("experimental"))
-      res.setExperimental(parseBoolean(json.get("experimental").getAsBoolean()));
+      res.setExperimentalObject(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
-      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimental());
+      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalObject());
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("kind"))
-      res.setKind(parseEnumeration(json.get("kind").getAsString(), OperationDefinition.OperationKind.Null, new OperationDefinition.OperationKindEnumFactory()));
+      res.setKindObject(parseEnumeration(json.get("kind").getAsString(), OperationDefinition.OperationKind.NULL, new OperationDefinition.OperationKindEnumFactory()));
     if (json.has("_kind"))
-      parseElementProperties(json.getAsJsonObject("_kind"), res.getKind());
+      parseElementProperties(json.getAsJsonObject("_kind"), res.getKindObject());
     if (json.has("name"))
-      res.setName(parseCode(json.get("name").getAsString()));
+      res.setNameObject(parseCode(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("notes"))
-      res.setNotes(parseString(json.get("notes").getAsString()));
+      res.setNotesObject(parseString(json.get("notes").getAsString()));
     if (json.has("_notes"))
-      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotes());
+      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotesObject());
     if (json.has("base"))
       res.setBase(parseReference(json.getAsJsonObject("base")));
     if (json.has("system"))
-      res.setSystem(parseBoolean(json.get("system").getAsBoolean()));
+      res.setSystemObject(parseBoolean(json.get("system").getAsBoolean()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("type")) {
       JsonArray array = json.getAsJsonArray("type");
       for (int i = 0; i < array.size(); i++) {
@@ -4512,9 +4512,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("instance"))
-      res.setInstance(parseBoolean(json.get("instance").getAsBoolean()));
+      res.setInstanceObject(parseBoolean(json.get("instance").getAsBoolean()));
     if (json.has("_instance"))
-      parseElementProperties(json.getAsJsonObject("_instance"), res.getInstance());
+      parseElementProperties(json.getAsJsonObject("_instance"), res.getInstanceObject());
     if (json.has("parameter")) {
       JsonArray array = json.getAsJsonArray("parameter");
       for (int i = 0; i < array.size(); i++) {
@@ -4528,25 +4528,25 @@ public class JsonParser extends JsonParserBase {
     OperationDefinition.OperationDefinitionParameterComponent res = new OperationDefinition.OperationDefinitionParameterComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
-      res.setName(parseCode(json.get("name").getAsString()));
+      res.setNameObject(parseCode(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("use"))
-      res.setUse(parseEnumeration(json.get("use").getAsString(), OperationDefinition.OperationParameterUse.Null, new OperationDefinition.OperationParameterUseEnumFactory()));
+      res.setUseObject(parseEnumeration(json.get("use").getAsString(), OperationDefinition.OperationParameterUse.NULL, new OperationDefinition.OperationParameterUseEnumFactory()));
     if (json.has("_use"))
-      parseElementProperties(json.getAsJsonObject("_use"), res.getUse());
+      parseElementProperties(json.getAsJsonObject("_use"), res.getUseObject());
     if (json.has("min"))
-      res.setMin(parseInteger(json.get("min").getAsLong()));
+      res.setMinObject(parseInteger(json.get("min").getAsLong()));
     if (json.has("_min"))
-      parseElementProperties(json.getAsJsonObject("_min"), res.getMin());
+      parseElementProperties(json.getAsJsonObject("_min"), res.getMinObject());
     if (json.has("max"))
-      res.setMax(parseString(json.get("max").getAsString()));
+      res.setMaxObject(parseString(json.get("max").getAsString()));
     if (json.has("_max"))
-      parseElementProperties(json.getAsJsonObject("_max"), res.getMax());
+      parseElementProperties(json.getAsJsonObject("_max"), res.getMaxObject());
     if (json.has("documentation"))
-      res.setDocumentation(parseString(json.get("documentation").getAsString()));
+      res.setDocumentationObject(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
-      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentation());
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationObject());
     if (json.has("type"))
       res.setType(parseCoding(json.getAsJsonObject("type")));
     if (json.has("profile"))
@@ -4570,15 +4570,15 @@ public class JsonParser extends JsonParserBase {
     OperationOutcome.OperationOutcomeIssueComponent res = new OperationOutcome.OperationOutcomeIssueComponent();
     parseBackboneProperties(json, res);
     if (json.has("severity"))
-      res.setSeverity(parseEnumeration(json.get("severity").getAsString(), OperationOutcome.IssueSeverity.Null, new OperationOutcome.IssueSeverityEnumFactory()));
+      res.setSeverityObject(parseEnumeration(json.get("severity").getAsString(), OperationOutcome.IssueSeverity.NULL, new OperationOutcome.IssueSeverityEnumFactory()));
     if (json.has("_severity"))
-      parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverity());
+      parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverityObject());
     if (json.has("type"))
       res.setType(parseCoding(json.getAsJsonObject("type")));
     if (json.has("details"))
-      res.setDetails(parseString(json.get("details").getAsString()));
+      res.setDetailsObject(parseString(json.get("details").getAsString()));
     if (json.has("_details"))
-      parseElementProperties(json.getAsJsonObject("_details"), res.getDetails());
+      parseElementProperties(json.getAsJsonObject("_details"), res.getDetailsObject());
     if (json.has("location")) {
       JsonArray array = json.getAsJsonArray("location");
       for (int i = 0; i < array.size(); i++) {
@@ -4607,9 +4607,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("source"))
@@ -4654,22 +4654,22 @@ public class JsonParser extends JsonParserBase {
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("who"))
       res.setWho(parseReference(json.getAsJsonObject("who")));
     Type authority = parseType("authority", json);
     if (authority != null)
       res.setAuthority(authority);
     if (json.has("code"))
-      res.setCode(parseEnumeration(json.get("code").getAsString(), OrderResponse.OrderOutcomeCode.Null, new OrderResponse.OrderOutcomeCodeEnumFactory()));
+      res.setCodeObject(parseEnumeration(json.get("code").getAsString(), OrderResponse.OrderOutcomeCode.NULL, new OrderResponse.OrderOutcomeCodeEnumFactory()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("fulfillment")) {
       JsonArray array = json.getAsJsonArray("fulfillment");
       for (int i = 0; i < array.size(); i++) {
@@ -4689,9 +4689,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("telecom")) {
@@ -4721,9 +4721,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("active"))
-      res.setActive(parseBoolean(json.get("active").getAsBoolean()));
+      res.setActiveObject(parseBoolean(json.get("active").getAsBoolean()));
     if (json.has("_active"))
-      parseElementProperties(json.getAsJsonObject("_active"), res.getActive());
+      parseElementProperties(json.getAsJsonObject("_active"), res.getActiveObject());
     return res;
   }
 
@@ -4743,9 +4743,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("address"))
       res.setAddress(parseAddress(json.getAsJsonObject("address")));
     if (json.has("gender"))
-      res.setGender(parseEnumeration(json.get("gender").getAsString(), Organization.AdministrativeGender.Null, new Organization.AdministrativeGenderEnumFactory()));
+      res.setGenderObject(parseEnumeration(json.get("gender").getAsString(), Organization.AdministrativeGender.NULL, new Organization.AdministrativeGenderEnumFactory()));
     if (json.has("_gender"))
-      parseElementProperties(json.getAsJsonObject("_gender"), res.getGender());
+      parseElementProperties(json.getAsJsonObject("_gender"), res.getGenderObject());
     return res;
   }
 
@@ -4765,9 +4765,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("author"))
       res.setAuthor(parseReference(json.getAsJsonObject("author")));
     if (json.has("created"))
-      res.setCreated(parseDate(json.get("created").getAsString()));
+      res.setCreatedObject(parseDate(json.get("created").getAsString()));
     if (json.has("_created"))
-      parseElementProperties(json.getAsJsonObject("_created"), res.getCreated());
+      parseElementProperties(json.getAsJsonObject("_created"), res.getCreatedObject());
     return res;
   }
 
@@ -4793,13 +4793,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("gender"))
-      res.setGender(parseEnumeration(json.get("gender").getAsString(), Patient.AdministrativeGender.Null, new Patient.AdministrativeGenderEnumFactory()));
+      res.setGenderObject(parseEnumeration(json.get("gender").getAsString(), Patient.AdministrativeGender.NULL, new Patient.AdministrativeGenderEnumFactory()));
     if (json.has("_gender"))
-      parseElementProperties(json.getAsJsonObject("_gender"), res.getGender());
+      parseElementProperties(json.getAsJsonObject("_gender"), res.getGenderObject());
     if (json.has("birthDate"))
-      res.setBirthDate(parseDateTime(json.get("birthDate").getAsString()));
+      res.setBirthDateObject(parseDateTime(json.get("birthDate").getAsString()));
     if (json.has("_birthDate"))
-      parseElementProperties(json.getAsJsonObject("_birthDate"), res.getBirthDate());
+      parseElementProperties(json.getAsJsonObject("_birthDate"), res.getBirthDateObject());
     Type deceased = parseType("deceased", json);
     if (deceased != null)
       res.setDeceased(deceased);
@@ -4849,9 +4849,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("active"))
-      res.setActive(parseBoolean(json.get("active").getAsBoolean()));
+      res.setActiveObject(parseBoolean(json.get("active").getAsBoolean()));
     if (json.has("_active"))
-      parseElementProperties(json.getAsJsonObject("_active"), res.getActive());
+      parseElementProperties(json.getAsJsonObject("_active"), res.getActiveObject());
     return res;
   }
 
@@ -4875,9 +4875,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("address"))
       res.setAddress(parseAddress(json.getAsJsonObject("address")));
     if (json.has("gender"))
-      res.setGender(parseEnumeration(json.get("gender").getAsString(), Patient.AdministrativeGender.Null, new Patient.AdministrativeGenderEnumFactory()));
+      res.setGenderObject(parseEnumeration(json.get("gender").getAsString(), Patient.AdministrativeGender.NULL, new Patient.AdministrativeGenderEnumFactory()));
     if (json.has("_gender"))
-      parseElementProperties(json.getAsJsonObject("_gender"), res.getGender());
+      parseElementProperties(json.getAsJsonObject("_gender"), res.getGenderObject());
     if (json.has("organization"))
       res.setOrganization(parseReference(json.getAsJsonObject("organization")));
     return res;
@@ -4901,9 +4901,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("other"))
       res.setOther(parseReference(json.getAsJsonObject("other")));
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Patient.LinkType.Null, new Patient.LinkTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Patient.LinkType.NULL, new Patient.LinkTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     return res;
   }
 
@@ -4931,13 +4931,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("gender"))
-      res.setGender(parseEnumeration(json.get("gender").getAsString(), Practitioner.AdministrativeGender.Null, new Practitioner.AdministrativeGenderEnumFactory()));
+      res.setGenderObject(parseEnumeration(json.get("gender").getAsString(), Practitioner.AdministrativeGender.NULL, new Practitioner.AdministrativeGenderEnumFactory()));
     if (json.has("_gender"))
-      parseElementProperties(json.getAsJsonObject("_gender"), res.getGender());
+      parseElementProperties(json.getAsJsonObject("_gender"), res.getGenderObject());
     if (json.has("birthDate"))
-      res.setBirthDate(parseDateTime(json.get("birthDate").getAsString()));
+      res.setBirthDateObject(parseDateTime(json.get("birthDate").getAsString()));
     if (json.has("_birthDate"))
-      parseElementProperties(json.getAsJsonObject("_birthDate"), res.getBirthDate());
+      parseElementProperties(json.getAsJsonObject("_birthDate"), res.getBirthDateObject());
     if (json.has("photo")) {
       JsonArray array = json.getAsJsonArray("photo");
       for (int i = 0; i < array.size(); i++) {
@@ -5035,9 +5035,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("encounter"))
       res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("outcome"))
-      res.setOutcome(parseString(json.get("outcome").getAsString()));
+      res.setOutcomeObject(parseString(json.get("outcome").getAsString()));
     if (json.has("_outcome"))
-      parseElementProperties(json.getAsJsonObject("_outcome"), res.getOutcome());
+      parseElementProperties(json.getAsJsonObject("_outcome"), res.getOutcomeObject());
     if (json.has("report")) {
       JsonArray array = json.getAsJsonArray("report");
       for (int i = 0; i < array.size(); i++) {
@@ -5051,9 +5051,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("followUp"))
-      res.setFollowUp(parseString(json.get("followUp").getAsString()));
+      res.setFollowUpObject(parseString(json.get("followUp").getAsString()));
     if (json.has("_followUp"))
-      parseElementProperties(json.getAsJsonObject("_followUp"), res.getFollowUp());
+      parseElementProperties(json.getAsJsonObject("_followUp"), res.getFollowUpObject());
     if (json.has("relatedItem")) {
       JsonArray array = json.getAsJsonArray("relatedItem");
       for (int i = 0; i < array.size(); i++) {
@@ -5061,9 +5061,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("notes"))
-      res.setNotes(parseString(json.get("notes").getAsString()));
+      res.setNotesObject(parseString(json.get("notes").getAsString()));
     if (json.has("_notes"))
-      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotes());
+      parseElementProperties(json.getAsJsonObject("_notes"), res.getNotesObject());
     return res;
   }
 
@@ -5081,9 +5081,9 @@ public class JsonParser extends JsonParserBase {
     Procedure.ProcedureRelatedItemComponent res = new Procedure.ProcedureRelatedItemComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Procedure.ProcedureRelationshipType.Null, new Procedure.ProcedureRelationshipTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Procedure.ProcedureRelationshipType.NULL, new Procedure.ProcedureRelationshipTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("target"))
       res.setTarget(parseReference(json.getAsJsonObject("target")));
     return res;
@@ -5093,9 +5093,9 @@ public class JsonParser extends JsonParserBase {
     Profile res = new Profile();
     parseResourceProperties(json, res);
     if (json.has("url"))
-      res.setUrl(parseUri(json.get("url").getAsString()));
+      res.setUrlObject(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrl());
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlObject());
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -5103,17 +5103,17 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("publisher"))
-      res.setPublisher(parseString(json.get("publisher").getAsString()));
+      res.setPublisherObject(parseString(json.get("publisher").getAsString()));
     if (json.has("_publisher"))
-      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisher());
+      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherObject());
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
@@ -5121,9 +5121,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("code")) {
       JsonArray array = json.getAsJsonArray("code");
       for (int i = 0; i < array.size(); i++) {
@@ -5131,25 +5131,25 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Profile.ResourceProfileStatus.Null, new Profile.ResourceProfileStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Profile.ResourceProfileStatus.NULL, new Profile.ResourceProfileStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("experimental"))
-      res.setExperimental(parseBoolean(json.get("experimental").getAsBoolean()));
+      res.setExperimentalObject(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
-      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimental());
+      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalObject());
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("requirements"))
-      res.setRequirements(parseString(json.get("requirements").getAsString()));
+      res.setRequirementsObject(parseString(json.get("requirements").getAsString()));
     if (json.has("_requirements"))
-      parseElementProperties(json.getAsJsonObject("_requirements"), res.getRequirements());
+      parseElementProperties(json.getAsJsonObject("_requirements"), res.getRequirementsObject());
     if (json.has("fhirVersion"))
-      res.setFhirVersion(parseId(json.get("fhirVersion").getAsString()));
+      res.setFhirVersionObject(parseId(json.get("fhirVersion").getAsString()));
     if (json.has("_fhirVersion"))
-      parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersion());
+      parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionObject());
     if (json.has("mapping")) {
       JsonArray array = json.getAsJsonArray("mapping");
       for (int i = 0; i < array.size(); i++) {
@@ -5175,21 +5175,21 @@ public class JsonParser extends JsonParserBase {
     Profile.ProfileMappingComponent res = new Profile.ProfileMappingComponent();
     parseBackboneProperties(json, res);
     if (json.has("identity"))
-      res.setIdentity(parseId(json.get("identity").getAsString()));
+      res.setIdentityObject(parseId(json.get("identity").getAsString()));
     if (json.has("_identity"))
-      parseElementProperties(json.getAsJsonObject("_identity"), res.getIdentity());
+      parseElementProperties(json.getAsJsonObject("_identity"), res.getIdentityObject());
     if (json.has("uri"))
-      res.setUri(parseUri(json.get("uri").getAsString()));
+      res.setUriObject(parseUri(json.get("uri").getAsString()));
     if (json.has("_uri"))
-      parseElementProperties(json.getAsJsonObject("_uri"), res.getUri());
+      parseElementProperties(json.getAsJsonObject("_uri"), res.getUriObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("comments"))
-      res.setComments(parseString(json.get("comments").getAsString()));
+      res.setCommentsObject(parseString(json.get("comments").getAsString()));
     if (json.has("_comments"))
-      parseElementProperties(json.getAsJsonObject("_comments"), res.getComments());
+      parseElementProperties(json.getAsJsonObject("_comments"), res.getCommentsObject());
     return res;
   }
 
@@ -5197,25 +5197,25 @@ public class JsonParser extends JsonParserBase {
     Profile.ProfileStructureComponent res = new Profile.ProfileStructureComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setType(parseCode(json.get("type").getAsString()));
+      res.setTypeObject(parseCode(json.get("type").getAsString()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("base"))
-      res.setBase(parseUri(json.get("base").getAsString()));
+      res.setBaseObject(parseUri(json.get("base").getAsString()));
     if (json.has("_base"))
-      parseElementProperties(json.getAsJsonObject("_base"), res.getBase());
+      parseElementProperties(json.getAsJsonObject("_base"), res.getBaseObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("publish"))
-      res.setPublish(parseBoolean(json.get("publish").getAsBoolean()));
+      res.setPublishObject(parseBoolean(json.get("publish").getAsBoolean()));
     if (json.has("_publish"))
-      parseElementProperties(json.getAsJsonObject("_publish"), res.getPublish());
+      parseElementProperties(json.getAsJsonObject("_publish"), res.getPublishObject());
     if (json.has("purpose"))
-      res.setPurpose(parseString(json.get("purpose").getAsString()));
+      res.setPurposeObject(parseString(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
-      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurpose());
+      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeObject());
     if (json.has("snapshot"))
       res.setSnapshot(parseProfileConstraintComponent(json.getAsJsonObject("snapshot"), owner));
     if (json.has("differential"))
@@ -5245,28 +5245,28 @@ public class JsonParser extends JsonParserBase {
     Profile.ElementComponent res = new Profile.ElementComponent();
     parseBackboneProperties(json, res);
     if (json.has("path"))
-      res.setPath(parseString(json.get("path").getAsString()));
+      res.setPathObject(parseString(json.get("path").getAsString()));
     if (json.has("_path"))
-      parseElementProperties(json.getAsJsonObject("_path"), res.getPath());
+      parseElementProperties(json.getAsJsonObject("_path"), res.getPathObject());
     if (json.has("representation")) {
       JsonArray array = json.getAsJsonArray("representation");
       for (int i = 0; i < array.size(); i++) {
-        res.getRepresentation().add(parseEnumeration(array.get(i).getAsString(), Profile.PropertyRepresentation.Null, new Profile.PropertyRepresentationEnumFactory()));
+        res.getRepresentation().add(parseEnumeration(array.get(i).getAsString(), Profile.PropertyRepresentation.NULL, new Profile.PropertyRepresentationEnumFactory()));
       }
     };
     if (json.has("_representation")) {
       JsonArray array = json.getAsJsonArray("_representation");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getRepresentation().size())
-          res.getRepresentation().add(parseEnumeration(null, Profile.PropertyRepresentation.Null, new Profile.PropertyRepresentationEnumFactory()));
+          res.getRepresentation().add(parseEnumeration(null, Profile.PropertyRepresentation.NULL, new Profile.PropertyRepresentationEnumFactory()));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getRepresentation().get(i));
       }
     };
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("slicing"))
       res.setSlicing(parseProfileElementSlicingComponent(json.getAsJsonObject("slicing"), owner));
     if (json.has("definition"))
@@ -5278,17 +5278,17 @@ public class JsonParser extends JsonParserBase {
     Profile.ElementSlicingComponent res = new Profile.ElementSlicingComponent();
     parseBackboneProperties(json, res);
     if (json.has("discriminator"))
-      res.setDiscriminator(parseId(json.get("discriminator").getAsString()));
+      res.setDiscriminatorObject(parseId(json.get("discriminator").getAsString()));
     if (json.has("_discriminator"))
-      parseElementProperties(json.getAsJsonObject("_discriminator"), res.getDiscriminator());
+      parseElementProperties(json.getAsJsonObject("_discriminator"), res.getDiscriminatorObject());
     if (json.has("ordered"))
-      res.setOrdered(parseBoolean(json.get("ordered").getAsBoolean()));
+      res.setOrderedObject(parseBoolean(json.get("ordered").getAsBoolean()));
     if (json.has("_ordered"))
-      parseElementProperties(json.getAsJsonObject("_ordered"), res.getOrdered());
+      parseElementProperties(json.getAsJsonObject("_ordered"), res.getOrderedObject());
     if (json.has("rules"))
-      res.setRules(parseEnumeration(json.get("rules").getAsString(), Profile.ResourceSlicingRules.Null, new Profile.ResourceSlicingRulesEnumFactory()));
+      res.setRulesObject(parseEnumeration(json.get("rules").getAsString(), Profile.ResourceSlicingRules.NULL, new Profile.ResourceSlicingRulesEnumFactory()));
     if (json.has("_rules"))
-      parseElementProperties(json.getAsJsonObject("_rules"), res.getRules());
+      parseElementProperties(json.getAsJsonObject("_rules"), res.getRulesObject());
     return res;
   }
 
@@ -5296,21 +5296,21 @@ public class JsonParser extends JsonParserBase {
     Profile.ElementDefinitionComponent res = new Profile.ElementDefinitionComponent();
     parseBackboneProperties(json, res);
     if (json.has("short"))
-      res.setShort(parseString(json.get("short").getAsString()));
+      res.setShortObject(parseString(json.get("short").getAsString()));
     if (json.has("_short"))
-      parseElementProperties(json.getAsJsonObject("_short"), res.getShort());
+      parseElementProperties(json.getAsJsonObject("_short"), res.getShortObject());
     if (json.has("formal"))
-      res.setFormal(parseString(json.get("formal").getAsString()));
+      res.setFormalObject(parseString(json.get("formal").getAsString()));
     if (json.has("_formal"))
-      parseElementProperties(json.getAsJsonObject("_formal"), res.getFormal());
+      parseElementProperties(json.getAsJsonObject("_formal"), res.getFormalObject());
     if (json.has("comments"))
-      res.setComments(parseString(json.get("comments").getAsString()));
+      res.setCommentsObject(parseString(json.get("comments").getAsString()));
     if (json.has("_comments"))
-      parseElementProperties(json.getAsJsonObject("_comments"), res.getComments());
+      parseElementProperties(json.getAsJsonObject("_comments"), res.getCommentsObject());
     if (json.has("requirements"))
-      res.setRequirements(parseString(json.get("requirements").getAsString()));
+      res.setRequirementsObject(parseString(json.get("requirements").getAsString()));
     if (json.has("_requirements"))
-      parseElementProperties(json.getAsJsonObject("_requirements"), res.getRequirements());
+      parseElementProperties(json.getAsJsonObject("_requirements"), res.getRequirementsObject());
     if (json.has("synonym")) {
       JsonArray array = json.getAsJsonArray("synonym");
       for (int i = 0; i < array.size(); i++) {
@@ -5327,13 +5327,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("min"))
-      res.setMin(parseInteger(json.get("min").getAsLong()));
+      res.setMinObject(parseInteger(json.get("min").getAsLong()));
     if (json.has("_min"))
-      parseElementProperties(json.getAsJsonObject("_min"), res.getMin());
+      parseElementProperties(json.getAsJsonObject("_min"), res.getMinObject());
     if (json.has("max"))
-      res.setMax(parseString(json.get("max").getAsString()));
+      res.setMaxObject(parseString(json.get("max").getAsString()));
     if (json.has("_max"))
-      parseElementProperties(json.getAsJsonObject("_max"), res.getMax());
+      parseElementProperties(json.getAsJsonObject("_max"), res.getMaxObject());
     if (json.has("type")) {
       JsonArray array = json.getAsJsonArray("type");
       for (int i = 0; i < array.size(); i++) {
@@ -5341,9 +5341,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("nameReference"))
-      res.setNameReference(parseString(json.get("nameReference").getAsString()));
+      res.setNameReferenceObject(parseString(json.get("nameReference").getAsString()));
     if (json.has("_nameReference"))
-      parseElementProperties(json.getAsJsonObject("_nameReference"), res.getNameReference());
+      parseElementProperties(json.getAsJsonObject("_nameReference"), res.getNameReferenceObject());
     Type value = parseType("value", json);
     if (value != null)
       res.setValue(value);
@@ -5351,9 +5351,9 @@ public class JsonParser extends JsonParserBase {
     if (example != null)
       res.setExample(example);
     if (json.has("maxLength"))
-      res.setMaxLength(parseInteger(json.get("maxLength").getAsLong()));
+      res.setMaxLengthObject(parseInteger(json.get("maxLength").getAsLong()));
     if (json.has("_maxLength"))
-      parseElementProperties(json.getAsJsonObject("_maxLength"), res.getMaxLength());
+      parseElementProperties(json.getAsJsonObject("_maxLength"), res.getMaxLengthObject());
     if (json.has("condition")) {
       JsonArray array = json.getAsJsonArray("condition");
       for (int i = 0; i < array.size(); i++) {
@@ -5376,13 +5376,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("mustSupport"))
-      res.setMustSupport(parseBoolean(json.get("mustSupport").getAsBoolean()));
+      res.setMustSupportObject(parseBoolean(json.get("mustSupport").getAsBoolean()));
     if (json.has("_mustSupport"))
-      parseElementProperties(json.getAsJsonObject("_mustSupport"), res.getMustSupport());
+      parseElementProperties(json.getAsJsonObject("_mustSupport"), res.getMustSupportObject());
     if (json.has("isModifier"))
-      res.setIsModifier(parseBoolean(json.get("isModifier").getAsBoolean()));
+      res.setIsModifierObject(parseBoolean(json.get("isModifier").getAsBoolean()));
     if (json.has("_isModifier"))
-      parseElementProperties(json.getAsJsonObject("_isModifier"), res.getIsModifier());
+      parseElementProperties(json.getAsJsonObject("_isModifier"), res.getIsModifierObject());
     if (json.has("binding"))
       res.setBinding(parseProfileElementDefinitionBindingComponent(json.getAsJsonObject("binding"), owner));
     if (json.has("mapping")) {
@@ -5398,24 +5398,24 @@ public class JsonParser extends JsonParserBase {
     Profile.TypeRefComponent res = new Profile.TypeRefComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("profile"))
-      res.setProfile(parseUri(json.get("profile").getAsString()));
+      res.setProfileObject(parseUri(json.get("profile").getAsString()));
     if (json.has("_profile"))
-      parseElementProperties(json.getAsJsonObject("_profile"), res.getProfile());
+      parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileObject());
     if (json.has("aggregation")) {
       JsonArray array = json.getAsJsonArray("aggregation");
       for (int i = 0; i < array.size(); i++) {
-        res.getAggregation().add(parseEnumeration(array.get(i).getAsString(), Profile.ResourceAggregationMode.Null, new Profile.ResourceAggregationModeEnumFactory()));
+        res.getAggregation().add(parseEnumeration(array.get(i).getAsString(), Profile.ResourceAggregationMode.NULL, new Profile.ResourceAggregationModeEnumFactory()));
       }
     };
     if (json.has("_aggregation")) {
       JsonArray array = json.getAsJsonArray("_aggregation");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getAggregation().size())
-          res.getAggregation().add(parseEnumeration(null, Profile.ResourceAggregationMode.Null, new Profile.ResourceAggregationModeEnumFactory()));
+          res.getAggregation().add(parseEnumeration(null, Profile.ResourceAggregationMode.NULL, new Profile.ResourceAggregationModeEnumFactory()));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getAggregation().get(i));
       }
@@ -5427,25 +5427,25 @@ public class JsonParser extends JsonParserBase {
     Profile.ElementDefinitionConstraintComponent res = new Profile.ElementDefinitionConstraintComponent();
     parseBackboneProperties(json, res);
     if (json.has("key"))
-      res.setKey(parseId(json.get("key").getAsString()));
+      res.setKeyObject(parseId(json.get("key").getAsString()));
     if (json.has("_key"))
-      parseElementProperties(json.getAsJsonObject("_key"), res.getKey());
+      parseElementProperties(json.getAsJsonObject("_key"), res.getKeyObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("severity"))
-      res.setSeverity(parseEnumeration(json.get("severity").getAsString(), Profile.ConstraintSeverity.Null, new Profile.ConstraintSeverityEnumFactory()));
+      res.setSeverityObject(parseEnumeration(json.get("severity").getAsString(), Profile.ConstraintSeverity.NULL, new Profile.ConstraintSeverityEnumFactory()));
     if (json.has("_severity"))
-      parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverity());
+      parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverityObject());
     if (json.has("human"))
-      res.setHuman(parseString(json.get("human").getAsString()));
+      res.setHumanObject(parseString(json.get("human").getAsString()));
     if (json.has("_human"))
-      parseElementProperties(json.getAsJsonObject("_human"), res.getHuman());
+      parseElementProperties(json.getAsJsonObject("_human"), res.getHumanObject());
     if (json.has("xpath"))
-      res.setXpath(parseString(json.get("xpath").getAsString()));
+      res.setXpathObject(parseString(json.get("xpath").getAsString()));
     if (json.has("_xpath"))
-      parseElementProperties(json.getAsJsonObject("_xpath"), res.getXpath());
+      parseElementProperties(json.getAsJsonObject("_xpath"), res.getXpathObject());
     return res;
   }
 
@@ -5453,21 +5453,21 @@ public class JsonParser extends JsonParserBase {
     Profile.ElementDefinitionBindingComponent res = new Profile.ElementDefinitionBindingComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("isExtensible"))
-      res.setIsExtensible(parseBoolean(json.get("isExtensible").getAsBoolean()));
+      res.setIsExtensibleObject(parseBoolean(json.get("isExtensible").getAsBoolean()));
     if (json.has("_isExtensible"))
-      parseElementProperties(json.getAsJsonObject("_isExtensible"), res.getIsExtensible());
+      parseElementProperties(json.getAsJsonObject("_isExtensible"), res.getIsExtensibleObject());
     if (json.has("conformance"))
-      res.setConformance(parseEnumeration(json.get("conformance").getAsString(), Profile.BindingConformance.Null, new Profile.BindingConformanceEnumFactory()));
+      res.setConformanceObject(parseEnumeration(json.get("conformance").getAsString(), Profile.BindingConformance.NULL, new Profile.BindingConformanceEnumFactory()));
     if (json.has("_conformance"))
-      parseElementProperties(json.getAsJsonObject("_conformance"), res.getConformance());
+      parseElementProperties(json.getAsJsonObject("_conformance"), res.getConformanceObject());
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     Type reference = parseType("reference", json);
     if (reference != null)
       res.setReference(reference);
@@ -5478,13 +5478,13 @@ public class JsonParser extends JsonParserBase {
     Profile.ElementDefinitionMappingComponent res = new Profile.ElementDefinitionMappingComponent();
     parseBackboneProperties(json, res);
     if (json.has("identity"))
-      res.setIdentity(parseId(json.get("identity").getAsString()));
+      res.setIdentityObject(parseId(json.get("identity").getAsString()));
     if (json.has("_identity"))
-      parseElementProperties(json.getAsJsonObject("_identity"), res.getIdentity());
+      parseElementProperties(json.getAsJsonObject("_identity"), res.getIdentityObject());
     if (json.has("map"))
-      res.setMap(parseString(json.get("map").getAsString()));
+      res.setMapObject(parseString(json.get("map").getAsString()));
     if (json.has("_map"))
-      parseElementProperties(json.getAsJsonObject("_map"), res.getMap());
+      parseElementProperties(json.getAsJsonObject("_map"), res.getMapObject());
     return res;
   }
 
@@ -5492,21 +5492,21 @@ public class JsonParser extends JsonParserBase {
     Profile.ProfileStructureSearchParamComponent res = new Profile.ProfileStructureSearchParamComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Profile.SearchParamType.Null, new Profile.SearchParamTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Profile.SearchParamType.NULL, new Profile.SearchParamTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("documentation"))
-      res.setDocumentation(parseString(json.get("documentation").getAsString()));
+      res.setDocumentationObject(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
-      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentation());
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationObject());
     if (json.has("xpath"))
-      res.setXpath(parseString(json.get("xpath").getAsString()));
+      res.setXpathObject(parseString(json.get("xpath").getAsString()));
     if (json.has("_xpath"))
-      parseElementProperties(json.getAsJsonObject("_xpath"), res.getXpath());
+      parseElementProperties(json.getAsJsonObject("_xpath"), res.getXpathObject());
     if (json.has("target")) {
       JsonArray array = json.getAsJsonArray("target");
       for (int i = 0; i < array.size(); i++) {
@@ -5529,17 +5529,17 @@ public class JsonParser extends JsonParserBase {
     Profile.ProfileExtensionDefnComponent res = new Profile.ProfileExtensionDefnComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("display"))
-      res.setDisplay(parseString(json.get("display").getAsString()));
+      res.setDisplayObject(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
-      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplay());
+      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayObject());
     if (json.has("contextType"))
-      res.setContextType(parseEnumeration(json.get("contextType").getAsString(), Profile.ExtensionContext.Null, new Profile.ExtensionContextEnumFactory()));
+      res.setContextTypeObject(parseEnumeration(json.get("contextType").getAsString(), Profile.ExtensionContext.NULL, new Profile.ExtensionContextEnumFactory()));
     if (json.has("_contextType"))
-      parseElementProperties(json.getAsJsonObject("_contextType"), res.getContextType());
+      parseElementProperties(json.getAsJsonObject("_contextType"), res.getContextTypeObject());
     if (json.has("context")) {
       JsonArray array = json.getAsJsonArray("context");
       for (int i = 0; i < array.size(); i++) {
@@ -5576,9 +5576,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     if (json.has("recorded"))
-      res.setRecorded(parseInstant(json.get("recorded").getAsString()));
+      res.setRecordedObject(parseInstant(json.get("recorded").getAsString()));
     if (json.has("_recorded"))
-      parseElementProperties(json.getAsJsonObject("_recorded"), res.getRecorded());
+      parseElementProperties(json.getAsJsonObject("_recorded"), res.getRecordedObject());
     if (json.has("reason"))
       res.setReason(parseCodeableConcept(json.getAsJsonObject("reason")));
     if (json.has("location"))
@@ -5611,9 +5611,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("integritySignature"))
-      res.setIntegritySignature(parseString(json.get("integritySignature").getAsString()));
+      res.setIntegritySignatureObject(parseString(json.get("integritySignature").getAsString()));
     if (json.has("_integritySignature"))
-      parseElementProperties(json.getAsJsonObject("_integritySignature"), res.getIntegritySignature());
+      parseElementProperties(json.getAsJsonObject("_integritySignature"), res.getIntegritySignatureObject());
     return res;
   }
 
@@ -5625,13 +5625,13 @@ public class JsonParser extends JsonParserBase {
     if (json.has("type"))
       res.setType(parseCoding(json.getAsJsonObject("type")));
     if (json.has("reference"))
-      res.setReference(parseUri(json.get("reference").getAsString()));
+      res.setReferenceObject(parseUri(json.get("reference").getAsString()));
     if (json.has("_reference"))
-      parseElementProperties(json.getAsJsonObject("_reference"), res.getReference());
+      parseElementProperties(json.getAsJsonObject("_reference"), res.getReferenceObject());
     if (json.has("display"))
-      res.setDisplay(parseString(json.get("display").getAsString()));
+      res.setDisplayObject(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
-      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplay());
+      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayObject());
     return res;
   }
 
@@ -5639,19 +5639,19 @@ public class JsonParser extends JsonParserBase {
     Provenance.ProvenanceEntityComponent res = new Provenance.ProvenanceEntityComponent();
     parseBackboneProperties(json, res);
     if (json.has("role"))
-      res.setRole(parseEnumeration(json.get("role").getAsString(), Provenance.ProvenanceEntityRole.Null, new Provenance.ProvenanceEntityRoleEnumFactory()));
+      res.setRoleObject(parseEnumeration(json.get("role").getAsString(), Provenance.ProvenanceEntityRole.NULL, new Provenance.ProvenanceEntityRoleEnumFactory()));
     if (json.has("_role"))
-      parseElementProperties(json.getAsJsonObject("_role"), res.getRole());
+      parseElementProperties(json.getAsJsonObject("_role"), res.getRoleObject());
     if (json.has("type"))
       res.setType(parseCoding(json.getAsJsonObject("type")));
     if (json.has("reference"))
-      res.setReference(parseUri(json.get("reference").getAsString()));
+      res.setReferenceObject(parseUri(json.get("reference").getAsString()));
     if (json.has("_reference"))
-      parseElementProperties(json.getAsJsonObject("_reference"), res.getReference());
+      parseElementProperties(json.getAsJsonObject("_reference"), res.getReferenceObject());
     if (json.has("display"))
-      res.setDisplay(parseString(json.get("display").getAsString()));
+      res.setDisplayObject(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
-      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplay());
+      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayObject());
     if (json.has("agent"))
       res.setAgent(parseProvenanceProvenanceAgentComponent(json.getAsJsonObject("agent"), owner));
     return res;
@@ -5661,9 +5661,9 @@ public class JsonParser extends JsonParserBase {
     Query res = new Query();
     parseResourceProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseUri(json.get("identifier").getAsString()));
+      res.setIdentifierObject(parseUri(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierObject());
     if (json.has("parameter")) {
       JsonArray array = json.getAsJsonArray("parameter");
       for (int i = 0; i < array.size(); i++) {
@@ -5679,17 +5679,17 @@ public class JsonParser extends JsonParserBase {
     Query.QueryResponseComponent res = new Query.QueryResponseComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseUri(json.get("identifier").getAsString()));
+      res.setIdentifierObject(parseUri(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierObject());
     if (json.has("outcome"))
-      res.setOutcome(parseEnumeration(json.get("outcome").getAsString(), Query.QueryOutcome.Null, new Query.QueryOutcomeEnumFactory()));
+      res.setOutcomeObject(parseEnumeration(json.get("outcome").getAsString(), Query.QueryOutcome.NULL, new Query.QueryOutcomeEnumFactory()));
     if (json.has("_outcome"))
-      parseElementProperties(json.getAsJsonObject("_outcome"), res.getOutcome());
+      parseElementProperties(json.getAsJsonObject("_outcome"), res.getOutcomeObject());
     if (json.has("total"))
-      res.setTotal(parseInteger(json.get("total").getAsLong()));
+      res.setTotalObject(parseInteger(json.get("total").getAsLong()));
     if (json.has("_total"))
-      parseElementProperties(json.getAsJsonObject("_total"), res.getTotal());
+      parseElementProperties(json.getAsJsonObject("_total"), res.getTotalObject());
     if (json.has("parameter")) {
       JsonArray array = json.getAsJsonArray("parameter");
       for (int i = 0; i < array.size(); i++) {
@@ -5739,21 +5739,21 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Questionnaire.QuestionnaireStatus.Null, new Questionnaire.QuestionnaireStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Questionnaire.QuestionnaireStatus.NULL, new Questionnaire.QuestionnaireStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("publisher"))
-      res.setPublisher(parseString(json.get("publisher").getAsString()));
+      res.setPublisherObject(parseString(json.get("publisher").getAsString()));
     if (json.has("_publisher"))
-      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisher());
+      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherObject());
     if (json.has("group"))
       res.setGroup(parseQuestionnaireGroupComponent(json.getAsJsonObject("group"), res));
     return res;
@@ -5763,13 +5763,13 @@ public class JsonParser extends JsonParserBase {
     Questionnaire.GroupComponent res = new Questionnaire.GroupComponent();
     parseBackboneProperties(json, res);
     if (json.has("linkId"))
-      res.setLinkId(parseString(json.get("linkId").getAsString()));
+      res.setLinkIdObject(parseString(json.get("linkId").getAsString()));
     if (json.has("_linkId"))
-      parseElementProperties(json.getAsJsonObject("_linkId"), res.getLinkId());
+      parseElementProperties(json.getAsJsonObject("_linkId"), res.getLinkIdObject());
     if (json.has("title"))
-      res.setTitle(parseString(json.get("title").getAsString()));
+      res.setTitleObject(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
-      parseElementProperties(json.getAsJsonObject("_title"), res.getTitle());
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleObject());
     if (json.has("concept")) {
       JsonArray array = json.getAsJsonArray("concept");
       for (int i = 0; i < array.size(); i++) {
@@ -5777,17 +5777,17 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("text"))
-      res.setText(parseString(json.get("text").getAsString()));
+      res.setTextObject(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
-      parseElementProperties(json.getAsJsonObject("_text"), res.getText());
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextObject());
     if (json.has("required"))
-      res.setRequired(parseBoolean(json.get("required").getAsBoolean()));
+      res.setRequiredObject(parseBoolean(json.get("required").getAsBoolean()));
     if (json.has("_required"))
-      parseElementProperties(json.getAsJsonObject("_required"), res.getRequired());
+      parseElementProperties(json.getAsJsonObject("_required"), res.getRequiredObject());
     if (json.has("repeats"))
-      res.setRepeats(parseBoolean(json.get("repeats").getAsBoolean()));
+      res.setRepeatsObject(parseBoolean(json.get("repeats").getAsBoolean()));
     if (json.has("_repeats"))
-      parseElementProperties(json.getAsJsonObject("_repeats"), res.getRepeats());
+      parseElementProperties(json.getAsJsonObject("_repeats"), res.getRepeatsObject());
     if (json.has("group")) {
       JsonArray array = json.getAsJsonArray("group");
       for (int i = 0; i < array.size(); i++) {
@@ -5807,9 +5807,9 @@ public class JsonParser extends JsonParserBase {
     Questionnaire.QuestionComponent res = new Questionnaire.QuestionComponent();
     parseBackboneProperties(json, res);
     if (json.has("linkId"))
-      res.setLinkId(parseString(json.get("linkId").getAsString()));
+      res.setLinkIdObject(parseString(json.get("linkId").getAsString()));
     if (json.has("_linkId"))
-      parseElementProperties(json.getAsJsonObject("_linkId"), res.getLinkId());
+      parseElementProperties(json.getAsJsonObject("_linkId"), res.getLinkIdObject());
     if (json.has("concept")) {
       JsonArray array = json.getAsJsonArray("concept");
       for (int i = 0; i < array.size(); i++) {
@@ -5817,21 +5817,21 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("text"))
-      res.setText(parseString(json.get("text").getAsString()));
+      res.setTextObject(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
-      parseElementProperties(json.getAsJsonObject("_text"), res.getText());
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextObject());
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Questionnaire.AnswerFormat.Null, new Questionnaire.AnswerFormatEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Questionnaire.AnswerFormat.NULL, new Questionnaire.AnswerFormatEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("required"))
-      res.setRequired(parseBoolean(json.get("required").getAsBoolean()));
+      res.setRequiredObject(parseBoolean(json.get("required").getAsBoolean()));
     if (json.has("_required"))
-      parseElementProperties(json.getAsJsonObject("_required"), res.getRequired());
+      parseElementProperties(json.getAsJsonObject("_required"), res.getRequiredObject());
     if (json.has("repeats"))
-      res.setRepeats(parseBoolean(json.get("repeats").getAsBoolean()));
+      res.setRepeatsObject(parseBoolean(json.get("repeats").getAsBoolean()));
     if (json.has("_repeats"))
-      parseElementProperties(json.getAsJsonObject("_repeats"), res.getRepeats());
+      parseElementProperties(json.getAsJsonObject("_repeats"), res.getRepeatsObject());
     if (json.has("options"))
       res.setOptions(parseReference(json.getAsJsonObject("options")));
     if (json.has("group")) {
@@ -5851,17 +5851,17 @@ public class JsonParser extends JsonParserBase {
     if (json.has("questionnaire"))
       res.setQuestionnaire(parseReference(json.getAsJsonObject("questionnaire")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), QuestionnaireAnswers.QuestionnaireAnswersStatus.Null, new QuestionnaireAnswers.QuestionnaireAnswersStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), QuestionnaireAnswers.QuestionnaireAnswersStatus.NULL, new QuestionnaireAnswers.QuestionnaireAnswersStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("author"))
       res.setAuthor(parseReference(json.getAsJsonObject("author")));
     if (json.has("authored"))
-      res.setAuthored(parseDateTime(json.get("authored").getAsString()));
+      res.setAuthoredObject(parseDateTime(json.get("authored").getAsString()));
     if (json.has("_authored"))
-      parseElementProperties(json.getAsJsonObject("_authored"), res.getAuthored());
+      parseElementProperties(json.getAsJsonObject("_authored"), res.getAuthoredObject());
     if (json.has("source"))
       res.setSource(parseReference(json.getAsJsonObject("source")));
     if (json.has("encounter"))
@@ -5875,17 +5875,17 @@ public class JsonParser extends JsonParserBase {
     QuestionnaireAnswers.GroupComponent res = new QuestionnaireAnswers.GroupComponent();
     parseBackboneProperties(json, res);
     if (json.has("linkId"))
-      res.setLinkId(parseString(json.get("linkId").getAsString()));
+      res.setLinkIdObject(parseString(json.get("linkId").getAsString()));
     if (json.has("_linkId"))
-      parseElementProperties(json.getAsJsonObject("_linkId"), res.getLinkId());
+      parseElementProperties(json.getAsJsonObject("_linkId"), res.getLinkIdObject());
     if (json.has("title"))
-      res.setTitle(parseString(json.get("title").getAsString()));
+      res.setTitleObject(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
-      parseElementProperties(json.getAsJsonObject("_title"), res.getTitle());
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleObject());
     if (json.has("text"))
-      res.setText(parseString(json.get("text").getAsString()));
+      res.setTextObject(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
-      parseElementProperties(json.getAsJsonObject("_text"), res.getText());
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextObject());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("group")) {
@@ -5907,13 +5907,13 @@ public class JsonParser extends JsonParserBase {
     QuestionnaireAnswers.QuestionComponent res = new QuestionnaireAnswers.QuestionComponent();
     parseBackboneProperties(json, res);
     if (json.has("linkId"))
-      res.setLinkId(parseString(json.get("linkId").getAsString()));
+      res.setLinkIdObject(parseString(json.get("linkId").getAsString()));
     if (json.has("_linkId"))
-      parseElementProperties(json.getAsJsonObject("_linkId"), res.getLinkId());
+      parseElementProperties(json.getAsJsonObject("_linkId"), res.getLinkIdObject());
     if (json.has("text"))
-      res.setText(parseString(json.get("text").getAsString()));
+      res.setTextObject(parseString(json.get("text").getAsString()));
     if (json.has("_text"))
-      parseElementProperties(json.getAsJsonObject("_text"), res.getText());
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextObject());
     if (json.has("answer")) {
       JsonArray array = json.getAsJsonArray("answer");
       for (int i = 0; i < array.size(); i++) {
@@ -5942,9 +5942,9 @@ public class JsonParser extends JsonParserBase {
     ReferralRequest res = new ReferralRequest();
     parseResourceProperties(json, res);
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), ReferralRequest.Referralstatus.Null, new ReferralRequest.ReferralstatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), ReferralRequest.Referralstatus.NULL, new ReferralRequest.ReferralstatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -5970,15 +5970,15 @@ public class JsonParser extends JsonParserBase {
     if (json.has("encounter"))
       res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("dateSent"))
-      res.setDateSent(parseDateTime(json.get("dateSent").getAsString()));
+      res.setDateSentObject(parseDateTime(json.get("dateSent").getAsString()));
     if (json.has("_dateSent"))
-      parseElementProperties(json.getAsJsonObject("_dateSent"), res.getDateSent());
+      parseElementProperties(json.getAsJsonObject("_dateSent"), res.getDateSentObject());
     if (json.has("reason"))
       res.setReason(parseCodeableConcept(json.getAsJsonObject("reason")));
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("serviceRequested")) {
       JsonArray array = json.getAsJsonArray("serviceRequested");
       for (int i = 0; i < array.size(); i++) {
@@ -6018,9 +6018,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("gender"))
-      res.setGender(parseEnumeration(json.get("gender").getAsString(), RelatedPerson.AdministrativeGender.Null, new RelatedPerson.AdministrativeGenderEnumFactory()));
+      res.setGenderObject(parseEnumeration(json.get("gender").getAsString(), RelatedPerson.AdministrativeGender.NULL, new RelatedPerson.AdministrativeGenderEnumFactory()));
     if (json.has("_gender"))
-      parseElementProperties(json.getAsJsonObject("_gender"), res.getGender());
+      parseElementProperties(json.getAsJsonObject("_gender"), res.getGenderObject());
     if (json.has("address"))
       res.setAddress(parseAddress(json.getAsJsonObject("address")));
     if (json.has("photo")) {
@@ -6038,9 +6038,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("condition"))
       res.setCondition(parseReference(json.getAsJsonObject("condition")));
     if (json.has("performer"))
@@ -6062,9 +6062,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("mitigation"))
-      res.setMitigation(parseString(json.get("mitigation").getAsString()));
+      res.setMitigationObject(parseString(json.get("mitigation").getAsString()));
     if (json.has("_mitigation"))
-      parseElementProperties(json.getAsJsonObject("_mitigation"), res.getMitigation());
+      parseElementProperties(json.getAsJsonObject("_mitigation"), res.getMitigationObject());
     return res;
   }
 
@@ -6077,16 +6077,16 @@ public class JsonParser extends JsonParserBase {
     if (probability != null)
       res.setProbability(probability);
     if (json.has("relativeRisk"))
-      res.setRelativeRisk(parseDecimal(json.get("relativeRisk").getAsBigDecimal()));
+      res.setRelativeRiskObject(parseDecimal(json.get("relativeRisk").getAsBigDecimal()));
     if (json.has("_relativeRisk"))
-      parseElementProperties(json.getAsJsonObject("_relativeRisk"), res.getRelativeRisk());
+      parseElementProperties(json.getAsJsonObject("_relativeRisk"), res.getRelativeRiskObject());
     Type when = parseType("when", json);
     if (when != null)
       res.setWhen(when);
     if (json.has("rationale"))
-      res.setRationale(parseString(json.get("rationale").getAsString()));
+      res.setRationaleObject(parseString(json.get("rationale").getAsString()));
     if (json.has("_rationale"))
-      parseElementProperties(json.getAsJsonObject("_rationale"), res.getRationale());
+      parseElementProperties(json.getAsJsonObject("_rationale"), res.getRationaleObject());
     return res;
   }
 
@@ -6124,21 +6124,21 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("action"))
-      res.setAction(parseEnumeration(json.get("action").getAsString(), SecurityEvent.SecurityEventAction.Null, new SecurityEvent.SecurityEventActionEnumFactory()));
+      res.setActionObject(parseEnumeration(json.get("action").getAsString(), SecurityEvent.SecurityEventAction.NULL, new SecurityEvent.SecurityEventActionEnumFactory()));
     if (json.has("_action"))
-      parseElementProperties(json.getAsJsonObject("_action"), res.getAction());
+      parseElementProperties(json.getAsJsonObject("_action"), res.getActionObject());
     if (json.has("dateTime"))
-      res.setDateTime(parseInstant(json.get("dateTime").getAsString()));
+      res.setDateTimeObject(parseInstant(json.get("dateTime").getAsString()));
     if (json.has("_dateTime"))
-      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTime());
+      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeObject());
     if (json.has("outcome"))
-      res.setOutcome(parseEnumeration(json.get("outcome").getAsString(), SecurityEvent.SecurityEventOutcome.Null, new SecurityEvent.SecurityEventOutcomeEnumFactory()));
+      res.setOutcomeObject(parseEnumeration(json.get("outcome").getAsString(), SecurityEvent.SecurityEventOutcome.NULL, new SecurityEvent.SecurityEventOutcomeEnumFactory()));
     if (json.has("_outcome"))
-      parseElementProperties(json.getAsJsonObject("_outcome"), res.getOutcome());
+      parseElementProperties(json.getAsJsonObject("_outcome"), res.getOutcomeObject());
     if (json.has("outcomeDesc"))
-      res.setOutcomeDesc(parseString(json.get("outcomeDesc").getAsString()));
+      res.setOutcomeDescObject(parseString(json.get("outcomeDesc").getAsString()));
     if (json.has("_outcomeDesc"))
-      parseElementProperties(json.getAsJsonObject("_outcomeDesc"), res.getOutcomeDesc());
+      parseElementProperties(json.getAsJsonObject("_outcomeDesc"), res.getOutcomeDescObject());
     return res;
   }
 
@@ -6154,21 +6154,21 @@ public class JsonParser extends JsonParserBase {
     if (json.has("reference"))
       res.setReference(parseReference(json.getAsJsonObject("reference")));
     if (json.has("userId"))
-      res.setUserId(parseString(json.get("userId").getAsString()));
+      res.setUserIdObject(parseString(json.get("userId").getAsString()));
     if (json.has("_userId"))
-      parseElementProperties(json.getAsJsonObject("_userId"), res.getUserId());
+      parseElementProperties(json.getAsJsonObject("_userId"), res.getUserIdObject());
     if (json.has("altId"))
-      res.setAltId(parseString(json.get("altId").getAsString()));
+      res.setAltIdObject(parseString(json.get("altId").getAsString()));
     if (json.has("_altId"))
-      parseElementProperties(json.getAsJsonObject("_altId"), res.getAltId());
+      parseElementProperties(json.getAsJsonObject("_altId"), res.getAltIdObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("requestor"))
-      res.setRequestor(parseBoolean(json.get("requestor").getAsBoolean()));
+      res.setRequestorObject(parseBoolean(json.get("requestor").getAsBoolean()));
     if (json.has("_requestor"))
-      parseElementProperties(json.getAsJsonObject("_requestor"), res.getRequestor());
+      parseElementProperties(json.getAsJsonObject("_requestor"), res.getRequestorObject());
     if (json.has("media"))
       res.setMedia(parseCoding(json.getAsJsonObject("media")));
     if (json.has("network"))
@@ -6180,13 +6180,13 @@ public class JsonParser extends JsonParserBase {
     SecurityEvent.SecurityEventParticipantNetworkComponent res = new SecurityEvent.SecurityEventParticipantNetworkComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseString(json.get("identifier").getAsString()));
+      res.setIdentifierObject(parseString(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierObject());
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), SecurityEvent.NetworkType.Null, new SecurityEvent.NetworkTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), SecurityEvent.NetworkType.NULL, new SecurityEvent.NetworkTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     return res;
   }
 
@@ -6194,13 +6194,13 @@ public class JsonParser extends JsonParserBase {
     SecurityEvent.SecurityEventSourceComponent res = new SecurityEvent.SecurityEventSourceComponent();
     parseBackboneProperties(json, res);
     if (json.has("site"))
-      res.setSite(parseString(json.get("site").getAsString()));
+      res.setSiteObject(parseString(json.get("site").getAsString()));
     if (json.has("_site"))
-      parseElementProperties(json.getAsJsonObject("_site"), res.getSite());
+      parseElementProperties(json.getAsJsonObject("_site"), res.getSiteObject());
     if (json.has("identifier"))
-      res.setIdentifier(parseString(json.get("identifier").getAsString()));
+      res.setIdentifierObject(parseString(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierObject());
     if (json.has("type")) {
       JsonArray array = json.getAsJsonArray("type");
       for (int i = 0; i < array.size(); i++) {
@@ -6218,31 +6218,31 @@ public class JsonParser extends JsonParserBase {
     if (json.has("reference"))
       res.setReference(parseReference(json.getAsJsonObject("reference")));
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), SecurityEvent.ObjectType.Null, new SecurityEvent.ObjectTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), SecurityEvent.ObjectType.NULL, new SecurityEvent.ObjectTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("role"))
-      res.setRole(parseEnumeration(json.get("role").getAsString(), SecurityEvent.ObjectRole.Null, new SecurityEvent.ObjectRoleEnumFactory()));
+      res.setRoleObject(parseEnumeration(json.get("role").getAsString(), SecurityEvent.ObjectRole.NULL, new SecurityEvent.ObjectRoleEnumFactory()));
     if (json.has("_role"))
-      parseElementProperties(json.getAsJsonObject("_role"), res.getRole());
+      parseElementProperties(json.getAsJsonObject("_role"), res.getRoleObject());
     if (json.has("lifecycle"))
-      res.setLifecycle(parseEnumeration(json.get("lifecycle").getAsString(), SecurityEvent.ObjectLifecycle.Null, new SecurityEvent.ObjectLifecycleEnumFactory()));
+      res.setLifecycleObject(parseEnumeration(json.get("lifecycle").getAsString(), SecurityEvent.ObjectLifecycle.NULL, new SecurityEvent.ObjectLifecycleEnumFactory()));
     if (json.has("_lifecycle"))
-      parseElementProperties(json.getAsJsonObject("_lifecycle"), res.getLifecycle());
+      parseElementProperties(json.getAsJsonObject("_lifecycle"), res.getLifecycleObject());
     if (json.has("sensitivity"))
       res.setSensitivity(parseCodeableConcept(json.getAsJsonObject("sensitivity")));
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("query"))
-      res.setQuery(parseBase64Binary(json.get("query").getAsString()));
+      res.setQueryObject(parseBase64Binary(json.get("query").getAsString()));
     if (json.has("_query"))
-      parseElementProperties(json.getAsJsonObject("_query"), res.getQuery());
+      parseElementProperties(json.getAsJsonObject("_query"), res.getQueryObject());
     if (json.has("detail")) {
       JsonArray array = json.getAsJsonArray("detail");
       for (int i = 0; i < array.size(); i++) {
@@ -6256,13 +6256,13 @@ public class JsonParser extends JsonParserBase {
     SecurityEvent.SecurityEventObjectDetailComponent res = new SecurityEvent.SecurityEventObjectDetailComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setType(parseString(json.get("type").getAsString()));
+      res.setTypeObject(parseString(json.get("type").getAsString()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("value"))
-      res.setValue(parseBase64Binary(json.get("value").getAsString()));
+      res.setValueObject(parseBase64Binary(json.get("value").getAsString()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     return res;
   }
 
@@ -6280,29 +6280,29 @@ public class JsonParser extends JsonParserBase {
     if (json.has("availability"))
       res.setAvailability(parseReference(json.getAsJsonObject("availability")));
     if (json.has("freeBusyType"))
-      res.setFreeBusyType(parseEnumeration(json.get("freeBusyType").getAsString(), Slot.Slotstatus.Null, new Slot.SlotstatusEnumFactory()));
+      res.setFreeBusyTypeObject(parseEnumeration(json.get("freeBusyType").getAsString(), Slot.Slotstatus.NULL, new Slot.SlotstatusEnumFactory()));
     if (json.has("_freeBusyType"))
-      parseElementProperties(json.getAsJsonObject("_freeBusyType"), res.getFreeBusyType());
+      parseElementProperties(json.getAsJsonObject("_freeBusyType"), res.getFreeBusyTypeObject());
     if (json.has("start"))
-      res.setStart(parseInstant(json.get("start").getAsString()));
+      res.setStartObject(parseInstant(json.get("start").getAsString()));
     if (json.has("_start"))
-      parseElementProperties(json.getAsJsonObject("_start"), res.getStart());
+      parseElementProperties(json.getAsJsonObject("_start"), res.getStartObject());
     if (json.has("end"))
-      res.setEnd(parseInstant(json.get("end").getAsString()));
+      res.setEndObject(parseInstant(json.get("end").getAsString()));
     if (json.has("_end"))
-      parseElementProperties(json.getAsJsonObject("_end"), res.getEnd());
+      parseElementProperties(json.getAsJsonObject("_end"), res.getEndObject());
     if (json.has("overbooked"))
-      res.setOverbooked(parseBoolean(json.get("overbooked").getAsBoolean()));
+      res.setOverbookedObject(parseBoolean(json.get("overbooked").getAsBoolean()));
     if (json.has("_overbooked"))
-      parseElementProperties(json.getAsJsonObject("_overbooked"), res.getOverbooked());
+      parseElementProperties(json.getAsJsonObject("_overbooked"), res.getOverbookedObject());
     if (json.has("comment"))
-      res.setComment(parseString(json.get("comment").getAsString()));
+      res.setCommentObject(parseString(json.get("comment").getAsString()));
     if (json.has("_comment"))
-      parseElementProperties(json.getAsJsonObject("_comment"), res.getComment());
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentObject());
     if (json.has("lastModified"))
-      res.setLastModified(parseDateTime(json.get("lastModified").getAsString()));
+      res.setLastModifiedObject(parseDateTime(json.get("lastModified").getAsString()));
     if (json.has("_lastModified"))
-      parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModified());
+      parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModifiedObject());
     return res;
   }
 
@@ -6328,9 +6328,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("accessionIdentifier"))
       res.setAccessionIdentifier(parseIdentifier(json.getAsJsonObject("accessionIdentifier")));
     if (json.has("receivedTime"))
-      res.setReceivedTime(parseDateTime(json.get("receivedTime").getAsString()));
+      res.setReceivedTimeObject(parseDateTime(json.get("receivedTime").getAsString()));
     if (json.has("_receivedTime"))
-      parseElementProperties(json.getAsJsonObject("_receivedTime"), res.getReceivedTime());
+      parseElementProperties(json.getAsJsonObject("_receivedTime"), res.getReceivedTimeObject());
     if (json.has("collection"))
       res.setCollection(parseSpecimenSpecimenCollectionComponent(json.getAsJsonObject("collection"), res));
     if (json.has("treatment")) {
@@ -6352,9 +6352,9 @@ public class JsonParser extends JsonParserBase {
     Specimen.SpecimenSourceComponent res = new Specimen.SpecimenSourceComponent();
     parseBackboneProperties(json, res);
     if (json.has("relationship"))
-      res.setRelationship(parseEnumeration(json.get("relationship").getAsString(), Specimen.HierarchicalRelationshipType.Null, new Specimen.HierarchicalRelationshipTypeEnumFactory()));
+      res.setRelationshipObject(parseEnumeration(json.get("relationship").getAsString(), Specimen.HierarchicalRelationshipType.NULL, new Specimen.HierarchicalRelationshipTypeEnumFactory()));
     if (json.has("_relationship"))
-      parseElementProperties(json.getAsJsonObject("_relationship"), res.getRelationship());
+      parseElementProperties(json.getAsJsonObject("_relationship"), res.getRelationshipObject());
     if (json.has("target")) {
       JsonArray array = json.getAsJsonArray("target");
       for (int i = 0; i < array.size(); i++) {
@@ -6400,9 +6400,9 @@ public class JsonParser extends JsonParserBase {
     Specimen.SpecimenTreatmentComponent res = new Specimen.SpecimenTreatmentComponent();
     parseBackboneProperties(json, res);
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("procedure"))
       res.setProcedure(parseCodeableConcept(json.getAsJsonObject("procedure")));
     if (json.has("additive")) {
@@ -6424,9 +6424,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("capacity"))
@@ -6442,9 +6442,9 @@ public class JsonParser extends JsonParserBase {
     Subscription res = new Subscription();
     parseResourceProperties(json, res);
     if (json.has("criteria"))
-      res.setCriteria(parseString(json.get("criteria").getAsString()));
+      res.setCriteriaObject(parseString(json.get("criteria").getAsString()));
     if (json.has("_criteria"))
-      parseElementProperties(json.getAsJsonObject("_criteria"), res.getCriteria());
+      parseElementProperties(json.getAsJsonObject("_criteria"), res.getCriteriaObject());
     if (json.has("contact")) {
       JsonArray array = json.getAsJsonArray("contact");
       for (int i = 0; i < array.size(); i++) {
@@ -6452,23 +6452,23 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("reason"))
-      res.setReason(parseString(json.get("reason").getAsString()));
+      res.setReasonObject(parseString(json.get("reason").getAsString()));
     if (json.has("_reason"))
-      parseElementProperties(json.getAsJsonObject("_reason"), res.getReason());
+      parseElementProperties(json.getAsJsonObject("_reason"), res.getReasonObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Subscription.SubscriptionStatus.Null, new Subscription.SubscriptionStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Subscription.SubscriptionStatus.NULL, new Subscription.SubscriptionStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("error"))
-      res.setError(parseString(json.get("error").getAsString()));
+      res.setErrorObject(parseString(json.get("error").getAsString()));
     if (json.has("_error"))
-      parseElementProperties(json.getAsJsonObject("_error"), res.getError());
+      parseElementProperties(json.getAsJsonObject("_error"), res.getErrorObject());
     if (json.has("channel"))
       res.setChannel(parseSubscriptionSubscriptionChannelComponent(json.getAsJsonObject("channel"), res));
     if (json.has("end"))
-      res.setEnd(parseInstant(json.get("end").getAsString()));
+      res.setEndObject(parseInstant(json.get("end").getAsString()));
     if (json.has("_end"))
-      parseElementProperties(json.getAsJsonObject("_end"), res.getEnd());
+      parseElementProperties(json.getAsJsonObject("_end"), res.getEndObject());
     if (json.has("tag")) {
       JsonArray array = json.getAsJsonArray("tag");
       for (int i = 0; i < array.size(); i++) {
@@ -6482,21 +6482,21 @@ public class JsonParser extends JsonParserBase {
     Subscription.SubscriptionChannelComponent res = new Subscription.SubscriptionChannelComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setType(parseEnumeration(json.get("type").getAsString(), Subscription.SubscriptionChannelType.Null, new Subscription.SubscriptionChannelTypeEnumFactory()));
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), Subscription.SubscriptionChannelType.NULL, new Subscription.SubscriptionChannelTypeEnumFactory()));
     if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
     if (json.has("url"))
-      res.setUrl(parseUri(json.get("url").getAsString()));
+      res.setUrlObject(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrl());
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlObject());
     if (json.has("payload"))
-      res.setPayload(parseString(json.get("payload").getAsString()));
+      res.setPayloadObject(parseString(json.get("payload").getAsString()));
     if (json.has("_payload"))
-      parseElementProperties(json.getAsJsonObject("_payload"), res.getPayload());
+      parseElementProperties(json.getAsJsonObject("_payload"), res.getPayloadObject());
     if (json.has("header"))
-      res.setHeader(parseString(json.get("header").getAsString()));
+      res.setHeaderObject(parseString(json.get("header").getAsString()));
     if (json.has("_header"))
-      parseElementProperties(json.getAsJsonObject("_header"), res.getHeader());
+      parseElementProperties(json.getAsJsonObject("_header"), res.getHeaderObject());
     return res;
   }
 
@@ -6504,17 +6504,17 @@ public class JsonParser extends JsonParserBase {
     Subscription.SubscriptionTagComponent res = new Subscription.SubscriptionTagComponent();
     parseBackboneProperties(json, res);
     if (json.has("term"))
-      res.setTerm(parseUri(json.get("term").getAsString()));
+      res.setTermObject(parseUri(json.get("term").getAsString()));
     if (json.has("_term"))
-      parseElementProperties(json.getAsJsonObject("_term"), res.getTerm());
+      parseElementProperties(json.getAsJsonObject("_term"), res.getTermObject());
     if (json.has("scheme"))
-      res.setScheme(parseUri(json.get("scheme").getAsString()));
+      res.setSchemeObject(parseUri(json.get("scheme").getAsString()));
     if (json.has("_scheme"))
-      parseElementProperties(json.getAsJsonObject("_scheme"), res.getScheme());
+      parseElementProperties(json.getAsJsonObject("_scheme"), res.getSchemeObject());
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     return res;
   }
 
@@ -6524,9 +6524,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("instance"))
       res.setInstance(parseSubstanceSubstanceInstanceComponent(json.getAsJsonObject("instance"), res));
     if (json.has("ingredient")) {
@@ -6544,9 +6544,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("expiry"))
-      res.setExpiry(parseDateTime(json.get("expiry").getAsString()));
+      res.setExpiryObject(parseDateTime(json.get("expiry").getAsString()));
     if (json.has("_expiry"))
-      parseElementProperties(json.getAsJsonObject("_expiry"), res.getExpiry());
+      parseElementProperties(json.getAsJsonObject("_expiry"), res.getExpiryObject());
     if (json.has("quantity"))
       res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
     return res;
@@ -6570,9 +6570,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Supply.ValuesetSupplyStatus.Null, new Supply.ValuesetSupplyStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Supply.ValuesetSupplyStatus.NULL, new Supply.ValuesetSupplyStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("orderedItem"))
       res.setOrderedItem(parseReference(json.getAsJsonObject("orderedItem")));
     if (json.has("patient"))
@@ -6592,9 +6592,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), Supply.ValuesetSupplyDispenseStatus.Null, new Supply.ValuesetSupplyDispenseStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), Supply.ValuesetSupplyDispenseStatus.NULL, new Supply.ValuesetSupplyDispenseStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("quantity"))
@@ -6622,29 +6622,29 @@ public class JsonParser extends JsonParserBase {
     ValueSet res = new ValueSet();
     parseResourceProperties(json, res);
     if (json.has("identifier"))
-      res.setIdentifier(parseUri(json.get("identifier").getAsString()));
+      res.setIdentifierObject(parseUri(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("name"))
-      res.setName(parseString(json.get("name").getAsString()));
+      res.setNameObject(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameObject());
     if (json.has("purpose"))
-      res.setPurpose(parseString(json.get("purpose").getAsString()));
+      res.setPurposeObject(parseString(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
-      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurpose());
+      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeObject());
     if (json.has("immutable"))
-      res.setImmutable(parseBoolean(json.get("immutable").getAsBoolean()));
+      res.setImmutableObject(parseBoolean(json.get("immutable").getAsBoolean()));
     if (json.has("_immutable"))
-      parseElementProperties(json.getAsJsonObject("_immutable"), res.getImmutable());
+      parseElementProperties(json.getAsJsonObject("_immutable"), res.getImmutableObject());
     if (json.has("publisher"))
-      res.setPublisher(parseString(json.get("publisher").getAsString()));
+      res.setPublisherObject(parseString(json.get("publisher").getAsString()));
     if (json.has("_publisher"))
-      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisher());
+      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherObject());
     if (json.has("telecom")) {
       JsonArray array = json.getAsJsonArray("telecom");
       for (int i = 0; i < array.size(); i++) {
@@ -6652,33 +6652,33 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("description"))
-      res.setDescription(parseString(json.get("description").getAsString()));
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescription());
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
     if (json.has("copyright"))
-      res.setCopyright(parseString(json.get("copyright").getAsString()));
+      res.setCopyrightObject(parseString(json.get("copyright").getAsString()));
     if (json.has("_copyright"))
-      parseElementProperties(json.getAsJsonObject("_copyright"), res.getCopyright());
+      parseElementProperties(json.getAsJsonObject("_copyright"), res.getCopyrightObject());
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.get("status").getAsString(), ValueSet.ValuesetStatus.Null, new ValueSet.ValuesetStatusEnumFactory()));
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), ValueSet.ValuesetStatus.NULL, new ValueSet.ValuesetStatusEnumFactory()));
     if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
     if (json.has("experimental"))
-      res.setExperimental(parseBoolean(json.get("experimental").getAsBoolean()));
+      res.setExperimentalObject(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
-      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimental());
+      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalObject());
     if (json.has("extensible"))
-      res.setExtensible(parseBoolean(json.get("extensible").getAsBoolean()));
+      res.setExtensibleObject(parseBoolean(json.get("extensible").getAsBoolean()));
     if (json.has("_extensible"))
-      parseElementProperties(json.getAsJsonObject("_extensible"), res.getExtensible());
+      parseElementProperties(json.getAsJsonObject("_extensible"), res.getExtensibleObject());
     if (json.has("date"))
-      res.setDate(parseDateTime(json.get("date").getAsString()));
+      res.setDateObject(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateObject());
     if (json.has("stableDate"))
-      res.setStableDate(parseDate(json.get("stableDate").getAsString()));
+      res.setStableDateObject(parseDate(json.get("stableDate").getAsString()));
     if (json.has("_stableDate"))
-      parseElementProperties(json.getAsJsonObject("_stableDate"), res.getStableDate());
+      parseElementProperties(json.getAsJsonObject("_stableDate"), res.getStableDateObject());
     if (json.has("define"))
       res.setDefine(parseValueSetValueSetDefineComponent(json.getAsJsonObject("define"), res));
     if (json.has("compose"))
@@ -6692,17 +6692,17 @@ public class JsonParser extends JsonParserBase {
     ValueSet.ValueSetDefineComponent res = new ValueSet.ValueSetDefineComponent();
     parseBackboneProperties(json, res);
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("caseSensitive"))
-      res.setCaseSensitive(parseBoolean(json.get("caseSensitive").getAsBoolean()));
+      res.setCaseSensitiveObject(parseBoolean(json.get("caseSensitive").getAsBoolean()));
     if (json.has("_caseSensitive"))
-      parseElementProperties(json.getAsJsonObject("_caseSensitive"), res.getCaseSensitive());
+      parseElementProperties(json.getAsJsonObject("_caseSensitive"), res.getCaseSensitiveObject());
     if (json.has("concept")) {
       JsonArray array = json.getAsJsonArray("concept");
       for (int i = 0; i < array.size(); i++) {
@@ -6716,21 +6716,21 @@ public class JsonParser extends JsonParserBase {
     ValueSet.ConceptDefinitionComponent res = new ValueSet.ConceptDefinitionComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("abstract"))
-      res.setAbstract(parseBoolean(json.get("abstract").getAsBoolean()));
+      res.setAbstractObject(parseBoolean(json.get("abstract").getAsBoolean()));
     if (json.has("_abstract"))
-      parseElementProperties(json.getAsJsonObject("_abstract"), res.getAbstract());
+      parseElementProperties(json.getAsJsonObject("_abstract"), res.getAbstractObject());
     if (json.has("display"))
-      res.setDisplay(parseString(json.get("display").getAsString()));
+      res.setDisplayObject(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
-      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplay());
+      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayObject());
     if (json.has("definition"))
-      res.setDefinition(parseString(json.get("definition").getAsString()));
+      res.setDefinitionObject(parseString(json.get("definition").getAsString()));
     if (json.has("_definition"))
-      parseElementProperties(json.getAsJsonObject("_definition"), res.getDefinition());
+      parseElementProperties(json.getAsJsonObject("_definition"), res.getDefinitionObject());
     if (json.has("designation")) {
       JsonArray array = json.getAsJsonArray("designation");
       for (int i = 0; i < array.size(); i++) {
@@ -6750,15 +6750,15 @@ public class JsonParser extends JsonParserBase {
     ValueSet.ConceptDefinitionDesignationComponent res = new ValueSet.ConceptDefinitionDesignationComponent();
     parseBackboneProperties(json, res);
     if (json.has("language"))
-      res.setLanguage(parseCode(json.get("language").getAsString()));
+      res.setLanguageObject(parseCode(json.get("language").getAsString()));
     if (json.has("_language"))
-      parseElementProperties(json.getAsJsonObject("_language"), res.getLanguage());
+      parseElementProperties(json.getAsJsonObject("_language"), res.getLanguageObject());
     if (json.has("use"))
       res.setUse(parseCoding(json.getAsJsonObject("use")));
     if (json.has("value"))
-      res.setValue(parseString(json.get("value").getAsString()));
+      res.setValueObject(parseString(json.get("value").getAsString()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     return res;
   }
 
@@ -6799,13 +6799,13 @@ public class JsonParser extends JsonParserBase {
     ValueSet.ConceptSetComponent res = new ValueSet.ConceptSetComponent();
     parseBackboneProperties(json, res);
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("concept")) {
       JsonArray array = json.getAsJsonArray("concept");
       for (int i = 0; i < array.size(); i++) {
@@ -6825,13 +6825,13 @@ public class JsonParser extends JsonParserBase {
     ValueSet.ConceptReferenceComponent res = new ValueSet.ConceptReferenceComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("display"))
-      res.setDisplay(parseString(json.get("display").getAsString()));
+      res.setDisplayObject(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
-      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplay());
+      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayObject());
     if (json.has("designation")) {
       JsonArray array = json.getAsJsonArray("designation");
       for (int i = 0; i < array.size(); i++) {
@@ -6845,17 +6845,17 @@ public class JsonParser extends JsonParserBase {
     ValueSet.ConceptSetFilterComponent res = new ValueSet.ConceptSetFilterComponent();
     parseBackboneProperties(json, res);
     if (json.has("property"))
-      res.setProperty(parseCode(json.get("property").getAsString()));
+      res.setPropertyObject(parseCode(json.get("property").getAsString()));
     if (json.has("_property"))
-      parseElementProperties(json.getAsJsonObject("_property"), res.getProperty());
+      parseElementProperties(json.getAsJsonObject("_property"), res.getPropertyObject());
     if (json.has("op"))
-      res.setOp(parseEnumeration(json.get("op").getAsString(), ValueSet.FilterOperator.Null, new ValueSet.FilterOperatorEnumFactory()));
+      res.setOpObject(parseEnumeration(json.get("op").getAsString(), ValueSet.FilterOperator.NULL, new ValueSet.FilterOperatorEnumFactory()));
     if (json.has("_op"))
-      parseElementProperties(json.getAsJsonObject("_op"), res.getOp());
+      parseElementProperties(json.getAsJsonObject("_op"), res.getOpObject());
     if (json.has("value"))
-      res.setValue(parseCode(json.get("value").getAsString()));
+      res.setValueObject(parseCode(json.get("value").getAsString()));
     if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValue());
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueObject());
     return res;
   }
 
@@ -6865,9 +6865,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("timestamp"))
-      res.setTimestamp(parseInstant(json.get("timestamp").getAsString()));
+      res.setTimestampObject(parseInstant(json.get("timestamp").getAsString()));
     if (json.has("_timestamp"))
-      parseElementProperties(json.getAsJsonObject("_timestamp"), res.getTimestamp());
+      parseElementProperties(json.getAsJsonObject("_timestamp"), res.getTimestampObject());
     if (json.has("contains")) {
       JsonArray array = json.getAsJsonArray("contains");
       for (int i = 0; i < array.size(); i++) {
@@ -6881,25 +6881,25 @@ public class JsonParser extends JsonParserBase {
     ValueSet.ValueSetExpansionContainsComponent res = new ValueSet.ValueSetExpansionContainsComponent();
     parseBackboneProperties(json, res);
     if (json.has("system"))
-      res.setSystem(parseUri(json.get("system").getAsString()));
+      res.setSystemObject(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
-      parseElementProperties(json.getAsJsonObject("_system"), res.getSystem());
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemObject());
     if (json.has("abstract"))
-      res.setAbstract(parseBoolean(json.get("abstract").getAsBoolean()));
+      res.setAbstractObject(parseBoolean(json.get("abstract").getAsBoolean()));
     if (json.has("_abstract"))
-      parseElementProperties(json.getAsJsonObject("_abstract"), res.getAbstract());
+      parseElementProperties(json.getAsJsonObject("_abstract"), res.getAbstractObject());
     if (json.has("version"))
-      res.setVersion(parseString(json.get("version").getAsString()));
+      res.setVersionObject(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersion());
+      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionObject());
     if (json.has("code"))
-      res.setCode(parseCode(json.get("code").getAsString()));
+      res.setCodeObject(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCode());
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeObject());
     if (json.has("display"))
-      res.setDisplay(parseString(json.get("display").getAsString()));
+      res.setDisplayObject(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
-      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplay());
+      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayObject());
     if (json.has("contains")) {
       JsonArray array = json.getAsJsonArray("contains");
       for (int i = 0; i < array.size(); i++) {

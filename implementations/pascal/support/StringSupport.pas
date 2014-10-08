@@ -1229,6 +1229,7 @@ var
 begin
   result := false;
   Base := 10;
+  Digit := 0;
   Start := 1;
   StrValue := Trim(UpperCase(StrValue));
   if StrValue='' then

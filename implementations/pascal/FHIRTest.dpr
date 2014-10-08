@@ -7,6 +7,7 @@ uses
   FastMM4Messages in 'support\FastMM4Messages.pas',
   AdvGenerics in 'support\AdvGenerics.pas',
   AdvGenericsTests in 'support\AdvGenericsTests.pas',
+  IdSSLOpenSSLHeaders,
   FHIRConstants,
   FHIRParser,
   SysUtils,
@@ -99,12 +100,16 @@ uses
   JWT in 'support\JWT.pas',
   HMAC in 'support\HMAC.pas',
   libeay32 in 'support\libeay32.pas',
-  SCIMObjects in 'SCIMObjects.pas';
+  SCIMObjects in 'SCIMObjects.pas',
+  FHIRDigitalSignatures in 'FHIRDigitalSignatures.pas',
+  DigitalSignatures in 'support\DigitalSignatures.pas',
+  XMLSupport in 'support\XMLSupport.pas',
+  InternetFetcher in 'support\InternetFetcher.pas';
 
 procedure SaveStringToFile(s : AnsiString; fn : String);
 var
   f : TFileStream;
-begin  
+begin
   f := TFileStream.Create(fn, fmCreate);
   try
     f.Write(s[1], length(s));
@@ -113,16 +118,15 @@ begin
   end;
 end;
 
+
+procedure Roundtrip(Source, Dest : String);
 var
   f : TFileStream;
   m : TMemoryStream;
   p : TFHIRParser;
   c : TFHIRComposer;
-  r, cr : TFhirResource;
+  r : TFhirResource;
   a : TFHIRAtomFeed;
-  i : integer;
-
-procedure Roundtrip(Source, Dest : String);
 begin
   try
     p := TFHIRXmlParser.Create('en');
@@ -171,8 +175,6 @@ begin
     finally
       m.Free;
     end;
-    for cr in r.containedList do
-      inc(i);
 
     f := TFileStream.Create(dest, fmCreate);
     try
@@ -215,20 +217,123 @@ begin
   end;
 end;
 
+function ConfigureDigSig(dsig : TDigitalSigner; certpath, certtype : String) : TSignatureMethod;
 begin
-  TAdvGenericsTests.execute;
-//  try
-//    CoInitialize(nil);
-//    if DirectoryExists(ParamStr(2)) and DirectoryExists(Paramstr(1)) then
-//      roundTripDirectory(Paramstr(1), ParamStr(2))
-//    else
-//    begin
-//      if (ParamStr(1) = '') or (ParamStr(2) = '') or not FileExists(paramstr(1)) then
-//        raise Exception.Create('Provide input and output file names');
-//      roundTrip(paramStr(1), paramStr(2));
-//    end;
-//  except
-//    on e:exception do
-//      SaveStringToFile(AnsiString(e.Message), ParamStr(2)+'.err');
-//  end;
+  if certtype = 'rsa' then
+  begin
+    dsig.KeyFile := IncludeTrailingPathDelimiter(certpath)+'rsa_2048.pem';
+    dsig.KeyPassword := 'fhir';
+    result := sdXmlRSASha256;
+  end
+  else if certtype = 'dsa' then
+  begin
+    dsig.KeyFile := IncludeTrailingPathDelimiter(certpath)+'dsa_1024.pem';
+    dsig.KeyPassword := 'fhir';
+    result := sdXmlDSASha256;
+  end
+  else if certtype = 'ecdsa' then
+  begin
+    dsig.KeyFile := IncludeTrailingPathDelimiter(certpath)+'ecdsa_priv.pem';
+//    dsig.CertFile := IncludeTrailingPathDelimiter(certpath)+'ecdsa_pub.pem';
+    result := sdXmlRSASha256;
+  end;
+end;
+
+procedure signProvenance(filename, certpath, certtype : String);
+begin
+  raise Exception.Create('Not Done Yet');
+{  // ok, first we look at the filename, and see what it is.
+  p := TFHIRXmlParser.Create('en');
+  try
+    p.ParserPolicy := xppDrop;
+    f := TFileStream.Create(filename, fmopenRead,+ fmShareDenyWrite);
+    try
+      p.source := f;
+      p.Parse;
+      if p.feed <> nil then
+        sigtype := 0
+      else if p.resource is TFhirProvenance then
+        sigtype := 1
+      else
+        raise Exception.Create('Do not know how to sign a '+CODES_TFhirResourceType[p.resource.ResourceType]);
+    finally
+      f.Free;
+    end;
+  finally
+    p.free;
+  end;
+}
+end;
+
+procedure signAtom(filename, certpath, certtype : String);
+var
+  dsig : TDigitalSigner;
+  method : TSignatureMethod;
+begin
+  dsig := TDigitalSigner.Create;
+  try
+    BytesToFile(dsig.signEnveloped(FileToBytes(filename), ConfigureDigSig(dsig, certPath, certType), true), filename);
+  finally
+    dsig.Free;
+  end;
+end;
+
+procedure verify(filename, certificate, password : String);
+begin
+  raise Exception.Create('Not Done Yet');
+end;
+
+procedure DoBuildEntry;
+var
+  certpath, certtype, password : String;
+begin
+  try
+    CoInitialize(nil);
+    IdSSLOpenSSLHeaders.load;
+    LoadEAYExtensions;
+    ERR_load_crypto_strings;
+    OpenSSL_add_all_algorithms;
+    try
+      if (paramstr(1) = '-signatom') then
+      begin
+        if not FindCmdLineSwitch('certpath', certpath) then
+          raise Exception.Create('No certificate provided');
+        if not FindCmdLineSwitch('certtype', certtype) then
+          raise Exception.Create('No certificate provided');
+        writeln('-signatom '+paramstr(2)+' -certpath '+certpath+' -certtype '+certtype);
+        signAtom(paramstr(2), certpath, certtype);
+      end
+      else if (paramstr(1) = '-signprovenance') then
+      begin
+        raise Exception.Create('Not Done Yet');
+      end
+      else if (paramstr(1) = '-verify') then
+      begin
+  //      FindCmdLineSwitch('cert', cert);
+  //      FindCmdLineSwitch('password', password);
+  //      verify(paramstr(2), cert, password);
+      end
+      else if DirectoryExists(ParamStr(2)) and DirectoryExists(Paramstr(1)) then
+        roundTripDirectory(Paramstr(1), ParamStr(2))
+      else
+      begin
+        if (ParamStr(1) = '') or (ParamStr(2) = '') or not FileExists(paramstr(1)) then
+          raise Exception.Create('Provide input and output file names');
+        roundTrip(paramStr(1), paramStr(2));
+      end;
+    except
+      on e:exception do
+        SaveStringToFile(AnsiString(e.Message), ParamStr(2)+'.err');
+    end;
+  finally
+    UnloadEAYExtensions;
+    CoUninitialize;
+  end;
+end;
+
+begin
+  if paramstr(1) = '-test' then
+    TAdvGenericsTests.execute
+  else
+    DoBuildEntry;
 end.

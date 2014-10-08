@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,30 +39,30 @@ import java.util.*;
 public class Identifier extends Type {
 
     public enum IdentifierUse {
-        usual, // the identifier recommended for display and use in real-world interactions.
-        official, // the identifier considered to be most trusted for the identification of this item.
-        temp, // A temporary identifier.
-        secondary, // An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.
-        Null; // added to help the parsers
+        USUAL, // the identifier recommended for display and use in real-world interactions.
+        OFFICIAL, // the identifier considered to be most trusted for the identification of this item.
+        TEMP, // A temporary identifier.
+        SECONDARY, // An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.
+        NULL; // added to help the parsers
         public static IdentifierUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("usual".equals(codeString))
-          return usual;
+          return USUAL;
         if ("official".equals(codeString))
-          return official;
+          return OFFICIAL;
         if ("temp".equals(codeString))
-          return temp;
+          return TEMP;
         if ("secondary".equals(codeString))
-          return secondary;
+          return SECONDARY;
         throw new Exception("Unknown IdentifierUse code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case usual: return "usual";
-            case official: return "official";
-            case temp: return "temp";
-            case secondary: return "secondary";
+            case USUAL: return "usual";
+            case OFFICIAL: return "official";
+            case TEMP: return "temp";
+            case SECONDARY: return "secondary";
             default: return "?";
           }
         }
@@ -74,23 +74,23 @@ public class Identifier extends Type {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("usual".equals(codeString))
-          return IdentifierUse.usual;
+          return IdentifierUse.USUAL;
         if ("official".equals(codeString))
-          return IdentifierUse.official;
+          return IdentifierUse.OFFICIAL;
         if ("temp".equals(codeString))
-          return IdentifierUse.temp;
+          return IdentifierUse.TEMP;
         if ("secondary".equals(codeString))
-          return IdentifierUse.secondary;
+          return IdentifierUse.SECONDARY;
         throw new Exception("Unknown IdentifierUse code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == IdentifierUse.usual)
+      if (code == IdentifierUse.USUAL)
         return "usual";
-      if (code == IdentifierUse.official)
+      if (code == IdentifierUse.OFFICIAL)
         return "official";
-      if (code == IdentifierUse.temp)
+      if (code == IdentifierUse.TEMP)
         return "temp";
-      if (code == IdentifierUse.secondary)
+      if (code == IdentifierUse.SECONDARY)
         return "secondary";
       return "?";
       }
@@ -138,16 +138,16 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return {@link #use} (The purpose of this identifier.)
+     * @return {@link #use} (The purpose of this identifier.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<IdentifierUse> getUse() { 
+    public Enumeration<IdentifierUse> getUseObject() { 
       return this.use;
     }
 
     /**
-     * @param value {@link #use} (The purpose of this identifier.)
+     * @param value {@link #use} (The purpose of this identifier.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Identifier setUse(Enumeration<IdentifierUse> value) { 
+    public Identifier setUseObject(Enumeration<IdentifierUse> value) { 
       this.use = value;
       return this;
     }
@@ -155,14 +155,14 @@ public class Identifier extends Type {
     /**
      * @return The purpose of this identifier.
      */
-    public IdentifierUse getUseSimple() { 
+    public IdentifierUse getUse() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
      * @param value The purpose of this identifier.
      */
-    public Identifier setUseSimple(IdentifierUse value) { 
+    public Identifier setUse(IdentifierUse value) { 
       if (value == null)
         this.use = null;
       else {
@@ -174,16 +174,16 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.)
+     * @return {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
      */
-    public StringType getLabel() { 
+    public StringType getLabelObject() { 
       return this.label;
     }
 
     /**
-     * @param value {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.)
+     * @param value {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
      */
-    public Identifier setLabel(StringType value) { 
+    public Identifier setLabelObject(StringType value) { 
       this.label = value;
       return this;
     }
@@ -191,14 +191,14 @@ public class Identifier extends Type {
     /**
      * @return A text string for the identifier that can be displayed to a human so they can recognize the identifier.
      */
-    public String getLabelSimple() { 
+    public String getLabel() { 
       return this.label == null ? null : this.label.getValue();
     }
 
     /**
      * @param value A text string for the identifier that can be displayed to a human so they can recognize the identifier.
      */
-    public Identifier setLabelSimple(String value) { 
+    public Identifier setLabel(String value) { 
       if (value == null)
         this.label = null;
       else {
@@ -210,16 +210,16 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return {@link #system} (Establishes the namespace in which set of possible id values is unique.)
+     * @return {@link #system} (Establishes the namespace in which set of possible id values is unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public UriType getSystem() { 
+    public UriType getSystemObject() { 
       return this.system;
     }
 
     /**
-     * @param value {@link #system} (Establishes the namespace in which set of possible id values is unique.)
+     * @param value {@link #system} (Establishes the namespace in which set of possible id values is unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Identifier setSystem(UriType value) { 
+    public Identifier setSystemObject(UriType value) { 
       this.system = value;
       return this;
     }
@@ -227,14 +227,14 @@ public class Identifier extends Type {
     /**
      * @return Establishes the namespace in which set of possible id values is unique.
      */
-    public String getSystemSimple() { 
+    public String getSystem() { 
       return this.system == null ? null : this.system.getValue();
     }
 
     /**
      * @param value Establishes the namespace in which set of possible id values is unique.
      */
-    public Identifier setSystemSimple(String value) { 
+    public Identifier setSystem(String value) { 
       if (value == null)
         this.system = null;
       else {
@@ -246,16 +246,16 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.)
+     * @return {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public StringType getValue() { 
+    public StringType getValueObject() { 
       return this.value;
     }
 
     /**
-     * @param value {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.)
+     * @param value {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public Identifier setValue(StringType value) { 
+    public Identifier setValueObject(StringType value) { 
       this.value = value;
       return this;
     }
@@ -263,14 +263,14 @@ public class Identifier extends Type {
     /**
      * @return The portion of the identifier typically displayed to the user and which is unique within the context of the system.
      */
-    public String getValueSimple() { 
+    public String getValue() { 
       return this.value == null ? null : this.value.getValue();
     }
 
     /**
      * @param value The portion of the identifier typically displayed to the user and which is unique within the context of the system.
      */
-    public Identifier setValueSimple(String value) { 
+    public Identifier setValue(String value) { 
       if (value == null)
         this.value = null;
       else {
@@ -312,14 +312,14 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return {@link #assigner} (The actual object that is the target of the reference. Organization that issued/manages the identifier.)
+     * @return {@link #assigner} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization that issued/manages the identifier.)
      */
     public Organization getAssignerTarget() { 
       return this.assignerTarget;
     }
 
     /**
-     * @param value {@link #assigner} (The actual object that is the target of the reference. Organization that issued/manages the identifier.)
+     * @param value {@link #assigner} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Organization that issued/manages the identifier.)
      */
     public Identifier setAssignerTarget(Organization value) { 
       this.assignerTarget = value;

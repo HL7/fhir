@@ -116,11 +116,11 @@ public class ToolsHelper {
     	AtomEntry<Profile> ae = client.read(Profile.class, parts[1]);
 			ProfileStructureComponent derived = ae.getResource().getStructure().get(0);
 			ProfileUtilities utils = new ProfileUtilities(context);
-    	StrucResult sr = utils.getStructure(ae.getResource(), derived.getBaseSimple());
+    	StrucResult sr = utils.getStructure(ae.getResource(), derived.getBase());
 			if (sr == null)
-				throw new Exception("Unable to resolve profile "+derived.getBaseSimple());
+				throw new Exception("Unable to resolve profile "+derived.getBase());
 			ProfileStructureComponent base = sr.getStructure();
-			utils.generateSnapshot(base, derived, address, ae.getResource().getNameSimple());
+			utils.generateSnapshot(base, derived, address, ae.getResource().getName());
 			client.update(Profile.class, ae.getResource(), parts[1]);
     } else {
     	throw new Exception("not done yet");

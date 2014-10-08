@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 1, 2014 07:41+1000 for FHIR v0.3.0
+// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,34 +39,34 @@ import java.util.*;
 public class NutritionOrder extends Resource {
 
     public enum NutritionOrderStatus {
-        requested, // TODO.
-        active, // TODO.
-        inactive, // TODO.
-        held, // TODO.
-        cancelled, // TODO.
-        Null; // added to help the parsers
+        REQUESTED, // TODO.
+        ACTIVE, // TODO.
+        INACTIVE, // TODO.
+        HELD, // TODO.
+        CANCELLED, // TODO.
+        NULL; // added to help the parsers
         public static NutritionOrderStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("requested".equals(codeString))
-          return requested;
+          return REQUESTED;
         if ("active".equals(codeString))
-          return active;
+          return ACTIVE;
         if ("inactive".equals(codeString))
-          return inactive;
+          return INACTIVE;
         if ("held".equals(codeString))
-          return held;
+          return HELD;
         if ("cancelled".equals(codeString))
-          return cancelled;
+          return CANCELLED;
         throw new Exception("Unknown NutritionOrderStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case requested: return "requested";
-            case active: return "active";
-            case inactive: return "inactive";
-            case held: return "held";
-            case cancelled: return "cancelled";
+            case REQUESTED: return "requested";
+            case ACTIVE: return "active";
+            case INACTIVE: return "inactive";
+            case HELD: return "held";
+            case CANCELLED: return "cancelled";
             default: return "?";
           }
         }
@@ -78,27 +78,27 @@ public class NutritionOrder extends Resource {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("requested".equals(codeString))
-          return NutritionOrderStatus.requested;
+          return NutritionOrderStatus.REQUESTED;
         if ("active".equals(codeString))
-          return NutritionOrderStatus.active;
+          return NutritionOrderStatus.ACTIVE;
         if ("inactive".equals(codeString))
-          return NutritionOrderStatus.inactive;
+          return NutritionOrderStatus.INACTIVE;
         if ("held".equals(codeString))
-          return NutritionOrderStatus.held;
+          return NutritionOrderStatus.HELD;
         if ("cancelled".equals(codeString))
-          return NutritionOrderStatus.cancelled;
+          return NutritionOrderStatus.CANCELLED;
         throw new Exception("Unknown NutritionOrderStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == NutritionOrderStatus.requested)
+      if (code == NutritionOrderStatus.REQUESTED)
         return "requested";
-      if (code == NutritionOrderStatus.active)
+      if (code == NutritionOrderStatus.ACTIVE)
         return "active";
-      if (code == NutritionOrderStatus.inactive)
+      if (code == NutritionOrderStatus.INACTIVE)
         return "inactive";
-      if (code == NutritionOrderStatus.held)
+      if (code == NutritionOrderStatus.HELD)
         return "held";
-      if (code == NutritionOrderStatus.cancelled)
+      if (code == NutritionOrderStatus.CANCELLED)
         return "cancelled";
       return "?";
       }
@@ -157,16 +157,16 @@ public class NutritionOrder extends Resource {
         }
 
         /**
-         * @return {@link #isInEffect} (Indicates whether the nutrition item is  currently in effect for the patient.)
+         * @return {@link #isInEffect} (Indicates whether the nutrition item is  currently in effect for the patient.). This is the underlying object with id, value and extensions. The accessor "getIsInEffect" gives direct access to the value
          */
-        public BooleanType getIsInEffect() { 
+        public BooleanType getIsInEffectObject() { 
           return this.isInEffect;
         }
 
         /**
-         * @param value {@link #isInEffect} (Indicates whether the nutrition item is  currently in effect for the patient.)
+         * @param value {@link #isInEffect} (Indicates whether the nutrition item is  currently in effect for the patient.). This is the underlying object with id, value and extensions. The accessor "getIsInEffect" gives direct access to the value
          */
-        public NutritionOrderItemComponent setIsInEffect(BooleanType value) { 
+        public NutritionOrderItemComponent setIsInEffectObject(BooleanType value) { 
           this.isInEffect = value;
           return this;
         }
@@ -174,14 +174,14 @@ public class NutritionOrder extends Resource {
         /**
          * @return Indicates whether the nutrition item is  currently in effect for the patient.
          */
-        public boolean getIsInEffectSimple() { 
+        public boolean getIsInEffect() { 
           return this.isInEffect == null ? false : this.isInEffect.getValue();
         }
 
         /**
          * @param value Indicates whether the nutrition item is  currently in effect for the patient.
          */
-        public NutritionOrderItemComponent setIsInEffectSimple(boolean value) { 
+        public NutritionOrderItemComponent setIsInEffect(boolean value) { 
             if (this.isInEffect == null)
               this.isInEffect = new BooleanType();
             this.isInEffect.setValue(value);
@@ -397,16 +397,16 @@ public class NutritionOrder extends Resource {
         }
 
         /**
-         * @return {@link #description} (A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).)
+         * @return {@link #description} (A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescription() { 
+        public StringType getDescriptionObject() { 
           return this.description;
         }
 
         /**
-         * @param value {@link #description} (A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).)
+         * @param value {@link #description} (A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public NutritionOrderItemOralDietComponent setDescription(StringType value) { 
+        public NutritionOrderItemOralDietComponent setDescriptionObject(StringType value) { 
           this.description = value;
           return this;
         }
@@ -414,14 +414,14 @@ public class NutritionOrder extends Resource {
         /**
          * @return A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).
          */
-        public String getDescriptionSimple() { 
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).
          */
-        public NutritionOrderItemOralDietComponent setDescriptionSimple(String value) { 
+        public NutritionOrderItemOralDietComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -522,16 +522,16 @@ public class NutritionOrder extends Resource {
         }
 
         /**
-         * @return {@link #name} (The name of the nutritional supplement product to be provided to the patient.)
+         * @return {@link #name} (The name of the nutritional supplement product to be provided to the patient.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getName() { 
+        public StringType getNameObject() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (The name of the nutritional supplement product to be provided to the patient.)
+         * @param value {@link #name} (The name of the nutritional supplement product to be provided to the patient.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public NutritionOrderItemSupplementComponent setName(StringType value) { 
+        public NutritionOrderItemSupplementComponent setNameObject(StringType value) { 
           this.name = value;
           return this;
         }
@@ -539,14 +539,14 @@ public class NutritionOrder extends Resource {
         /**
          * @return The name of the nutritional supplement product to be provided to the patient.
          */
-        public String getNameSimple() { 
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of the nutritional supplement product to be provided to the patient.
          */
-        public NutritionOrderItemSupplementComponent setNameSimple(String value) { 
+        public NutritionOrderItemSupplementComponent setName(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -697,16 +697,16 @@ public class NutritionOrder extends Resource {
         }
 
         /**
-         * @return {@link #baseFormulaName} (TODO.)
+         * @return {@link #baseFormulaName} (TODO.). This is the underlying object with id, value and extensions. The accessor "getBaseFormulaName" gives direct access to the value
          */
-        public StringType getBaseFormulaName() { 
+        public StringType getBaseFormulaNameObject() { 
           return this.baseFormulaName;
         }
 
         /**
-         * @param value {@link #baseFormulaName} (TODO.)
+         * @param value {@link #baseFormulaName} (TODO.). This is the underlying object with id, value and extensions. The accessor "getBaseFormulaName" gives direct access to the value
          */
-        public NutritionOrderItemEnteralFormulaComponent setBaseFormulaName(StringType value) { 
+        public NutritionOrderItemEnteralFormulaComponent setBaseFormulaNameObject(StringType value) { 
           this.baseFormulaName = value;
           return this;
         }
@@ -714,14 +714,14 @@ public class NutritionOrder extends Resource {
         /**
          * @return TODO.
          */
-        public String getBaseFormulaNameSimple() { 
+        public String getBaseFormulaName() { 
           return this.baseFormulaName == null ? null : this.baseFormulaName.getValue();
         }
 
         /**
          * @param value TODO.
          */
-        public NutritionOrderItemEnteralFormulaComponent setBaseFormulaNameSimple(String value) { 
+        public NutritionOrderItemEnteralFormulaComponent setBaseFormulaName(String value) { 
           if (value == null)
             this.baseFormulaName = null;
           else {
@@ -861,14 +861,14 @@ public class NutritionOrder extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The actual object that is the target of the reference. The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
      */
     public Patient getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} (The actual object that is the target of the reference. The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
      */
     public NutritionOrder setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
@@ -891,14 +891,14 @@ public class NutritionOrder extends Resource {
     }
 
     /**
-     * @return {@link #orderer} (The actual object that is the target of the reference. The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
+     * @return {@link #orderer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
     public Practitioner getOrdererTarget() { 
       return this.ordererTarget;
     }
 
     /**
-     * @param value {@link #orderer} (The actual object that is the target of the reference. The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
+     * @param value {@link #orderer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
     public NutritionOrder setOrdererTarget(Practitioner value) { 
       this.ordererTarget = value;
@@ -938,14 +938,14 @@ public class NutritionOrder extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (The actual object that is the target of the reference. An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (An encounter that provides additional informaton about the healthcare context in which this request is made.)
      */
     public Encounter getEncounterTarget() { 
       return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #encounter} (The actual object that is the target of the reference. An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (An encounter that provides additional informaton about the healthcare context in which this request is made.)
      */
     public NutritionOrder setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
@@ -953,16 +953,16 @@ public class NutritionOrder extends Resource {
     }
 
     /**
-     * @return {@link #dateTime} (The date and time that this nutrition order was requested.)
+     * @return {@link #dateTime} (The date and time that this nutrition order was requested.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public DateTimeType getDateTime() { 
+    public DateTimeType getDateTimeObject() { 
       return this.dateTime;
     }
 
     /**
-     * @param value {@link #dateTime} (The date and time that this nutrition order was requested.)
+     * @param value {@link #dateTime} (The date and time that this nutrition order was requested.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public NutritionOrder setDateTime(DateTimeType value) { 
+    public NutritionOrder setDateTimeObject(DateTimeType value) { 
       this.dateTime = value;
       return this;
     }
@@ -970,14 +970,14 @@ public class NutritionOrder extends Resource {
     /**
      * @return The date and time that this nutrition order was requested.
      */
-    public DateAndTime getDateTimeSimple() { 
+    public DateAndTime getDateTime() { 
       return this.dateTime == null ? null : this.dateTime.getValue();
     }
 
     /**
      * @param value The date and time that this nutrition order was requested.
      */
-    public NutritionOrder setDateTimeSimple(DateAndTime value) { 
+    public NutritionOrder setDateTime(DateAndTime value) { 
         if (this.dateTime == null)
           this.dateTime = new DateTimeType();
         this.dateTime.setValue(value);
@@ -1002,7 +1002,7 @@ public class NutritionOrder extends Resource {
     }
 
     /**
-     * @return {@link #allergyIntolerance} (The actual objects that are the target of the reference. The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
+     * @return {@link #allergyIntolerance} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
      */
     public List<AllergyIntolerance> getAllergyIntoleranceTarget() { 
       return this.allergyIntoleranceTarget;
@@ -1010,7 +1010,7 @@ public class NutritionOrder extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #allergyIntolerance} (Add an actual object that is the target of the reference. The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
+     * @return {@link #allergyIntolerance} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
      */
     public AllergyIntolerance addAllergyIntoleranceTarget() { 
       AllergyIntolerance r = new AllergyIntolerance();
@@ -1070,16 +1070,16 @@ public class NutritionOrder extends Resource {
     }
 
     /**
-     * @return {@link #status} (The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.)
+     * @return {@link #status} (The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<NutritionOrderStatus> getStatus() { 
+    public Enumeration<NutritionOrderStatus> getStatusObject() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.)
+     * @param value {@link #status} (The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public NutritionOrder setStatus(Enumeration<NutritionOrderStatus> value) { 
+    public NutritionOrder setStatusObject(Enumeration<NutritionOrderStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1087,14 +1087,14 @@ public class NutritionOrder extends Resource {
     /**
      * @return The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.
      */
-    public NutritionOrderStatus getStatusSimple() { 
+    public NutritionOrderStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.
      */
-    public NutritionOrder setStatusSimple(NutritionOrderStatus value) { 
+    public NutritionOrder setStatus(NutritionOrderStatus value) { 
       if (value == null)
         this.status = null;
       else {

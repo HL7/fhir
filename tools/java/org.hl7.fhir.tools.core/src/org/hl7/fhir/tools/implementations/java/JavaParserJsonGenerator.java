@@ -167,9 +167,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("  protected void parseResourceProperties(JsonObject json, Resource res) throws Exception {\r\n");
     write("    parseBackboneProperties(json, res); \r\n");
     write("    if (json.has(\"language\"))\r\n");
-    write("      res.setLanguage(parseCode(json.get(\"language\").getAsString()));\r\n");
+    write("      res.setLanguageObject(parseCode(json.get(\"language\").getAsString()));\r\n");
     write("    if (json.has(\"_language\"))\r\n");
-    write("      parseElementProperties(json.getAsJsonObject(\"_language\"), res.getLanguage());\r\n");
+    write("      parseElementProperties(json.getAsJsonObject(\"_language\"), res.getLanguageObject());\r\n");
     write("    if (json.has(\"text\"))\r\n");
     write("      res.setText(parseNarrative(json.getAsJsonObject(\"text\")));\r\n");
     write("    if (json.has(\"contained\")) {\r\n");
@@ -350,9 +350,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
         BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
         if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
           String en = typeNames.get(e); // getCodeListType(cd.getBinding());
-          prsr = "parseEnumeration(json.get(\""+name+"\").getAsString(), "+en+".Null, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
-          aprsr = "parseEnumeration(array.get(i).getAsString(), "+en+".Null, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
-          anprsr = "parseEnumeration(null, "+en+".Null, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
+          prsr = "parseEnumeration(json.get(\""+name+"\").getAsString(), "+en+".NULL, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
+          aprsr = "parseEnumeration(array.get(i).getAsString(), "+en+".NULL, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
+          anprsr = "parseEnumeration(null, "+en+".NULL, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
           // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative.NarrativeStatusEnumFactory())
         } else {   
           String tn = typeName(root, e).replace(".", "");
@@ -422,11 +422,12 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
           }
         } else {
           write("    if (json.has(\""+name+"\"))\r\n");
-          write("      res.set"+upFirst(getElementName(name, false))+"("+prsr+");\r\n");
           if (isPrimitive(e)) {
+            write("      res.set"+upFirst(getElementName(name, false))+"Object("+prsr+");\r\n");
             write("    if (json.has(\"_"+name+"\"))\r\n");
-            write("      parseElementProperties(json.getAsJsonObject(\"_"+name+"\"), res.get"+upFirst(getElementName(name, false))+"());\r\n");
-          }
+            write("      parseElementProperties(json.getAsJsonObject(\"_"+name+"\"), res.get"+upFirst(getElementName(name, false))+"Object());\r\n");
+          } else
+            write("      res.set"+upFirst(getElementName(name, false))+"("+prsr+");\r\n");
         }
     }
   }
