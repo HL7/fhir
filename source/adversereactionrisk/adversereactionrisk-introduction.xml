@@ -75,13 +75,13 @@ which is better expressed by the manifestation in clinical practice.
 The risk of an Adverse Reaction event or manifestation should not be recorded without identifying a proposed causative 
 substance or class of substance. If there is uncertainty that a specific substance is the cause, this uncertainty can be 
 recorded using the ‘Status’ data element. If there are multiple possible substances that may have caused a reaction/manifestation, 
-each substance should be recorded using a separate instance of this Adverse Reaction archetype/FHIR resource with the 
+each substance should be recorded using a separate instance of this resource with the 
 ‘Status’ set to an initial state of ‘Unconfirmed’ so that adverse reaction checking can be supported in clinical systems. 
 If a substance, agent or class is later proven not to be the cause for a given reaction then the ‘Status’ can be modified 
 to ‘Refuted’.
 </p>
 <p>
-This archetype/FHIR resource has been designed to allow recording of information about a specific substance (amoxicillin, 
+This resource has been designed to allow recording of information about a specific substance (amoxicillin, 
 oysters, or bee sting venom) or, alternatively, a class of substance (eg Penicillins)). If a class of substance is recorded 
 then identification of the exact substance can be recorded on a per exposure basis.
 </p>
@@ -101,8 +101,8 @@ of a life-threatening anaphylaxis, then the ‘Seriousness’ data element shoul
 </p>
 <p>
 A formal Adverse Event Report to regulatory bodies is a document that will contain a broad range of information in 
-addition to the specific details about the adverse reaction. The report could utilise parts of this Risk of Adverse 
-Reaction archetype/FHIR resource plus include additional data as required per jurisdiction.
+addition to the specific details about the adverse reaction. The report could utilise parts of this resource plus 
+include additional data as required per jurisdiction.
 </p>
 <p>
 An Adverse Reaction or Allergy/Intolerance List is a record of all identified propensities for an Adverse Reaction 
