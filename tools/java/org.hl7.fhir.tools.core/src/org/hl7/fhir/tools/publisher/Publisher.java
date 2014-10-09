@@ -1631,7 +1631,8 @@ public class Publisher implements URIResolver {
           "summary-instance");
       jsonToXhtml("conceptmaps", "Base concept maps (implementation assistance, for validation, derivation and product development)",
           resource2Json(conceptMapsFeed), "summary-instance");
-      delphiReferencePlatform.sign(page.getFolders().dstDir + "conceptmaps.xml", true, "dsa");
+      if (delphiReferencePlatform.canSign()) 
+        delphiReferencePlatform.sign(page.getFolders().dstDir + "conceptmaps.xml", true, "dsa");
 
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples" + File.separator + "v2-tables.xml");

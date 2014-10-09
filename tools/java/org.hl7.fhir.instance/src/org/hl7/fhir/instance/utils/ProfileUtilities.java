@@ -685,7 +685,9 @@ public class ProfileUtilities {
     
     List<ElementComponent> children = getChildren(ext.getElement(), e);
     for (ElementComponent child : children)
-      genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profile, pkp, true, profileBaseFileName);
+      genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profile, pkp, true, profileBaseFileName, false);
+    for (ElementComponent child : children)
+      genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profile, pkp, true, profileBaseFileName, true);
   }
 
   private void genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementComponent e, String profileBaseFileName, Profile profile) throws Exception {
@@ -754,25 +756,25 @@ public class ProfileUtilities {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable();
     List<ElementComponent> list = diff ? structure.getDifferential().getElement() : structure.getSnapshot().getElement();
-    genElement(defFile == null ? null : defFile+"#"+structure.getName()+".", gen, model.getRows(), list.get(0), list, profile, pkp, diff, profileBaseFileName);
+    genElement(defFile == null ? null : defFile+"#"+structure.getName()+".", gen, model.getRows(), list.get(0), list, profile, pkp, diff, profileBaseFileName, true);
     return gen.generate(model);
   }
 
-  private void genElement(String defPath, HeirarchicalTableGenerator gen, List<Row> rows, ElementComponent element, List<ElementComponent> all, Profile profile, ProfileKnowledgeProvider pkp, boolean showMissing, String profileBaseFileName) throws Exception {
-    if (!onlyInformationIsMapping(all, element)) { // we don't even show it in this case
-    Row row = gen.new Row();
-    row.setAnchor(element.getPath());
+  private void genElement(String defPath, HeirarchicalTableGenerator gen, List<Row> rows, ElementComponent element, List<ElementComponent> all, Profile profile, ProfileKnowledgeProvider pkp, boolean showMissing, String profileBaseFileName, boolean extensions) throws Exception {
     String s = tail(element.getPath());
-    boolean hasDef = element.getDefinition() != null;
-    boolean ext = false;
-    if (s.equals("extension") || s.equals("modifierExtension")) { 
-      row.setIcon("icon_extension_simple.png");
-      ext = true;
-    } else if (!hasDef || element.getDefinition().getType().size() == 0)
-      row.setIcon("icon_element.gif");
-    else if (hasDef && element.getDefinition().getType().size() > 1) {
-      if (allTypesAre(element.getDefinition().getType(), "Reference"))
-        row.setIcon("icon_reference.png");
+    if (!onlyInformationIsMapping(all, element) /* && (extensions == (s.equals("extension") || s.equals("modifierExtension")))*/ ) { 
+      Row row = gen.new Row();
+      row.setAnchor(element.getPath());
+      boolean hasDef = element.getDefinition() != null;
+      boolean ext = false;
+      if (s.equals("extension") || s.equals("modifierExtension")) { 
+        row.setIcon("icon_extension_simple.png");
+        ext = true;
+      } else if (!hasDef || element.getDefinition().getType().size() == 0)
+        row.setIcon("icon_element.gif");
+      else if (hasDef && element.getDefinition().getType().size() > 1) {
+        if (allTypesAre(element.getDefinition().getType(), "Reference"))
+          row.setIcon("icon_reference.png");
       else
         row.setIcon("icon_choice.gif");
     } else if (hasDef && element.getDefinition().getType().get(0).getCode().startsWith("@"))
@@ -841,7 +843,9 @@ public class ProfileUtilities {
       } else{
         List<ElementComponent> children = getChildren(all, element);
         for (ElementComponent child : children)
-          genElement(defPath, gen, row.getSubRows(), child, all, profile, pkp, showMissing, profileBaseFileName);
+          genElement(defPath, gen, row.getSubRows(), child, all, profile, pkp, showMissing, profileBaseFileName, false);
+        for (ElementComponent child : children)
+          genElement(defPath, gen, row.getSubRows(), child, all, profile, pkp, showMissing, profileBaseFileName, true);
       }
     }
   }

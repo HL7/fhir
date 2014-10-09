@@ -3412,7 +3412,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
   public boolean canSign() {
-    return true;
+    return doesCompile();
   }
 
   @Override
