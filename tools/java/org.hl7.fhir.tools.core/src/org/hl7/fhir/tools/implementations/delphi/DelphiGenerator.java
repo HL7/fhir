@@ -155,7 +155,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     }
     parserGap();
 
-    generateReference();
+    generateResource();
     parserGap();
 
     for (ElementDefn n : definitions.getInfrastructure().values()) {
@@ -176,7 +176,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
       generate(n.getRoot(), "TFhirResource", true, true, ClassCategory.Resource);
-      genReference(n, "TFhir"+n.getName(), "TFhirResource", true, ClassCategory.Resource);
+      genResource(n, "TFhir"+n.getName(), "TFhirResource", true, ClassCategory.Resource);
       prsrRegX.append("  else if element.baseName = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(element, path+'/"+n.getName()+"')\r\n");
       srlsRegX.append("    frt"+n.getName()+": Compose"+n.getName()+"(xml, '"+n.getName()+"', TFhir"+n.getName()+"(resource));\r\n");
       prsrRegJ.append("  else if s = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(jsn)\r\n");
@@ -357,7 +357,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             String tn = getTypeName(pt, false);
             if (tn.equals(pt))
               tn = "TFhir"+tn;
-            genGenericReference(root, "TFhir"+root.getName()+"_"+getTitle(pt), tn, superClass, ClassCategory.Type);
+            genGenericResource(root, "TFhir"+root.getName()+"_"+getTitle(pt), tn, superClass, ClassCategory.Type);
           }
         }
       }
@@ -366,7 +366,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     }
   }
 
-  private void genGenericReference(ElementDefn root, String tn, String pt, String superClass, ClassCategory category) throws Exception {
+  private void genGenericResource(ElementDefn root, String tn, String pt, String superClass, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+tn.substring(5)+"(element : IXmlDomElement; path : string) : "+tn+";\r\n");
     srlsdefX.append("    procedure Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
     prsrdefJ.append("    function Parse"+tn.substring(5)+"(jsn : TJsonObject) : "+tn+"; overload; {b/}\r\n");
@@ -620,7 +620,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defineList(tn, tn+"List", null, category, false);
   }
 
-  private void genReference(ResourceDefn root, String tn, String superClass, boolean listsAreWrapped, ClassCategory category) throws Exception {
+  private void genResource(ResourceDefn root, String tn, String superClass, boolean listsAreWrapped, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+root.getName()+"(element : IXmlDomElement; path : string) : TFhir"+root.getName()+";\r\n");
     srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrdefJ.append("    function Parse"+root.getName()+"(jsn : TJsonObject) : TFhir"+root.getName()+"; overload; {b|}\r\n");
@@ -841,7 +841,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     s.append("[");
     boolean first = true;
     for (String p : targets) {
-      if (definitions.hasReference(p)) {
+      if (definitions.hasResource(p)) {
         if (!first)
           s.append(", ");
         s.append("frt"+p);
@@ -1405,7 +1405,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
           defPub.append("    }\r\n");
           defPub.append("    property "+s+" : "+listForm(tn)+" read Get"+getTitle(s)+"ST write Set"+getTitle(s)+"ST;\r\n");
-          defPub.append("    property "+s+"Object : "+listForm("TFhirEnum")+" read F"+getTitle(s)+";\r\n");
+          defPub.append("    property "+s+"Element : "+listForm("TFhirEnum")+" read F"+getTitle(s)+";\r\n");
           assign.append("  F"+getTitle(s)+".Assign("+cn+"(oSource).F"+getTitle(s)+");\r\n");
         } else {
           defPub.append("    property "+s+" : "+listForm("TFhirEnum")+" read F"+getTitle(s)+";\r\n");
@@ -1437,7 +1437,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         if (enumSizes.get(tn) < 32) {
           impl.append("Function "+cn+".Get"+getTitle(s)+"ST : "+listForm(tn)+";\r\n  var i : integer;\r\nbegin\r\n  result := [];\r\n  for i := 0 to F"+s+".count - 1 do\r\n    result := result + ["+tn+"(StringArrayIndexOfSensitive(CODES_"+tn+", F"+s+"[i].value))];\r\nend;\r\n\r\n");
           impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+listForm(tn)+");\r\nvar a : "+tn+";\r\nbegin\r\n  F"+s+".clear;\r\n  for a := low("+tn+") to high("+tn+") do\r\n    if a in value then\r\n      F"+s+".add(TFhirEnum.create(CODES_"+tn+"[a]));\r\nend;\r\n\r\n");
-          obj = "Object";
+          obj = "Element";
         }
 
         workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n"+
@@ -1577,7 +1577,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
         defPub.append("    }\r\n");
         defPub.append("    property "+s+" : "+tn+" read Get"+getTitle(s)+"ST write Set"+getTitle(s)+"ST;\r\n");
-        defPub.append("    property "+s+"Object : TFhirEnum read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
+        defPub.append("    property "+s+"Element : TFhirEnum read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
       } else {
         defPriv1.append("    F"+getTitle(s)+" : "+tn+";\r\n");
         defPriv2.append("    Procedure Set"+getTitle(s)+"(value : "+tn+");\r\n");
@@ -1592,10 +1592,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           defPub.append("      Typed access to "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
           defPub.append("    }\r\n");
           defPub.append("    property "+s+" : "+sn+" read Get"+getTitle(s)+"ST write Set"+getTitle(s)+"ST;\r\n");
-          defPub.append("    property "+s+"Object : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
+          defPub.append("    property "+s+"Element : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
         } else {
           defPub.append("    property "+s+" : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
-          defPub.append("    property "+s+"Object : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
+          defPub.append("    property "+s+"Element : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
         }
       }
       defPub.append("\r\n");
@@ -1603,8 +1603,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         if (enumNames.contains(tn)) {         
           impl.append("Procedure "+cn+".Set"+getTitle(s)+"(value : TFhirEnum);\r\nbegin\r\n  F"+getTitle(s)+".free;\r\n  F"+getTitle(s)+" := value;\r\nend;\r\n\r\n");
           impl.append("Function "+cn+".Get"+getTitle(s)+"ST : "+tn+";\r\nbegin\r\n  if F"+getTitle(s)+" = nil then\r\n    result := "+tn+"(0)\r\n  else\r\n    result := "+tn+"(StringArrayIndexOfSensitive(CODES_"+tn+", F"+getTitle(s)+".value));\r\nend;\r\n\r\n");
-          impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+tn+");\r\nbegin\r\n  if ord(value) = 0 then\r\n    "+getTitle(s)+"Object := nil\r\n  else\r\n    "+getTitle(s)+"Object := TFhirEnum.create(CODES_"+tn+"[value]);\r\nend;\r\n\r\n");
-          setprops.append("  else if (propName = '"+e.getName()+"') then "+propV.substring(1)+"Object := propValue as TFHIREnum\r\n");
+          impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+tn+");\r\nbegin\r\n  if ord(value) = 0 then\r\n    "+getTitle(s)+"Element := nil\r\n  else\r\n    "+getTitle(s)+"Element := TFhirEnum.create(CODES_"+tn+"[value]);\r\nend;\r\n\r\n");
+          setprops.append("  else if (propName = '"+e.getName()+"') then "+propV.substring(1)+"Element := propValue as TFHIREnum\r\n");
         } else {
           impl.append("Procedure "+cn+".Set"+getTitle(s)+"(value : TFhirEnum);\r\nbegin\r\n  F"+getTitle(s)+".free;\r\n  F"+getTitle(s)+" := value;\r\nend;\r\n\r\n");
           impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+tn+");\r\nbegin\r\n  if ord(value) = 0 then\r\n    "+getTitle(s)+" := nil\r\n  else\r\n    "+getTitle(s)+" := TFhirEnum.create(CODES_"+tn+"[value]);\r\nend;\r\n\r\n");
@@ -1618,14 +1618,14 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         if (e.isXmlAttribute())
           workingParserXA.append("    result."+s+"ST := fix me (and compose)! GetAttribute(element, '"+e.getName()+"');\r\n");
         else  
-          workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+"Object := "+parse+"{1a}\r\n");
+          workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+"Element := "+parse+"{1a}\r\n");
         workingParserJ.append("    if jsn.has('"+e.getName()+"') or jsn.has('_"+e.getName()+"')  then\r\n"+
-            "      result."+s+"Object := parseEnum(jsn['"+e.getName()+"'], jsn.vObj['_"+e.getName()+"'], CODES_"+tn+");\r\n");
+            "      result."+s+"Element := parseEnum(jsn['"+e.getName()+"'], jsn.vObj['_"+e.getName()+"'], CODES_"+tn+");\r\n");
         destroy.append("  F"+getTitle(s)+".free;\r\n");
         if (enumNames.contains(tn)) {         
-          workingComposerX.append("  "+sum2+"ComposeEnum(xml, '"+e.getName()+"', elem."+getTitle(s)+"Object, CODES_"+tn+");\r\n");
-          workingComposerJ.append("  "+sum2+"ComposeEnumValue(json, '"+e.getName()+"', elem."+getTitle(s)+"Object, CODES_"+tn+", false);\r\n");
-          workingComposerJ.append("  "+sum2+"ComposeEnumProps(json, '"+e.getName()+"', elem."+getTitle(s)+"Object, CODES_"+tn+", false);\r\n");
+          workingComposerX.append("  "+sum2+"ComposeEnum(xml, '"+e.getName()+"', elem."+getTitle(s)+"Element, CODES_"+tn+");\r\n");
+          workingComposerJ.append("  "+sum2+"ComposeEnumValue(json, '"+e.getName()+"', elem."+getTitle(s)+"Element, CODES_"+tn+", false);\r\n");
+          workingComposerJ.append("  "+sum2+"ComposeEnumProps(json, '"+e.getName()+"', elem."+getTitle(s)+"Element, CODES_"+tn+", false);\r\n");
         } else {
           workingComposerX.append("  "+sum2+"Compose"+tn+"(xml, '"+e.getName()+"', elem."+getTitle(s)+");{x.1}\r\n");
           workingComposerJ.append("  "+sum2+"Compose"+tn+"Value(json, '"+e.getName()+"', elem."+getTitle(s)+", false); {1}\r\n");        
@@ -1646,7 +1646,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             impl.append("Function "+cn+".Get"+getTitle(s)+"ST : "+sn+";\r\nbegin\r\n  if F"+getTitle(s)+" = nil then\r\n    result := nil\r\n  else\r\n    result := F"+getTitle(s)+".value;\r\nend;\r\n\r\n");
             impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+sn+");\r\nbegin\r\n  if value <> nil then\r\n  begin\r\n    if F"+getTitle(s)+" = nil then\r\n      F"+getTitle(s)+" := "+tn+".create;\r\n    F"+getTitle(s)+".value := value\r\n  end\r\n  else if F"+getTitle(s)+" <> nil then\r\n    F"+getTitle(s)+".value := nil;\r\nend;\r\n\r\n");
           }
-          assign.append("  "+s+"Object := "+cn+"(oSource)."+s+"Object.Clone;\r\n");
+          assign.append("  "+s+"Element := "+cn+"(oSource)."+s+"Element.Clone;\r\n");
         } else
           assign.append("  "+s+" := "+cn+"(oSource)."+s+".Clone;\r\n");
         destroy.append("  F"+getTitle(s)+".free;\r\n");
@@ -1660,17 +1660,17 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         } else {
           if (!typeIsPrimitive(e.typeCode()))
             if (simpleTypes.containsKey(tn))
-              setprops.append("  else if (propName = '"+e.getName()+"') then "+propV.substring(1)+"Object := propValue as "+tn+"{4a}\r\n");
+              setprops.append("  else if (propName = '"+e.getName()+"') then "+propV.substring(1)+"Element := propValue as "+tn+"{4a}\r\n");
             else
               setprops.append("  else if (propName = '"+e.getName()+"') then "+propV.substring(1)+" := propValue as "+tn+"{4b}\r\n");
           else
             if (!simpleTypes.containsKey(tn))
               setprops.append("  else if (propName = '"+e.getName()+"') then "+propV.substring(1)+" := propValue as "+tn+"{5b}\r\n");          
             else if (tn.equals("TFhirCode"))
-              setprops.append("  else if (propName = '"+e.getName()+"') then\r\n    if propValue is TFHIRCode then\r\n      "+propV.substring(1)+"Object := propValue as "+
-                 "TFhirCode{5}\r\n    else if propValue is TFHIREnum then\r\n      "+propV.substring(1)+"Object := TFHIRCode.create(TFHIREnum(propValue).value)\r\n    else\r\n      raise Exception.Create('Type mismatch: cannot convert from \"'+propValue.className+'\" to \"TFHIRCode\"'){5a}\r\n");          
+              setprops.append("  else if (propName = '"+e.getName()+"') then\r\n    if propValue is TFHIRCode then\r\n      "+propV.substring(1)+"Element := propValue as "+
+                 "TFhirCode{5}\r\n    else if propValue is TFHIREnum then\r\n      "+propV.substring(1)+"Element := TFHIRCode.create(TFHIREnum(propValue).value)\r\n    else\r\n      raise Exception.Create('Type mismatch: cannot convert from \"'+propValue.className+'\" to \"TFHIRCode\"'){5a}\r\n");          
             else
-              setprops.append("  else if (propName = '"+e.getName()+"') then "+propV.substring(1)+"Object := propValue as "+tn+"{5a}\r\n");          
+              setprops.append("  else if (propName = '"+e.getName()+"') then "+propV.substring(1)+"Element := propValue as "+tn+"{5a}\r\n");          
             
         }
         if (e.getName().contains("[x]") && e.getTypes().size() > 1) {
@@ -1710,22 +1710,22 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             workingComposerXA.append("  Attribute(xml, '"+e.getName()+"', elem."+s+"  );\r\n");
           } else {  
             if (typeIsPrimitive(e.typeCode())) { 
-              workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+"Object := Parse"+parseName(tn)+"(child, path+'/"+e.getName()+"') {b}\r\n");
-              workingComposerX.append("  "+sum2+"Compose"+parseName(tn)+"(xml, '"+e.getName()+"', elem."+s+"Object);{x.2}\r\n");
+              workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+"Element := Parse"+parseName(tn)+"(child, path+'/"+e.getName()+"') {b}\r\n");
+              workingComposerX.append("  "+sum2+"Compose"+parseName(tn)+"(xml, '"+e.getName()+"', elem."+s+"Element);{x.2}\r\n");
             } else {
               workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+" := Parse"+parseName(tn)+"(child, path+'/"+e.getName()+"') {b}\r\n");
               workingComposerX.append("  "+sum2+"Compose"+parseName(tn)+"(xml, '"+e.getName()+"', elem."+s+");{x.2}\r\n");
             }
           }
           if (typeIsPrimitive(e.typeCode())) 
-            workingParserJ.append("    if jsn.has('"+e.getName()+"') or jsn.has('_"+e.getName()+"') then\r\n        result."+s+"Object := Parse"+parseName(tn)+"(jsn['"+e.getName()+"'], jsn.vObj['_"+e.getName()+"']);{q}\r\n");
+            workingParserJ.append("    if jsn.has('"+e.getName()+"') or jsn.has('_"+e.getName()+"') then\r\n        result."+s+"Element := Parse"+parseName(tn)+"(jsn['"+e.getName()+"'], jsn.vObj['_"+e.getName()+"']);{q}\r\n");
           else if (e.typeCode().equals("xhtml"))
             workingParserJ.append("    if jsn.has('"+e.getName()+"') then\r\n        result."+s+" := Parse"+parseName(tn)+"(jsn.path+'.div', jsn['"+e.getName()+"']);{q}\r\n");
           else
             workingParserJ.append("    if jsn.has('"+e.getName()+"') then\r\n        result."+s+" := Parse"+parseName(tn)+"(jsn.vObj['"+e.getName()+"']);{q}\r\n");
           if (typeIsPrimitive(e.typeCode())) {
-            workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"Value(json, '"+e.getName()+"', elem."+s+"Object, false);\r\n");
-            workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"Props(json, '"+e.getName()+"', elem."+s+"Object, false);\r\n");
+            workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"Value(json, '"+e.getName()+"', elem."+s+"Element, false);\r\n");
+            workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"Props(json, '"+e.getName()+"', elem."+s+"Element, false);\r\n");
           } else
             workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"(json, '"+e.getName()+"', elem."+s+"); {a}\r\n");
         } else {
@@ -2834,7 +2834,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   }
 
-  private void generateReference() throws Exception {
+  private void generateResource() throws Exception {
     String prefix = "frt";
     StringBuilder def = new StringBuilder();
     StringBuilder con = new StringBuilder();

@@ -981,8 +981,8 @@ function TFHIRFactory.makeContactPoint(system, value, use: String): TFhirContact
 begin
   result := TFhirContactPoint.create;
   try
-    result.useObject := CheckEnum(CODES_TFhirContactPointUse, use);
-    result.systemObject := CheckEnum(CODES_TFhirContactPointSystem, system);
+    result.useElement := CheckEnum(CODES_TFhirContactPointUse, use);
+    result.systemElement := CheckEnum(CODES_TFhirContactPointSystem, system);
     result.value := value;
     result.link;
   finally
@@ -994,7 +994,7 @@ function TFHIRFactory.makeAddress(use, street, city, state, zip, country : Strin
 begin
   result := TFhirAddress.create;
   try
-    result.useObject := CheckEnum(CODES_TFhirAddressUse, use);
+    result.useElement := CheckEnum(CODES_TFhirAddressUse, use);
     result.lineList.AddItem(street);
     result.city := city;
     result.state := state;
@@ -1010,7 +1010,7 @@ function TFHIRFactory.makeIdentifierWithLabel(use : string; label_, idSystem, id
 begin
   result := TFhirIdentifier.create;
   try
-    result.useObject := CheckEnum(CODES_TFhirIdentifierUse, use);
+    result.useElement := CheckEnum(CODES_TFhirIdentifierUse, use);
     result.label_ := label_;
     result.system := idsystem;
     result.value := id;
@@ -1024,7 +1024,7 @@ function TFHIRFactory.makeHumanName(use, family, given, prefix, suffix: String):
 begin
   result := TFhirHumanName.create;
   try
-    result.useObject := CheckEnum(CODES_TFhirNameUse, use);
+    result.useElement := CheckEnum(CODES_TFhirNameUse, use);
     result.familyList.addItem(family);
     result.givenList.addItem(given);
     result.prefixList.addItem(prefix);
@@ -1042,7 +1042,7 @@ begin
     result.system := system;
     result.value := key;
     result.label_ := label_;
-    result.useObject := CheckEnum(CODES_TFhirIdentifierUse, use);
+    result.useElement := CheckEnum(CODES_TFhirIdentifierUse, use);
     result.link;
   finally
     result.free;
@@ -1162,7 +1162,7 @@ function TFHIRFactory.makeNarrative(status, html: String; policy : TFHIRXhtmlPar
 begin
   result := TFhirNarrative.create;
   try
-    result.statusObject := CheckEnum(CODES_TFhirNarrativeStatus, status);
+    result.statusElement := CheckEnum(CODES_TFhirNarrativeStatus, status);
     result.div_ := parseHTML(html, policy);
     result.link;
   finally
@@ -1233,7 +1233,7 @@ function TFHIRFactory.makeHumanNameText(use, text: String): TFhirHumanName;
 begin
   result := TFhirHumanName.create;
   try
-    result.useObject := CheckEnum(CODES_TFhirNameUse, use);
+    result.useElement := CheckEnum(CODES_TFhirNameUse, use);
     result.text := text;
     result.link;
   finally
@@ -1246,7 +1246,7 @@ function TFHIRFactory.makeAddressText(use, text: String): TFhirAddress;
 begin
   result := TFhirAddress.create;
   try
-    result.useObject := CheckEnum(CODES_TFhirAddressUse, use);
+    result.useElement := CheckEnum(CODES_TFhirAddressUse, use);
     result.text := text;
     result.link;
   finally

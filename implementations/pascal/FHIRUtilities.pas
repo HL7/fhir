@@ -471,7 +471,7 @@ begin
         result := DateTimeMax(result, AsUTCMax(value.eventList[i]));
   end
   else if (value.repeat_.end_ <> nil) then
-    result := asUTCMax(value.repeat_.end_Object)
+    result := asUTCMax(value.repeat_.end_Element)
   else if (value.repeat_.count <> '') and (value.eventList.Count > 0) and
     (value.repeat_.frequency <> '') and (value.repeat_.duration <> '') and (value.repeat_.units <> UnitsOfTimeNull) then
   begin
@@ -491,7 +491,7 @@ begin
         UnitsOfTimeMo : duration := 30;
         UnitsOfTimeA : duration := 365 // todo - how to correct for leap years?;
       else
-        raise exception.create('unknown duration units "'+value.repeat_.unitsObject.value+'"');
+        raise exception.create('unknown duration units "'+value.repeat_.unitsElement.value+'"');
       end;
       result := result + (StrToInt(value.repeat_.count) * duration / StrToInt(value.repeat_.frequency));
     end;
@@ -583,9 +583,9 @@ function gen(coding : TFHIRCoding):String; overload;
 begin
   if (coding = nil) then
      result := ''
-  else if (coding.DisplayObject <> nil) then
+  else if (coding.DisplayElement <> nil) then
     result := coding.Display
-  else if (coding.CodeObject <> nil) then
+  else if (coding.CodeElement <> nil) then
     result := coding.Code
   else
     result := '';
@@ -1340,7 +1340,7 @@ end;
 
 function TFhirConceptMapElementHelper.systemObject: TFhirUri;
 begin
-  result := codeSystemObject;
+  result := codeSystemElement;
 end;
 
 function TFhirConceptMapElementHelper.system: String;
@@ -1352,7 +1352,7 @@ end;
 
 function TFhirConceptMapElementMapHelper.systemObject: TFhirUri;
 begin
-  result := codeSystemObject;
+  result := codeSystemElement;
 end;
 
 function TFhirConceptMapElementMapHelper.system: String;
@@ -1371,7 +1371,7 @@ end;
 
 function TFhirConceptMapElementDependsOnHelper.conceptObject: TFhirUri;
 begin
-  result := elementObject;
+  result := elementElement;
 end;
 
 function TFhirConceptMapElementDependsOnHelper.concept: String;
