@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -849,6 +849,81 @@ public class JsonComposer extends JsonComposerBase {
         composeEnumerationExtras("causalityExpectation", element.getCausalityExpectationObject(), new AdverseReaction.CausalityExpectationEnumFactory(), false);
       }
       composeReference("substance", element.getSubstance());
+      close();
+    }
+  }
+
+  private void composeAdverseReactionRisk(String name, AdverseReactionRisk element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeDateTimeCore("recordedDate", element.getRecordedDateObject(), false);
+      composeDateTimeExtras("recordedDate", element.getRecordedDateObject(), false);
+      composeReference("recorder", element.getRecorder());
+      composeReference("subject", element.getSubject());
+      composeCodeableConcept("substance", element.getSubstance());
+      if (element.getStatusObject() != null) {
+        composeEnumerationCore("status", element.getStatusObject(), new AdverseReactionRisk.ReactionRiskStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusObject(), new AdverseReactionRisk.ReactionRiskStatusEnumFactory(), false);
+      }
+      if (element.getCriticalityObject() != null) {
+        composeEnumerationCore("criticality", element.getCriticalityObject(), new AdverseReactionRisk.ReactionRiskCriticalityEnumFactory(), false);
+        composeEnumerationExtras("criticality", element.getCriticalityObject(), new AdverseReactionRisk.ReactionRiskCriticalityEnumFactory(), false);
+      }
+      if (element.getTypeObject() != null) {
+        composeEnumerationCore("type", element.getTypeObject(), new AdverseReactionRisk.ReactionRiskTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeObject(), new AdverseReactionRisk.ReactionRiskTypeEnumFactory(), false);
+      }
+      if (element.getCategoryObject() != null) {
+        composeEnumerationCore("category", element.getCategoryObject(), new AdverseReactionRisk.ReactionRiskCategoryEnumFactory(), false);
+        composeEnumerationExtras("category", element.getCategoryObject(), new AdverseReactionRisk.ReactionRiskCategoryEnumFactory(), false);
+      }
+      composeDateTimeCore("lastOccurence", element.getLastOccurenceObject(), false);
+      composeDateTimeExtras("lastOccurence", element.getLastOccurenceObject(), false);
+      composeStringCore("comment", element.getCommentObject(), false);
+      composeStringExtras("comment", element.getCommentObject(), false);
+      if (element.getEvent().size() > 0) {
+        openArray("event");
+        for (AdverseReactionRisk.AdverseReactionRiskEventComponent e : element.getEvent()) 
+          composeAdverseReactionRiskAdverseReactionRiskEventComponent(null, e);
+        closeArray();
+      };
+    }
+  }
+
+  private void composeAdverseReactionRiskAdverseReactionRiskEventComponent(String name, AdverseReactionRisk.AdverseReactionRiskEventComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeCodeableConcept("substance", element.getSubstance());
+      if (element.getCertaintyObject() != null) {
+        composeEnumerationCore("certainty", element.getCertaintyObject(), new AdverseReactionRisk.ReactionRiskCertaintyEnumFactory(), false);
+        composeEnumerationExtras("certainty", element.getCertaintyObject(), new AdverseReactionRisk.ReactionRiskCertaintyEnumFactory(), false);
+      }
+      if (element.getManifestation().size() > 0) {
+        openArray("manifestation");
+        for (CodeableConcept e : element.getManifestation()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeStringCore("description", element.getDescriptionObject(), false);
+      composeStringExtras("description", element.getDescriptionObject(), false);
+      composeDateTimeCore("onset", element.getOnsetObject(), false);
+      composeDateTimeExtras("onset", element.getOnsetObject(), false);
+      composeDuration("duration", element.getDuration());
+      if (element.getSeverityObject() != null) {
+        composeEnumerationCore("severity", element.getSeverityObject(), new AdverseReactionRisk.ReactionRiskSeverityEnumFactory(), false);
+        composeEnumerationExtras("severity", element.getSeverityObject(), new AdverseReactionRisk.ReactionRiskSeverityEnumFactory(), false);
+      }
+      composeCodeableConcept("exposureRoute", element.getExposureRoute());
+      composeStringCore("comment", element.getCommentObject(), false);
+      composeStringExtras("comment", element.getCommentObject(), false);
       close();
     }
   }
@@ -5926,6 +6001,8 @@ public class JsonComposer extends JsonComposerBase {
   protected void composeResource(Resource resource) throws Exception {
     if (resource instanceof AdverseReaction)
       composeAdverseReaction("AdverseReaction", (AdverseReaction)resource);
+    else if (resource instanceof AdverseReactionRisk)
+      composeAdverseReactionRisk("AdverseReactionRisk", (AdverseReactionRisk)resource);
     else if (resource instanceof Alert)
       composeAlert("Alert", (Alert)resource);
     else if (resource instanceof AllergyIntolerance)
@@ -6055,6 +6132,8 @@ public class JsonComposer extends JsonComposerBase {
   protected void composeNamedReference(String name, Resource resource) throws Exception {
     if (resource instanceof AdverseReaction)
       composeAdverseReaction(name, (AdverseReaction)resource);
+    else if (resource instanceof AdverseReactionRisk)
+      composeAdverseReactionRisk(name, (AdverseReactionRisk)resource);
     else if (resource instanceof Alert)
       composeAlert(name, (Alert)resource);
     else if (resource instanceof AllergyIntolerance)

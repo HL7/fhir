@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -887,6 +887,76 @@ public class XmlParser extends XmlParserBase {
         res.setCausalityExpectationObject(parseEnumeration(xpp, AdverseReaction.CausalityExpectation.NULL, new AdverseReaction.CausalityExpectationEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("substance")) {
         res.setSubstance(parseReference(xpp));
+      } else if (!parseBackboneContent(eventType, xpp, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    return res;
+  }
+
+  private AdverseReactionRisk parseAdverseReactionRisk(XmlPullParser xpp) throws Exception {
+    AdverseReactionRisk res = new AdverseReactionRisk();
+    parseResourceAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
+        res.getIdentifier().add(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("recordedDate")) {
+        res.setRecordedDateObject(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("recorder")) {
+        res.setRecorder(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
+        res.setSubject(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("substance")) {
+        res.setSubstance(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
+        res.setStatusObject(parseEnumeration(xpp, AdverseReactionRisk.ReactionRiskStatus.NULL, new AdverseReactionRisk.ReactionRiskStatusEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("criticality")) {
+        res.setCriticalityObject(parseEnumeration(xpp, AdverseReactionRisk.ReactionRiskCriticality.NULL, new AdverseReactionRisk.ReactionRiskCriticalityEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
+        res.setTypeObject(parseEnumeration(xpp, AdverseReactionRisk.ReactionRiskType.NULL, new AdverseReactionRisk.ReactionRiskTypeEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
+        res.setCategoryObject(parseEnumeration(xpp, AdverseReactionRisk.ReactionRiskCategory.NULL, new AdverseReactionRisk.ReactionRiskCategoryEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("lastOccurence")) {
+        res.setLastOccurenceObject(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comment")) {
+        res.setCommentObject(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("event")) {
+        res.getEvent().add(parseAdverseReactionRiskAdverseReactionRiskEventComponent(xpp, res));
+      } else if (!parseResourceContent(eventType, xpp, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    return res;
+  }
+
+  private AdverseReactionRisk.AdverseReactionRiskEventComponent parseAdverseReactionRiskAdverseReactionRiskEventComponent(XmlPullParser xpp, AdverseReactionRisk owner) throws Exception {
+    AdverseReactionRisk.AdverseReactionRiskEventComponent res = new AdverseReactionRisk.AdverseReactionRiskEventComponent();
+    parseBackboneAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("substance")) {
+        res.setSubstance(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("certainty")) {
+        res.setCertaintyObject(parseEnumeration(xpp, AdverseReactionRisk.ReactionRiskCertainty.NULL, new AdverseReactionRisk.ReactionRiskCertaintyEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("manifestation")) {
+        res.getManifestation().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
+        res.setDescriptionObject(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("onset")) {
+        res.setOnsetObject(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("duration")) {
+        res.setDuration(parseDuration(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("severity")) {
+        res.setSeverityObject(parseEnumeration(xpp, AdverseReactionRisk.ReactionRiskSeverity.NULL, new AdverseReactionRisk.ReactionRiskSeverityEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("exposureRoute")) {
+        res.setExposureRoute(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comment")) {
+        res.setCommentObject(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -6147,6 +6217,8 @@ public class XmlParser extends XmlParserBase {
   protected Resource parseResource(XmlPullParser xpp) throws Exception {
     if (xpp.getName().equals("AdverseReaction"))
       return parseAdverseReaction(xpp);
+    else if (xpp.getName().equals("AdverseReactionRisk"))
+      return parseAdverseReactionRisk(xpp);
     else if (xpp.getName().equals("Alert"))
       return parseAlert(xpp);
     else if (xpp.getName().equals("AllergyIntolerance"))
@@ -6387,6 +6459,8 @@ public class XmlParser extends XmlParserBase {
       return parseContactPoint(xpp);
     else if (type.equals("AdverseReaction"))
       return parseAdverseReaction(xpp);
+    else if (type.equals("AdverseReactionRisk"))
+      return parseAdverseReactionRisk(xpp);
     else if (type.equals("Alert"))
       return parseAlert(xpp);
     else if (type.equals("AllergyIntolerance"))
@@ -6578,6 +6652,8 @@ public class XmlParser extends XmlParserBase {
     if (xpp.getName().equals(prefix+"ContactPoint"))
       return true;
     if (xpp.getName().equals(prefix+"AdverseReaction"))
+      return true;
+    if (xpp.getName().equals(prefix+"AdverseReactionRisk"))
       return true;
     if (xpp.getName().equals(prefix+"Alert"))
       return true;

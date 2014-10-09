@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdverseReactionRisk xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/adversereactionrisk.xsd">
+  
+  <!-- the date that this entry was recorded -->  
+  <recordedDate value="2010-03-01"/>
+  
+  <!-- who made the record / last updated it -->
+  <recorder>
+    <reference value="Practitioner/13"/>
+  </recorder>
+  
+  <!-- the subject (patient) that actually has the risk of adverse reaction -->
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+
+  <!-- subtance, coded from RxNorm -->
+  <substance>
+    <coding>
+      <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <code value="314422"/>
+      <display value="ALLERGENIC EXTRACT, PENICILLIN"/>
+    </coding>
+  </substance>
+ 
+  <status value="unconfirmed"/>
+  <criticality value="high"/> 
+  <category value="medication"/>
+  
+  <event> 
+    <manifestation>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="247472004"/>
+        <display value="Hives"/>
+      </coding>
+    </manifestation>
+  </event>
+</AdverseReactionRisk>

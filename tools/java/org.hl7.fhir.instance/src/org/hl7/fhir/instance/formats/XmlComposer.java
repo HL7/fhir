@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -605,6 +605,54 @@ public class XmlComposer extends XmlComposerBase {
       if (element.getCausalityExpectationObject() != null)
         composeEnumeration("causalityExpectation", element.getCausalityExpectationObject(), new AdverseReaction.CausalityExpectationEnumFactory());
       composeReference("substance", element.getSubstance());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeAdverseReactionRisk(String name, AdverseReactionRisk element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      for (Identifier e : element.getIdentifier()) 
+        composeIdentifier("identifier", e);
+      composeDateTime("recordedDate", element.getRecordedDateObject());
+      composeReference("recorder", element.getRecorder());
+      composeReference("subject", element.getSubject());
+      composeCodeableConcept("substance", element.getSubstance());
+      if (element.getStatusObject() != null)
+        composeEnumeration("status", element.getStatusObject(), new AdverseReactionRisk.ReactionRiskStatusEnumFactory());
+      if (element.getCriticalityObject() != null)
+        composeEnumeration("criticality", element.getCriticalityObject(), new AdverseReactionRisk.ReactionRiskCriticalityEnumFactory());
+      if (element.getTypeObject() != null)
+        composeEnumeration("type", element.getTypeObject(), new AdverseReactionRisk.ReactionRiskTypeEnumFactory());
+      if (element.getCategoryObject() != null)
+        composeEnumeration("category", element.getCategoryObject(), new AdverseReactionRisk.ReactionRiskCategoryEnumFactory());
+      composeDateTime("lastOccurence", element.getLastOccurenceObject());
+      composeString("comment", element.getCommentObject());
+      for (AdverseReactionRisk.AdverseReactionRiskEventComponent e : element.getEvent()) 
+        composeAdverseReactionRiskAdverseReactionRiskEventComponent("event", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeAdverseReactionRiskAdverseReactionRiskEventComponent(String name, AdverseReactionRisk.AdverseReactionRiskEventComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCodeableConcept("substance", element.getSubstance());
+      if (element.getCertaintyObject() != null)
+        composeEnumeration("certainty", element.getCertaintyObject(), new AdverseReactionRisk.ReactionRiskCertaintyEnumFactory());
+      for (CodeableConcept e : element.getManifestation()) 
+        composeCodeableConcept("manifestation", e);
+      composeString("description", element.getDescriptionObject());
+      composeDateTime("onset", element.getOnsetObject());
+      composeDuration("duration", element.getDuration());
+      if (element.getSeverityObject() != null)
+        composeEnumeration("severity", element.getSeverityObject(), new AdverseReactionRisk.ReactionRiskSeverityEnumFactory());
+      composeCodeableConcept("exposureRoute", element.getExposureRoute());
+      composeString("comment", element.getCommentObject());
       xml.close(FHIR_NS, name);
     }
   }
@@ -4024,6 +4072,8 @@ public class XmlComposer extends XmlComposerBase {
   protected void composeReference(Resource resource) throws Exception {
     if (resource instanceof AdverseReaction)
       composeAdverseReaction("AdverseReaction", (AdverseReaction)resource);
+    else if (resource instanceof AdverseReactionRisk)
+      composeAdverseReactionRisk("AdverseReactionRisk", (AdverseReactionRisk)resource);
     else if (resource instanceof Alert)
       composeAlert("Alert", (Alert)resource);
     else if (resource instanceof AllergyIntolerance)

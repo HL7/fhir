@@ -1,0 +1,149 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+A record of a clinical assessment of a propensity, or a potential risk to an individual, of an 
+adverse reaction on future exposure to the specified substance, or class of substance.
+</p>
+<p>
+Where a propensity is identified, to record information or evidence about a reaction event 
+that is characterised by any harmful or undesirable, physiological response that is specific 
+to the individual, and triggered by exposure of an individual to the identified substance 
+or class of substance.
+</p>
+<p>
+Substances include, but are not limited to: a therapeutic substance administered correctly 
+at an appropriate dosage for the individual; food; material derived from plants or animals; 
+or venom from insect stings.
+</p>
+
+<p>
+<b>Note for Reviewers</b>
+</p>
+<p style="color: maroon">
+One of the key - and controversial - questions around this resource is whether the event details
+in this resource should be a separate resource from the Risk Assessment, e.g. in order to 
+record details of an unknown reaction, or to record details of a reaction without recording it 
+as a standing risk in the record. Recording an event like this overlaps with general Adverse Event 
+reporting, and is heavily influenced by jurisdictional regulations, and the context of the 
+event (e.g. Pharmaceutical trials). When the requirements and design analysis for adding
+Adverse Event reporting is carried out for FHIR, the status of the event portion of this
+resource will be re-assessed.
+</p>
+
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This resource is used to provide a single place within the health record to document a range of clinical statements about adverse reactions, including:
+</p>
+<ul>
+<li>record a clinical assessment of the individual’s propensity to a potential future reaction upon re-exposure</li>
+<li>record cumulative information about the reaction to each exposure, including ‘no reaction’ if appropriate</li>
+</ul>
+
+<p>
+Use to record information about the positive presence of the risk of an Adverse Reaction:
+</p>
+<ul>
+<li>to support direct clinical care of an individual</li>
+<li>as part of a managed Adverse Reaction or Allergy/Intolerance list</li>
+<li>to support exchange of information about the propensity and events related to Adverse Reactions</li>
+<li>to inform adverse reaction reporting</li>
+<li>to assist computerised knowledge-based activities such as clinical decision support and alerts</li>
+</ul>
+<p>
+Use to record information about Adverse Reactions to a broad range of substances, including: biological 
+&amp; blood products; incipients and excipients in medicinal preparations; metal salts; and organic chemical compounds.  
+</p>
+<p>
+Adverse reactions may be:
+</p>
+<ul>
+<li>an immune mediated reaction - Types I-VI (including allergic reactions and hypersensitivities)</li>
+<li>a non-immune mediated reaction - including pseudoallergic reactions, side effects, intolerances, drug 
+  toxicities (eg to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions</li>
+</ul>
+<p>
+In clinical practice distinguishing between immune-mediated and non-immune mediated reactions is difficult and often 
+not practical. Identification of the type of reaction is not a proxy for seriousness or risk of harm to the patient, 
+which is better expressed by the manifestation in clinical practice.
+</p>
+<p>
+The risk of an Adverse Reaction event or manifestation should not be recorded without identifying a proposed causative 
+substance or class of substance. If there is uncertainty that a specific substance is the cause, this uncertainty can be 
+recorded using the ‘Status’ data element. If there are multiple possible substances that may have caused a reaction/manifestation, 
+each substance should be recorded using a separate instance of this Adverse Reaction archetype/FHIR resource with the 
+‘Status’ set to an initial state of ‘Unconfirmed’ so that adverse reaction checking can be supported in clinical systems. 
+If a substance, agent or class is later proven not to be the cause for a given reaction then the ‘Status’ can be modified 
+to ‘Refuted’.
+</p>
+<p>
+This archetype/FHIR resource has been designed to allow recording of information about a specific substance (amoxicillin, 
+oysters, or bee sting venom) or, alternatively, a class of substance (eg Penicillins)). If a class of substance is recorded 
+then identification of the exact substance can be recorded on a per exposure basis.
+</p>
+<p>
+The scope of this FHIR resource has deliberately focused on identifying a pragmatic data set that are used in 
+most clinical systems or will be suitable for most common clinical scenarios; <a href="extensibility.html">extensions
+can be used</a> to add additional detail if required. Examples of clinical situations where the extension may 
+be required include: a detailed allergist/immunologist assessment, for reporting to regulatory bodies or use 
+in a clinical trial.
+</p>
+<p>
+The act of recording any adverse reaction in a health record involves the clinical assessment that a potential hazard 
+exists for an individual if they are exposed to the same substance/agent/class in the future – that is, a relative 
+contraindication - and the default ‘Seriousness’ value should be set to ‘Low’. If a clinician considers that it is not 
+safe for the individual to be deliberately re-exposed to the substance/agent again, for example, following a manifestation 
+of a life-threatening anaphylaxis, then the ‘Seriousness’ data element should be amended to ‘High’. 
+</p>
+<p>
+A formal Adverse Event Report to regulatory bodies is a document that will contain a broad range of information in 
+addition to the specific details about the adverse reaction. The report could utilise parts of this Risk of Adverse 
+Reaction archetype/FHIR resource plus include additional data as required per jurisdiction.
+</p>
+<p>
+An Adverse Reaction or Allergy/Intolerance List is a record of all identified propensities for an Adverse Reaction 
+for the individual upon future exposure to the substance or class, plus provides potential access to the evidence 
+provided by details about each reaction event, such as manifestation.
+</p>
+<p>
+Valuable first-level information that could be presented to the clinician when they need to assess propensity for 
+future reactions are:
+</p>
+<ul>
+<li>statements about previous clinical manifestations following exposure</li>
+<li>source of the information/reporter</li>
+<li>the 'criticality’ flag</li>
+</ul>
+<p>
+Second-level information can be drawn from each exposure event and links to additional detailed information 
+such as history, examination and diagnoses stored elsewhere in the record, if it is available.
+</p>
+
+<p>
+<b>Misuse</b></p>
+<ul>
+<li>Not to be used for recording physiological reactions to physical agents, such as heat, cold, sunlight, 
+  vibration, exercise activity, by infectious agents or food contaminants. Use <a href="condition.html">Condition</a> instead</li>
+<li>Not to be used to record adverse events, including failures of clinical process, interventions or products. For example: 
+   abnormal use or mistakes/errors made in maladministration of an agent or substance; incorrect dosage; mislabelling; 
+   harm or injury caused by an intervention or procedure; overdose/poisoning etc</li>
+<li>Not to be used as a proxy for an Adverse Event Report. See above for how it may be used as one component of an Adverse Event Report</li>
+<li>Not to be used for recording alerts</li>
+<li>Not to be used for recording failed therapy</li>
+</ul>
+</div>
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+</div>

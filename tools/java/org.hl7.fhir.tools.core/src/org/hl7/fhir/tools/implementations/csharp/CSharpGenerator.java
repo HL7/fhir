@@ -190,7 +190,7 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
 public boolean doesCompile() {
-    return true;
+    return false;
   }
 
   

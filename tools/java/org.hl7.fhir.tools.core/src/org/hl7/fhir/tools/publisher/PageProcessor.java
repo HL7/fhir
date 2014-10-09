@@ -3670,7 +3670,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String generateProfileStructureTable(ProfileDefn profile, ProfileStructureComponent structure, boolean diff, String filename) throws Exception {
     String deffile = filename.substring(0, filename.indexOf('.'))+"-definitions.html";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateTable(deffile, structure, diff, folders.dstDir, false, profile.getSource(), this, filename.substring(0, filename.indexOf('.'))));
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateTable(deffile, structure, diff, folders.dstDir, false, profile.getSource(), this, filename.substring(0, filename.indexOf('.')), !diff));
   }
 
   private String generateProfileConstraintLinks(ProfileDefn profile, String filename) throws Exception {
@@ -3717,7 +3717,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (profile.getSource().getExtensionDefn().isEmpty())
       return "";
     return "<p><b>Extensions:</b></p>\r\n"+new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateExtensionsTable(Utilities.changeFileExt(filename, "-definitions.html"), 
-        profile.getSource(), folders.dstDir, false, this, Utilities.fileTitle(filename)));
+        profile.getSource(), folders.dstDir, false, this, Utilities.fileTitle(filename), true));
   }
 
   private boolean isAggregationEndpoint(String name) {

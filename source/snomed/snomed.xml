@@ -1649,6 +1649,15 @@
     <display value="Tenderness"/>
     <display value="Tenderness (finding)"/>
   </concept>
+  <concept id="247472004" display="Weal (disorder)">
+    <display value="Wheal"/>
+    <display value="Welt"/>
+    <display value="Weal"/>
+    <display value="Nettle rash"/>
+    <display value="Urticarial rash"/>
+    <display value="Hives"/>
+    <display value="Weal (disorder)"/>
+  </concept>
   <concept id="248005005" display="Fighting (finding)">
     <display value="Physical altercation"/>
     <display value="Fighting"/>
@@ -3852,6 +3861,16 @@
     <display value="Radiology - specialty"/>
     <display value="Radiology"/>
   </concept>
+  <concept id="39579001" display="Anaphylactic reaction">
+    <display value="Generalized anaphylaxis"/>
+    <display value="Generalised anaphylaxis"/>
+    <display value="Anaphylactic shock"/>
+    <display value="Allergic shock"/>
+    <display value="Systemic anaphylaxis"/>
+    <display value="Anaphylaxis"/>
+    <display value="Anaphylactic reaction"/>
+    <display value="Anaphylaxis (disorder)"/>
+  </concept>
   <concept id="39607008" display="Lung">
     <display value="Lung structure"/>
     <display value="Lung"/>
@@ -5251,6 +5270,14 @@
     <display value="Posterior vena cava"/>
     <display value="Inferior vena cava structure"/>
     <display value="Inferior vena cava structure (body structure)"/>
+  </concept>
+  <concept id="64305001" display="Hive">
+    <display value="Urticaria"/>
+    <display value="Wheal"/>
+    <display value="Welt"/>
+    <display value="Hive"/>
+    <display value="Nettle rash"/>
+    <display value="Urticaria (morphologic abnormality)"/>
   </concept>
   <concept id="64915003" display="Operation on heart">
     <display value="Operative procedure on heart"/>

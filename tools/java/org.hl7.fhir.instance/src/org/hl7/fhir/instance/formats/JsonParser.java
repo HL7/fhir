@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 8, 2014 17:06+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -815,6 +815,96 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_causalityExpectation"), res.getCausalityExpectationObject());
     if (json.has("substance"))
       res.setSubstance(parseReference(json.getAsJsonObject("substance")));
+    return res;
+  }
+
+  private AdverseReactionRisk parseAdverseReactionRisk(JsonObject json) throws Exception {
+    AdverseReactionRisk res = new AdverseReactionRisk();
+    parseResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("recordedDate"))
+      res.setRecordedDateObject(parseDateTime(json.get("recordedDate").getAsString()));
+    if (json.has("_recordedDate"))
+      parseElementProperties(json.getAsJsonObject("_recordedDate"), res.getRecordedDateObject());
+    if (json.has("recorder"))
+      res.setRecorder(parseReference(json.getAsJsonObject("recorder")));
+    if (json.has("subject"))
+      res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("substance"))
+      res.setSubstance(parseCodeableConcept(json.getAsJsonObject("substance")));
+    if (json.has("status"))
+      res.setStatusObject(parseEnumeration(json.get("status").getAsString(), AdverseReactionRisk.ReactionRiskStatus.NULL, new AdverseReactionRisk.ReactionRiskStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusObject());
+    if (json.has("criticality"))
+      res.setCriticalityObject(parseEnumeration(json.get("criticality").getAsString(), AdverseReactionRisk.ReactionRiskCriticality.NULL, new AdverseReactionRisk.ReactionRiskCriticalityEnumFactory()));
+    if (json.has("_criticality"))
+      parseElementProperties(json.getAsJsonObject("_criticality"), res.getCriticalityObject());
+    if (json.has("type"))
+      res.setTypeObject(parseEnumeration(json.get("type").getAsString(), AdverseReactionRisk.ReactionRiskType.NULL, new AdverseReactionRisk.ReactionRiskTypeEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeObject());
+    if (json.has("category"))
+      res.setCategoryObject(parseEnumeration(json.get("category").getAsString(), AdverseReactionRisk.ReactionRiskCategory.NULL, new AdverseReactionRisk.ReactionRiskCategoryEnumFactory()));
+    if (json.has("_category"))
+      parseElementProperties(json.getAsJsonObject("_category"), res.getCategoryObject());
+    if (json.has("lastOccurence"))
+      res.setLastOccurenceObject(parseDateTime(json.get("lastOccurence").getAsString()));
+    if (json.has("_lastOccurence"))
+      parseElementProperties(json.getAsJsonObject("_lastOccurence"), res.getLastOccurenceObject());
+    if (json.has("comment"))
+      res.setCommentObject(parseString(json.get("comment").getAsString()));
+    if (json.has("_comment"))
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentObject());
+    if (json.has("event")) {
+      JsonArray array = json.getAsJsonArray("event");
+      for (int i = 0; i < array.size(); i++) {
+        res.getEvent().add(parseAdverseReactionRiskAdverseReactionRiskEventComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    return res;
+  }
+
+  private AdverseReactionRisk.AdverseReactionRiskEventComponent parseAdverseReactionRiskAdverseReactionRiskEventComponent(JsonObject json, AdverseReactionRisk owner) throws Exception {
+    AdverseReactionRisk.AdverseReactionRiskEventComponent res = new AdverseReactionRisk.AdverseReactionRiskEventComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("substance"))
+      res.setSubstance(parseCodeableConcept(json.getAsJsonObject("substance")));
+    if (json.has("certainty"))
+      res.setCertaintyObject(parseEnumeration(json.get("certainty").getAsString(), AdverseReactionRisk.ReactionRiskCertainty.NULL, new AdverseReactionRisk.ReactionRiskCertaintyEnumFactory()));
+    if (json.has("_certainty"))
+      parseElementProperties(json.getAsJsonObject("_certainty"), res.getCertaintyObject());
+    if (json.has("manifestation")) {
+      JsonArray array = json.getAsJsonArray("manifestation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getManifestation().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("description"))
+      res.setDescriptionObject(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionObject());
+    if (json.has("onset"))
+      res.setOnsetObject(parseDateTime(json.get("onset").getAsString()));
+    if (json.has("_onset"))
+      parseElementProperties(json.getAsJsonObject("_onset"), res.getOnsetObject());
+    if (json.has("duration"))
+      res.setDuration(parseDuration(json.getAsJsonObject("duration")));
+    if (json.has("severity"))
+      res.setSeverityObject(parseEnumeration(json.get("severity").getAsString(), AdverseReactionRisk.ReactionRiskSeverity.NULL, new AdverseReactionRisk.ReactionRiskSeverityEnumFactory()));
+    if (json.has("_severity"))
+      parseElementProperties(json.getAsJsonObject("_severity"), res.getSeverityObject());
+    if (json.has("exposureRoute"))
+      res.setExposureRoute(parseCodeableConcept(json.getAsJsonObject("exposureRoute")));
+    if (json.has("comment"))
+      res.setCommentObject(parseString(json.get("comment").getAsString()));
+    if (json.has("_comment"))
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentObject());
     return res;
   }
 
@@ -6916,6 +7006,8 @@ public class JsonParser extends JsonParserBase {
       throw new Exception("Unable to find resource type - maybe not a FHIR resource?");
     if (t.equals("AdverseReaction"))
       return parseAdverseReaction(json);
+    else if (t.equals("AdverseReactionRisk"))
+      return parseAdverseReactionRisk(json);
     else if (t.equals("Alert"))
       return parseAlert(json);
     else if (t.equals("AllergyIntolerance"))
@@ -7207,6 +7299,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"ContactPoint"))
       return true;
     if (json.has(prefix+"AdverseReaction"))
+      return true;
+    if (json.has(prefix+"AdverseReactionRisk"))
       return true;
     if (json.has(prefix+"Alert"))
       return true;

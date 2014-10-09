@@ -6,6 +6,7 @@ public enum ResourceType {
     Organization,
     Group,
     ValueSet,
+    AdverseReactionRisk,
     ImmunizationRecommendation,
     Appointment,
     MedicationDispense,
@@ -76,6 +77,8 @@ public enum ResourceType {
       return "group";
     case ValueSet:
       return "valueset";
+    case AdverseReactionRisk:
+      return "adversereactionrisk";
     case ImmunizationRecommendation:
       return "immunizationrecommendation";
     case Appointment:
