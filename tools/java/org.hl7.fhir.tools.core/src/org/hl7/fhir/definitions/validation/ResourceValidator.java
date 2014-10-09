@@ -431,7 +431,7 @@ public class ResourceValidator extends BaseValidator {
                 for (String p : t.getParams()) {
                   rule(errors, "structure", path,
                       p.equals("Any")
-                      || definitions.hasReference(p),
+                      || definitions.hasResource(p),
                       "Unknown resource type " + p);
                 }
               }

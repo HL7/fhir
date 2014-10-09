@@ -445,7 +445,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         Profile p = definitions.getProfileByURL(parts[0]);
         if (p != null)
           url = p.getTag("filename")+".html";
-        else if (definitions.hasReference(linkText)) {
+        else if (definitions.hasResource(linkText)) {
           url = linkText.toLowerCase()+".html#";
         } else if (definitions.hasElementDefn(linkText)) {
           url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;

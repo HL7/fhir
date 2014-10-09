@@ -762,7 +762,7 @@ public class SvgGenerator extends BaseGenerator {
 
   private String baseUrl(String path) throws Exception {
     String root = path.contains(".") ? path.substring(0, path.indexOf(".")) : path;
-    if (definitions.hasReference(root))
+    if (definitions.hasResource(root))
       return root.toLowerCase()+"-definitions.html#";
     else if ("Narrative".equals(root))
       return "base-definitions.html#";

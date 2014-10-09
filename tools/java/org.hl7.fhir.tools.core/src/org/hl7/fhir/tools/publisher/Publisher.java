@@ -714,7 +714,7 @@ public class Publisher implements URIResolver {
     String[] parts = base.split("#");
     if (parts[0].startsWith("http://hl7.org/fhir/Profile/") && parts.length == 1) {
       String name = base.substring(28);
-      if (page.getDefinitions().hasReference(name)) 
+      if (page.getDefinitions().hasResource(name)) 
         return page.getDefinitions().getSnapShotForType(name);
       else if (page.getDefinitions().hasType(name)) {
         TypeDefn t = page.getDefinitions().getElementDefn(name);
@@ -1274,7 +1274,7 @@ public class Publisher implements URIResolver {
   private boolean resolveLink(ExampleReference ref) throws Exception {
     if (ref.getId().startsWith("#"))
       return true;
-    if (!page.getDefinitions().hasReference(ref.getType()))
+    if (!page.getDefinitions().hasResource(ref.getType()))
       return false;
     ResourceDefn r = page.getDefinitions().getResourceByName(ref.getType());
     for (Example e : r.getExamples()) {

@@ -1210,7 +1210,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String resItem(String name, boolean even) throws Exception {
     String color = even ? "#EFEFEF" : "#FFFFFF";
-    if (definitions.hasReference(name)) {
+    if (definitions.hasResource(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
       return
           "<tr bgcolor=\""+color+"\"><td><a href=\""+name.toLowerCase()+".html\">"+name+"</a></td><td>"+aliases(r.getRoot().getAliases())+"</td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
@@ -1222,7 +1222,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String resDesc(String name) throws Exception {
-    if (definitions.hasReference(name)) {
+    if (definitions.hasResource(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
       return Utilities.escapeXml(r.getDefinition());
     } else 
@@ -3081,7 +3081,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append(p.describeCardinality());
         b.append("</td><td>");
         String t = p.getType();
-        if (definitions.hasReference(t)) {
+        if (definitions.hasResource(t)) {
           b.append("<a href=\"");
           b.append(t.toLowerCase());
           b.append(".html\">");
@@ -3648,7 +3648,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String baseLink(ProfileStructureComponent structure) throws Exception {
     if (structure.getBase().startsWith("http://hl7.org/fhir/Profile/")) {
       String name = structure.getBase().substring(28);
-      if (definitions.hasReference(name))
+      if (definitions.hasResource(name))
         return "<a href=\""+name.toLowerCase()+".html\">"+name+"</a>";
       else if (definitions.hasElementDefn(name))
         return "<a href=\""+GeneratorUtils.getSrcFile(name, false)+"#"+name+".html\">"+name+"</a>";  
@@ -3990,17 +3990,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   @Override
   public boolean isDatatype(String type) {
-    return definitions.hasPrimitiveType(type) || (definitions.hasElementDefn(type) && !definitions.hasReference(type));
+    return definitions.hasPrimitiveType(type) || (definitions.hasElementDefn(type) && !definitions.hasResource(type));
   }
 
   @Override
   public boolean hasLinkFor(String type) {
-    return isDatatype(type) || definitions.hasReference(type);
+    return isDatatype(type) || definitions.hasResource(type);
   }
 
   @Override
   public String getLinkFor(String type) throws Exception {
-    if (definitions.hasReference(type)) 
+    if (definitions.hasResource(type)) 
       return type.toLowerCase()+".html";
     else 
       return GeneratorUtils.getSrcFile(type, false)+".html#"+type;
@@ -4047,7 +4047,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       Profile p = definitions.getProfileByURL(parts[0]);
       if (p != null)
         url = p.getTag("filename")+".html";
-      else if (definitions.hasReference(linkText)) {
+      else if (definitions.hasResource(linkText)) {
         url = linkText.toLowerCase()+".html#";
       } else if (definitions.hasElementDefn(linkText)) {
       	url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;
