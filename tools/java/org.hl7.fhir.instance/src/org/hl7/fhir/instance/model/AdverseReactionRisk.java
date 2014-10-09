@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -400,14 +400,14 @@ public class AdverseReactionRisk extends Resource {
         /**
          * @return {@link #certainty} (Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event.). This is the underlying object with id, value and extensions. The accessor "getCertainty" gives direct access to the value
          */
-        public Enumeration<ReactionRiskCertainty> getCertaintyObject() { 
+        public Enumeration<ReactionRiskCertainty> getCertaintyElement() { 
           return this.certainty;
         }
 
         /**
          * @param value {@link #certainty} (Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event.). This is the underlying object with id, value and extensions. The accessor "getCertainty" gives direct access to the value
          */
-        public AdverseReactionRiskEventComponent setCertaintyObject(Enumeration<ReactionRiskCertainty> value) { 
+        public AdverseReactionRiskEventComponent setCertaintyElement(Enumeration<ReactionRiskCertainty> value) { 
           this.certainty = value;
           return this;
         }
@@ -453,14 +453,14 @@ public class AdverseReactionRisk extends Resource {
         /**
          * @return {@link #description} (Text description about the Reaction as a whole, including details of the manifestation if required.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Text description about the Reaction as a whole, including details of the manifestation if required.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public AdverseReactionRiskEventComponent setDescriptionObject(StringType value) { 
+        public AdverseReactionRiskEventComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -489,14 +489,14 @@ public class AdverseReactionRisk extends Resource {
         /**
          * @return {@link #onset} (Record of the date and/or time of the onset of the Reaction.). This is the underlying object with id, value and extensions. The accessor "getOnset" gives direct access to the value
          */
-        public DateTimeType getOnsetObject() { 
+        public DateTimeType getOnsetElement() { 
           return this.onset;
         }
 
         /**
          * @param value {@link #onset} (Record of the date and/or time of the onset of the Reaction.). This is the underlying object with id, value and extensions. The accessor "getOnset" gives direct access to the value
          */
-        public AdverseReactionRiskEventComponent setOnsetObject(DateTimeType value) { 
+        public AdverseReactionRiskEventComponent setOnsetElement(DateTimeType value) { 
           this.onset = value;
           return this;
         }
@@ -540,14 +540,14 @@ public class AdverseReactionRisk extends Resource {
         /**
          * @return {@link #severity} (Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public Enumeration<ReactionRiskSeverity> getSeverityObject() { 
+        public Enumeration<ReactionRiskSeverity> getSeverityElement() { 
           return this.severity;
         }
 
         /**
          * @param value {@link #severity} (Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public AdverseReactionRiskEventComponent setSeverityObject(Enumeration<ReactionRiskSeverity> value) { 
+        public AdverseReactionRiskEventComponent setSeverityElement(Enumeration<ReactionRiskSeverity> value) { 
           this.severity = value;
           return this;
         }
@@ -591,14 +591,14 @@ public class AdverseReactionRisk extends Resource {
         /**
          * @return {@link #comment} (Additional text about the Adverse Reaction event not captured in other fields.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public StringType getCommentObject() { 
+        public StringType getCommentElement() { 
           return this.comment;
         }
 
         /**
          * @param value {@link #comment} (Additional text about the Adverse Reaction event not captured in other fields.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public AdverseReactionRiskEventComponent setCommentObject(StringType value) { 
+        public AdverseReactionRiskEventComponent setCommentElement(StringType value) { 
           this.comment = value;
           return this;
         }
@@ -757,14 +757,14 @@ public class AdverseReactionRisk extends Resource {
     /**
      * @return {@link #recordedDate} (Date when the sensitivity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
-    public DateTimeType getRecordedDateObject() { 
+    public DateTimeType getRecordedDateElement() { 
       return this.recordedDate;
     }
 
     /**
      * @param value {@link #recordedDate} (Date when the sensitivity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
-    public AdverseReactionRisk setRecordedDateObject(DateTimeType value) { 
+    public AdverseReactionRisk setRecordedDateElement(DateTimeType value) { 
       this.recordedDate = value;
       return this;
     }
@@ -868,14 +868,14 @@ public class AdverseReactionRisk extends Resource {
     /**
      * @return {@link #status} (Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ReactionRiskStatus> getStatusObject() { 
+    public Enumeration<ReactionRiskStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public AdverseReactionRisk setStatusObject(Enumeration<ReactionRiskStatus> value) { 
+    public AdverseReactionRisk setStatusElement(Enumeration<ReactionRiskStatus> value) { 
       this.status = value;
       return this;
     }
@@ -904,14 +904,14 @@ public class AdverseReactionRisk extends Resource {
     /**
      * @return {@link #criticality} (Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
-    public Enumeration<ReactionRiskCriticality> getCriticalityObject() { 
+    public Enumeration<ReactionRiskCriticality> getCriticalityElement() { 
       return this.criticality;
     }
 
     /**
      * @param value {@link #criticality} (Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
-    public AdverseReactionRisk setCriticalityObject(Enumeration<ReactionRiskCriticality> value) { 
+    public AdverseReactionRisk setCriticalityElement(Enumeration<ReactionRiskCriticality> value) { 
       this.criticality = value;
       return this;
     }
@@ -940,14 +940,14 @@ public class AdverseReactionRisk extends Resource {
     /**
      * @return {@link #type} (Identification of the underlying physiological mechanism for the Reaction Risk.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<ReactionRiskType> getTypeObject() { 
+    public Enumeration<ReactionRiskType> getTypeElement() { 
       return this.type;
     }
 
     /**
      * @param value {@link #type} (Identification of the underlying physiological mechanism for the Reaction Risk.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public AdverseReactionRisk setTypeObject(Enumeration<ReactionRiskType> value) { 
+    public AdverseReactionRisk setTypeElement(Enumeration<ReactionRiskType> value) { 
       this.type = value;
       return this;
     }
@@ -976,14 +976,14 @@ public class AdverseReactionRisk extends Resource {
     /**
      * @return {@link #category} (Category of the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
-    public Enumeration<ReactionRiskCategory> getCategoryObject() { 
+    public Enumeration<ReactionRiskCategory> getCategoryElement() { 
       return this.category;
     }
 
     /**
      * @param value {@link #category} (Category of the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
-    public AdverseReactionRisk setCategoryObject(Enumeration<ReactionRiskCategory> value) { 
+    public AdverseReactionRisk setCategoryElement(Enumeration<ReactionRiskCategory> value) { 
       this.category = value;
       return this;
     }
@@ -1012,14 +1012,14 @@ public class AdverseReactionRisk extends Resource {
     /**
      * @return {@link #lastOccurence} (Represents the date and/or time of the last known occurence of a reaction event.). This is the underlying object with id, value and extensions. The accessor "getLastOccurence" gives direct access to the value
      */
-    public DateTimeType getLastOccurenceObject() { 
+    public DateTimeType getLastOccurenceElement() { 
       return this.lastOccurence;
     }
 
     /**
      * @param value {@link #lastOccurence} (Represents the date and/or time of the last known occurence of a reaction event.). This is the underlying object with id, value and extensions. The accessor "getLastOccurence" gives direct access to the value
      */
-    public AdverseReactionRisk setLastOccurenceObject(DateTimeType value) { 
+    public AdverseReactionRisk setLastOccurenceElement(DateTimeType value) { 
       this.lastOccurence = value;
       return this;
     }
@@ -1048,14 +1048,14 @@ public class AdverseReactionRisk extends Resource {
     /**
      * @return {@link #comment} (Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getCommentObject() { 
+    public StringType getCommentElement() { 
       return this.comment;
     }
 
     /**
      * @param value {@link #comment} (Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public AdverseReactionRisk setCommentObject(StringType value) { 
+    public AdverseReactionRisk setCommentElement(StringType value) { 
       this.comment = value;
       return this;
     }

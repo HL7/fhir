@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -581,14 +581,14 @@ public class Encounter extends Resource {
         /**
          * @return {@link #reAdmission} (Whether this hospitalization is a readmission.). This is the underlying object with id, value and extensions. The accessor "getReAdmission" gives direct access to the value
          */
-        public BooleanType getReAdmissionObject() { 
+        public BooleanType getReAdmissionElement() { 
           return this.reAdmission;
         }
 
         /**
          * @param value {@link #reAdmission} (Whether this hospitalization is a readmission.). This is the underlying object with id, value and extensions. The accessor "getReAdmission" gives direct access to the value
          */
-        public EncounterHospitalizationComponent setReAdmissionObject(BooleanType value) { 
+        public EncounterHospitalizationComponent setReAdmissionElement(BooleanType value) { 
           this.reAdmission = value;
           return this;
         }
@@ -961,14 +961,14 @@ public class Encounter extends Resource {
     /**
      * @return {@link #status} (planned | in progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<EncounterState> getStatusObject() { 
+    public Enumeration<EncounterState> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (planned | in progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Encounter setStatusObject(Enumeration<EncounterState> value) { 
+    public Encounter setStatusElement(Enumeration<EncounterState> value) { 
       this.status = value;
       return this;
     }
@@ -993,14 +993,14 @@ public class Encounter extends Resource {
     /**
      * @return {@link #class_} (inpatient | outpatient | ambulatory | emergency +.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
      */
-    public Enumeration<EncounterClass> getClass_Object() { 
+    public Enumeration<EncounterClass> getClass_Element() { 
       return this.class_;
     }
 
     /**
      * @param value {@link #class_} (inpatient | outpatient | ambulatory | emergency +.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
      */
-    public Encounter setClass_Object(Enumeration<EncounterClass> value) { 
+    public Encounter setClass_Element(Enumeration<EncounterClass> value) { 
       this.class_ = value;
       return this;
     }

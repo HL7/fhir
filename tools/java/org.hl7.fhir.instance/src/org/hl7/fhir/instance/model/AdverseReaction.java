@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -244,14 +244,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return {@link #severity} (The severity of the sign or symptom.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public Enumeration<ReactionSeverity> getSeverityObject() { 
+        public Enumeration<ReactionSeverity> getSeverityElement() { 
           return this.severity;
         }
 
         /**
          * @param value {@link #severity} (The severity of the sign or symptom.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public AdverseReactionSymptomComponent setSeverityObject(Enumeration<ReactionSeverity> value) { 
+        public AdverseReactionSymptomComponent setSeverityElement(Enumeration<ReactionSeverity> value) { 
           this.severity = value;
           return this;
         }
@@ -327,14 +327,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return {@link #date} (Identifies the initial date of the exposure that is suspected to be related to the reaction.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDateObject() { 
+        public DateTimeType getDateElement() { 
           return this.date;
         }
 
         /**
          * @param value {@link #date} (Identifies the initial date of the exposure that is suspected to be related to the reaction.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public AdverseReactionExposureComponent setDateObject(DateTimeType value) { 
+        public AdverseReactionExposureComponent setDateElement(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -363,14 +363,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return {@link #type} (The type of exposure: Drug Administration, Immunization, Coincidental.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ExposureType> getTypeObject() { 
+        public Enumeration<ExposureType> getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (The type of exposure: Drug Administration, Immunization, Coincidental.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public AdverseReactionExposureComponent setTypeObject(Enumeration<ExposureType> value) { 
+        public AdverseReactionExposureComponent setTypeElement(Enumeration<ExposureType> value) { 
           this.type = value;
           return this;
         }
@@ -399,14 +399,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return {@link #causalityExpectation} (A statement of how confident that the recorder was that this exposure caused the reaction.). This is the underlying object with id, value and extensions. The accessor "getCausalityExpectation" gives direct access to the value
          */
-        public Enumeration<CausalityExpectation> getCausalityExpectationObject() { 
+        public Enumeration<CausalityExpectation> getCausalityExpectationElement() { 
           return this.causalityExpectation;
         }
 
         /**
          * @param value {@link #causalityExpectation} (A statement of how confident that the recorder was that this exposure caused the reaction.). This is the underlying object with id, value and extensions. The accessor "getCausalityExpectation" gives direct access to the value
          */
-        public AdverseReactionExposureComponent setCausalityExpectationObject(Enumeration<CausalityExpectation> value) { 
+        public AdverseReactionExposureComponent setCausalityExpectationElement(Enumeration<CausalityExpectation> value) { 
           this.causalityExpectation = value;
           return this;
         }
@@ -558,14 +558,14 @@ public class AdverseReaction extends Resource {
     /**
      * @return {@link #date} (The date (and possibly time) when the reaction began.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date (and possibly time) when the reaction began.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public AdverseReaction setDateObject(DateTimeType value) { 
+    public AdverseReaction setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -624,14 +624,14 @@ public class AdverseReaction extends Resource {
     /**
      * @return {@link #didNotOccurFlag} (If true, indicates that no reaction occurred.). This is the underlying object with id, value and extensions. The accessor "getDidNotOccurFlag" gives direct access to the value
      */
-    public BooleanType getDidNotOccurFlagObject() { 
+    public BooleanType getDidNotOccurFlagElement() { 
       return this.didNotOccurFlag;
     }
 
     /**
      * @param value {@link #didNotOccurFlag} (If true, indicates that no reaction occurred.). This is the underlying object with id, value and extensions. The accessor "getDidNotOccurFlag" gives direct access to the value
      */
-    public AdverseReaction setDidNotOccurFlagObject(BooleanType value) { 
+    public AdverseReaction setDidNotOccurFlagElement(BooleanType value) { 
       this.didNotOccurFlag = value;
       return this;
     }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -162,14 +162,14 @@ public class Query extends Resource {
         /**
          * @return {@link #identifier} (Links response to source query.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public UriType getIdentifierObject() { 
+        public UriType getIdentifierElement() { 
           return this.identifier;
         }
 
         /**
          * @param value {@link #identifier} (Links response to source query.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public QueryResponseComponent setIdentifierObject(UriType value) { 
+        public QueryResponseComponent setIdentifierElement(UriType value) { 
           this.identifier = value;
           return this;
         }
@@ -194,14 +194,14 @@ public class Query extends Resource {
         /**
          * @return {@link #outcome} (Outcome of processing the query.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
          */
-        public Enumeration<QueryOutcome> getOutcomeObject() { 
+        public Enumeration<QueryOutcome> getOutcomeElement() { 
           return this.outcome;
         }
 
         /**
          * @param value {@link #outcome} (Outcome of processing the query.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
          */
-        public QueryResponseComponent setOutcomeObject(Enumeration<QueryOutcome> value) { 
+        public QueryResponseComponent setOutcomeElement(Enumeration<QueryOutcome> value) { 
           this.outcome = value;
           return this;
         }
@@ -226,14 +226,14 @@ public class Query extends Resource {
         /**
          * @return {@link #total} (Total number of matching records.). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
          */
-        public IntegerType getTotalObject() { 
+        public IntegerType getTotalElement() { 
           return this.total;
         }
 
         /**
          * @param value {@link #total} (Total number of matching records.). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
          */
-        public QueryResponseComponent setTotalObject(IntegerType value) { 
+        public QueryResponseComponent setTotalElement(IntegerType value) { 
           this.total = value;
           return this;
         }
@@ -438,14 +438,14 @@ public class Query extends Resource {
     /**
      * @return {@link #identifier} (Links query and its response(s).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public UriType getIdentifierObject() { 
+    public UriType getIdentifierElement() { 
       return this.identifier;
     }
 
     /**
      * @param value {@link #identifier} (Links query and its response(s).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public Query setIdentifierObject(UriType value) { 
+    public Query setIdentifierElement(UriType value) { 
       this.identifier = value;
       return this;
     }

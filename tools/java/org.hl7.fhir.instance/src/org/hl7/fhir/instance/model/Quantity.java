@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -131,14 +131,14 @@ public class Quantity extends Type {
     /**
      * @return {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public DecimalType getValueObject() { 
+    public DecimalType getValueElement() { 
       return this.value;
     }
 
     /**
      * @param value {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public Quantity setValueObject(DecimalType value) { 
+    public Quantity setValueElement(DecimalType value) { 
       this.value = value;
       return this;
     }
@@ -167,14 +167,14 @@ public class Quantity extends Type {
     /**
      * @return {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.). This is the underlying object with id, value and extensions. The accessor "getComparator" gives direct access to the value
      */
-    public Enumeration<QuantityComparator> getComparatorObject() { 
+    public Enumeration<QuantityComparator> getComparatorElement() { 
       return this.comparator;
     }
 
     /**
      * @param value {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.). This is the underlying object with id, value and extensions. The accessor "getComparator" gives direct access to the value
      */
-    public Quantity setComparatorObject(Enumeration<QuantityComparator> value) { 
+    public Quantity setComparatorElement(Enumeration<QuantityComparator> value) { 
       this.comparator = value;
       return this;
     }
@@ -203,14 +203,14 @@ public class Quantity extends Type {
     /**
      * @return {@link #units} (A human-readable form of the units.). This is the underlying object with id, value and extensions. The accessor "getUnits" gives direct access to the value
      */
-    public StringType getUnitsObject() { 
+    public StringType getUnitsElement() { 
       return this.units;
     }
 
     /**
      * @param value {@link #units} (A human-readable form of the units.). This is the underlying object with id, value and extensions. The accessor "getUnits" gives direct access to the value
      */
-    public Quantity setUnitsObject(StringType value) { 
+    public Quantity setUnitsElement(StringType value) { 
       this.units = value;
       return this;
     }
@@ -239,14 +239,14 @@ public class Quantity extends Type {
     /**
      * @return {@link #system} (The identification of the system that provides the coded form of the unit.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public UriType getSystemObject() { 
+    public UriType getSystemElement() { 
       return this.system;
     }
 
     /**
      * @param value {@link #system} (The identification of the system that provides the coded form of the unit.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Quantity setSystemObject(UriType value) { 
+    public Quantity setSystemElement(UriType value) { 
       this.system = value;
       return this;
     }
@@ -275,14 +275,14 @@ public class Quantity extends Type {
     /**
      * @return {@link #code} (A computer processable form of the units in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public CodeType getCodeObject() { 
+    public CodeType getCodeElement() { 
       return this.code;
     }
 
     /**
      * @param value {@link #code} (A computer processable form of the units in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public Quantity setCodeObject(CodeType value) { 
+    public Quantity setCodeElement(CodeType value) { 
       this.code = value;
       return this;
     }

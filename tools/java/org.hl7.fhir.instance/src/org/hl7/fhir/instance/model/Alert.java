@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -176,14 +176,14 @@ public class Alert extends Resource {
     /**
      * @return {@link #status} (Supports basic workflow.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<AlertStatus> getStatusObject() { 
+    public Enumeration<AlertStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (Supports basic workflow.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Alert setStatusObject(Enumeration<AlertStatus> value) { 
+    public Alert setStatusElement(Enumeration<AlertStatus> value) { 
       this.status = value;
       return this;
     }
@@ -268,14 +268,14 @@ public class Alert extends Resource {
     /**
      * @return {@link #note} (The textual component of the alert to display to the user.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public StringType getNoteObject() { 
+    public StringType getNoteElement() { 
       return this.note;
     }
 
     /**
      * @param value {@link #note} (The textual component of the alert to display to the user.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public Alert setNoteObject(StringType value) { 
+    public Alert setNoteElement(StringType value) { 
       this.note = value;
       return this;
     }

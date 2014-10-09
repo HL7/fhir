@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -122,14 +122,14 @@ public class Narrative extends Element {
     /**
      * @return {@link #status} (The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<NarrativeStatus> getStatusObject() { 
+    public Enumeration<NarrativeStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Narrative setStatusObject(Enumeration<NarrativeStatus> value) { 
+    public Narrative setStatusElement(Enumeration<NarrativeStatus> value) { 
       this.status = value;
       return this;
     }

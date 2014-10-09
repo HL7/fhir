@@ -157,7 +157,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
 	private void addCodeAndDescendents(String system, ConceptDefinitionComponent def) {
 		if (!ToolingExtensions.hasDeprecated(def)) {  
-			if (def.getAbstractObject() == null || !def.getAbstract())
+			if (def.getAbstractElement() == null || !def.getAbstract())
 				addCode(system, def.getCode(), def.getDisplay());
 			for (ConceptDefinitionComponent c : def.getConcept()) 
 				addCodeAndDescendents(system, c);
@@ -222,7 +222,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	private void addDefinedCode(ValueSet vs, String system, ConceptDefinitionComponent c) {
 		if (!ToolingExtensions.hasDeprecated(c)) { 
 
-			if (c.getAbstractObject() == null || !c.getAbstract()) {
+			if (c.getAbstractElement() == null || !c.getAbstract()) {
 				addCode(system, c.getCode(), c.getDisplay());
 			}
 			for (ConceptDefinitionComponent g : c.getConcept()) 

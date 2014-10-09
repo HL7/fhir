@@ -439,7 +439,7 @@ public class ProfileGenerator {
       p.setRequirements(profile.metadata("requirements"));
 
     if (profile.hasMetadata("date"))
-      p.setDateObject(Factory.newDateTime(profile.metadata("date").substring(0, 10)));
+      p.setDateElement(Factory.newDateTime(profile.metadata("date").substring(0, 10)));
     else
       p.setDate(new DateAndTime(genDate));
 

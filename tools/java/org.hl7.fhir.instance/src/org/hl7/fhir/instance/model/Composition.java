@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -200,7 +200,7 @@ public class Composition extends Resource {
         /**
          * @return {@link #mode} (The type of attestation the authenticator offers.)
          */
-        public Enumeration<CompositionAttestationMode> addModeObject() { 
+        public Enumeration<CompositionAttestationMode> addModeElement() { 
           Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>();
           this.mode.add(t);
           return t;
@@ -229,14 +229,14 @@ public class Composition extends Resource {
         /**
          * @return {@link #time} (When composition was attested by the party.). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
          */
-        public DateTimeType getTimeObject() { 
+        public DateTimeType getTimeElement() { 
           return this.time;
         }
 
         /**
          * @param value {@link #time} (When composition was attested by the party.). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
          */
-        public CompositionAttesterComponent setTimeObject(DateTimeType value) { 
+        public CompositionAttesterComponent setTimeElement(DateTimeType value) { 
           this.time = value;
           return this;
         }
@@ -480,14 +480,14 @@ public class Composition extends Resource {
         /**
          * @return {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitleObject() { 
+        public StringType getTitleElement() { 
           return this.title;
         }
 
         /**
          * @param value {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public SectionComponent setTitleObject(StringType value) { 
+        public SectionComponent setTitleElement(StringType value) { 
           this.title = value;
           return this;
         }
@@ -819,14 +819,14 @@ public class Composition extends Resource {
     /**
      * @return {@link #date} (The composition editing time, when the composition was last logically changed by the author.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The composition editing time, when the composition was last logically changed by the author.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Composition setDateObject(DateTimeType value) { 
+    public Composition setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -881,14 +881,14 @@ public class Composition extends Resource {
     /**
      * @return {@link #title} (Official human-readable label for the composition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitleObject() { 
+    public StringType getTitleElement() { 
       return this.title;
     }
 
     /**
      * @param value {@link #title} (Official human-readable label for the composition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public Composition setTitleObject(StringType value) { 
+    public Composition setTitleElement(StringType value) { 
       this.title = value;
       return this;
     }
@@ -917,14 +917,14 @@ public class Composition extends Resource {
     /**
      * @return {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<CompositionStatus> getStatusObject() { 
+    public Enumeration<CompositionStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Composition setStatusObject(Enumeration<CompositionStatus> value) { 
+    public Composition setStatusElement(Enumeration<CompositionStatus> value) { 
       this.status = value;
       return this;
     }

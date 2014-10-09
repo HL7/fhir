@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -329,14 +329,14 @@ public class Condition extends Resource {
         /**
          * @return {@link #detail} (Detailed anatomical location information.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
          */
-        public StringType getDetailObject() { 
+        public StringType getDetailElement() { 
           return this.detail;
         }
 
         /**
          * @param value {@link #detail} (Detailed anatomical location information.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
          */
-        public ConditionLocationComponent setDetailObject(StringType value) { 
+        public ConditionLocationComponent setDetailElement(StringType value) { 
           this.detail = value;
           return this;
         }
@@ -412,14 +412,14 @@ public class Condition extends Resource {
         /**
          * @return {@link #type} (The type of relationship that this condition has to the related item.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ConditionRelationshipType> getTypeObject() { 
+        public Enumeration<ConditionRelationshipType> getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (The type of relationship that this condition has to the related item.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ConditionRelatedItemComponent setTypeObject(Enumeration<ConditionRelationshipType> value) { 
+        public ConditionRelatedItemComponent setTypeElement(Enumeration<ConditionRelationshipType> value) { 
           this.type = value;
           return this;
         }
@@ -726,14 +726,14 @@ public class Condition extends Resource {
     /**
      * @return {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
      */
-    public DateType getDateAssertedObject() { 
+    public DateType getDateAssertedElement() { 
       return this.dateAsserted;
     }
 
     /**
      * @param value {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
      */
-    public Condition setDateAssertedObject(DateType value) { 
+    public Condition setDateAssertedElement(DateType value) { 
       this.dateAsserted = value;
       return this;
     }
@@ -792,14 +792,14 @@ public class Condition extends Resource {
     /**
      * @return {@link #status} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConditionStatus> getStatusObject() { 
+    public Enumeration<ConditionStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Condition setStatusObject(Enumeration<ConditionStatus> value) { 
+    public Condition setStatusElement(Enumeration<ConditionStatus> value) { 
       this.status = value;
       return this;
     }
@@ -950,14 +950,14 @@ public class Condition extends Resource {
     /**
      * @return {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public StringType getNotesObject() { 
+    public StringType getNotesElement() { 
       return this.notes;
     }
 
     /**
      * @param value {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public Condition setNotesObject(StringType value) { 
+    public Condition setNotesElement(StringType value) { 
       this.notes = value;
       return this;
     }

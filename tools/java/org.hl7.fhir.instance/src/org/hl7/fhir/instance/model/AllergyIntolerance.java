@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -313,14 +313,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #criticality} (Criticality of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
-    public Enumeration<Criticality> getCriticalityObject() { 
+    public Enumeration<Criticality> getCriticalityElement() { 
       return this.criticality;
     }
 
     /**
      * @param value {@link #criticality} (Criticality of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
-    public AllergyIntolerance setCriticalityObject(Enumeration<Criticality> value) { 
+    public AllergyIntolerance setCriticalityElement(Enumeration<Criticality> value) { 
       this.criticality = value;
       return this;
     }
@@ -349,14 +349,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #sensitivityType} (Type of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getSensitivityType" gives direct access to the value
      */
-    public Enumeration<Sensitivitytype> getSensitivityTypeObject() { 
+    public Enumeration<Sensitivitytype> getSensitivityTypeElement() { 
       return this.sensitivityType;
     }
 
     /**
      * @param value {@link #sensitivityType} (Type of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getSensitivityType" gives direct access to the value
      */
-    public AllergyIntolerance setSensitivityTypeObject(Enumeration<Sensitivitytype> value) { 
+    public AllergyIntolerance setSensitivityTypeElement(Enumeration<Sensitivitytype> value) { 
       this.sensitivityType = value;
       return this;
     }
@@ -381,14 +381,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #recordedDate} (Date when the sensitivity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
-    public DateTimeType getRecordedDateObject() { 
+    public DateTimeType getRecordedDateElement() { 
       return this.recordedDate;
     }
 
     /**
      * @param value {@link #recordedDate} (Date when the sensitivity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
-    public AllergyIntolerance setRecordedDateObject(DateTimeType value) { 
+    public AllergyIntolerance setRecordedDateElement(DateTimeType value) { 
       this.recordedDate = value;
       return this;
     }
@@ -417,14 +417,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return {@link #status} (Status of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<Sensitivitystatus> getStatusObject() { 
+    public Enumeration<Sensitivitystatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (Status of the sensitivity.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public AllergyIntolerance setStatusObject(Enumeration<Sensitivitystatus> value) { 
+    public AllergyIntolerance setStatusElement(Enumeration<Sensitivitystatus> value) { 
       this.status = value;
       return this;
     }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -253,14 +253,14 @@ public class OrderResponse extends Resource {
     /**
      * @return {@link #date} (The date and time at which this order response was made (created/posted).). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date and time at which this order response was made (created/posted).). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public OrderResponse setDateObject(DateTimeType value) { 
+    public OrderResponse setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -334,14 +334,14 @@ public class OrderResponse extends Resource {
     /**
      * @return {@link #code} (What this response says about the status of the original order.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public Enumeration<OrderOutcomeCode> getCodeObject() { 
+    public Enumeration<OrderOutcomeCode> getCodeElement() { 
       return this.code;
     }
 
     /**
      * @param value {@link #code} (What this response says about the status of the original order.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public OrderResponse setCodeObject(Enumeration<OrderOutcomeCode> value) { 
+    public OrderResponse setCodeElement(Enumeration<OrderOutcomeCode> value) { 
       this.code = value;
       return this;
     }
@@ -366,14 +366,14 @@ public class OrderResponse extends Resource {
     /**
      * @return {@link #description} (Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public OrderResponse setDescriptionObject(StringType value) { 
+    public OrderResponse setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }

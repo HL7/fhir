@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -159,14 +159,14 @@ public class NutritionOrder extends Resource {
         /**
          * @return {@link #isInEffect} (Indicates whether the nutrition item is  currently in effect for the patient.). This is the underlying object with id, value and extensions. The accessor "getIsInEffect" gives direct access to the value
          */
-        public BooleanType getIsInEffectObject() { 
+        public BooleanType getIsInEffectElement() { 
           return this.isInEffect;
         }
 
         /**
          * @param value {@link #isInEffect} (Indicates whether the nutrition item is  currently in effect for the patient.). This is the underlying object with id, value and extensions. The accessor "getIsInEffect" gives direct access to the value
          */
-        public NutritionOrderItemComponent setIsInEffectObject(BooleanType value) { 
+        public NutritionOrderItemComponent setIsInEffectElement(BooleanType value) { 
           this.isInEffect = value;
           return this;
         }
@@ -399,14 +399,14 @@ public class NutritionOrder extends Resource {
         /**
          * @return {@link #description} (A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public NutritionOrderItemOralDietComponent setDescriptionObject(StringType value) { 
+        public NutritionOrderItemOralDietComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -524,14 +524,14 @@ public class NutritionOrder extends Resource {
         /**
          * @return {@link #name} (The name of the nutritional supplement product to be provided to the patient.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameObject() { 
+        public StringType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (The name of the nutritional supplement product to be provided to the patient.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public NutritionOrderItemSupplementComponent setNameObject(StringType value) { 
+        public NutritionOrderItemSupplementComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -699,14 +699,14 @@ public class NutritionOrder extends Resource {
         /**
          * @return {@link #baseFormulaName} (TODO.). This is the underlying object with id, value and extensions. The accessor "getBaseFormulaName" gives direct access to the value
          */
-        public StringType getBaseFormulaNameObject() { 
+        public StringType getBaseFormulaNameElement() { 
           return this.baseFormulaName;
         }
 
         /**
          * @param value {@link #baseFormulaName} (TODO.). This is the underlying object with id, value and extensions. The accessor "getBaseFormulaName" gives direct access to the value
          */
-        public NutritionOrderItemEnteralFormulaComponent setBaseFormulaNameObject(StringType value) { 
+        public NutritionOrderItemEnteralFormulaComponent setBaseFormulaNameElement(StringType value) { 
           this.baseFormulaName = value;
           return this;
         }
@@ -955,14 +955,14 @@ public class NutritionOrder extends Resource {
     /**
      * @return {@link #dateTime} (The date and time that this nutrition order was requested.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public DateTimeType getDateTimeObject() { 
+    public DateTimeType getDateTimeElement() { 
       return this.dateTime;
     }
 
     /**
      * @param value {@link #dateTime} (The date and time that this nutrition order was requested.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public NutritionOrder setDateTimeObject(DateTimeType value) { 
+    public NutritionOrder setDateTimeElement(DateTimeType value) { 
       this.dateTime = value;
       return this;
     }
@@ -1072,14 +1072,14 @@ public class NutritionOrder extends Resource {
     /**
      * @return {@link #status} (The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<NutritionOrderStatus> getStatusObject() { 
+    public Enumeration<NutritionOrderStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The workflow status of the nutrition order request, e.g., Active, Inactive, Pending, Held, Canceled, Suspended.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public NutritionOrder setStatusObject(Enumeration<NutritionOrderStatus> value) { 
+    public NutritionOrder setStatusElement(Enumeration<NutritionOrderStatus> value) { 
       this.status = value;
       return this;
     }

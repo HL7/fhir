@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -158,14 +158,14 @@ public class DiagnosticReport extends Resource {
         /**
          * @return {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public StringType getCommentObject() { 
+        public StringType getCommentElement() { 
           return this.comment;
         }
 
         /**
          * @param value {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public DiagnosticReportImageComponent setCommentObject(StringType value) { 
+        public DiagnosticReportImageComponent setCommentElement(StringType value) { 
           this.comment = value;
           return this;
         }
@@ -380,14 +380,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #status} (The status of the diagnostic report as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DiagnosticReportStatus> getStatusObject() { 
+    public Enumeration<DiagnosticReportStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The status of the diagnostic report as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DiagnosticReport setStatusObject(Enumeration<DiagnosticReportStatus> value) { 
+    public DiagnosticReport setStatusElement(Enumeration<DiagnosticReportStatus> value) { 
       this.status = value;
       return this;
     }
@@ -412,14 +412,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #issued} (The date and/or time that this version of the report was released from the source diagnostic service.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public DateTimeType getIssuedObject() { 
+    public DateTimeType getIssuedElement() { 
       return this.issued;
     }
 
     /**
      * @param value {@link #issued} (The date and/or time that this version of the report was released from the source diagnostic service.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public DiagnosticReport setIssuedObject(DateTimeType value) { 
+    public DiagnosticReport setIssuedElement(DateTimeType value) { 
       this.issued = value;
       return this;
     }
@@ -702,14 +702,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getConclusion" gives direct access to the value
      */
-    public StringType getConclusionObject() { 
+    public StringType getConclusionElement() { 
       return this.conclusion;
     }
 
     /**
      * @param value {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getConclusion" gives direct access to the value
      */
-    public DiagnosticReport setConclusionObject(StringType value) { 
+    public DiagnosticReport setConclusionElement(StringType value) { 
       this.conclusion = value;
       return this;
     }

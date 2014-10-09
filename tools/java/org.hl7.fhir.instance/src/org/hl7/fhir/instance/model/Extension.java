@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -62,14 +62,14 @@ public class Extension extends Element {
     /**
      * @return {@link #url} (Source of the definition for the extension code - a logical name or a URL.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlObject() { 
+    public UriType getUrlElement() { 
       return this.url;
     }
 
     /**
      * @param value {@link #url} (Source of the definition for the extension code - a logical name or a URL.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public Extension setUrlObject(UriType value) { 
+    public Extension setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }

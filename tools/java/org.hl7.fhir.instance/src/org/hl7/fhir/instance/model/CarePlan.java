@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -429,14 +429,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #description} (Human-readable description of a specific desired objective of the care plan.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Human-readable description of a specific desired objective of the care plan.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public CarePlanGoalComponent setDescriptionObject(StringType value) { 
+        public CarePlanGoalComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -461,14 +461,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #status} (Indicates whether the goal has been reached and is still considered relevant.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<CarePlanGoalStatus> getStatusObject() { 
+        public Enumeration<CarePlanGoalStatus> getStatusElement() { 
           return this.status;
         }
 
         /**
          * @param value {@link #status} (Indicates whether the goal has been reached and is still considered relevant.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public CarePlanGoalComponent setStatusObject(Enumeration<CarePlanGoalStatus> value) { 
+        public CarePlanGoalComponent setStatusElement(Enumeration<CarePlanGoalStatus> value) { 
           this.status = value;
           return this;
         }
@@ -497,14 +497,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #notes} (Any comments related to the goal.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
          */
-        public StringType getNotesObject() { 
+        public StringType getNotesElement() { 
           return this.notes;
         }
 
         /**
          * @param value {@link #notes} (Any comments related to the goal.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
          */
-        public CarePlanGoalComponent setNotesObject(StringType value) { 
+        public CarePlanGoalComponent setNotesElement(StringType value) { 
           this.notes = value;
           return this;
         }
@@ -653,7 +653,7 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
          */
-        public StringType addGoalObject() { 
+        public StringType addGoalElement() { 
           StringType t = new StringType();
           this.goal.add(t);
           return t;
@@ -682,14 +682,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #status} (Identifies what progress is being made for the specific activity.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<CarePlanActivityStatus> getStatusObject() { 
+        public Enumeration<CarePlanActivityStatus> getStatusElement() { 
           return this.status;
         }
 
         /**
          * @param value {@link #status} (Identifies what progress is being made for the specific activity.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public CarePlanActivityComponent setStatusObject(Enumeration<CarePlanActivityStatus> value) { 
+        public CarePlanActivityComponent setStatusElement(Enumeration<CarePlanActivityStatus> value) { 
           this.status = value;
           return this;
         }
@@ -718,14 +718,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #prohibited} (If true, indicates that the described activity is one that must NOT be engaged in when following the plan.). This is the underlying object with id, value and extensions. The accessor "getProhibited" gives direct access to the value
          */
-        public BooleanType getProhibitedObject() { 
+        public BooleanType getProhibitedElement() { 
           return this.prohibited;
         }
 
         /**
          * @param value {@link #prohibited} (If true, indicates that the described activity is one that must NOT be engaged in when following the plan.). This is the underlying object with id, value and extensions. The accessor "getProhibited" gives direct access to the value
          */
-        public CarePlanActivityComponent setProhibitedObject(BooleanType value) { 
+        public CarePlanActivityComponent setProhibitedElement(BooleanType value) { 
           this.prohibited = value;
           return this;
         }
@@ -774,14 +774,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #notes} (Notes about the execution of the activity.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
          */
-        public StringType getNotesObject() { 
+        public StringType getNotesElement() { 
           return this.notes;
         }
 
         /**
          * @param value {@link #notes} (Notes about the execution of the activity.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
          */
-        public CarePlanActivityComponent setNotesObject(StringType value) { 
+        public CarePlanActivityComponent setNotesElement(StringType value) { 
           this.notes = value;
           return this;
         }
@@ -956,14 +956,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #category} (High-level categorization of the type of activity in a care plan.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
          */
-        public Enumeration<CarePlanActivityCategory> getCategoryObject() { 
+        public Enumeration<CarePlanActivityCategory> getCategoryElement() { 
           return this.category;
         }
 
         /**
          * @param value {@link #category} (High-level categorization of the type of activity in a care plan.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
          */
-        public CarePlanActivitySimpleComponent setCategoryObject(Enumeration<CarePlanActivityCategory> value) { 
+        public CarePlanActivitySimpleComponent setCategoryElement(Enumeration<CarePlanActivityCategory> value) { 
           this.category = value;
           return this;
         }
@@ -1132,14 +1132,14 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #details} (This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.). This is the underlying object with id, value and extensions. The accessor "getDetails" gives direct access to the value
          */
-        public StringType getDetailsObject() { 
+        public StringType getDetailsElement() { 
           return this.details;
         }
 
         /**
          * @param value {@link #details} (This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.). This is the underlying object with id, value and extensions. The accessor "getDetails" gives direct access to the value
          */
-        public CarePlanActivitySimpleComponent setDetailsObject(StringType value) { 
+        public CarePlanActivitySimpleComponent setDetailsElement(StringType value) { 
           this.details = value;
           return this;
         }
@@ -1317,14 +1317,14 @@ public class CarePlan extends Resource {
     /**
      * @return {@link #status} (Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<CarePlanStatus> getStatusObject() { 
+    public Enumeration<CarePlanStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CarePlan setStatusObject(Enumeration<CarePlanStatus> value) { 
+    public CarePlan setStatusElement(Enumeration<CarePlanStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1364,14 +1364,14 @@ public class CarePlan extends Resource {
     /**
      * @return {@link #modified} (Identifies the most recent date on which the plan has been revised.). This is the underlying object with id, value and extensions. The accessor "getModified" gives direct access to the value
      */
-    public DateTimeType getModifiedObject() { 
+    public DateTimeType getModifiedElement() { 
       return this.modified;
     }
 
     /**
      * @param value {@link #modified} (Identifies the most recent date on which the plan has been revised.). This is the underlying object with id, value and extensions. The accessor "getModified" gives direct access to the value
      */
-    public CarePlan setModifiedObject(DateTimeType value) { 
+    public CarePlan setModifiedElement(DateTimeType value) { 
       this.modified = value;
       return this;
     }
@@ -1485,14 +1485,14 @@ public class CarePlan extends Resource {
     /**
      * @return {@link #notes} (General notes about the care plan not covered elsewhere.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public StringType getNotesObject() { 
+    public StringType getNotesElement() { 
       return this.notes;
     }
 
     /**
      * @param value {@link #notes} (General notes about the care plan not covered elsewhere.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public CarePlan setNotesObject(StringType value) { 
+    public CarePlan setNotesElement(StringType value) { 
       this.notes = value;
       return this;
     }

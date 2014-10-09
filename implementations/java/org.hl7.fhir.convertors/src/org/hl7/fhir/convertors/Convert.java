@@ -346,12 +346,12 @@ public class Convert {
 	  Period p = new Period();
 	  Element low = cda.getChild(ivl, "low");
 		if (low != null)
-	  	p.setStartObject(makeDateTimeFromTS(low));
+	  	p.setStartElement(makeDateTimeFromTS(low));
 	  Element high = cda.getChild(ivl, "high");
 		if (high != null)
-	  	p.setEndObject(makeDateTimeFromTS(high));
+	  	p.setEndElement(makeDateTimeFromTS(high));
 	  
-		if (p.getStartObject() != null || p.getEndObject() != null)
+		if (p.getStartElement() != null || p.getEndElement() != null)
 	    return p;
 		else
 			return null;

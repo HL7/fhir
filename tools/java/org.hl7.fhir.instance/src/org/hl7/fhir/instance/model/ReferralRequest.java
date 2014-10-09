@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -226,14 +226,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #status} (The workflow status of the referral or transfer of care request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<Referralstatus> getStatusObject() { 
+    public Enumeration<Referralstatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The workflow status of the referral or transfer of care request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ReferralRequest setStatusObject(Enumeration<Referralstatus> value) { 
+    public ReferralRequest setStatusElement(Enumeration<Referralstatus> value) { 
       this.status = value;
       return this;
     }
@@ -434,14 +434,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #dateSent} (Date/DateTime the request for referral or transfer of care is sent by the author.). This is the underlying object with id, value and extensions. The accessor "getDateSent" gives direct access to the value
      */
-    public DateTimeType getDateSentObject() { 
+    public DateTimeType getDateSentElement() { 
       return this.dateSent;
     }
 
     /**
      * @param value {@link #dateSent} (Date/DateTime the request for referral or transfer of care is sent by the author.). This is the underlying object with id, value and extensions. The accessor "getDateSent" gives direct access to the value
      */
-    public ReferralRequest setDateSentObject(DateTimeType value) { 
+    public ReferralRequest setDateSentElement(DateTimeType value) { 
       this.dateSent = value;
       return this;
     }
@@ -485,14 +485,14 @@ public class ReferralRequest extends Resource {
     /**
      * @return {@link #description} (The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ReferralRequest setDescriptionObject(StringType value) { 
+    public ReferralRequest setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }

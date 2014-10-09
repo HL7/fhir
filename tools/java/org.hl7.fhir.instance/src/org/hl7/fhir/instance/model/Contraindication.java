@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -88,14 +88,14 @@ public class Contraindication extends Resource {
         /**
          * @return {@link #date} (Indicates when the mitigating action was documented.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDateObject() { 
+        public DateTimeType getDateElement() { 
           return this.date;
         }
 
         /**
          * @param value {@link #date} (Indicates when the mitigating action was documented.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public ContraindicationMitigationComponent setDateObject(DateTimeType value) { 
+        public ContraindicationMitigationComponent setDateElement(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -287,14 +287,14 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
      */
-    public CodeType getSeverityObject() { 
+    public CodeType getSeverityElement() { 
       return this.severity;
     }
 
     /**
      * @param value {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
      */
-    public Contraindication setSeverityObject(CodeType value) { 
+    public Contraindication setSeverityElement(CodeType value) { 
       this.severity = value;
       return this;
     }
@@ -347,14 +347,14 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #detail} (A textual explanation of the contraindication.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
      */
-    public StringType getDetailObject() { 
+    public StringType getDetailElement() { 
       return this.detail;
     }
 
     /**
      * @param value {@link #detail} (A textual explanation of the contraindication.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
      */
-    public Contraindication setDetailObject(StringType value) { 
+    public Contraindication setDetailElement(StringType value) { 
       this.detail = value;
       return this;
     }
@@ -383,14 +383,14 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #date} (The date or date-time when the contraindication was initially identified.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date or date-time when the contraindication was initially identified.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Contraindication setDateObject(DateTimeType value) { 
+    public Contraindication setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -464,14 +464,14 @@ public class Contraindication extends Resource {
     /**
      * @return {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public UriType getReferenceObject() { 
+    public UriType getReferenceElement() { 
       return this.reference;
     }
 
     /**
      * @param value {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public Contraindication setReferenceObject(UriType value) { 
+    public Contraindication setReferenceElement(UriType value) { 
       this.reference = value;
       return this;
     }

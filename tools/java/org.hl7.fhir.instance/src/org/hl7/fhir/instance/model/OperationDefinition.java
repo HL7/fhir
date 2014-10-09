@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -231,14 +231,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public CodeType getNameObject() { 
+        public CodeType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setNameObject(CodeType value) { 
+        public OperationDefinitionParameterComponent setNameElement(CodeType value) { 
           this.name = value;
           return this;
         }
@@ -263,14 +263,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return {@link #use} (Whether this is an input or an output parameter.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
          */
-        public Enumeration<OperationParameterUse> getUseObject() { 
+        public Enumeration<OperationParameterUse> getUseElement() { 
           return this.use;
         }
 
         /**
          * @param value {@link #use} (Whether this is an input or an output parameter.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setUseObject(Enumeration<OperationParameterUse> value) { 
+        public OperationDefinitionParameterComponent setUseElement(Enumeration<OperationParameterUse> value) { 
           this.use = value;
           return this;
         }
@@ -295,14 +295,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public IntegerType getMinObject() { 
+        public IntegerType getMinElement() { 
           return this.min;
         }
 
         /**
          * @param value {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setMinObject(IntegerType value) { 
+        public OperationDefinitionParameterComponent setMinElement(IntegerType value) { 
           this.min = value;
           return this;
         }
@@ -327,14 +327,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
          */
-        public StringType getMaxObject() { 
+        public StringType getMaxElement() { 
           return this.max;
         }
 
         /**
          * @param value {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setMaxObject(StringType value) { 
+        public OperationDefinitionParameterComponent setMaxElement(StringType value) { 
           this.max = value;
           return this;
         }
@@ -359,14 +359,14 @@ public class OperationDefinition extends Resource {
         /**
          * @return {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationObject() { 
+        public StringType getDocumentationElement() { 
           return this.documentation;
         }
 
         /**
          * @param value {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setDocumentationObject(StringType value) { 
+        public OperationDefinitionParameterComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -576,14 +576,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public UriType getIdentifierObject() { 
+    public UriType getIdentifierElement() { 
       return this.identifier;
     }
 
     /**
      * @param value {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public OperationDefinition setIdentifierObject(UriType value) { 
+    public OperationDefinition setIdentifierElement(UriType value) { 
       this.identifier = value;
       return this;
     }
@@ -612,14 +612,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionObject() { 
+    public StringType getVersionElement() { 
       return this.version;
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public OperationDefinition setVersionObject(StringType value) { 
+    public OperationDefinition setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -648,14 +648,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #title} (A free text natural language name identifying the Profile.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitleObject() { 
+    public StringType getTitleElement() { 
       return this.title;
     }
 
     /**
      * @param value {@link #title} (A free text natural language name identifying the Profile.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public OperationDefinition setTitleObject(StringType value) { 
+    public OperationDefinition setTitleElement(StringType value) { 
       this.title = value;
       return this;
     }
@@ -680,14 +680,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherObject() { 
+    public StringType getPublisherElement() { 
       return this.publisher;
     }
 
     /**
      * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public OperationDefinition setPublisherObject(StringType value) { 
+    public OperationDefinition setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -733,14 +733,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public OperationDefinition setDescriptionObject(StringType value) { 
+    public OperationDefinition setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -786,14 +786,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ResourceProfileStatus> getStatusObject() { 
+    public Enumeration<ResourceProfileStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public OperationDefinition setStatusObject(Enumeration<ResourceProfileStatus> value) { 
+    public OperationDefinition setStatusElement(Enumeration<ResourceProfileStatus> value) { 
       this.status = value;
       return this;
     }
@@ -818,14 +818,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalObject() { 
+    public BooleanType getExperimentalElement() { 
       return this.experimental;
     }
 
     /**
      * @param value {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public OperationDefinition setExperimentalObject(BooleanType value) { 
+    public OperationDefinition setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -854,14 +854,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #date} (The date that this version of the profile was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date that this version of the profile was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public OperationDefinition setDateObject(DateTimeType value) { 
+    public OperationDefinition setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -890,14 +890,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #kind} (Whether this is operation or named query.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Enumeration<OperationKind> getKindObject() { 
+    public Enumeration<OperationKind> getKindElement() { 
       return this.kind;
     }
 
     /**
      * @param value {@link #kind} (Whether this is operation or named query.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public OperationDefinition setKindObject(Enumeration<OperationKind> value) { 
+    public OperationDefinition setKindElement(Enumeration<OperationKind> value) { 
       this.kind = value;
       return this;
     }
@@ -922,14 +922,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #name} (The name used to invoke the operation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public CodeType getNameObject() { 
+    public CodeType getNameElement() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (The name used to invoke the operation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public OperationDefinition setNameObject(CodeType value) { 
+    public OperationDefinition setNameElement(CodeType value) { 
       this.name = value;
       return this;
     }
@@ -954,14 +954,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #notes} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public StringType getNotesObject() { 
+    public StringType getNotesElement() { 
       return this.notes;
     }
 
     /**
      * @param value {@link #notes} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public OperationDefinition setNotesObject(StringType value) { 
+    public OperationDefinition setNotesElement(StringType value) { 
       this.notes = value;
       return this;
     }
@@ -1020,14 +1020,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public BooleanType getSystemObject() { 
+    public BooleanType getSystemElement() { 
       return this.system;
     }
 
     /**
      * @param value {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public OperationDefinition setSystemObject(BooleanType value) { 
+    public OperationDefinition setSystemElement(BooleanType value) { 
       this.system = value;
       return this;
     }
@@ -1060,7 +1060,7 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    public CodeType addTypeObject() { 
+    public CodeType addTypeElement() { 
       CodeType t = new CodeType();
       this.type.add(t);
       return t;
@@ -1089,14 +1089,14 @@ public class OperationDefinition extends Resource {
     /**
      * @return {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.). This is the underlying object with id, value and extensions. The accessor "getInstance" gives direct access to the value
      */
-    public BooleanType getInstanceObject() { 
+    public BooleanType getInstanceElement() { 
       return this.instance;
     }
 
     /**
      * @param value {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.). This is the underlying object with id, value and extensions. The accessor "getInstance" gives direct access to the value
      */
-    public OperationDefinition setInstanceObject(BooleanType value) { 
+    public OperationDefinition setInstanceElement(BooleanType value) { 
       this.instance = value;
       return this;
     }

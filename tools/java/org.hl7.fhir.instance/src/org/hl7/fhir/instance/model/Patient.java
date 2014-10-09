@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -255,14 +255,14 @@ public class Patient extends Resource {
         /**
          * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
-        public Enumeration<AdministrativeGender> getGenderObject() { 
+        public Enumeration<AdministrativeGender> getGenderElement() { 
           return this.gender;
         }
 
         /**
          * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
-        public ContactComponent setGenderObject(Enumeration<AdministrativeGender> value) { 
+        public ContactComponent setGenderElement(Enumeration<AdministrativeGender> value) { 
           this.gender = value;
           return this;
         }
@@ -495,14 +495,14 @@ public class Patient extends Resource {
         /**
          * @return {@link #type} (The type of link between this patient resource and another patient resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<LinkType> getTypeObject() { 
+        public Enumeration<LinkType> getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (The type of link between this patient resource and another patient resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public PatientLinkComponent setTypeObject(Enumeration<LinkType> value) { 
+        public PatientLinkComponent setTypeElement(Enumeration<LinkType> value) { 
           this.type = value;
           return this;
         }
@@ -694,14 +694,14 @@ public class Patient extends Resource {
     /**
      * @return {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Enumeration<AdministrativeGender> getGenderObject() { 
+    public Enumeration<AdministrativeGender> getGenderElement() { 
       return this.gender;
     }
 
     /**
      * @param value {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Patient setGenderObject(Enumeration<AdministrativeGender> value) { 
+    public Patient setGenderElement(Enumeration<AdministrativeGender> value) { 
       this.gender = value;
       return this;
     }
@@ -730,14 +730,14 @@ public class Patient extends Resource {
     /**
      * @return {@link #birthDate} (The date and time of birth for the individual.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public DateTimeType getBirthDateObject() { 
+    public DateTimeType getBirthDateElement() { 
       return this.birthDate;
     }
 
     /**
      * @param value {@link #birthDate} (The date and time of birth for the individual.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public Patient setBirthDateObject(DateTimeType value) { 
+    public Patient setBirthDateElement(DateTimeType value) { 
       this.birthDate = value;
       return this;
     }
@@ -965,14 +965,14 @@ public class Patient extends Resource {
     /**
      * @return {@link #active} (Whether this patient record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public BooleanType getActiveObject() { 
+    public BooleanType getActiveElement() { 
       return this.active;
     }
 
     /**
      * @param value {@link #active} (Whether this patient record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public Patient setActiveObject(BooleanType value) { 
+    public Patient setActiveElement(BooleanType value) { 
       this.active = value;
       return this;
     }

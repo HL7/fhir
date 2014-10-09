@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -140,14 +140,14 @@ public class Identifier extends Type {
     /**
      * @return {@link #use} (The purpose of this identifier.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<IdentifierUse> getUseObject() { 
+    public Enumeration<IdentifierUse> getUseElement() { 
       return this.use;
     }
 
     /**
      * @param value {@link #use} (The purpose of this identifier.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Identifier setUseObject(Enumeration<IdentifierUse> value) { 
+    public Identifier setUseElement(Enumeration<IdentifierUse> value) { 
       this.use = value;
       return this;
     }
@@ -176,14 +176,14 @@ public class Identifier extends Type {
     /**
      * @return {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
      */
-    public StringType getLabelObject() { 
+    public StringType getLabelElement() { 
       return this.label;
     }
 
     /**
      * @param value {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
      */
-    public Identifier setLabelObject(StringType value) { 
+    public Identifier setLabelElement(StringType value) { 
       this.label = value;
       return this;
     }
@@ -212,14 +212,14 @@ public class Identifier extends Type {
     /**
      * @return {@link #system} (Establishes the namespace in which set of possible id values is unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public UriType getSystemObject() { 
+    public UriType getSystemElement() { 
       return this.system;
     }
 
     /**
      * @param value {@link #system} (Establishes the namespace in which set of possible id values is unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Identifier setSystemObject(UriType value) { 
+    public Identifier setSystemElement(UriType value) { 
       this.system = value;
       return this;
     }
@@ -248,14 +248,14 @@ public class Identifier extends Type {
     /**
      * @return {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public StringType getValueObject() { 
+    public StringType getValueElement() { 
       return this.value;
     }
 
     /**
      * @param value {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public Identifier setValueObject(StringType value) { 
+    public Identifier setValueElement(StringType value) { 
       this.value = value;
       return this;
     }

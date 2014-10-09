@@ -208,7 +208,7 @@ public class FHIRSimpleClientTest {
 			String originalEntryVersion = getEntryVersion(originalPatientEntry);
 			DateTimeType modifiedBirthday = new DateTimeType();
 			modifiedBirthday.setValue(new DateAndTime("2002-09-09"));
-			originalPatientEntry.getResource().setBirthDateObject(modifiedBirthday);
+			originalPatientEntry.getResource().setBirthDateElement(modifiedBirthday);
 			AtomEntry<Patient> updatedResult = testClient.update(Patient.class, originalPatientEntry.getResource(), testPatientId);
 			if(updatedResult.getResource() == null) {
 				updatedResult = testClient.read(Patient.class, testPatientId);
@@ -258,7 +258,7 @@ public class FHIRSimpleClientTest {
 			Patient patient = testClient.read(Patient.class, testPatientId).getResource();
 			DateTimeType modifiedBirthday = new DateTimeType();
 			modifiedBirthday.setValue(new DateAndTime("2009-08-08"));
-			patient.setBirthDateObject(modifiedBirthday);
+			patient.setBirthDateElement(modifiedBirthday);
 			AtomEntry<OperationOutcome> validate = testClient.validate(Patient.class, patient, testPatientId);
 			assertTrue(validate.getResource().getIssue().size() == 0);//TODO not sure why bad syntax
 			unloadPatientReference();
@@ -698,7 +698,7 @@ public class FHIRSimpleClientTest {
 			name.addFamily(familyName);
 			DateTimeType birthday = new DateTimeType();
 			birthday.setValue(new DateAndTime("2008-08-08"));
-			patient.setBirthDateObject(birthday);
+			patient.setBirthDateElement(birthday);
 			patient.setGender(AdministrativeGender.FEMALE); // This is now a Simple code value
 		} catch (ParseException e) {
 			e.printStackTrace();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -164,14 +164,14 @@ public class Device extends Resource {
     /**
      * @return {@link #manufacturer} (A name of the manufacturer.). This is the underlying object with id, value and extensions. The accessor "getManufacturer" gives direct access to the value
      */
-    public StringType getManufacturerObject() { 
+    public StringType getManufacturerElement() { 
       return this.manufacturer;
     }
 
     /**
      * @param value {@link #manufacturer} (A name of the manufacturer.). This is the underlying object with id, value and extensions. The accessor "getManufacturer" gives direct access to the value
      */
-    public Device setManufacturerObject(StringType value) { 
+    public Device setManufacturerElement(StringType value) { 
       this.manufacturer = value;
       return this;
     }
@@ -200,14 +200,14 @@ public class Device extends Resource {
     /**
      * @return {@link #model} (The "model" - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.). This is the underlying object with id, value and extensions. The accessor "getModel" gives direct access to the value
      */
-    public StringType getModelObject() { 
+    public StringType getModelElement() { 
       return this.model;
     }
 
     /**
      * @param value {@link #model} (The "model" - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.). This is the underlying object with id, value and extensions. The accessor "getModel" gives direct access to the value
      */
-    public Device setModelObject(StringType value) { 
+    public Device setModelElement(StringType value) { 
       this.model = value;
       return this;
     }
@@ -236,14 +236,14 @@ public class Device extends Resource {
     /**
      * @return {@link #version} (The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionObject() { 
+    public StringType getVersionElement() { 
       return this.version;
     }
 
     /**
      * @param value {@link #version} (The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public Device setVersionObject(StringType value) { 
+    public Device setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -272,14 +272,14 @@ public class Device extends Resource {
     /**
      * @return {@link #expiry} (Date of expiry of this device (if applicable).). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
      */
-    public DateType getExpiryObject() { 
+    public DateType getExpiryElement() { 
       return this.expiry;
     }
 
     /**
      * @param value {@link #expiry} (Date of expiry of this device (if applicable).). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
      */
-    public Device setExpiryObject(DateType value) { 
+    public Device setExpiryElement(DateType value) { 
       this.expiry = value;
       return this;
     }
@@ -308,14 +308,14 @@ public class Device extends Resource {
     /**
      * @return {@link #udi} (FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.). This is the underlying object with id, value and extensions. The accessor "getUdi" gives direct access to the value
      */
-    public StringType getUdiObject() { 
+    public StringType getUdiElement() { 
       return this.udi;
     }
 
     /**
      * @param value {@link #udi} (FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.). This is the underlying object with id, value and extensions. The accessor "getUdi" gives direct access to the value
      */
-    public Device setUdiObject(StringType value) { 
+    public Device setUdiElement(StringType value) { 
       this.udi = value;
       return this;
     }
@@ -344,14 +344,14 @@ public class Device extends Resource {
     /**
      * @return {@link #lotNumber} (Lot number assigned by the manufacturer.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
      */
-    public StringType getLotNumberObject() { 
+    public StringType getLotNumberElement() { 
       return this.lotNumber;
     }
 
     /**
      * @param value {@link #lotNumber} (Lot number assigned by the manufacturer.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
      */
-    public Device setLotNumberObject(StringType value) { 
+    public Device setLotNumberElement(StringType value) { 
       this.lotNumber = value;
       return this;
     }
@@ -487,14 +487,14 @@ public class Device extends Resource {
     /**
      * @return {@link #url} (A network address on which the device may be contacted directly.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlObject() { 
+    public UriType getUrlElement() { 
       return this.url;
     }
 
     /**
      * @param value {@link #url} (A network address on which the device may be contacted directly.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public Device setUrlObject(UriType value) { 
+    public Device setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }

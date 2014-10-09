@@ -1,7 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+
 <h2>Scope and Usage</h2>
+<p style="color: maroon; font-weight: bold">
+Warning: The resource <a href="adversereactionrisk.html">AdverseReactionRisk</a> is currently proposed as a replacement for this resource.
+</p>
 <p>
 Adverse Reaction resources are used to provide information about specific 
 reactions to a substance.  These are normally associated with an 

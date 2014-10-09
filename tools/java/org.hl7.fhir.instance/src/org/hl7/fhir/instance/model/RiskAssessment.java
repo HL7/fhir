@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -109,14 +109,14 @@ public class RiskAssessment extends Resource {
         /**
          * @return {@link #relativeRisk} (Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).). This is the underlying object with id, value and extensions. The accessor "getRelativeRisk" gives direct access to the value
          */
-        public DecimalType getRelativeRiskObject() { 
+        public DecimalType getRelativeRiskElement() { 
           return this.relativeRisk;
         }
 
         /**
          * @param value {@link #relativeRisk} (Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).). This is the underlying object with id, value and extensions. The accessor "getRelativeRisk" gives direct access to the value
          */
-        public RiskAssessmentPredictionComponent setRelativeRiskObject(DecimalType value) { 
+        public RiskAssessmentPredictionComponent setRelativeRiskElement(DecimalType value) { 
           this.relativeRisk = value;
           return this;
         }
@@ -160,14 +160,14 @@ public class RiskAssessment extends Resource {
         /**
          * @return {@link #rationale} (Additional information explaining the basis for the prediction.). This is the underlying object with id, value and extensions. The accessor "getRationale" gives direct access to the value
          */
-        public StringType getRationaleObject() { 
+        public StringType getRationaleElement() { 
           return this.rationale;
         }
 
         /**
          * @param value {@link #rationale} (Additional information explaining the basis for the prediction.). This is the underlying object with id, value and extensions. The accessor "getRationale" gives direct access to the value
          */
-        public RiskAssessmentPredictionComponent setRationaleObject(StringType value) { 
+        public RiskAssessmentPredictionComponent setRationaleElement(StringType value) { 
           this.rationale = value;
           return this;
         }
@@ -318,14 +318,14 @@ public class RiskAssessment extends Resource {
     /**
      * @return {@link #date} (The date (and possibly time) the risk assessment was performed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date (and possibly time) the risk assessment was performed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public RiskAssessment setDateObject(DateTimeType value) { 
+    public RiskAssessment setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -485,14 +485,14 @@ public class RiskAssessment extends Resource {
     /**
      * @return {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).). This is the underlying object with id, value and extensions. The accessor "getMitigation" gives direct access to the value
      */
-    public StringType getMitigationObject() { 
+    public StringType getMitigationElement() { 
       return this.mitigation;
     }
 
     /**
      * @param value {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).). This is the underlying object with id, value and extensions. The accessor "getMitigation" gives direct access to the value
      */
-    public RiskAssessment setMitigationObject(StringType value) { 
+    public RiskAssessment setMitigationElement(StringType value) { 
       this.mitigation = value;
       return this;
     }

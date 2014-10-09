@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -435,14 +435,14 @@ public class Medication extends Resource {
     /**
      * @return {@link #name} (The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameObject() { 
+    public StringType getNameElement() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Medication setNameObject(StringType value) { 
+    public Medication setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -486,14 +486,14 @@ public class Medication extends Resource {
     /**
      * @return {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).). This is the underlying object with id, value and extensions. The accessor "getIsBrand" gives direct access to the value
      */
-    public BooleanType getIsBrandObject() { 
+    public BooleanType getIsBrandElement() { 
       return this.isBrand;
     }
 
     /**
      * @param value {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).). This is the underlying object with id, value and extensions. The accessor "getIsBrand" gives direct access to the value
      */
-    public Medication setIsBrandObject(BooleanType value) { 
+    public Medication setIsBrandElement(BooleanType value) { 
       this.isBrand = value;
       return this;
     }
@@ -552,14 +552,14 @@ public class Medication extends Resource {
     /**
      * @return {@link #kind} (Medications are either a single administrable product or a package that contains one or more products.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Enumeration<MedicationKind> getKindObject() { 
+    public Enumeration<MedicationKind> getKindElement() { 
       return this.kind;
     }
 
     /**
      * @param value {@link #kind} (Medications are either a single administrable product or a package that contains one or more products.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Medication setKindObject(Enumeration<MedicationKind> value) { 
+    public Medication setKindElement(Enumeration<MedicationKind> value) { 
       this.kind = value;
       return this;
     }

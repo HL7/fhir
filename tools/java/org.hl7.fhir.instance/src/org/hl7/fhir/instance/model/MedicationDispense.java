@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -194,14 +194,14 @@ public class MedicationDispense extends Resource {
         /**
          * @return {@link #status} (A code specifying the state of the dispense event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<MedicationDispenseStatus> getStatusObject() { 
+        public Enumeration<MedicationDispenseStatus> getStatusElement() { 
           return this.status;
         }
 
         /**
          * @param value {@link #status} (A code specifying the state of the dispense event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public MedicationDispenseDispenseComponent setStatusObject(Enumeration<MedicationDispenseStatus> value) { 
+        public MedicationDispenseDispenseComponent setStatusElement(Enumeration<MedicationDispenseStatus> value) { 
           this.status = value;
           return this;
         }
@@ -290,14 +290,14 @@ public class MedicationDispense extends Resource {
         /**
          * @return {@link #whenPrepared} (The time when the dispensed product was packaged and reviewed.). This is the underlying object with id, value and extensions. The accessor "getWhenPrepared" gives direct access to the value
          */
-        public DateTimeType getWhenPreparedObject() { 
+        public DateTimeType getWhenPreparedElement() { 
           return this.whenPrepared;
         }
 
         /**
          * @param value {@link #whenPrepared} (The time when the dispensed product was packaged and reviewed.). This is the underlying object with id, value and extensions. The accessor "getWhenPrepared" gives direct access to the value
          */
-        public MedicationDispenseDispenseComponent setWhenPreparedObject(DateTimeType value) { 
+        public MedicationDispenseDispenseComponent setWhenPreparedElement(DateTimeType value) { 
           this.whenPrepared = value;
           return this;
         }
@@ -326,14 +326,14 @@ public class MedicationDispense extends Resource {
         /**
          * @return {@link #whenHandedOver} (The time the dispensed product was provided to the patient or their representative.). This is the underlying object with id, value and extensions. The accessor "getWhenHandedOver" gives direct access to the value
          */
-        public DateTimeType getWhenHandedOverObject() { 
+        public DateTimeType getWhenHandedOverElement() { 
           return this.whenHandedOver;
         }
 
         /**
          * @param value {@link #whenHandedOver} (The time the dispensed product was provided to the patient or their representative.). This is the underlying object with id, value and extensions. The accessor "getWhenHandedOver" gives direct access to the value
          */
-        public MedicationDispenseDispenseComponent setWhenHandedOverObject(DateTimeType value) { 
+        public MedicationDispenseDispenseComponent setWhenHandedOverElement(DateTimeType value) { 
           this.whenHandedOver = value;
           return this;
         }
@@ -880,14 +880,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #status} (A code specifying the state of the set of dispense events.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<MedicationDispenseStatus> getStatusObject() { 
+    public Enumeration<MedicationDispenseStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (A code specifying the state of the set of dispense events.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public MedicationDispense setStatusObject(Enumeration<MedicationDispenseStatus> value) { 
+    public MedicationDispense setStatusElement(Enumeration<MedicationDispenseStatus> value) { 
       this.status = value;
       return this;
     }

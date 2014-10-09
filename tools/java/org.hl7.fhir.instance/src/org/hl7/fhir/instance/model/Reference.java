@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -57,14 +57,14 @@ public class Reference extends Type {
     /**
      * @return {@link #reference} (A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public StringType getReferenceObject() { 
+    public StringType getReferenceElement() { 
       return this.reference;
     }
 
     /**
      * @param value {@link #reference} (A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public Reference setReferenceObject(StringType value) { 
+    public Reference setReferenceElement(StringType value) { 
       this.reference = value;
       return this;
     }
@@ -93,14 +93,14 @@ public class Reference extends Type {
     /**
      * @return {@link #display} (Plain text narrative that identifies the resource in addition to the resource reference.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public StringType getDisplayObject() { 
+    public StringType getDisplayElement() { 
       return this.display;
     }
 
     /**
      * @param value {@link #display} (Plain text narrative that identifies the resource in addition to the resource reference.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public Reference setDisplayObject(StringType value) { 
+    public Reference setDisplayElement(StringType value) { 
       this.display = value;
       return this;
     }

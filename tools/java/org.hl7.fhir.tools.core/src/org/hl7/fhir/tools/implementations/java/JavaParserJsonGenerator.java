@@ -167,9 +167,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("  protected void parseResourceProperties(JsonObject json, Resource res) throws Exception {\r\n");
     write("    parseBackboneProperties(json, res); \r\n");
     write("    if (json.has(\"language\"))\r\n");
-    write("      res.setLanguageObject(parseCode(json.get(\"language\").getAsString()));\r\n");
+    write("      res.setLanguageElement(parseCode(json.get(\"language\").getAsString()));\r\n");
     write("    if (json.has(\"_language\"))\r\n");
-    write("      parseElementProperties(json.getAsJsonObject(\"_language\"), res.getLanguageObject());\r\n");
+    write("      parseElementProperties(json.getAsJsonObject(\"_language\"), res.getLanguageElement());\r\n");
     write("    if (json.has(\"text\"))\r\n");
     write("      res.setText(parseNarrative(json.getAsJsonObject(\"text\")));\r\n");
     write("    if (json.has(\"contained\")) {\r\n");
@@ -423,9 +423,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
         } else {
           write("    if (json.has(\""+name+"\"))\r\n");
           if (isPrimitive(e)) {
-            write("      res.set"+upFirst(getElementName(name, false))+"Object("+prsr+");\r\n");
+            write("      res.set"+upFirst(getElementName(name, false))+"Element("+prsr+");\r\n");
             write("    if (json.has(\"_"+name+"\"))\r\n");
-            write("      parseElementProperties(json.getAsJsonObject(\"_"+name+"\"), res.get"+upFirst(getElementName(name, false))+"Object());\r\n");
+            write("      parseElementProperties(json.getAsJsonObject(\"_"+name+"\"), res.get"+upFirst(getElementName(name, false))+"Element());\r\n");
           } else
             write("      res.set"+upFirst(getElementName(name, false))+"("+prsr+");\r\n");
         }

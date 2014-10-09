@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -371,14 +371,14 @@ public class Observation extends Resource {
         /**
          * @return {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextObject() { 
+        public StringType getTextElement() { 
           return this.text;
         }
 
         /**
          * @param value {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public ObservationReferenceRangeComponent setTextObject(StringType value) { 
+        public ObservationReferenceRangeComponent setTextElement(StringType value) { 
           this.text = value;
           return this;
         }
@@ -455,14 +455,14 @@ public class Observation extends Resource {
         /**
          * @return {@link #type} (A code specifying the kind of relationship that exists with the target observation.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ObservationRelationshiptypes> getTypeObject() { 
+        public Enumeration<ObservationRelationshiptypes> getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (A code specifying the kind of relationship that exists with the target observation.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ObservationRelatedComponent setTypeObject(Enumeration<ObservationRelationshiptypes> value) { 
+        public ObservationRelatedComponent setTypeElement(Enumeration<ObservationRelationshiptypes> value) { 
           this.type = value;
           return this;
         }
@@ -699,14 +699,14 @@ public class Observation extends Resource {
     /**
      * @return {@link #comments} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
      */
-    public StringType getCommentsObject() { 
+    public StringType getCommentsElement() { 
       return this.comments;
     }
 
     /**
      * @param value {@link #comments} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
      */
-    public Observation setCommentsObject(StringType value) { 
+    public Observation setCommentsElement(StringType value) { 
       this.comments = value;
       return this;
     }
@@ -750,14 +750,14 @@ public class Observation extends Resource {
     /**
      * @return {@link #issued} (Date/Time this was made available.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public InstantType getIssuedObject() { 
+    public InstantType getIssuedElement() { 
       return this.issued;
     }
 
     /**
      * @param value {@link #issued} (Date/Time this was made available.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public Observation setIssuedObject(InstantType value) { 
+    public Observation setIssuedElement(InstantType value) { 
       this.issued = value;
       return this;
     }
@@ -786,14 +786,14 @@ public class Observation extends Resource {
     /**
      * @return {@link #status} (The status of the result value.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ObservationStatus> getStatusObject() { 
+    public Enumeration<ObservationStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The status of the result value.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Observation setStatusObject(Enumeration<ObservationStatus> value) { 
+    public Observation setStatusElement(Enumeration<ObservationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -818,14 +818,14 @@ public class Observation extends Resource {
     /**
      * @return {@link #reliability} (An estimate of the degree to which quality issues have impacted on the value reported.). This is the underlying object with id, value and extensions. The accessor "getReliability" gives direct access to the value
      */
-    public Enumeration<ObservationReliability> getReliabilityObject() { 
+    public Enumeration<ObservationReliability> getReliabilityElement() { 
       return this.reliability;
     }
 
     /**
      * @param value {@link #reliability} (An estimate of the degree to which quality issues have impacted on the value reported.). This is the underlying object with id, value and extensions. The accessor "getReliability" gives direct access to the value
      */
-    public Observation setReliabilityObject(Enumeration<ObservationReliability> value) { 
+    public Observation setReliabilityElement(Enumeration<ObservationReliability> value) { 
       this.reliability = value;
       return this;
     }

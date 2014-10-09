@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -198,14 +198,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #type} (Todo.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<SubscriptionChannelType> getTypeObject() { 
+        public Enumeration<SubscriptionChannelType> getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (Todo.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public SubscriptionChannelComponent setTypeObject(Enumeration<SubscriptionChannelType> value) { 
+        public SubscriptionChannelComponent setTypeElement(Enumeration<SubscriptionChannelType> value) { 
           this.type = value;
           return this;
         }
@@ -230,14 +230,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #url} (Todo.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlObject() { 
+        public UriType getUrlElement() { 
           return this.url;
         }
 
         /**
          * @param value {@link #url} (Todo.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public SubscriptionChannelComponent setUrlObject(UriType value) { 
+        public SubscriptionChannelComponent setUrlElement(UriType value) { 
           this.url = value;
           return this;
         }
@@ -266,14 +266,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #payload} (ToDo.). This is the underlying object with id, value and extensions. The accessor "getPayload" gives direct access to the value
          */
-        public StringType getPayloadObject() { 
+        public StringType getPayloadElement() { 
           return this.payload;
         }
 
         /**
          * @param value {@link #payload} (ToDo.). This is the underlying object with id, value and extensions. The accessor "getPayload" gives direct access to the value
          */
-        public SubscriptionChannelComponent setPayloadObject(StringType value) { 
+        public SubscriptionChannelComponent setPayloadElement(StringType value) { 
           this.payload = value;
           return this;
         }
@@ -298,14 +298,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #header} (Usage depends on the channel type.). This is the underlying object with id, value and extensions. The accessor "getHeader" gives direct access to the value
          */
-        public StringType getHeaderObject() { 
+        public StringType getHeaderElement() { 
           return this.header;
         }
 
         /**
          * @param value {@link #header} (Usage depends on the channel type.). This is the underlying object with id, value and extensions. The accessor "getHeader" gives direct access to the value
          */
-        public SubscriptionChannelComponent setHeaderObject(StringType value) { 
+        public SubscriptionChannelComponent setHeaderElement(StringType value) { 
           this.header = value;
           return this;
         }
@@ -381,14 +381,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #term} (Todo.). This is the underlying object with id, value and extensions. The accessor "getTerm" gives direct access to the value
          */
-        public UriType getTermObject() { 
+        public UriType getTermElement() { 
           return this.term;
         }
 
         /**
          * @param value {@link #term} (Todo.). This is the underlying object with id, value and extensions. The accessor "getTerm" gives direct access to the value
          */
-        public SubscriptionTagComponent setTermObject(UriType value) { 
+        public SubscriptionTagComponent setTermElement(UriType value) { 
           this.term = value;
           return this;
         }
@@ -413,14 +413,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #scheme} (Todo.). This is the underlying object with id, value and extensions. The accessor "getScheme" gives direct access to the value
          */
-        public UriType getSchemeObject() { 
+        public UriType getSchemeElement() { 
           return this.scheme;
         }
 
         /**
          * @param value {@link #scheme} (Todo.). This is the underlying object with id, value and extensions. The accessor "getScheme" gives direct access to the value
          */
-        public SubscriptionTagComponent setSchemeObject(UriType value) { 
+        public SubscriptionTagComponent setSchemeElement(UriType value) { 
           this.scheme = value;
           return this;
         }
@@ -445,14 +445,14 @@ public class Subscription extends Resource {
         /**
          * @return {@link #description} (Todo.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Todo.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SubscriptionTagComponent setDescriptionObject(StringType value) { 
+        public SubscriptionTagComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -552,14 +552,14 @@ public class Subscription extends Resource {
     /**
      * @return {@link #criteria} (Todo.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
      */
-    public StringType getCriteriaObject() { 
+    public StringType getCriteriaElement() { 
       return this.criteria;
     }
 
     /**
      * @param value {@link #criteria} (Todo.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
      */
-    public Subscription setCriteriaObject(StringType value) { 
+    public Subscription setCriteriaElement(StringType value) { 
       this.criteria = value;
       return this;
     }
@@ -601,14 +601,14 @@ public class Subscription extends Resource {
     /**
      * @return {@link #reason} (Todo.). This is the underlying object with id, value and extensions. The accessor "getReason" gives direct access to the value
      */
-    public StringType getReasonObject() { 
+    public StringType getReasonElement() { 
       return this.reason;
     }
 
     /**
      * @param value {@link #reason} (Todo.). This is the underlying object with id, value and extensions. The accessor "getReason" gives direct access to the value
      */
-    public Subscription setReasonObject(StringType value) { 
+    public Subscription setReasonElement(StringType value) { 
       this.reason = value;
       return this;
     }
@@ -633,14 +633,14 @@ public class Subscription extends Resource {
     /**
      * @return {@link #status} (Todo.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<SubscriptionStatus> getStatusObject() { 
+    public Enumeration<SubscriptionStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (Todo.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Subscription setStatusObject(Enumeration<SubscriptionStatus> value) { 
+    public Subscription setStatusElement(Enumeration<SubscriptionStatus> value) { 
       this.status = value;
       return this;
     }
@@ -665,14 +665,14 @@ public class Subscription extends Resource {
     /**
      * @return {@link #error} (Todo.). This is the underlying object with id, value and extensions. The accessor "getError" gives direct access to the value
      */
-    public StringType getErrorObject() { 
+    public StringType getErrorElement() { 
       return this.error;
     }
 
     /**
      * @param value {@link #error} (Todo.). This is the underlying object with id, value and extensions. The accessor "getError" gives direct access to the value
      */
-    public Subscription setErrorObject(StringType value) { 
+    public Subscription setErrorElement(StringType value) { 
       this.error = value;
       return this;
     }
@@ -716,14 +716,14 @@ public class Subscription extends Resource {
     /**
      * @return {@link #end} (Todo.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public InstantType getEndObject() { 
+    public InstantType getEndElement() { 
       return this.end;
     }
 
     /**
      * @param value {@link #end} (Todo.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public Subscription setEndObject(InstantType value) { 
+    public Subscription setEndElement(InstantType value) { 
       this.end = value;
       return this;
     }

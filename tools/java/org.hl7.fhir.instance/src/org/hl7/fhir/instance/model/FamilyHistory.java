@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -88,14 +88,14 @@ public class FamilyHistory extends Resource {
         /**
          * @return {@link #name} (This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameObject() { 
+        public StringType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public FamilyHistoryRelationComponent setNameObject(StringType value) { 
+        public FamilyHistoryRelationComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -184,14 +184,14 @@ public class FamilyHistory extends Resource {
         /**
          * @return {@link #note} (This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
          */
-        public StringType getNoteObject() { 
+        public StringType getNoteElement() { 
           return this.note;
         }
 
         /**
          * @param value {@link #note} (This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
          */
-        public FamilyHistoryRelationComponent setNoteObject(StringType value) { 
+        public FamilyHistoryRelationComponent setNoteElement(StringType value) { 
           this.note = value;
           return this;
         }
@@ -341,14 +341,14 @@ public class FamilyHistory extends Resource {
         /**
          * @return {@link #note} (An area where general notes can be placed about this specific condition.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
          */
-        public StringType getNoteObject() { 
+        public StringType getNoteElement() { 
           return this.note;
         }
 
         /**
          * @param value {@link #note} (An area where general notes can be placed about this specific condition.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
          */
-        public FamilyHistoryRelationConditionComponent setNoteObject(StringType value) { 
+        public FamilyHistoryRelationConditionComponent setNoteElement(StringType value) { 
           this.note = value;
           return this;
         }
@@ -484,14 +484,14 @@ public class FamilyHistory extends Resource {
     /**
      * @return {@link #date} (The date (and possibly time) when the family history was taken.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date (and possibly time) when the family history was taken.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public FamilyHistory setDateObject(DateTimeType value) { 
+    public FamilyHistory setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -520,14 +520,14 @@ public class FamilyHistory extends Resource {
     /**
      * @return {@link #note} (Conveys information about family history not specific to individual relations.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public StringType getNoteObject() { 
+    public StringType getNoteElement() { 
       return this.note;
     }
 
     /**
      * @param value {@link #note} (Conveys information about family history not specific to individual relations.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public FamilyHistory setNoteObject(StringType value) { 
+    public FamilyHistory setNoteElement(StringType value) { 
       this.note = value;
       return this;
     }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -87,14 +87,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #contentType} (Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
-    public CodeType getContentTypeObject() { 
+    public CodeType getContentTypeElement() { 
       return this.contentType;
     }
 
     /**
      * @param value {@link #contentType} (Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
-    public Attachment setContentTypeObject(CodeType value) { 
+    public Attachment setContentTypeElement(CodeType value) { 
       this.contentType = value;
       return this;
     }
@@ -119,14 +119,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #language} (The human language of the content. The value can be any valid value according to BCP 47.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
      */
-    public CodeType getLanguageObject() { 
+    public CodeType getLanguageElement() { 
       return this.language;
     }
 
     /**
      * @param value {@link #language} (The human language of the content. The value can be any valid value according to BCP 47.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
      */
-    public Attachment setLanguageObject(CodeType value) { 
+    public Attachment setLanguageElement(CodeType value) { 
       this.language = value;
       return this;
     }
@@ -155,14 +155,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #data} (The actual data of the attachment - a sequence of bytes. In XML, represented using base64.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public Base64BinaryType getDataObject() { 
+    public Base64BinaryType getDataElement() { 
       return this.data;
     }
 
     /**
      * @param value {@link #data} (The actual data of the attachment - a sequence of bytes. In XML, represented using base64.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public Attachment setDataObject(Base64BinaryType value) { 
+    public Attachment setDataElement(Base64BinaryType value) { 
       this.data = value;
       return this;
     }
@@ -191,14 +191,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #url} (An alternative location where the data can be accessed.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlObject() { 
+    public UriType getUrlElement() { 
       return this.url;
     }
 
     /**
      * @param value {@link #url} (An alternative location where the data can be accessed.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public Attachment setUrlObject(UriType value) { 
+    public Attachment setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -227,14 +227,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #size} (The number of bytes of data that make up this attachment.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
      */
-    public IntegerType getSizeObject() { 
+    public IntegerType getSizeElement() { 
       return this.size;
     }
 
     /**
      * @param value {@link #size} (The number of bytes of data that make up this attachment.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
      */
-    public Attachment setSizeObject(IntegerType value) { 
+    public Attachment setSizeElement(IntegerType value) { 
       this.size = value;
       return this;
     }
@@ -263,14 +263,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #hash} (The calculated hash of the data using SHA-1. Represented using base64.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
      */
-    public Base64BinaryType getHashObject() { 
+    public Base64BinaryType getHashElement() { 
       return this.hash;
     }
 
     /**
      * @param value {@link #hash} (The calculated hash of the data using SHA-1. Represented using base64.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
      */
-    public Attachment setHashObject(Base64BinaryType value) { 
+    public Attachment setHashElement(Base64BinaryType value) { 
       this.hash = value;
       return this;
     }
@@ -299,14 +299,14 @@ public class Attachment extends Type {
     /**
      * @return {@link #title} (A label or set of text to display in place of the data.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitleObject() { 
+    public StringType getTitleElement() { 
       return this.title;
     }
 
     /**
      * @param value {@link #title} (A label or set of text to display in place of the data.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public Attachment setTitleObject(StringType value) { 
+    public Attachment setTitleElement(StringType value) { 
       this.title = value;
       return this;
     }

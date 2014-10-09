@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -174,14 +174,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         /**
          * @return {@link #text} (Free text dosage instructions for cases where the instructions are too complex to code.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextObject() { 
+        public StringType getTextElement() { 
           return this.text;
         }
 
         /**
          * @param value {@link #text} (Free text dosage instructions for cases where the instructions are too complex to code.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public MedicationPrescriptionDosageInstructionComponent setTextObject(StringType value) { 
+        public MedicationPrescriptionDosageInstructionComponent setTextElement(StringType value) { 
           this.text = value;
           return this;
         }
@@ -471,7 +471,7 @@ Rationale: Indicates when the Prescription becomes valid, and when it ceases to 
          * @return {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense. 
 UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
          */
-        public IntegerType getNumberOfRepeatsAllowedObject() { 
+        public IntegerType getNumberOfRepeatsAllowedElement() { 
           return this.numberOfRepeatsAllowed;
         }
 
@@ -479,7 +479,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
          * @param value {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense. 
 UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
          */
-        public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowedObject(IntegerType value) { 
+        public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowedElement(IntegerType value) { 
           this.numberOfRepeatsAllowed = value;
           return this;
         }
@@ -728,14 +728,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return {@link #dateWritten} (The date (and perhaps time) when the prescription was written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
      */
-    public DateTimeType getDateWrittenObject() { 
+    public DateTimeType getDateWrittenElement() { 
       return this.dateWritten;
     }
 
     /**
      * @param value {@link #dateWritten} (The date (and perhaps time) when the prescription was written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
      */
-    public MedicationPrescription setDateWrittenObject(DateTimeType value) { 
+    public MedicationPrescription setDateWrittenElement(DateTimeType value) { 
       this.dateWritten = value;
       return this;
     }
@@ -764,14 +764,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return {@link #status} (A code specifying the state of the order.  Generally this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<MedicationPrescriptionStatus> getStatusObject() { 
+    public Enumeration<MedicationPrescriptionStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (A code specifying the state of the order.  Generally this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public MedicationPrescription setStatusObject(Enumeration<MedicationPrescriptionStatus> value) { 
+    public MedicationPrescription setStatusElement(Enumeration<MedicationPrescriptionStatus> value) { 
       this.status = value;
       return this;
     }

@@ -4173,7 +4173,7 @@ public class Publisher implements URIResolver {
 
     vs.setStatus(ValuesetStatus.DRAFT); // until we publish DSTU, then
                                               // .review
-    vs.setDateObject(Factory.nowDateTime());
+    vs.setDateElement(Factory.nowDateTime());
 
     for (String n : cd.getVSSources()) {
       if (Utilities.noString(n)) {
@@ -4195,7 +4195,7 @@ public class Publisher implements URIResolver {
         for (DefinedCode c : cd.getCodes()) {
           if (n.equals(c.getSystem())) {
             CodeType nc = org.hl7.fhir.instance.model.Factory.newCode(c.getCode());
-            cc.addConcept().setCodeObject(nc);
+            cc.addConcept().setCodeElement(nc);
             if (!Utilities.noString(c.getComment()))
               ToolingExtensions.addComment(nc, c.getComment());
             if (!Utilities.noString(c.getDefinition()))
@@ -4236,7 +4236,7 @@ public class Publisher implements URIResolver {
     Set<String> tbls = new HashSet<String>();
     cm.setStatus(ConceptMap.ValuesetStatus.DRAFT); // until we publish
                                                          // DSTU, then .review
-    cm.setDateObject(Factory.nowDateTime());
+    cm.setDateElement(Factory.nowDateTime());
     cm.setSource(Factory.makeReference(src));
     cm.setTarget(Factory.makeReference(cd.getV2Map()));
     for (DefinedCode c : cd.getCodes()) {
@@ -4320,7 +4320,7 @@ public class Publisher implements URIResolver {
     Set<String> tbls = new HashSet<String>();
     cm.setStatus(ConceptMap.ValuesetStatus.DRAFT); // until we publish
                                                          // DSTU, then .review
-    cm.setDateObject(Factory.nowDateTime());
+    cm.setDateElement(Factory.nowDateTime());
     cm.setSource(Factory.makeReference(src));
     cm.setTarget(Factory.makeReference(cd.getV3Map()));
     for (DefinedCode c : cd.getCodes()) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -106,14 +106,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #period} (The length of time between sampling times, measured in milliseconds.). This is the underlying object with id, value and extensions. The accessor "getPeriod" gives direct access to the value
      */
-    public DecimalType getPeriodObject() { 
+    public DecimalType getPeriodElement() { 
       return this.period;
     }
 
     /**
      * @param value {@link #period} (The length of time between sampling times, measured in milliseconds.). This is the underlying object with id, value and extensions. The accessor "getPeriod" gives direct access to the value
      */
-    public SampledData setPeriodObject(DecimalType value) { 
+    public SampledData setPeriodElement(DecimalType value) { 
       this.period = value;
       return this;
     }
@@ -138,14 +138,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #factor} (A correction factor that is applied to the sampled data points before they are added to the origin.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
      */
-    public DecimalType getFactorObject() { 
+    public DecimalType getFactorElement() { 
       return this.factor;
     }
 
     /**
      * @param value {@link #factor} (A correction factor that is applied to the sampled data points before they are added to the origin.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
      */
-    public SampledData setFactorObject(DecimalType value) { 
+    public SampledData setFactorElement(DecimalType value) { 
       this.factor = value;
       return this;
     }
@@ -174,14 +174,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #lowerLimit} (The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).). This is the underlying object with id, value and extensions. The accessor "getLowerLimit" gives direct access to the value
      */
-    public DecimalType getLowerLimitObject() { 
+    public DecimalType getLowerLimitElement() { 
       return this.lowerLimit;
     }
 
     /**
      * @param value {@link #lowerLimit} (The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).). This is the underlying object with id, value and extensions. The accessor "getLowerLimit" gives direct access to the value
      */
-    public SampledData setLowerLimitObject(DecimalType value) { 
+    public SampledData setLowerLimitElement(DecimalType value) { 
       this.lowerLimit = value;
       return this;
     }
@@ -210,14 +210,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #upperLimit} (The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).). This is the underlying object with id, value and extensions. The accessor "getUpperLimit" gives direct access to the value
      */
-    public DecimalType getUpperLimitObject() { 
+    public DecimalType getUpperLimitElement() { 
       return this.upperLimit;
     }
 
     /**
      * @param value {@link #upperLimit} (The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).). This is the underlying object with id, value and extensions. The accessor "getUpperLimit" gives direct access to the value
      */
-    public SampledData setUpperLimitObject(DecimalType value) { 
+    public SampledData setUpperLimitElement(DecimalType value) { 
       this.upperLimit = value;
       return this;
     }
@@ -246,14 +246,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #dimensions} (The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.). This is the underlying object with id, value and extensions. The accessor "getDimensions" gives direct access to the value
      */
-    public IntegerType getDimensionsObject() { 
+    public IntegerType getDimensionsElement() { 
       return this.dimensions;
     }
 
     /**
      * @param value {@link #dimensions} (The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.). This is the underlying object with id, value and extensions. The accessor "getDimensions" gives direct access to the value
      */
-    public SampledData setDimensionsObject(IntegerType value) { 
+    public SampledData setDimensionsElement(IntegerType value) { 
       this.dimensions = value;
       return this;
     }
@@ -278,14 +278,14 @@ public class SampledData extends Type {
     /**
      * @return {@link #data} (A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public StringType getDataObject() { 
+    public StringType getDataElement() { 
       return this.data;
     }
 
     /**
      * @param value {@link #data} (A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public SampledData setDataObject(StringType value) { 
+    public SampledData setDataElement(StringType value) { 
       this.data = value;
       return this;
     }

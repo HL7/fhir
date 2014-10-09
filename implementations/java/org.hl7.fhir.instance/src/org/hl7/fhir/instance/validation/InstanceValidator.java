@@ -1184,7 +1184,7 @@ public class InstanceValidator extends BaseValidator {
 	private void checkPrimitiveByProfile(List<ValidationMessage> errors, String path, WrapperElement focus, ElementComponent elementDefn) {
 		// two things to check - length, and fixed value
 		String value = focus.getAttribute("value");
-		if (elementDefn.getDefinition().getMaxLengthObject() != null) {
+		if (elementDefn.getDefinition().getMaxLengthElement() != null) {
 			rule(errors, "too long", path, value.length() <= elementDefn.getDefinition().getMaxLength(), "The value '"+value+"' exceeds the allow length limit of "+Integer.toString(elementDefn.getDefinition().getMaxLength()));
 		}
 		if (elementDefn.getDefinition().getValue() != null) {
@@ -1272,12 +1272,12 @@ public class InstanceValidator extends BaseValidator {
   }
 
 	private void checkAddress(List<ValidationMessage> errors, String path, WrapperElement focus, Address fixed) {
-	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUseObject(), "use");
-	  checkFixedValue(errors, path+".text", focus.getNamedChild("text"), fixed.getTextObject(), "text");
-	  checkFixedValue(errors, path+".city", focus.getNamedChild("city"), fixed.getCityObject(), "city");
-	  checkFixedValue(errors, path+".state", focus.getNamedChild("state"), fixed.getStateObject(), "state");
-	  checkFixedValue(errors, path+".country", focus.getNamedChild("country"), fixed.getCountryObject(), "country");
-	  checkFixedValue(errors, path+".zip", focus.getNamedChild("zip"), fixed.getZipObject(), "zip");
+	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUseElement(), "use");
+	  checkFixedValue(errors, path+".text", focus.getNamedChild("text"), fixed.getTextElement(), "text");
+	  checkFixedValue(errors, path+".city", focus.getNamedChild("city"), fixed.getCityElement(), "city");
+	  checkFixedValue(errors, path+".state", focus.getNamedChild("state"), fixed.getStateElement(), "state");
+	  checkFixedValue(errors, path+".country", focus.getNamedChild("country"), fixed.getCountryElement(), "country");
+	  checkFixedValue(errors, path+".zip", focus.getNamedChild("zip"), fixed.getZipElement(), "zip");
 	  
 		List<WrapperElement> lines = new ArrayList<WrapperElement>();
 		focus.getNamedChildren( "line", lines);
@@ -1288,42 +1288,42 @@ public class InstanceValidator extends BaseValidator {
   }
 
 	private void checkContactPoint(List<ValidationMessage> errors, String path, WrapperElement focus, ContactPoint fixed) {
-	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystemObject(), "system");
-	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValueObject(), "value");
-	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUseObject(), "use");
+	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystemElement(), "system");
+	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValueElement(), "value");
+	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUseElement(), "use");
 	  checkFixedValue(errors, path+".period", focus.getNamedChild("period"), fixed.getPeriod(), "period");
 	  
   }
 
 	private void checkAttachment(List<ValidationMessage> errors, String path, WrapperElement focus, Attachment fixed) {
-	  checkFixedValue(errors, path+".contentType", focus.getNamedChild("contentType"), fixed.getContentTypeObject(), "contentType");
-	  checkFixedValue(errors, path+".language", focus.getNamedChild("language"), fixed.getLanguageObject(), "language");
-	  checkFixedValue(errors, path+".data", focus.getNamedChild("data"), fixed.getDataObject(), "data");
-	  checkFixedValue(errors, path+".url", focus.getNamedChild("url"), fixed.getUrlObject(), "url");
-	  checkFixedValue(errors, path+".size", focus.getNamedChild("size"), fixed.getSizeObject(), "size");
-	  checkFixedValue(errors, path+".hash", focus.getNamedChild("hash"), fixed.getHashObject(), "hash");
-	  checkFixedValue(errors, path+".title", focus.getNamedChild("title"), fixed.getTitleObject(), "title");	  
+	  checkFixedValue(errors, path+".contentType", focus.getNamedChild("contentType"), fixed.getContentTypeElement(), "contentType");
+	  checkFixedValue(errors, path+".language", focus.getNamedChild("language"), fixed.getLanguageElement(), "language");
+	  checkFixedValue(errors, path+".data", focus.getNamedChild("data"), fixed.getDataElement(), "data");
+	  checkFixedValue(errors, path+".url", focus.getNamedChild("url"), fixed.getUrlElement(), "url");
+	  checkFixedValue(errors, path+".size", focus.getNamedChild("size"), fixed.getSizeElement(), "size");
+	  checkFixedValue(errors, path+".hash", focus.getNamedChild("hash"), fixed.getHashElement(), "hash");
+	  checkFixedValue(errors, path+".title", focus.getNamedChild("title"), fixed.getTitleElement(), "title");	  
   }
 
 	private void checkIdentifier(List<ValidationMessage> errors, String path, WrapperElement focus, Identifier fixed) {
-	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUseObject(), "use");
-	  checkFixedValue(errors, path+".label", focus.getNamedChild("label"), fixed.getLabelObject(), "label");
-	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystemObject(), "system");
-	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValueObject(), "value");
+	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUseElement(), "use");
+	  checkFixedValue(errors, path+".label", focus.getNamedChild("label"), fixed.getLabelElement(), "label");
+	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystemElement(), "system");
+	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValueElement(), "value");
 	  checkFixedValue(errors, path+".period", focus.getNamedChild("period"), fixed.getPeriod(), "period");
 	  checkFixedValue(errors, path+".assigner", focus.getNamedChild("assigner"), fixed.getAssigner(), "assigner");
   }
 
 	private void checkCoding(List<ValidationMessage> errors, String path, WrapperElement focus, Coding fixed) {
-	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystemObject(), "system");
-	  checkFixedValue(errors, path+".code", focus.getNamedChild("code"), fixed.getCodeObject(), "code");
-	  checkFixedValue(errors, path+".display", focus.getNamedChild("display"), fixed.getDisplayObject(), "display");	  
-	  checkFixedValue(errors, path+".primary", focus.getNamedChild("primary"), fixed.getPrimaryObject(), "primary");	  
+	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystemElement(), "system");
+	  checkFixedValue(errors, path+".code", focus.getNamedChild("code"), fixed.getCodeElement(), "code");
+	  checkFixedValue(errors, path+".display", focus.getNamedChild("display"), fixed.getDisplayElement(), "display");	  
+	  checkFixedValue(errors, path+".primary", focus.getNamedChild("primary"), fixed.getPrimaryElement(), "primary");	  
   }
 
 	private void checkHumanName(List<ValidationMessage> errors, String path, WrapperElement focus, HumanName fixed) {
-	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUseObject(), "use");
-	  checkFixedValue(errors, path+".text", focus.getNamedChild("text"), fixed.getTextObject(), "text");
+	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUseElement(), "use");
+	  checkFixedValue(errors, path+".text", focus.getNamedChild("text"), fixed.getTextElement(), "text");
 	  checkFixedValue(errors, path+".period", focus.getNamedChild("period"), fixed.getPeriod(), "period");
 	  
 		List<WrapperElement> parts = new ArrayList<WrapperElement>();
@@ -1350,7 +1350,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
 	private void checkCodeableConcept(List<ValidationMessage> errors, String path, WrapperElement focus, CodeableConcept fixed) {
-		checkFixedValue(errors, path+".text", focus.getNamedChild("text"), fixed.getTextObject(), "text");
+		checkFixedValue(errors, path+".text", focus.getNamedChild("text"), fixed.getTextElement(), "text");
 		List<WrapperElement> codings = new ArrayList<WrapperElement>();
 		focus.getNamedChildren( "coding", codings);
 		if (rule(errors, "value", path, codings.size() == fixed.getCoding().size(), "Expected "+Integer.toString(fixed.getCoding().size())+" but found "+Integer.toString(codings.size())+" coding elements")) {
@@ -1371,8 +1371,8 @@ public class InstanceValidator extends BaseValidator {
   }
 
 	private void checkPeriod(List<ValidationMessage> errors, String path, WrapperElement focus, Period fixed) {
-	  checkFixedValue(errors, path+".start", focus.getNamedChild("start"), fixed.getStartObject(), "start");
-	  checkFixedValue(errors, path+".end", focus.getNamedChild("end"), fixed.getEndObject(), "end");	  
+	  checkFixedValue(errors, path+".start", focus.getNamedChild("start"), fixed.getStartElement(), "start");
+	  checkFixedValue(errors, path+".end", focus.getNamedChild("end"), fixed.getEndElement(), "end");	  
   }
 
 	private void checkRange(List<ValidationMessage> errors, String path, WrapperElement focus, Range fixed) {
@@ -1388,20 +1388,20 @@ public class InstanceValidator extends BaseValidator {
 
 	private void checkSampledData(List<ValidationMessage> errors, String path, WrapperElement focus, SampledData fixed) {
 	  checkFixedValue(errors, path+".origin", focus.getNamedChild("origin"), fixed.getOrigin(), "origin");
-	  checkFixedValue(errors, path+".period", focus.getNamedChild("period"), fixed.getPeriodObject(), "period");
-	  checkFixedValue(errors, path+".factor", focus.getNamedChild("factor"), fixed.getFactorObject(), "factor");
-	  checkFixedValue(errors, path+".lowerLimit", focus.getNamedChild("lowerLimit"), fixed.getLowerLimitObject(), "lowerLimit");
-	  checkFixedValue(errors, path+".upperLimit", focus.getNamedChild("upperLimit"), fixed.getUpperLimitObject(), "upperLimit");
-	  checkFixedValue(errors, path+".dimensions", focus.getNamedChild("dimensions"), fixed.getDimensionsObject(), "dimensions");
-	  checkFixedValue(errors, path+".data", focus.getNamedChild("data"), fixed.getDataObject(), "data");
+	  checkFixedValue(errors, path+".period", focus.getNamedChild("period"), fixed.getPeriodElement(), "period");
+	  checkFixedValue(errors, path+".factor", focus.getNamedChild("factor"), fixed.getFactorElement(), "factor");
+	  checkFixedValue(errors, path+".lowerLimit", focus.getNamedChild("lowerLimit"), fixed.getLowerLimitElement(), "lowerLimit");
+	  checkFixedValue(errors, path+".upperLimit", focus.getNamedChild("upperLimit"), fixed.getUpperLimitElement(), "upperLimit");
+	  checkFixedValue(errors, path+".dimensions", focus.getNamedChild("dimensions"), fixed.getDimensionsElement(), "dimensions");
+	  checkFixedValue(errors, path+".data", focus.getNamedChild("data"), fixed.getDataElement(), "data");
   }
 
 	private void checkQuantity(List<ValidationMessage> errors, String path, WrapperElement focus, Quantity fixed) {
-	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValueObject(), "value");
-	  checkFixedValue(errors, path+".comparator", focus.getNamedChild("comparator"), fixed.getComparatorObject(), "comparator");
-	  checkFixedValue(errors, path+".units", focus.getNamedChild("units"), fixed.getUnitsObject(), "units");
-	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystemObject(), "system");
-	  checkFixedValue(errors, path+".code", focus.getNamedChild("code"), fixed.getCodeObject(), "code");
+	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValueElement(), "value");
+	  checkFixedValue(errors, path+".comparator", focus.getNamedChild("comparator"), fixed.getComparatorElement(), "comparator");
+	  checkFixedValue(errors, path+".units", focus.getNamedChild("units"), fixed.getUnitsElement(), "units");
+	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystemElement(), "system");
+	  checkFixedValue(errors, path+".code", focus.getNamedChild("code"), fixed.getCodeElement(), "code");
   }
 
 	private boolean check(String v1, String v2) {

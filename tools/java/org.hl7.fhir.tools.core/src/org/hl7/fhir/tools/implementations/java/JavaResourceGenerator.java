@@ -652,7 +652,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       write("    // syntactic sugar\r\n");
       jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
       if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.getTypes().get(0).isIdRef() || e.typeCode().equals("xml:lang"))) {
-        write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"Object() { \r\n");
+        write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"Element() { \r\n");
         write(indent+"  "+tn+" t = new "+tn+"();\r\n");
         write(indent+"  this."+getElementName(e.getName(), true)+".add(t);\r\n");
         write(indent+"  return t;\r\n");
@@ -709,12 +709,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		} else {
       if (isJavaPrimitive(e)) {
 	      jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+"). This is the underlying object with id, value and extensions. The accessor \"get"+getTitle(getElementName(e.getName(), false))+"\" gives direct access to the value");
-	      write(indent+"public "+tn+" get"+getTitle(getElementName(e.getName(), false))+"Object() { \r\n");
+	      write(indent+"public "+tn+" get"+getTitle(getElementName(e.getName(), false))+"Element() { \r\n");
 	      write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
 	      write(indent+"}\r\n");
 	      write("\r\n");
 	      jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+"). This is the underlying object with id, value and extensions. The accessor \"get"+getTitle(getElementName(e.getName(), false))+"\" gives direct access to the value");
-	      write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"Object("+tn+" value) { \r\n");
+	      write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"Element("+tn+" value) { \r\n");
 	      write(indent+"  this."+getElementName(e.getName(), true)+" = value;\r\n");
 	      write(indent+"  return this;\r\n");
 	      write(indent+"}\r\n");

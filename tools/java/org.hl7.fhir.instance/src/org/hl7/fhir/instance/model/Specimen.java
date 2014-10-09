@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -110,14 +110,14 @@ public class Specimen extends Resource {
         /**
          * @return {@link #relationship} (Whether this relationship is to a parent or to a child.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
          */
-        public Enumeration<HierarchicalRelationshipType> getRelationshipObject() { 
+        public Enumeration<HierarchicalRelationshipType> getRelationshipElement() { 
           return this.relationship;
         }
 
         /**
          * @param value {@link #relationship} (Whether this relationship is to a parent or to a child.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
          */
-        public SpecimenSourceComponent setRelationshipObject(Enumeration<HierarchicalRelationshipType> value) { 
+        public SpecimenSourceComponent setRelationshipElement(Enumeration<HierarchicalRelationshipType> value) { 
           this.relationship = value;
           return this;
         }
@@ -278,7 +278,7 @@ public class Specimen extends Resource {
         /**
          * @return {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public StringType addCommentObject() { 
+        public StringType addCommentElement() { 
           StringType t = new StringType();
           this.comment.add(t);
           return t;
@@ -419,14 +419,14 @@ public class Specimen extends Resource {
         /**
          * @return {@link #description} (Textual description of procedure.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Textual description of procedure.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SpecimenTreatmentComponent setDescriptionObject(StringType value) { 
+        public SpecimenTreatmentComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -582,14 +582,14 @@ public class Specimen extends Resource {
         /**
          * @return {@link #description} (Textual description of the container.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Textual description of the container.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SpecimenContainerComponent setDescriptionObject(StringType value) { 
+        public SpecimenContainerComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -873,14 +873,14 @@ public class Specimen extends Resource {
     /**
      * @return {@link #receivedTime} (Time when specimen was received for processing or testing.). This is the underlying object with id, value and extensions. The accessor "getReceivedTime" gives direct access to the value
      */
-    public DateTimeType getReceivedTimeObject() { 
+    public DateTimeType getReceivedTimeElement() { 
       return this.receivedTime;
     }
 
     /**
      * @param value {@link #receivedTime} (Time when specimen was received for processing or testing.). This is the underlying object with id, value and extensions. The accessor "getReceivedTime" gives direct access to the value
      */
-    public Specimen setReceivedTimeObject(DateTimeType value) { 
+    public Specimen setReceivedTimeElement(DateTimeType value) { 
       this.receivedTime = value;
       return this;
     }

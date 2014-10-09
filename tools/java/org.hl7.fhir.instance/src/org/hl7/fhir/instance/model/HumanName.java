@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -164,14 +164,14 @@ public class HumanName extends Type {
     /**
      * @return {@link #use} (Identifies the purpose for this name.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<NameUse> getUseObject() { 
+    public Enumeration<NameUse> getUseElement() { 
       return this.use;
     }
 
     /**
      * @param value {@link #use} (Identifies the purpose for this name.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public HumanName setUseObject(Enumeration<NameUse> value) { 
+    public HumanName setUseElement(Enumeration<NameUse> value) { 
       this.use = value;
       return this;
     }
@@ -200,14 +200,14 @@ public class HumanName extends Type {
     /**
      * @return {@link #text} (A full text representation of the name.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public StringType getTextObject() { 
+    public StringType getTextElement() { 
       return this.text;
     }
 
     /**
      * @param value {@link #text} (A full text representation of the name.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public HumanName setTextObject(StringType value) { 
+    public HumanName setTextElement(StringType value) { 
       this.text = value;
       return this;
     }
@@ -244,7 +244,7 @@ public class HumanName extends Type {
     /**
      * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
-    public StringType addFamilyObject() { 
+    public StringType addFamilyElement() { 
       StringType t = new StringType();
       this.family.add(t);
       return t;
@@ -281,7 +281,7 @@ public class HumanName extends Type {
     /**
      * @return {@link #given} (Given name.)
      */
-    public StringType addGivenObject() { 
+    public StringType addGivenElement() { 
       StringType t = new StringType();
       this.given.add(t);
       return t;
@@ -318,7 +318,7 @@ public class HumanName extends Type {
     /**
      * @return {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
-    public StringType addPrefixObject() { 
+    public StringType addPrefixElement() { 
       StringType t = new StringType();
       this.prefix.add(t);
       return t;
@@ -355,7 +355,7 @@ public class HumanName extends Type {
     /**
      * @return {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
-    public StringType addSuffixObject() { 
+    public StringType addSuffixElement() { 
       StringType t = new StringType();
       this.suffix.add(t);
       return t;

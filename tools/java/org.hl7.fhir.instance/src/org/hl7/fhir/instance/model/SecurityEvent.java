@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -728,14 +728,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #action} (Indicator for type of action performed during the event that generated the audit.). This is the underlying object with id, value and extensions. The accessor "getAction" gives direct access to the value
          */
-        public Enumeration<SecurityEventAction> getActionObject() { 
+        public Enumeration<SecurityEventAction> getActionElement() { 
           return this.action;
         }
 
         /**
          * @param value {@link #action} (Indicator for type of action performed during the event that generated the audit.). This is the underlying object with id, value and extensions. The accessor "getAction" gives direct access to the value
          */
-        public SecurityEventEventComponent setActionObject(Enumeration<SecurityEventAction> value) { 
+        public SecurityEventEventComponent setActionElement(Enumeration<SecurityEventAction> value) { 
           this.action = value;
           return this;
         }
@@ -764,14 +764,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #dateTime} (The time when the event occurred on the source.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public InstantType getDateTimeObject() { 
+        public InstantType getDateTimeElement() { 
           return this.dateTime;
         }
 
         /**
          * @param value {@link #dateTime} (The time when the event occurred on the source.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public SecurityEventEventComponent setDateTimeObject(InstantType value) { 
+        public SecurityEventEventComponent setDateTimeElement(InstantType value) { 
           this.dateTime = value;
           return this;
         }
@@ -796,14 +796,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #outcome} (Indicates whether the event succeeded or failed.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
          */
-        public Enumeration<SecurityEventOutcome> getOutcomeObject() { 
+        public Enumeration<SecurityEventOutcome> getOutcomeElement() { 
           return this.outcome;
         }
 
         /**
          * @param value {@link #outcome} (Indicates whether the event succeeded or failed.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
          */
-        public SecurityEventEventComponent setOutcomeObject(Enumeration<SecurityEventOutcome> value) { 
+        public SecurityEventEventComponent setOutcomeElement(Enumeration<SecurityEventOutcome> value) { 
           this.outcome = value;
           return this;
         }
@@ -832,14 +832,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #outcomeDesc} (A free text description of the outcome of the event.). This is the underlying object with id, value and extensions. The accessor "getOutcomeDesc" gives direct access to the value
          */
-        public StringType getOutcomeDescObject() { 
+        public StringType getOutcomeDescElement() { 
           return this.outcomeDesc;
         }
 
         /**
          * @param value {@link #outcomeDesc} (A free text description of the outcome of the event.). This is the underlying object with id, value and extensions. The accessor "getOutcomeDesc" gives direct access to the value
          */
-        public SecurityEventEventComponent setOutcomeDescObject(StringType value) { 
+        public SecurityEventEventComponent setOutcomeDescElement(StringType value) { 
           this.outcomeDesc = value;
           return this;
         }
@@ -997,14 +997,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #userId} (Unique identifier for the user actively participating in the event.). This is the underlying object with id, value and extensions. The accessor "getUserId" gives direct access to the value
          */
-        public StringType getUserIdObject() { 
+        public StringType getUserIdElement() { 
           return this.userId;
         }
 
         /**
          * @param value {@link #userId} (Unique identifier for the user actively participating in the event.). This is the underlying object with id, value and extensions. The accessor "getUserId" gives direct access to the value
          */
-        public SecurityEventParticipantComponent setUserIdObject(StringType value) { 
+        public SecurityEventParticipantComponent setUserIdElement(StringType value) { 
           this.userId = value;
           return this;
         }
@@ -1033,14 +1033,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #altId} (Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.). This is the underlying object with id, value and extensions. The accessor "getAltId" gives direct access to the value
          */
-        public StringType getAltIdObject() { 
+        public StringType getAltIdElement() { 
           return this.altId;
         }
 
         /**
          * @param value {@link #altId} (Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.). This is the underlying object with id, value and extensions. The accessor "getAltId" gives direct access to the value
          */
-        public SecurityEventParticipantComponent setAltIdObject(StringType value) { 
+        public SecurityEventParticipantComponent setAltIdElement(StringType value) { 
           this.altId = value;
           return this;
         }
@@ -1069,14 +1069,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #name} (Human-meaningful name for the user.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameObject() { 
+        public StringType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (Human-meaningful name for the user.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public SecurityEventParticipantComponent setNameObject(StringType value) { 
+        public SecurityEventParticipantComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -1105,14 +1105,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #requestor} (Indicator that the user is or is not the requestor, or initiator, for the event being audited.). This is the underlying object with id, value and extensions. The accessor "getRequestor" gives direct access to the value
          */
-        public BooleanType getRequestorObject() { 
+        public BooleanType getRequestorElement() { 
           return this.requestor;
         }
 
         /**
          * @param value {@link #requestor} (Indicator that the user is or is not the requestor, or initiator, for the event being audited.). This is the underlying object with id, value and extensions. The accessor "getRequestor" gives direct access to the value
          */
-        public SecurityEventParticipantComponent setRequestorObject(BooleanType value) { 
+        public SecurityEventParticipantComponent setRequestorElement(BooleanType value) { 
           this.requestor = value;
           return this;
         }
@@ -1213,14 +1213,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #identifier} (An identifier for the network access point of the user device for the audit event.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public StringType getIdentifierObject() { 
+        public StringType getIdentifierElement() { 
           return this.identifier;
         }
 
         /**
          * @param value {@link #identifier} (An identifier for the network access point of the user device for the audit event.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public SecurityEventParticipantNetworkComponent setIdentifierObject(StringType value) { 
+        public SecurityEventParticipantNetworkComponent setIdentifierElement(StringType value) { 
           this.identifier = value;
           return this;
         }
@@ -1249,14 +1249,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #type} (An identifier for the type of network access point that originated the audit event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<NetworkType> getTypeObject() { 
+        public Enumeration<NetworkType> getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (An identifier for the type of network access point that originated the audit event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public SecurityEventParticipantNetworkComponent setTypeObject(Enumeration<NetworkType> value) { 
+        public SecurityEventParticipantNetworkComponent setTypeElement(Enumeration<NetworkType> value) { 
           this.type = value;
           return this;
         }
@@ -1327,14 +1327,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #site} (Logical source location within the healthcare enterprise network.). This is the underlying object with id, value and extensions. The accessor "getSite" gives direct access to the value
          */
-        public StringType getSiteObject() { 
+        public StringType getSiteElement() { 
           return this.site;
         }
 
         /**
          * @param value {@link #site} (Logical source location within the healthcare enterprise network.). This is the underlying object with id, value and extensions. The accessor "getSite" gives direct access to the value
          */
-        public SecurityEventSourceComponent setSiteObject(StringType value) { 
+        public SecurityEventSourceComponent setSiteElement(StringType value) { 
           this.site = value;
           return this;
         }
@@ -1363,14 +1363,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #identifier} (Identifier of the source where the event originated.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public StringType getIdentifierObject() { 
+        public StringType getIdentifierElement() { 
           return this.identifier;
         }
 
         /**
          * @param value {@link #identifier} (Identifier of the source where the event originated.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public SecurityEventSourceComponent setIdentifierObject(StringType value) { 
+        public SecurityEventSourceComponent setIdentifierElement(StringType value) { 
           this.identifier = value;
           return this;
         }
@@ -1538,14 +1538,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #type} (Object type being audited.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ObjectType> getTypeObject() { 
+        public Enumeration<ObjectType> getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (Object type being audited.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public SecurityEventObjectComponent setTypeObject(Enumeration<ObjectType> value) { 
+        public SecurityEventObjectComponent setTypeElement(Enumeration<ObjectType> value) { 
           this.type = value;
           return this;
         }
@@ -1574,14 +1574,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #role} (Code representing the functional application role of Participant Object being audited.). This is the underlying object with id, value and extensions. The accessor "getRole" gives direct access to the value
          */
-        public Enumeration<ObjectRole> getRoleObject() { 
+        public Enumeration<ObjectRole> getRoleElement() { 
           return this.role;
         }
 
         /**
          * @param value {@link #role} (Code representing the functional application role of Participant Object being audited.). This is the underlying object with id, value and extensions. The accessor "getRole" gives direct access to the value
          */
-        public SecurityEventObjectComponent setRoleObject(Enumeration<ObjectRole> value) { 
+        public SecurityEventObjectComponent setRoleElement(Enumeration<ObjectRole> value) { 
           this.role = value;
           return this;
         }
@@ -1610,14 +1610,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #lifecycle} (Identifier for the data life-cycle stage for the participant object.). This is the underlying object with id, value and extensions. The accessor "getLifecycle" gives direct access to the value
          */
-        public Enumeration<ObjectLifecycle> getLifecycleObject() { 
+        public Enumeration<ObjectLifecycle> getLifecycleElement() { 
           return this.lifecycle;
         }
 
         /**
          * @param value {@link #lifecycle} (Identifier for the data life-cycle stage for the participant object.). This is the underlying object with id, value and extensions. The accessor "getLifecycle" gives direct access to the value
          */
-        public SecurityEventObjectComponent setLifecycleObject(Enumeration<ObjectLifecycle> value) { 
+        public SecurityEventObjectComponent setLifecycleElement(Enumeration<ObjectLifecycle> value) { 
           this.lifecycle = value;
           return this;
         }
@@ -1661,14 +1661,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #name} (An instance-specific descriptor of the Participant Object ID audited, such as a person's name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameObject() { 
+        public StringType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (An instance-specific descriptor of the Participant Object ID audited, such as a person's name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public SecurityEventObjectComponent setNameObject(StringType value) { 
+        public SecurityEventObjectComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -1697,14 +1697,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #description} (Text that describes the object in more detail.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Text that describes the object in more detail.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SecurityEventObjectComponent setDescriptionObject(StringType value) { 
+        public SecurityEventObjectComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -1733,14 +1733,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #query} (The actual query for a query-type participant object.). This is the underlying object with id, value and extensions. The accessor "getQuery" gives direct access to the value
          */
-        public Base64BinaryType getQueryObject() { 
+        public Base64BinaryType getQueryElement() { 
           return this.query;
         }
 
         /**
          * @param value {@link #query} (The actual query for a query-type participant object.). This is the underlying object with id, value and extensions. The accessor "getQuery" gives direct access to the value
          */
-        public SecurityEventObjectComponent setQueryObject(Base64BinaryType value) { 
+        public SecurityEventObjectComponent setQueryElement(Base64BinaryType value) { 
           this.query = value;
           return this;
         }
@@ -1842,14 +1842,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #type} (Name of the property.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public StringType getTypeObject() { 
+        public StringType getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (Name of the property.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public SecurityEventObjectDetailComponent setTypeObject(StringType value) { 
+        public SecurityEventObjectDetailComponent setTypeElement(StringType value) { 
           this.type = value;
           return this;
         }
@@ -1874,14 +1874,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return {@link #value} (Property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public Base64BinaryType getValueObject() { 
+        public Base64BinaryType getValueElement() { 
           return this.value;
         }
 
         /**
          * @param value {@link #value} (Property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public SecurityEventObjectDetailComponent setValueObject(Base64BinaryType value) { 
+        public SecurityEventObjectDetailComponent setValueElement(Base64BinaryType value) { 
           this.value = value;
           return this;
         }

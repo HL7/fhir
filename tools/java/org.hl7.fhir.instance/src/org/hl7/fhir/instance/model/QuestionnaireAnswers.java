@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -133,14 +133,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #linkId} (Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public StringType getLinkIdObject() { 
+        public StringType getLinkIdElement() { 
           return this.linkId;
         }
 
         /**
          * @param value {@link #linkId} (Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public GroupComponent setLinkIdObject(StringType value) { 
+        public GroupComponent setLinkIdElement(StringType value) { 
           this.linkId = value;
           return this;
         }
@@ -169,14 +169,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #title} (Text that is displayed above the contents of the group.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitleObject() { 
+        public StringType getTitleElement() { 
           return this.title;
         }
 
         /**
          * @param value {@link #title} (Text that is displayed above the contents of the group.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public GroupComponent setTitleObject(StringType value) { 
+        public GroupComponent setTitleElement(StringType value) { 
           this.title = value;
           return this;
         }
@@ -205,14 +205,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #text} (Additional text for the group, used for display purposes.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextObject() { 
+        public StringType getTextElement() { 
           return this.text;
         }
 
         /**
          * @param value {@link #text} (Additional text for the group, used for display purposes.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public GroupComponent setTextObject(StringType value) { 
+        public GroupComponent setTextElement(StringType value) { 
           this.text = value;
           return this;
         }
@@ -359,14 +359,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #linkId} (Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public StringType getLinkIdObject() { 
+        public StringType getLinkIdElement() { 
           return this.linkId;
         }
 
         /**
          * @param value {@link #linkId} (Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public QuestionComponent setLinkIdObject(StringType value) { 
+        public QuestionComponent setLinkIdElement(StringType value) { 
           this.linkId = value;
           return this;
         }
@@ -395,14 +395,14 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #text} (Text of the question as it is shown to the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextObject() { 
+        public StringType getTextElement() { 
           return this.text;
         }
 
         /**
          * @param value {@link #text} (Text of the question as it is shown to the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public QuestionComponent setTextObject(StringType value) { 
+        public QuestionComponent setTextElement(StringType value) { 
           this.text = value;
           return this;
         }
@@ -655,14 +655,14 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * @return {@link #status} (The lifecycle status of the questionnaire answers as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<QuestionnaireAnswersStatus> getStatusObject() { 
+    public Enumeration<QuestionnaireAnswersStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The lifecycle status of the questionnaire answers as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public QuestionnaireAnswers setStatusObject(Enumeration<QuestionnaireAnswersStatus> value) { 
+    public QuestionnaireAnswers setStatusElement(Enumeration<QuestionnaireAnswersStatus> value) { 
       this.status = value;
       return this;
     }
@@ -747,14 +747,14 @@ public class QuestionnaireAnswers extends Resource {
     /**
      * @return {@link #authored} (The date and/or time that this version of the questionnaire answers was authored.). This is the underlying object with id, value and extensions. The accessor "getAuthored" gives direct access to the value
      */
-    public DateTimeType getAuthoredObject() { 
+    public DateTimeType getAuthoredElement() { 
       return this.authored;
     }
 
     /**
      * @param value {@link #authored} (The date and/or time that this version of the questionnaire answers was authored.). This is the underlying object with id, value and extensions. The accessor "getAuthored" gives direct access to the value
      */
-    public QuestionnaireAnswers setAuthoredObject(DateTimeType value) { 
+    public QuestionnaireAnswers setAuthoredElement(DateTimeType value) { 
       this.authored = value;
       return this;
     }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -232,14 +232,14 @@ public class Namespace extends Resource {
         /**
          * @return {@link #type} (Identifies the unique identifier scheme used for this particular identifier.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<NamespaceIdentifierType> getTypeObject() { 
+        public Enumeration<NamespaceIdentifierType> getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (Identifies the unique identifier scheme used for this particular identifier.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public NamespaceUniqueIdComponent setTypeObject(Enumeration<NamespaceIdentifierType> value) { 
+        public NamespaceUniqueIdComponent setTypeElement(Enumeration<NamespaceIdentifierType> value) { 
           this.type = value;
           return this;
         }
@@ -264,14 +264,14 @@ public class Namespace extends Resource {
         /**
          * @return {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public StringType getValueObject() { 
+        public StringType getValueElement() { 
           return this.value;
         }
 
         /**
          * @param value {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public NamespaceUniqueIdComponent setValueObject(StringType value) { 
+        public NamespaceUniqueIdComponent setValueElement(StringType value) { 
           this.value = value;
           return this;
         }
@@ -296,14 +296,14 @@ public class Namespace extends Resource {
         /**
          * @return {@link #preferred} (Indicates whether this identifier is the "preferred" identifier of this type.). This is the underlying object with id, value and extensions. The accessor "getPreferred" gives direct access to the value
          */
-        public BooleanType getPreferredObject() { 
+        public BooleanType getPreferredElement() { 
           return this.preferred;
         }
 
         /**
          * @param value {@link #preferred} (Indicates whether this identifier is the "preferred" identifier of this type.). This is the underlying object with id, value and extensions. The accessor "getPreferred" gives direct access to the value
          */
-        public NamespaceUniqueIdComponent setPreferredObject(BooleanType value) { 
+        public NamespaceUniqueIdComponent setPreferredElement(BooleanType value) { 
           this.preferred = value;
           return this;
         }
@@ -505,14 +505,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #type} (Indicates the purpose for the namespace - what kinds of things does it make unique?.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<NamespaceType> getTypeObject() { 
+    public Enumeration<NamespaceType> getTypeElement() { 
       return this.type;
     }
 
     /**
      * @param value {@link #type} (Indicates the purpose for the namespace - what kinds of things does it make unique?.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Namespace setTypeObject(Enumeration<NamespaceType> value) { 
+    public Namespace setTypeElement(Enumeration<NamespaceType> value) { 
       this.type = value;
       return this;
     }
@@ -537,14 +537,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #name} (The descriptive name of this particular identifier type or code system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameObject() { 
+    public StringType getNameElement() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (The descriptive name of this particular identifier type or code system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Namespace setNameObject(StringType value) { 
+    public Namespace setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -569,14 +569,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #status} (Indicates whether the namespace is "ready for use" or not.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<NamespaceStatus> getStatusObject() { 
+    public Enumeration<NamespaceStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (Indicates whether the namespace is "ready for use" or not.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Namespace setStatusObject(Enumeration<NamespaceStatus> value) { 
+    public Namespace setStatusElement(Enumeration<NamespaceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -601,14 +601,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #country} (If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.). This is the underlying object with id, value and extensions. The accessor "getCountry" gives direct access to the value
      */
-    public CodeType getCountryObject() { 
+    public CodeType getCountryElement() { 
       return this.country;
     }
 
     /**
      * @param value {@link #country} (If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.). This is the underlying object with id, value and extensions. The accessor "getCountry" gives direct access to the value
      */
-    public Namespace setCountryObject(CodeType value) { 
+    public Namespace setCountryElement(CodeType value) { 
       this.country = value;
       return this;
     }
@@ -652,14 +652,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.). This is the underlying object with id, value and extensions. The accessor "getResponsible" gives direct access to the value
      */
-    public StringType getResponsibleObject() { 
+    public StringType getResponsibleElement() { 
       return this.responsible;
     }
 
     /**
      * @param value {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.). This is the underlying object with id, value and extensions. The accessor "getResponsible" gives direct access to the value
      */
-    public Namespace setResponsibleObject(StringType value) { 
+    public Namespace setResponsibleElement(StringType value) { 
       this.responsible = value;
       return this;
     }
@@ -688,14 +688,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Namespace setDescriptionObject(StringType value) { 
+    public Namespace setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -724,14 +724,14 @@ public class Namespace extends Resource {
     /**
      * @return {@link #usage} (Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
-    public StringType getUsageObject() { 
+    public StringType getUsageElement() { 
       return this.usage;
     }
 
     /**
      * @param value {@link #usage} (Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
-    public Namespace setUsageObject(StringType value) { 
+    public Namespace setUsageElement(StringType value) { 
       this.usage = value;
       return this;
     }

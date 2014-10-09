@@ -164,7 +164,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
 
     write("  private void composeResourceElements(Resource element) throws Exception {\r\n");
     write("    composeBackboneElements(element);\r\n");
-    write("    composeCode(\"language\", element.getLanguageObject());\r\n");
+    write("    composeCode(\"language\", element.getLanguageElement());\r\n");
     write("    composeNarrative(\"text\", element.getText());\r\n");
     write("    for (Resource r : element.getContained()) {\r\n");
     write("      if (r.getXmlId() == null)\r\n");
@@ -332,8 +332,8 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
         write("      if (element.get"+upFirst(getElementName(e.getName(), true))+"() != null)\r\n");
         write("        xml.attribute(\"xml:lang\", element.get"+upFirst(getElementName(e.getName(), true))+"().toString());\r\n");
       } else if (e.isXmlAttribute()) {
-        write("      if (element.get"+upFirst(getElementName(e.getName(), true))+"Object() != null)\r\n");
-        write("        xml.attribute(\""+e.getName()+"\", element.get"+upFirst(getElementName(e.getName(), true))+"Object().getValue());\r\n");
+        write("      if (element.get"+upFirst(getElementName(e.getName(), true))+"Element() != null)\r\n");
+        write("        xml.attribute(\""+e.getName()+"\", element.get"+upFirst(getElementName(e.getName(), true))+"Element().getValue());\r\n");
       }
     }
     write("      xml.open(FHIR_NS, name);\r\n");
@@ -422,11 +422,11 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
   	    
   	    }
       } else if (en != null) {
-        write("      if (element.get"+upFirst(getElementName(name, false))+"Object() != null)\r\n");
-        write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Object(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
+        write("      if (element.get"+upFirst(getElementName(name, false))+"Element() != null)\r\n");
+        write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
 //        write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
       } else if (isJavaPrimitive(e)) {
-        write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Object());\r\n");
+        write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element());\r\n");
       } else {
         write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"());\r\n");
       }

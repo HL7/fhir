@@ -192,7 +192,7 @@ public class OldProfileValidator extends BaseValidator {
     n.setDefinition(e.getDefinition().getFormal());
     n.setMaxCardinality("*".equals(e.getDefinition().getMax()) ? null : Integer.parseInt(e.getDefinition().getMax()));
     n.setMinCardinality(e.getDefinition().getMin());
-    n.setIsModifier(e.getDefinition().getMustSupportObject() == null ? false : e.getDefinition().getMustSupport());
+    n.setIsModifier(e.getDefinition().getMustSupportElement() == null ? false : e.getDefinition().getMustSupport());
     for (TypeRefComponent t : e.getDefinition().getType()) {
       TypeParser tp = new TypeParser();
       try {

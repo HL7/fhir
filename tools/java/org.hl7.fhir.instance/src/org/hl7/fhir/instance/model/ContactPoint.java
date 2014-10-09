@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -191,14 +191,14 @@ public class ContactPoint extends Type {
     /**
      * @return {@link #system} (Telecommunications form for contact point - what communications system is required to make use of the contact.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Enumeration<ContactPointSystem> getSystemObject() { 
+    public Enumeration<ContactPointSystem> getSystemElement() { 
       return this.system;
     }
 
     /**
      * @param value {@link #system} (Telecommunications form for contact point - what communications system is required to make use of the contact.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public ContactPoint setSystemObject(Enumeration<ContactPointSystem> value) { 
+    public ContactPoint setSystemElement(Enumeration<ContactPointSystem> value) { 
       this.system = value;
       return this;
     }
@@ -227,14 +227,14 @@ public class ContactPoint extends Type {
     /**
      * @return {@link #value} (The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public StringType getValueObject() { 
+    public StringType getValueElement() { 
       return this.value;
     }
 
     /**
      * @param value {@link #value} (The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public ContactPoint setValueObject(StringType value) { 
+    public ContactPoint setValueElement(StringType value) { 
       this.value = value;
       return this;
     }
@@ -263,14 +263,14 @@ public class ContactPoint extends Type {
     /**
      * @return {@link #use} (Identifies the purpose for the contact point.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<ContactPointUse> getUseObject() { 
+    public Enumeration<ContactPointUse> getUseElement() { 
       return this.use;
     }
 
     /**
      * @param value {@link #use} (Identifies the purpose for the contact point.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public ContactPoint setUseObject(Enumeration<ContactPointUse> value) { 
+    public ContactPoint setUseElement(Enumeration<ContactPointUse> value) { 
       this.use = value;
       return this;
     }

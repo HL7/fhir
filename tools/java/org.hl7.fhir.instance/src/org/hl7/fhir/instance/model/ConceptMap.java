@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -221,14 +221,14 @@ public class ConceptMap extends Resource {
         /**
          * @return {@link #codeSystem} (Code System (if value set crosses code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public UriType getCodeSystemObject() { 
+        public UriType getCodeSystemElement() { 
           return this.codeSystem;
         }
 
         /**
          * @param value {@link #codeSystem} (Code System (if value set crosses code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public ConceptMapElementComponent setCodeSystemObject(UriType value) { 
+        public ConceptMapElementComponent setCodeSystemElement(UriType value) { 
           this.codeSystem = value;
           return this;
         }
@@ -253,14 +253,14 @@ public class ConceptMap extends Resource {
         /**
          * @return {@link #code} (Identifies element being mapped.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public CodeType getCodeObject() { 
+        public CodeType getCodeElement() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (Identifies element being mapped.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public ConceptMapElementComponent setCodeObject(CodeType value) { 
+        public ConceptMapElementComponent setCodeElement(CodeType value) { 
           this.code = value;
           return this;
         }
@@ -375,14 +375,14 @@ public class ConceptMap extends Resource {
         /**
          * @return {@link #element} (A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.). This is the underlying object with id, value and extensions. The accessor "getElement" gives direct access to the value
          */
-        public UriType getElementObject() { 
+        public UriType getElementElement() { 
           return this.element;
         }
 
         /**
          * @param value {@link #element} (A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.). This is the underlying object with id, value and extensions. The accessor "getElement" gives direct access to the value
          */
-        public OtherElementComponent setElementObject(UriType value) { 
+        public OtherElementComponent setElementElement(UriType value) { 
           this.element = value;
           return this;
         }
@@ -407,14 +407,14 @@ public class ConceptMap extends Resource {
         /**
          * @return {@link #codeSystem} (Code System (if necessary).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public UriType getCodeSystemObject() { 
+        public UriType getCodeSystemElement() { 
           return this.codeSystem;
         }
 
         /**
          * @param value {@link #codeSystem} (Code System (if necessary).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public OtherElementComponent setCodeSystemObject(UriType value) { 
+        public OtherElementComponent setCodeSystemElement(UriType value) { 
           this.codeSystem = value;
           return this;
         }
@@ -439,14 +439,14 @@ public class ConceptMap extends Resource {
         /**
          * @return {@link #code} (Value of the referenced element.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public StringType getCodeObject() { 
+        public StringType getCodeElement() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (Value of the referenced element.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public OtherElementComponent setCodeObject(StringType value) { 
+        public OtherElementComponent setCodeElement(StringType value) { 
           this.code = value;
           return this;
         }
@@ -525,14 +525,14 @@ public class ConceptMap extends Resource {
         /**
          * @return {@link #codeSystem} (System of the target (if necessary).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public UriType getCodeSystemObject() { 
+        public UriType getCodeSystemElement() { 
           return this.codeSystem;
         }
 
         /**
          * @param value {@link #codeSystem} (System of the target (if necessary).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public ConceptMapElementMapComponent setCodeSystemObject(UriType value) { 
+        public ConceptMapElementMapComponent setCodeSystemElement(UriType value) { 
           this.codeSystem = value;
           return this;
         }
@@ -561,14 +561,14 @@ public class ConceptMap extends Resource {
         /**
          * @return {@link #code} (Code that identifies the target element.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public CodeType getCodeObject() { 
+        public CodeType getCodeElement() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (Code that identifies the target element.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public ConceptMapElementMapComponent setCodeObject(CodeType value) { 
+        public ConceptMapElementMapComponent setCodeElement(CodeType value) { 
           this.code = value;
           return this;
         }
@@ -597,14 +597,14 @@ public class ConceptMap extends Resource {
         /**
          * @return {@link #equivalence} (equal | equivalent | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint.). This is the underlying object with id, value and extensions. The accessor "getEquivalence" gives direct access to the value
          */
-        public Enumeration<ConceptEquivalence> getEquivalenceObject() { 
+        public Enumeration<ConceptEquivalence> getEquivalenceElement() { 
           return this.equivalence;
         }
 
         /**
          * @param value {@link #equivalence} (equal | equivalent | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint.). This is the underlying object with id, value and extensions. The accessor "getEquivalence" gives direct access to the value
          */
-        public ConceptMapElementMapComponent setEquivalenceObject(Enumeration<ConceptEquivalence> value) { 
+        public ConceptMapElementMapComponent setEquivalenceElement(Enumeration<ConceptEquivalence> value) { 
           this.equivalence = value;
           return this;
         }
@@ -629,14 +629,14 @@ public class ConceptMap extends Resource {
         /**
          * @return {@link #comments} (Description of status/issues in mapping.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public StringType getCommentsObject() { 
+        public StringType getCommentsElement() { 
           return this.comments;
         }
 
         /**
          * @param value {@link #comments} (Description of status/issues in mapping.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public ConceptMapElementMapComponent setCommentsObject(StringType value) { 
+        public ConceptMapElementMapComponent setCommentsElement(StringType value) { 
           this.comments = value;
           return this;
         }
@@ -784,14 +784,14 @@ public class ConceptMap extends Resource {
     /**
      * @return {@link #identifier} (The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public StringType getIdentifierObject() { 
+    public StringType getIdentifierElement() { 
       return this.identifier;
     }
 
     /**
      * @param value {@link #identifier} (The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public ConceptMap setIdentifierObject(StringType value) { 
+    public ConceptMap setIdentifierElement(StringType value) { 
       this.identifier = value;
       return this;
     }
@@ -820,14 +820,14 @@ public class ConceptMap extends Resource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionObject() { 
+    public StringType getVersionElement() { 
       return this.version;
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public ConceptMap setVersionObject(StringType value) { 
+    public ConceptMap setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -856,14 +856,14 @@ public class ConceptMap extends Resource {
     /**
      * @return {@link #name} (A free text natural language name describing the concept map.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameObject() { 
+    public StringType getNameElement() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (A free text natural language name describing the concept map.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public ConceptMap setNameObject(StringType value) { 
+    public ConceptMap setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -888,14 +888,14 @@ public class ConceptMap extends Resource {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the concept map.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherObject() { 
+    public StringType getPublisherElement() { 
       return this.publisher;
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the concept map.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public ConceptMap setPublisherObject(StringType value) { 
+    public ConceptMap setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -941,14 +941,14 @@ public class ConceptMap extends Resource {
     /**
      * @return {@link #description} (A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ConceptMap setDescriptionObject(StringType value) { 
+    public ConceptMap setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -977,14 +977,14 @@ public class ConceptMap extends Resource {
     /**
      * @return {@link #copyright} (A copyright statement relating to the concept map and/or its contents.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public StringType getCopyrightObject() { 
+    public StringType getCopyrightElement() { 
       return this.copyright;
     }
 
     /**
      * @param value {@link #copyright} (A copyright statement relating to the concept map and/or its contents.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public ConceptMap setCopyrightObject(StringType value) { 
+    public ConceptMap setCopyrightElement(StringType value) { 
       this.copyright = value;
       return this;
     }
@@ -1013,14 +1013,14 @@ public class ConceptMap extends Resource {
     /**
      * @return {@link #status} (The status of the concept map.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ValuesetStatus> getStatusObject() { 
+    public Enumeration<ValuesetStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The status of the concept map.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ConceptMap setStatusObject(Enumeration<ValuesetStatus> value) { 
+    public ConceptMap setStatusElement(Enumeration<ValuesetStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1045,14 +1045,14 @@ public class ConceptMap extends Resource {
     /**
      * @return {@link #experimental} (This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalObject() { 
+    public BooleanType getExperimentalElement() { 
       return this.experimental;
     }
 
     /**
      * @param value {@link #experimental} (This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public ConceptMap setExperimentalObject(BooleanType value) { 
+    public ConceptMap setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -1081,14 +1081,14 @@ public class ConceptMap extends Resource {
     /**
      * @return {@link #date} (The date that the concept map status was last changed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date that the concept map status was last changed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public ConceptMap setDateObject(DateTimeType value) { 
+    public ConceptMap setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }

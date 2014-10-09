@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -285,14 +285,14 @@ public class DeviceObservationReport extends Resource {
     /**
      * @return {@link #instant} (The point in time that the values are reported.). This is the underlying object with id, value and extensions. The accessor "getInstant" gives direct access to the value
      */
-    public InstantType getInstantObject() { 
+    public InstantType getInstantElement() { 
       return this.instant;
     }
 
     /**
      * @param value {@link #instant} (The point in time that the values are reported.). This is the underlying object with id, value and extensions. The accessor "getInstant" gives direct access to the value
      */
-    public DeviceObservationReport setInstantObject(InstantType value) { 
+    public DeviceObservationReport setInstantElement(InstantType value) { 
       this.instant = value;
       return this;
     }

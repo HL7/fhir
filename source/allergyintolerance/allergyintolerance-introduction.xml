@@ -8,6 +8,9 @@ I think that is a key concept, that having an allergy list as a distinct and sep
 -->
 <div>
 <h2>Scope and Usage</h2>
+<p style="color: maroon; font-weight: bold">
+Warning: The resource <a href="adversereactionrisk.html">AdverseReactionRisk</a> is currently proposed as a replacement for this resource.
+</p>
 <p>
 Allergy/Intolerance resources are used to provide information about 
 adverse sensitivities to substances that lead to physiologic changes 

@@ -164,7 +164,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRowMarkdown("Requirements", d.getRequirements());
     tableRow("Aliases", null, describeAliases(d.getSynonym()));
     tableRowMarkdown("Comments", d.getComments());
-    tableRow("Max Length", null, d.getMaxLengthObject() == null ? null : Integer.toString(d.getMaxLength()));
+    tableRow("Max Length", null, d.getMaxLengthElement() == null ? null : Integer.toString(d.getMaxLength()));
     tableRow("Fixed Value", null, encodeValue(d.getValue()));
     tableRow("Example", null, encodeValue(d.getExample()));
     tableRowNE("Invariants", null, invariants(d.getConstraint()));

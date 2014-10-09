@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -249,14 +249,14 @@ public class Supply extends Resource {
         /**
          * @return {@link #status} (A code specifying the state of the dispense event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<ValuesetSupplyDispenseStatus> getStatusObject() { 
+        public Enumeration<ValuesetSupplyDispenseStatus> getStatusElement() { 
           return this.status;
         }
 
         /**
          * @param value {@link #status} (A code specifying the state of the dispense event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public SupplyDispenseComponent setStatusObject(Enumeration<ValuesetSupplyDispenseStatus> value) { 
+        public SupplyDispenseComponent setStatusElement(Enumeration<ValuesetSupplyDispenseStatus> value) { 
           this.status = value;
           return this;
         }
@@ -578,14 +578,14 @@ public class Supply extends Resource {
     /**
      * @return {@link #status} (Status of the supply request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ValuesetSupplyStatus> getStatusObject() { 
+    public Enumeration<ValuesetSupplyStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (Status of the supply request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Supply setStatusObject(Enumeration<ValuesetSupplyStatus> value) { 
+    public Supply setStatusElement(Enumeration<ValuesetSupplyStatus> value) { 
       this.status = value;
       return this;
     }

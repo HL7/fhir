@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -312,14 +312,14 @@ public class DocumentManifest extends Resource {
     /**
      * @return {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateTimeType getCreatedObject() { 
+    public DateTimeType getCreatedElement() { 
       return this.created;
     }
 
     /**
      * @param value {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DocumentManifest setCreatedObject(DateTimeType value) { 
+    public DocumentManifest setCreatedElement(DateTimeType value) { 
       this.created = value;
       return this;
     }
@@ -348,14 +348,14 @@ public class DocumentManifest extends Resource {
     /**
      * @return {@link #source} (Identifies the source system, application, or software that produced the document manifest.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
      */
-    public UriType getSourceObject() { 
+    public UriType getSourceElement() { 
       return this.source;
     }
 
     /**
      * @param value {@link #source} (Identifies the source system, application, or software that produced the document manifest.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
      */
-    public DocumentManifest setSourceObject(UriType value) { 
+    public DocumentManifest setSourceElement(UriType value) { 
       this.source = value;
       return this;
     }
@@ -384,14 +384,14 @@ public class DocumentManifest extends Resource {
     /**
      * @return {@link #status} (The status of this document manifest.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DocumentReferenceStatus> getStatusObject() { 
+    public Enumeration<DocumentReferenceStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The status of this document manifest.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DocumentManifest setStatusObject(Enumeration<DocumentReferenceStatus> value) { 
+    public DocumentManifest setStatusElement(Enumeration<DocumentReferenceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -446,14 +446,14 @@ public class DocumentManifest extends Resource {
     /**
      * @return {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public DocumentManifest setDescriptionObject(StringType value) { 
+    public DocumentManifest setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }

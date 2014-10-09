@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -105,14 +105,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #date} (The date the immunization recommendation was created.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDateObject() { 
+        public DateTimeType getDateElement() { 
           return this.date;
         }
 
         /**
          * @param value {@link #date} (The date the immunization recommendation was created.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationComponent setDateObject(DateTimeType value) { 
+        public ImmunizationRecommendationRecommendationComponent setDateElement(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -152,14 +152,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #doseNumber} (This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).). This is the underlying object with id, value and extensions. The accessor "getDoseNumber" gives direct access to the value
          */
-        public IntegerType getDoseNumberObject() { 
+        public IntegerType getDoseNumberElement() { 
           return this.doseNumber;
         }
 
         /**
          * @param value {@link #doseNumber} (This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).). This is the underlying object with id, value and extensions. The accessor "getDoseNumber" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationComponent setDoseNumberObject(IntegerType value) { 
+        public ImmunizationRecommendationRecommendationComponent setDoseNumberElement(IntegerType value) { 
           this.doseNumber = value;
           return this;
         }
@@ -364,14 +364,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #value} (Date recommendation.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public DateTimeType getValueObject() { 
+        public DateTimeType getValueElement() { 
           return this.value;
         }
 
         /**
          * @param value {@link #value} (Date recommendation.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationDateCriterionComponent setValueObject(DateTimeType value) { 
+        public ImmunizationRecommendationRecommendationDateCriterionComponent setValueElement(DateTimeType value) { 
           this.value = value;
           return this;
         }
@@ -443,14 +443,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #doseSequence} (Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.). This is the underlying object with id, value and extensions. The accessor "getDoseSequence" gives direct access to the value
          */
-        public IntegerType getDoseSequenceObject() { 
+        public IntegerType getDoseSequenceElement() { 
           return this.doseSequence;
         }
 
         /**
          * @param value {@link #doseSequence} (Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.). This is the underlying object with id, value and extensions. The accessor "getDoseSequence" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequenceObject(IntegerType value) { 
+        public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequenceElement(IntegerType value) { 
           this.doseSequence = value;
           return this;
         }
@@ -479,14 +479,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #description} (Contains the description about the protocol under which the vaccine was administered.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Contains the description about the protocol under which the vaccine was administered.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationProtocolComponent setDescriptionObject(StringType value) { 
+        public ImmunizationRecommendationRecommendationProtocolComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -545,14 +545,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.). This is the underlying object with id, value and extensions. The accessor "getSeries" gives direct access to the value
          */
-        public StringType getSeriesObject() { 
+        public StringType getSeriesElement() { 
           return this.series;
         }
 
         /**
          * @param value {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.). This is the underlying object with id, value and extensions. The accessor "getSeries" gives direct access to the value
          */
-        public ImmunizationRecommendationRecommendationProtocolComponent setSeriesObject(StringType value) { 
+        public ImmunizationRecommendationRecommendationProtocolComponent setSeriesElement(StringType value) { 
           this.series = value;
           return this;
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -82,14 +82,14 @@ public class Coding extends Type {
     /**
      * @return {@link #system} (The identification of the code system that defines the meaning of the symbol in the code.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public UriType getSystemObject() { 
+    public UriType getSystemElement() { 
       return this.system;
     }
 
     /**
      * @param value {@link #system} (The identification of the code system that defines the meaning of the symbol in the code.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Coding setSystemObject(UriType value) { 
+    public Coding setSystemElement(UriType value) { 
       this.system = value;
       return this;
     }
@@ -118,14 +118,14 @@ public class Coding extends Type {
     /**
      * @return {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionObject() { 
+    public StringType getVersionElement() { 
       return this.version;
     }
 
     /**
      * @param value {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public Coding setVersionObject(StringType value) { 
+    public Coding setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -154,14 +154,14 @@ public class Coding extends Type {
     /**
      * @return {@link #code} (A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public CodeType getCodeObject() { 
+    public CodeType getCodeElement() { 
       return this.code;
     }
 
     /**
      * @param value {@link #code} (A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public Coding setCodeObject(CodeType value) { 
+    public Coding setCodeElement(CodeType value) { 
       this.code = value;
       return this;
     }
@@ -190,14 +190,14 @@ public class Coding extends Type {
     /**
      * @return {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public StringType getDisplayObject() { 
+    public StringType getDisplayElement() { 
       return this.display;
     }
 
     /**
      * @param value {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public Coding setDisplayObject(StringType value) { 
+    public Coding setDisplayElement(StringType value) { 
       this.display = value;
       return this;
     }
@@ -226,14 +226,14 @@ public class Coding extends Type {
     /**
      * @return {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).). This is the underlying object with id, value and extensions. The accessor "getPrimary" gives direct access to the value
      */
-    public BooleanType getPrimaryObject() { 
+    public BooleanType getPrimaryElement() { 
       return this.primary;
     }
 
     /**
      * @param value {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).). This is the underlying object with id, value and extensions. The accessor "getPrimary" gives direct access to the value
      */
-    public Coding setPrimaryObject(BooleanType value) { 
+    public Coding setPrimaryElement(BooleanType value) { 
       this.primary = value;
       return this;
     }

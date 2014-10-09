@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -124,14 +124,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #identifier} (The id of the message that this message is a response to.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public IdType getIdentifierObject() { 
+        public IdType getIdentifierElement() { 
           return this.identifier;
         }
 
         /**
          * @param value {@link #identifier} (The id of the message that this message is a response to.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public MessageHeaderResponseComponent setIdentifierObject(IdType value) { 
+        public MessageHeaderResponseComponent setIdentifierElement(IdType value) { 
           this.identifier = value;
           return this;
         }
@@ -156,14 +156,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<ResponseCode> getCodeObject() { 
+        public Enumeration<ResponseCode> getCodeElement() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public MessageHeaderResponseComponent setCodeObject(Enumeration<ResponseCode> value) { 
+        public MessageHeaderResponseComponent setCodeElement(Enumeration<ResponseCode> value) { 
           this.code = value;
           return this;
         }
@@ -273,14 +273,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #name} (Human-readable name for the target system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameObject() { 
+        public StringType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (Human-readable name for the target system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public MessageSourceComponent setNameObject(StringType value) { 
+        public MessageSourceComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -309,14 +309,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #software} (May include configuration or other information useful in debugging.). This is the underlying object with id, value and extensions. The accessor "getSoftware" gives direct access to the value
          */
-        public StringType getSoftwareObject() { 
+        public StringType getSoftwareElement() { 
           return this.software;
         }
 
         /**
          * @param value {@link #software} (May include configuration or other information useful in debugging.). This is the underlying object with id, value and extensions. The accessor "getSoftware" gives direct access to the value
          */
-        public MessageSourceComponent setSoftwareObject(StringType value) { 
+        public MessageSourceComponent setSoftwareElement(StringType value) { 
           this.software = value;
           return this;
         }
@@ -341,14 +341,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersionObject() { 
+        public StringType getVersionElement() { 
           return this.version;
         }
 
         /**
          * @param value {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public MessageSourceComponent setVersionObject(StringType value) { 
+        public MessageSourceComponent setVersionElement(StringType value) { 
           this.version = value;
           return this;
         }
@@ -392,14 +392,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #endpoint} (Identifies the routing target to send acknowledgements to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public UriType getEndpointObject() { 
+        public UriType getEndpointElement() { 
           return this.endpoint;
         }
 
         /**
          * @param value {@link #endpoint} (Identifies the routing target to send acknowledgements to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public MessageSourceComponent setEndpointObject(UriType value) { 
+        public MessageSourceComponent setEndpointElement(UriType value) { 
           this.endpoint = value;
           return this;
         }
@@ -477,14 +477,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #name} (Human-readable name for the source system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameObject() { 
+        public StringType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (Human-readable name for the source system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public MessageDestinationComponent setNameObject(StringType value) { 
+        public MessageDestinationComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -543,14 +543,14 @@ public class MessageHeader extends Resource {
         /**
          * @return {@link #endpoint} (Indicates where the message should be routed to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public UriType getEndpointObject() { 
+        public UriType getEndpointElement() { 
           return this.endpoint;
         }
 
         /**
          * @param value {@link #endpoint} (Indicates where the message should be routed to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public MessageDestinationComponent setEndpointObject(UriType value) { 
+        public MessageDestinationComponent setEndpointElement(UriType value) { 
           this.endpoint = value;
           return this;
         }
@@ -691,14 +691,14 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #identifier} (The identifier of this message.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public IdType getIdentifierObject() { 
+    public IdType getIdentifierElement() { 
       return this.identifier;
     }
 
     /**
      * @param value {@link #identifier} (The identifier of this message.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public MessageHeader setIdentifierObject(IdType value) { 
+    public MessageHeader setIdentifierElement(IdType value) { 
       this.identifier = value;
       return this;
     }
@@ -723,14 +723,14 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #timestamp} (The time that the message was sent.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
      */
-    public InstantType getTimestampObject() { 
+    public InstantType getTimestampElement() { 
       return this.timestamp;
     }
 
     /**
      * @param value {@link #timestamp} (The time that the message was sent.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
      */
-    public MessageHeader setTimestampObject(InstantType value) { 
+    public MessageHeader setTimestampElement(InstantType value) { 
       this.timestamp = value;
       return this;
     }

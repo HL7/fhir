@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -273,14 +273,14 @@ public class Timing extends Type {
         /**
          * @return {@link #frequency} (Indicates how often the event should occur.). This is the underlying object with id, value and extensions. The accessor "getFrequency" gives direct access to the value
          */
-        public IntegerType getFrequencyObject() { 
+        public IntegerType getFrequencyElement() { 
           return this.frequency;
         }
 
         /**
          * @param value {@link #frequency} (Indicates how often the event should occur.). This is the underlying object with id, value and extensions. The accessor "getFrequency" gives direct access to the value
          */
-        public TimingRepeatComponent setFrequencyObject(IntegerType value) { 
+        public TimingRepeatComponent setFrequencyElement(IntegerType value) { 
           this.frequency = value;
           return this;
         }
@@ -309,14 +309,14 @@ public class Timing extends Type {
         /**
          * @return {@link #when} (Identifies the occurrence of daily life that determines timing.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
          */
-        public Enumeration<EventTiming> getWhenObject() { 
+        public Enumeration<EventTiming> getWhenElement() { 
           return this.when;
         }
 
         /**
          * @param value {@link #when} (Identifies the occurrence of daily life that determines timing.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
          */
-        public TimingRepeatComponent setWhenObject(Enumeration<EventTiming> value) { 
+        public TimingRepeatComponent setWhenElement(Enumeration<EventTiming> value) { 
           this.when = value;
           return this;
         }
@@ -345,14 +345,14 @@ public class Timing extends Type {
         /**
          * @return {@link #duration} (How long each repetition should last.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
          */
-        public DecimalType getDurationObject() { 
+        public DecimalType getDurationElement() { 
           return this.duration;
         }
 
         /**
          * @param value {@link #duration} (How long each repetition should last.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
          */
-        public TimingRepeatComponent setDurationObject(DecimalType value) { 
+        public TimingRepeatComponent setDurationElement(DecimalType value) { 
           this.duration = value;
           return this;
         }
@@ -377,14 +377,14 @@ public class Timing extends Type {
         /**
          * @return {@link #units} (The units of time for the duration.). This is the underlying object with id, value and extensions. The accessor "getUnits" gives direct access to the value
          */
-        public Enumeration<UnitsOfTime> getUnitsObject() { 
+        public Enumeration<UnitsOfTime> getUnitsElement() { 
           return this.units;
         }
 
         /**
          * @param value {@link #units} (The units of time for the duration.). This is the underlying object with id, value and extensions. The accessor "getUnits" gives direct access to the value
          */
-        public TimingRepeatComponent setUnitsObject(Enumeration<UnitsOfTime> value) { 
+        public TimingRepeatComponent setUnitsElement(Enumeration<UnitsOfTime> value) { 
           this.units = value;
           return this;
         }
@@ -409,14 +409,14 @@ public class Timing extends Type {
         /**
          * @return {@link #count} (A total count of the desired number of repetitions.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
-        public IntegerType getCountObject() { 
+        public IntegerType getCountElement() { 
           return this.count;
         }
 
         /**
          * @param value {@link #count} (A total count of the desired number of repetitions.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
-        public TimingRepeatComponent setCountObject(IntegerType value) { 
+        public TimingRepeatComponent setCountElement(IntegerType value) { 
           this.count = value;
           return this;
         }
@@ -445,14 +445,14 @@ public class Timing extends Type {
         /**
          * @return {@link #end} (When to stop repeating the timing schedule.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
-        public DateTimeType getEndObject() { 
+        public DateTimeType getEndElement() { 
           return this.end;
         }
 
         /**
          * @param value {@link #end} (When to stop repeating the timing schedule.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
-        public TimingRepeatComponent setEndObject(DateTimeType value) { 
+        public TimingRepeatComponent setEndElement(DateTimeType value) { 
           this.end = value;
           return this;
         }

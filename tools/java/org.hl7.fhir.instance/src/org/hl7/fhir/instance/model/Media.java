@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -178,14 +178,14 @@ public class Media extends Resource {
     /**
      * @return {@link #type} (Whether the media is a photo (still image), an audio recording, or a video recording.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<MediaType> getTypeObject() { 
+    public Enumeration<MediaType> getTypeElement() { 
       return this.type;
     }
 
     /**
      * @param value {@link #type} (Whether the media is a photo (still image), an audio recording, or a video recording.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Media setTypeObject(Enumeration<MediaType> value) { 
+    public Media setTypeElement(Enumeration<MediaType> value) { 
       this.type = value;
       return this;
     }
@@ -242,14 +242,14 @@ public class Media extends Resource {
     /**
      * @return {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public DateTimeType getDateTimeObject() { 
+    public DateTimeType getDateTimeElement() { 
       return this.dateTime;
     }
 
     /**
      * @param value {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public Media setDateTimeObject(DateTimeType value) { 
+    public Media setDateTimeElement(DateTimeType value) { 
       this.dateTime = value;
       return this;
     }
@@ -353,14 +353,14 @@ public class Media extends Resource {
     /**
      * @return {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.). This is the underlying object with id, value and extensions. The accessor "getDeviceName" gives direct access to the value
      */
-    public StringType getDeviceNameObject() { 
+    public StringType getDeviceNameElement() { 
       return this.deviceName;
     }
 
     /**
      * @param value {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.). This is the underlying object with id, value and extensions. The accessor "getDeviceName" gives direct access to the value
      */
-    public Media setDeviceNameObject(StringType value) { 
+    public Media setDeviceNameElement(StringType value) { 
       this.deviceName = value;
       return this;
     }
@@ -389,14 +389,14 @@ public class Media extends Resource {
     /**
      * @return {@link #height} (Height of the image in pixels(photo/video).). This is the underlying object with id, value and extensions. The accessor "getHeight" gives direct access to the value
      */
-    public IntegerType getHeightObject() { 
+    public IntegerType getHeightElement() { 
       return this.height;
     }
 
     /**
      * @param value {@link #height} (Height of the image in pixels(photo/video).). This is the underlying object with id, value and extensions. The accessor "getHeight" gives direct access to the value
      */
-    public Media setHeightObject(IntegerType value) { 
+    public Media setHeightElement(IntegerType value) { 
       this.height = value;
       return this;
     }
@@ -425,14 +425,14 @@ public class Media extends Resource {
     /**
      * @return {@link #width} (Width of the image in pixels (photo/video).). This is the underlying object with id, value and extensions. The accessor "getWidth" gives direct access to the value
      */
-    public IntegerType getWidthObject() { 
+    public IntegerType getWidthElement() { 
       return this.width;
     }
 
     /**
      * @param value {@link #width} (Width of the image in pixels (photo/video).). This is the underlying object with id, value and extensions. The accessor "getWidth" gives direct access to the value
      */
-    public Media setWidthObject(IntegerType value) { 
+    public Media setWidthElement(IntegerType value) { 
       this.width = value;
       return this;
     }
@@ -461,14 +461,14 @@ public class Media extends Resource {
     /**
      * @return {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.). This is the underlying object with id, value and extensions. The accessor "getFrames" gives direct access to the value
      */
-    public IntegerType getFramesObject() { 
+    public IntegerType getFramesElement() { 
       return this.frames;
     }
 
     /**
      * @param value {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.). This is the underlying object with id, value and extensions. The accessor "getFrames" gives direct access to the value
      */
-    public Media setFramesObject(IntegerType value) { 
+    public Media setFramesElement(IntegerType value) { 
       this.frames = value;
       return this;
     }
@@ -497,14 +497,14 @@ public class Media extends Resource {
     /**
      * @return {@link #length} (The length of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getLength" gives direct access to the value
      */
-    public IntegerType getLengthObject() { 
+    public IntegerType getLengthElement() { 
       return this.length;
     }
 
     /**
      * @param value {@link #length} (The length of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getLength" gives direct access to the value
      */
-    public Media setLengthObject(IntegerType value) { 
+    public Media setLengthElement(IntegerType value) { 
       this.length = value;
       return this;
     }

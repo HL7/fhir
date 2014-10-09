@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -162,14 +162,14 @@ public class Location extends Resource {
         /**
          * @return {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLongitude" gives direct access to the value
          */
-        public DecimalType getLongitudeObject() { 
+        public DecimalType getLongitudeElement() { 
           return this.longitude;
         }
 
         /**
          * @param value {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLongitude" gives direct access to the value
          */
-        public LocationPositionComponent setLongitudeObject(DecimalType value) { 
+        public LocationPositionComponent setLongitudeElement(DecimalType value) { 
           this.longitude = value;
           return this;
         }
@@ -194,14 +194,14 @@ public class Location extends Resource {
         /**
          * @return {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLatitude" gives direct access to the value
          */
-        public DecimalType getLatitudeObject() { 
+        public DecimalType getLatitudeElement() { 
           return this.latitude;
         }
 
         /**
          * @param value {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLatitude" gives direct access to the value
          */
-        public LocationPositionComponent setLatitudeObject(DecimalType value) { 
+        public LocationPositionComponent setLatitudeElement(DecimalType value) { 
           this.latitude = value;
           return this;
         }
@@ -226,14 +226,14 @@ public class Location extends Resource {
         /**
          * @return {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getAltitude" gives direct access to the value
          */
-        public DecimalType getAltitudeObject() { 
+        public DecimalType getAltitudeElement() { 
           return this.altitude;
         }
 
         /**
          * @param value {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getAltitude" gives direct access to the value
          */
-        public LocationPositionComponent setAltitudeObject(DecimalType value) { 
+        public LocationPositionComponent setAltitudeElement(DecimalType value) { 
           this.altitude = value;
           return this;
         }
@@ -372,14 +372,14 @@ public class Location extends Resource {
     /**
      * @return {@link #name} (Name of the location as used by humans. Does not need to be unique.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameObject() { 
+    public StringType getNameElement() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (Name of the location as used by humans. Does not need to be unique.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Location setNameObject(StringType value) { 
+    public Location setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -408,14 +408,14 @@ public class Location extends Resource {
     /**
      * @return {@link #description} (Description of the Location, which helps in finding or referencing the place.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Description of the Location, which helps in finding or referencing the place.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Location setDescriptionObject(StringType value) { 
+    public Location setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -551,14 +551,14 @@ public class Location extends Resource {
     /**
      * @return {@link #status} (active | suspended | inactive.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<LocationStatus> getStatusObject() { 
+    public Enumeration<LocationStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (active | suspended | inactive.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Location setStatusObject(Enumeration<LocationStatus> value) { 
+    public Location setStatusElement(Enumeration<LocationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -617,14 +617,14 @@ public class Location extends Resource {
     /**
      * @return {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public Enumeration<LocationMode> getModeObject() { 
+    public Enumeration<LocationMode> getModeElement() { 
       return this.mode;
     }
 
     /**
      * @param value {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public Location setModeObject(Enumeration<LocationMode> value) { 
+    public Location setModeElement(Enumeration<LocationMode> value) { 
       this.mode = value;
       return this;
     }

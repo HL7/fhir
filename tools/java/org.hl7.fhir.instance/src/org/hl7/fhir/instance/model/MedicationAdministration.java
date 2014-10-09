@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -431,14 +431,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #status} (Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<MedicationAdminStatus> getStatusObject() { 
+    public Enumeration<MedicationAdminStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public MedicationAdministration setStatusObject(Enumeration<MedicationAdminStatus> value) { 
+    public MedicationAdministration setStatusElement(Enumeration<MedicationAdminStatus> value) { 
       this.status = value;
       return this;
     }
@@ -583,14 +583,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * @return {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT administered.). This is the underlying object with id, value and extensions. The accessor "getWasNotGiven" gives direct access to the value
      */
-    public BooleanType getWasNotGivenObject() { 
+    public BooleanType getWasNotGivenElement() { 
       return this.wasNotGiven;
     }
 
     /**
      * @param value {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT administered.). This is the underlying object with id, value and extensions. The accessor "getWasNotGiven" gives direct access to the value
      */
-    public MedicationAdministration setWasNotGivenObject(BooleanType value) { 
+    public MedicationAdministration setWasNotGivenElement(BooleanType value) { 
       this.wasNotGiven = value;
       return this;
     }

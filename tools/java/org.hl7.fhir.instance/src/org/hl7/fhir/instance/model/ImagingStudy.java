@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -927,14 +927,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #number} (The number of this series in the overall sequence.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public IntegerType getNumberObject() { 
+        public IntegerType getNumberElement() { 
           return this.number;
         }
 
         /**
          * @param value {@link #number} (The number of this series in the overall sequence.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setNumberObject(IntegerType value) { 
+        public ImagingStudySeriesComponent setNumberElement(IntegerType value) { 
           this.number = value;
           return this;
         }
@@ -963,14 +963,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #modality} (The modality of this series sequence.). This is the underlying object with id, value and extensions. The accessor "getModality" gives direct access to the value
          */
-        public Enumeration<Modality> getModalityObject() { 
+        public Enumeration<Modality> getModalityElement() { 
           return this.modality;
         }
 
         /**
          * @param value {@link #modality} (The modality of this series sequence.). This is the underlying object with id, value and extensions. The accessor "getModality" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setModalityObject(Enumeration<Modality> value) { 
+        public ImagingStudySeriesComponent setModalityElement(Enumeration<Modality> value) { 
           this.modality = value;
           return this;
         }
@@ -995,14 +995,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #uid} (Formal identifier for this series.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public OidType getUidObject() { 
+        public OidType getUidElement() { 
           return this.uid;
         }
 
         /**
          * @param value {@link #uid} (Formal identifier for this series.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setUidObject(OidType value) { 
+        public ImagingStudySeriesComponent setUidElement(OidType value) { 
           this.uid = value;
           return this;
         }
@@ -1027,14 +1027,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #description} (A description of the series.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (A description of the series.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setDescriptionObject(StringType value) { 
+        public ImagingStudySeriesComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -1063,14 +1063,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #numberOfInstances} (Sequence that contains attributes from the.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
          */
-        public IntegerType getNumberOfInstancesObject() { 
+        public IntegerType getNumberOfInstancesElement() { 
           return this.numberOfInstances;
         }
 
         /**
          * @param value {@link #numberOfInstances} (Sequence that contains attributes from the.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setNumberOfInstancesObject(IntegerType value) { 
+        public ImagingStudySeriesComponent setNumberOfInstancesElement(IntegerType value) { 
           this.numberOfInstances = value;
           return this;
         }
@@ -1095,14 +1095,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #availability} (Availability of series (online, offline or nearline).). This is the underlying object with id, value and extensions. The accessor "getAvailability" gives direct access to the value
          */
-        public Enumeration<InstanceAvailability> getAvailabilityObject() { 
+        public Enumeration<InstanceAvailability> getAvailabilityElement() { 
           return this.availability;
         }
 
         /**
          * @param value {@link #availability} (Availability of series (online, offline or nearline).). This is the underlying object with id, value and extensions. The accessor "getAvailability" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setAvailabilityObject(Enumeration<InstanceAvailability> value) { 
+        public ImagingStudySeriesComponent setAvailabilityElement(Enumeration<InstanceAvailability> value) { 
           this.availability = value;
           return this;
         }
@@ -1131,14 +1131,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #url} (WADO-RS URI where Series is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlObject() { 
+        public UriType getUrlElement() { 
           return this.url;
         }
 
         /**
          * @param value {@link #url} (WADO-RS URI where Series is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setUrlObject(UriType value) { 
+        public ImagingStudySeriesComponent setUrlElement(UriType value) { 
           this.url = value;
           return this;
         }
@@ -1182,14 +1182,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #dateTime} (When the series started.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public DateTimeType getDateTimeObject() { 
+        public DateTimeType getDateTimeElement() { 
           return this.dateTime;
         }
 
         /**
          * @param value {@link #dateTime} (When the series started.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setDateTimeObject(DateTimeType value) { 
+        public ImagingStudySeriesComponent setDateTimeElement(DateTimeType value) { 
           this.dateTime = value;
           return this;
         }
@@ -1321,14 +1321,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #number} (The number of this image in the series.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public IntegerType getNumberObject() { 
+        public IntegerType getNumberElement() { 
           return this.number;
         }
 
         /**
          * @param value {@link #number} (The number of this image in the series.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setNumberObject(IntegerType value) { 
+        public ImagingStudySeriesInstanceComponent setNumberElement(IntegerType value) { 
           this.number = value;
           return this;
         }
@@ -1357,14 +1357,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #uid} (Formal identifier for this image.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public OidType getUidObject() { 
+        public OidType getUidElement() { 
           return this.uid;
         }
 
         /**
          * @param value {@link #uid} (Formal identifier for this image.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setUidObject(OidType value) { 
+        public ImagingStudySeriesInstanceComponent setUidElement(OidType value) { 
           this.uid = value;
           return this;
         }
@@ -1389,14 +1389,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #sopclass} (DICOM Image type.). This is the underlying object with id, value and extensions. The accessor "getSopclass" gives direct access to the value
          */
-        public OidType getSopclassObject() { 
+        public OidType getSopclassElement() { 
           return this.sopclass;
         }
 
         /**
          * @param value {@link #sopclass} (DICOM Image type.). This is the underlying object with id, value and extensions. The accessor "getSopclass" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setSopclassObject(OidType value) { 
+        public ImagingStudySeriesInstanceComponent setSopclassElement(OidType value) { 
           this.sopclass = value;
           return this;
         }
@@ -1421,14 +1421,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #type} (Type of instance (image etc) (0004,1430).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public StringType getTypeObject() { 
+        public StringType getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (Type of instance (image etc) (0004,1430).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setTypeObject(StringType value) { 
+        public ImagingStudySeriesInstanceComponent setTypeElement(StringType value) { 
           this.type = value;
           return this;
         }
@@ -1457,14 +1457,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #title} (Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitleObject() { 
+        public StringType getTitleElement() { 
           return this.title;
         }
 
         /**
          * @param value {@link #title} (Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setTitleObject(StringType value) { 
+        public ImagingStudySeriesInstanceComponent setTitleElement(StringType value) { 
           this.title = value;
           return this;
         }
@@ -1493,14 +1493,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return {@link #url} (WADO-RS url where image is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlObject() { 
+        public UriType getUrlElement() { 
           return this.url;
         }
 
         /**
          * @param value {@link #url} (WADO-RS url where image is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setUrlObject(UriType value) { 
+        public ImagingStudySeriesInstanceComponent setUrlElement(UriType value) { 
           this.url = value;
           return this;
         }
@@ -1703,14 +1703,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #dateTime} (Date and Time the study took place.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public DateTimeType getDateTimeObject() { 
+    public DateTimeType getDateTimeElement() { 
       return this.dateTime;
     }
 
     /**
      * @param value {@link #dateTime} (Date and Time the study took place.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public ImagingStudy setDateTimeObject(DateTimeType value) { 
+    public ImagingStudy setDateTimeElement(DateTimeType value) { 
       this.dateTime = value;
       return this;
     }
@@ -1769,14 +1769,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #uid} (Formal identifier for the study.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
      */
-    public OidType getUidObject() { 
+    public OidType getUidElement() { 
       return this.uid;
     }
 
     /**
      * @param value {@link #uid} (Formal identifier for the study.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
      */
-    public ImagingStudy setUidObject(OidType value) { 
+    public ImagingStudy setUidElement(OidType value) { 
       this.uid = value;
       return this;
     }
@@ -1875,7 +1875,7 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #modality} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
-    public Enumeration<ImagingModality> addModalityObject() { 
+    public Enumeration<ImagingModality> addModalityElement() { 
       Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
       this.modality.add(t);
       return t;
@@ -1934,14 +1934,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #availability} (Availability of study (online, offline or nearline).). This is the underlying object with id, value and extensions. The accessor "getAvailability" gives direct access to the value
      */
-    public Enumeration<InstanceAvailability> getAvailabilityObject() { 
+    public Enumeration<InstanceAvailability> getAvailabilityElement() { 
       return this.availability;
     }
 
     /**
      * @param value {@link #availability} (Availability of study (online, offline or nearline).). This is the underlying object with id, value and extensions. The accessor "getAvailability" gives direct access to the value
      */
-    public ImagingStudy setAvailabilityObject(Enumeration<InstanceAvailability> value) { 
+    public ImagingStudy setAvailabilityElement(Enumeration<InstanceAvailability> value) { 
       this.availability = value;
       return this;
     }
@@ -1970,14 +1970,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #url} (WADO-RS URI where Study is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlObject() { 
+    public UriType getUrlElement() { 
       return this.url;
     }
 
     /**
      * @param value {@link #url} (WADO-RS URI where Study is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public ImagingStudy setUrlObject(UriType value) { 
+    public ImagingStudy setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -2006,14 +2006,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #numberOfSeries} (Number of Series in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfSeries" gives direct access to the value
      */
-    public IntegerType getNumberOfSeriesObject() { 
+    public IntegerType getNumberOfSeriesElement() { 
       return this.numberOfSeries;
     }
 
     /**
      * @param value {@link #numberOfSeries} (Number of Series in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfSeries" gives direct access to the value
      */
-    public ImagingStudy setNumberOfSeriesObject(IntegerType value) { 
+    public ImagingStudy setNumberOfSeriesElement(IntegerType value) { 
       this.numberOfSeries = value;
       return this;
     }
@@ -2038,14 +2038,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #numberOfInstances} (Number of SOP Instances in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
      */
-    public IntegerType getNumberOfInstancesObject() { 
+    public IntegerType getNumberOfInstancesElement() { 
       return this.numberOfInstances;
     }
 
     /**
      * @param value {@link #numberOfInstances} (Number of SOP Instances in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
      */
-    public ImagingStudy setNumberOfInstancesObject(IntegerType value) { 
+    public ImagingStudy setNumberOfInstancesElement(IntegerType value) { 
       this.numberOfInstances = value;
       return this;
     }
@@ -2070,14 +2070,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #clinicalInformation} (Diagnoses etc provided with request.). This is the underlying object with id, value and extensions. The accessor "getClinicalInformation" gives direct access to the value
      */
-    public StringType getClinicalInformationObject() { 
+    public StringType getClinicalInformationElement() { 
       return this.clinicalInformation;
     }
 
     /**
      * @param value {@link #clinicalInformation} (Diagnoses etc provided with request.). This is the underlying object with id, value and extensions. The accessor "getClinicalInformation" gives direct access to the value
      */
-    public ImagingStudy setClinicalInformationObject(StringType value) { 
+    public ImagingStudy setClinicalInformationElement(StringType value) { 
       this.clinicalInformation = value;
       return this;
     }
@@ -2153,14 +2153,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return {@link #description} (Institution-generated description or classification of the Study (component) performed.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Institution-generated description or classification of the Study (component) performed.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ImagingStudy setDescriptionObject(StringType value) { 
+    public ImagingStudy setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }

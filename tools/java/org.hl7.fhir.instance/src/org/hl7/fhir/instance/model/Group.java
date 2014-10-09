@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -174,14 +174,14 @@ public class Group extends Resource {
         /**
          * @return {@link #exclude} (If true, indicates the characteristic is one that is NOT held by members of the group.). This is the underlying object with id, value and extensions. The accessor "getExclude" gives direct access to the value
          */
-        public BooleanType getExcludeObject() { 
+        public BooleanType getExcludeElement() { 
           return this.exclude;
         }
 
         /**
          * @param value {@link #exclude} (If true, indicates the characteristic is one that is NOT held by members of the group.). This is the underlying object with id, value and extensions. The accessor "getExclude" gives direct access to the value
          */
-        public GroupCharacteristicComponent setExcludeObject(BooleanType value) { 
+        public GroupCharacteristicComponent setExcludeElement(BooleanType value) { 
           this.exclude = value;
           return this;
         }
@@ -295,14 +295,14 @@ public class Group extends Resource {
     /**
      * @return {@link #type} (Identifies the broad classification of the kind of resources the group includes.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<GroupType> getTypeObject() { 
+    public Enumeration<GroupType> getTypeElement() { 
       return this.type;
     }
 
     /**
      * @param value {@link #type} (Identifies the broad classification of the kind of resources the group includes.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Group setTypeObject(Enumeration<GroupType> value) { 
+    public Group setTypeElement(Enumeration<GroupType> value) { 
       this.type = value;
       return this;
     }
@@ -327,14 +327,14 @@ public class Group extends Resource {
     /**
      * @return {@link #actual} (If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.). This is the underlying object with id, value and extensions. The accessor "getActual" gives direct access to the value
      */
-    public BooleanType getActualObject() { 
+    public BooleanType getActualElement() { 
       return this.actual;
     }
 
     /**
      * @param value {@link #actual} (If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.). This is the underlying object with id, value and extensions. The accessor "getActual" gives direct access to the value
      */
-    public Group setActualObject(BooleanType value) { 
+    public Group setActualElement(BooleanType value) { 
       this.actual = value;
       return this;
     }
@@ -374,14 +374,14 @@ public class Group extends Resource {
     /**
      * @return {@link #name} (A label assigned to the group for human identification and communication.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameObject() { 
+    public StringType getNameElement() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (A label assigned to the group for human identification and communication.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Group setNameObject(StringType value) { 
+    public Group setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -410,14 +410,14 @@ public class Group extends Resource {
     /**
      * @return {@link #quantity} (A count of the number of resource instances that are part of the group.). This is the underlying object with id, value and extensions. The accessor "getQuantity" gives direct access to the value
      */
-    public IntegerType getQuantityObject() { 
+    public IntegerType getQuantityElement() { 
       return this.quantity;
     }
 
     /**
      * @param value {@link #quantity} (A count of the number of resource instances that are part of the group.). This is the underlying object with id, value and extensions. The accessor "getQuantity" gives direct access to the value
      */
-    public Group setQuantityObject(IntegerType value) { 
+    public Group setQuantityElement(IntegerType value) { 
       this.quantity = value;
       return this;
     }

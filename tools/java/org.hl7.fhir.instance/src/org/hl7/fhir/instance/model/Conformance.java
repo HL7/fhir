@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -524,14 +524,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #name} (Name software is known by.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameObject() { 
+        public StringType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (Name software is known by.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ConformanceSoftwareComponent setNameObject(StringType value) { 
+        public ConformanceSoftwareComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -556,14 +556,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #version} (The version identifier for the software covered by this statement.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersionObject() { 
+        public StringType getVersionElement() { 
           return this.version;
         }
 
         /**
          * @param value {@link #version} (The version identifier for the software covered by this statement.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public ConformanceSoftwareComponent setVersionObject(StringType value) { 
+        public ConformanceSoftwareComponent setVersionElement(StringType value) { 
           this.version = value;
           return this;
         }
@@ -592,14 +592,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #releaseDate} (Date this version of the software released.). This is the underlying object with id, value and extensions. The accessor "getReleaseDate" gives direct access to the value
          */
-        public DateTimeType getReleaseDateObject() { 
+        public DateTimeType getReleaseDateElement() { 
           return this.releaseDate;
         }
 
         /**
          * @param value {@link #releaseDate} (Date this version of the software released.). This is the underlying object with id, value and extensions. The accessor "getReleaseDate" gives direct access to the value
          */
-        public ConformanceSoftwareComponent setReleaseDateObject(DateTimeType value) { 
+        public ConformanceSoftwareComponent setReleaseDateElement(DateTimeType value) { 
           this.releaseDate = value;
           return this;
         }
@@ -667,14 +667,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #description} (Information about the specific installation that this conformance statement relates to.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Information about the specific installation that this conformance statement relates to.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ConformanceImplementationComponent setDescriptionObject(StringType value) { 
+        public ConformanceImplementationComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -699,14 +699,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #url} (A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlObject() { 
+        public UriType getUrlElement() { 
           return this.url;
         }
 
         /**
          * @param value {@link #url} (A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public ConformanceImplementationComponent setUrlObject(UriType value) { 
+        public ConformanceImplementationComponent setUrlElement(UriType value) { 
           this.url = value;
           return this;
         }
@@ -797,14 +797,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #mode} (Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public Enumeration<RestfulConformanceMode> getModeObject() { 
+        public Enumeration<RestfulConformanceMode> getModeElement() { 
           return this.mode;
         }
 
         /**
          * @param value {@link #mode} (Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public ConformanceRestComponent setModeObject(Enumeration<RestfulConformanceMode> value) { 
+        public ConformanceRestComponent setModeElement(Enumeration<RestfulConformanceMode> value) { 
           this.mode = value;
           return this;
         }
@@ -829,14 +829,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #documentation} (Information about the system's restful capabilities that apply across all applications, such as security.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationObject() { 
+        public StringType getDocumentationElement() { 
           return this.documentation;
         }
 
         /**
          * @param value {@link #documentation} (Information about the system's restful capabilities that apply across all applications, such as security.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ConformanceRestComponent setDocumentationObject(StringType value) { 
+        public ConformanceRestComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -939,7 +939,7 @@ public class Conformance extends Resource {
         /**
          * @return {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
          */
-        public UriType addDocumentMailboxObject() { 
+        public UriType addDocumentMailboxElement() { 
           UriType t = new UriType();
           this.documentMailbox.add(t);
           return t;
@@ -1028,14 +1028,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #cors} (Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server.). This is the underlying object with id, value and extensions. The accessor "getCors" gives direct access to the value
          */
-        public BooleanType getCorsObject() { 
+        public BooleanType getCorsElement() { 
           return this.cors;
         }
 
         /**
          * @param value {@link #cors} (Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server.). This is the underlying object with id, value and extensions. The accessor "getCors" gives direct access to the value
          */
-        public ConformanceRestSecurityComponent setCorsObject(BooleanType value) { 
+        public ConformanceRestSecurityComponent setCorsElement(BooleanType value) { 
           this.cors = value;
           return this;
         }
@@ -1081,14 +1081,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #description} (General description of how security works.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (General description of how security works.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ConformanceRestSecurityComponent setDescriptionObject(StringType value) { 
+        public ConformanceRestSecurityComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -1174,14 +1174,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #type} (Mime type for certificate.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public CodeType getTypeObject() { 
+        public CodeType getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (Mime type for certificate.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ConformanceRestSecurityCertificateComponent setTypeObject(CodeType value) { 
+        public ConformanceRestSecurityCertificateComponent setTypeElement(CodeType value) { 
           this.type = value;
           return this;
         }
@@ -1210,14 +1210,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #blob} (Actual certificate.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
          */
-        public Base64BinaryType getBlobObject() { 
+        public Base64BinaryType getBlobElement() { 
           return this.blob;
         }
 
         /**
          * @param value {@link #blob} (Actual certificate.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
          */
-        public ConformanceRestSecurityCertificateComponent setBlobObject(Base64BinaryType value) { 
+        public ConformanceRestSecurityCertificateComponent setBlobElement(Base64BinaryType value) { 
           this.blob = value;
           return this;
         }
@@ -1313,14 +1313,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #type} (A type of resource exposed via the restful interface.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public CodeType getTypeObject() { 
+        public CodeType getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (A type of resource exposed via the restful interface.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ConformanceRestResourceComponent setTypeObject(CodeType value) { 
+        public ConformanceRestResourceComponent setTypeElement(CodeType value) { 
           this.type = value;
           return this;
         }
@@ -1392,14 +1392,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #readHistory} (A flag for whether the server is able to return past versions as part of the vRead operation.). This is the underlying object with id, value and extensions. The accessor "getReadHistory" gives direct access to the value
          */
-        public BooleanType getReadHistoryObject() { 
+        public BooleanType getReadHistoryElement() { 
           return this.readHistory;
         }
 
         /**
          * @param value {@link #readHistory} (A flag for whether the server is able to return past versions as part of the vRead operation.). This is the underlying object with id, value and extensions. The accessor "getReadHistory" gives direct access to the value
          */
-        public ConformanceRestResourceComponent setReadHistoryObject(BooleanType value) { 
+        public ConformanceRestResourceComponent setReadHistoryElement(BooleanType value) { 
           this.readHistory = value;
           return this;
         }
@@ -1428,14 +1428,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #updateCreate} (A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.). This is the underlying object with id, value and extensions. The accessor "getUpdateCreate" gives direct access to the value
          */
-        public BooleanType getUpdateCreateObject() { 
+        public BooleanType getUpdateCreateElement() { 
           return this.updateCreate;
         }
 
         /**
          * @param value {@link #updateCreate} (A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.). This is the underlying object with id, value and extensions. The accessor "getUpdateCreate" gives direct access to the value
          */
-        public ConformanceRestResourceComponent setUpdateCreateObject(BooleanType value) { 
+        public ConformanceRestResourceComponent setUpdateCreateElement(BooleanType value) { 
           this.updateCreate = value;
           return this;
         }
@@ -1472,7 +1472,7 @@ public class Conformance extends Resource {
         /**
          * @return {@link #searchInclude} (A list of _include values supported by the server.)
          */
-        public StringType addSearchIncludeObject() { 
+        public StringType addSearchIncludeElement() { 
           StringType t = new StringType();
           this.searchInclude.add(t);
           return t;
@@ -1571,14 +1571,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #code} (Coded identifier of the operation, supported by the system resource.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<TypeRestfulInteraction> getCodeObject() { 
+        public Enumeration<TypeRestfulInteraction> getCodeElement() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (Coded identifier of the operation, supported by the system resource.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public ResourceInteractionComponent setCodeObject(Enumeration<TypeRestfulInteraction> value) { 
+        public ResourceInteractionComponent setCodeElement(Enumeration<TypeRestfulInteraction> value) { 
           this.code = value;
           return this;
         }
@@ -1603,14 +1603,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #documentation} (Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationObject() { 
+        public StringType getDocumentationElement() { 
           return this.documentation;
         }
 
         /**
          * @param value {@link #documentation} (Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ResourceInteractionComponent setDocumentationObject(StringType value) { 
+        public ResourceInteractionComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -1697,14 +1697,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #name} (The name of the search parameter used in the interface.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameObject() { 
+        public StringType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (The name of the search parameter used in the interface.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ConformanceRestResourceSearchParamComponent setNameObject(StringType value) { 
+        public ConformanceRestResourceSearchParamComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -1729,14 +1729,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #definition} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
-        public UriType getDefinitionObject() { 
+        public UriType getDefinitionElement() { 
           return this.definition;
         }
 
         /**
          * @param value {@link #definition} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
-        public ConformanceRestResourceSearchParamComponent setDefinitionObject(UriType value) { 
+        public ConformanceRestResourceSearchParamComponent setDefinitionElement(UriType value) { 
           this.definition = value;
           return this;
         }
@@ -1765,14 +1765,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<SearchParamType> getTypeObject() { 
+        public Enumeration<SearchParamType> getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ConformanceRestResourceSearchParamComponent setTypeObject(Enumeration<SearchParamType> value) { 
+        public ConformanceRestResourceSearchParamComponent setTypeElement(Enumeration<SearchParamType> value) { 
           this.type = value;
           return this;
         }
@@ -1797,14 +1797,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #documentation} (This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationObject() { 
+        public StringType getDocumentationElement() { 
           return this.documentation;
         }
 
         /**
          * @param value {@link #documentation} (This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ConformanceRestResourceSearchParamComponent setDocumentationObject(StringType value) { 
+        public ConformanceRestResourceSearchParamComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -1841,7 +1841,7 @@ public class Conformance extends Resource {
         /**
          * @return {@link #target} (Types of resource (if a resource is referenced).)
          */
-        public CodeType addTargetObject() { 
+        public CodeType addTargetElement() { 
           CodeType t = new CodeType();
           this.target.add(t);
           return t;
@@ -1878,7 +1878,7 @@ public class Conformance extends Resource {
         /**
          * @return {@link #chain} (Chained names supported.)
          */
-        public StringType addChainObject() { 
+        public StringType addChainElement() { 
           StringType t = new StringType();
           this.chain.add(t);
           return t;
@@ -1956,14 +1956,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #code} (A coded identifier of the operation, supported by the system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<SystemRestfulInteraction> getCodeObject() { 
+        public Enumeration<SystemRestfulInteraction> getCodeElement() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (A coded identifier of the operation, supported by the system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public SystemInteractionComponent setCodeObject(Enumeration<SystemRestfulInteraction> value) { 
+        public SystemInteractionComponent setCodeElement(Enumeration<SystemRestfulInteraction> value) { 
           this.code = value;
           return this;
         }
@@ -1988,14 +1988,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #documentation} (Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationObject() { 
+        public StringType getDocumentationElement() { 
           return this.documentation;
         }
 
         /**
          * @param value {@link #documentation} (Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public SystemInteractionComponent setDocumentationObject(StringType value) { 
+        public SystemInteractionComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -2067,14 +2067,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #name} (The name of a query, which is used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameObject() { 
+        public StringType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (The name of a query, which is used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ConformanceRestOperationComponent setNameObject(StringType value) { 
+        public ConformanceRestOperationComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -2171,14 +2171,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #endpoint} (An address to which messages and/or replies are to be sent.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public UriType getEndpointObject() { 
+        public UriType getEndpointElement() { 
           return this.endpoint;
         }
 
         /**
          * @param value {@link #endpoint} (An address to which messages and/or replies are to be sent.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public ConformanceMessagingComponent setEndpointObject(UriType value) { 
+        public ConformanceMessagingComponent setEndpointElement(UriType value) { 
           this.endpoint = value;
           return this;
         }
@@ -2207,14 +2207,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #reliableCache} (Length if the receiver's reliable messaging cache (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
          */
-        public IntegerType getReliableCacheObject() { 
+        public IntegerType getReliableCacheElement() { 
           return this.reliableCache;
         }
 
         /**
          * @param value {@link #reliableCache} (Length if the receiver's reliable messaging cache (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
          */
-        public ConformanceMessagingComponent setReliableCacheObject(IntegerType value) { 
+        public ConformanceMessagingComponent setReliableCacheElement(IntegerType value) { 
           this.reliableCache = value;
           return this;
         }
@@ -2243,14 +2243,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #documentation} (Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationObject() { 
+        public StringType getDocumentationElement() { 
           return this.documentation;
         }
 
         /**
          * @param value {@link #documentation} (Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ConformanceMessagingComponent setDocumentationObject(StringType value) { 
+        public ConformanceMessagingComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -2398,14 +2398,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #category} (The impact of the content of the message.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
          */
-        public Enumeration<MessageSignificanceCategory> getCategoryObject() { 
+        public Enumeration<MessageSignificanceCategory> getCategoryElement() { 
           return this.category;
         }
 
         /**
          * @param value {@link #category} (The impact of the content of the message.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
          */
-        public ConformanceMessagingEventComponent setCategoryObject(Enumeration<MessageSignificanceCategory> value) { 
+        public ConformanceMessagingEventComponent setCategoryElement(Enumeration<MessageSignificanceCategory> value) { 
           this.category = value;
           return this;
         }
@@ -2434,14 +2434,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #mode} (The mode of this event declaration - whether application is sender or receiver.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public Enumeration<MessageConformanceEventMode> getModeObject() { 
+        public Enumeration<MessageConformanceEventMode> getModeElement() { 
           return this.mode;
         }
 
         /**
          * @param value {@link #mode} (The mode of this event declaration - whether application is sender or receiver.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public ConformanceMessagingEventComponent setModeObject(Enumeration<MessageConformanceEventMode> value) { 
+        public ConformanceMessagingEventComponent setModeElement(Enumeration<MessageConformanceEventMode> value) { 
           this.mode = value;
           return this;
         }
@@ -2483,14 +2483,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #focus} (A resource associated with the event.  This is the resource that defines the event.). This is the underlying object with id, value and extensions. The accessor "getFocus" gives direct access to the value
          */
-        public CodeType getFocusObject() { 
+        public CodeType getFocusElement() { 
           return this.focus;
         }
 
         /**
          * @param value {@link #focus} (A resource associated with the event.  This is the resource that defines the event.). This is the underlying object with id, value and extensions. The accessor "getFocus" gives direct access to the value
          */
-        public ConformanceMessagingEventComponent setFocusObject(CodeType value) { 
+        public ConformanceMessagingEventComponent setFocusElement(CodeType value) { 
           this.focus = value;
           return this;
         }
@@ -2575,14 +2575,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #documentation} (Guidance on how this event is handled, such as internal system trigger points, business rules, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationObject() { 
+        public StringType getDocumentationElement() { 
           return this.documentation;
         }
 
         /**
          * @param value {@link #documentation} (Guidance on how this event is handled, such as internal system trigger points, business rules, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ConformanceMessagingEventComponent setDocumentationObject(StringType value) { 
+        public ConformanceMessagingEventComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -2673,14 +2673,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #mode} (Mode of this document declaration - whether application is producer or consumer.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public Enumeration<DocumentMode> getModeObject() { 
+        public Enumeration<DocumentMode> getModeElement() { 
           return this.mode;
         }
 
         /**
          * @param value {@link #mode} (Mode of this document declaration - whether application is producer or consumer.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public ConformanceDocumentComponent setModeObject(Enumeration<DocumentMode> value) { 
+        public ConformanceDocumentComponent setModeElement(Enumeration<DocumentMode> value) { 
           this.mode = value;
           return this;
         }
@@ -2705,14 +2705,14 @@ public class Conformance extends Resource {
         /**
          * @return {@link #documentation} (A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationObject() { 
+        public StringType getDocumentationElement() { 
           return this.documentation;
         }
 
         /**
          * @param value {@link #documentation} (A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ConformanceDocumentComponent setDocumentationObject(StringType value) { 
+        public ConformanceDocumentComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -2897,14 +2897,14 @@ public class Conformance extends Resource {
     /**
      * @return {@link #identifier} (The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public StringType getIdentifierObject() { 
+    public StringType getIdentifierElement() { 
       return this.identifier;
     }
 
     /**
      * @param value {@link #identifier} (The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
-    public Conformance setIdentifierObject(StringType value) { 
+    public Conformance setIdentifierElement(StringType value) { 
       this.identifier = value;
       return this;
     }
@@ -2933,14 +2933,14 @@ public class Conformance extends Resource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionObject() { 
+    public StringType getVersionElement() { 
       return this.version;
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public Conformance setVersionObject(StringType value) { 
+    public Conformance setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -2969,14 +2969,14 @@ public class Conformance extends Resource {
     /**
      * @return {@link #name} (A free text natural language name identifying the conformance statement.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameObject() { 
+    public StringType getNameElement() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (A free text natural language name identifying the conformance statement.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Conformance setNameObject(StringType value) { 
+    public Conformance setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -3005,14 +3005,14 @@ public class Conformance extends Resource {
     /**
      * @return {@link #publisher} (Name of Organization publishing this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherObject() { 
+    public StringType getPublisherElement() { 
       return this.publisher;
     }
 
     /**
      * @param value {@link #publisher} (Name of Organization publishing this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public Conformance setPublisherObject(StringType value) { 
+    public Conformance setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -3054,14 +3054,14 @@ public class Conformance extends Resource {
     /**
      * @return {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Conformance setDescriptionObject(StringType value) { 
+    public Conformance setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -3090,14 +3090,14 @@ public class Conformance extends Resource {
     /**
      * @return {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceStatementStatus> getStatusObject() { 
+    public Enumeration<ConformanceStatementStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Conformance setStatusObject(Enumeration<ConformanceStatementStatus> value) { 
+    public Conformance setStatusElement(Enumeration<ConformanceStatementStatus> value) { 
       this.status = value;
       return this;
     }
@@ -3126,14 +3126,14 @@ public class Conformance extends Resource {
     /**
      * @return {@link #experimental} (A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalObject() { 
+    public BooleanType getExperimentalElement() { 
       return this.experimental;
     }
 
     /**
      * @param value {@link #experimental} (A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public Conformance setExperimentalObject(BooleanType value) { 
+    public Conformance setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -3162,14 +3162,14 @@ public class Conformance extends Resource {
     /**
      * @return {@link #date} (The date when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Conformance setDateObject(DateTimeType value) { 
+    public Conformance setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -3224,14 +3224,14 @@ public class Conformance extends Resource {
     /**
      * @return {@link #fhirVersion} (The version of the FHIR specification on which this conformance statement is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public IdType getFhirVersionObject() { 
+    public IdType getFhirVersionElement() { 
       return this.fhirVersion;
     }
 
     /**
      * @param value {@link #fhirVersion} (The version of the FHIR specification on which this conformance statement is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public Conformance setFhirVersionObject(IdType value) { 
+    public Conformance setFhirVersionElement(IdType value) { 
       this.fhirVersion = value;
       return this;
     }
@@ -3256,14 +3256,14 @@ public class Conformance extends Resource {
     /**
      * @return {@link #acceptUnknown} (A flag that indicates whether the application accepts unknown elements as part of a resource.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
      */
-    public BooleanType getAcceptUnknownObject() { 
+    public BooleanType getAcceptUnknownElement() { 
       return this.acceptUnknown;
     }
 
     /**
      * @param value {@link #acceptUnknown} (A flag that indicates whether the application accepts unknown elements as part of a resource.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
      */
-    public Conformance setAcceptUnknownObject(BooleanType value) { 
+    public Conformance setAcceptUnknownElement(BooleanType value) { 
       this.acceptUnknown = value;
       return this;
     }
@@ -3296,7 +3296,7 @@ public class Conformance extends Resource {
     /**
      * @return {@link #format} (A list of the formats supported by this implementation.)
      */
-    public CodeType addFormatObject() { 
+    public CodeType addFormatElement() { 
       CodeType t = new CodeType();
       this.format.add(t);
       return t;

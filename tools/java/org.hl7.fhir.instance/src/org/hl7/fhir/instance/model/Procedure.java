@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -187,14 +187,14 @@ public class Procedure extends Resource {
         /**
          * @return {@link #type} (The nature of the relationship.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ProcedureRelationshipType> getTypeObject() { 
+        public Enumeration<ProcedureRelationshipType> getTypeElement() { 
           return this.type;
         }
 
         /**
          * @param value {@link #type} (The nature of the relationship.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ProcedureRelatedItemComponent setTypeObject(Enumeration<ProcedureRelationshipType> value) { 
+        public ProcedureRelatedItemComponent setTypeElement(Enumeration<ProcedureRelationshipType> value) { 
           this.type = value;
           return this;
         }
@@ -523,14 +523,14 @@ public class Procedure extends Resource {
     /**
      * @return {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public StringType getOutcomeObject() { 
+    public StringType getOutcomeElement() { 
       return this.outcome;
     }
 
     /**
      * @param value {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public Procedure setOutcomeObject(StringType value) { 
+    public Procedure setOutcomeElement(StringType value) { 
       this.outcome = value;
       return this;
     }
@@ -610,14 +610,14 @@ public class Procedure extends Resource {
     /**
      * @return {@link #followUp} (If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.). This is the underlying object with id, value and extensions. The accessor "getFollowUp" gives direct access to the value
      */
-    public StringType getFollowUpObject() { 
+    public StringType getFollowUpElement() { 
       return this.followUp;
     }
 
     /**
      * @param value {@link #followUp} (If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.). This is the underlying object with id, value and extensions. The accessor "getFollowUp" gives direct access to the value
      */
-    public Procedure setFollowUpObject(StringType value) { 
+    public Procedure setFollowUpElement(StringType value) { 
       this.followUp = value;
       return this;
     }
@@ -663,14 +663,14 @@ public class Procedure extends Resource {
     /**
      * @return {@link #notes} (Any other notes about the procedure - e.g. the operative notes.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public StringType getNotesObject() { 
+    public StringType getNotesElement() { 
       return this.notes;
     }
 
     /**
      * @param value {@link #notes} (Any other notes about the procedure - e.g. the operative notes.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public Procedure setNotesObject(StringType value) { 
+    public Procedure setNotesElement(StringType value) { 
       this.notes = value;
       return this;
     }

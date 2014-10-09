@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -249,14 +249,14 @@ public class Appointment extends Resource {
         /**
          * @return {@link #required} (Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public Enumeration<Participantrequired> getRequiredObject() { 
+        public Enumeration<Participantrequired> getRequiredElement() { 
           return this.required;
         }
 
         /**
          * @param value {@link #required} (Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public AppointmentParticipantComponent setRequiredObject(Enumeration<Participantrequired> value) { 
+        public AppointmentParticipantComponent setRequiredElement(Enumeration<Participantrequired> value) { 
           this.required = value;
           return this;
         }
@@ -285,14 +285,14 @@ public class Appointment extends Resource {
         /**
          * @return {@link #status} (Participation status of the Patient.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<Participationstatus> getStatusObject() { 
+        public Enumeration<Participationstatus> getStatusElement() { 
           return this.status;
         }
 
         /**
          * @param value {@link #status} (Participation status of the Patient.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public AppointmentParticipantComponent setStatusObject(Enumeration<Participationstatus> value) { 
+        public AppointmentParticipantComponent setStatusElement(Enumeration<Participationstatus> value) { 
           this.status = value;
           return this;
         }
@@ -462,14 +462,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #priority} (The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept).). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public IntegerType getPriorityObject() { 
+    public IntegerType getPriorityElement() { 
       return this.priority;
     }
 
     /**
      * @param value {@link #priority} (The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept).). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public Appointment setPriorityObject(IntegerType value) { 
+    public Appointment setPriorityElement(IntegerType value) { 
       this.priority = value;
       return this;
     }
@@ -498,14 +498,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #status} (Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CodeType getStatusObject() { 
+    public CodeType getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Appointment setStatusObject(CodeType value) { 
+    public Appointment setStatusElement(CodeType value) { 
       this.status = value;
       return this;
     }
@@ -564,14 +564,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #description} (The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Appointment setDescriptionObject(StringType value) { 
+    public Appointment setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -600,14 +600,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #start} (Date/Time that the appointment is to take place.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public InstantType getStartObject() { 
+    public InstantType getStartElement() { 
       return this.start;
     }
 
     /**
      * @param value {@link #start} (Date/Time that the appointment is to take place.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public Appointment setStartObject(InstantType value) { 
+    public Appointment setStartElement(InstantType value) { 
       this.start = value;
       return this;
     }
@@ -632,14 +632,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #end} (Date/Time that the appointment is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public InstantType getEndObject() { 
+    public InstantType getEndElement() { 
       return this.end;
     }
 
     /**
      * @param value {@link #end} (Date/Time that the appointment is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public Appointment setEndObject(InstantType value) { 
+    public Appointment setEndElement(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -728,14 +728,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getCommentObject() { 
+    public StringType getCommentElement() { 
       return this.comment;
     }
 
     /**
      * @param value {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public Appointment setCommentObject(StringType value) { 
+    public Appointment setCommentElement(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -841,14 +841,14 @@ public class Appointment extends Resource {
     /**
      * @return {@link #lastModified} (Date when the appointment was recorded.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public DateTimeType getLastModifiedObject() { 
+    public DateTimeType getLastModifiedElement() { 
       return this.lastModified;
     }
 
     /**
      * @param value {@link #lastModified} (Date when the appointment was recorded.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public Appointment setLastModifiedObject(DateTimeType value) { 
+    public Appointment setLastModifiedElement(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }

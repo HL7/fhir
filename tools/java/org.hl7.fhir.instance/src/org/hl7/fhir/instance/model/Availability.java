@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -166,14 +166,14 @@ public class Availability extends Resource {
     /**
      * @return {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getCommentObject() { 
+    public StringType getCommentElement() { 
       return this.comment;
     }
 
     /**
      * @param value {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public Availability setCommentObject(StringType value) { 
+    public Availability setCommentElement(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -202,14 +202,14 @@ public class Availability extends Resource {
     /**
      * @return {@link #lastModified} (When this availability was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public DateTimeType getLastModifiedObject() { 
+    public DateTimeType getLastModifiedElement() { 
       return this.lastModified;
     }
 
     /**
      * @param value {@link #lastModified} (When this availability was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public Availability setLastModifiedObject(DateTimeType value) { 
+    public Availability setLastModifiedElement(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }

@@ -367,7 +367,7 @@ public class ProfileUtilities {
             diffpos++; // if there's a slice on the first, we'll ignore any content it has
             ElementSlicingComponent dSlice = diffMatches.get(0).getSlicing();
             ElementSlicingComponent bSlice = currentBase.getSlicing(); 
-            if (!orderMatches(dSlice.getOrderedObject(), bSlice.getOrderedObject()) || !discriiminatorMatches(dSlice.getDiscriminator(), bSlice.getDiscriminator()) ||
+            if (!orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()) || !discriiminatorMatches(dSlice.getDiscriminator(), bSlice.getDiscriminator()) ||
                  !ruleMatches(dSlice.getRules(), bSlice.getRules()))
               throw new Exception("Slicing rules on differential do not match those on base");
           }
@@ -515,12 +515,12 @@ public class ProfileUtilities {
   }
 
   private void updateFromSlicing(ElementSlicingComponent dst, ElementSlicingComponent src) {
-    if (src.getOrderedObject() != null)
-      dst.setOrderedObject(src.getOrderedObject().copy());
-    if (src.getDiscriminatorObject() != null)
-      dst.setDiscriminatorObject(src.getDiscriminatorObject().copy());
-    if (src.getRulesObject() != null)
-      dst.setRulesObject(src.getRulesObject().copy());
+    if (src.getOrderedElement() != null)
+      dst.setOrderedElement(src.getOrderedElement().copy());
+    if (src.getDiscriminatorElement() != null)
+      dst.setDiscriminatorElement(src.getDiscriminatorElement().copy());
+    if (src.getRulesElement() != null)
+      dst.setRulesElement(src.getRulesElement().copy());
   }
 
   private boolean orderMatches(BooleanType diff, BooleanType base) {
@@ -537,7 +537,7 @@ public class ProfileUtilities {
   }
 
   private boolean isSlicedToOneOnly(ElementComponent e) {
-    return (e.getSlicing() != null && e.getDefinition() != null && e.getDefinition().getMaxObject() != null && e.getDefinition().getMax().equals("1"));
+    return (e.getSlicing() != null && e.getDefinition() != null && e.getDefinition().getMaxElement() != null && e.getDefinition().getMax().equals("1"));
   }
 
   private ElementSlicingComponent makeExtensionSlicing() {
@@ -572,7 +572,7 @@ public class ProfileUtilities {
   }
 
   private boolean unbounded(ElementDefinitionComponent definition) {
-    StringType max = definition.getMaxObject();
+    StringType max = definition.getMaxElement();
     if (max == null)
       return false; // this is not valid
     if (max.getValue().equals("1"))
@@ -590,32 +590,32 @@ public class ProfileUtilities {
     ElementDefinitionComponent src = source.getDefinition();
     
     if (src != null) {
-      if (src.getShortObject() != null)
-        dst.setShortObject(src.getShortObject().copy());
-      if (src.getFormalObject() != null)
-        dst.setFormalObject(src.getFormalObject().copy());
-      if (src.getCommentsObject() != null)
-        dst.setCommentsObject(src.getCommentsObject().copy());
-      if (src.getRequirementsObject() != null)
-        dst.setRequirementsObject(src.getRequirementsObject().copy());
+      if (src.getShortElement() != null)
+        dst.setShortElement(src.getShortElement().copy());
+      if (src.getFormalElement() != null)
+        dst.setFormalElement(src.getFormalElement().copy());
+      if (src.getCommentsElement() != null)
+        dst.setCommentsElement(src.getCommentsElement().copy());
+      if (src.getRequirementsElement() != null)
+        dst.setRequirementsElement(src.getRequirementsElement().copy());
       for (StringType s : src.getSynonym()) {
         if (!dst.hasSynonym(s.getValue()))
           dst.getSynonym().add(s.copy());
       }
-      if (src.getMinObject() != null)
-        dst.setMinObject(src.getMinObject().copy());
-      if (src.getMaxObject() != null)
-        dst.setMaxObject(src.getMaxObject().copy());
+      if (src.getMinElement() != null)
+        dst.setMinElement(src.getMinElement().copy());
+      if (src.getMaxElement() != null)
+        dst.setMaxElement(src.getMaxElement().copy());
       if (src.getValue() != null)
         dst.setValue(src.getValue().copy());
       if (src.getExample() != null)
         dst.setExample(src.getExample().copy());
-      if (src.getMaxLengthObject() != null)
-        dst.setMaxLengthObject(src.getMaxLengthObject().copy());
+      if (src.getMaxLengthElement() != null)
+        dst.setMaxLengthElement(src.getMaxLengthElement().copy());
       // todo: what to do about conditions? 
       // condition : id 0..*
-      if (src.getMustSupportObject() != null)
-        dst.setMustSupportObject(src.getMustSupportObject().copy());
+      if (src.getMustSupportElement() != null)
+        dst.setMustSupportElement(src.getMustSupportElement().copy());
       // profiles cannot change : isModifier
       if (src.getBinding() != null)
         dst.setBinding(src.getBinding().copy());
@@ -701,7 +701,7 @@ public class ProfileUtilities {
         first = false; 
       else 
         c.addPiece(gen.new Piece(null,", ", null));
-      if (t.getCode().equals("Reference") || (t.getCode().equals("Resource") && t.getProfileObject() != null)) {
+      if (t.getCode().equals("Reference") || (t.getCode().equals("Resource") && t.getProfileElement() != null)) {
         if (t.getProfile().startsWith("http://hl7.org/fhir/Profile/")) {
           String rn = t.getProfile().substring(28);
           c.addPiece(gen.new Piece(pkp.getLinkFor(rn), rn, null));
@@ -709,7 +709,7 @@ public class ProfileUtilities {
           c.addPiece(gen.new Piece(profileBaseFileName+"."+t.getProfile().substring(1).toLowerCase()+".html", t.getProfile(), null));
         else
           c.addPiece(gen.new Piece(t.getProfile(), t.getProfile(), null));
-      } else if (t.getProfileObject() != null) { // a profiled type
+      } else if (t.getProfileElement() != null) { // a profiled type
         String ref;
         ref = pkp.getLinkForProfile(profile, t.getProfile());
         if (ref != null) {
@@ -739,12 +739,12 @@ public class ProfileUtilities {
   }
 
   private String describeCardinality(ElementDefinitionComponent definition, ElementDefinitionComponent fallback, UnusedTracker tracker) {
-    IntegerType min = definition.getMinObject();
-    StringType max = definition.getMaxObject();
+    IntegerType min = definition.getMinElement();
+    StringType max = definition.getMaxElement();
     if (min == null && fallback != null)
-      min = fallback.getMinObject();
+      min = fallback.getMinElement();
     if (max == null && fallback != null)
-      max = fallback.getMaxObject();
+      max = fallback.getMaxElement();
     
     tracker.used = max == null || !max.getValue().equals("0");
 
@@ -935,10 +935,10 @@ public class ProfileUtilities {
 
   private boolean onlyInformationIsMapping(ElementDefinitionComponent d) {
     return d.getShort() == null && d.getFormal() == null && 
-        d.getRequirements() == null && d.getSynonym().isEmpty() && d.getMinObject() == null &&
+        d.getRequirements() == null && d.getSynonym().isEmpty() && d.getMinElement() == null &&
         d.getMax() == null && d.getType().isEmpty() && d.getNameReference() == null && 
-        d.getExample() == null && d.getValue() == null && d.getMaxLengthObject() == null &&
-        d.getCondition().isEmpty() && d.getConstraint().isEmpty() && d.getMustSupportObject() == null &&
+        d.getExample() == null && d.getValue() == null && d.getMaxLengthElement() == null &&
+        d.getCondition().isEmpty() && d.getConstraint().isEmpty() && d.getMustSupportElement() == null &&
         d.getBinding() == null;
   }
 

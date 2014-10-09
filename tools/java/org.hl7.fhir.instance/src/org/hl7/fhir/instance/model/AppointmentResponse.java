@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -280,14 +280,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #participantStatus} (Participation status of the Patient.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
      */
-    public Enumeration<Participantstatus> getParticipantStatusObject() { 
+    public Enumeration<Participantstatus> getParticipantStatusElement() { 
       return this.participantStatus;
     }
 
     /**
      * @param value {@link #participantStatus} (Participation status of the Patient.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
      */
-    public AppointmentResponse setParticipantStatusObject(Enumeration<Participantstatus> value) { 
+    public AppointmentResponse setParticipantStatusElement(Enumeration<Participantstatus> value) { 
       this.participantStatus = value;
       return this;
     }
@@ -312,14 +312,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getCommentObject() { 
+    public StringType getCommentElement() { 
       return this.comment;
     }
 
     /**
      * @param value {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public AppointmentResponse setCommentObject(StringType value) { 
+    public AppointmentResponse setCommentElement(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -348,14 +348,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #start} (Date/Time that the appointment is to take place.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public InstantType getStartObject() { 
+    public InstantType getStartElement() { 
       return this.start;
     }
 
     /**
      * @param value {@link #start} (Date/Time that the appointment is to take place.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public AppointmentResponse setStartObject(InstantType value) { 
+    public AppointmentResponse setStartElement(InstantType value) { 
       this.start = value;
       return this;
     }
@@ -384,14 +384,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #end} (Date/Time that the appointment is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public InstantType getEndObject() { 
+    public InstantType getEndElement() { 
       return this.end;
     }
 
     /**
      * @param value {@link #end} (Date/Time that the appointment is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public AppointmentResponse setEndObject(InstantType value) { 
+    public AppointmentResponse setEndElement(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -450,14 +450,14 @@ public class AppointmentResponse extends Resource {
     /**
      * @return {@link #lastModified} (Date when the response was recorded or last updated.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public DateTimeType getLastModifiedObject() { 
+    public DateTimeType getLastModifiedElement() { 
       return this.lastModified;
     }
 
     /**
      * @param value {@link #lastModified} (Date when the response was recorded or last updated.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public AppointmentResponse setLastModifiedObject(DateTimeType value) { 
+    public AppointmentResponse setLastModifiedElement(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }

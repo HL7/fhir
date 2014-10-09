@@ -50,8 +50,8 @@ public class Comparison {
   }
 
 	public static void merge(CodeableConcept dst, CodeableConcept src) {
-		if (dst.getTextObject() == null && src.getTextObject() != null)
-			dst.setTextObject(src.getTextObject());  
+		if (dst.getTextElement() == null && src.getTextElement() != null)
+			dst.setTextElement(src.getTextElement());  
   }
 
 	
@@ -80,10 +80,10 @@ public class Comparison {
   }
 
 	public static void merge(Identifier dst, Identifier src) {
-		if (dst.getUseObject() == null && src.getUseObject() != null)
-			dst.setUseObject(src.getUseObject());  
-		if (dst.getLabelObject() == null && src.getLabelObject() != null)
-			dst.setLabelObject(src.getLabelObject());  
+		if (dst.getUseElement() == null && src.getUseElement() != null)
+			dst.setUseElement(src.getUseElement());  
+		if (dst.getLabelElement() == null && src.getLabelElement() != null)
+			dst.setLabelElement(src.getLabelElement());  
 		if (dst.getPeriod() == null && src.getPeriod() != null)
 			dst.setPeriod(src.getPeriod());  
 		if (dst.getAssigner() == null && src.getAssigner() != null)
@@ -95,12 +95,12 @@ public class Comparison {
 	  	throw new Exception("Not Implemented Yet");
 		
 	  // in the absence of a profile, we insist on system
-	  return matches(c1.getSystemObject(), c2.getSystemObject(), null) && matches(c1.getValue(), c2.getValue(), null);
+	  return matches(c1.getSystemElement(), c2.getSystemElement(), null) && matches(c1.getValue(), c2.getValue(), null);
   }
 
 	public static void merge(ContactPoint dst, ContactPoint src) {
-		if (dst.getUseObject() == null && src.getUseObject() != null)
-			dst.setUseObject(src.getUseObject());  
+		if (dst.getUseElement() == null && src.getUseElement() != null)
+			dst.setUseElement(src.getUseElement());  
 		if (dst.getPeriod() == null && src.getPeriod() != null)
 			dst.setPeriod(src.getPeriod());  
   }

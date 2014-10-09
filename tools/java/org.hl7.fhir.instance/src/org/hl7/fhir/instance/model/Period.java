@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -57,14 +57,14 @@ public class Period extends Type {
     /**
      * @return {@link #start} (The start of the period. The boundary is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public DateTimeType getStartObject() { 
+    public DateTimeType getStartElement() { 
       return this.start;
     }
 
     /**
      * @param value {@link #start} (The start of the period. The boundary is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public Period setStartObject(DateTimeType value) { 
+    public Period setStartElement(DateTimeType value) { 
       this.start = value;
       return this;
     }
@@ -93,14 +93,14 @@ public class Period extends Type {
     /**
      * @return {@link #end} (The end of the period. If the end of the period is missing, it means that the period is ongoing.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public DateTimeType getEndObject() { 
+    public DateTimeType getEndElement() { 
       return this.end;
     }
 
     /**
      * @param value {@link #end} (The end of the period. If the end of the period is missing, it means that the period is ongoing.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public Period setEndObject(DateTimeType value) { 
+    public Period setEndElement(DateTimeType value) { 
       this.end = value;
       return this;
     }

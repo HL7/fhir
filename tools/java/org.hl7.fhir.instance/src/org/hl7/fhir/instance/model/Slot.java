@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -225,14 +225,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #freeBusyType} (BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.). This is the underlying object with id, value and extensions. The accessor "getFreeBusyType" gives direct access to the value
      */
-    public Enumeration<Slotstatus> getFreeBusyTypeObject() { 
+    public Enumeration<Slotstatus> getFreeBusyTypeElement() { 
       return this.freeBusyType;
     }
 
     /**
      * @param value {@link #freeBusyType} (BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.). This is the underlying object with id, value and extensions. The accessor "getFreeBusyType" gives direct access to the value
      */
-    public Slot setFreeBusyTypeObject(Enumeration<Slotstatus> value) { 
+    public Slot setFreeBusyTypeElement(Enumeration<Slotstatus> value) { 
       this.freeBusyType = value;
       return this;
     }
@@ -257,14 +257,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #start} (Date/Time that the slot is to begin.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public InstantType getStartObject() { 
+    public InstantType getStartElement() { 
       return this.start;
     }
 
     /**
      * @param value {@link #start} (Date/Time that the slot is to begin.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public Slot setStartObject(InstantType value) { 
+    public Slot setStartElement(InstantType value) { 
       this.start = value;
       return this;
     }
@@ -289,14 +289,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #end} (Date/Time that the slot is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public InstantType getEndObject() { 
+    public InstantType getEndElement() { 
       return this.end;
     }
 
     /**
      * @param value {@link #end} (Date/Time that the slot is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public Slot setEndObject(InstantType value) { 
+    public Slot setEndElement(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -321,14 +321,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.). This is the underlying object with id, value and extensions. The accessor "getOverbooked" gives direct access to the value
      */
-    public BooleanType getOverbookedObject() { 
+    public BooleanType getOverbookedElement() { 
       return this.overbooked;
     }
 
     /**
      * @param value {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.). This is the underlying object with id, value and extensions. The accessor "getOverbooked" gives direct access to the value
      */
-    public Slot setOverbookedObject(BooleanType value) { 
+    public Slot setOverbookedElement(BooleanType value) { 
       this.overbooked = value;
       return this;
     }
@@ -357,14 +357,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #comment} (Comments on the slot to describe any extended information. Such as custom constraints on the slot.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getCommentObject() { 
+    public StringType getCommentElement() { 
       return this.comment;
     }
 
     /**
      * @param value {@link #comment} (Comments on the slot to describe any extended information. Such as custom constraints on the slot.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public Slot setCommentObject(StringType value) { 
+    public Slot setCommentElement(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -393,14 +393,14 @@ public class Slot extends Resource {
     /**
      * @return {@link #lastModified} (When this slot was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public DateTimeType getLastModifiedObject() { 
+    public DateTimeType getLastModifiedElement() { 
       return this.lastModified;
     }
 
     /**
      * @param value {@link #lastModified} (When this slot was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
-    public Slot setLastModifiedObject(DateTimeType value) { 
+    public Slot setLastModifiedElement(DateTimeType value) { 
       this.lastModified = value;
       return this;
     }

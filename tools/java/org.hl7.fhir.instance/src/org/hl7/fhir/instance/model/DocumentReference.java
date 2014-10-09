@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -177,14 +177,14 @@ public class DocumentReference extends Resource {
         /**
          * @return {@link #code} (The type of relationship that this document has with anther document.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<DocumentRelationshipType> getCodeObject() { 
+        public Enumeration<DocumentRelationshipType> getCodeElement() { 
           return this.code;
         }
 
         /**
          * @param value {@link #code} (The type of relationship that this document has with anther document.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public DocumentReferenceRelatesToComponent setCodeObject(Enumeration<DocumentRelationshipType> value) { 
+        public DocumentReferenceRelatesToComponent setCodeElement(Enumeration<DocumentRelationshipType> value) { 
           this.code = value;
           return this;
         }
@@ -296,14 +296,14 @@ public class DocumentReference extends Resource {
         /**
          * @return {@link #address} (Where the service end-point is located.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
          */
-        public StringType getAddressObject() { 
+        public StringType getAddressElement() { 
           return this.address;
         }
 
         /**
          * @param value {@link #address} (Where the service end-point is located.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
          */
-        public DocumentReferenceServiceComponent setAddressObject(StringType value) { 
+        public DocumentReferenceServiceComponent setAddressElement(StringType value) { 
           this.address = value;
           return this;
         }
@@ -390,14 +390,14 @@ public class DocumentReference extends Resource {
         /**
          * @return {@link #name} (The name of a parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameObject() { 
+        public StringType getNameElement() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (The name of a parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public DocumentReferenceServiceParameterComponent setNameObject(StringType value) { 
+        public DocumentReferenceServiceParameterComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -422,14 +422,14 @@ public class DocumentReference extends Resource {
         /**
          * @return {@link #value} (The value of the named parameter.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public StringType getValueObject() { 
+        public StringType getValueElement() { 
           return this.value;
         }
 
         /**
          * @param value {@link #value} (The value of the named parameter.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public DocumentReferenceServiceParameterComponent setValueObject(StringType value) { 
+        public DocumentReferenceServiceParameterComponent setValueElement(StringType value) { 
           this.value = value;
           return this;
         }
@@ -863,14 +863,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #policyManager} (A reference to a domain or server that manages policies under which the document is accessed and/or made available.). This is the underlying object with id, value and extensions. The accessor "getPolicyManager" gives direct access to the value
      */
-    public UriType getPolicyManagerObject() { 
+    public UriType getPolicyManagerElement() { 
       return this.policyManager;
     }
 
     /**
      * @param value {@link #policyManager} (A reference to a domain or server that manages policies under which the document is accessed and/or made available.). This is the underlying object with id, value and extensions. The accessor "getPolicyManager" gives direct access to the value
      */
-    public DocumentReference setPolicyManagerObject(UriType value) { 
+    public DocumentReference setPolicyManagerElement(UriType value) { 
       this.policyManager = value;
       return this;
     }
@@ -929,14 +929,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #created} (When the document was created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateTimeType getCreatedObject() { 
+    public DateTimeType getCreatedElement() { 
       return this.created;
     }
 
     /**
      * @param value {@link #created} (When the document was created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DocumentReference setCreatedObject(DateTimeType value) { 
+    public DocumentReference setCreatedElement(DateTimeType value) { 
       this.created = value;
       return this;
     }
@@ -965,14 +965,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #indexed} (When the document reference was created.). This is the underlying object with id, value and extensions. The accessor "getIndexed" gives direct access to the value
      */
-    public InstantType getIndexedObject() { 
+    public InstantType getIndexedElement() { 
       return this.indexed;
     }
 
     /**
      * @param value {@link #indexed} (When the document reference was created.). This is the underlying object with id, value and extensions. The accessor "getIndexed" gives direct access to the value
      */
-    public DocumentReference setIndexedObject(InstantType value) { 
+    public DocumentReference setIndexedElement(InstantType value) { 
       this.indexed = value;
       return this;
     }
@@ -997,14 +997,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #status} (The status of this document reference.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DocumentReferenceStatus> getStatusObject() { 
+    public Enumeration<DocumentReferenceStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The status of this document reference.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DocumentReference setStatusObject(Enumeration<DocumentReferenceStatus> value) { 
+    public DocumentReference setStatusElement(Enumeration<DocumentReferenceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1061,14 +1061,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public DocumentReference setDescriptionObject(StringType value) { 
+    public DocumentReference setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -1114,14 +1114,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #primaryLanguage} (The primary language in which the source document is written.). This is the underlying object with id, value and extensions. The accessor "getPrimaryLanguage" gives direct access to the value
      */
-    public CodeType getPrimaryLanguageObject() { 
+    public CodeType getPrimaryLanguageElement() { 
       return this.primaryLanguage;
     }
 
     /**
      * @param value {@link #primaryLanguage} (The primary language in which the source document is written.). This is the underlying object with id, value and extensions. The accessor "getPrimaryLanguage" gives direct access to the value
      */
-    public DocumentReference setPrimaryLanguageObject(CodeType value) { 
+    public DocumentReference setPrimaryLanguageElement(CodeType value) { 
       this.primaryLanguage = value;
       return this;
     }
@@ -1150,14 +1150,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #mimeType} (The mime type of the source document.). This is the underlying object with id, value and extensions. The accessor "getMimeType" gives direct access to the value
      */
-    public CodeType getMimeTypeObject() { 
+    public CodeType getMimeTypeElement() { 
       return this.mimeType;
     }
 
     /**
      * @param value {@link #mimeType} (The mime type of the source document.). This is the underlying object with id, value and extensions. The accessor "getMimeType" gives direct access to the value
      */
-    public DocumentReference setMimeTypeObject(CodeType value) { 
+    public DocumentReference setMimeTypeElement(CodeType value) { 
       this.mimeType = value;
       return this;
     }
@@ -1190,7 +1190,7 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
-    public UriType addFormatObject() { 
+    public UriType addFormatElement() { 
       UriType t = new UriType();
       this.format.add(t);
       return t;
@@ -1219,14 +1219,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #size} (The size of the source document this reference refers to in bytes.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
      */
-    public IntegerType getSizeObject() { 
+    public IntegerType getSizeElement() { 
       return this.size;
     }
 
     /**
      * @param value {@link #size} (The size of the source document this reference refers to in bytes.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
      */
-    public DocumentReference setSizeObject(IntegerType value) { 
+    public DocumentReference setSizeElement(IntegerType value) { 
       this.size = value;
       return this;
     }
@@ -1255,14 +1255,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #hash} (A hash of the source document to ensure that changes have not occurred.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
      */
-    public StringType getHashObject() { 
+    public StringType getHashElement() { 
       return this.hash;
     }
 
     /**
      * @param value {@link #hash} (A hash of the source document to ensure that changes have not occurred.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
      */
-    public DocumentReference setHashObject(StringType value) { 
+    public DocumentReference setHashElement(StringType value) { 
       this.hash = value;
       return this;
     }
@@ -1291,14 +1291,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #location} (A url at which the document can be accessed.). This is the underlying object with id, value and extensions. The accessor "getLocation" gives direct access to the value
      */
-    public UriType getLocationObject() { 
+    public UriType getLocationElement() { 
       return this.location;
     }
 
     /**
      * @param value {@link #location} (A url at which the document can be accessed.). This is the underlying object with id, value and extensions. The accessor "getLocation" gives direct access to the value
      */
-    public DocumentReference setLocationObject(UriType value) { 
+    public DocumentReference setLocationElement(UriType value) { 
       this.location = value;
       return this;
     }

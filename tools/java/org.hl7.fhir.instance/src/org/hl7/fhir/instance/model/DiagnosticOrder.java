@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -235,14 +235,14 @@ public class DiagnosticOrder extends Resource {
         /**
          * @return {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<DiagnosticOrderStatus> getStatusObject() { 
+        public Enumeration<DiagnosticOrderStatus> getStatusElement() { 
           return this.status;
         }
 
         /**
          * @param value {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public DiagnosticOrderEventComponent setStatusObject(Enumeration<DiagnosticOrderStatus> value) { 
+        public DiagnosticOrderEventComponent setStatusElement(Enumeration<DiagnosticOrderStatus> value) { 
           this.status = value;
           return this;
         }
@@ -282,14 +282,14 @@ public class DiagnosticOrder extends Resource {
         /**
          * @return {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public DateTimeType getDateTimeObject() { 
+        public DateTimeType getDateTimeElement() { 
           return this.dateTime;
         }
 
         /**
          * @param value {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public DiagnosticOrderEventComponent setDateTimeObject(DateTimeType value) { 
+        public DiagnosticOrderEventComponent setDateTimeElement(DateTimeType value) { 
           this.dateTime = value;
           return this;
         }
@@ -469,14 +469,14 @@ public class DiagnosticOrder extends Resource {
         /**
          * @return {@link #status} (The status of this individual item within the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<DiagnosticOrderStatus> getStatusObject() { 
+        public Enumeration<DiagnosticOrderStatus> getStatusElement() { 
           return this.status;
         }
 
         /**
          * @param value {@link #status} (The status of this individual item within the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public DiagnosticOrderItemComponent setStatusObject(Enumeration<DiagnosticOrderStatus> value) { 
+        public DiagnosticOrderItemComponent setStatusElement(Enumeration<DiagnosticOrderStatus> value) { 
           this.status = value;
           return this;
         }
@@ -745,14 +745,14 @@ public class DiagnosticOrder extends Resource {
     /**
      * @return {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.). This is the underlying object with id, value and extensions. The accessor "getClinicalNotes" gives direct access to the value
      */
-    public StringType getClinicalNotesObject() { 
+    public StringType getClinicalNotesElement() { 
       return this.clinicalNotes;
     }
 
     /**
      * @param value {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.). This is the underlying object with id, value and extensions. The accessor "getClinicalNotes" gives direct access to the value
      */
-    public DiagnosticOrder setClinicalNotesObject(StringType value) { 
+    public DiagnosticOrder setClinicalNotesElement(StringType value) { 
       this.clinicalNotes = value;
       return this;
     }
@@ -839,14 +839,14 @@ public class DiagnosticOrder extends Resource {
     /**
      * @return {@link #status} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DiagnosticOrderStatus> getStatusObject() { 
+    public Enumeration<DiagnosticOrderStatus> getStatusElement() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DiagnosticOrder setStatusObject(Enumeration<DiagnosticOrderStatus> value) { 
+    public DiagnosticOrder setStatusElement(Enumeration<DiagnosticOrderStatus> value) { 
       this.status = value;
       return this;
     }
@@ -875,14 +875,14 @@ public class DiagnosticOrder extends Resource {
     /**
      * @return {@link #priority} (The clinical priority associated with this order.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public Enumeration<DiagnosticOrderPriority> getPriorityObject() { 
+    public Enumeration<DiagnosticOrderPriority> getPriorityElement() { 
       return this.priority;
     }
 
     /**
      * @param value {@link #priority} (The clinical priority associated with this order.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public DiagnosticOrder setPriorityObject(Enumeration<DiagnosticOrderPriority> value) { 
+    public DiagnosticOrder setPriorityElement(Enumeration<DiagnosticOrderPriority> value) { 
       this.priority = value;
       return this;
     }

@@ -801,7 +801,7 @@ public class NarrativeGenerator {
         else 
           b.append(Integer.toString(rep.getFrequency())+" per ");
         b.append(rep.getDuration().toString()+" "+displayTimeUnits(rep.getUnits()));
-        if (rep.getCountObject() != null)
+        if (rep.getCountElement() != null)
           b.append(" "+Integer.toString(rep.getCount())+" times");
         else if (rep.getEnd() != null) 
           b.append(" until "+rep.getEnd().toHumanDisplay());

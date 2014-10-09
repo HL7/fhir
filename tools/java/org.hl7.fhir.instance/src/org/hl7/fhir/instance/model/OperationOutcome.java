@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -131,14 +131,14 @@ public class OperationOutcome extends Resource {
         /**
          * @return {@link #severity} (Indicates whether the issue indicates a variation from successful processing.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public Enumeration<IssueSeverity> getSeverityObject() { 
+        public Enumeration<IssueSeverity> getSeverityElement() { 
           return this.severity;
         }
 
         /**
          * @param value {@link #severity} (Indicates whether the issue indicates a variation from successful processing.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public OperationOutcomeIssueComponent setSeverityObject(Enumeration<IssueSeverity> value) { 
+        public OperationOutcomeIssueComponent setSeverityElement(Enumeration<IssueSeverity> value) { 
           this.severity = value;
           return this;
         }
@@ -178,14 +178,14 @@ public class OperationOutcome extends Resource {
         /**
          * @return {@link #details} (Additional description of the issue.). This is the underlying object with id, value and extensions. The accessor "getDetails" gives direct access to the value
          */
-        public StringType getDetailsObject() { 
+        public StringType getDetailsElement() { 
           return this.details;
         }
 
         /**
          * @param value {@link #details} (Additional description of the issue.). This is the underlying object with id, value and extensions. The accessor "getDetails" gives direct access to the value
          */
-        public OperationOutcomeIssueComponent setDetailsObject(StringType value) { 
+        public OperationOutcomeIssueComponent setDetailsElement(StringType value) { 
           this.details = value;
           return this;
         }
@@ -222,7 +222,7 @@ public class OperationOutcome extends Resource {
         /**
          * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
-        public StringType addLocationObject() { 
+        public StringType addLocationElement() { 
           StringType t = new StringType();
           this.location.add(t);
           return t;

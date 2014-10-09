@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -146,14 +146,14 @@ P.O. Box number, delivery hints, and similar address information.
     /**
      * @return {@link #use} (The purpose of this address.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<AddressUse> getUseObject() { 
+    public Enumeration<AddressUse> getUseElement() { 
       return this.use;
     }
 
     /**
      * @param value {@link #use} (The purpose of this address.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Address setUseObject(Enumeration<AddressUse> value) { 
+    public Address setUseElement(Enumeration<AddressUse> value) { 
       this.use = value;
       return this;
     }
@@ -182,14 +182,14 @@ P.O. Box number, delivery hints, and similar address information.
     /**
      * @return {@link #text} (A full text representation of the address.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public StringType getTextObject() { 
+    public StringType getTextElement() { 
       return this.text;
     }
 
     /**
      * @param value {@link #text} (A full text representation of the address.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public Address setTextObject(StringType value) { 
+    public Address setTextElement(StringType value) { 
       this.text = value;
       return this;
     }
@@ -228,7 +228,7 @@ P.O. Box number, delivery hints, and similar address information.)
      * @return {@link #line} (This component contains the house number, apartment number, street name, street direction, 
 P.O. Box number, delivery hints, and similar address information.)
      */
-    public StringType addLineObject() { 
+    public StringType addLineElement() { 
       StringType t = new StringType();
       this.line.add(t);
       return t;
@@ -259,14 +259,14 @@ P.O. Box number, delivery hints, and similar address information.)
     /**
      * @return {@link #city} (The name of the city, town, village or other community or delivery center.). This is the underlying object with id, value and extensions. The accessor "getCity" gives direct access to the value
      */
-    public StringType getCityObject() { 
+    public StringType getCityElement() { 
       return this.city;
     }
 
     /**
      * @param value {@link #city} (The name of the city, town, village or other community or delivery center.). This is the underlying object with id, value and extensions. The accessor "getCity" gives direct access to the value
      */
-    public Address setCityObject(StringType value) { 
+    public Address setCityElement(StringType value) { 
       this.city = value;
       return this;
     }
@@ -295,14 +295,14 @@ P.O. Box number, delivery hints, and similar address information.)
     /**
      * @return {@link #state} (Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).). This is the underlying object with id, value and extensions. The accessor "getState" gives direct access to the value
      */
-    public StringType getStateObject() { 
+    public StringType getStateElement() { 
       return this.state;
     }
 
     /**
      * @param value {@link #state} (Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).). This is the underlying object with id, value and extensions. The accessor "getState" gives direct access to the value
      */
-    public Address setStateObject(StringType value) { 
+    public Address setStateElement(StringType value) { 
       this.state = value;
       return this;
     }
@@ -331,14 +331,14 @@ P.O. Box number, delivery hints, and similar address information.)
     /**
      * @return {@link #zip} (A postal code designating a region defined by the postal service.). This is the underlying object with id, value and extensions. The accessor "getZip" gives direct access to the value
      */
-    public StringType getZipObject() { 
+    public StringType getZipElement() { 
       return this.zip;
     }
 
     /**
      * @param value {@link #zip} (A postal code designating a region defined by the postal service.). This is the underlying object with id, value and extensions. The accessor "getZip" gives direct access to the value
      */
-    public Address setZipObject(StringType value) { 
+    public Address setZipElement(StringType value) { 
       this.zip = value;
       return this;
     }
@@ -367,14 +367,14 @@ P.O. Box number, delivery hints, and similar address information.)
     /**
      * @return {@link #country} (Country - a nation as commonly understood or generally accepted.). This is the underlying object with id, value and extensions. The accessor "getCountry" gives direct access to the value
      */
-    public StringType getCountryObject() { 
+    public StringType getCountryElement() { 
       return this.country;
     }
 
     /**
      * @param value {@link #country} (Country - a nation as commonly understood or generally accepted.). This is the underlying object with id, value and extensions. The accessor "getCountry" gives direct access to the value
      */
-    public Address setCountryObject(StringType value) { 
+    public Address setCountryElement(StringType value) { 
       this.country = value;
       return this;
     }

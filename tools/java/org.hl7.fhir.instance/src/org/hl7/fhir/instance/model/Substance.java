@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -78,14 +78,14 @@ public class Substance extends Resource {
         /**
          * @return {@link #expiry} (When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
          */
-        public DateTimeType getExpiryObject() { 
+        public DateTimeType getExpiryElement() { 
           return this.expiry;
         }
 
         /**
          * @param value {@link #expiry} (When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
          */
-        public SubstanceInstanceComponent setExpiryObject(DateTimeType value) { 
+        public SubstanceInstanceComponent setExpiryElement(DateTimeType value) { 
           this.expiry = value;
           return this;
         }
@@ -279,14 +279,14 @@ public class Substance extends Resource {
     /**
      * @return {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionObject() { 
+    public StringType getDescriptionElement() { 
       return this.description;
     }
 
     /**
      * @param value {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Substance setDescriptionObject(StringType value) { 
+    public Substance setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -163,14 +163,14 @@ public class Provenance extends Resource {
         /**
          * @return {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
          */
-        public UriType getReferenceObject() { 
+        public UriType getReferenceElement() { 
           return this.reference;
         }
 
         /**
          * @param value {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
          */
-        public ProvenanceAgentComponent setReferenceObject(UriType value) { 
+        public ProvenanceAgentComponent setReferenceElement(UriType value) { 
           this.reference = value;
           return this;
         }
@@ -195,14 +195,14 @@ public class Provenance extends Resource {
         /**
          * @return {@link #display} (Human-readable description of the participant.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
          */
-        public StringType getDisplayObject() { 
+        public StringType getDisplayElement() { 
           return this.display;
         }
 
         /**
          * @param value {@link #display} (Human-readable description of the participant.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
          */
-        public ProvenanceAgentComponent setDisplayObject(StringType value) { 
+        public ProvenanceAgentComponent setDisplayElement(StringType value) { 
           this.display = value;
           return this;
         }
@@ -289,14 +289,14 @@ public class Provenance extends Resource {
         /**
          * @return {@link #role} (How the entity was used during the activity.). This is the underlying object with id, value and extensions. The accessor "getRole" gives direct access to the value
          */
-        public Enumeration<ProvenanceEntityRole> getRoleObject() { 
+        public Enumeration<ProvenanceEntityRole> getRoleElement() { 
           return this.role;
         }
 
         /**
          * @param value {@link #role} (How the entity was used during the activity.). This is the underlying object with id, value and extensions. The accessor "getRole" gives direct access to the value
          */
-        public ProvenanceEntityComponent setRoleObject(Enumeration<ProvenanceEntityRole> value) { 
+        public ProvenanceEntityComponent setRoleElement(Enumeration<ProvenanceEntityRole> value) { 
           this.role = value;
           return this;
         }
@@ -336,14 +336,14 @@ public class Provenance extends Resource {
         /**
          * @return {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
          */
-        public UriType getReferenceObject() { 
+        public UriType getReferenceElement() { 
           return this.reference;
         }
 
         /**
          * @param value {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
          */
-        public ProvenanceEntityComponent setReferenceObject(UriType value) { 
+        public ProvenanceEntityComponent setReferenceElement(UriType value) { 
           this.reference = value;
           return this;
         }
@@ -368,14 +368,14 @@ public class Provenance extends Resource {
         /**
          * @return {@link #display} (Human-readable description of the entity.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
          */
-        public StringType getDisplayObject() { 
+        public StringType getDisplayElement() { 
           return this.display;
         }
 
         /**
          * @param value {@link #display} (Human-readable description of the entity.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
          */
-        public ProvenanceEntityComponent setDisplayObject(StringType value) { 
+        public ProvenanceEntityComponent setDisplayElement(StringType value) { 
           this.display = value;
           return this;
         }
@@ -545,14 +545,14 @@ public class Provenance extends Resource {
     /**
      * @return {@link #recorded} (The instant of time at which the activity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecorded" gives direct access to the value
      */
-    public InstantType getRecordedObject() { 
+    public InstantType getRecordedElement() { 
       return this.recorded;
     }
 
     /**
      * @param value {@link #recorded} (The instant of time at which the activity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecorded" gives direct access to the value
      */
-    public Provenance setRecordedObject(InstantType value) { 
+    public Provenance setRecordedElement(InstantType value) { 
       this.recorded = value;
       return this;
     }
@@ -630,7 +630,7 @@ public class Provenance extends Resource {
     /**
      * @return {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
      */
-    public UriType addPolicyObject() { 
+    public UriType addPolicyElement() { 
       UriType t = new UriType();
       this.policy.add(t);
       return t;
@@ -693,14 +693,14 @@ public class Provenance extends Resource {
     /**
      * @return {@link #integritySignature} (A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.). This is the underlying object with id, value and extensions. The accessor "getIntegritySignature" gives direct access to the value
      */
-    public StringType getIntegritySignatureObject() { 
+    public StringType getIntegritySignatureElement() { 
       return this.integritySignature;
     }
 
     /**
      * @param value {@link #integritySignature} (A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.). This is the underlying object with id, value and extensions. The accessor "getIntegritySignature" gives direct access to the value
      */
-    public Provenance setIntegritySignatureObject(StringType value) { 
+    public Provenance setIntegritySignatureElement(StringType value) { 
       this.integritySignature = value;
       return this;
     }

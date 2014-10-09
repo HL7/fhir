@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -145,14 +145,14 @@ public class List_ extends Resource {
         /**
          * @return {@link #deleted} (True if this item is marked as deleted in the list.). This is the underlying object with id, value and extensions. The accessor "getDeleted" gives direct access to the value
          */
-        public BooleanType getDeletedObject() { 
+        public BooleanType getDeletedElement() { 
           return this.deleted;
         }
 
         /**
          * @param value {@link #deleted} (True if this item is marked as deleted in the list.). This is the underlying object with id, value and extensions. The accessor "getDeleted" gives direct access to the value
          */
-        public ListEntryComponent setDeletedObject(BooleanType value) { 
+        public ListEntryComponent setDeletedElement(BooleanType value) { 
           this.deleted = value;
           return this;
         }
@@ -181,14 +181,14 @@ public class List_ extends Resource {
         /**
          * @return {@link #date} (When this item was added to the list.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDateObject() { 
+        public DateTimeType getDateElement() { 
           return this.date;
         }
 
         /**
          * @param value {@link #date} (When this item was added to the list.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public ListEntryComponent setDateObject(DateTimeType value) { 
+        public ListEntryComponent setDateElement(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -426,14 +426,14 @@ public class List_ extends Resource {
     /**
      * @return {@link #date} (The date that the list was prepared.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (The date that the list was prepared.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public List_ setDateObject(DateTimeType value) { 
+    public List_ setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -462,14 +462,14 @@ public class List_ extends Resource {
     /**
      * @return {@link #ordered} (Whether items in the list have a meaningful order.). This is the underlying object with id, value and extensions. The accessor "getOrdered" gives direct access to the value
      */
-    public BooleanType getOrderedObject() { 
+    public BooleanType getOrderedElement() { 
       return this.ordered;
     }
 
     /**
      * @param value {@link #ordered} (Whether items in the list have a meaningful order.). This is the underlying object with id, value and extensions. The accessor "getOrdered" gives direct access to the value
      */
-    public List_ setOrderedObject(BooleanType value) { 
+    public List_ setOrderedElement(BooleanType value) { 
       this.ordered = value;
       return this;
     }
@@ -498,14 +498,14 @@ public class List_ extends Resource {
     /**
      * @return {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public Enumeration<ListMode> getModeObject() { 
+    public Enumeration<ListMode> getModeElement() { 
       return this.mode;
     }
 
     /**
      * @param value {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public List_ setModeObject(Enumeration<ListMode> value) { 
+    public List_ setModeElement(Enumeration<ListMode> value) { 
       this.mode = value;
       return this;
     }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -138,14 +138,14 @@ public class Immunization extends Resource {
         /**
          * @return {@link #date} (Date of reaction to the immunization.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDateObject() { 
+        public DateTimeType getDateElement() { 
           return this.date;
         }
 
         /**
          * @param value {@link #date} (Date of reaction to the immunization.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public ImmunizationReactionComponent setDateObject(DateTimeType value) { 
+        public ImmunizationReactionComponent setDateElement(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -204,14 +204,14 @@ public class Immunization extends Resource {
         /**
          * @return {@link #reported} (Self-reported indicator.). This is the underlying object with id, value and extensions. The accessor "getReported" gives direct access to the value
          */
-        public BooleanType getReportedObject() { 
+        public BooleanType getReportedElement() { 
           return this.reported;
         }
 
         /**
          * @param value {@link #reported} (Self-reported indicator.). This is the underlying object with id, value and extensions. The accessor "getReported" gives direct access to the value
          */
-        public ImmunizationReactionComponent setReportedObject(BooleanType value) { 
+        public ImmunizationReactionComponent setReportedElement(BooleanType value) { 
           this.reported = value;
           return this;
         }
@@ -316,14 +316,14 @@ public class Immunization extends Resource {
         /**
          * @return {@link #doseSequence} (Nominal position in a series.). This is the underlying object with id, value and extensions. The accessor "getDoseSequence" gives direct access to the value
          */
-        public IntegerType getDoseSequenceObject() { 
+        public IntegerType getDoseSequenceElement() { 
           return this.doseSequence;
         }
 
         /**
          * @param value {@link #doseSequence} (Nominal position in a series.). This is the underlying object with id, value and extensions. The accessor "getDoseSequence" gives direct access to the value
          */
-        public ImmunizationVaccinationProtocolComponent setDoseSequenceObject(IntegerType value) { 
+        public ImmunizationVaccinationProtocolComponent setDoseSequenceElement(IntegerType value) { 
           this.doseSequence = value;
           return this;
         }
@@ -348,14 +348,14 @@ public class Immunization extends Resource {
         /**
          * @return {@link #description} (Contains the description about the protocol under which the vaccine was administered.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionObject() { 
+        public StringType getDescriptionElement() { 
           return this.description;
         }
 
         /**
          * @param value {@link #description} (Contains the description about the protocol under which the vaccine was administered.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ImmunizationVaccinationProtocolComponent setDescriptionObject(StringType value) { 
+        public ImmunizationVaccinationProtocolComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -414,14 +414,14 @@ public class Immunization extends Resource {
         /**
          * @return {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.). This is the underlying object with id, value and extensions. The accessor "getSeries" gives direct access to the value
          */
-        public StringType getSeriesObject() { 
+        public StringType getSeriesElement() { 
           return this.series;
         }
 
         /**
          * @param value {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.). This is the underlying object with id, value and extensions. The accessor "getSeries" gives direct access to the value
          */
-        public ImmunizationVaccinationProtocolComponent setSeriesObject(StringType value) { 
+        public ImmunizationVaccinationProtocolComponent setSeriesElement(StringType value) { 
           this.series = value;
           return this;
         }
@@ -450,14 +450,14 @@ public class Immunization extends Resource {
         /**
          * @return {@link #seriesDoses} (The recommended number of doses to achieve immunity.). This is the underlying object with id, value and extensions. The accessor "getSeriesDoses" gives direct access to the value
          */
-        public IntegerType getSeriesDosesObject() { 
+        public IntegerType getSeriesDosesElement() { 
           return this.seriesDoses;
         }
 
         /**
          * @param value {@link #seriesDoses} (The recommended number of doses to achieve immunity.). This is the underlying object with id, value and extensions. The accessor "getSeriesDoses" gives direct access to the value
          */
-        public ImmunizationVaccinationProtocolComponent setSeriesDosesObject(IntegerType value) { 
+        public ImmunizationVaccinationProtocolComponent setSeriesDosesElement(IntegerType value) { 
           this.seriesDoses = value;
           return this;
         }
@@ -705,14 +705,14 @@ public class Immunization extends Resource {
     /**
      * @return {@link #date} (Date vaccine administered or was to be administered.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateObject() { 
+    public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
      * @param value {@link #date} (Date vaccine administered or was to be administered.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Immunization setDateObject(DateTimeType value) { 
+    public Immunization setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -782,14 +782,14 @@ public class Immunization extends Resource {
     /**
      * @return {@link #refusedIndicator} (Indicates if the vaccination was refused.). This is the underlying object with id, value and extensions. The accessor "getRefusedIndicator" gives direct access to the value
      */
-    public BooleanType getRefusedIndicatorObject() { 
+    public BooleanType getRefusedIndicatorElement() { 
       return this.refusedIndicator;
     }
 
     /**
      * @param value {@link #refusedIndicator} (Indicates if the vaccination was refused.). This is the underlying object with id, value and extensions. The accessor "getRefusedIndicator" gives direct access to the value
      */
-    public Immunization setRefusedIndicatorObject(BooleanType value) { 
+    public Immunization setRefusedIndicatorElement(BooleanType value) { 
       this.refusedIndicator = value;
       return this;
     }
@@ -814,14 +814,14 @@ public class Immunization extends Resource {
     /**
      * @return {@link #reported} (True if this administration was reported rather than directly administered.). This is the underlying object with id, value and extensions. The accessor "getReported" gives direct access to the value
      */
-    public BooleanType getReportedObject() { 
+    public BooleanType getReportedElement() { 
       return this.reported;
     }
 
     /**
      * @param value {@link #reported} (True if this administration was reported rather than directly administered.). This is the underlying object with id, value and extensions. The accessor "getReported" gives direct access to the value
      */
-    public Immunization setReportedObject(BooleanType value) { 
+    public Immunization setReportedElement(BooleanType value) { 
       this.reported = value;
       return this;
     }
@@ -966,14 +966,14 @@ public class Immunization extends Resource {
     /**
      * @return {@link #lotNumber} (Lot number of the  vaccine product.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
      */
-    public StringType getLotNumberObject() { 
+    public StringType getLotNumberElement() { 
       return this.lotNumber;
     }
 
     /**
      * @param value {@link #lotNumber} (Lot number of the  vaccine product.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
      */
-    public Immunization setLotNumberObject(StringType value) { 
+    public Immunization setLotNumberElement(StringType value) { 
       this.lotNumber = value;
       return this;
     }
@@ -1002,14 +1002,14 @@ public class Immunization extends Resource {
     /**
      * @return {@link #expirationDate} (Date vaccine batch expires.). This is the underlying object with id, value and extensions. The accessor "getExpirationDate" gives direct access to the value
      */
-    public DateType getExpirationDateObject() { 
+    public DateType getExpirationDateElement() { 
       return this.expirationDate;
     }
 
     /**
      * @param value {@link #expirationDate} (Date vaccine batch expires.). This is the underlying object with id, value and extensions. The accessor "getExpirationDate" gives direct access to the value
      */
-    public Immunization setExpirationDateObject(DateType value) { 
+    public Immunization setExpirationDateElement(DateType value) { 
       this.expirationDate = value;
       return this;
     }

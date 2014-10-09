@@ -269,7 +269,7 @@ public class CCDAConverter {
 		} else
 			composition.setIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "id"))); // well, we fall back to id
 			
-		composition.setDateObject(convert.makeDateTimeFromTS(cda.getChild(doc, "effectiveTime")));
+		composition.setDateElement(convert.makeDateTimeFromTS(cda.getChild(doc, "effectiveTime")));
 		composition.setType(convert.makeCodeableConceptFromCD(cda.getChild(doc, "code")));
 		composition.setConfidentiality(convert.makeCodingFromCV(cda.getChild(doc, "confidentialityCode")));
 		if (cda.getChild(doc, "confidentialityCode") != null)
@@ -309,7 +309,7 @@ public class CCDAConverter {
 		for (Element e : cda.getChildren(p, "name"))
 			pat.getName().add(convert.makeNameFromEN(e));
 		pat.setGender(convert.makeGenderFromCD(cda.getChild(p, "administrativeGenderCode")));
-		pat.setBirthDateObject(convert.makeDateTimeFromTS(cda.getChild(p, "birthTime")));
+		pat.setBirthDateElement(convert.makeDateTimeFromTS(cda.getChild(p, "birthTime")));
 		pat.setMaritalStatus(convert.makeCodeableConceptFromCD(cda.getChild(p, "maritalStatusCode")));
 		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_RELIGION, convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
 		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_RACE, convert.makeCodeableConceptFromCD(cda.getChild(p, "raceCode")), false));
@@ -402,7 +402,7 @@ public class CCDAConverter {
 
 		CompositionAttesterComponent att = new CompositionAttesterComponent();
 		att.addMode(mode);
-		att.setTimeObject(convert.makeDateTimeFromTS(cda.getChild(a1,"time")));
+		att.setTimeElement(convert.makeDateTimeFromTS(cda.getChild(a1,"time")));
 	  att.setParty(Factory.makeReference(addReference(pr, title, makeUUIDReference())));
 	  return att;
   }
@@ -843,7 +843,7 @@ public class CCDAConverter {
 		//  	a.  This effectiveTime SHOULD contain zero or one [0..1] low (CONF:7333). 
 		//  	b.  This effectiveTime SHOULD contain zero or one [0..1] high (CONF:7334).
 		// !this is a problem because FHIR just has a date, not a period.
-		ar.setDateObject(convert.makeDateTimeFromIVL(cda.getChild(reaction, "effectiveTime")));
+		ar.setDateElement(convert.makeDateTimeFromIVL(cda.getChild(reaction, "effectiveTime")));
 
 		// SHALL contain exactly one [1..1] value with @xsi:type="CD", where the @code SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.3221.7.4 Problem	DYNAMIC (CONF:7335).
 		AdverseReactionSymptomComponent symptom = new AdverseReactionSymptomComponent();

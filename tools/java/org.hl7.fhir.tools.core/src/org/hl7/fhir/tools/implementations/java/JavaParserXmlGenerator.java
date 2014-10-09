@@ -156,7 +156,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void genReference() throws Exception {
     write("  private boolean parseResourceContent(int eventType, XmlPullParser xpp, Resource res) throws Exception {\r\n");
     write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"language\")) { \r\n");
-    write("      res.setLanguageObject(parseCode(xpp));\r\n");
+    write("      res.setLanguageElement(parseCode(xpp));\r\n");
     write("    } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"text\")) {\r\n"); 
     write("      res.setText(parseNarrative(xpp));\r\n");
     write("    } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"contained\")) {\r\n"); 
@@ -420,7 +420,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         write("        res.get"+upFirst(name)+"().add("+prsr+");\r\n");
       } else {
         write("      "+(!first ? "} else " : "")+"if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\""+name+"\")) {\r\n");
-        write("        res.set"+upFirst(getElementName(name, false))+(isJavaPrimitive(e) ? "Object" : "")+"("+prsr+");\r\n");
+        write("        res.set"+upFirst(getElementName(name, false))+(isJavaPrimitive(e) ? "Element" : "")+"("+prsr+");\r\n");
       }
     }
   }

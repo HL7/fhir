@@ -540,9 +540,9 @@ public class QuestionnaireBuilder {
           vs.setDefine(null);
           vs.setCompose(null);
           vs.getTelecom().clear();
-          vs.setPurposeObject(null);
-          vs.setPublisherObject(null);
-          vs.setCopyrightObject(null);
+          vs.setPurposeElement(null);
+          vs.setPublisherElement(null);
+          vs.setCopyrightElement(null);
         }
         result.getOptions().setReference("#"+vs.getXmlId());
       }

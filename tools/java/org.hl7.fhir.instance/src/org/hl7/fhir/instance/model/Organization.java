@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 9, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -193,14 +193,14 @@ public class Organization extends Resource {
         /**
          * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
-        public Enumeration<AdministrativeGender> getGenderObject() { 
+        public Enumeration<AdministrativeGender> getGenderElement() { 
           return this.gender;
         }
 
         /**
          * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
-        public OrganizationContactComponent setGenderObject(Enumeration<AdministrativeGender> value) { 
+        public OrganizationContactComponent setGenderElement(Enumeration<AdministrativeGender> value) { 
           this.gender = value;
           return this;
         }
@@ -330,14 +330,14 @@ public class Organization extends Resource {
     /**
      * @return {@link #name} (A name associated with the organization.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameObject() { 
+    public StringType getNameElement() { 
       return this.name;
     }
 
     /**
      * @param value {@link #name} (A name associated with the organization.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Organization setNameObject(StringType value) { 
+    public Organization setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -496,14 +496,14 @@ public class Organization extends Resource {
     /**
      * @return {@link #active} (Whether the organization's record is still in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public BooleanType getActiveObject() { 
+    public BooleanType getActiveElement() { 
       return this.active;
     }
 
     /**
      * @param value {@link #active} (Whether the organization's record is still in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public Organization setActiveObject(BooleanType value) { 
+    public Organization setActiveElement(BooleanType value) { 
       this.active = value;
       return this;
     }
