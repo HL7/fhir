@@ -3010,7 +3010,7 @@ public class Publisher implements URIResolver {
         if (vs.getDefine() != null) {
           page.getCodeSystems().put(vs.getDefine().getSystem().toString(), ae);
         }
-        addToResourceFeed(vs, vs.getIdentifier(), valueSetsFeed);
+        addToResourceFeed(vs, vs.getIdentifier(), valueSetsFeed, null, null);
         page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
         if (vs.getDefine() != null) {
           page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
@@ -3156,7 +3156,7 @@ public class Publisher implements URIResolver {
     dest.getEntryList().add(e);
   }
 
-  private void addToResourceFeed(ValueSet vs, String id, AtomFeed dest) throws Exception {
+  private void addToResourceFeed(ValueSet vs, String id, AtomFeed dest, String csOid, String vsOid) throws Exception {
     String wid;
     if (id.contains(":"))
       wid = id;
@@ -3169,6 +3169,10 @@ public class Publisher implements URIResolver {
     AtomEntry e = new AtomEntry();
     e.setId(wid);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valueset/" + id);
+    if (csOid != null)
+      e.getLinks().put("cs-oid", csOid);
+    if (vsOid != null)
+      e.getLinks().put("vs-oid", vsOid);
     e.setTitle("Valueset \"" + id + "\" to support automated processing");
     e.setUpdated(new DateAndTime(page.getGenDate()));
     e.setPublished(new DateAndTime(page.getGenDate()));
@@ -4018,7 +4022,7 @@ public class Publisher implements URIResolver {
     }
     for (String n : page.getDefinitions().getExtraValuesets().keySet()) {
       ValueSet vs = page.getDefinitions().getExtraValuesets().get(n);
-      generateValueSetPart1(n, vs, n, page.getRegistry().idForName(n));
+      generateValueSetPart1(n, vs, n, null, page.getRegistry().idForName(n));
     }
   }
 
@@ -4035,7 +4039,7 @@ public class Publisher implements URIResolver {
         
         new ValueSetValidator(page.getWorkerContext()).validate(vs, true);
         
-        addToResourceFeed(vs, vs.getIdentifier(), valueSetsFeed);
+        addToResourceFeed(vs, vs.getIdentifier(), valueSetsFeed, null, null); // todo - what should the Oids be
 
         String sf = page.processPageIncludes(title + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-ig.html"), "valueSet", null, name+".html", vs);
         sf = addSectionNumbers(title + ".html", "template-valueset", sf, "??");
@@ -4073,10 +4077,10 @@ public class Publisher implements URIResolver {
       n = name;
     cd.getReferredValueSet().setIdentifier("http://hl7.org/fhir/vs/" + n);
     ValueSet vs = cd.getReferredValueSet();
-    generateValueSetPart1(n, vs, name, cd.getVsOid());
+    generateValueSetPart1(n, vs, name, cd.getCsOid(), cd.getVsOid());
   }
 
-  private void generateValueSetPart1(String name, ValueSet vs, String path, String oid) throws Exception {
+  private void generateValueSetPart1(String name, ValueSet vs, String path, String csOid, String vsOid) throws Exception {
     if (vs.getText() == null) {
       vs.setText(new Narrative());
       vs.getText().setStatus(NarrativeStatus.EMPTY);
@@ -4089,7 +4093,8 @@ public class Publisher implements URIResolver {
     AtomEntry ae = new AtomEntry();
     ae.getLinks().put("self", "??");
     ae.getLinks().put("path", path + ".html");
-    ae.getLinks().put("oid", oid);
+    ae.getLinks().put("cs-oid", csOid);
+    ae.getLinks().put("vs-oid", vsOid);
     ae.setResource(vs);
     page.getValueSets().put(vs.getIdentifier(), ae);
     page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
@@ -4114,7 +4119,7 @@ public class Publisher implements URIResolver {
     new ValueSetValidator(page.getWorkerContext()).validate(vs, true);
 
     if (isGenerate) {
-      addToResourceFeed(vs, n, valueSetsFeed);
+      addToResourceFeed(vs, n, valueSetsFeed, ae.getLinks().get("cs-oid"), ae.getLinks().get("vs-oid"));
 
       ae.getLinks().put("path", name + ".html");
       page.setId(id);
@@ -4140,7 +4145,7 @@ public class Publisher implements URIResolver {
     for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
       if (Utilities.noString(bs.getCsOid()) && Utilities.noString(bs.getVsOid())) {
         bs.setCsOid(BindingSpecification.DEFAULT_OID_CS + page.getRegistry().idForName(bs.getName()));
-        bs.setVsOid(BindingSpecification.DEFAULT_OID_CS + page.getRegistry().idForName(bs.getName()));
+        bs.setVsOid(BindingSpecification.DEFAULT_OID_VS + page.getRegistry().idForName(bs.getName()));
       }
       if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
         generateCodeSystemPart1(bs.getReference().substring(1) + ".html", bs);
@@ -4211,7 +4216,8 @@ public class Publisher implements URIResolver {
     e.setResource(vs);
     e.getLinks().put("self", Utilities.changeFileExt(filename, ".html"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, ".html"));
-    e.getLinks().put("oid", cd.getCsOid());
+    e.getLinks().put("cs-oid", cd.getCsOid());
+    e.getLinks().put("vs-oid", cd.getVsOid());
     if (vs.getDefine() != null)
       page.getCodeSystems().put(vs.getDefine().getSystem(), e);
     page.getValueSets().put(vs.getIdentifier(), e);
@@ -4403,7 +4409,7 @@ public class Publisher implements URIResolver {
     new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
 
     if (isGenerate) {
-      addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed);
+      addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed, e.getLinks().get("cs-oid"), e.getLinks().get("vs-oid"));
 
       String sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx.html"), "codeSystem", null, null);
       sf = addSectionNumbers(filename + ".html", "template-valueset", sf, Utilities.oidTail(cd.getCsOid()));
