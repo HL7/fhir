@@ -97,7 +97,7 @@ public class MappingsGenerator {
           for (ElementComponent e : ps.getSnapshot().getElement()) {
             if (path == null || !e.getPath().startsWith(path)) {
               path = null;
-              if (e.getDefinition() != null && e.getDefinition().getMax().equals("0")) {
+              if (e.getDefinition() != null && e.getDefinition().getMax() != null && e.getDefinition().getMax().equals("0")) {
                 path = e.getPath()+".";
               } else
                 genElement(s, e, map.getIdentity());

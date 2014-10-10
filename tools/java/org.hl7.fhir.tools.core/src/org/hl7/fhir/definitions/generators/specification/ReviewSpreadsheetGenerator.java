@@ -140,8 +140,13 @@ public class ReviewSpreadsheetGenerator {
     return def.getBinding().getName();
   }
 
-  private String describeCardinality(ElementDefinitionComponent def) {
-    return def.getMin()+".."+def.getMax();
+  private String describeCardinality(ElementDefinitionComponent d) {
+    if (d.getMax() == null && d.getMinElement() == null)
+      return "";
+    else if (d.getMax() == null)
+      return Integer.toString(d.getMin()) + "..?";
+    else
+      return Integer.toString(d.getMin()) + ".." + d.getMax();
   }
 
   private void generateReviewHeader(HSSFWorkbook workbook) {

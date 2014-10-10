@@ -51,7 +51,7 @@ Uses
   AdvStringLists,
   DateSupport,
   EncodeSupport,
-  EncdDecd,
+  {$IFDEF UNICDE} EncdDecd, {$ENDIF}
   DecimalSupport;
 
 Type

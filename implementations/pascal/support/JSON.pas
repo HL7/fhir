@@ -278,7 +278,7 @@ Const
   Codes_TJSONLexType : Array[TJSONLexType] of String = ('Open', 'Close', 'String', 'Number', 'Colon', 'Comma', 'OpenArray', 'CloseArray', 'Eof', 'Null', 'Boolean');
 
 function JsonBoolToString(b : boolean) : String;
-function JsonStringToBool(s : String) : boolean;
+function JsonStringToBool(s : String; def : boolean = false) : boolean;
 
 Implementation
 
@@ -1515,7 +1515,7 @@ begin
 
 end;
 
-function JsonStringToBool(s : String) : boolean;
+function JsonStringToBool(s : String; def : boolean = false) : boolean;
 begin
   if SameText(s, 'true') then
     result := true
@@ -1528,7 +1528,7 @@ begin
   else if SameText(s, '') then
     result := false
   else
-    result := true;
+    result := def;
 end;
 
 End.

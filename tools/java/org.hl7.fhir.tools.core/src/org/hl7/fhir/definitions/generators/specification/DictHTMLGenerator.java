@@ -281,7 +281,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private String describeCardinality(ElementDefinitionComponent d) {
-    if (d.getMax() == null)
+    if (d.getMax() == null && d.getMinElement() == null)
+      return "";
+    else if (d.getMax() == null)
       return Integer.toString(d.getMin()) + "..?";
     else
       return Integer.toString(d.getMin()) + ".." + d.getMax();

@@ -147,13 +147,15 @@ public class ProfileGenerator {
     ec.getDefinition().setMax("*");
     ec.getDefinition().getType().add(new TypeRefComponent().setCode("Element"));
     
-//    ec = new ElementComponent();
-//    cd.getDifferential().getElement().add(ec);
-//    ec.setPath("value");
-//    ec.addRepresentation(PropertyRepresentation.xmlAttr);
-//    ec.setDefinition(new ElementDefinitionComponent());
-//    ec.getDefinition().setShort("Primitive value for " +type.getCode());
-//    ec.getDefinition().getType().add(new TypeRefComponent().setCode(type.getSchemaType()));
+    ec = new ElementComponent();
+    cd.getDifferential().getElement().add(ec);
+    ec.setPath("value");
+    ec.addRepresentation(PropertyRepresentation.XMLATTR);
+    ec.setDefinition(new ElementDefinitionComponent());
+    ec.getDefinition().setShort("Primitive value for " +type.getCode());
+    ec.getDefinition().setMin(0);
+    ec.getDefinition().setMax("1");
+    ec.getDefinition().getType().add(new TypeRefComponent().setCode("xsd:"+type.getSchemaType()));
     
     reset();
     // now. the snapshot
@@ -170,16 +172,17 @@ public class ProfileGenerator {
     ec.getDefinition().setMax("*");
 
     makeExtensionSlice("extension", null, p, cd.getSnapshot(), null, type.getCode());
+        
+    ec = new ElementComponent();
+    cd.getSnapshot().getElement().add(ec);
+    ec.setPath("value");
+    ec.addRepresentation(PropertyRepresentation.XMLATTR);
+    ec.setDefinition(new ElementDefinitionComponent());
+    ec.getDefinition().setMin(0);
+    ec.getDefinition().setMax("1");
+    ec.getDefinition().setShort("Primitive value for " +type.getCode());
+    ec.getDefinition().getType().add(new TypeRefComponent().setCode("xsd:"+type.getSchemaType()));
     
-    
-//    ec = new ElementComponent();
-//    cd.getSnapshot().getElement().add(ec);
-//    ec.setPath("value");
-//    ec.addRepresentation(PropertyRepresentation.xmlAttr);
-//    ec.setDefinition(new ElementDefinitionComponent());
-//    ec.getDefinition().setShort("Primitive value for " +type.getCode());
-//    ec.getDefinition().getType().add(new TypeRefComponent().setCode(type.getSchemaType()));
-
     containedSlices.clear();
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
@@ -221,13 +224,15 @@ public class ProfileGenerator {
     ec.getDefinition().setMax("*");
     ec.getDefinition().getType().add(new TypeRefComponent().setCode("Element"));
     
-//    ec = new ElementComponent();
-//    cd.getDifferential().getElement().add(ec);
-//    ec.setPath("value");
-//    ec.addRepresentation(PropertyRepresentation.xmlAttr);
-//    ec.setDefinition(new ElementDefinitionComponent());
-//    ec.getDefinition().setShort("Primitive value for " +type.getCode());
-//    ec.getDefinition().getType().add(new TypeRefComponent().setCode(type.getSchemaType()));
+    ec = new ElementComponent();
+    cd.getDifferential().getElement().add(ec);
+    ec.setPath("value");
+    ec.addRepresentation(PropertyRepresentation.XMLATTR);
+    ec.setDefinition(new ElementDefinitionComponent());
+    ec.getDefinition().setShort("Primitive value for " +type.getCode());
+    ec.getDefinition().setMin(0);
+    ec.getDefinition().setMax("1");
+    ec.getDefinition().getType().add(new TypeRefComponent().setCode("xsd:"+type.getBase()));
     
     reset();
     // now. the snapshot
@@ -246,13 +251,15 @@ public class ProfileGenerator {
     makeExtensionSlice("extension", null, p, cd.getSnapshot(), null, type.getCode());
     
     
-//    ec = new ElementComponent();
-//    cd.getSnapshot().getElement().add(ec);
-//    ec.setPath("value");
-//    ec.addRepresentation(PropertyRepresentation.xmlAttr);
-//    ec.setDefinition(new ElementDefinitionComponent());
-//    ec.getDefinition().setShort("Primitive value for " +type.getCode());
-//    ec.getDefinition().getType().add(new TypeRefComponent().setCode(type.getSchemaType()));
+    ec = new ElementComponent();
+    cd.getSnapshot().getElement().add(ec);
+    ec.setPath("value");
+    ec.addRepresentation(PropertyRepresentation.XMLATTR);
+    ec.setDefinition(new ElementDefinitionComponent());
+    ec.getDefinition().setShort("Primitive value for " +type.getCode());
+    ec.getDefinition().setMin(0);
+    ec.getDefinition().setMax("1");
+    ec.getDefinition().getType().add(new TypeRefComponent().setCode("xsd:"+type.getBase()));
 
     containedSlices.clear();
 

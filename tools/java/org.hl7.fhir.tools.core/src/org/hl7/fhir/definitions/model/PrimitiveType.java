@@ -1,4 +1,7 @@
 package org.hl7.fhir.definitions.model;
+
+import org.hl7.fhir.instance.model.Profile;
+
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -77,5 +80,5 @@ public class PrimitiveType extends DefinedCode {
   public void setV3(String v3) {
     this.v3 = v3;
   }
-  
+
 }

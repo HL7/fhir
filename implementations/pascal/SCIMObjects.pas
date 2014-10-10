@@ -889,7 +889,7 @@ end;
 
 function TSCIMContact.GetPrimary: Boolean;
 begin
-  result := StrToBoolDef(FJson['primary'], false);
+  result := JsonStringToBool(FJson['primary'], false);
 end;
 
 function TSCIMContact.GetType: String;

@@ -659,6 +659,8 @@ public class Publisher implements URIResolver {
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
     Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
     page.getProfiles().put(profile.getUrl(), genWrapper(profile));
+    t.setProfile(profile);
+    
 //    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
 //    t.setProfile(profile);
 //    t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -669,6 +671,7 @@ public class Publisher implements URIResolver {
   private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
     Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
     page.getProfiles().put(profile.getUrl(), genWrapper(profile));
+    t.setProfile(profile);
 //    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
 //    t.setProfile(profile);
 //    t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -2501,6 +2504,8 @@ public class Publisher implements URIResolver {
 
   private void produceBaseProfile() throws Exception {
      
+    for (DefinedCode pt : page.getDefinitions().getPrimitives().values())
+      producePrimitiveTypeProfile(pt);
     for (TypeDefn e : page.getDefinitions().getTypes().values())
       produceTypeProfile(e);
     for (TypeDefn e : page.getDefinitions().getInfrastructure().values())
@@ -2523,6 +2528,22 @@ public class Publisher implements URIResolver {
     cloneToXhtml(pt.getName() + ".profile", "Profile for " + pt.getName(), false, "profile-instance:type:" + pt.getName());
     jsonToXhtml(pt.getName() + ".profile", "Profile for " + pt.getName(), resource2Json(rp), "profile-instance:type:" + pt.getName());
   }
+
+  private void producePrimitiveTypeProfile(DefinedCode type) throws Exception {
+  
+  String fn = type.getCode() + ".profile.xml";
+  Profile rp = type.getProfile();
+  
+  new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
+  new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, true);
+
+  Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
+  addToResourceFeed(rp, type.getCode().toLowerCase(), typeFeed);
+  // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html"
+  // + File.separator + "datatypes.html"));
+  cloneToXhtml(type.getCode() + ".profile", "Profile for " + type.getCode(), false, "profile-instance:type:" + type.getCode());
+  jsonToXhtml(type.getCode() + ".profile", "Profile for " + type.getCode(), resource2Json(rp), "profile-instance:type:" + type.getCode());
+}
 
   private void produceTypeProfile(TypeDefn type) throws Exception {
 //    ProfileDefn p = new ProfileDefn();
