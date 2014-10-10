@@ -300,7 +300,7 @@ begin
           raise Exception.Create('No certificate provided');
         if not FindCmdLineSwitch('certtype', certtype) then
           raise Exception.Create('No certificate provided');
-        writeln('-signatom '+paramstr(2)+' -certpath '+certpath+' -certtype '+certtype);
+//        writeln('-signatom '+paramstr(2)+' -certpath '+certpath+' -certtype '+certtype);
         signAtom(paramstr(2), certpath, certtype);
       end
       else if (paramstr(1) = '-signprovenance') then

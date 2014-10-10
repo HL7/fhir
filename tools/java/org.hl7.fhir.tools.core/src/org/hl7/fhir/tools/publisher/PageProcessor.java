@@ -3594,7 +3594,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String profileReviewLink(ProfileDefn profile) {
-    return Utilities.changeFileExt((String) profile.getSource().getTag("filename"), "-review.xmlss");
+    return Utilities.changeFileExt((String) profile.getSource().getTag("filename"), "-review.xls");
   }
 
   private String profileExampleList(ProfileDefn profile, Map<String, Example> examples, String example) {
