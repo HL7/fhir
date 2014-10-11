@@ -64,7 +64,10 @@
   <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -74,10 +77,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s78">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s75">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -85,7 +85,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -94,14 +94,14 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s82">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s83">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s84">
+  <Style ss:ID="s79">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
@@ -109,7 +109,7 @@
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="85.5"/>
+   <Column ss:StyleID="s63" ss:Width="98.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="808.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
@@ -147,7 +147,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="DateTime">2014-10-09T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">profile</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">published.structure</Data></Cell>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -201,7 +201,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -210,18 +211,18 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="1" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s78" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s78" ss:Width="15.75"/>
-   <Column ss:Index="3" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="192"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="221.25"/>
-   <Column ss:Index="6" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="436.5"/>
+   x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s73" ss:Width="15.75"/>
+   <Column ss:Index="3" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="192"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="221.25"/>
+   <Column ss:Index="6" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="436.5"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Context</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">English</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">OCL</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">XPath</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Context</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">English</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">OCL</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">XPath</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -258,21 +259,21 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="1" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s78" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s78" ss:Width="165.75"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="231.75"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="65.25" ss:Span="1"/>
-   <Column ss:Index="5" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="219.75"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="126.75"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="168.75"/>
+   x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s73" ss:Width="165.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="231.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="65.25" ss:Span="1"/>
+   <Column ss:Index="5" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="219.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="126.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="168.75"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Example</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -318,50 +319,50 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="9" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s78" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s78" ss:Width="177.75"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="102.75"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="95.25"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="39"/>
-   <Column ss:StyleID="s78" ss:Width="60"/>
-   <Column ss:StyleID="s78" ss:Width="105"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="64.5"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="155.25"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="171"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="174"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="187.5"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="90"/>
-   <Column ss:Index="15" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="228"/>
+   x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s73" ss:Width="177.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="102.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="95.25"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="39"/>
+   <Column ss:StyleID="s73" ss:Width="60"/>
+   <Column ss:StyleID="s73" ss:Width="105"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="64.5"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="171"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="174"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="187.5"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="90"/>
+   <Column ss:Index="15" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="228"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Code</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Context Type</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Context Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Context</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Card.</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Card.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Type</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Binding</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Binding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Is Modifier</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Is Modifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Short Name</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Short Name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Definition</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Requirements</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Requirements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Comments</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Comments</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">RIM Mapping</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">RIM Mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">v2 Mapping</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">v2 Mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">To Do</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">To Do</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Committee Notes</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Committee Notes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -493,49 +494,49 @@
    <Column ss:Width="32.25"/>
    <Column ss:Width="117"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Path</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s83"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s84"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s79"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

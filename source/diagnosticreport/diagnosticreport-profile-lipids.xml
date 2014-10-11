@@ -137,7 +137,8 @@
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="808.5"/>
+   <Column ss:Width="98.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="808.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Value</Data></Cell>
@@ -174,7 +175,7 @@
     <Cell ss:StyleID="s65"><Data ss:Type="DateTime">2012-05-12T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">profile</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">published.structure</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">LipidProfile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -196,7 +197,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

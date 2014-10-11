@@ -145,7 +145,7 @@
     ss:WrapText="1"/>
    <NumberFormat ss:Format="#,##0"/>
   </Style>
-  <Style ss:ID="s89">
+  <Style ss:ID="s88">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
    <Interior/>
@@ -156,7 +156,7 @@
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="85.5"/>
+   <Column ss:StyleID="s63" ss:Width="98.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="808.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
@@ -195,7 +195,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="DateTime">2014-07-06T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">profile</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">published.structure</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">StructuredDataCaptureValueSet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -234,7 +234,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -712,7 +712,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Yes</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Yes</Data></Cell>
     <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/valueset-extensions#display}</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">list_item/item_prompt</Data></Cell>
    </Row>

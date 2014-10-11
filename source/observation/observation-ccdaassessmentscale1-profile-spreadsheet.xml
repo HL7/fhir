@@ -167,7 +167,7 @@
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="85.5"/>
+   <Column ss:StyleID="s63" ss:Width="98.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="293.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
@@ -205,7 +205,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="DateTime">2014-09-20T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">profile</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">published.structure</Data></Cell>
     <Cell><Data ss:Type="String">CCDAAssessmentScaleObservation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -258,6 +258,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2326,7 +2328,7 @@
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalCodedValue</Data></Cell>
@@ -2351,7 +2353,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalNumericValue</Data></Cell>
@@ -2376,7 +2378,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalAttachementValue</Data></Cell>
@@ -2401,7 +2403,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalRatioValue</Data></Cell>
@@ -2426,7 +2428,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalDateTimeValue</Data></Cell>
@@ -2451,7 +2453,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalTimeValue</Data></Cell>
@@ -2476,7 +2478,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalPeriodValue</Data></Cell>

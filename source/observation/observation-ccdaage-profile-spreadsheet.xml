@@ -20,7 +20,6 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>30</WindowTopX>
   <WindowTopY>255</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -178,7 +177,7 @@
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="85.5"/>
+   <Column ss:StyleID="s63" ss:Width="98.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="293.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
@@ -216,7 +215,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="DateTime">2014-09-20T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">profile</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">published.structure</Data></Cell>
     <Cell><Data ss:Type="String">CCDAAgeObservation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -250,6 +249,7 @@
    </PageSetup>
    <Unsynced/>
    <Zoom>160</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -270,7 +270,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -517,7 +518,6 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <TabColorIndex>10</TabColorIndex>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

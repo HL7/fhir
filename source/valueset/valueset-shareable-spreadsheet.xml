@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
   <LastSaved>2014-05-06T13:13:26Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,8 +20,6 @@
   <WindowWidth>15270</WindowWidth>
   <WindowTopX>5670</WindowTopX>
   <WindowTopY>6735</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -131,7 +129,7 @@
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Width="85.5"/>
+   <Column ss:Width="98.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="808.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
@@ -169,7 +167,7 @@
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">profile</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">published.structure</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -195,11 +193,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -682,7 +680,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

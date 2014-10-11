@@ -622,8 +622,8 @@ public class SpreadsheetParser {
 		
     List<String> namedSheets = new ArrayList<String>();
     
-		if (p.getMetadata().containsKey("profile")) {
-		  for (String n : p.getMetadata().get("profile")) {
+		if (p.getMetadata().containsKey("published.structure")) {
+		  for (String n : p.getMetadata().get("published.structure")) {
 		    if (!Utilities.noString(n))
 		    parseProfileSheet(definitions, p, invariants, n, namedSheets, true);
 		  }
