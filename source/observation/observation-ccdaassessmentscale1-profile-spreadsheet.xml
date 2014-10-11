@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Eric Haas</LastAuthor>
+  <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2014-09-28T03:23:22Z</LastSaved>
+  <LastSaved>2014-10-11T01:34:35Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,8 +20,6 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>120</WindowTopX>
   <WindowTopY>855</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -240,6 +238,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -259,7 +258,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -274,11 +272,11 @@
  <Worksheet ss:Name="CCDAAssessmentScaleObservation">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=CCDAAssessmentScaleObservation!R1C3:R2C22" ss:Hidden="1"/>
+    ss:RefersTo="=CCDAAssessmentScaleObservation!R1C3:R2C21" ss:Hidden="1"/>
    <NamedRange ss:Name="Observation.interpretation"
     ss:RefersTo="=CCDAAssessmentScaleObservation!#REF!"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="220.5" ss:Span="1"/>
    <Column ss:Index="3" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
@@ -288,15 +286,15 @@
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
-   <Column ss:StyleID="s72" ss:Width="129.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:StyleID="s72" ss:Width="129.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="17" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="16" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="23" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
+   <Column ss:Index="22" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
     ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
@@ -312,7 +310,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Binding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Profile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Discriminator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -350,7 +347,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -364,7 +360,7 @@
     <Cell><Data ss:Type="String">5.  SHALL contain exactly one [1..1] code (CONF:14439). &#10;a.  SHOULD be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or &#10;SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) identifying the &#10;assessment scale (CONF:14440). </Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Assessment Scale</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Assessment Scale</Data></Cell>
     <Cell><Data ss:Type="String">Assessment Scale Observation.  This should be either a an appropriate LOINC or SNOMED CT code identifying the assessment scale</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -376,7 +372,7 @@
     <Cell><Data ss:Type="String">Such derivation expression can contain a text calculation of how the &#10;components total up to the summed score  &#10;6.  MAY contain zero or one [0..1] derivationExpr (CONF:14637). </Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Derivation expression</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Derivation expression</Data></Cell>
     <Cell><Data ss:Type="String">Derivation expression. Such derivation expression can contain a text calculation of how the components total up to the summed score.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="63.75">
@@ -385,7 +381,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Clinically effective time</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Clinically effective time</Data></Cell>
     <Cell><Data ss:Type="String">Represents clinically effective time of the measurement, which may be when the &#10;measurement was performed (e.g., a BP measurement), or may be when sample &#10;was taken (and measured some time afterwards)   </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -393,14 +389,14 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="17.25">
     <Cell ss:StyleID="s79"><Data ss:Type="String">9/20/2014 EH: constrained reliability to &quot;OK&quot;</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ok</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">4.  SHALL contain at least one [1..*] id (CONF:14438). </Data></Cell>
@@ -426,7 +422,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.text</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.referenceRange.text</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">The referenceRange/observationRange/text, if present, MAY contain a &#10;description of the scale (e.g. for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= &#10;moderate pain, 8 to 10 = severe pain)  </Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">The referenceRange/observationRange/text, if present, MAY contain a &#10;description of the scale (e.g. for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= &#10;moderate pain, 8 to 10 = severe pain)  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">12. SHOULD contain zero or more [0..*] entryRelationship (CONF:14451) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component &#10;(CONF:16741). &#10;b.  SHALL contain exactly one [1..1] Assessment Scale Supporting &#10;Observation (templateId:2.16.840.1.113883.10.20.22.4.86) &#10;(CONF:16742). </Data></Cell>
@@ -439,15 +435,14 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related.type</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.related.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">has-component </Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">has-component </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">12b.  SHALL contain exactly one [1..1] Assessment Scale Supporting &#10;Observation (templateId:2.16.840.1.113883.10.20.22.4.86) &#10;(CONF:16742). &#10;9/21/2014 EH: need to limit type to reference specific profiles - TODO</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related.target</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.related.target</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Reference(Observation)</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">#CCDAAssessmentSupporting</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Reference(Observation){#CCDAAssessmentSupporting}</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -468,9 +463,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -482,11 +477,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -530,12 +524,12 @@
    <ErrorHide/>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
-  <AutoFilter x:Range="R1C3:R2C22"
+  <AutoFilter x:Range="R1C3:R2C21"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="CCDAAssessmentSupporting">
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="220.5" ss:Span="1"/>
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="161.25"/>
@@ -545,15 +539,15 @@
    <Column ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="9" ss:Width="191.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="145.5"/>
-   <Column ss:Width="129.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:Width="129.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="17" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="16" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="23" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
+   <Column ss:Index="22" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s74"><Data ss:Type="String">Editor's Comment</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Unchanged from Base Element</Data></Cell>
@@ -565,7 +559,6 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Must Support</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Profile</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Discriminator</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Value</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Aliases</Data></Cell>
@@ -592,7 +585,6 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s78"/>
@@ -615,9 +607,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionalcodedvalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalcodedvalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -641,9 +632,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionalnumericvalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalnumericvalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -667,9 +657,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionalattachementvalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalattachementvalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -693,9 +682,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionalratiovalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalratiovalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -719,9 +707,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionaldatetimevalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionaldatetimevalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -745,9 +732,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionaltimevalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionaltimevalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -771,9 +757,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionalperiodvalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalperiodvalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -799,7 +784,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AssessmentSupportingObservationCodes</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -838,7 +822,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; (CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:16720).  9/20/2014 EH: map &quot;completed&quot; to &quot;final&quot;</Data></Cell>
@@ -846,7 +829,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -890,14 +872,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -927,12 +907,10 @@
    </PageSetup>
    <Unsynced/>
    <TabColorIndex>50</TabColorIndex>
-   <TopRowVisible>6</TopRowVisible>
-   <LeftColumnVisible>2</LeftColumnVisible>
+   <LeftColumnVisible>4</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
      <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
@@ -947,7 +925,7 @@
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R13C9</Range>
+   <Range>R2C9,R10C9:R13C9</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
@@ -1069,7 +1047,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1378,6 +1355,7 @@
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="74.25"/>
+   <Column ss:Width="80.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s86"><Data ss:Type="String">METADATA_STATUS</Data><NamedCell
       ss:Name="METADATA_STATUS"/></Cell>
@@ -1549,8 +1527,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>42</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1558,7 +1536,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FullDefinitionsMapping1">
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="26" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="26" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="220.5" ss:Span="1"/>
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="161.25"/>
@@ -1568,15 +1546,15 @@
    <Column ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="9" ss:Width="191.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="145.5"/>
-   <Column ss:Width="129.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:Width="129.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="17" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="16" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="23" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
+   <Column ss:Index="22" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s74"><Data ss:Type="String">Editor's Comment</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Maps to element not in differential profile</Data></Cell>
@@ -1588,7 +1566,6 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Must Support</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Profile</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Discriminator</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Value</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Aliases</Data></Cell>
@@ -1615,7 +1592,6 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s78"/>
@@ -1635,7 +1611,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1679,14 +1654,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s72"><Data ss:Type="String">10. MAY contain zero or more [0..*] interpretationCode (CONF:14459). &#10;a.  The interpretationCode, if present, MAY contain zero or more [0..*] &#10;translation (CONF:14888). </Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.interpretation</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1721,7 +1694,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Derivation expression</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Derivation expression. Such derivation expression can contain a text calculation of how the components total up to the summed score.</Data></Cell>
     <Cell ss:StyleID="s72"/>
@@ -1747,7 +1719,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Clinically effective time</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Represents clinically effective time of the measurement, which may be when the &#10;measurement was performed (e.g., a BP measurement), or may be when sample &#10;was taken (and measured some time afterwards)   </Data></Cell>
     <Cell ss:StyleID="s72"/>
@@ -1764,7 +1735,6 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1797,7 +1767,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">final</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1817,7 +1786,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1861,14 +1829,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.method</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1913,7 +1879,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
@@ -1939,14 +1904,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.specimen</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1991,14 +1954,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.encounter</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.encounter</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2043,14 +2004,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2095,14 +2054,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2147,14 +2104,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell ss:StyleID="s80"><Data ss:Type="String">The text, if present, SHOULD contain zero or one [0..1] &#10;reference (CONF:16802). &#10;a.  The reference, if present, MAY contain zero or &#10;one [0..1] @value (CONF:16803). &#10;i.  This reference/@value SHALL begin with &#10;a '#' and SHALL point to its &#10;corresponding narrative (using the &#10;approach defined in CDA Release 2, &#10;section 4.3.5.1) (CONF:16804).   &#10;9/20/2014 EH: Is this an internal reference (URL)?  Discuss</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.text</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.text</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2199,7 +2154,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s72"><Data ss:Type="String">12a.  SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component &#10;9/20/2014 EH: should be mappped to  COMP to derived-from&#10;(CONF:16741). </Data></Cell>
@@ -2207,7 +2161,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related.type</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2251,7 +2204,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -2262,12 +2214,11 @@
    </PageSetup>
    <Unsynced/>
    <TabColorIndex>51</TabColorIndex>
-   <TopRowVisible>24</TopRowVisible>
-   <LeftColumnVisible>17</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <RangeSelection>R1C1:R26C24</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2306,7 +2257,7 @@
   </DataValidation>
  </Worksheet>
  <Worksheet ss:Name="FullDefinitionsMapping2">
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="33" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="33" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="21.75">
    <Column ss:AutoFitWidth="0" ss:Width="220.5" ss:Span="1"/>
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="161.25"/>
@@ -2316,15 +2267,15 @@
    <Column ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="9" ss:Width="191.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="145.5"/>
-   <Column ss:Width="129.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:Width="129.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="17" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="16" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="23" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
+   <Column ss:Index="22" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">Editor's Comment</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Elements from Base</Data></Cell>
@@ -2336,7 +2287,6 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Must Support</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Profile</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Discriminator</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Value</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Aliases</Data></Cell>
@@ -2363,7 +2313,6 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s78"/>
@@ -2377,7 +2326,7 @@
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalCodedValue</Data></Cell>
@@ -2386,9 +2335,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionalcodedvalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalcodedvalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2403,7 +2351,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalNumericValue</Data></Cell>
@@ -2412,9 +2360,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionalnumericvalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalnumericvalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2429,7 +2376,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalAttachementValue</Data></Cell>
@@ -2438,9 +2385,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalattachementvalExtension{ue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalattachementvalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2455,7 +2401,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalRatioValue</Data></Cell>
@@ -2464,9 +2410,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionalratiovalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalratiovalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2481,7 +2426,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalDateTimeValue</Data></Cell>
@@ -2490,9 +2435,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionaldatetimevalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionaldatetimevalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2507,7 +2451,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalTimeValue</Data></Cell>
@@ -2516,9 +2460,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionaltimevalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionaltimevalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2533,7 +2476,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="90">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalPeriodValue</Data></Cell>
@@ -2542,9 +2485,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension{#additionalperiodvalue}</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#additionalperiodvalue</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2570,7 +2512,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AssessmentSupportingObservationCodes</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2609,14 +2550,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.interpretation</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2661,14 +2600,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.applies[x]</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2713,7 +2650,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; (CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:16720).  9/20/2014 EH: map &quot;completed&quot; to &quot;final&quot;</Data></Cell>
@@ -2721,7 +2657,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2746,7 +2681,6 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2791,14 +2725,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.method</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2843,14 +2775,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2895,14 +2825,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2947,7 +2875,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
@@ -2973,14 +2900,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -3030,10 +2955,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <LeftColumnVisible>4</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3065,9 +2991,17 @@
    <ErrorMessage>'y' or 'n'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R26C9</Range>
+   <Range>R10C9:R26C9</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
+   <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C9</Range>
+   <Type>List</Type>
+   <Value>TYPE</Value>
+   <ErrorHide/>
+   <ErrorStyle>Warn</ErrorStyle>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
  </Worksheet>

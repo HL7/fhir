@@ -739,40 +739,48 @@ public class ProfileGenerator {
     if (e.typeCode().startsWith("@"))  {
       ce.getDefinition().setNameReference(getNameForPath(myParents, e.typeCode().substring(1)));
     } else {
-      if (e.hasStatedProfile()) {
-        if (e.getTypes().size() != 1)
-          throw new Exception("mismatched type count for path " + path + " in profile " + p.getName());
-        TypeRefComponent type = new Profile.TypeRefComponent();
-        type.setCode(e.getTypes().get(0).getName());
-        type.setProfile(e.getTypes().get(0).getProfile());
-        ce.getDefinition().getType().add(type);
-      } else {
-        for (TypeRef t : e.getTypes())  {
-          // If this is Reference(A|B|C), duplicate the ResourceReference for each
-          if(t.hasParams() && "Reference".equals(t.getName()))
-          {
-            for(String param : t.getParams()) {    
-              TypeRefComponent type = new Profile.TypeRefComponent();
-              type.setCode("Reference");
-              if (param.startsWith("http:"))
-                type.setProfile(param);
-              else 
-                type.setProfile("http://hl7.org/fhir/Profile/"+param);
-              ce.getDefinition().getType().add(type);
-              if( e.hasAggregation() ) {
-                for (String s : e.getAggregation().split("\\,"))
-                  type.addAggregation(ResourceAggregationMode.fromCode(s.trim()));
-              }
-            }
-          } else {
-            TypeRefComponent type = new Profile.TypeRefComponent();
-            type.setCode(t.summaryFormal());
-            ce.getDefinition().getType().add(type);
-            if (e.getTypes().size() == 1 && !Utilities.noString(e.getTypes().get(0).getProfile()))
-              type.setProfile(e.getTypes().get(0).getProfile());
+    	List<TypeRef> expandedTypes = new ArrayList<TypeRef>();
+    	for (TypeRef t : e.getTypes()) {
+	    	// Expand any Resource(A|B|C) references
+    		if(t.hasParams() && !"Reference".equals(t.getName())) {
+    			throw new Exception("Only resource types can specify parameters.  Path " + path + " in profile " + p.getName());
+    		}
+        if(t.getParams().size() > 1)
+        {
+        	if (t.getProfile() != null && t.getParams().size() !=1) {
+        		throw new Exception("Cannot declare profile on a resource reference declaring multiple resource types.  Path " + path + " in profile " + p.getName());
+        	}
+          for(String param : t.getParams()) {
+          	TypeRef childType = new TypeRef(t.getName());
+          	childType.getParams().add(param);
+          	childType.getAggregations().addAll(t.getAggregations());
+          	expandedTypes.add(childType);
           }
+        } else {
+        	expandedTypes.add(t);
         }
-      }
+			}
+    	for (TypeRef t : expandedTypes) {
+        TypeRefComponent type = new Profile.TypeRefComponent();
+      	type.setCode(t.getName());
+	      String profile = t.getProfile();
+	      if (profile == null && t.hasParams()) {
+	      	profile = t.getParams().get(0);
+	      }
+	      if (profile != null) {
+		      if (profile.startsWith("http:") || profile.startsWith("#")) {
+		      	type.setProfile(profile);
+		      } else {
+	          type.setProfile("http://hl7.org/fhir/Profile/" + profile);
+ 	      	}
+ 	      }
+ 	      
+ 	      for (String aggregation : t.getAggregations()) {
+					type.addAggregation(ResourceAggregationMode.fromCode(aggregation));
+				}	      	
+    		
+        ce.getDefinition().getType().add(type);
+    	}
     }
     
     // ce.setConformance(getType(e.getConformance()));

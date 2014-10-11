@@ -10,7 +10,7 @@
   <LastAuthor>Ewout Kramer</LastAuthor>
   <Created>2012-03-19T09:39:52Z</Created>
   <LastSaved>2013-12-03T16:50:24Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,6 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>150</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -117,7 +116,7 @@
   <Style ss:ID="s79">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s80">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
  </Styles>
@@ -140,11 +139,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
-    <Cell><Data ss:Type="String">United States Realm FHIR Profile</Data></Cell>
+    <Cell><Data ss:Type="String">United States Realm FHIR Profilefoofoo9</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">author.name</Data></Cell>
-    <Cell><Data ss:Type="String">Fhir Core Team</Data></Cell>
+    <Cell><Data ss:Type="String">Fhir Core Teamfoofoo10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">code</Data></Cell>
@@ -152,7 +151,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">description</Data></Cell>
-    <Cell><Data ss:Type="String">Contains constraints and extensions to the FHIR specification specific to the US realm</Data></Cell>
+    <Cell><Data ss:Type="String">Contains constraints and extensions to the FHIR specification specific to the US realmfoofoo11</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">comments</Data></Cell>
@@ -207,10 +206,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -399,13 +399,13 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Race</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Race</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Ethnicity</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">A code classifying the person into a named category of humans sharing a common real or presumed heritage.</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s81"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Ethnicity</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s80"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Ethnicity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Religion</Data></Cell>
@@ -421,7 +421,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -383,10 +383,6 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			// elem.getConformance().code() + "</a>");
 			// }
 
-			if (elem.hasAggregation()) {
-				write(" aggregated");
-			}
-
 			if (elem.usesCompositeType()) {
 				// Contents of element are defined elsewhere in the same
 				// resource
@@ -593,18 +589,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           }
           w = w + p.length(); 
           
-          // TODO: There has to be an aggregation
-          // specification per t.getParams()
-          if (elem.hasAggregation()) {
-            // TODO: This should link to the documentation
-            // of the profile as specified
-            // in the aggregation. For now it links to the
-            // base resource.
-            write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p, false)
-                + ".html#" + p + "\">"
-                + elem.getAggregation()).replace("[", "_").replace("]", "_") + "</a>");
-          } 
-          else if( definitions.getFutureResources().containsKey(p)) 
+          // TODO: Display action and/or profile information
+					if( definitions.getFutureResources().containsKey(p)) 
               write("<a title=\"This resource has not been defined yet\">" + p + "</a>");                
           else if (p.equals("Any")) {
             write("<a href=\"" + "resourcelist.html" + "\">" + p + "</a>");								

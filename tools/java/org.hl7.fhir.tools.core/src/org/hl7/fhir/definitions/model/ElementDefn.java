@@ -76,7 +76,6 @@ public class ElementDefn {
 	private String profileName; // only in a profile, for slicing
 	private String discriminator; // when slicing
 	private String value; // only in a profile
-	private String aggregation; // only in a profile
 	private ElementComponent derivation;
 	private boolean inherited; // in a profile, was this element add from the
 								// base definition (true) or was it specifically
@@ -464,18 +463,6 @@ public class ElementDefn {
 
 	public void setValue(String value) {
 		this.value = value;
-	}
-
-	public String getAggregation() {
-		return aggregation;
-	}
-
-	public void setAggregation(String aggregation) {
-		this.aggregation = aggregation;
-	}
-
-	public boolean hasAggregation() {
-		return aggregation != null && !aggregation.equals("");
 	}
 
 	public boolean hasValue() {

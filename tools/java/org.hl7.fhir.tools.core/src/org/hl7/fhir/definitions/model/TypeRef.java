@@ -49,6 +49,7 @@ public class TypeRef {
 	private String name;
 	private String profile;
 	private List<String> params = new ArrayList<String>();
+	private List<String> aggregations = new ArrayList<String>();
 
 	public TypeRef()
 	{
@@ -73,6 +74,14 @@ public class TypeRef {
 
 	public boolean hasParams() {
 		return params.size() > 0;
+	}
+
+	public List<String> getAggregations() {
+		return aggregations;
+	}
+
+	public boolean hasAggregations() {
+		return aggregations.size() > 0;
 	}
 
 	

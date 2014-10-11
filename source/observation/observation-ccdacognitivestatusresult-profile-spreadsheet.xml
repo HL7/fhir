@@ -20,8 +20,6 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>-135</WindowTopX>
   <WindowTopY>705</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -257,14 +255,7 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <TopRowVisible>6</TopRowVisible>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>1</ActiveCol>
-    </Pane>
-   </Panes>
+   <Selected/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -277,11 +268,11 @@
  <Worksheet ss:Name="CCDACognitiveStatusResult">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=CCDACognitiveStatusResult!R1C3:R1C22" ss:Hidden="1"/>
+    ss:RefersTo="=CCDACognitiveStatusResult!R1C3:R1C21" ss:Hidden="1"/>
    <NamedRange ss:Name="Observation.interpretation"
     ss:RefersTo="=CCDACognitiveStatusResult!#REF!"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="201"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="107.25"/>
@@ -292,15 +283,15 @@
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
-   <Column ss:StyleID="s72" ss:Width="129.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:StyleID="s72" ss:Width="129.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="17" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="16" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="23" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
+   <Column ss:Index="22" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
     ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
@@ -316,7 +307,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Binding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Profile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Discriminator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -351,8 +341,7 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="14" ss:StyleID="s77"/>
+    <Cell ss:Index="13" ss:StyleID="s77"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
@@ -372,11 +361,10 @@
     <Cell ss:StyleID="s76"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s76"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Extension{#AdditionalInterpretationCodes}</Data></Cell>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">#AdditionalInterpretationCodes</Data></Cell>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="14" ss:StyleID="s77"/>
+    <Cell ss:Index="13" ss:StyleID="s77"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
@@ -393,8 +381,8 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
     <Cell><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -409,7 +397,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">9.  SHALL contain exactly one [1..1] effectiveTime (CONF:14261).&#10;</Data></Cell>
@@ -417,14 +405,14 @@
     <Cell ss:Index="4"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">The onset date SHALL be recorded in the low element of the &#10;effectiveTime element when known.&#10;The resolution date SHALL be recorded in the high element of the &#10;effectiveTime element when known. &#10;</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">The onset date SHALL be recorded in the low element of the &#10;effectiveTime element when known.&#10;The resolution date SHALL be recorded in the high element of the &#10;effectiveTime element when known. &#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">8.  SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed &#10;(CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:14323). &#10;9/27/2014 EH:  mapped to 'final'&#10;</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">5.  SHALL contain at least one [1..*] id (CONF:14257). </Data></Cell>
@@ -451,7 +439,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">Observation.related</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">MAY contain zero or more [0..*] .related&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Caregiver Characteristics ' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity ' &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">MAY contain zero or more [0..*] .related&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Caregiver Characteristics ' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity ' &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -468,11 +456,10 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <TabColorIndex>10</TabColorIndex>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -485,17 +472,29 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C11:R13C11</Range>
+   <Type>List</Type>
+   <Value>DISCRIMINATOR</Value>
+   <ErrorMessage>Allowed values are &quot;name&quot; or &quot;url&quot;</ErrorMessage>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C12:R13C12</Range>
+   <Type>List</Type>
+   <Value>VALUE</Value>
+   <ErrorHide/>
+   <ErrorStyle>Info</ErrorStyle>
+   <ErrorMessage>Use</ErrorMessage>
+  </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R4C6:R13C6,R2C6</Range>
    <Type>List</Type>
@@ -522,24 +521,10 @@
    <ErrorMessage>'y' or 'n'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R9C9,R11C9:R13C9</Range>
+   <Range>R11C9:R13C9,R4C9:R9C9,R2C9</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C12:R13C12</Range>
-   <Type>List</Type>
-   <Value>DISCRIMINATOR</Value>
-   <ErrorMessage>Allowed values are &quot;name&quot; or &quot;url&quot;</ErrorMessage>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C13:R13C13</Range>
-   <Type>List</Type>
-   <Value>VALUE</Value>
-   <ErrorHide/>
-   <ErrorStyle>Info</ErrorStyle>
-   <ErrorMessage>Use</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R10C9</Range>
@@ -548,7 +533,7 @@
    <ErrorHide/>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
-  <AutoFilter x:Range="R1C3:R1C22"
+  <AutoFilter x:Range="R1C3:R1C21"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -1099,7 +1084,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FullDefinitionsMapping">
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="27" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="27" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="220.5" ss:Span="1"/>
    <Column ss:Index="3" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
@@ -1109,15 +1094,15 @@
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
-   <Column ss:StyleID="s72" ss:Width="129.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:StyleID="s72" ss:Width="129.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="17" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="16" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="23" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
+   <Column ss:Index="22" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
     ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
@@ -1130,7 +1115,6 @@
     <Cell><Data ss:Type="String">Must Support</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell><Data ss:Type="String">Binding</Data></Cell>
-    <Cell><Data ss:Type="String">Profile</Data></Cell>
     <Cell><Data ss:Type="String">Discriminator</Data></Cell>
     <Cell><Data ss:Type="String">Value</Data></Cell>
     <Cell><Data ss:Type="String">Aliases</Data></Cell>
@@ -1157,7 +1141,6 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s78"/>
@@ -1176,9 +1159,8 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell><Data ss:Type="String">Extension{#AdditionalInterpretationCodes}</Data></Cell>
     <Cell ss:StyleID="s77"/>
-    <Cell><Data ss:Type="String">#AdditionalInterpretationCodes</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s77"/>
@@ -1194,8 +1176,8 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Smoking Status: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Smoking Status: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
     <Cell><Data ss:Type="String">Smoking Status: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1214,7 +1196,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">9.  SHALL contain exactly one [1..1] effectiveTime (CONF:14261).&#10;</Data></Cell>
@@ -1222,7 +1204,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">The onset date SHALL be recorded in the low element of the &#10;effectiveTime element when known.&#10;The resolution date SHALL be recorded in the high element of the &#10;effectiveTime element when known. &#10;</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">The onset date SHALL be recorded in the low element of the &#10;effectiveTime element when known.&#10;The resolution date SHALL be recorded in the high element of the &#10;effectiveTime element when known. &#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.issued</Data></Cell>
@@ -1232,7 +1214,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.reliability</Data></Cell>
@@ -1295,7 +1277,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">Observation.related</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">MAY contain zero or more [0..*] .related&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Caregiver Characteristics ' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity ' &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">MAY contain zero or more [0..*] .related&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Caregiver Characteristics ' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity ' &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.related.type</Data></Cell>
@@ -1311,17 +1293,19 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <LeftColumnVisible>4</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C13:R41C13</Range>
+   <Range>R2C12:R41C12</Range>
    <Type>List</Type>
    <Value>VALUE</Value>
    <ErrorHide/>
@@ -1329,13 +1313,13 @@
    <ErrorMessage>Use</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C12:R35C12</Range>
+   <Range>R2C11:R35C11</Range>
    <Type>List</Type>
    <Value>DISCRIMINATOR</Value>
    <ErrorMessage>Allowed values are &quot;name&quot; or &quot;url&quot;</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R38C9</Range>
+   <Range>R2C9,R4C9:R38C9</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>

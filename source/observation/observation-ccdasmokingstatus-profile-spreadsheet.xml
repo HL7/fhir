@@ -20,8 +20,6 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -238,6 +236,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -258,7 +257,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -273,9 +273,9 @@
  <Worksheet ss:Name="CCDASmokingStatusObservation">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=CCDASmokingStatusObservation!R1C3:R2C22" ss:Hidden="1"/>
+    ss:RefersTo="=CCDASmokingStatusObservation!R1C3:R2C21" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="13" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="331.5"/>
    <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="120"/>
@@ -285,8 +285,8 @@
    <Column ss:StyleID="s72" ss:Width="34.5"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
-   <Column ss:StyleID="s72" ss:Width="129.75" ss:Span="2"/>
-   <Column ss:Index="13" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="108.75"/>
+   <Column ss:StyleID="s72" ss:Width="129.75" ss:Span="1"/>
+   <Column ss:Index="12" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="108.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="254.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75"/>
@@ -294,7 +294,7 @@
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="22" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="156"/>
+   <Column ss:Index="21" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="156"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s75">
     <Cell ss:StyleID="s76"><Data ss:Type="String">Editor's Comment</Data></Cell>
@@ -310,7 +310,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Binding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Profile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Discriminator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -348,7 +347,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Smoking Status Observation</Data><NamedCell
@@ -364,8 +362,8 @@
     <Cell><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;version value=&quot;2.48&quot;/&gt;&lt;code value=&quot;72166-2&quot;/&gt;&lt;display value=&quot;Tobacco smoking status NHIS&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Smoking Status: LOINC 72166-2  = Tobacco smoking status NHIS</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;version value=&quot;2.48&quot;/&gt;&lt;code value=&quot;72166-2&quot;/&gt;&lt;display value=&quot;Tobacco smoking status NHIS&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Smoking Status: LOINC 72166-2  = Tobacco smoking status NHIS</Data></Cell>
     <Cell><Data ss:Type="String">Smoking Status: Limited to fixed LOINC  value 72166-2  = Tobacco smoking status NHIS.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -375,7 +373,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">CCDASmokingStatusValue</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Coded Responses from Smoking Status Value Set </Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Coded Responses from Smoking Status Value Set </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain exactly one [1..1] effectiveTime (CONF:14814).&#10;a. This effectiveTime SHALL contain exactly one [1..1] low (CONF:14818).</Data></Cell>
@@ -383,7 +381,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">Observation.appliesPeriod</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">If the patient is a smoker (77176002), the start element must be present. If the patient is an ex-smoker (8517006), both the start and end element must be present. todo create the invarients for this</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">If the patient is a smoker (77176002), the start element must be present. If the patient is an ex-smoker (8517006), both the start and end element must be present. todo create the invarients for this</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.issued</Data></Cell>
@@ -395,14 +393,14 @@
     <Cell><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">constrained reliability to &quot;OK&quot;</Data></Cell>
     <Cell><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ok</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.bodySite</Data></Cell>
@@ -446,7 +444,6 @@
    </Print>
    <TabColorIndex>10</TabColorIndex>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -467,13 +464,17 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C12:R4C12</Range>
+   <Type>List</Type>
+   <Value>VALUE</Value>
+  </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C6:R31C6</Range>
    <Type>List</Type>
@@ -505,12 +506,7 @@
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C13:R4C13</Range>
-   <Type>List</Type>
-   <Value>VALUE</Value>
-  </DataValidation>
-  <AutoFilter x:Range="R1C3:R2C22"
+  <AutoFilter x:Range="R1C3:R2C21"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>

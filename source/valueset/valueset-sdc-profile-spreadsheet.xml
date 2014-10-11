@@ -20,7 +20,6 @@
   <WindowWidth>19845</WindowWidth>
   <WindowTopX>8985</WindowTopX>
   <WindowTopY>-210</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -146,14 +145,6 @@
     ss:WrapText="1"/>
    <NumberFormat ss:Format="#,##0"/>
   </Style>
-  <Style ss:ID="s87">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
   <Style ss:ID="s89">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
@@ -239,11 +230,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>9</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -253,9 +244,9 @@
  <Worksheet ss:Name="StructuredDataCaptureValueSet">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=StructuredDataCaptureValueSet!R1C1:R2C21" ss:Hidden="1"/>
+    ss:RefersTo="=StructuredDataCaptureValueSet!R1C1:R2C20" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="66" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="22" ss:ExpandedRowCount="66" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s74" ss:Width="206.25"/>
@@ -263,16 +254,16 @@
    <Column ss:StyleID="s73" ss:Width="34.5"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="7" ss:StyleID="s73" ss:Width="191.25"/>
-   <Column ss:StyleID="s73" ss:Width="129.75" ss:Span="2"/>
-   <Column ss:Index="11" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:StyleID="s73" ss:Width="129.75" ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="61.5"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="220.5"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="16" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="15" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="22" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="192"
+   <Column ss:Index="21" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="192"
     ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s75">
     <Cell><Data ss:Type="String">Profile Name</Data><NamedCell
@@ -286,7 +277,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Binding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Profile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">IHE SDC mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -323,7 +313,6 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Form_Package//list_field</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -343,9 +332,8 @@
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#styleSensitive}</Data></Cell>
     <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#styleSensitive</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">N/A (new requirement)</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -364,9 +352,8 @@
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/valueset-extensions#category}</Data></Cell>
     <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">http://hl7.org/fhir/Profile/valueset-extensions#category</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">N/A (new requirement)</Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -528,7 +515,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="10"><Data ss:Type="String">list_item</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">list_item</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">conceptLabel</Data></Cell>
@@ -537,9 +524,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">http://hl7.org/fhir/Profile/valueset-extensions#label</Data></Cell>
-    <Cell><Data ss:Type="String">item_number/label</Data></Cell>
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/valueset-extensions#label}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">item_number/label</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">conceptLabel.renderingStyle</Data></Cell>
@@ -548,9 +534,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#style</Data></Cell>
-    <Cell><Data ss:Type="String">item_number/style</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#style}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">item_number/style</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">conceptLabel.markup</Data></Cell>
@@ -559,9 +544,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s83"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#markup</Data></Cell>
-    <Cell><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#markup}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">conceptConceptOrder</Data></Cell>
@@ -570,10 +554,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">http://hl7.org/fhir/Profile/valueset-extensions#conceptOrder</Data></Cell>
-    <Cell><Data ss:Type="String">list_item_order</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">The presence of a sort order implies that sort order is important</Data></Cell>
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/valueset-extensions#conceptOrder}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">list_item_order</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">The presence of a sort order implies that sort order is important</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.define.concept.code</Data></Cell>
@@ -582,7 +565,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">value</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.define.concept.abstract</Data></Cell>
@@ -599,7 +582,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">item_prompt</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">item_prompt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">conceptDisplayLabel.renderingStyle</Data></Cell>
@@ -608,8 +591,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#style</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#style}</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">conceptDisplayLabel.markup</Data></Cell>
@@ -618,9 +600,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s83"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#markup</Data></Cell>
-    <Cell><Data ss:Type="String">item_prompt_html</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#markup}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">item_prompt_html</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.define.concept.definition</Data></Cell>
@@ -629,7 +610,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">value_meaning/label</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">value_meaning/label</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.define.concept.concept</Data></Cell>
@@ -682,7 +663,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">list_item/value</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">list_item/value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">conceptLabel</Data></Cell>
@@ -691,9 +672,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">http://hl7.org/fhir/Profile/valueset-extensions#label</Data></Cell>
-    <Cell><Data ss:Type="String">list_item/item_number/label</Data></Cell>
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/valueset-extensions#label}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">list_item/item_number/label</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">code.renderingStyle</Data></Cell>
@@ -702,9 +682,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#style</Data></Cell>
-    <Cell><Data ss:Type="String">list_item/item_number/style</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#style}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">list_item/item_number/style</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">code.markup</Data></Cell>
@@ -713,9 +692,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s83"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#markup</Data></Cell>
-    <Cell><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#markup}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">conceptConceptOrder</Data></Cell>
@@ -724,10 +702,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">http://hl7.org/fhir/Profile/valueset-extensions#conceptOrder</Data></Cell>
-    <Cell><Data ss:Type="String">list_item/list_item_order</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">The presence of a sort order implies that sort order is important</Data></Cell>
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/valueset-extensions#conceptOrder}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">list_item/list_item_order</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">The presence of a sort order implies that sort order is important</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">display</Data></Cell>
@@ -736,9 +713,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Yes</Data></Cell>
-    <Cell><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">http://hl7.org/fhir/Profile/valueset-extensions#display</Data></Cell>
-    <Cell><Data ss:Type="String">list_item/item_prompt</Data></Cell>
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/valueset-extensions#display}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">list_item/item_prompt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">codeDisplay.renderingStyle</Data></Cell>
@@ -747,8 +723,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#style</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#style}</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">codeDisplay.markup</Data></Cell>
@@ -757,9 +732,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s83"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#markup</Data></Cell>
-    <Cell><Data ss:Type="String">list_item/item_prompt_html</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#markup}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">list_item/item_prompt_html</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.compose.include.filter</Data></Cell>
@@ -830,7 +804,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="10"><Data ss:Type="String">list_item</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">list_item</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">expansionLabel</Data></Cell>
@@ -839,9 +813,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">http://hl7.org/fhir/Profile/valueset-extensions#label</Data></Cell>
-    <Cell><Data ss:Type="String">item_number/label</Data></Cell>
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/valueset-extensions#label}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">item_number/label</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">expansion.renderingStyle</Data></Cell>
@@ -850,9 +823,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#style</Data></Cell>
-    <Cell><Data ss:Type="String">item_number/style</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#style}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">item_number/style</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">expansion.markup</Data></Cell>
@@ -861,9 +833,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s83"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#markup</Data></Cell>
-    <Cell><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#markup}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">conceptConceptOrder</Data></Cell>
@@ -872,10 +843,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">http://hl7.org/fhir/Profile/valueset-extensions#conceptOrder</Data></Cell>
-    <Cell><Data ss:Type="String">list_item_order</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">The presence of a sort order implies that sort order is important</Data></Cell>
+    <Cell><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/valueset-extensions#conceptOrder}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">list_item_order</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">The presence of a sort order implies that sort order is important</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.expansion.contains.system</Data></Cell>
@@ -891,7 +861,7 @@
     <Cell ss:Index="5" ss:StyleID="Default"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">value</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.expansion.contains.display</Data></Cell>
@@ -899,7 +869,7 @@
     <Cell ss:Index="5" ss:StyleID="Default"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Yes</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">item_prompt</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">item_prompt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">expansionDisplay.renderingStyle</Data></Cell>
@@ -908,8 +878,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#style</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#style}</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">expansionDisplay.markup</Data></Cell>
@@ -918,9 +887,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">No</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s83"><Data ss:Type="String">http://hl7.org/fhir/Profile/rendering-extensions#markup</Data></Cell>
-    <Cell><Data ss:Type="String">item_prompt_html</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Extension{http://hl7.org/fhir/Profile/rendering-extensions#markup}</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">item_prompt_html</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.expansion.contains.contains</Data></Cell>
@@ -944,7 +912,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -964,14 +931,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R2C21"
+  <AutoFilter x:Range="R1C1:R2C20"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>

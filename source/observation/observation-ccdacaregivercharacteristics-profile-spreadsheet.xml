@@ -20,8 +20,6 @@
   <WindowWidth>25230</WindowWidth>
   <WindowTopX>-11955</WindowTopX>
   <WindowTopY>1950</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -241,14 +239,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <TopRowVisible>6</TopRowVisible>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>1</ActiveCol>
-    </Pane>
-   </Panes>
+   <Selected/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -261,11 +252,11 @@
  <Worksheet ss:Name="CCDACaregiverCharacteristics">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=CCDACaregiverCharacteristics!R1C3:R2C22" ss:Hidden="1"/>
+    ss:RefersTo="=CCDACaregiverCharacteristics!R1C3:R2C21" ss:Hidden="1"/>
    <NamedRange ss:Name="Observation.interpretation"
     ss:RefersTo="=CCDACaregiverCharacteristics!#REF!"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="13" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="220.5"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="89.25"/>
@@ -276,15 +267,15 @@
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
-   <Column ss:StyleID="s72" ss:Width="129.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:StyleID="s72" ss:Width="129.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="17" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="16" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="23" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
+   <Column ss:Index="22" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
     ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
@@ -300,7 +291,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Binding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Profile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Discriminator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -338,7 +328,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -353,8 +342,8 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;version value=&quot;2.48&quot;/&gt;&lt;code value=&quot;57267-7&quot;/&gt;&lt;display value=&quot;ADL or IADL assistance from any caregiver [OASIS-C]&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;&#10;</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Caregiver Characteristics</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;version value=&quot;2.48&quot;/&gt;&lt;code value=&quot;57267-7&quot;/&gt;&lt;display value=&quot;ADL or IADL assistance from any caregiver [OASIS-C]&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;&#10;</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Caregiver Characteristics</Data></Cell>
     <Cell><Data ss:Type="String">Caregiver's willingness and ability to provide care.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -402,7 +391,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Reference(Patient)|Reference(Group)</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Person requiring care</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Person requiring care</Data></Cell>
     <Cell><Data ss:Type="String">This is the person for whom the caretaker's ablility or williness to provide care is being questioned.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -438,11 +427,10 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <TabColorIndex>10</TabColorIndex>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -455,12 +443,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -504,7 +490,7 @@
    <Value>MUST_SUPPORT</Value>
    <ErrorMessage>'y' or 'n'</ErrorMessage>
   </DataValidation>
-  <AutoFilter x:Range="R1C3:R2C22"
+  <AutoFilter x:Range="R1C3:R2C21"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -1026,7 +1012,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FullDefinitionsMapping">
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="27" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="27" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="220.5" ss:Span="1"/>
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="161.25"/>
@@ -1036,15 +1022,15 @@
    <Column ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="9" ss:Width="191.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="145.5"/>
-   <Column ss:Width="129.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:Width="129.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="17" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="16" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="23" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
+   <Column ss:Index="22" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">Editor's Comment</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Unchanged from Base Element</Data></Cell>
@@ -1056,7 +1042,6 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Must Support</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Profile</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Discriminator</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Value</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Aliases</Data></Cell>
@@ -1081,7 +1066,6 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"/>
@@ -1109,7 +1093,6 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Extension</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">#additionalpatients</Data></Cell>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Additional Patients</Data></Cell>
@@ -1129,7 +1112,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1173,14 +1155,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.interpretation</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1225,14 +1205,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">8.  SHALL contain at least one [1..*] participant (CONF:14227). &#10;a.  Such participants MAY contain zero or one [0..1] time (CONF:14830). &#10;i.  The time, if present, SHALL contain exactly one [1..1] low &#10;(CONF:14831). </Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.applies[x]</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1277,7 +1255,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SHALL contain exactly one [1..1] statusCode=&quot;Completed&quot; (CodeSystem: &#10;ActStatus 2.16.840.1.113883.5.14) (CONF:14233). &#10;9/21/2014 EH: mapped 'completed' to 'final'</Data></Cell>
@@ -1290,7 +1267,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">final</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1329,7 +1305,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
@@ -1355,7 +1330,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
@@ -1363,7 +1337,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.method</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1407,7 +1380,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">8.  SHALL contain at least one [1..*] participant (CONF:14227). &#10;a.  Such participants MAY contain zero or one [0..1] time (CONF:14830). &#10;i.  The time, if present, SHALL contain exactly one [1..1] low &#10;(CONF:14831). &#10;b.  Such participants SHALL contain exactly one [1..1] participantRole &#10;(CONF:14228). &#10;i.  This participantRole SHALL contain exactly one [1..1] &#10;@classCode=&quot;IND&quot; (CONF:14229). &#10;9/21/2014 EH: map &quot;IND&quot; to Patient assuming this is target of observation.</Data></Cell>
@@ -1419,7 +1391,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Reference(Patient)</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1459,14 +1430,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1511,7 +1480,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
@@ -1537,14 +1505,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1589,14 +1555,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1641,14 +1605,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.text</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1693,14 +1655,12 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related.type</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1745,7 +1705,6 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1755,6 +1714,14 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <LeftColumnVisible>4</LeftColumnVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>10</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

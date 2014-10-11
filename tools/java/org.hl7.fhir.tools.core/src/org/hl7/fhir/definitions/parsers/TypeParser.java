@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.TypeRef;
@@ -35,75 +36,74 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class TypeParser {
 
-	public List<TypeRef> parse(String n, String profiles) throws Exception {
+	public List<TypeRef> parse(String n, boolean inProfile) throws Exception {
 		ArrayList<TypeRef> a = new ArrayList<TypeRef>();
-		
-		Tokeniser tkn = new Tokeniser(n);
-		while (tkn.more()) {
-			TypeRef t = new TypeRef();
-			t.setName(tkn.next());
-			String p = tkn.next();
-			if (p.equals("(")) {
-				t.getParams().add(tkn.next());
-				p = tkn.next();
-				while (p.equals("|")) {
-					t.getParams().add(tkn.next());
-					p = tkn.next();
+
+		if (n == null || n.equals(""))
+			return a;
+
+		// We use "|" as a separator both between types as well as to separate resources when
+		// we reference a Resource.  This step converts the separators inside a resource reference
+		// to allow splitting
+		if (n.indexOf("(") != -1 && n.indexOf("|") != -1) {
+			String[] typeParts = n.split("[\\(\\)]");
+			n = "";
+			for (int i=0;i<typeParts.length;i++) {
+				n = n + typeParts[i++];
+				if (i<typeParts.length) {
+					n = n + "(" + typeParts[i].replace("|",",") + ")";
 				}
-				if (!p.equals(")"))
-					throw new Exception("Unexpected token '"+p+"' in type "+n);
-				p = tkn.next();
 			}
-			if (!p.equals("|") && !p.equals(""))
-				throw new Exception("Unexpected token '"+p+"' in type "+n);
+		}
+		
+		String[] typeList = n.split("[\\|]");
+		for (int i=0; i<typeList.length; i++) {
+			TypeRef t = new TypeRef();
+			String typeString = typeList[i];
+			if (typeString.contains("<")) {
+				if (!inProfile) {
+					throw new Exception("Can't specify aggregation mode for types unless defining a profile");
+				}
+				int startPos = typeString.indexOf("<");
+				int endPos = typeString.indexOf(">");
+				if (endPos < startPos) {
+					throw new Exception("Missing '>' in data type definition: " + typeList[i]);
+				}
+				t.getAggregations().addAll(Arrays.asList(typeString.substring(startPos + 1, endPos).trim().split(",")));
+					
+				typeString = typeString.substring(0, startPos);
+			}
+			
+			if (typeString.contains("{")) {
+				if (!inProfile) {
+					throw new Exception("Can't specify profile for types unless defining a profile");
+				}
+				int startPos = typeString.indexOf("{");
+				int endPos = typeString.indexOf("}");
+				if (endPos < startPos) {
+					throw new Exception("Missing '}' in data type definition: " + typeList[i]);
+				}
+				t.setProfile(typeString.substring(startPos + 1, endPos).trim());
+				typeString = typeString.substring(0, startPos);
+			}
+			
+			if (typeString.contains("(")) {
+				int startPos = typeString.indexOf("(");
+				int endPos = typeString.indexOf(")");
+				if (endPos < startPos) {
+					throw new Exception("Missing ')' in data type definition: " + typeList[i]);
+				}
+				String[] params = typeString.substring(startPos + 1, endPos).split(",");
+				for (int j=0;j<params.length;j++) {
+					t.getParams().add(params[j].trim());
+				}
+				typeString = typeString.substring(0, startPos);
+			}
+			
+			t.setName(typeString.trim());
 			a.add(t);
 		}
-		
-		if (!Utilities.noString(profiles)) {
-		  String[] plist = profiles.split("\\|");
-		  for (int i = 0; i < plist.length; i++) {
-		    if (i >= a.size())
-		      throw new Exception("The profile "+profiles+" has more choices that the type "+n);
-		    a.get(i).setProfile(plist[i]);
-		  }
-		}
-		return a;
-	}
 
-	private class Tokeniser {
-		private String source;
-		private int cursor;
-		
-		private Tokeniser(String src) {
-			source = src;
-			cursor = 0;
-		}
-		
-		private boolean more() {
-			return cursor < source.length();
-		}
-		
-		private String next() throws Exception {
-			while (more() && Character.isWhitespace(source.charAt(cursor)))
-				cursor++;
-			if (!more())
-				return "";
-			char c = source.charAt(cursor);
-			cursor++;
-			if (c == '(' || c == ')' || c == '|' || c == '*')
-				return String.valueOf(c);
-			else if (Character.isLetter(c) || c == '['  || c == '='  || c == '@') {
-				StringBuilder b = new StringBuilder();
-				b.append(c);
-				while (more() && (Character.isLetter(source.charAt(cursor)) || Character.isDigit(source.charAt(cursor)) || source.charAt(cursor) == ':' 
-						|| source.charAt(cursor) == '[' || source.charAt(cursor) == ']' || source.charAt(cursor) == '@' || source.charAt(cursor) == '=' || source.charAt(cursor) == '.')) {
-					b.append(source.charAt(cursor));
-					cursor++;
-				}
-				return b.toString();
-			} else 
-				throw new Exception("Unexpected token '"+c+"' in type "+source);
-		}
-	}
-	
+		return a;
+	}	
 }

@@ -21,7 +21,6 @@
   <WindowTopX>30</WindowTopX>
   <WindowTopY>255</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -286,11 +285,11 @@
  <Worksheet ss:Name="CCDAAgeObservation">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=CCDAAgeObservation!R1C3:R2C22" ss:Hidden="1"/>
+    ss:RefersTo="=CCDAAgeObservation!R1C3:R2C21" ss:Hidden="1"/>
    <NamedRange ss:Name="Observation.interpretation"
     ss:RefersTo="=CCDAAgeObservation!R10C4"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="28" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="220.5" ss:Span="1"/>
    <Column ss:Index="3" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
@@ -300,15 +299,15 @@
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
    <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
-   <Column ss:StyleID="s72" ss:Width="129.75" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:StyleID="s72" ss:Width="129.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="17" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="16" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="23" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
+   <Column ss:Index="22" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
     ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
@@ -324,7 +323,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Binding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Profile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Discriminator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -361,7 +359,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -377,8 +374,8 @@
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">http://snomed.info/sct#445518008|Age at onset of clinical finding</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Age at Onset: SNOMED CT  445518008 = Age at onset of clinical finding</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">http://snomed.info/sct#445518008|Age at onset of clinical finding</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Age at Onset: SNOMED CT  445518008 = Age at onset of clinical finding</Data></Cell>
     <Cell><Data ss:Type="String">Age at onset of an event or observation.  Limited to fixed SNOMED CT  445518008 = Age at onset of clinical finding.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -387,13 +384,13 @@
     <Cell ss:Index="4"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Age Value with UCUM age value units</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Age Value with UCUM age value units</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.valueQuantity.value</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s79"><Data ss:Type="String">Observation.valueQuantity.value</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="s80"><Data ss:Type="String">Actual numerical value</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s80"><Data ss:Type="String">Actual numerical value</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Actual numerical value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -411,7 +408,7 @@
     <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.valueQuantity.system</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s79"><Data ss:Type="String">Observation.valueQuantity.system</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s81"><Data ss:Type="String">http://unitsofmeasure.org </Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s81"><Data ss:Type="String">http://unitsofmeasure.org </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">6.  SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:7617). &#10;a.  This value SHALL contain exactly one [1..1] @unit=&quot;1&quot;, which SHALL&#10;be selected from ValueSet AgePQ_UCUM &#10;2.16.840.1.113883.11.20.9.21 DYNAMIC (CONF:7618). </Data></Cell>
@@ -442,14 +439,14 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s83"><Data ss:Type="String">9/20/2014 EH: constrained reliability to &quot;OK&quot;</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ok</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s73"><Data ss:Type="String">Observation.bodySite</Data></Cell>
@@ -524,9 +521,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -538,12 +535,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -580,7 +576,7 @@
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
-  <AutoFilter x:Range="R1C3:R2C22"
+  <AutoFilter x:Range="R1C3:R2C21"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>

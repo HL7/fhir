@@ -906,9 +906,8 @@ public class SpreadsheetParser {
 		  }
 		}
 
-		String t = sheet.getColumn(row, "Type");
 		TypeParser tp = new TypeParser();
-		e.getTypes().addAll(tp.parse(t, sheet.getColumn(row, "Profile")));
+		e.getTypes().addAll(tp.parse(sheet.getColumn(row, "Type"), isProfile));
 
 		if (sheet.hasColumn(row, "Concept Domain"))
 			throw new Exception("Column 'Concept Domain' has been retired in "
@@ -944,7 +943,6 @@ public class SpreadsheetParser {
 		e.setDisplayHint(sheet.getColumn(row, "Display Hint"));
 		if (isProfile) {
 			e.setValue(sheet.getColumn(row, "Value"));
-			e.setAggregation(sheet.getColumn(row, "Aggregation"));
 		}
 		return e;
 	}
@@ -1008,7 +1006,7 @@ public class SpreadsheetParser {
     else if (!"".equals(s))
       throw new Exception("unable to process Must Understand flag: " + s
           + " in " + getLocation(row));
-    exe.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), null));
+    exe.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), false));
 	  
 	  if (extensions != null) {
 	    // if we got an extensions element, split this in.... 
@@ -1048,7 +1046,7 @@ public class SpreadsheetParser {
 	      v.ban();
 	    else {
 	      TypeParser tp = new TypeParser();
-	      v.getTypes().addAll(tp.parse(t, sheet.getColumn(row, "Profile")));
+	      v.getTypes().addAll(tp.parse(t, true));
 	    }
 	    e.getElements().remove(e.getElementByName("extension"));
 	  }
