@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
+// Generated on Sun, Oct 12, 2014 22:02+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -174,7 +174,7 @@ public class Profile extends Resource {
 
     public enum ResourceAggregationMode {
         CONTAINED, // The reference is a local reference to a contained resource.
-        REFERENCED, // The reference to to a resource that has to be resolved externally to the resource that includes the reference.
+        REFERENCED, // The reference to a resource that has to be resolved externally to the resource that includes the reference.
         BUNDLED, // The resource the reference points to will be found in the same bundle as the resource that includes the reference.
         NULL; // added to help the parsers
         public static ResourceAggregationMode fromCode(String codeString) throws Exception {
@@ -1418,6 +1418,11 @@ public class Profile extends Resource {
         protected BooleanType isModifier;
 
         /**
+         * Whether the element should be included if a client requests a search with the parameter _summary=true.
+         */
+        protected BooleanType isSummary;
+
+        /**
          * Binds to a value set if this element is coded (code, Coding, CodeableConcept).
          */
         protected ElementDefinitionBindingComponent binding;
@@ -1427,7 +1432,7 @@ public class Profile extends Resource {
          */
         protected List<ElementDefinitionMappingComponent> mapping = new ArrayList<ElementDefinitionMappingComponent>();
 
-        private static final long serialVersionUID = 321886804L;
+        private static final long serialVersionUID = -935240984L;
 
       public ElementDefinitionComponent() {
         super();
@@ -1932,6 +1937,42 @@ public class Profile extends Resource {
         }
 
         /**
+         * @return {@link #isSummary} (Whether the element should be included if a client requests a search with the parameter _summary=true.). This is the underlying object with id, value and extensions. The accessor "getIsSummary" gives direct access to the value
+         */
+        public BooleanType getIsSummaryElement() { 
+          return this.isSummary;
+        }
+
+        /**
+         * @param value {@link #isSummary} (Whether the element should be included if a client requests a search with the parameter _summary=true.). This is the underlying object with id, value and extensions. The accessor "getIsSummary" gives direct access to the value
+         */
+        public ElementDefinitionComponent setIsSummaryElement(BooleanType value) { 
+          this.isSummary = value;
+          return this;
+        }
+
+        /**
+         * @return Whether the element should be included if a client requests a search with the parameter _summary=true.
+         */
+        public boolean getIsSummary() { 
+          return this.isSummary == null ? false : this.isSummary.getValue();
+        }
+
+        /**
+         * @param value Whether the element should be included if a client requests a search with the parameter _summary=true.
+         */
+        public ElementDefinitionComponent setIsSummary(boolean value) { 
+          if (value == false)
+            this.isSummary = null;
+          else {
+            if (this.isSummary == null)
+              this.isSummary = new BooleanType();
+            this.isSummary.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #binding} (Binds to a value set if this element is coded (code, Coding, CodeableConcept).)
          */
         public ElementDefinitionBindingComponent getBinding() { 
@@ -1981,6 +2022,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("constraint", "", "Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.", 0, java.lang.Integer.MAX_VALUE, constraint));
           childrenList.add(new Property("mustSupport", "boolean", "If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.", 0, java.lang.Integer.MAX_VALUE, mustSupport));
           childrenList.add(new Property("isModifier", "boolean", "If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.", 0, java.lang.Integer.MAX_VALUE, isModifier));
+          childrenList.add(new Property("isSummary", "boolean", "Whether the element should be included if a client requests a search with the parameter _summary=true.", 0, java.lang.Integer.MAX_VALUE, isSummary));
           childrenList.add(new Property("binding", "", "Binds to a value set if this element is coded (code, Coding, CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, binding));
           childrenList.add(new Property("mapping", "", "Identifies a concept from an external specification that roughly corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, mapping));
         }
@@ -2011,6 +2053,7 @@ public class Profile extends Resource {
           dst.constraint.add(i.copy());
         dst.mustSupport = mustSupport == null ? null : mustSupport.copy();
         dst.isModifier = isModifier == null ? null : isModifier.copy();
+        dst.isSummary = isSummary == null ? null : isSummary.copy();
         dst.binding = binding == null ? null : binding.copy();
         dst.mapping = new ArrayList<ElementDefinitionMappingComponent>();
         for (ElementDefinitionMappingComponent i : mapping)

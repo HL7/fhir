@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.formats.JsonComposer;
+import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.CodeableConcept;
@@ -241,7 +243,7 @@ public class InstanceValidator extends BaseValidator {
       }
     }
     else
-      validate(errors, "", elem, profile, null);
+      validateResource(errors, "", elem, profile, null);
   }
 
   public List<ValidationMessage> validateInstance(WrapperElement elem) throws Exception {
@@ -276,7 +278,7 @@ public class InstanceValidator extends BaseValidator {
       	String puri = findProfileTag(element);
         WrapperElement r = ci.element().getFirstChild();
       	ProfileMatch p = findProfile(errors, path, profile, uri, puri, r);
-        validate(errors, ci.path()+"/f:"+r.getName(), r, p.getProfile(), p.getStructure());
+        validateResource(errors, ci.path()+"/f:"+r.getName(), r, p.getProfile(), p.getStructure());
       }
     }
   }
@@ -338,7 +340,7 @@ public class InstanceValidator extends BaseValidator {
 	  return uri;
   }
 
-  private void validate(List<ValidationMessage> errors, String path, WrapperElement elem, Profile profile, ProfileStructureComponent structure) throws Exception {
+  private void validateResource(List<ValidationMessage> errors, String path, WrapperElement elem, Profile profile, ProfileStructureComponent structure) throws Exception {
     if (elem.getName().equals("Binary"))
       validateBinary(elem);
     else {
@@ -703,7 +705,7 @@ public class InstanceValidator extends BaseValidator {
 
   private void validateContains(List<ValidationMessage> errors, String path, ElementComponent child, ElementComponent context, WrapperElement element) throws Exception {
     WrapperElement e = element.getFirstChild();
-    validate(errors, path, e, null, null);    
+    validateResource(errors, path, e, null, null);    
   }
 
   private boolean typeIsPrimitive(String t) {
@@ -1161,6 +1163,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
 	private void checkConstraint(List<ValidationMessage> errors, String path, WrapperElement focus, ElementDefinitionConstraintComponent c) throws Exception {
+	  
 //		try
 //   	{
 //			XPathFactory xpf = new net.sf.saxon.xpath.XPathFactoryImpl();

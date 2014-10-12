@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
+// Generated on Sun, Oct 12, 2014 22:02+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -4723,6 +4723,8 @@ public class JsonComposer extends JsonComposerBase {
       composeBooleanExtras("mustSupport", element.getMustSupportElement(), false);
       composeBooleanCore("isModifier", element.getIsModifierElement(), false);
       composeBooleanExtras("isModifier", element.getIsModifierElement(), false);
+      composeBooleanCore("isSummary", element.getIsSummaryElement(), false);
+      composeBooleanExtras("isSummary", element.getIsSummaryElement(), false);
       composeProfileElementDefinitionBindingComponent("binding", element.getBinding());
       if (element.getMapping().size() > 0) {
         openArray("mapping");

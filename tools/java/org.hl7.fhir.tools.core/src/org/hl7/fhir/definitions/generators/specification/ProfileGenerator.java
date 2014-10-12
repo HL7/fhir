@@ -633,6 +633,8 @@ public class ProfileGenerator {
     dDst.setMin(dSrc.getMinCardinality());
     dDst.setMustSupport(dSrc.isMustSupport());
     dDst.setIsModifier(dSrc.isModifier());
+    dDst.setIsSummaryElement(Factory.newBoolean(dSrc.isSummaryItem()));
+    
     // dDst.
     for (TypeRef t : dSrc.getTypes()) {
       if (t.hasParams()) {
@@ -791,6 +793,8 @@ public class ProfileGenerator {
     }
     // we don't know mustSupport here
     ce.getDefinition().setIsModifier(e.isModifier());
+    ce.getDefinition().setIsSummaryElement(Factory.newBoolean(e.isSummaryItem()));
+    
     for (String n : definitions.getMapTypes().keySet()) {
       addMapping(p, ce.getDefinition(), n, e.getMapping(n));
     }
@@ -951,6 +955,7 @@ public class ProfileGenerator {
       ce.getDefinition().getType().get(0).setProfile(src.getTypes().get(0).getProfile());
     // todo? conditions, constraints, binding, mapping
     ce.getDefinition().setIsModifier(src.isModifier());
+    ce.getDefinition().setIsSummaryElement(Factory.newBoolean(src.isSummaryItem()));
     return ce;
   }
 

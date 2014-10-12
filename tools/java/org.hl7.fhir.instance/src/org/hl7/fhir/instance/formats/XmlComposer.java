@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Oct 10, 2014 00:18+1100 for FHIR v0.3.0
+// Generated on Sun, Oct 12, 2014 22:02+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -3197,6 +3197,7 @@ public class XmlComposer extends XmlComposerBase {
         composeProfileElementDefinitionConstraintComponent("constraint", e);
       composeBoolean("mustSupport", element.getMustSupportElement());
       composeBoolean("isModifier", element.getIsModifierElement());
+      composeBoolean("isSummary", element.getIsSummaryElement());
       composeProfileElementDefinitionBindingComponent("binding", element.getBinding());
       for (Profile.ElementDefinitionMappingComponent e : element.getMapping()) 
         composeProfileElementDefinitionMappingComponent("mapping", e);

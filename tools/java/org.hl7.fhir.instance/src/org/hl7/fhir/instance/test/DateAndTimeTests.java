@@ -5,7 +5,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.junit.Test;
@@ -21,28 +24,58 @@ public class DateAndTimeTests {
 		assertEquals("2013-02-02T20:13", new DateAndTime("2013-02-02T20:13").toString());
 		assertEquals("2013-02-02T20:13:03", new DateAndTime("2013-02-02T20:13:03").toString());
 		assertEquals("2013-02-02T20:13:03Z", new DateAndTime("2013-02-02T20:13:03Z").toString());
+		assertEquals("2013-02-02T20:13:03.0Z", new DateAndTime("2013-02-02T20:13:03.0Z").toString());
+		assertEquals("2013-02-02T20:13:03.12Z", new DateAndTime("2013-02-02T20:13:03.12Z").toString());
 		assertEquals("2013-02-02T20:13:03+05:00", new DateAndTime("2013-02-02T20:13:03+05:00").toString());
 		assertEquals("2013-02-02T20:13:03-05:00", new DateAndTime("2013-02-02T20:13:03-05:00").toString());
+		assertEquals("2013-02-02T20:13:03+05:30", new DateAndTime("2013-02-02T20:13:03+05:30").toString());
+		assertEquals("2013-02-02T20:13:03-05:30", new DateAndTime("2013-02-02T20:13:03-05:30").toString());
 		assertEquals("2013-02-02T20:13-05:00", new DateAndTime("2013-02-02T20:13-05:00").toString());
 		assertEquals("2013-02-02T20:13-00:00", new DateAndTime("2013-02-02T20:13-00:00").toString());
 		assertEquals("2013-02-02-05:00", new DateAndTime("2013-02-02-05:00").toString());
 	}
 
-
-//	@Test
-//	public void testCalnendar() throws ParseException {
-//		DateAndTime dat = new DateAndTime("2013-02-02T20:13+05:00");
-//		Calendar date = dat.toCalendar();
-//		DateAndTime dat2 = new DateAndTime(date);
-//		assertEquals(dat.toString(), dat2.toString());
-//	}
-	
 	@Test
 	public void testCalendar() throws ParseException, InterruptedException {
-		DateAndTime dt = DateAndTime.now();
-		Thread.sleep(1200);
-		DateAndTime dt2 = DateAndTime.now();
-//		assertNotEquals(dt.toString(), dt2.toString());
+		testCalendar(2014, 8, 27, 13, 36, 53, 12, TimeZone.getTimeZone("GMT+09:30"), "2014-08-27T13:36:53.012+09:30");
+		testCalendar(2014, 8, 27, 13, 36, 53, 12, TimeZone.getTimeZone("GMT-09:30"), "2014-08-27T13:36:53.012-09:30");
+		testCalendar(2014, 8, 27, 13, 36, 53,  0, TimeZone.getTimeZone("GMT-06:00"), "2014-08-27T13:36:53-06:00");
+		testCalendar(2014, 8, 27, 13, 36,  0,  0, TimeZone.getTimeZone("GMT-06:00"), "2014-08-27T13:36:00-06:00");
+		testCalendar(2014, 8, 27, 13,  0,  0,  0, TimeZone.getTimeZone("GMT-06:00"), "2014-08-27T13:00:00-06:00");
+		testCalendar(2014, 8, 27,  0,  0,  0,  0, TimeZone.getTimeZone("GMT-06:00"), "2014-08-27T00:00:00-06:00");
+		
+		String localOffset = getLocalOffset();
+		testCalendar(2014, 8, 27, 13, 36, 53, 12, null, "2014-08-27T13:36:53.012"+localOffset);
+	}
+	
+	private void testCalendar(int year, int month, int day, int hour, int min, int second, int milliseconds, TimeZone tz, String expectedString) {
+		Calendar cal = Calendar.getInstance();
+		
+		if(tz != null) {
+			cal.setTimeZone(tz);
+		}
+
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month-1); //0-based
+		cal.set(Calendar.DAY_OF_MONTH, day);
+		cal.set(Calendar.HOUR_OF_DAY, hour);
+		cal.set(Calendar.MINUTE, min);
+		cal.set(Calendar.SECOND, second);
+		cal.set(Calendar.MILLISECOND, milliseconds);
+		
+		DateAndTime dt = new DateAndTime(cal);
+		
+		assertEquals(expectedString, dt.toString());
+		
+		Calendar cal2 = dt.toCalendar();
+		assertEquals(cal.get(Calendar.YEAR), cal2.get(Calendar.YEAR));
+		assertEquals(cal.get(Calendar.MONTH), cal2.get(Calendar.MONTH));
+		assertEquals(cal.get(Calendar.DAY_OF_MONTH), cal2.get(Calendar.DAY_OF_MONTH));
+		assertEquals(cal.get(Calendar.HOUR_OF_DAY), cal2.get(Calendar.HOUR_OF_DAY));
+		assertEquals(cal.get(Calendar.MINUTE), cal2.get(Calendar.MINUTE));
+		assertEquals(cal.get(Calendar.SECOND), cal2.get(Calendar.SECOND));
+		assertEquals(cal.get(Calendar.MILLISECOND), cal2.get(Calendar.MILLISECOND));
+		assertEquals(cal.getTimeZone().getOffset(cal.getTime().getTime()), cal2.getTimeZone().getOffset(cal.getTime().getTime()));
 	}	
 	
 	@Test
@@ -74,6 +107,8 @@ public class DateAndTimeTests {
 		assertFalse(new DateAndTime("2013-02-02T20:13:03Z").before(new DateAndTime("2013-02-02T20:13:02Z")));
 		assertFalse(new DateAndTime("2013-02-02T20:13:03Z").before(new DateAndTime("2013-02-01T20:13:05Z")));
 		assertFalse(new DateAndTime("2013-02-02T20:13:03Z").before(new DateAndTime("2013-02-02T20:13:02+01:00")));
+		assertFalse(new DateAndTime("2013-02-02T20:13:03Z").before(new DateAndTime("2013-02-02T20:13:03+01:00")));
+		assertFalse(new DateAndTime("2013-02-02T20:13:02Z").before(new DateAndTime("2013-02-02T20:13:03+01:00")));
 	}
 
 	@Test
@@ -133,11 +168,67 @@ public class DateAndTimeTests {
 	}
 
 
-	private void checkAdd(String base, int field, int value, String outcome) throws Exception {
+	private static void checkAdd(String base, int field, int value, String outcome) throws Exception {
 		DateAndTime dt = new DateAndTime(base);
 		dt.add(field, value);
 		assertEquals(outcome, dt.toString());
   }
 
+	@Test
+	public void testNow()
+	{
+		Date before = new Date();
+		Calendar cal = DateAndTime.now().toCalendar();
+		Date after = new Date();
+
+		//we can't know the exact time that will be used by the now method, but we can make sure
+		//it's in the expected range
+		assertTrue(before.getTime() <= cal.getTimeInMillis());
+		assertTrue(after.getTime() >= cal.getTimeInMillis());
+	}
 	
+	private static String getLocalOffset() {
+		String withoutColon = new SimpleDateFormat("Z").format(new Date());
+		return withoutColon.substring(0, 3)+":"+withoutColon.substring(3);
+	}
+	
+	@Test
+	public void testOffsetMinutes() {
+		DateAndTime dt = new DateAndTime(new Date());
+		
+		dt.setOffsetMinutes(0);
+		assertTrue(dt.getTzSign());
+		assertEquals(0, dt.getTzHour());
+		assertEquals(0, dt.getTzMin());
+		
+		dt.setOffsetMinutes(30);
+		assertTrue(dt.getTzSign());
+		assertEquals(0, dt.getTzHour());
+		assertEquals(30, dt.getTzMin());
+		
+		dt.setOffsetMinutes(-30);
+		assertFalse(dt.getTzSign());
+		assertEquals(0, dt.getTzHour());
+		assertEquals(30, dt.getTzMin());
+		
+		dt.setOffsetMinutes(60);
+		assertTrue(dt.getTzSign());
+		assertEquals(1, dt.getTzHour());
+		assertEquals(0, dt.getTzMin());
+		
+		dt.setOffsetMinutes(-60);
+		assertFalse(dt.getTzSign());
+		assertEquals(1, dt.getTzHour());
+		assertEquals(0, dt.getTzMin());
+		
+		dt.setOffsetMinutes(90);
+		assertTrue(dt.getTzSign());
+		assertEquals(1, dt.getTzHour());
+		assertEquals(30, dt.getTzMin());
+		
+		dt.setOffsetMinutes(-90);
+		assertFalse(dt.getTzSign());
+		assertEquals(1, dt.getTzHour());
+		assertEquals(30, dt.getTzMin());
+	}
 }
