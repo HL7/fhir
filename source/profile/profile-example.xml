@@ -2588,7 +2588,7 @@ The context of use may additionally require a code from a particular system (Unl
     </element>
   </structure>
   <extensionDefn>
-    <code value="calculated"/>
+    <name value="calculated"/>
     <display value="LDL is Calculated"/>
     <contextType value="resource"/>
     <context value="Observation.name"/>

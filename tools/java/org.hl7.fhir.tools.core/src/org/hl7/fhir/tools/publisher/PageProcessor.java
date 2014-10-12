@@ -4020,7 +4020,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (profile != null) {
       fn = profile.getName();
       for (ProfileExtensionDefnComponent t : profile.getExtensionDefn()) {
-        if (t.getCode().equals(code))
+        if (t.getName().equals(code))
           return new ExtensionDefinition(fn+".html", t);
       }
     }

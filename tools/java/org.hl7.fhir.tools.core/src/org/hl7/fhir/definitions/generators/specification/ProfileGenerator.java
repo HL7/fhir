@@ -133,6 +133,7 @@ public class ProfileGenerator {
     p.getStructure().add(cd);
     cd.setPublish(true); 
     cd.setType(type.getCode());
+    cd.setName(type.getCode());
     cd.setPurpose("This is the defintion for the "+type.getCode()+" datatype");
     cd.setBase("http://hl7.org/fhir/Profile/Element"); // master profile
     cd.setDifferential(new ConstraintComponent());
@@ -210,6 +211,7 @@ public class ProfileGenerator {
     p.getStructure().add(cd);
     cd.setPublish(true); 
     cd.setType(type.getCode());
+    cd.setName(type.getCode());
     cd.setPurpose("This is the defintion for the "+type.getCode()+" datatype");
     cd.setBase("http://hl7.org/fhir/Profile/Element"); // master profile
     cd.setDifferential(new ConstraintComponent());
@@ -289,6 +291,7 @@ public class ProfileGenerator {
     p.getStructure().add(cd);
     cd.setPublish(true); 
     cd.setType(t.getName());
+    cd.setName(t.getName());
     cd.setPurpose("This is the defintion for the "+t.getName()+" datatype");
     cd.setBase("http://hl7.org/fhir/Profile/Element"); // master profile
     cd.setDifferential(new ConstraintComponent());
@@ -394,6 +397,7 @@ public class ProfileGenerator {
     p.getStructure().add(cd);
     cd.setPublish(true); 
     cd.setType(r.getRoot().getName());
+    cd.setName(r.getRoot().getName());
     cd.setPurpose("This is the definition for the "+r.getRoot().getName()+" resource");
     cd.setDifferential(new ConstraintComponent());
 //    cd.setBase("http://hl7.org/fhir/Profile/Resource"); // this is semi-fictional, and causes errors.
@@ -460,6 +464,7 @@ public class ProfileGenerator {
       p.getStructure().add(c);
       c.setPublish(resource.isPublishedInProfile());
       c.setType(resource.getRoot().getName());
+      c.setName(resource.getRoot().getName());
       c.setBase("http://hl7.org/fhir/Profile/"+c.getType());
       if (!"".equals(resource.getRoot().getProfileName()))
         c.setName(resource.getRoot().getProfileName());
@@ -601,7 +606,7 @@ public class ProfileGenerator {
 
   private ProfileExtensionDefnComponent generateExtensionDefn(ExtensionDefn src, Profile p) throws Exception {
     ProfileExtensionDefnComponent dst = new Profile.ProfileExtensionDefnComponent();
-    dst.setCode(src.getCode());
+    dst.setName(src.getCode());
     if (!Utilities.noString(src.getDisplay()))
       dst.setDisplay(src.getDisplay());
     else

@@ -128,7 +128,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     }
     
     for (ProfileExtensionDefnComponent ext : context.getExtensionDefn()) {
-      if (ext.getCode().equals(code))
+      if (ext.getName().equals(code))
         return ext.getElement().get(0).getDefinition();
     }
 
@@ -140,7 +140,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private void generateExtension(Profile profile, ProfileExtensionDefnComponent e) throws Exception {
-    write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\"extension."+e.getCode()+"\"> </a><b>Extension "+e.getCode()+"</b></td></tr>\r\n");
+    write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\"extension."+e.getName()+"\"> </a><b>Extension "+e.getName()+"</b></td></tr>\r\n");
     generateElementInner(profile, e.getElement().get(0).getDefinition());
     if (e.getElement().size() > 1) {
       for (int i = 1; i < e.getElement().size(); i++) {

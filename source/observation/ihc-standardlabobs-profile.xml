@@ -486,7 +486,7 @@
 		</differential>
 	</structure>
 	<extensionDefn>
-		<code value="reportingPriority"/>
+		<name value="reportingPriority"/>
 		<!-- this extension is only used on the Observation Resource (todo: if that's not true, it would be better to define it in a different profile -->
 		<contextType value="resource"/>
 		<context value="Observation"/>
@@ -515,7 +515,7 @@
 		</element>
 	</extensionDefn>
 	<extensionDefn>
-		<code value="deltaFlag"/>
+		<name value="deltaFlag"/>
 		<contextType value="resource"/>
 		<context value="Observation"/>
 		<element>
@@ -545,7 +545,7 @@
 	</extensionDefn>
 	<!-- see note on issued -->
 	<extensionDefn>
-		<code value="verified"/>
+		<name value="verified"/>
 		<contextType value="resource"/>
 		<context value="Observation"/>
 		<element>
@@ -567,7 +567,7 @@
 	</extensionDefn>
 	<!-- see note on issued. Actually, this is a problem because issue is updated for an update. TODO: resolve this. -->
 	<extensionDefn>
-		<code value="updated"/>
+		<name value="updated"/>
 		<contextType value="resource"/>
 		<context value="Observation"/>
 		<element>

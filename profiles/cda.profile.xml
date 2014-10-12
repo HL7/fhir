@@ -1676,7 +1676,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
   </structure>
   
   <extensionDefn>
-    <code value="language-preference"/>
+    <name value="language-preference"/>
     <contextType value="resource"/>
     <context value="Patient.communication"/>
     <element>
@@ -1697,7 +1697,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
   </extensionDefn>
   
   <extensionDefn>
-    <code value="language-proficiency"/>
+    <name value="language-proficiency"/>
     <contextType value="resource"/>
     <context value="Patient.communication"/>
     <element>
@@ -1723,7 +1723,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
   </extensionDefn>
 
   <extensionDefn>
-    <code value="language-mode"/>
+    <name value="language-mode"/>
     <contextType value="resource"/>
     <context value="Patient.communication"/>
     <element>
@@ -1749,7 +1749,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
   </extensionDefn>
 
   <extensionDefn>
-    <code value="guardian-id"/>
+    <name value="guardian-id"/>
     <contextType value="resource"/>
     <context value="Patient.contact"/>
     <element>
@@ -1770,7 +1770,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
   </extensionDefn>
   
   <extensionDefn>
-    <code value="birthplace"/>
+    <name value="birthplace"/>
     <contextType value="resource"/>
     <context value="Patient"/>
     <element>
@@ -1792,7 +1792,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
   </extensionDefn>
 
   <extensionDefn>
-    <code value="org-partof-effectivetime"/>
+    <name value="org-partof-effectivetime"/>
     <contextType value="resource"/>
     <context value="Organization.partOf"/>
     <element>
@@ -1813,7 +1813,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
   </extensionDefn>
   
   <extensionDefn>
-    <code value="org-partof-statuscode"/>
+    <name value="org-partof-statuscode"/>
     <contextType value="resource"/>
     <context value="Organization.partOf"/>
     <element>
@@ -1839,7 +1839,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
   </extensionDefn>
   
   <extensionDefn>
-    <code value="org-partof-code"/>
+    <name value="org-partof-code"/>
     <contextType value="resource"/>
     <context value="Organization.partOf"/>
     <element>
@@ -1865,7 +1865,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
   </extensionDefn>
   
   <extensionDefn>
-    <code value="whole-organization"/>
+    <name value="whole-organization"/>
     <contextType value="resource"/>
     <context value="Organization.partOf"/>
     <element>
@@ -1883,7 +1883,7 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
   </extensionDefn>
   
   <extensionDefn>
-    <code value="inFulFillmentOf"/>
+    <name value="inFulFillmentOf"/>
     <contextType value="resource"/>
     <context value="Composition"/>
     <element>

@@ -86,7 +86,7 @@ public class MappingsGenerator {
         s.append("<table class=\"grid\">\r\n");
         
         for (ProfileExtensionDefnComponent ext : profile.getExtensionDefn()) {
-          s.append(" <tr><td colspan=\"3\"><b>Extension "+Utilities.escapeXml(ext.getCode())+"</b></td></tr>\r\n");
+          s.append(" <tr><td colspan=\"3\"><b>Extension "+Utilities.escapeXml(ext.getName())+"</b></td></tr>\r\n");
           for (ElementComponent e : ext.getElement()) {
             genElement(s, e, map.getIdentity());
           }          

@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2014-08-07T01:11:13Z</LastSaved>
+  <LastSaved>2014-10-12T21:23:26Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -606,19 +606,19 @@
     <Cell><Data ss:Type="String">Profile.structure.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="Number">16</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Name for this particular structure (reference target)</Data><NamedCell
+    <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">!</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile)</Data><NamedCell
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Identifies this structure within the profile</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">This field is the target for a resource.profile</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1097,7 +1097,7 @@
     <Cell><Data ss:Type="String">uri</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Profile.structure to apply</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1723,11 +1723,11 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Profile.extensionDefn.code</Data><NamedCell
+    <Cell><Data ss:Type="String">Profile.extensionDefn.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="Number">5</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="Number">16</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">code</Data><NamedCell
@@ -1737,12 +1737,12 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies the extension in this profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">A unique code (within the profile) used to identify the extension</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">A unique name (within the profile) used to identify the extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Matches the portion of a reference to an extension after the # in the a url to the profile</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Matches the portion of a reference to an extension after the # in the extension.url to the profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1929,7 +1929,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>38</TopRowBottomPane>
+   <TopRowBottomPane>77</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1946,8 +1946,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>41</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>81</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1958,7 +1958,7 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="29" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="24" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
    <Column ss:Index="3" ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="265.5"/>
    <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="309.75"/>
@@ -1982,12 +1982,6 @@
     <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile.structure.snapshot.element.definition.binding</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">provide either a reference or a description (or both)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">(exists(f:referenceUri) or exists(f:referenceResource)) or exists(f:description)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Profile.extensionDefn.code</Data></Cell>
-    <Cell><Data ss:Type="String">Codes SHALL be unique in the context of a profile</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(ancestor::f:Profile/f:extensionDefn/f:code[@value=current()/@value])=1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="Number">6</Data></Cell>
@@ -2038,23 +2032,11 @@
     <Cell><Data ss:Type="String">Example value sets are always extensible</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(f:conformance/@value='example' and f:isExtensible/@value='false')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile</Data></Cell>
-    <Cell><Data ss:Type="String">Where multiple structures exist with the same type, they SHALL have names</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(f:structure[not(f:name)]) = count(distinct-values(f:structure[not(f:name)]/f:type/@value))</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">16</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile</Data></Cell>
-    <Cell><Data ss:Type="String">Extension definition codes must be unique</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(f:extensionDefn) = count(distinct-values(f:extensionDefn/f:code/@value))</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="Number">17</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile</Data></Cell>
-    <Cell><Data ss:Type="String">There can't be multiple structures with the same type and name</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(exists(for $structure in f:structure return $structure/preceding-sibling::f:structure[f:type/@value=$structure/f:type/@value and f:name/@value = $structure/f:name/@value]))</Data></Cell>
+    <Cell><Data ss:Type="String">Extension and structure names must be unique</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:extensionDefn|f:structure) = count(distinct-values(f:extensionDefn/f:name/@value|f:structure/f:name/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">18</Data></Cell>
@@ -2105,20 +2087,6 @@
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:uri) or exists(f:name)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">27</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Profile</Data></Cell>
-    <Cell><Data ss:Type="String">Structure name must be unique</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(distinct-values(f:structure/f:name/@value)) =count(f:structure/f:name)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">28</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Profile</Data></Cell>
-    <Cell><Data ss:Type="String">Query name must be unique</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">count(distinct-values(f:query/f:name/@value)) =count(f:query/f:name)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">29</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Profile.structure</Data></Cell>
@@ -2129,8 +2097,8 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile.extensionDefn</Data></Cell>
-    <Cell><Data ss:Type="String">All element names must start with the extension code</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">count(f:element)=count(f:element[(not(preceding-sibling::f:element) and f:path/@value=../f:code/@value) or (preceding-sibling::f:element and starts-with(f:path/@value, concat(../f:code/@value, '.')))])</Data></Cell>
+    <Cell><Data ss:Type="String">All element names must start with the extension name</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">count(f:element)=count(f:element[(not(preceding-sibling::f:element) and f:path/@value=../f:name/@value) or (preceding-sibling::f:element and starts-with(f:path/@value, concat(../f:name/@value, '.')))])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">31</Data></Cell>
@@ -2142,7 +2110,7 @@
     <Cell><Data ss:Type="Number">32</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.snapshot.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">Min &lt;= Max</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">(f:max/@value = &quot;*&quot;) or (f:max/@value &gt;= f:min/@value)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">(f:max/@value = '*') or (f:max/@value &gt;= f:min/@value)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -2162,7 +2130,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -2179,7 +2147,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
+     <ActiveRow>22</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2250,7 +2218,7 @@
     <Cell><Data ss:Type="String">extension</Data></Cell>
     <Cell><Data ss:Type="String">An extension code (use or definition)</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">Profile.extensionDefn.code</Data></Cell>
+    <Cell><Data ss:Type="String">Profile.extensionDefn.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">valueset</Data></Cell>
@@ -2296,7 +2264,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

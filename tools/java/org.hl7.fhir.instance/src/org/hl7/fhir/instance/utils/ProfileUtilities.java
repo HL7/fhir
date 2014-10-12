@@ -668,9 +668,9 @@ public class ProfileUtilities {
   private void genExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, ProfileExtensionDefnComponent ext, Profile profile, ProfileKnowledgeProvider pkp, String profileBaseFileName, boolean snapshot) throws Exception {
     Row r = gen.new Row();
     rows.add(r);
-    r.setAnchor(ext.getCode());
+    r.setAnchor(ext.getName());
     ElementComponent e = ext.getElement().get(0);
-    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension."+ext.getCode(), ext.getCode(), e.getDefinition().getFormal(), null));
+    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension."+ext.getName(), ext.getName(), e.getDefinition().getFormal(), null));
     r.getCells().add(gen.new Cell(null, null, describeCardinality(e.getDefinition(), null, new UnusedTracker()), null, null));
     if (ext.getElement().size() == 1) {
       r.setIcon("icon_extension_simple.png");
@@ -804,7 +804,7 @@ public class ProfileUtilities {
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getDefinition().getType().get(0).getProfile(), null, null));
             generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getDefinition().getType().get(0).getProfile(), pkp, profile);
           } else {
-            left.getPieces().get(0).setText(extDefn.getDefn().getCode());
+            left.getPieces().get(0).setText(extDefn.getDefn().getName());
             left.getPieces().get(0).setHint("Extension URL = "+profile.getUrl());
             row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), extDefn.getDefn().getElement().get(0).getDefinition(), used), null, null));
             genTypes(gen, pkp, row, extDefn.getDefn().getElement().get(0), profileBaseFileName, profile);
@@ -1057,7 +1057,7 @@ public class ProfileUtilities {
     if (profile != null) {
       ProfileExtensionDefnComponent defn = null;
       for (ProfileExtensionDefnComponent s : profile.getExtensionDefn()) {
-        if (s.getCode().equals(code)) 
+        if (s.getName().equals(code)) 
           defn = s;
       }
       if (defn != null)

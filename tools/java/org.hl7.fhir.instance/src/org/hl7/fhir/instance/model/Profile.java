@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Oct 12, 2014 22:02+1100 for FHIR v0.3.0
+// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -657,9 +657,9 @@ public class Profile extends Resource {
         protected UriType base;
 
         /**
-         * The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).
+         * The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).
          */
-        protected StringType name;
+        protected CodeType name;
 
         /**
          * This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.
@@ -686,7 +686,7 @@ public class Profile extends Resource {
          */
         protected List<ProfileStructureSearchParamComponent> searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
 
-        private static final long serialVersionUID = 170797199L;
+        private static final long serialVersionUID = 1726531051L;
 
       public ProfileStructureComponent() {
         super();
@@ -766,36 +766,36 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #name} (The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() { 
+        public CodeType getNameElement() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #name} (The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ProfileStructureComponent setNameElement(StringType value) { 
+        public ProfileStructureComponent setNameElement(CodeType value) { 
           this.name = value;
           return this;
         }
 
         /**
-         * @return The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).
+         * @return The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).
          */
         public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).
+         * @param value The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).
          */
         public ProfileStructureComponent setName(String value) { 
           if (value == null)
             this.name = null;
           else {
             if (this.name == null)
-              this.name = new StringType();
+              this.name = new CodeType();
             this.name.setValue(value);
           }
           return this;
@@ -924,7 +924,7 @@ public class Profile extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The Resource or Data type being described.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("base", "uri", "The structure that is the base on which this set of constraints is derived from.", 0, java.lang.Integer.MAX_VALUE, base));
-          childrenList.add(new Property("name", "string", "The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("name", "code", "The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("publish", "boolean", "This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.", 0, java.lang.Integer.MAX_VALUE, publish));
           childrenList.add(new Property("purpose", "string", "Human summary: why describe this resource?.", 0, java.lang.Integer.MAX_VALUE, purpose));
           childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.", 0, java.lang.Integer.MAX_VALUE, snapshot));
@@ -2070,7 +2070,7 @@ public class Profile extends Resource {
         protected CodeType code;
 
         /**
-         * Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
+         * Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
          */
         protected UriType profile;
 
@@ -2123,14 +2123,14 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #profile} (Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
+         * @return {@link #profile} (Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
         public UriType getProfileElement() { 
           return this.profile;
         }
 
         /**
-         * @param value {@link #profile} (Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
+         * @param value {@link #profile} (Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
         public TypeRefComponent setProfileElement(UriType value) { 
           this.profile = value;
@@ -2138,14 +2138,14 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
+         * @return Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
          */
         public String getProfile() { 
           return this.profile == null ? null : this.profile.getValue();
         }
 
         /**
-         * @param value Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
+         * @param value Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
          */
         public TypeRefComponent setProfile(String value) { 
           if (value == null)
@@ -2198,7 +2198,7 @@ public class Profile extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Name of Data type or Resource.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("profile", "uri", "Identifies a profile that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("profile", "uri", "Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("aggregation", "code", "If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.", 0, java.lang.Integer.MAX_VALUE, aggregation));
         }
 
@@ -2984,9 +2984,9 @@ public class Profile extends Resource {
 
     public static class ProfileExtensionDefnComponent extends BackboneElement {
         /**
-         * A unique code (within the profile) used to identify the extension.
+         * A unique name (within the profile) used to identify the extension.
          */
-        protected CodeType code;
+        protected CodeType name;
 
         /**
          * Defined so that applications can use this name when displaying the value of the extension to the user.
@@ -3008,47 +3008,47 @@ public class Profile extends Resource {
          */
         protected List<ElementComponent> element = new ArrayList<ElementComponent>();
 
-        private static final long serialVersionUID = 2008178908L;
+        private static final long serialVersionUID = 1664008186L;
 
       public ProfileExtensionDefnComponent() {
         super();
       }
 
-      public ProfileExtensionDefnComponent(CodeType code, Enumeration<ExtensionContext> contextType) {
+      public ProfileExtensionDefnComponent(CodeType name, Enumeration<ExtensionContext> contextType) {
         super();
-        this.code = code;
+        this.name = name;
         this.contextType = contextType;
       }
 
         /**
-         * @return {@link #code} (A unique code (within the profile) used to identify the extension.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @return {@link #name} (A unique name (within the profile) used to identify the extension.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public CodeType getCodeElement() { 
-          return this.code;
+        public CodeType getNameElement() { 
+          return this.name;
         }
 
         /**
-         * @param value {@link #code} (A unique code (within the profile) used to identify the extension.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @param value {@link #name} (A unique name (within the profile) used to identify the extension.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ProfileExtensionDefnComponent setCodeElement(CodeType value) { 
-          this.code = value;
+        public ProfileExtensionDefnComponent setNameElement(CodeType value) { 
+          this.name = value;
           return this;
         }
 
         /**
-         * @return A unique code (within the profile) used to identify the extension.
+         * @return A unique name (within the profile) used to identify the extension.
          */
-        public String getCode() { 
-          return this.code == null ? null : this.code.getValue();
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value A unique code (within the profile) used to identify the extension.
+         * @param value A unique name (within the profile) used to identify the extension.
          */
-        public ProfileExtensionDefnComponent setCode(String value) { 
-            if (this.code == null)
-              this.code = new CodeType();
-            this.code.setValue(value);
+        public ProfileExtensionDefnComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new CodeType();
+            this.name.setValue(value);
           return this;
         }
 
@@ -3176,7 +3176,7 @@ public class Profile extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("code", "code", "A unique code (within the profile) used to identify the extension.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("name", "code", "A unique name (within the profile) used to identify the extension.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("display", "string", "Defined so that applications can use this name when displaying the value of the extension to the user.", 0, java.lang.Integer.MAX_VALUE, display));
           childrenList.add(new Property("contextType", "code", "Identifies the type of context to which the extension applies.", 0, java.lang.Integer.MAX_VALUE, contextType));
           childrenList.add(new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
@@ -3185,7 +3185,7 @@ public class Profile extends Resource {
 
       public ProfileExtensionDefnComponent copy() {
         ProfileExtensionDefnComponent dst = new ProfileExtensionDefnComponent();
-        dst.code = code == null ? null : code.copy();
+        dst.name = name == null ? null : name.copy();
         dst.display = display == null ? null : display.copy();
         dst.contextType = contextType == null ? null : contextType.copy();
         dst.context = new ArrayList<StringType>();
@@ -3210,7 +3210,7 @@ public class Profile extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
+     * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.
      */
     protected StringType version;
 
@@ -3342,14 +3342,14 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
       return this.version;
     }
 
     /**
-     * @param value {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @param value {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public Profile setVersionElement(StringType value) { 
       this.version = value;
@@ -3357,14 +3357,14 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
+     * @return The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.
      */
     public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
-     * @param value The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
+     * @param value The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.
      */
     public Profile setVersion(String value) { 
       if (value == null)
@@ -3746,7 +3746,7 @@ public class Profile extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the Profile.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the profile.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("telecom", "ContactPoint", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
