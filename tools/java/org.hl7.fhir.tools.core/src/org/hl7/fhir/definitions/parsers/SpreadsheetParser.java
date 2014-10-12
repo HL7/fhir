@@ -860,15 +860,7 @@ public class SpreadsheetParser {
 		}
 		e.setProfileName(profileName);
 		e.setDiscriminator(discriminator);
-		String aliases = sheet.getColumn(row, "Aliases");
-		if (!Utilities.noString(aliases))
-		  if (aliases.contains(";")) {
-		    for (String a : aliases.split(";"))
-		      e.getAliases().add(a.trim());
-		  } else {
-	      for (String a : aliases.split(","))
-	        e.getAliases().add(a.trim());
-		  }
+		doAliases(sheet, row, e);
     if (sheet.hasColumn(row, "Must Understand"))
       throw new Exception("Column 'Must Understand' has been renamed to 'Is Modifier'");
 
@@ -947,8 +939,17 @@ public class SpreadsheetParser {
 		return e;
 	}
 
-
-
+	private void doAliases(Sheet sheet, int row, ElementDefn e) throws Exception {
+		String aliases = sheet.getColumn(row, "Aliases");
+		if (!Utilities.noString(aliases))
+		  if (aliases.contains(";")) {
+		    for (String a : aliases.split(";"))
+		      e.getAliases().add(a.trim());
+		  } else {
+	      for (String a : aliases.split(","))
+	        e.getAliases().add(a.trim());
+		  }
+	}
 
   private void processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, List<ExtensionDefn> extensionList) throws Exception {
 	  // first, we build the extension definition
@@ -989,9 +990,16 @@ public class SpreadsheetParser {
     exe.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
     exe.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
     exe.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
+		doAliases(sheet, row, exe);
     for (String n : definitions.getMapTypes().keySet()) {
       exe.addMapping(n, sheet.getColumn(row, definitions.getMapTypes().get(n).getColumnName()));
     }
+		String tasks = sheet.getColumn(row, "gForge");
+		if (!Utilities.noString(tasks)) {
+		  for (String t : tasks.split(","))
+		    exe.getTasks().add(t);
+		}		
+		exe.setMaxLength(sheet.getColumn(row, "Max Length"));
     exe.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
     exe.setExample(sheet.getColumn(row, "Example"));
     exe.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
