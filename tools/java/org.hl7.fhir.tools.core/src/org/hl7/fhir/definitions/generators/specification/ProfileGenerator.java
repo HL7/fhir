@@ -634,6 +634,8 @@ public class ProfileGenerator {
     dDst.setMustSupport(dSrc.isMustSupport());
     dDst.setIsModifier(dSrc.isModifier());
     dDst.setIsSummaryElement(Factory.newBoolean(dSrc.isSummaryItem()));
+    for (Invariant id : dSrc.getStatedInvariants()) 
+      dDst.addCondition(id.getId());
     
     // dDst.
     for (TypeRef t : dSrc.getTypes()) {
@@ -786,11 +788,9 @@ public class ProfileGenerator {
     }
     
     // ce.setConformance(getType(e.getConformance()));
-    if (!"".equals(e.getCondition())) {
-      IdType cond = Factory.newId(e.getCondition());
-      if (cond != null)
-        ce.getDefinition().getCondition().add(cond);
-    }
+    for (Invariant id : e.getStatedInvariants()) 
+      ce.getDefinition().addCondition(id.getId());
+    
     // we don't know mustSupport here
     ce.getDefinition().setIsModifier(e.isModifier());
     ce.getDefinition().setIsSummaryElement(Factory.newBoolean(e.isSummaryItem()));
@@ -956,6 +956,8 @@ public class ProfileGenerator {
     // todo? conditions, constraints, binding, mapping
     ce.getDefinition().setIsModifier(src.isModifier());
     ce.getDefinition().setIsSummaryElement(Factory.newBoolean(src.isSummaryItem()));
+    for (Invariant id : src.getStatedInvariants()) 
+      ce.getDefinition().addCondition(id.getId());
     return ce;
   }
 
