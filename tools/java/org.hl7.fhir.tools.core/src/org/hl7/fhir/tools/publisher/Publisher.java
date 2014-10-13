@@ -1906,7 +1906,8 @@ public class Publisher implements URIResolver {
       s.append("<p>Release Date: " + r.getAttribute("releaseDate") + "</p>\r\n");
       vs.setDate(new DateAndTime(r.getAttribute("releaseDate")));
     }
-    s.append("<p>OID for code system: " + csOid + "</p>\r\n");
+    if (csOid != null)
+      s.append("<p>OID for code system: " + csOid + "</p>\r\n");
     if (vsOid != null)
       s.append("<p>OID for value set: " + vsOid + " (this is the value set that includes the entire code system)</p>\r\n");
     r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
@@ -4199,13 +4200,15 @@ public class Publisher implements URIResolver {
     page.log(" ...code lists", LogMessageType.Process);
     for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
       if (Utilities.noString(bs.getCsOid()) && Utilities.noString(bs.getVsOid())) {
-        bs.setCsOid(BindingSpecification.DEFAULT_OID_CS + page.getRegistry().idForName(bs.getName()));
+        if (bs.hasInternalCodes())
+          bs.setCsOid(BindingSpecification.DEFAULT_OID_CS + page.getRegistry().idForName(bs.getName()));
         bs.setVsOid(BindingSpecification.DEFAULT_OID_VS + page.getRegistry().idForName(bs.getName()));
       }
       if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
         generateCodeSystemPart1(bs.getReference().substring(1) + ".html", bs);
     }
   }
+
 
   private void generateCodeSystemsPart2() throws Exception {
     page.log(" ...code lists (2)", LogMessageType.Process);
@@ -4466,7 +4469,13 @@ public class Publisher implements URIResolver {
     if (isGenerate) {
       addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed, e.getLinks().get("cs-oid"), e.getLinks().get("vs-oid"));
 
-      String sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx.html"), "codeSystem", null, null);
+      String sf; 
+      if (cd.hasInternalCodes() && cd.getReferredValueSet() != null) 
+        sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx.html"), "codeSystem", null, null);
+      else {
+        cd.getReferredValueSet().setTag("filename", filename);
+        sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "codeSystem", null, cd.getReferredValueSet());
+      }
       sf = addSectionNumbers(filename + ".html", "template-valueset", sf, Utilities.oidTail(cd.getCsOid()));
       TextFile.stringToFile(sf, page.getFolders().dstDir + filename);
       String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx-book.html"), "codeSystem", null);

@@ -596,7 +596,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsxref"))
         src = s1 + xreferencesForFhir(name) + s3;      
       else if (com[0].equals("vsexpansion"))
-        src = s1 + expandValueSet(Utilities.fileTitle(file), null) + s3;
+        src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : ((ValueSet) resource)) + s3;
       else if (com[0].equals("vsexpansionig"))
         src = s1 + expandValueSetIG((ValueSet) resource) + s3;
       else if (com[0].equals("v3expansion"))
@@ -1127,7 +1127,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       AtomEntry e = map.get(n);
       ValueSet vs = (ValueSet)e.getResource();
       String id = tail(vs.getIdentifier());
-      String oid = e.getLinks().get("cs-oid");
+      String oid = e.getLinks().get("cs-oid").substring(9);
       s.append(" <tr><td><a href=\"v3/"+id+"/index.html\">"+Utilities.escapeXml(id)+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+oid+"</td></tr>\r\n");
     }
     
@@ -1157,7 +1157,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       AtomEntry e = map.get(n);
       ValueSet vs = (ValueSet)e.getResource();
       String id = tail(vs.getIdentifier());
-      String oid = e.getLinks().get("vs-oid");
+      String oid = e.getLinks().get("vs-oid").substring(9);
       String[] desc = vs.getDescription().split("\\(OID \\= ");
       s.append(" <tr><td><a href=\"v3/vs/"+id+"/index.html\">"+id+"</a></td><td>"+desc[0]+"</td><td>"+oid+"</td></tr>\r\n");
     }
@@ -1993,7 +1993,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       ValueSet vs = (ValueSet) ae.getResource();
       s.append(" <tr><td><a href=\""+Utilities.changeFileExt(ae.getLinks().get("path"), ".html")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
       if (hasId)
-        s.append("<td>"+Utilities.oidTail(ae.getLinks().get("cs-oid"))+"</td>");
+        s.append("<td>"+Utilities.oidTail(ae.getLinks().get("vs-oid"))+"</td>");
       s.append("</tr>\r\n");
     }
   }
