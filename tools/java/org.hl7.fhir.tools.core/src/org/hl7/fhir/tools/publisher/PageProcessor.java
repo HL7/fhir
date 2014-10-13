@@ -3070,6 +3070,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append("</td><td>");
       b.append("<b>Type</b>");
       b.append("</td><td>");
+      b.append("<b>Profile</b>");
+      b.append("</td><td>");
       b.append("<b>Documentation</b>");
       b.append("</td></tr>");
       for (OperationParameter p : op.getParameters()) {
@@ -3130,6 +3132,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           b.append(")");
         } else {
           b.append(t);
+        }
+        b.append("</td><td>");
+        if (p.getProfile() != null) {
+        	b.append(p.getProfile());
         }
         b.append("</td><td>");
         b.append(processMarkdown(p.getDoc()));

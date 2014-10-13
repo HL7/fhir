@@ -262,7 +262,7 @@ public class SpreadsheetParser {
             else 
               throw new Exception("unknown operation use code "+c);
           }
-          root.getOperations().put(name, new Operation(name, system, type, instance, sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer")));
+          root.getOperations().put(name, new Operation(name, system, type, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer")));
         } else {
           String[] parts = name.split("\\.");
           if (!use.equals("in") && !use.equals("out"))
@@ -271,9 +271,10 @@ public class SpreadsheetParser {
           if (operation == null)
             throw new Exception("Unknown Operation '"+parts[0]+"' at "+getLocation(row));
           String type = sheet.getColumn(row, "Type");
+          String profile = sheet.getColumn(row, "Profile");
           String min = sheet.getColumn(row, "Min");
           String max = sheet.getColumn(row, "Max");
-          operation.getParameters().add(new OperationParameter(parts[1], use, doco, Integer.parseInt(min), max, type));
+          operation.getParameters().add(new OperationParameter(parts[1], use, doco, Integer.parseInt(min), max, type, profile));
         }
       }
 	  }

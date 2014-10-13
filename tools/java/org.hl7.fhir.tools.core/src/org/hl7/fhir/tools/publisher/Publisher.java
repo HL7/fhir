@@ -144,6 +144,7 @@ import org.hl7.fhir.instance.model.OperationDefinition.ResourceProfileStatus;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -2798,7 +2799,13 @@ public class Publisher implements URIResolver {
     opd.setDescription(op.getDoco());
     opd.setStatus(ResourceProfileStatus.DRAFT);
     opd.setDate(new DateAndTime(page.getGenDate()));
-    opd.setKind(OperationKind.OPERATION);
+    if (op.getKind().toLowerCase().equals("operation"))
+    	opd.setKind(OperationKind.OPERATION);
+    else if (op.getKind().toLowerCase().equals("query"))
+    	opd.setKind(OperationKind.QUERY);
+    else {
+    	throw new Exception("Unrecognized operation kind: '" + op.getKind() + "' for operation " + name);
+    }
     opd.setName(op.getName());
     opd.setNotes(op.getFooter());
     opd.setSystem(op.isSystem());
@@ -2822,6 +2829,11 @@ public class Publisher implements URIResolver {
       cc.setSystem("http://hl7.org/fhir/vs/defined-types");
       cc.setCode(p.getType());
       pp.setType(cc);
+      Reference ref = new Reference();
+      if (p.getProfile() != null) {
+	      ref.setReference(p.getProfile());
+      	pp.setProfile(ref);
+      }
       opd.getParameter().add(pp);
     }
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());

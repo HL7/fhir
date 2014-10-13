@@ -9,17 +9,19 @@ public class Operation {
   private boolean system;
   private boolean type;
   private boolean instance;
+  private String kind;
   private String doco;
   private List<OperationParameter> parameters = new ArrayList<OperationParameter>();
   private String title;
   private String footer;
 
-  public Operation(String name, boolean system, boolean type, boolean instance, String title, String doco, String footer) {
+  public Operation(String name, boolean system, boolean type, boolean instance, String kind, String title, String doco, String footer) {
     this.name = name;
     this.title = title;
     this.system = system;
     this.type = type;
     this.instance = instance;
+    this.kind = kind;
     this.doco = doco;
     this.footer = footer;
     
@@ -57,6 +59,14 @@ public class Operation {
   public void setInstance(boolean instance) {
     this.instance = instance;
   }
+
+	public String getKind() {
+		return kind;
+	}
+	
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
 
   public String getDoco() {
     return doco;

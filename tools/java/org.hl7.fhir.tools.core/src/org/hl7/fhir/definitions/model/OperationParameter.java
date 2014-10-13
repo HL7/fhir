@@ -8,14 +8,16 @@ public class OperationParameter {
   private int min;
   private String max;
   private String type;
+  private String profile;
 
-  public OperationParameter(String name, String use, String doco, int min, String max, String type) {
+  public OperationParameter(String name, String use, String doco, int min, String max, String type, String profile) {
     this.name = name; 
     this.use = use;
     this.doc = doco; 
     this.min = min; 
     this.max = max; 
     this.type = type;
+    this.profile = profile;
   }
 
   public String getName() {
@@ -46,8 +48,16 @@ public class OperationParameter {
     return type;
   }
 
+  public String getProfile() {
+    return profile;
+  }
+
   public void setType(String type) {
     this.type = type;
+  }
+
+  public void setProfile(String profile) {
+    this.profile = profile;
   }
 
   public int getMin() {
