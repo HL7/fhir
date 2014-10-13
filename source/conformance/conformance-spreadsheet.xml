@@ -835,8 +835,8 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="8"><Data ss:Type="String">Reliable Message Cache Length</Data></Cell>
-    <Cell><Data ss:Type="String">Length if the receiver's reliable messaging cache (if a receiver) or how long the cache length on the receiver should be (if a sender)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Reliable Message Cache Length (min)</Data></Cell>
+    <Cell><Data ss:Type="String">Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging</Data></Cell>
@@ -1015,7 +1015,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>47</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1032,8 +1032,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>57</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
