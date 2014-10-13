@@ -10,7 +10,6 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
   <LastSaved>2014-10-12T21:23:26Z</LastSaved>
-  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -1572,9 +1571,9 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">530;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Search params defined</Data><NamedCell
+    <Cell><Data ss:Type="String">Additional Search params defined by this profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Additional search parameters for implementations to support and/or make use of</Data><NamedCell
+    <Cell><Data ss:Type="String">Additional search parameters defined for this structure that implementations can support and/or make use of</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1925,10 +1924,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>77</TopRowBottomPane>
+   <TopRowBottomPane>68</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1945,7 +1945,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>81</ActiveRow>
+     <ActiveRow>71</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
