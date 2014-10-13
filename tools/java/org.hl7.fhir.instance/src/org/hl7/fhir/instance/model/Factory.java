@@ -171,7 +171,7 @@ public static Coding makeCoding(String code) throws Exception {
     c.setCode(parts[1]);
     c.setDisplay(parts[2]);
   } else 
-    throw new Exception("Unable to understand the code");
+    throw new Exception("Unable to understand the code '"+code+"'. Use the format system|code(|display)");
   return c;
 }
  
