@@ -446,7 +446,7 @@ public class Publisher implements URIResolver {
       page.loadSnomed();
       page.loadLoinc();
 
-      prsr.parse(page.getGenDate(), page.getVersion());
+      prsr.parse(page.getGenDate());
       
       if (page.hasIG()) {
         loadIG();
@@ -1125,7 +1125,7 @@ public class Publisher implements URIResolver {
       page.setIni(new IniFile(page.getFolders().rootDir + "publish.ini"));
       page.setVersion(page.getIni().getStringProperty("FHIR", "version"));
 
-      prsr = new SourceParser(page, folder, page.getDefinitions(), web);
+      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion());
       prsr.checkConditions(errors, dates);
       page.setRegistry(prsr.getRegistry());
 

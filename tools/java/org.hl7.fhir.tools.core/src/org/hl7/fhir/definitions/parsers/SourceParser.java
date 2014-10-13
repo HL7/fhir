@@ -109,11 +109,13 @@ public class SourceParser {
 	public String dtDir;
 	private String rootDir;
 	private BindingNameRegistry registry;
+	private String version;
 
-	public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication) {
+	public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version) {
 		this.logger = logger;
 		this.registry = new BindingNameRegistry(root, forPublication);
 		this.definitions = definitions;
+		this.version = version;
 
 		char sl = File.separatorChar;
 		srcDir = root + sl + "source" + sl;
@@ -170,7 +172,7 @@ public class SourceParser {
 		return sorted;
 	}
 	
-	public void parse(Calendar genDate, String version) throws Exception {
+	public void parse(Calendar genDate) throws Exception {
 		logger.log("Loading", LogMessageType.Process);
 
 		eCoreParseResults = DefinitionsImpl.build(genDate.getTime(), version);
@@ -267,7 +269,7 @@ public class SourceParser {
 		for (ResourceDefn r : definitions.getResources().values()) {
 		  for (RegisteredProfile p : r.getProfiles()) {
 		    if (p.getType() == ProfileInputType.Spreadsheet) {
-  		    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(p.getFilepath()), p.getName(), definitions, srcDir, logger, registry);
+  		    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(p.getFilepath()), p.getName(), definitions, srcDir, logger, registry, version);
 	  	    sparser.setFolder(Utilities.getDirectoryForFile(p.getFilepath()));
 		      p.setProfile(sparser.parseProfile(definitions));
 		    } else if (p.getType() == ProfileInputType.Profile) {
@@ -372,7 +374,7 @@ public class SourceParser {
 			throws Exception {
 	  File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
 	  if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
-	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry);
+	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version);
 	    try {
 	      ProfileDefn profile = sparser.parseProfile(definitions);
 	      definitions.getProfiles().put(n, profile);
@@ -486,7 +488,7 @@ public class SourceParser {
 		  TypeRef t = ts.get(0);
 		  File csv = new CSFile(dtDir + t.getName().toLowerCase() + ".xml");
 		  if (csv.exists()) {
-		    SpreadsheetParser p = new SpreadsheetParser(new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry);
+		    SpreadsheetParser p = new SpreadsheetParser(new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version);
 		    org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
 		    map.put(t.getName(), el);
 		    el.getAcceptableGenericTypes().addAll(ts.get(0).getParams());
@@ -533,7 +535,7 @@ public class SourceParser {
 			spreadsheet = new CSFile((sandbox ? sndBoxDir : srcDir) + n + File.separatorChar + n + "-def.xml");
 
 		SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(
-				spreadsheet), spreadsheet.getName(), definitions, src, logger, registry);
+				spreadsheet), spreadsheet.getName(), definitions, src, logger, registry, version);
 		ResourceDefn root;
 		try {
 		  root = sparser.parseResource();

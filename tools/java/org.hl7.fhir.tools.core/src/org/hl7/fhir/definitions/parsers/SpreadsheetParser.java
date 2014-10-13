@@ -65,6 +65,7 @@ import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.tools.publisher.BreadCrumbManager.Page;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
@@ -86,8 +87,9 @@ public class SpreadsheetParser {
 	private BindingNameRegistry registry;
   private String dataTypesFolder;
   private String txFolder;
+  private String version;
 
-	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry) throws Exception {
+	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version) throws Exception {
 		this.name = name;
 		xls = new XLSXmlParser(in, name);
 		this.definitions = definitions;
@@ -102,6 +104,7 @@ public class SpreadsheetParser {
     this.txFolder =  root + "terminologies" + File.separator;
 		this.log = log;
 		this.registry = registry;
+		this.version = version;
 	}
 
 
@@ -582,7 +585,7 @@ public class SpreadsheetParser {
 			c.setCode(sheet.getColumn(row, "Code"));
       c.setDisplay(sheet.getColumn(row, "Display"));
       c.setSystem(sheet.getColumn(row, "System"));
-			c.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
+			c.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
       c.setComment(sheet.getColumn(row, "Comment"));
       c.setParent(sheet.getColumn(row, "Parent"));
       c.setV2Map(sheet.getColumn(row, "v2"));
@@ -596,7 +599,13 @@ public class SpreadsheetParser {
 		}
 	}
 
-	public ProfileDefn parseProfile(Definitions definitions) throws Exception {
+	private String processDefinition(String definition) {
+    
+    return definition.replace("$version$", version);
+  }
+
+
+  public ProfileDefn parseProfile(Definitions definitions) throws Exception {
 	  try {
 		isProfile = true;
 		ProfileDefn p = new ProfileDefn();
@@ -917,7 +926,7 @@ public class SpreadsheetParser {
     else // todo: make this a warning when a fair chunk of the spreadsheets have been converted 
       e.setShortDefn(sheet.getColumn(row, "Short Name"));
     
-		e.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
+		e.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
 		
 		if (isRoot) {
 			root.setDefinition(e.getDefinition());
@@ -988,7 +997,7 @@ public class SpreadsheetParser {
     exe.setCondition(sheet.getColumn(row, "Condition"));
     exe.setBindingName(sheet.getColumn(row, "Binding"));
     exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Must Understand"), row, false));
-    exe.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
+    exe.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
     exe.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
     exe.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
 		doAliases(sheet, row, exe);
