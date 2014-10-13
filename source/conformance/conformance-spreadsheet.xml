@@ -636,7 +636,7 @@
     <Cell><Data ss:Type="String">A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">This SHALL be populated for all search parameters not defined as part of the core FHIR specification. The uri is the uri of the profile defining the parameter followed by &quot;#&quot; followed by the structure name and search parameter name.</Data></Cell>
+    <Cell><Data ss:Type="String">This SHALL be populated for all search parameters not defined as part of the core FHIR specification. The uri is the uri of the profile defining the parameter followed by &quot;#&quot; followed by the structure name, then &quot;.&quot; and then  the search parameter name, e.g. http://acme.org/fhir/profiles/provider-standard@standard.qualification</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -1015,7 +1015,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>47</TopRowBottomPane>
+   <TopRowBottomPane>38</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1032,8 +1032,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>57</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>43</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
