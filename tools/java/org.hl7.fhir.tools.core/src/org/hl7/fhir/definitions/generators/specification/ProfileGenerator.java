@@ -456,6 +456,8 @@ public class ProfileGenerator {
 
     if (profile.hasMetadata("status")) 
       p.setStatus(Profile.ResourceProfileStatus.fromCode(profile.metadata("status")));
+    for (String s : profile.getMetadata().get("code")) 
+      p.getCode().add(Factory.makeCoding(s));
 
     Set<String> containedSlices = new HashSet<String>();
 
