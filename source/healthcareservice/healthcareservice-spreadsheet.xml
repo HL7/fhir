@@ -16,13 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11880</WindowHeight>
-  <WindowWidth>24375</WindowWidth>
-  <WindowTopX>1140</WindowTopX>
+  <WindowHeight>11925</WindowHeight>
+  <WindowWidth>26040</WindowWidth>
+  <WindowTopX>930</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>682</TabRatio>
   <ActiveSheet>3</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -285,12 +284,13 @@
     <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.75">
-    <Cell><Data ss:Type="String">HealthcareService.ServiceType</Data></Cell>
+    <Cell><Data ss:Type="String">HealthcareService.serviceType</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:Index="7" ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String" x:Ticked="1">=ServiceType</Data></Cell>
+    <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">A specific type of service that may be delivered or performed</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -302,7 +302,7 @@
     <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">HealthcareService.ServiceType.type</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">HealthcareService.serviceType.type</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s67"><Data ss:Type="String">The specific type of service being delivered or performed</Data></Cell>
@@ -316,7 +316,7 @@
     <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">HealthcareService.ServiceType.specialty</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">HealthcareService.serviceType.specialty</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s69"><Data ss:Type="String">Collection of Specialties handled by the Service Site. This is more of a Medical Term</Data></Cell>
@@ -631,7 +631,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"><Data ss:Type="String">HealthcareService.contactPoint</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Contact</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">ContactPoint</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s67"><Data ss:Type="String">List of contacts related to this specific healthcare service. If this is empty, then refer to the location's contacts</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -727,7 +727,7 @@
     <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">HealthcareService.ServiceCode</Data></Cell>
+    <Cell><Data ss:Type="String">HealthcareService.serviceCode</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">List of the specific </Data></Cell>
@@ -764,8 +764,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -948,7 +948,7 @@
     <Cell><Data ss:Type="String">servicetype</Data></Cell>
     <Cell><Data ss:Type="String">The type of service provided by this healthcare service</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">HealthcareService.ServiceType.type</Data></Cell>
+    <Cell><Data ss:Type="String">HealthcareService.serviceType.type</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1066,8 +1066,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

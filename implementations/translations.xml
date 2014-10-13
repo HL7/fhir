@@ -207,6 +207,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">GVFVariante</translation>
         <translation lang="fr">GVFVariante</translation>
     </item>
+    <item id="HealthcareService">
+      <translation lang="en">HealthcareService</translation>
+    </item>
     <item id="ImagingStudy">
         <translation lang="en">ImagingStudy</translation>
         <translation lang="zh">影像检查</translation>
