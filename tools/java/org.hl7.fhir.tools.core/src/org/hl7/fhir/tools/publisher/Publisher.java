@@ -1888,7 +1888,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private ValueSet buildV3CodeSystem(String id, String date, Element e) throws Exception {
+  private ValueSet buildV3CodeSystem(String id, String date, Element e, String csOid, String vsOid) throws Exception {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
     vs.setIdentifier("http://hl7.org/fhir/v3/vs/" + id);
@@ -1906,6 +1906,9 @@ public class Publisher implements URIResolver {
       s.append("<p>Release Date: " + r.getAttribute("releaseDate") + "</p>\r\n");
       vs.setDate(new DateAndTime(r.getAttribute("releaseDate")));
     }
+    s.append("<p>OID for code system: " + csOid + "</p>\r\n");
+    if (vsOid != null)
+      s.append("<p>OID for value set: " + vsOid + " (this is the value set that includes the entire code system)</p>\r\n");
     r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
     if (r == null)
       r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "definition"), "text");
@@ -2003,8 +2006,11 @@ public class Publisher implements URIResolver {
             ae.setId("http://hl7.org/fhir/v3/" + id);
             ae.getLinks().put("self", "http://hl7.org/fhir/v3/" + id);
             ae.getLinks().put("path", "v3" + File.separator + id + File.separator + "index.html");
-            ae.getLinks().put("oid", e.getAttribute("codeSystemId"));
-            ValueSet vs = buildV3CodeSystem(id, dt, e);
+            ae.getLinks().put("cs-oid", "urn:oid:"+e.getAttribute("codeSystemId"));
+            String vsOid = getVSForCodeSystem(page.getV3src().getDocumentElement(), e.getAttribute("codeSystemId"));
+            if (vsOid != null)
+              ae.getLinks().put("vs-oid", "urn:oid:"+vsOid);
+            ValueSet vs = buildV3CodeSystem(id, dt, e, e.getAttribute("codeSystemId"), vsOid);
             ae.setResource(vs);
             if (vs.getDate() != null)
               ae.setUpdated(vs.getDate().expandTime());
@@ -2038,7 +2044,7 @@ public class Publisher implements URIResolver {
             vs = buildV3ValueSetAsCodeSystem(id, e, iniV.substring(2));
           } else
             throw new Exception("unhandled value set specifier in ini file");
-          ae.getLinks().put("oid", e.getAttribute("id"));
+          ae.getLinks().put("vs-oid", "urn:oid:"+e.getAttribute("id"));
           ae.setResource(vs);
           if (vs.getDate() != null)
             ae.setUpdated(vs.getDate().expandTime());
@@ -2053,6 +2059,22 @@ public class Publisher implements URIResolver {
       }
       e = XMLUtil.getNextSibling(e);
     }
+  }
+
+  private String getVSForCodeSystem(Element documentElement, String oid) {
+    // we need to find a value set that has the content from the supported code system, and nothing ese
+    Element element = XMLUtil.getFirstChild(documentElement);
+    while (element != null) {
+      Element version = XMLUtil.getNamedChild(element, "version");
+      if (version != null) {
+        Element content = XMLUtil.getNamedChild(version, "content");
+        if (oid.equals(content.getAttribute("codeSystem")) && content.getFirstChild() == null)
+          return element.getAttribute("id");
+      }
+      element = XMLUtil.getNextSibling(element);
+    }
+    
+    return null;
   }
 
   private ValueSet buildV3ValueSetAsCodeSystem(String id, Element e, String csname) throws DOMException, Exception {
@@ -3055,7 +3077,7 @@ public class Publisher implements URIResolver {
           throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
         addToResourceFeed(cm, cm.getIdentifier(), conceptMapsFeed);
         page.getDefinitions().getConceptMaps().put(cm.getIdentifier(), cm);
-        AtomEntry ae = new AtomEntry();
+        AtomEntry<ConceptMap> ae = new AtomEntry<ConceptMap>();
         ae.getLinks().put("self", n + ".html");
         ae.getLinks().put("path", n + ".html");
         ae.setResource(cm);
@@ -3174,7 +3196,7 @@ public class Publisher implements URIResolver {
     if (byId != null)
       dest.getEntryList().remove(byId);
 
-    AtomEntry e = new AtomEntry();
+    AtomEntry<Resource> e = new AtomEntry<Resource>();
     e.setId("http://hl7.org/fhir/profile/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/" + id + ".profile.xml");
     e.setTitle("\"" + id + "\" as a profile (to help derivation)");
@@ -3199,13 +3221,13 @@ public class Publisher implements URIResolver {
     if (dest.getById(wid) != null)
       throw new Exception("Attempt to add duplicate value set " + id);
 
-    AtomEntry e = new AtomEntry();
+    AtomEntry<ValueSet> e = new AtomEntry<ValueSet>();
     e.setId(wid);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valueset/" + id);
     if (csOid != null)
-      e.getLinks().put("cs-oid", csOid);
+      e.getLinks().put("cs-oid", "urn:oid:"+csOid);
     if (vsOid != null)
-      e.getLinks().put("vs-oid", vsOid);
+      e.getLinks().put("vs-oid", "urn:oid:"+vsOid);
     e.setTitle("Valueset \"" + id + "\" to support automated processing");
     e.setUpdated(new DateAndTime(page.getGenDate()));
     e.setPublished(new DateAndTime(page.getGenDate()));
@@ -4123,11 +4145,11 @@ public class Publisher implements URIResolver {
       vs.getText().getDiv().setName("div");
     }
 
-    AtomEntry ae = new AtomEntry();
+    AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
     ae.getLinks().put("self", "??");
     ae.getLinks().put("path", path + ".html");
-    ae.getLinks().put("cs-oid", csOid);
-    ae.getLinks().put("vs-oid", vsOid);
+    ae.getLinks().put("cs-oid", "urn:oid:"+csOid);
+    ae.getLinks().put("vs-oid", "urn:oid:"+vsOid);
     ae.setResource(vs);
     page.getValueSets().put(vs.getIdentifier(), ae);
     page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
@@ -4143,7 +4165,7 @@ public class Publisher implements URIResolver {
       n = name.substring(9);
     else
       n = name;
-    AtomEntry ae = page.getValueSets().get("http://hl7.org/fhir/vs/" + n);
+    AtomEntry<ValueSet> ae = page.getValueSets().get("http://hl7.org/fhir/vs/" + n);
     ValueSet vs = (ValueSet) ae.getResource();
 
     if (vs.getText().getDiv().allChildrenAreText()
@@ -4249,8 +4271,8 @@ public class Publisher implements URIResolver {
     e.setResource(vs);
     e.getLinks().put("self", Utilities.changeFileExt(filename, ".html"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, ".html"));
-    e.getLinks().put("cs-oid", cd.getCsOid());
-    e.getLinks().put("vs-oid", cd.getVsOid());
+    e.getLinks().put("cs-oid", "urn:oid:"+cd.getCsOid());
+    e.getLinks().put("vs-oid", "urn:oid:"+cd.getVsOid());
     if (vs.getDefine() != null)
       page.getCodeSystems().put(vs.getDefine().getSystem(), e);
     page.getValueSets().put(vs.getIdentifier(), e);
