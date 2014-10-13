@@ -336,8 +336,8 @@
     <Cell><Data ss:Type="String">Conformance.date</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Publication Date</Data></Cell>
-    <Cell><Data ss:Type="String">The date when the conformance statement was published</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Publication Date(/time)</Data></Cell>
+    <Cell><Data ss:Type="String">The date  (and optionally time) when the conformance statement was published</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -1015,7 +1015,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>38</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1028,12 +1028,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>43</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
