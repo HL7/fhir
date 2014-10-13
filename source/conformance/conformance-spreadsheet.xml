@@ -478,7 +478,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Adds CORS Headers (http://enable-cors.org/)</Data></Cell>
-    <Cell><Data ss:Type="String">Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server</Data></Cell>
+    <Cell><Data ss:Type="String">Server adds CORS headers when responding to requests - this enables javascript applications to use the server</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">The easiest CORS headers to add are Access-Control-Allow-Origin: * &amp; Access-Control-Request-Method: GET, POST, PUT, DELETE</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
