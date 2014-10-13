@@ -2607,6 +2607,16 @@
     <display value="Paroxysmal"/>
     <display value="Paroxysmal (qualifier value)"/>
   </concept>
+  <concept id="266919005" display="Never smoked tobacco (finding)">
+    <display value="Never smoked tobacco (finding)"/>
+    <display value="Never smoked"/>
+    <display value="Never smoked tobacco"/>
+    <display value="Never smoked tobacco (life style)"/>
+  </concept>
+  <concept id="266927001" display="Tobacco smoking consumption unknown (finding)">
+    <display value="Tobacco smoking consumption unknown"/>
+    <display value="Tobacco smoking consumption unknown (finding)"/>
+  </concept>
   <concept id="267065001" display="Urine appearance (observable entity)">
     <display value="Urine appearance"/>
     <display value="Urine appearance (observable entity)"/>
@@ -4798,6 +4808,10 @@
     <display value="Nontunneled central venous catheter (physical object)"/>
     <display value="Nontunneled central venous catheter"/>
   </concept>
+  <concept id="449868002" display="Smokes tobacco daily (finding)">
+    <display value="Smokes tobacco daily"/>
+    <display value="Smokes tobacco daily (finding)"/>
+  </concept>
   <concept id="45033006" display="Skiing">
     <display value="Engaged in skiing, function (observable entity)"/>
     <display value="Skiing (qualifier value)"/>
@@ -5526,6 +5540,13 @@
     <display value="Cholesterol measurement"/>
     <display value="Cholesterol measurement (procedure)"/>
   </concept>
+  <concept id="77176002" display="Smoker (finding)">
+    <display value="Smoker"/>
+    <display value="Smoker, NOS"/>
+    <display value="Smoker (finding)"/>
+    <display value="Current smoker"/>
+    <display value="Smoker (life style)"/>
+  </concept>
   <concept id="77386006" display="Pregnant">
     <display value="Pregnancy confirmed"/>
     <display value="Pregnancy"/>
@@ -5673,6 +5694,13 @@
     <display value="SE"/>
     <display value="Secondary diagnosis (contextual qualifier)"/>
     <display value="Secondary diagnosis (contextual qualifier) (qualifier value)"/>
+  </concept>
+  <concept id="8517006" display="Ex-smoker (finding)">
+    <display value="Ex-smoker (finding)"/>
+    <display value="Former smoker"/>
+    <display value="Ex-smoker"/>
+    <display value="Cessation of smoking"/>
+    <display value="Ex-smoker (life style)"/>
   </concept>
   <concept id="85988008" display="Blood group antibody Jk^a^ (substance)">
     <display value="Anti Jka"/>

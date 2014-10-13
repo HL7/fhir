@@ -7,6 +7,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="Detailed information about the type of the image - it's kind, purpose, or the kind of equipment used to generate it"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/media-subtype"/>  

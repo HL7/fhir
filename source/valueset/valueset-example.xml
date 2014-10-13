@@ -33,6 +33,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="This is an example value set that includes &#xA;      all the LOINC codes for serum cholesterol from v2.36"/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2012-06-13"/>

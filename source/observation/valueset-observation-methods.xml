@@ -18,6 +18,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="Method Codes defined as part of v3"/>
+  <copyright value="This value set includes content from LOINC®, which is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use. This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>
   <!-- LOINC doesn't formally expose the methods as set of codes, but we want to use them here?
      so we define this as a set of new codes. TODO: discuss this with LOINC -->

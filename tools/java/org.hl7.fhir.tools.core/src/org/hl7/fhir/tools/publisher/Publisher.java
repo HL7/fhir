@@ -1969,7 +1969,7 @@ public class Publisher implements URIResolver {
     vs.setText(new Narrative());
     vs.getText().setStatus(NarrativeStatus.GENERATED);
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate(vs, false);
+    new ValueSetValidator(page.getWorkerContext()).validate("v3 valueset "+id, vs, false, true);
 
     return vs;
   }
@@ -2092,7 +2092,7 @@ public class Publisher implements URIResolver {
     
     NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(vs, false);
+    new ValueSetValidator(page.getWorkerContext()).validate("v3 value set as code system "+id, vs, false, true);
     return vs;
   }
   
@@ -2184,7 +2184,7 @@ public class Publisher implements URIResolver {
     }
     NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getWorkerContext());
     gen.generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(vs, false);
+    new ValueSetValidator(page.getWorkerContext()).validate("v3 valueset "+id, vs, false, true);
     return vs;
 
   }
@@ -2308,7 +2308,7 @@ public class Publisher implements URIResolver {
                                                               // v2 versioning
                                                               // information
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate(vs, false);
+    new ValueSetValidator(page.getWorkerContext()).validate("v2 table "+id, vs, false, true);
     return vs;
   }
 
@@ -2391,7 +2391,7 @@ public class Publisher implements URIResolver {
                                                               // v2 versioning
                                                               // information
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate(vs, false);
+    new ValueSetValidator(page.getWorkerContext()).validate("v2 table "+id, vs, false, true);
     return vs;
   }
 
@@ -3019,7 +3019,7 @@ public class Publisher implements URIResolver {
 
       if (r instanceof ValueSet) {
         ValueSet vs = (ValueSet) r;
-        new ValueSetValidator(page.getWorkerContext()).validate(vs, false);
+        new ValueSetValidator(page.getWorkerContext()).validate("Value set Example "+n, vs, false, false);
         if (vs.getIdentifier() == null)
           throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
         AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
@@ -4058,7 +4058,7 @@ public class Publisher implements URIResolver {
             && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
           new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
         
-        new ValueSetValidator(page.getWorkerContext()).validate(vs, true);
+        new ValueSetValidator(page.getWorkerContext()).validate(name, vs, true, false);
         
         addToResourceFeed(vs, vs.getIdentifier(), valueSetsFeed, null, null); // todo - what should the Oids be
 
@@ -4137,7 +4137,7 @@ public class Publisher implements URIResolver {
     if (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
       new NarrativeGenerator("", page.getWorkerContext()).generate(vs);
-    new ValueSetValidator(page.getWorkerContext()).validate(vs, true);
+    new ValueSetValidator(page.getWorkerContext()).validate(name, vs, true, false);
 
     if (isGenerate) {
       addToResourceFeed(vs, n, valueSetsFeed, ae.getLinks().get("cs-oid"), ae.getLinks().get("vs-oid"));
@@ -4231,7 +4231,7 @@ public class Publisher implements URIResolver {
       }
     }
 
-    new ValueSetValidator(page.getWorkerContext()).validate(vs, true);
+    new ValueSetValidator(page.getWorkerContext()).validate(filename, vs, true, false);
     cd.setReferredValueSet(vs);
     AtomEntry<ValueSet> e = new AtomEntry<ValueSet>();
     e.setResource(vs);

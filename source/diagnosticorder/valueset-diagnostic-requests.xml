@@ -13,6 +13,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="This value set includes all the LOINC Order codes"/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <status value="draft"/>
   <compose>
     <!-- all codes that are orderable -->

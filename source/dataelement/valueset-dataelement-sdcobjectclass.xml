@@ -7,6 +7,7 @@
     <value value="http://healthit.gov"/>
   </telecom>
   <description value="The allowed codes for identifying the ISO 11179 ObjectClass for a particular data element if intended for registration/use within the U.S. Structured Data Capture (SDC) project."/>
+  <copyright value="This value set includes content from LOINC®, which is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use. This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>
   <compose>
     <include>
