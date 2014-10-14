@@ -20,6 +20,8 @@
   <WindowWidth>15270</WindowWidth>
   <WindowTopX>630</WindowTopX>
   <WindowTopY>780</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -157,7 +159,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -220,10 +221,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">id</Data><NamedCell ss:Name="id"/></Cell>
-    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
-       html:Color="#000000">A whole number in the range 0 to 2^64-1, optionally represented in hex, a uuid, an oid or any other combination of </Font><B><Font
-        html:Color="#000000">lower-case letters a-z</Font></B><Font
-       html:Color="#000000">, numerals, &quot;-&quot; and &quot;.&quot;, with a length limit of 36 characters</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">Any combination of lowercase letters, numerals, &quot;-&quot; and &quot;.&quot;, with a length limit of 36 characters. &#160;(This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.) &#160;Systems SHALL send ids as lower-case but SHOULD interpret them case-insensitively.</Data></Cell>
     <Cell><Data ss:Type="String">RFC 4122</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">xs:string+</Data></Cell>
@@ -241,14 +239,14 @@
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
+    <VerticalResolution>600</VerticalResolution>
    </Print>
-   <LeftColumnVisible>2</LeftColumnVisible>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
