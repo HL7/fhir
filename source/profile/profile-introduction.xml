@@ -95,8 +95,8 @@ find the profile when registered in profile repositories.
 <p>Notes:</p>
 <ul>
 <li>The name of the profile is not required to be globally unique, but the name should have some scoping information (i.e. Acme Inc. (USA), Allergy List)</li>
-<li>Multiple codes may be assigned to the profile. These may either describe the profile, the focus of the profile or both. They are solely to help find the profile by searching for structured concepts.</li>
-
+<li>Multiple codes may be assigned to the profile. These may either describe the profile, the focus of the profile or both. They are solely to help find the profile by searching for structured concepts</li>
+<li>The 3 status codes (draft, active, and retired) are the codes that are relevant to profile consumers. Authors may wish to use the <a href="#author-status">authoring-status</a> extension to track the life cycle of a profile as it is prepared</li>
 </ul>  
 <h3>Structure</h3>
 <p>
