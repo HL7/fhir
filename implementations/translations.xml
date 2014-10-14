@@ -486,12 +486,14 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="VCFMeta">
         <translation lang="en">VCFMeta</translation>
+        <translation lang="nl">VCFMeta</translation>
         <translation lang="zh">VCF元</translation>
         <translation lang="es">VCFMeta</translation>
         <translation lang="fr">VCFMeta</translation>
     </item>
     <item id="VCFVariant">
         <translation lang="en">VCFVariant</translation>
+        <translation lang="nl">VCFMeta</translation>
         <translation lang="zh">VCF变体</translation>
         <translation lang="es">VCFVariante</translation>
         <translation lang="fr">VCFVariante</translation>
@@ -1336,6 +1338,7 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="NO_TAGS">
         <translation lang="en">(No tags defined)</translation>
+        <translation lang="nl">(Geen labels gedefinieerd)</translation>
     </item>
     <item id="RESOURCE_TAGS">
         <translation lang="en">Tags defined on this System for the resource type %s ID %s</translation>
@@ -1511,27 +1514,34 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="HOME">
         <translation lang="en">Home</translation>
+        <translation lang="nl">Start</translation>
     </item>
     <item id="SERVER_HOME">
         <translation lang="en">Server Home</translation>
+        <translation lang="nl">Server start</translation>
     </item>
     <item id="TERMINOLOGY">
         <!-- as in, this is a 'terminology' server -->
         <translation lang="en">Terminology</translation>
+        <translation lang="nl">Terminologie</translation>
     </item>
     <item id="WELCOME">
         <!-- as in, 'welcome' to the FHIR server -->
         <translation lang="en">Welcome</translation>
+        <translation lang="nl">Welkom</translation>
     </item>
     <item id="FOUND">
         <!-- as in, # Patients 'found' -->
         <translation lang="en">found</translation>
+        <translation lang="nl">gevonden</translation>
     </item>
     <item id="SYSTEM_OPERATIONS">
         <translation lang="en">System Operations</translation>
+        <translation lang="nl">Systeembewerkingen</translation>
     </item>
     <item id="CONF_PROFILE">
         <translation lang="en">Conformance Profile</translation>
+        <translation lang="nl">Conformanceprofiel</translation>
     </item>
     <item id="OR">
         <!-- as in, XML 'or' JSON -->
@@ -1546,8 +1556,10 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>
     <item id="GENERAL_SEARCH">
         <translation lang="en">General Search</translation>
+        <translation lang="nl">Algemene zoekopdracht</translation>
     </item>
     <item id="THIS_RESOURCE">
         <translation lang="en">This Resource</translation>
+        <translation lang="nl">Deze resource</translation>
     </item>
 </translations>
