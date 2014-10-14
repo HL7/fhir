@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.instance.formats.JsonComposer;
-import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.CodeableConcept;

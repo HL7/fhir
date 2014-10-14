@@ -13,6 +13,7 @@ package org.hl7.fhir.utilities.ucum;
 
 import java.util.Collections;
 import java.util.Comparator;
+
 import org.hl7.fhir.utilities.ucum.Canonical.CanonicalUnit;
 import org.hl7.fhir.utilities.ucum.special.Registry;
 

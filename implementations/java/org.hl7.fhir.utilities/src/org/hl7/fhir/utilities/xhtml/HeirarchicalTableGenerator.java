@@ -39,10 +39,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.imageio.ImageIO;
-import org.hl7.fhir.utilities.Utilities;
+
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
+import org.hl7.fhir.utilities.Utilities;
 
 
 public class HeirarchicalTableGenerator  {

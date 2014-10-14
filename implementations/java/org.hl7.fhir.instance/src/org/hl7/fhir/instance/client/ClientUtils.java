@@ -328,7 +328,6 @@ public class ClientUtils {
 	 * @param response
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	protected static List<AtomCategory> unmarshalTagList(HttpResponse response, String format) {
 		InputStream instream = null;
 		OperationOutcome error = null;
