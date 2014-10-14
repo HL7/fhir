@@ -20,6 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -377,7 +378,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Media.length</Data></Cell>
+    <Cell><Data ss:Type="String">Media.duration</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -386,7 +387,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Length in seconds (audio / video)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">~0028,0002</Data></Cell>
-    <Cell><Data ss:Type="String">The length of the recording in seconds - for audio and video</Data></Cell>
+    <Cell><Data ss:Type="String">The duration of the recording in seconds - for audio and video</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;OBS&quot;, moodCode=&quot;EVN&quot;,code=&quot;&lt;CODE&gt;&quot;].value</Data></Cell>
@@ -444,8 +445,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>12</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
