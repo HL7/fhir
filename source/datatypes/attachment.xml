@@ -20,6 +20,8 @@
   <WindowWidth>26235</WindowWidth>
   <WindowTopX>1740</WindowTopX>
   <WindowTopY>2310</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -128,7 +130,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Attachment.contentType</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">MimeType</Data></Cell>
     <Cell><Data ss:Type="String">Mime type of the content, with charset etc.</Data></Cell>
@@ -228,13 +230,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>2</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -258,15 +258,12 @@
     <Cell><Data ss:Type="String">XPath</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">!1</Data></Cell>
-    <Cell><Data ss:Type="String">Must Have Data</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Must Have Content-Type</Data></Cell>
     <Cell><Data ss:Type="String">Attachment</Data></Cell>
-    <Cell ss:StyleID="s68"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Unless the Attachment element has a dataAbsentReason flag, it SHALL contain a </Font><I><Font
-        html:Color="#000000">data</Font></I><Font html:Color="#000000"> or a </Font><I><Font
-        html:Color="#000000">url</Font></I><Font html:Color="#000000"> (or both)</Font></ss:Data></Cell>
-    <Cell><Data ss:Type="String">dataAbsentReason.oclIsDefined or data.size &gt; 0 or url.size &gt; 0</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">exists(@dataAbsentReason) or exists(f:data) or exists(f:url)</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">It the Attachment has data, it SHALL have a contentType</Data></Cell>
+    <Cell><Data ss:Type="String">data.size = 0 or contentType.oclIsDefined</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">not(exists(f:data)) or exists(f:contentType)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -281,10 +278,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
