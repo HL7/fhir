@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -79,11 +79,6 @@ public class Attachment extends Type {
       super();
     }
 
-    public Attachment(CodeType contentType) {
-      super();
-      this.contentType = contentType;
-    }
-
     /**
      * @return {@link #contentType} (Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
@@ -110,9 +105,13 @@ public class Attachment extends Type {
      * @param value Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
      */
     public Attachment setContentType(String value) { 
+      if (value == null)
+        this.contentType = null;
+      else {
         if (this.contentType == null)
           this.contentType = new CodeType();
         this.contentType.setValue(value);
+      }
       return this;
     }
 

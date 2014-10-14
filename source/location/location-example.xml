@@ -33,7 +33,7 @@
         <use value="work"/>
         <line value="Galapagosweg 91, Building A"/>
         <city value="Den Burg"/>
-        <zip value="9105 PZ"/>
+        <postalCode value="9105 PZ"/>
         <country value="NLD"/>
   </address>
   <physicalType>

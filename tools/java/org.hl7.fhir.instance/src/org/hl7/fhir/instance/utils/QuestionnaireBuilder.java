@@ -887,7 +887,7 @@ public class QuestionnaireBuilder {
     addQuestion(group, AnswerFormat.STRING, path, "line", "line:", answerGroups).setRepeats(true);
     addQuestion(group, AnswerFormat.STRING, path, "city", "city:", answerGroups);
     addQuestion(group, AnswerFormat.STRING, path, "state", "state:", answerGroups);
-    addQuestion(group, AnswerFormat.STRING, path, "zip", "zip:", answerGroups);
+    addQuestion(group, AnswerFormat.STRING, path, "postalCode", "post code:", answerGroups);
     addQuestion(group, AnswerFormat.STRING, path, "country", "country:", answerGroups);
     addQuestion(group, AnswerFormat.CHOICE, path, "use", "use:", answerGroups, resolveValueSet("http://hl7.org/fhir/vs/address-use"));
   }

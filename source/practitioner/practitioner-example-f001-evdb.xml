@@ -38,7 +38,7 @@
         <use value="work"/>
         <line value="Galapagosweg 91"/>
         <city value="Den Burg"/>
-        <zip value="9105 PZ"/>
+        <postalCode value="9105 PZ"/>
         <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
     </address>
 

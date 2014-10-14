@@ -38,7 +38,7 @@
         <use value="work"/>
         <line value="Walvisbaai 3"/>    
         <city value="Den Helder"/>
-        <zip value="2333ZA"/>
+        <postalCode value="2333ZA"/>
         <country value="NLD"/><!--ISO 3166 3 letter code-->
      </address>
     <!--The AUMC is in active use-->
@@ -81,7 +81,7 @@
             <line value="Walvisbaai 3"/>
             <line value="Gebouw 2"/>  
             <city value="Den helder"/>
-            <zip value="2333ZA"/>
+            <postalCode value="2333ZA"/>
             <country value="NLD"/><!--ISO 3166 3 letter code-->
         </address>
     </contact>

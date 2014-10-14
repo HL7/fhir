@@ -1278,7 +1278,7 @@ public class InstanceValidator extends BaseValidator {
 	  checkFixedValue(errors, path+".city", focus.getNamedChild("city"), fixed.getCityElement(), "city");
 	  checkFixedValue(errors, path+".state", focus.getNamedChild("state"), fixed.getStateElement(), "state");
 	  checkFixedValue(errors, path+".country", focus.getNamedChild("country"), fixed.getCountryElement(), "country");
-	  checkFixedValue(errors, path+".zip", focus.getNamedChild("zip"), fixed.getZipElement(), "zip");
+	  checkFixedValue(errors, path+".zip", focus.getNamedChild("zip"), fixed.getPostalCodeElement(), "postalCode");
 	  
 		List<WrapperElement> lines = new ArrayList<WrapperElement>();
 		focus.getNamedChildren( "line", lines);

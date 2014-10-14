@@ -51,7 +51,7 @@
 	 <line value="123 Any St"/>
 	 <city value="Anytown"/>
 	 <state value="BC"/>
-	 <zip value="V3R4R5"/>
+	 <postalCode value="V3R4R5"/>
 	 <country value="CANADA"/>
 	</address>
 

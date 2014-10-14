@@ -247,7 +247,7 @@ public class Convert {
 	  			else if (n.getLocalName().equals("state"))
 		  			a.setState(v);
 	  			else if (n.getLocalName().equals("postalCode"))
-		  			a.setZip(v);
+		  			a.setPostalCode(v);
 	  	}  		
 	  	n = n.getNextSibling();
 	  }

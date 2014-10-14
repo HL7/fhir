@@ -67,7 +67,7 @@
   <address>
     <line value="43, Place du Marché Sainte Catherine" />
     <city value="Paris" />
-    <zip value="75004" />
+    <postalCode value="75004" />
     <country value="FRA" />
   </address>
   

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -678,8 +678,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("city", element.getCityElement(), false);
       composeStringCore("state", element.getStateElement(), false);
       composeStringExtras("state", element.getStateElement(), false);
-      composeStringCore("zip", element.getZipElement(), false);
-      composeStringExtras("zip", element.getZipElement(), false);
+      composeStringCore("postalCode", element.getPostalCodeElement(), false);
+      composeStringExtras("postalCode", element.getPostalCodeElement(), false);
       composeStringCore("country", element.getCountryElement(), false);
       composeStringExtras("country", element.getCountryElement(), false);
       composePeriod("period", element.getPeriod());
@@ -2481,8 +2481,8 @@ public class JsonComposer extends JsonComposerBase {
       };
       composeIntegerCore("size", element.getSizeElement(), false);
       composeIntegerExtras("size", element.getSizeElement(), false);
-      composeStringCore("hash", element.getHashElement(), false);
-      composeStringExtras("hash", element.getHashElement(), false);
+      composeBase64BinaryCore("hash", element.getHashElement(), false);
+      composeBase64BinaryExtras("hash", element.getHashElement(), false);
       composeUriCore("location", element.getLocationElement(), false);
       composeUriExtras("location", element.getLocationElement(), false);
       composeDocumentReferenceDocumentReferenceServiceComponent("service", element.getService());
@@ -2766,6 +2766,165 @@ public class JsonComposer extends JsonComposerBase {
       composeType("value", element.getValue());
       composeBooleanCore("exclude", element.getExcludeElement(), false);
       composeBooleanExtras("exclude", element.getExcludeElement(), false);
+      close();
+    }
+  }
+
+  private void composeHealthcareService(String name, HealthcareService element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeReference("location", element.getLocation());
+      composeCodeableConcept("serviceCategory", element.getServiceCategory());
+      if (element.getServiceType().size() > 0) {
+        openArray("serviceType");
+        for (HealthcareService.ServiceTypeComponent e : element.getServiceType()) 
+          composeHealthcareServiceServiceTypeComponent(null, e);
+        closeArray();
+      };
+      composeStringCore("serviceName", element.getServiceNameElement(), false);
+      composeStringExtras("serviceName", element.getServiceNameElement(), false);
+      composeStringCore("comment", element.getCommentElement(), false);
+      composeStringExtras("comment", element.getCommentElement(), false);
+      composeStringCore("extraDetails", element.getExtraDetailsElement(), false);
+      composeStringExtras("extraDetails", element.getExtraDetailsElement(), false);
+      composeCodeableConcept("freeProvisionCode", element.getFreeProvisionCode());
+      composeCodeableConcept("eligibility", element.getEligibility());
+      composeStringCore("eligibilityNote", element.getEligibilityNoteElement(), false);
+      composeStringExtras("eligibilityNote", element.getEligibilityNoteElement(), false);
+      composeCodeableConcept("appointmentRequired", element.getAppointmentRequired());
+      composeUriCore("imageURI", element.getImageURIElement(), false);
+      composeUriExtras("imageURI", element.getImageURIElement(), false);
+      if (element.getAvailableTime().size() > 0) {
+        openArray("availableTime");
+        for (HealthcareService.HealthcareServiceAvailableTimeComponent e : element.getAvailableTime()) 
+          composeHealthcareServiceHealthcareServiceAvailableTimeComponent(null, e);
+        closeArray();
+      };
+      if (element.getNotAvailableTime().size() > 0) {
+        openArray("notAvailableTime");
+        for (HealthcareService.HealthcareServiceNotAvailableTimeComponent e : element.getNotAvailableTime()) 
+          composeHealthcareServiceHealthcareServiceNotAvailableTimeComponent(null, e);
+        closeArray();
+      };
+      composeStringCore("availabilityExceptions", element.getAvailabilityExceptionsElement(), false);
+      composeStringExtras("availabilityExceptions", element.getAvailabilityExceptionsElement(), false);
+      composeStringCore("publicKey", element.getPublicKeyElement(), false);
+      composeStringExtras("publicKey", element.getPublicKeyElement(), false);
+      if (element.getProgramName().size() > 0) {
+        openArray("programName");
+        for (StringType e : element.getProgramName()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getProgramName())) {
+          openArray("_programName");
+          for (StringType e : element.getProgramName()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.getContactPoint().size() > 0) {
+        openArray("contactPoint");
+        for (ContactPoint e : element.getContactPoint()) 
+          composeContactPoint(null, e);
+        closeArray();
+      };
+      if (element.getCharacteristic().size() > 0) {
+        openArray("characteristic");
+        for (CodeableConcept e : element.getCharacteristic()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getReferralMethod().size() > 0) {
+        openArray("referralMethod");
+        for (CodeableConcept e : element.getReferralMethod()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getSetting().size() > 0) {
+        openArray("setting");
+        for (CodeableConcept e : element.getSetting()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getTargetGroup().size() > 0) {
+        openArray("targetGroup");
+        for (CodeableConcept e : element.getTargetGroup()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getCoverageArea().size() > 0) {
+        openArray("coverageArea");
+        for (CodeableConcept e : element.getCoverageArea()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getCatchmentArea().size() > 0) {
+        openArray("catchmentArea");
+        for (CodeableConcept e : element.getCatchmentArea()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getServiceCode().size() > 0) {
+        openArray("serviceCode");
+        for (CodeableConcept e : element.getServiceCode()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+    }
+  }
+
+  private void composeHealthcareServiceServiceTypeComponent(String name, HealthcareService.ServiceTypeComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeCodeableConcept("type", element.getType());
+      if (element.getSpecialty().size() > 0) {
+        openArray("specialty");
+        for (CodeableConcept e : element.getSpecialty()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeHealthcareServiceHealthcareServiceAvailableTimeComponent(String name, HealthcareService.HealthcareServiceAvailableTimeComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      if (element.getDaysOfWeek().size() > 0) {
+        openArray("daysOfWeek");
+        for (CodeableConcept e : element.getDaysOfWeek()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeBooleanCore("allDay", element.getAllDayElement(), false);
+      composeBooleanExtras("allDay", element.getAllDayElement(), false);
+      composeDateTimeCore("availableStartTime", element.getAvailableStartTimeElement(), false);
+      composeDateTimeExtras("availableStartTime", element.getAvailableStartTimeElement(), false);
+      composeDateTimeCore("availableEndTime", element.getAvailableEndTimeElement(), false);
+      composeDateTimeExtras("availableEndTime", element.getAvailableEndTimeElement(), false);
+      close();
+    }
+  }
+
+  private void composeHealthcareServiceHealthcareServiceNotAvailableTimeComponent(String name, HealthcareService.HealthcareServiceNotAvailableTimeComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeStringCore("description", element.getDescriptionElement(), false);
+      composeStringExtras("description", element.getDescriptionElement(), false);
+      composeDateTimeCore("startDate", element.getStartDateElement(), false);
+      composeDateTimeExtras("startDate", element.getStartDateElement(), false);
+      composeDateTimeCore("endDate", element.getEndDateElement(), false);
+      composeDateTimeExtras("endDate", element.getEndDateElement(), false);
       close();
     }
   }
@@ -4301,6 +4460,7 @@ public class JsonComposer extends JsonComposerBase {
         composeEnumerationExtras("gender", element.getGenderElement(), new Patient.AdministrativeGenderEnumFactory(), false);
       }
       composeReference("organization", element.getOrganization());
+      composePeriod("period", element.getPeriod());
       close();
     }
   }
@@ -6047,6 +6207,8 @@ public class JsonComposer extends JsonComposerBase {
       composeFamilyHistory("FamilyHistory", (FamilyHistory)resource);
     else if (resource instanceof Group)
       composeGroup("Group", (Group)resource);
+    else if (resource instanceof HealthcareService)
+      composeHealthcareService("HealthcareService", (HealthcareService)resource);
     else if (resource instanceof ImagingStudy)
       composeImagingStudy("ImagingStudy", (ImagingStudy)resource);
     else if (resource instanceof Immunization)
@@ -6178,6 +6340,8 @@ public class JsonComposer extends JsonComposerBase {
       composeFamilyHistory(name, (FamilyHistory)resource);
     else if (resource instanceof Group)
       composeGroup(name, (Group)resource);
+    else if (resource instanceof HealthcareService)
+      composeHealthcareService(name, (HealthcareService)resource);
     else if (resource instanceof ImagingStudy)
       composeImagingStudy(name, (ImagingStudy)resource);
     else if (resource instanceof Immunization)

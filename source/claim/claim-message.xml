@@ -84,7 +84,7 @@
             <line value="1234 Any Street"/>
             <city value="Menlo Park"/>
             <state value="California"/>
-            <zip value="90123"/>
+            <postalCode value="90123"/>
           </address>
           <birthdate value="1973-04-14"/>
           <gender>
@@ -122,7 +122,7 @@
               <line value="1234 Any Street"/>
               <city value="Menlo Park"/>
               <state value="California"/>
-              <zip value="90123"/>
+              <postalCode value="90123"/>
             </address>
           </subscriber>
         </coverage>

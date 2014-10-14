@@ -31,7 +31,7 @@
     <use value="work"/>
     <line value="apenrots 230"/>    
     <city value="Blijdorp"/>
-    <zip value="3056BE"/>
+    <postalCode value="3056BE"/>
     <country value="NLD"/><!--ISO 3166 3 letter code-->
  </address>
 <!--   <accreditation>

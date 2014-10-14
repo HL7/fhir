@@ -877,8 +877,8 @@ public class NarrativeGenerator {
         s.append(" ");
       }
       
-      if (address.getZip() != null) { 
-        s.append(address.getZip());
+      if (address.getPostalCode() != null) { 
+        s.append(address.getPostalCode());
         s.append(" ");
       }
       

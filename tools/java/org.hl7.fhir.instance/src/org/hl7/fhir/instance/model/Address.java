@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -125,7 +125,7 @@ P.O. Box number, delivery hints, and similar address information.
     /**
      * A postal code designating a region defined by the postal service.
      */
-    protected StringType zip;
+    protected StringType postalCode;
 
     /**
      * Country - a nation as commonly understood or generally accepted.
@@ -137,7 +137,7 @@ P.O. Box number, delivery hints, and similar address information.
      */
     protected Period period;
 
-    private static final long serialVersionUID = 1214286881L;
+    private static final long serialVersionUID = 1512502502L;
 
     public Address() {
       super();
@@ -329,37 +329,37 @@ P.O. Box number, delivery hints, and similar address information.)
     }
 
     /**
-     * @return {@link #zip} (A postal code designating a region defined by the postal service.). This is the underlying object with id, value and extensions. The accessor "getZip" gives direct access to the value
+     * @return {@link #postalCode} (A postal code designating a region defined by the postal service.). This is the underlying object with id, value and extensions. The accessor "getPostalCode" gives direct access to the value
      */
-    public StringType getZipElement() { 
-      return this.zip;
+    public StringType getPostalCodeElement() { 
+      return this.postalCode;
     }
 
     /**
-     * @param value {@link #zip} (A postal code designating a region defined by the postal service.). This is the underlying object with id, value and extensions. The accessor "getZip" gives direct access to the value
+     * @param value {@link #postalCode} (A postal code designating a region defined by the postal service.). This is the underlying object with id, value and extensions. The accessor "getPostalCode" gives direct access to the value
      */
-    public Address setZipElement(StringType value) { 
-      this.zip = value;
+    public Address setPostalCodeElement(StringType value) { 
+      this.postalCode = value;
       return this;
     }
 
     /**
      * @return A postal code designating a region defined by the postal service.
      */
-    public String getZip() { 
-      return this.zip == null ? null : this.zip.getValue();
+    public String getPostalCode() { 
+      return this.postalCode == null ? null : this.postalCode.getValue();
     }
 
     /**
      * @param value A postal code designating a region defined by the postal service.
      */
-    public Address setZip(String value) { 
+    public Address setPostalCode(String value) { 
       if (value == null)
-        this.zip = null;
+        this.postalCode = null;
       else {
-        if (this.zip == null)
-          this.zip = new StringType();
-        this.zip.setValue(value);
+        if (this.postalCode == null)
+          this.postalCode = new StringType();
+        this.postalCode.setValue(value);
       }
       return this;
     }
@@ -422,7 +422,7 @@ P.O. Box number, delivery hints, and similar address information.)
         childrenList.add(new Property("line", "string", "This component contains the house number, apartment number, street name, street direction, \nP.O. Box number, delivery hints, and similar address information.", 0, java.lang.Integer.MAX_VALUE, line));
         childrenList.add(new Property("city", "string", "The name of the city, town, village or other community or delivery center.", 0, java.lang.Integer.MAX_VALUE, city));
         childrenList.add(new Property("state", "string", "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).", 0, java.lang.Integer.MAX_VALUE, state));
-        childrenList.add(new Property("zip", "string", "A postal code designating a region defined by the postal service.", 0, java.lang.Integer.MAX_VALUE, zip));
+        childrenList.add(new Property("postalCode", "string", "A postal code designating a region defined by the postal service.", 0, java.lang.Integer.MAX_VALUE, postalCode));
         childrenList.add(new Property("country", "string", "Country - a nation as commonly understood or generally accepted.", 0, java.lang.Integer.MAX_VALUE, country));
         childrenList.add(new Property("period", "Period", "Time period when address was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
       }
@@ -436,7 +436,7 @@ P.O. Box number, delivery hints, and similar address information.)
           dst.line.add(i.copy());
         dst.city = city == null ? null : city.copy();
         dst.state = state == null ? null : state.copy();
-        dst.zip = zip == null ? null : zip.copy();
+        dst.postalCode = postalCode == null ? null : postalCode.copy();
         dst.country = country == null ? null : country.copy();
         dst.period = period == null ? null : period.copy();
         return dst;

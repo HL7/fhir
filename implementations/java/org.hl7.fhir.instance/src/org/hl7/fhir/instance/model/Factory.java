@@ -159,5 +159,20 @@ public class Factory {
 	 instant.setValue(DateAndTime.now());
 	 return instant;
  }
+
+public static Coding makeCoding(String code) throws Exception {
+  String[] parts = code.split("\\|");
+  Coding c = new Coding();
+  if (parts.length == 2) {
+    c.setSystem(parts[0]);
+    c.setCode(parts[1]);
+  } else if (parts.length == 3) {
+    c.setSystem(parts[0]);
+    c.setCode(parts[1]);
+    c.setDisplay(parts[2]);
+  } else 
+    throw new Exception("Unable to understand the code '"+code+"'. Use the format system|code(|display)");
+  return c;
+}
  
 }

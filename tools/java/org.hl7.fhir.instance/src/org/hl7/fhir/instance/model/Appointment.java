@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 /**
- * (informative) A scheduled appointment for a patient and/or practitioner(s) where a service may take place.
+ * A scheduled healthcare event for a patient and/or practitioner(s) where a service may take place at a specific date/time.
  */
 public class Appointment extends Resource {
 

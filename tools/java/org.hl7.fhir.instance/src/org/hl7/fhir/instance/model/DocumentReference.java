@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -681,7 +681,7 @@ public class DocumentReference extends Resource {
     /**
      * A hash of the source document to ensure that changes have not occurred.
      */
-    protected StringType hash;
+    protected Base64BinaryType hash;
 
     /**
      * A url at which the document can be accessed.
@@ -698,7 +698,7 @@ public class DocumentReference extends Resource {
      */
     protected DocumentReferenceContextComponent context;
 
-    private static final long serialVersionUID = 210550392L;
+    private static final long serialVersionUID = -1989903559L;
 
     public DocumentReference() {
       super();
@@ -1255,14 +1255,14 @@ public class DocumentReference extends Resource {
     /**
      * @return {@link #hash} (A hash of the source document to ensure that changes have not occurred.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
      */
-    public StringType getHashElement() { 
+    public Base64BinaryType getHashElement() { 
       return this.hash;
     }
 
     /**
      * @param value {@link #hash} (A hash of the source document to ensure that changes have not occurred.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
      */
-    public DocumentReference setHashElement(StringType value) { 
+    public DocumentReference setHashElement(Base64BinaryType value) { 
       this.hash = value;
       return this;
     }
@@ -1270,19 +1270,19 @@ public class DocumentReference extends Resource {
     /**
      * @return A hash of the source document to ensure that changes have not occurred.
      */
-    public String getHash() { 
+    public byte[] getHash() { 
       return this.hash == null ? null : this.hash.getValue();
     }
 
     /**
      * @param value A hash of the source document to ensure that changes have not occurred.
      */
-    public DocumentReference setHash(String value) { 
+    public DocumentReference setHash(byte[] value) { 
       if (value == null)
         this.hash = null;
       else {
         if (this.hash == null)
-          this.hash = new StringType();
+          this.hash = new Base64BinaryType();
         this.hash.setValue(value);
       }
       return this;
@@ -1376,7 +1376,7 @@ public class DocumentReference extends Resource {
         childrenList.add(new Property("mimeType", "code", "The mime type of the source document.", 0, java.lang.Integer.MAX_VALUE, mimeType));
         childrenList.add(new Property("format", "uri", "An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.", 0, java.lang.Integer.MAX_VALUE, format));
         childrenList.add(new Property("size", "integer", "The size of the source document this reference refers to in bytes.", 0, java.lang.Integer.MAX_VALUE, size));
-        childrenList.add(new Property("hash", "string", "A hash of the source document to ensure that changes have not occurred.", 0, java.lang.Integer.MAX_VALUE, hash));
+        childrenList.add(new Property("hash", "base64Binary", "A hash of the source document to ensure that changes have not occurred.", 0, java.lang.Integer.MAX_VALUE, hash));
         childrenList.add(new Property("location", "uri", "A url at which the document can be accessed.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("service", "", "A description of a service call that can be used to retrieve the document.", 0, java.lang.Integer.MAX_VALUE, service));
         childrenList.add(new Property("context", "", "The clinical context in which the document was prepared.", 0, java.lang.Integer.MAX_VALUE, context));

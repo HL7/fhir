@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1000,7 +1000,7 @@ public class Conformance extends Resource {
 
     public static class ConformanceRestSecurityComponent extends BackboneElement {
         /**
-         * Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server.
+         * Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
          */
         protected BooleanType cors;
 
@@ -1026,14 +1026,14 @@ public class Conformance extends Resource {
       }
 
         /**
-         * @return {@link #cors} (Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server.). This is the underlying object with id, value and extensions. The accessor "getCors" gives direct access to the value
+         * @return {@link #cors} (Server adds CORS headers when responding to requests - this enables javascript applications to use the server.). This is the underlying object with id, value and extensions. The accessor "getCors" gives direct access to the value
          */
         public BooleanType getCorsElement() { 
           return this.cors;
         }
 
         /**
-         * @param value {@link #cors} (Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server.). This is the underlying object with id, value and extensions. The accessor "getCors" gives direct access to the value
+         * @param value {@link #cors} (Server adds CORS headers when responding to requests - this enables javascript applications to use the server.). This is the underlying object with id, value and extensions. The accessor "getCors" gives direct access to the value
          */
         public ConformanceRestSecurityComponent setCorsElement(BooleanType value) { 
           this.cors = value;
@@ -1041,14 +1041,14 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server.
+         * @return Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
          */
         public boolean getCors() { 
           return this.cors == null ? false : this.cors.getValue();
         }
 
         /**
-         * @param value Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server.
+         * @param value Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
          */
         public ConformanceRestSecurityComponent setCors(boolean value) { 
           if (value == false)
@@ -1133,7 +1133,7 @@ public class Conformance extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("cors", "boolean", "Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server.", 0, java.lang.Integer.MAX_VALUE, cors));
+          childrenList.add(new Property("cors", "boolean", "Server adds CORS headers when responding to requests - this enables javascript applications to use the server.", 0, java.lang.Integer.MAX_VALUE, cors));
           childrenList.add(new Property("service", "CodeableConcept", "Types of security services are supported/required by the system.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("description", "string", "General description of how security works.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("certificate", "", "Certificates associated with security profiles.", 0, java.lang.Integer.MAX_VALUE, certificate));
@@ -2148,7 +2148,7 @@ public class Conformance extends Resource {
         protected UriType endpoint;
 
         /**
-         * Length if the receiver's reliable messaging cache (if a receiver) or how long the cache length on the receiver should be (if a sender).
+         * Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
          */
         protected IntegerType reliableCache;
 
@@ -2205,14 +2205,14 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return {@link #reliableCache} (Length if the receiver's reliable messaging cache (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
+         * @return {@link #reliableCache} (Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
          */
         public IntegerType getReliableCacheElement() { 
           return this.reliableCache;
         }
 
         /**
-         * @param value {@link #reliableCache} (Length if the receiver's reliable messaging cache (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
+         * @param value {@link #reliableCache} (Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
          */
         public ConformanceMessagingComponent setReliableCacheElement(IntegerType value) { 
           this.reliableCache = value;
@@ -2220,14 +2220,14 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return Length if the receiver's reliable messaging cache (if a receiver) or how long the cache length on the receiver should be (if a sender).
+         * @return Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
          */
         public int getReliableCache() { 
           return this.reliableCache == null ? null : this.reliableCache.getValue();
         }
 
         /**
-         * @param value Length if the receiver's reliable messaging cache (if a receiver) or how long the cache length on the receiver should be (if a sender).
+         * @param value Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
          */
         public ConformanceMessagingComponent setReliableCache(int value) { 
           if (value == -1)
@@ -2296,7 +2296,7 @@ public class Conformance extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("endpoint", "uri", "An address to which messages and/or replies are to be sent.", 0, java.lang.Integer.MAX_VALUE, endpoint));
-          childrenList.add(new Property("reliableCache", "integer", "Length if the receiver's reliable messaging cache (if a receiver) or how long the cache length on the receiver should be (if a sender).", 0, java.lang.Integer.MAX_VALUE, reliableCache));
+          childrenList.add(new Property("reliableCache", "integer", "Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).", 0, java.lang.Integer.MAX_VALUE, reliableCache));
           childrenList.add(new Property("documentation", "string", "Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("event", "", "A description of the solution's support for an event at this end point.", 0, java.lang.Integer.MAX_VALUE, event));
         }
@@ -2826,7 +2826,7 @@ public class Conformance extends Resource {
     protected BooleanType experimental;
 
     /**
-     * The date when the conformance statement was published.
+     * The date  (and optionally time) when the conformance statement was published.
      */
     protected DateTimeType date;
 
@@ -3160,14 +3160,14 @@ public class Conformance extends Resource {
     }
 
     /**
-     * @return {@link #date} (The date when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #date} (The date  (and optionally time) when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The date when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #date} (The date  (and optionally time) when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public Conformance setDateElement(DateTimeType value) { 
       this.date = value;
@@ -3175,14 +3175,14 @@ public class Conformance extends Resource {
     }
 
     /**
-     * @return The date when the conformance statement was published.
+     * @return The date  (and optionally time) when the conformance statement was published.
      */
     public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value The date when the conformance statement was published.
+     * @param value The date  (and optionally time) when the conformance statement was published.
      */
     public Conformance setDate(DateAndTime value) { 
         if (this.date == null)
@@ -3417,7 +3417,7 @@ public class Conformance extends Resource {
         childrenList.add(new Property("description", "string", "A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("status", "code", "The status of this conformance statement.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
-        childrenList.add(new Property("date", "dateTime", "The date when the conformance statement was published.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the conformance statement was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("software", "", "Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation.", 0, java.lang.Integer.MAX_VALUE, software));
         childrenList.add(new Property("implementation", "", "Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, java.lang.Integer.MAX_VALUE, implementation));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this conformance statement is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));

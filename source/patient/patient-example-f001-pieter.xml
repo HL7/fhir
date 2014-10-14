@@ -35,7 +35,7 @@
       <use value="home"/>
       <line value="Van Egmondkade 23"/>
       <city value="Amsterdam"/>
-      <zip value="1024 RJ"/>
+      <postalCode value="1024 RJ"/>
       <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
     </address>
   <maritalStatus>

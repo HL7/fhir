@@ -46,7 +46,7 @@
             <use value="home"/>
             <line value="Bos en Lommerplein 280"/>
             <city value="Amsterdam"/>
-            <zip value="1055RW"/>
+            <postalCode value="1055RW"/>
             <country value="NLD"/><!--ISO 3166 3 letter code-->
         </address>
     <maritalStatus>

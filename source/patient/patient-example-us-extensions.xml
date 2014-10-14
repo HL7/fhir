@@ -59,7 +59,7 @@
     <line value="534 Erewhon St"/>
     <city value="PleasantVille"/>
     <state value="Vic"/>
-    <zip value="3999"/>
+    <postalCode value="3999"/>
   </address>
   
   <active value="true"/>

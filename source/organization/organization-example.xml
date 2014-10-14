@@ -32,7 +32,7 @@
     <line value="3300 Washtenaw Avenue, Suite 227"/>
     <city value="Ann Arbor"/>
     <state value="MI"/>
-    <zip value="48104"/>
+    <postalCode value="48104"/>
     <country value="USA"/>
   </address>  
 </Organization>

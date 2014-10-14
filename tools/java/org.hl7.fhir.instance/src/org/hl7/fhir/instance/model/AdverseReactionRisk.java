@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -332,7 +332,7 @@ public class AdverseReactionRisk extends Resource {
 
     public static class AdverseReactionRiskEventComponent extends BackboneElement {
         /**
-         * Identification of the specific substance considered to be responsible for the Adverse Reaction event.
+         * Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AdverseReactionRisk.substance and ignore the AdverseReactionRisk.event.substance.
          */
         protected CodeableConcept substance;
 
@@ -383,14 +383,14 @@ public class AdverseReactionRisk extends Resource {
       }
 
         /**
-         * @return {@link #substance} (Identification of the specific substance considered to be responsible for the Adverse Reaction event.)
+         * @return {@link #substance} (Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AdverseReactionRisk.substance and ignore the AdverseReactionRisk.event.substance.)
          */
         public CodeableConcept getSubstance() { 
           return this.substance;
         }
 
         /**
-         * @param value {@link #substance} (Identification of the specific substance considered to be responsible for the Adverse Reaction event.)
+         * @param value {@link #substance} (Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AdverseReactionRisk.substance and ignore the AdverseReactionRisk.event.substance.)
          */
         public AdverseReactionRiskEventComponent setSubstance(CodeableConcept value) { 
           this.substance = value;
@@ -626,7 +626,7 @@ public class AdverseReactionRisk extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("substance", "CodeableConcept", "Identification of the specific substance considered to be responsible for the Adverse Reaction event.", 0, java.lang.Integer.MAX_VALUE, substance));
+          childrenList.add(new Property("substance", "CodeableConcept", "Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AdverseReactionRisk.substance and ignore the AdverseReactionRisk.event.substance.", 0, java.lang.Integer.MAX_VALUE, substance));
           childrenList.add(new Property("certainty", "code", "Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event.", 0, java.lang.Integer.MAX_VALUE, certainty));
           childrenList.add(new Property("manifestation", "CodeableConcept", "Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event.", 0, java.lang.Integer.MAX_VALUE, manifestation));
           childrenList.add(new Property("description", "string", "Text description about the Reaction as a whole, including details of the manifestation if required.", 0, java.lang.Integer.MAX_VALUE, description));

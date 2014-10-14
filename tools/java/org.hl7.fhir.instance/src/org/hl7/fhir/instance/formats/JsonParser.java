@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -625,10 +625,10 @@ public class JsonParser extends JsonParserBase {
       res.setStateElement(parseString(json.get("state").getAsString()));
     if (json.has("_state"))
       parseElementProperties(json.getAsJsonObject("_state"), res.getStateElement());
-    if (json.has("zip"))
-      res.setZipElement(parseString(json.get("zip").getAsString()));
-    if (json.has("_zip"))
-      parseElementProperties(json.getAsJsonObject("_zip"), res.getZipElement());
+    if (json.has("postalCode"))
+      res.setPostalCodeElement(parseString(json.get("postalCode").getAsString()));
+    if (json.has("_postalCode"))
+      parseElementProperties(json.getAsJsonObject("_postalCode"), res.getPostalCodeElement());
     if (json.has("country"))
       res.setCountryElement(parseString(json.get("country").getAsString()));
     if (json.has("_country"))
@@ -2764,7 +2764,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_size"))
       parseElementProperties(json.getAsJsonObject("_size"), res.getSizeElement());
     if (json.has("hash"))
-      res.setHashElement(parseString(json.get("hash").getAsString()));
+      res.setHashElement(parseBase64Binary(json.get("hash").getAsString()));
     if (json.has("_hash"))
       parseElementProperties(json.getAsJsonObject("_hash"), res.getHashElement());
     if (json.has("location"))
@@ -3100,6 +3100,193 @@ public class JsonParser extends JsonParserBase {
       res.setExcludeElement(parseBoolean(json.get("exclude").getAsBoolean()));
     if (json.has("_exclude"))
       parseElementProperties(json.getAsJsonObject("_exclude"), res.getExcludeElement());
+    return res;
+  }
+
+  private HealthcareService parseHealthcareService(JsonObject json) throws Exception {
+    HealthcareService res = new HealthcareService();
+    parseResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("location"))
+      res.setLocation(parseReference(json.getAsJsonObject("location")));
+    if (json.has("serviceCategory"))
+      res.setServiceCategory(parseCodeableConcept(json.getAsJsonObject("serviceCategory")));
+    if (json.has("serviceType")) {
+      JsonArray array = json.getAsJsonArray("serviceType");
+      for (int i = 0; i < array.size(); i++) {
+        res.getServiceType().add(parseHealthcareServiceServiceTypeComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("serviceName"))
+      res.setServiceNameElement(parseString(json.get("serviceName").getAsString()));
+    if (json.has("_serviceName"))
+      parseElementProperties(json.getAsJsonObject("_serviceName"), res.getServiceNameElement());
+    if (json.has("comment"))
+      res.setCommentElement(parseString(json.get("comment").getAsString()));
+    if (json.has("_comment"))
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
+    if (json.has("extraDetails"))
+      res.setExtraDetailsElement(parseString(json.get("extraDetails").getAsString()));
+    if (json.has("_extraDetails"))
+      parseElementProperties(json.getAsJsonObject("_extraDetails"), res.getExtraDetailsElement());
+    if (json.has("freeProvisionCode"))
+      res.setFreeProvisionCode(parseCodeableConcept(json.getAsJsonObject("freeProvisionCode")));
+    if (json.has("eligibility"))
+      res.setEligibility(parseCodeableConcept(json.getAsJsonObject("eligibility")));
+    if (json.has("eligibilityNote"))
+      res.setEligibilityNoteElement(parseString(json.get("eligibilityNote").getAsString()));
+    if (json.has("_eligibilityNote"))
+      parseElementProperties(json.getAsJsonObject("_eligibilityNote"), res.getEligibilityNoteElement());
+    if (json.has("appointmentRequired"))
+      res.setAppointmentRequired(parseCodeableConcept(json.getAsJsonObject("appointmentRequired")));
+    if (json.has("imageURI"))
+      res.setImageURIElement(parseUri(json.get("imageURI").getAsString()));
+    if (json.has("_imageURI"))
+      parseElementProperties(json.getAsJsonObject("_imageURI"), res.getImageURIElement());
+    if (json.has("availableTime")) {
+      JsonArray array = json.getAsJsonArray("availableTime");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAvailableTime().add(parseHealthcareServiceHealthcareServiceAvailableTimeComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("notAvailableTime")) {
+      JsonArray array = json.getAsJsonArray("notAvailableTime");
+      for (int i = 0; i < array.size(); i++) {
+        res.getNotAvailableTime().add(parseHealthcareServiceHealthcareServiceNotAvailableTimeComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("availabilityExceptions"))
+      res.setAvailabilityExceptionsElement(parseString(json.get("availabilityExceptions").getAsString()));
+    if (json.has("_availabilityExceptions"))
+      parseElementProperties(json.getAsJsonObject("_availabilityExceptions"), res.getAvailabilityExceptionsElement());
+    if (json.has("publicKey"))
+      res.setPublicKeyElement(parseString(json.get("publicKey").getAsString()));
+    if (json.has("_publicKey"))
+      parseElementProperties(json.getAsJsonObject("_publicKey"), res.getPublicKeyElement());
+    if (json.has("programName")) {
+      JsonArray array = json.getAsJsonArray("programName");
+      for (int i = 0; i < array.size(); i++) {
+        res.getProgramName().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_programName")) {
+      JsonArray array = json.getAsJsonArray("_programName");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getProgramName().size())
+          res.getProgramName().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getProgramName().get(i));
+      }
+    };
+    if (json.has("contactPoint")) {
+      JsonArray array = json.getAsJsonArray("contactPoint");
+      for (int i = 0; i < array.size(); i++) {
+        res.getContactPoint().add(parseContactPoint(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("characteristic")) {
+      JsonArray array = json.getAsJsonArray("characteristic");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCharacteristic().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("referralMethod")) {
+      JsonArray array = json.getAsJsonArray("referralMethod");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReferralMethod().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("setting")) {
+      JsonArray array = json.getAsJsonArray("setting");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSetting().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("targetGroup")) {
+      JsonArray array = json.getAsJsonArray("targetGroup");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTargetGroup().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("coverageArea")) {
+      JsonArray array = json.getAsJsonArray("coverageArea");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCoverageArea().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("catchmentArea")) {
+      JsonArray array = json.getAsJsonArray("catchmentArea");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCatchmentArea().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("serviceCode")) {
+      JsonArray array = json.getAsJsonArray("serviceCode");
+      for (int i = 0; i < array.size(); i++) {
+        res.getServiceCode().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    return res;
+  }
+
+  private HealthcareService.ServiceTypeComponent parseHealthcareServiceServiceTypeComponent(JsonObject json, HealthcareService owner) throws Exception {
+    HealthcareService.ServiceTypeComponent res = new HealthcareService.ServiceTypeComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("specialty")) {
+      JsonArray array = json.getAsJsonArray("specialty");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSpecialty().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    return res;
+  }
+
+  private HealthcareService.HealthcareServiceAvailableTimeComponent parseHealthcareServiceHealthcareServiceAvailableTimeComponent(JsonObject json, HealthcareService owner) throws Exception {
+    HealthcareService.HealthcareServiceAvailableTimeComponent res = new HealthcareService.HealthcareServiceAvailableTimeComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("daysOfWeek")) {
+      JsonArray array = json.getAsJsonArray("daysOfWeek");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDaysOfWeek().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("allDay"))
+      res.setAllDayElement(parseBoolean(json.get("allDay").getAsBoolean()));
+    if (json.has("_allDay"))
+      parseElementProperties(json.getAsJsonObject("_allDay"), res.getAllDayElement());
+    if (json.has("availableStartTime"))
+      res.setAvailableStartTimeElement(parseDateTime(json.get("availableStartTime").getAsString()));
+    if (json.has("_availableStartTime"))
+      parseElementProperties(json.getAsJsonObject("_availableStartTime"), res.getAvailableStartTimeElement());
+    if (json.has("availableEndTime"))
+      res.setAvailableEndTimeElement(parseDateTime(json.get("availableEndTime").getAsString()));
+    if (json.has("_availableEndTime"))
+      parseElementProperties(json.getAsJsonObject("_availableEndTime"), res.getAvailableEndTimeElement());
+    return res;
+  }
+
+  private HealthcareService.HealthcareServiceNotAvailableTimeComponent parseHealthcareServiceHealthcareServiceNotAvailableTimeComponent(JsonObject json, HealthcareService owner) throws Exception {
+    HealthcareService.HealthcareServiceNotAvailableTimeComponent res = new HealthcareService.HealthcareServiceNotAvailableTimeComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("startDate"))
+      res.setStartDateElement(parseDateTime(json.get("startDate").getAsString()));
+    if (json.has("_startDate"))
+      parseElementProperties(json.getAsJsonObject("_startDate"), res.getStartDateElement());
+    if (json.has("endDate"))
+      res.setEndDateElement(parseDateTime(json.get("endDate").getAsString()));
+    if (json.has("_endDate"))
+      parseElementProperties(json.getAsJsonObject("_endDate"), res.getEndDateElement());
     return res;
   }
 
@@ -4970,6 +5157,8 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_gender"), res.getGenderElement());
     if (json.has("organization"))
       res.setOrganization(parseReference(json.getAsJsonObject("organization")));
+    if (json.has("period"))
+      res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     return res;
   }
 
@@ -7054,6 +7243,8 @@ public class JsonParser extends JsonParserBase {
       return parseFamilyHistory(json);
     else if (t.equals("Group"))
       return parseGroup(json);
+    else if (t.equals("HealthcareService"))
+      return parseHealthcareService(json);
     else if (t.equals("ImagingStudy"))
       return parseImagingStudy(json);
     else if (t.equals("Immunization"))
@@ -7347,6 +7538,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"FamilyHistory"))
       return true;
     if (json.has(prefix+"Group"))
+      return true;
+    if (json.has(prefix+"HealthcareService"))
       return true;
     if (json.has(prefix+"ImagingStudy"))
       return true;

@@ -623,7 +623,7 @@ Type
       make a new HumanAddress and use the provided parameters
     }
     {!script nolink}
-    function makeAddress(use, street, city, state, zip, country : String):TFhirAddress;
+    function makeAddress(use, street, city, state, postalCode, country : String):TFhirAddress;
 
     {@member makeAddressText
       make a new HumanAddress and use the provided parameters
@@ -990,7 +990,7 @@ begin
   end;
 end;
 
-function TFHIRFactory.makeAddress(use, street, city, state, zip, country : String): TFhirAddress;
+function TFHIRFactory.makeAddress(use, street, city, state, postalCode, country : String): TFhirAddress;
 begin
   result := TFhirAddress.create;
   try
@@ -998,7 +998,7 @@ begin
     result.lineList.AddItem(street);
     result.city := city;
     result.state := state;
-    result.zip := zip;
+    result.postalCode := postalCode;
     result.country := country;
     result.link;
   finally

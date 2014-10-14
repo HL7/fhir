@@ -20,6 +20,7 @@
   <WindowWidth>27495</WindowWidth>
   <WindowTopX>630</WindowTopX>
   <WindowTopY>630</WindowTopY>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -239,12 +240,12 @@
     <Cell><Data ss:Type="String">./Region</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Address.zip</Data></Cell>
+    <Cell><Data ss:Type="String">Address.postalCode</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Postal code for area</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A postal code designating a region defined by the postal service.</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">PostCode</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Zip</Data></Cell>
     <Cell><Data ss:Type="String">AD.part[parttype = ZIP]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.5</Data></Cell>
     <Cell><Data ss:Type="String">postal code</Data></Cell>
@@ -309,8 +310,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

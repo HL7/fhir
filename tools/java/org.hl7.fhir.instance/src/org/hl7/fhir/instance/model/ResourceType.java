@@ -21,6 +21,7 @@ public enum ResourceType {
     Conformance,
     Media,
     Other,
+    HealthcareService,
     Profile,
     DocumentReference,
     Immunization,
@@ -107,6 +108,8 @@ public enum ResourceType {
       return "media";
     case Other:
       return "other";
+    case HealthcareService:
+      return "healthcareservice";
     case Profile:
       return "profile";
     case DocumentReference:

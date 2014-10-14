@@ -38,7 +38,7 @@
             <use value="work"/>
             <line value="Galapagosweg 9"/>
             <city value="Amsterdam"/>
-            <zip value="1105 AZ"/>
+            <postalCode value="1105 AZ"/>
             <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
         </address>
     

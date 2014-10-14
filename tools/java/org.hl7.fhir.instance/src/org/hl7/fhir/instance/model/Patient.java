@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -182,7 +182,12 @@ public class Patient extends Resource {
          */
         protected Organization organizationTarget;
 
-        private static final long serialVersionUID = -677722912L;
+        /**
+         * The period during which this person or organisation is valid to be contacted relating to this patient.
+         */
+        protected Period period;
+
+        private static final long serialVersionUID = -455382710L;
 
       public ContactComponent() {
         super();
@@ -318,6 +323,21 @@ public class Patient extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #period} (The period during which this person or organisation is valid to be contacted relating to this patient.)
+         */
+        public Period getPeriod() { 
+          return this.period;
+        }
+
+        /**
+         * @param value {@link #period} (The period during which this person or organisation is valid to be contacted relating to this patient.)
+         */
+        public ContactComponent setPeriod(Period value) { 
+          this.period = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("relationship", "CodeableConcept", "The nature of the relationship between the patient and the contact person.", 0, java.lang.Integer.MAX_VALUE, relationship));
@@ -326,6 +346,7 @@ public class Patient extends Resource {
           childrenList.add(new Property("address", "Address", "Address for the contact person.", 0, java.lang.Integer.MAX_VALUE, address));
           childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
           childrenList.add(new Property("organization", "Reference(Organization)", "Organization on behalf of which the contact is acting or for which the contact is working.", 0, java.lang.Integer.MAX_VALUE, organization));
+          childrenList.add(new Property("period", "Period", "The period during which this person or organisation is valid to be contacted relating to this patient.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
       public ContactComponent copy() {
@@ -340,6 +361,7 @@ public class Patient extends Resource {
         dst.address = address == null ? null : address.copy();
         dst.gender = gender == null ? null : gender.copy();
         dst.organization = organization == null ? null : organization.copy();
+        dst.period = period == null ? null : period.copy();
         return dst;
       }
 

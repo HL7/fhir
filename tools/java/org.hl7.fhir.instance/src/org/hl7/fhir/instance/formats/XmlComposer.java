@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -503,7 +503,7 @@ public class XmlComposer extends XmlComposerBase {
         composeString("line", e);
       composeString("city", element.getCityElement());
       composeString("state", element.getStateElement());
-      composeString("zip", element.getZipElement());
+      composeString("postalCode", element.getPostalCodeElement());
       composeString("country", element.getCountryElement());
       composePeriod("period", element.getPeriod());
       xml.close(FHIR_NS, name);
@@ -1647,7 +1647,7 @@ public class XmlComposer extends XmlComposerBase {
       for (UriType e : element.getFormat()) 
         composeUri("format", e);
       composeInteger("size", element.getSizeElement());
-      composeString("hash", element.getHashElement());
+      composeBase64Binary("hash", element.getHashElement());
       composeUri("location", element.getLocationElement());
       composeDocumentReferenceDocumentReferenceServiceComponent("service", element.getService());
       composeDocumentReferenceDocumentReferenceContextComponent("context", element.getContext());
@@ -1867,6 +1867,91 @@ public class XmlComposer extends XmlComposerBase {
       composeCodeableConcept("code", element.getCode());
       composeType("value", element.getValue());
       composeBoolean("exclude", element.getExcludeElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeHealthcareService(String name, HealthcareService element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      for (Identifier e : element.getIdentifier()) 
+        composeIdentifier("identifier", e);
+      composeReference("location", element.getLocation());
+      composeCodeableConcept("serviceCategory", element.getServiceCategory());
+      for (HealthcareService.ServiceTypeComponent e : element.getServiceType()) 
+        composeHealthcareServiceServiceTypeComponent("serviceType", e);
+      composeString("serviceName", element.getServiceNameElement());
+      composeString("comment", element.getCommentElement());
+      composeString("extraDetails", element.getExtraDetailsElement());
+      composeCodeableConcept("freeProvisionCode", element.getFreeProvisionCode());
+      composeCodeableConcept("eligibility", element.getEligibility());
+      composeString("eligibilityNote", element.getEligibilityNoteElement());
+      composeCodeableConcept("appointmentRequired", element.getAppointmentRequired());
+      composeUri("imageURI", element.getImageURIElement());
+      for (HealthcareService.HealthcareServiceAvailableTimeComponent e : element.getAvailableTime()) 
+        composeHealthcareServiceHealthcareServiceAvailableTimeComponent("availableTime", e);
+      for (HealthcareService.HealthcareServiceNotAvailableTimeComponent e : element.getNotAvailableTime()) 
+        composeHealthcareServiceHealthcareServiceNotAvailableTimeComponent("notAvailableTime", e);
+      composeString("availabilityExceptions", element.getAvailabilityExceptionsElement());
+      composeString("publicKey", element.getPublicKeyElement());
+      for (StringType e : element.getProgramName()) 
+        composeString("programName", e);
+      for (ContactPoint e : element.getContactPoint()) 
+        composeContactPoint("contactPoint", e);
+      for (CodeableConcept e : element.getCharacteristic()) 
+        composeCodeableConcept("characteristic", e);
+      for (CodeableConcept e : element.getReferralMethod()) 
+        composeCodeableConcept("referralMethod", e);
+      for (CodeableConcept e : element.getSetting()) 
+        composeCodeableConcept("setting", e);
+      for (CodeableConcept e : element.getTargetGroup()) 
+        composeCodeableConcept("targetGroup", e);
+      for (CodeableConcept e : element.getCoverageArea()) 
+        composeCodeableConcept("coverageArea", e);
+      for (CodeableConcept e : element.getCatchmentArea()) 
+        composeCodeableConcept("catchmentArea", e);
+      for (CodeableConcept e : element.getServiceCode()) 
+        composeCodeableConcept("serviceCode", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeHealthcareServiceServiceTypeComponent(String name, HealthcareService.ServiceTypeComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCodeableConcept("type", element.getType());
+      for (CodeableConcept e : element.getSpecialty()) 
+        composeCodeableConcept("specialty", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeHealthcareServiceHealthcareServiceAvailableTimeComponent(String name, HealthcareService.HealthcareServiceAvailableTimeComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      for (CodeableConcept e : element.getDaysOfWeek()) 
+        composeCodeableConcept("daysOfWeek", e);
+      composeBoolean("allDay", element.getAllDayElement());
+      composeDateTime("availableStartTime", element.getAvailableStartTimeElement());
+      composeDateTime("availableEndTime", element.getAvailableEndTimeElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeHealthcareServiceHealthcareServiceNotAvailableTimeComponent(String name, HealthcareService.HealthcareServiceNotAvailableTimeComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeString("description", element.getDescriptionElement());
+      composeDateTime("startDate", element.getStartDateElement());
+      composeDateTime("endDate", element.getEndDateElement());
       xml.close(FHIR_NS, name);
     }
   }
@@ -2942,6 +3027,7 @@ public class XmlComposer extends XmlComposerBase {
       if (element.getGenderElement() != null)
         composeEnumeration("gender", element.getGenderElement(), new Patient.AdministrativeGenderEnumFactory());
       composeReference("organization", element.getOrganization());
+      composePeriod("period", element.getPeriod());
       xml.close(FHIR_NS, name);
     }
   }
@@ -4117,6 +4203,8 @@ public class XmlComposer extends XmlComposerBase {
       composeFamilyHistory("FamilyHistory", (FamilyHistory)resource);
     else if (resource instanceof Group)
       composeGroup("Group", (Group)resource);
+    else if (resource instanceof HealthcareService)
+      composeHealthcareService("HealthcareService", (HealthcareService)resource);
     else if (resource instanceof ImagingStudy)
       composeImagingStudy("ImagingStudy", (ImagingStudy)resource);
     else if (resource instanceof Immunization)

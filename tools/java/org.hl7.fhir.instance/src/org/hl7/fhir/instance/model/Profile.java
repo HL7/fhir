@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 13, 2014 08:51+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -682,7 +682,7 @@ public class Profile extends Resource {
         protected ConstraintComponent differential;
 
         /**
-         * Additional search parameters for implementations to support and/or make use of.
+         * Additional search parameters defined for this structure that implementations can support and/or make use of.
          */
         protected List<ProfileStructureSearchParamComponent> searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
 
@@ -692,9 +692,10 @@ public class Profile extends Resource {
         super();
       }
 
-      public ProfileStructureComponent(CodeType type) {
+      public ProfileStructureComponent(CodeType type, CodeType name) {
         super();
         this.type = type;
+        this.name = name;
       }
 
         /**
@@ -791,13 +792,9 @@ public class Profile extends Resource {
          * @param value The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).
          */
         public ProfileStructureComponent setName(String value) { 
-          if (value == null)
-            this.name = null;
-          else {
             if (this.name == null)
               this.name = new CodeType();
             this.name.setValue(value);
-          }
           return this;
         }
 
@@ -904,7 +901,7 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #searchParam} (Additional search parameters for implementations to support and/or make use of.)
+         * @return {@link #searchParam} (Additional search parameters defined for this structure that implementations can support and/or make use of.)
          */
         public List<ProfileStructureSearchParamComponent> getSearchParam() { 
           return this.searchParam;
@@ -912,7 +909,7 @@ public class Profile extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #searchParam} (Additional search parameters for implementations to support and/or make use of.)
+         * @return {@link #searchParam} (Additional search parameters defined for this structure that implementations can support and/or make use of.)
          */
         public ProfileStructureSearchParamComponent addSearchParam() { 
           ProfileStructureSearchParamComponent t = new ProfileStructureSearchParamComponent();
@@ -929,7 +926,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("purpose", "string", "Human summary: why describe this resource?.", 0, java.lang.Integer.MAX_VALUE, purpose));
           childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.", 0, java.lang.Integer.MAX_VALUE, snapshot));
           childrenList.add(new Property("differential", "@Profile.structure.snapshot", "A differential view is expressed relative to the base profile - a statement of differences that it applies.", 0, java.lang.Integer.MAX_VALUE, differential));
-          childrenList.add(new Property("searchParam", "", "Additional search parameters for implementations to support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
+          childrenList.add(new Property("searchParam", "", "Additional search parameters defined for this structure that implementations can support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
         }
 
       public ProfileStructureComponent copy() {
@@ -3260,7 +3257,7 @@ public class Profile extends Resource {
     protected StringType requirements;
 
     /**
-     * The version of the FHIR specification on which this profile is based.
+     * The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version.
      */
     protected IdType fhirVersion;
 
@@ -3656,14 +3653,14 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #fhirVersion} (The version of the FHIR specification on which this profile is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
+     * @return {@link #fhirVersion} (The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
     public IdType getFhirVersionElement() { 
       return this.fhirVersion;
     }
 
     /**
-     * @param value {@link #fhirVersion} (The version of the FHIR specification on which this profile is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
+     * @param value {@link #fhirVersion} (The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
     public Profile setFhirVersionElement(IdType value) { 
       this.fhirVersion = value;
@@ -3671,14 +3668,14 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return The version of the FHIR specification on which this profile is based.
+     * @return The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version.
      */
     public String getFhirVersion() { 
       return this.fhirVersion == null ? null : this.fhirVersion.getValue();
     }
 
     /**
-     * @param value The version of the FHIR specification on which this profile is based.
+     * @param value The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version.
      */
     public Profile setFhirVersion(String value) { 
       if (value == null)
@@ -3756,7 +3753,7 @@ public class Profile extends Resource {
         childrenList.add(new Property("experimental", "boolean", "This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date that this version of the profile was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("requirements", "string", "The Scope and Usage that this profile was created to meet.", 0, java.lang.Integer.MAX_VALUE, requirements));
-        childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this profile is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
+        childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("structure", "", "A constraint statement about what contents a resource or data type may have.", 0, java.lang.Integer.MAX_VALUE, structure));
         childrenList.add(new Property("extensionDefn", "", "An extension defined as part of the profile.", 0, java.lang.Integer.MAX_VALUE, extensionDefn));

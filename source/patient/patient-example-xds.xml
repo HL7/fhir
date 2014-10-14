@@ -23,7 +23,7 @@
       <line value="100 Main St"/>
       <city value="Metropolis"/>
       <state value="Il"/>
-      <zip value="44130"/>
+      <postalCode value="44130"/>
       <country value="USA"/>
   </address>
   <managingOrganization>
