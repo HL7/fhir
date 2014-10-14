@@ -277,6 +277,8 @@ public class Publisher implements URIResolver {
 
   }
 
+  private static final String HTTP_separator = "/";
+
   private SourceParser prsr;
   private PageProcessor page;
   // private BookMaker book;
@@ -2006,7 +2008,7 @@ public class Publisher implements URIResolver {
             AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
             ae.setId("http://hl7.org/fhir/v3/" + id);
             ae.getLinks().put("self", "http://hl7.org/fhir/v3/" + id);
-            ae.getLinks().put("path", "v3" + File.separator + id + File.separator + "index.html");
+            ae.getLinks().put("path", "v3" + HTTP_separator + id + HTTP_separator + "index.html");
             ae.getLinks().put("cs-oid", "urn:oid:"+e.getAttribute("codeSystemId"));
             String vsOid = getVSForCodeSystem(page.getV3src().getDocumentElement(), e.getAttribute("codeSystemId"));
             if (vsOid != null)
@@ -2037,7 +2039,7 @@ public class Publisher implements URIResolver {
           AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
           ae.setId("http://hl7.org/fhir/v3/vs/" + id);
           ae.getLinks().put("self", "http://hl7.org/fhir/v3/vs/" + id);
-          ae.getLinks().put("path", "v3" + File.separator + "vs" + File.separator + id + File.separator + "index.html");
+          ae.getLinks().put("path", "v3" + HTTP_separator + "vs" + HTTP_separator + id + HTTP_separator + "index.html");
           ValueSet vs;
           if (iniV.equals("1"))
             vs = buildV3ValueSet(id, dt, e, codesystems, ini);
@@ -2432,7 +2434,7 @@ public class Publisher implements URIResolver {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
         AtomEntry ae = new AtomEntry();
         ae.getLinks().put("self", "v2" + File.separator + id + File.separator + "index.html");
-        ae.getLinks().put("path", "v2" + File.separator + id + File.separator + "index.html");
+        ae.getLinks().put("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
         ValueSet vs = buildV2Valueset(id, e);
         ae.setResource(vs);
         page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
@@ -2452,7 +2454,7 @@ public class Publisher implements URIResolver {
         for (String ver : versions) {
           AtomEntry ae = new AtomEntry();
           ae.getLinks().put("self", "v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
-          ae.getLinks().put("path", "v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
+          ae.getLinks().put("path", "v2" + HTTP_separator + id + HTTP_separator + ver + HTTP_separator + "index.html");
           ValueSet vs = buildV2ValuesetVersioned(id, ver, e);
           ae.setResource(vs);
           page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
