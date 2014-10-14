@@ -64,7 +64,7 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
   }
 
   @Override
-  public String getDescription() {
+  public String getDescription(String version, String svnRevision) {
     return "Generates Mongoose models for FHIR resources";
   }
 

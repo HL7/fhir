@@ -49,7 +49,7 @@ public interface PlatformGenerator {
   /**
    * @return a string description of what the reference implementation produces for an implementer, along with an estimate of status, and dependencies
    */
-  public String getDescription();
+  public String getDescription(String version, String svnRevision);
 
   /**
    * @return the URL for the download. In principle, the URL should be a link to a generated file with the format fhir-[version]-[title]-[reference impl version]

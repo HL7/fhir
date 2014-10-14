@@ -27,7 +27,7 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
   }
 
   @Override
-  public String getDescription() {
+  public String getDescription(String version, String svnRevision) {
     return "ECore (e.g. UML derivative) - in ECore text format";
   }
 

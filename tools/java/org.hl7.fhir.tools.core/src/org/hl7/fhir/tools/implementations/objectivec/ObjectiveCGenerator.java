@@ -63,7 +63,7 @@ public class ObjectiveCGenerator extends BaseGenerator implements PlatformGenera
   }
 
   @Override
-  public String getDescription() {
+  public String getDescription(String version, String svnRevision) {
     return "Resource definitions, Preliminary XML & Json parsers";
   }
 

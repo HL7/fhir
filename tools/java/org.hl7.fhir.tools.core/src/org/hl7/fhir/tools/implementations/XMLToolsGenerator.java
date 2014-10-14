@@ -56,7 +56,7 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   }
 
   @Override
-  public String getDescription() {
+  public String getDescription(String version, String svnRevision) {
     return "Document Rendering Stylesheet, supplementary implementation schemas";
   }
 
