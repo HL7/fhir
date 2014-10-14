@@ -765,11 +765,11 @@ public class SvgGenerator extends BaseGenerator {
     if (definitions.hasResource(root))
       return root.toLowerCase()+"-definitions.html#";
     else if ("Narrative".equals(root))
-      return "base-definitions.html#";
+      return "narrative-definitions.html#";
     else if ("Reference".equals(root))
       return "base-definitions.html#";
     else if ("Extension".equals(root))
-      return "base-definitions.html#";
+      return "extensibility-definitions.html#";
     else if (definitions.hasType(root))
       return "datatypes-definitions.html#";
     else

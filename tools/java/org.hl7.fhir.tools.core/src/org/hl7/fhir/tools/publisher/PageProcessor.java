@@ -358,6 +358,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+dictForDt(com[1])+s3;
       else if (com[0].equals("dtheader"))
         src = s1+dtHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("extheader"))
+        src = s1+extHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("narrheader"))
+        src = s1+narrHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("refheader"))
+        src = s1+refHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("resourcesheader"))
+        src = s1+resourcesHeader(com.length > 1 ? com[1] : null)+s3;
 //      else if (com[0].equals("formatsheader"))
 //        src = s1+formatsHeader(name, com.length > 1 ? com[1] : null)+s3;
 //      else if (com[0].equals("resourcesheader"))
@@ -368,8 +376,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+igHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("cmpheader"))
         src = s1+cmpHeader(name, com.length > 1 ? com[1] : null)+s3;
-      else if (com[0].equals("extheader"))
-        src = s1+extHeader(name, com.length > 1 ? com[1] : null)+s3;
 //      else if (com[0].equals("atomheader"))
 //        src = s1+atomHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
@@ -1653,6 +1659,45 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
+  private String extHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Extensiblity", "extensibility.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "extensibility-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Formal Definitions", "extensibility-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
+  private String narrHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Narrative", "narrative.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "narrative-example.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Formal Definitions", "narrative-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
+  private String resourcesHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Resource Definitions", "resources.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "resources-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Formal Definitions", "resources-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
+  private String refHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("References", "references.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Formal Definitions", "references-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
  
 
 //  private String resourcesHeader(String n, String mode) {
@@ -1696,22 +1741,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //    b.append("</ul></div>\r\n");
 //    return b.toString();
 //  }
-
-  private String extHeader(String n, String mode) {
-    StringBuilder b = new StringBuilder();
-    if (n.contains("-"))
-      n = n.substring(0, n.indexOf('-'));
-
-    b.append("<ul class=\"nav nav-tabs\">");
-    
-    b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
-    b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
-
-    b.append("</ul>\r\n");
-
-    return b.toString();   
-  }
 
   private String profileHeader(String n, String mode) {
     StringBuilder b = new StringBuilder();
@@ -2311,7 +2340,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || com[0].equals("extheader") || com[0].equals("txheader") || 
+      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("extheader") || com[0].equals("narrheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || com[0].equals("txheader") || com[0].equals("refheader") || 
           com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
@@ -2633,7 +2662,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("resourcesheader") || com[0].equals("formatsheader") || com[0].equals("extheader") || 
+      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("extheader") || com[0].equals("resourcesheader") || com[0].equals("formatsheader") || com[0].equals("narrheader") || com[0].equals("refheader") || 
           com[0].equals("txheader") || com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))

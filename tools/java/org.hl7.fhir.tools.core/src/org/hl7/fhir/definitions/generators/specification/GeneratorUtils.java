@@ -77,12 +77,8 @@ public class GeneratorUtils {
       return "narrative";
     if (name.equalsIgnoreCase("xhtml"))
       return "narrative";
-    if (name.equals("Narrative") && definitions)
-      return "base";
   	if (name.equals("Narrative"))
   		return "narrative";
-    if (name.equals("Extension") && definitions)
-      return "base";
     if (name.equals("Extension"))
       return "extensibility";
     if (name.equals("Resource"))
