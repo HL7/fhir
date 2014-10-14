@@ -46,7 +46,6 @@ todo: compartments
         <page title="Examples" filename="extensibility-examples.html"/>
         <page title="Definitions" filename="extensibility-definitions.html"/>
       </page>
-      <page title="Formal Definitions" filename="base-definitions.html"/>
     </page>
     <page title="Data Types" filename="datatypes.html">
       <page title="Examples" filename="datatypes-examples.html"/>
