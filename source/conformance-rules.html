@@ -127,7 +127,7 @@ The element "didNotOccurFlag" affects the entire meaning of the resource - if it
 <p>
 Generally, elements labeled "Is-Modifier = true" also have a minimum cardinality of 1, to introduce
 certainty in their handling. If the value of such an element is not explicit in the instance, or known 
-by the context, the resource cannot be safely understood. Irrespective of the minimum cardinality, 
+by the context, the resource may not be able to be safely understood. Irrespective of the minimum cardinality, 
 implementations producing resources SHALL ensure that appropriate values for isModifier 
 elements are provided. Is-Modifier elements SHALL be represented in the narrative summary 
 of the resource.
@@ -148,6 +148,14 @@ format where not all information is included, or storing it for this kind of use
 Servers and background processes that simply move whole resources around unchanged 
 are not "processing the data of the resource", and therefore these applications 
 are not required to check Is-Modifier elements. 
+</p>
+<p>
+Every element in the base resource has a value of "true" or "false" for the Is-Modifier flag. 
+The value of the flag cannot be changed by profiles on the resource, in either direction. 
+When a profile defines an extension, it labels the extension with the Is-Modifier flag,
+and this cannot be changed in other profiles. Note that extensions that have is-Modifier = true
+are represented differently in resource instances ("modifierExtension" instead of "extension"), 
+and there are <a href="extensibility.html#modifierExtension">additional rules about how they are handled</a>.
 </p>
 
 <a name="mustSupport"> </a>
