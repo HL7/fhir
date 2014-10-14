@@ -122,14 +122,15 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="120.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="300"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25" ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="271.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"/>
    <Column ss:Index="16" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="103.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="119.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
+   <Row ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
@@ -191,7 +192,7 @@
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Not published</Font></ss:Data></Comment></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">AdverseReactionRisk</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -210,7 +211,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">AdverseReactionRisk.identifier</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -228,7 +229,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">AdverseReactionRisk.recordedDate</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -246,7 +247,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">AdverseReactionRisk.recorder</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -264,7 +265,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">AdverseReactionRisk.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -282,7 +283,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">AdverseReactionRisk.substance</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -301,7 +302,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">AdverseReactionRisk.status</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -320,7 +321,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">AdverseReactionRisk.criticality</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -335,7 +336,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">The default Seriousness value for any propensity to an Adverse Reaction should be 'Low Risk', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. 'High Risk' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="225">
     <Cell><Data ss:Type="String">AdverseReactionRisk.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -351,7 +352,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">Immune-mediated responses have been traditionally regarded as an indicator for escalation of significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune and non-immune and still carry life threatening risk. &#10;&#10;It is acknowledged that many clinicians may not be in a position to distinguish the mechanism of a particular reaction.  This data element is included nevertheless because many legacy systems have captured this attribute.&#10;&#10;Immunological testing may provide supporting evidence for the basis and causative substance , but no tests are 100% sensitive or specific for a sensitivity.</Data></Cell>
     <Cell ss:StyleID="s67"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">AdverseReactionRisk.category</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
@@ -362,7 +363,7 @@
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the Substance where coding systems are used, and is effectively redundant in that situation.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">AdverseReactionRisk.lastOccurence</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
@@ -371,7 +372,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">This date may be replicated by one of the Onset of Reaction dates.&#10;Where a textual representation of the date of last occurence is required e.g 'In Childhood, '10 years ago' the Comment element should be used.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">AdverseReactionRisk.comment</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -379,24 +380,24 @@
     <Cell><Data ss:Type="String">Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">For example: including reason for flagging a Seriousness of 'High Risk'; and instructions related to future exposure or administration of the Substance, such as administration within an Intensive Care Unit or under corticosteroid cover.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">AdverseReactionRisk.event</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Adverse Reaction Events linked to exposure to substance</Data></Cell>
     <Cell><Data ss:Type="String">Details about each Adverse Reaction Event linked to exposure to the identified Substance</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">AdverseReactionRisk.event.substance</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">SubstanceType</Data></Cell>
     <Cell><Data ss:Type="String">Specific substance considered to be responsible for event</Data></Cell>
-    <Cell><Data ss:Type="String">Identification of the specific substance considered to be responsible for the Adverse Reaction event</Data></Cell>
+    <Cell><Data ss:Type="String">Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AdverseReactionRisk.substance and ignore the AdverseReactionRisk.event.substance</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Coding of the Specific Substance with a terminology capable of triggering decision support should be used wherever possible. &#10;The Substance field allows for the use of a specific substance or a group or class of substances, for example &quot;Penicillins&quot;. The specific Substance field could be used for Amoxycillin.&#10;Duplication is acceptable when a specific substance has been recorded in the 'Substance' field. </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">AdverseReactionRisk.event.certainty</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
@@ -406,7 +407,7 @@
     <Cell><Data ss:Type="String">Cause;</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="150">
     <Cell><Data ss:Type="String">AdverseReactionRisk.event.manifestation</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -417,7 +418,7 @@
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that Manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.&#10;&#10;Terminologies commonly used include, but are not limited to, SNOMED-CT or ICD10.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">AdverseReactionRisk.event.description</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -425,7 +426,7 @@
     <Cell><Data ss:Type="String">Text description about the Reaction as a whole, including details of the manifestation if required</Data></Cell>
     <Cell><Data ss:Type="String">Narrative; Text</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">AdverseReactionRisk.event.onset</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
@@ -433,14 +434,14 @@
     <Cell><Data ss:Type="String">Record of the date and/or time of the onset of the Reaction</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">AdverseReactionRisk.event.duration</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Duration</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">How long Manifestations persisted</Data></Cell>
     <Cell><Data ss:Type="String">The amount of time that the Adverse Reaction persisted</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">AdverseReactionRisk.event.severity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
@@ -450,7 +451,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">It is acknowledged that this assessment is very subjective. There may be some some specific practice domains where objective scales have been applied.&#10;Objective scales can be included in this model as extensions</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">AdverseReactionRisk.event.exposureRoute</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -460,7 +461,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Coding of the Route of Exposure with a terminology should be used wherever possible.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">AdverseReactionRisk.event.comment</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -474,7 +475,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -485,7 +485,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -498,11 +498,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
