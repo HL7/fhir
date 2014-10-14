@@ -20,7 +20,7 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>210</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -93,9 +93,6 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s76">
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
-  </Style>
-  <Style ss:ID="s78">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
  </Styles>
@@ -250,7 +247,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">EntityNamePartQualifier</Data></Cell>
     <Cell><Data ss:Type="String">N</Data></Cell>
-    <Cell><Data ss:Type="String">AD | SP | BR | CL | IN | LS | MID | PFX | SFX</Data></Cell>
+    <Cell><Data ss:Type="String">LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s72"><Data ss:Type="String">Used to indicate additional information about the name part and how it should be used</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">ENXP.qualifier</Data></Cell>
@@ -555,10 +552,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>9</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -571,11 +569,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -625,7 +622,7 @@
     <Cell><Data ss:Type="String">A collection of codes specifying why a valid value is not present</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/NullFlavor</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -641,12 +638,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>5</ActiveRow>
-     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -672,67 +667,67 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LS</Data></Cell>
     <Cell><Data ss:Type="String">Legal status</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">For organizations a suffix indicating the legal status, e.g., Inc., &quot;Co.&quot;, &quot;AG&quot;, &quot;GmbH&quot;, &quot;B.V.&quot; &quot;S.A.&quot;, &quot;Ltd.&quot; Etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AC</Data></Cell>
     <Cell><Data ss:Type="String">Academic</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">Indicates that a prefix like &quot;Dr.&quot; or a suffix like &quot;M.D.&quot; or &quot;Ph.D.&quot; is an academic title.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">NB</Data></Cell>
     <Cell><Data ss:Type="String">Nobility</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">In Europe and Asia, there are still people with nobility titles (aristocrats). German &quot;von&quot; is generally a nobility title, not a mere voorvoegsel. Others are &quot;Earl of&quot; or &quot;His Majesty King of...&quot; etc. Rarely used nowadays, but some systems do keep &#10;track of this.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">PR</Data></Cell>
     <Cell><Data ss:Type="String">Professional</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">Primarily in the British Imperial culture people tend to have an abbreviation of their professional organization as part of their credential suffices</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">HON</Data></Cell>
     <Cell><Data ss:Type="String">Honorific</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">An honorific such as &quot;The Right Honourable&quot; or &quot;Weledelgeleerde Heer&quot;.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">BR</Data></Cell>
     <Cell><Data ss:Type="String">Birth</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">A name that a person was given at birth or established as a consequence of adoption. NOTE: This is not used for temporary names assigned at birth such as 'Baby of Smith' – which is just a name with a use code of TEMP</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">AD</Data></Cell>
     <Cell><Data ss:Type="String">Acquired</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">A name part a person acquired. The name part may be acquired by adoption, or the person may have chosen to use the name part for some other reason. NOTE  This differs from an other/psuedonym/alias in that an acquired name part is acquired on a formal basis rather than an informal one (e.g. registered as part of the official name)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">SP</Data></Cell>
     <Cell><Data ss:Type="String">Spouse</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">The name assumed from the partner in a marital relationship. Usually the spouse‘s family name. No inference about gender may be made from the existence of spouse names</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">MID</Data></Cell>
     <Cell><Data ss:Type="String">Middle Name</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">Indicates that the name part is a middle name. In general, the  English  &quot;middle name&quot;  concept is all of the given names after the first. This qualifier may be used to explicitly indicate which given names are considered to be middle names. The middle name qualifier may also be used with family names. This is a Scandinavian use case, matching the concept of &quot;mellomnavn&quot;/&quot;mellannamn&quot;. There are specific rules that indicate what names may be taken as a mellannamnin different Scandinavian countries</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CL</Data></Cell>
     <Cell><Data ss:Type="String">Call me</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">Callme is used to indicate which of the various name parts is used when interacting with the person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">IN</Data></Cell>
     <Cell><Data ss:Type="String">Initial</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
     <Cell><Data ss:Type="String">Indicates that a name part is just an initial. Initials do not imply a trailing period since this would not work with non-Latin scripts. Initials may consist of more than one letter, e.g., &quot;Ph.&quot; could stand for &quot;Philippe&quot; or &quot;Th.&quot; for &quot;Thomas&quot;</Data></Cell>
    </Row>
   </Table>
@@ -753,7 +748,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <RangeSelection>R2C1:R12C1</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
