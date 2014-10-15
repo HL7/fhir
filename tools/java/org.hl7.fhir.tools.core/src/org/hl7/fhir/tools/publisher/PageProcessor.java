@@ -3621,7 +3621,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("profile.review"))
         src = s1+profileReviewLink(profile)+s3;
       else if (com[0].equals("resurl")) {
-          src = s1+"The id of this profile is "+profile.metadata("id")+s3;
+         if (Utilities.noString(profile.metadata("id")))
+           src = s1+s3;
+         else
+           src = s1+"The id of this profile is "+profile.metadata("id")+s3;
       } else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
