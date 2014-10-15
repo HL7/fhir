@@ -54,7 +54,7 @@ methods described below, which change both the way the search/query is initiated
 the results that are returned. 
 </p>
 <a name="standard"> </a>
-<h2>Standard Parameters</h2>
+<h3>Standard Parameters</h3>
 <p>
 The search parameter _id refers to the logical id of the resource, and can be used when the search context specifies a resource type:
 </p>
@@ -74,7 +74,7 @@ except that it returns a bundle with the requested resource, rather than the
 resource itself. However additional parameters can be added which may provide
 additional functionality on top of this base read equivalence.
 </p>
-<h3>Parameters for each resource</h3>
+<h4>Parameters for each resource</h4>
 <p>
 In addition to the _id parameter which exists for all resources, each 
 FHIR resource type defines its own set of search parameters with 
@@ -103,7 +103,7 @@ additional parameters if they wish.
 </p>
 
 <a name="ptypes" />
-<h3>Search Parameter Types</h3>
+<h4>Search Parameter Types</h4>
 <p>Each search parameter is defined with a type that defines how the search parameter
 behaves. These are the defined parameter types:
 </p>
@@ -381,7 +381,7 @@ the type explicitly using the syntax in the second example above).
 
 <a name="composite" />
 <a name="combining" />
-<h3>Composite Search Parameters</h3>
+<h4>Composite Search Parameters</h4>
 <p>
 The result of the search operation is the intersection of the resources that match the criteria specified by each 
 individual search parameter. If a parameter repeats, such as /patient?language=FR&amp;language=NL, then 
@@ -416,7 +416,7 @@ Other modifier is :text on token - use "~"? or ""?
 </p>
 
 <a name="escaping" />
-<h3>Escaping Search Parameters</h3>
+<h4>Escaping Search Parameters</h4>
 <p>
 In the rules above, special rules are defined for the characters "$", ",", and "|". 
 As a consequence, if these characters appear in an actual parameter value,
@@ -430,7 +430,7 @@ and the parameter value "param=xx\\xx" means a literal value of 'xx\xx'.
 
 
 <a name="text" />
-<h3>Text Search Parameters</h3>
+<h4>Text Search Parameters</h4>
 <p>
 There are two special text search parameters, _text and _content, which search 
 on the narrative of the resource, and the entire content of the resource respectively. 
@@ -463,7 +463,7 @@ is welcome.
 <a name="tag" />
 <a name="tags" />
 <a name="profile" />
-<h3>Selecting resources by tag, profile or security label</h3>
+<h4>Selecting resources by tag, profile or security label</h4>
 
 <p>
 Resources may have <a href="extras.html#tag">tags</a> affixed to them: either general tags, profile tags or
@@ -494,9 +494,9 @@ as appropriate so that resources can be found by this operation.
 </p>
 
 <a name="return"> </a>
-<h2>Managing Returned Resources</h2>
+<h3>Managing Returned Resources</h3>
 
-<h3>Relevance</h3>
+<h4>Relevance</h4>
 <p>
 Where a search specifies a non-deterministic sort, the search algorithm
 may generate some kind of ranking score to indicate which resources meet
@@ -514,7 +514,7 @@ score using the OpenSearch Relevance extension:
 </p>
 
 <a name="sort" />
-<h3>Sorting</h3>
+<h4>Sorting</h4>
 <p>
 The client can indicate which order to return the results in 
 using the parameter "_sort", which can have a value of one of the search parameters. 
@@ -541,7 +541,7 @@ when ordering the returned resources. </li>
 </ul>
 
 
-<h3>Page Count</h3>
+<h4>Page Count</h4>
 
 <p>
 In order to keep the load on clients, servers and the network 
@@ -570,7 +570,7 @@ is proceeding.
 </p>
 
 <a name="include" />
-<h3>Including other resources in result (_include)</h3>
+<h4>Including other resources in result (_include)</h4>
 <p>
 Clients may request that the engine return additional resources related to 
 the search results, in order to reduce the overall network query time. 
@@ -675,7 +675,7 @@ pages.  This allows both sender and receiver to avoid caching results of other p
 </p>
 
 <a name="summary"> </a>
-<h3>Summary</h3>
+<h4>Summary</h4>
 <p>
 The client can request the server to return a summary portion of the resources
 only using the parameter "_summary":
@@ -698,7 +698,7 @@ advance.
 </p>
 
 <a name="conformance" />
-<h2>Server Conformance</h2>
+<h3>Server Conformance</h3>
 <p>
 In order to allow the client to be confident about what search parameters 
 were used as a criteria by the server, the server SHALL return the parameters 
@@ -731,7 +731,7 @@ to supporting search:
 
 <hr/>
 <a name="advanced"> </a>
-<h2>Advanced Search/Query</h2>
+<h3>Advanced Search/Query</h3>
 <p>
 The search framework described above is a useful framework 
 for providing a simple search based on indexed criteria, 
@@ -760,7 +760,7 @@ refuse to process a search request if they do not recognize
 the _query parameter value.
 </p>
 
-<h2>Executing Search / Query</h2>
+<h3>Executing Search / Query</h3>
 <p>
 FHIR defines 3 different ways in which a search through a repository of 
 resources can be initiated:
@@ -779,7 +779,7 @@ implemented using the <i>Query</i> Resource.
 </p>
 
 <a name="currency"> </a>
-<h2>Search/Query Result Currency</h2>
+<h3>Search/Query Result Currency</h3>
 
 <p>
 The results of a search/query operation are only guaranteed to be current
