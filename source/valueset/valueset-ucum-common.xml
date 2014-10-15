@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-  <identifier value="http://hl7.org/fhir/ValueSet/ucum-common"/>
+  <identifier value="http://hl7.org/fhir/vs/ucum-common"/>
   <name value="Common UCUM units"/>
   <publisher value="FHIR Project"/>
   <description value="Commonly encountered UCUM units (for purposes of helping populate look ups"/>

@@ -14,7 +14,7 @@
       </ul>
     </div>
   </text>
-  <identifier value="http://hl7.org/fhir/ValueSet/security-labels"/>
+  <identifier value="http://hl7.org/fhir/vs/security-labels"/>
   <name value="All Security Labels"/>
   <publisher value="FHIR project team"/>
   <telecom>

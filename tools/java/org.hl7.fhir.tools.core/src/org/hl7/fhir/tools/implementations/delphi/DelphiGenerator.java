@@ -3354,6 +3354,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     List<String> command = new ArrayList<String>();
     command.add(dcc);
     command.add("-Q");
+    command.add("-b");
     command.add("-W-");
     command.add("-UC:\\HL7Connect\\indysoap\\source");
     command.add("-NSSystem;System.Win;WinAPI;Vcl;Vcl.Imaging;Data;Soap");
