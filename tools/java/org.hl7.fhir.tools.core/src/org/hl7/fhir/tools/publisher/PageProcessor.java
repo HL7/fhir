@@ -1133,7 +1133,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       AtomEntry e = map.get(n);
       ValueSet vs = (ValueSet)e.getResource();
       String id = tail(vs.getIdentifier());
-      String oid = e.getLinks().get("cs-oid").substring(9);
+      String oid = e.getLinks().get("cs-oid").substring(8);
       s.append(" <tr><td><a href=\"v3/"+id+"/index.html\">"+Utilities.escapeXml(id)+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+oid+"</td></tr>\r\n");
     }
     
@@ -1163,7 +1163,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       AtomEntry e = map.get(n);
       ValueSet vs = (ValueSet)e.getResource();
       String id = tail(vs.getIdentifier());
-      String oid = e.getLinks().get("vs-oid").substring(9);
+      String oid = e.getLinks().get("vs-oid").substring(8);
       String[] desc = vs.getDescription().split("\\(OID \\= ");
       s.append(" <tr><td><a href=\"v3/vs/"+id+"/index.html\">"+id+"</a></td><td>"+desc[0]+"</td><td>"+oid+"</td></tr>\r\n");
     }

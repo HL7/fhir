@@ -838,7 +838,7 @@ public class Publisher implements URIResolver {
     for (BindingSpecification cd : page.getDefinitions().getBindings().values()) {
       if (cd.getBinding() == Binding.ValueSet && !Utilities.noString(cd.getReference()) && cd.getReference().startsWith("http://hl7.org/fhir")) {
         if (!page.getDefinitions().getValuesets().containsKey(cd.getReference()))
-          throw new Exception("Reference " + cd.getReference() + " canot be resolved");
+          throw new Exception("Reference " + cd.getReference() + " cannot be resolved");
         cd.setReferredValueSet(page.getDefinitions().getValuesets().get(cd.getReference()));
       }
     }
@@ -1988,6 +1988,7 @@ public class Publisher implements URIResolver {
     page.setV3src(builder.parse(new CSFileInputStream(new CSFile(page.getFolders().srcDir + "v3" + File.separator + "source.xml"))));
     String dt = null;
     Map<String, ValueSet> codesystems = new HashMap<String, ValueSet>();
+    Set<String> cslist = new HashSet<String>();
 
     IniFile ini = new IniFile(page.getFolders().srcDir + "v3" + File.separator + "valuesets.ini");
 
@@ -2004,10 +2005,13 @@ public class Publisher implements URIResolver {
         Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
         if (!ini.getBooleanProperty("Exclude", e.getAttribute("name"))) {
           String id = e.getAttribute("name");
+          if (cslist.contains(id))
+            throw new Exception("Duplicate v3 name: "+id);
+          cslist.add(id);
           if (r != null && "Health Level 7".equals(r.getAttribute("organizationName")) || ini.getBooleanProperty("CodeSystems", id)) {
             AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
-            ae.setId("http://hl7.org/fhir/v3/" + id);
-            ae.getLinks().put("self", "http://hl7.org/fhir/v3/" + id);
+            ae.setId("http://hl7.org/fhir/v3/vs/" + id);
+            ae.getLinks().put("self", "http://hl7.org/fhir/v3/vs/" + id);
             ae.getLinks().put("path", "v3" + HTTP_separator + id + HTTP_separator + "index.html");
             ae.getLinks().put("cs-oid", "urn:oid:"+e.getAttribute("codeSystemId"));
             String vsOid = getVSForCodeSystem(page.getV3src().getDocumentElement(), e.getAttribute("codeSystemId"));
@@ -2036,6 +2040,9 @@ public class Publisher implements URIResolver {
         String iniV = ini.getStringProperty("ValueSets", e.getAttribute("name"));
         if (iniV != null) {
           String id = e.getAttribute("name");
+          if (cslist.contains(id))
+            throw new Exception("Duplicate v3 name: "+id);
+          cslist.add(id);
           AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
           ae.setId("http://hl7.org/fhir/v3/vs/" + id);
           ae.getLinks().put("self", "http://hl7.org/fhir/v3/vs/" + id);
