@@ -57,7 +57,7 @@ the results that are returned.
 <h3>Standard Parameters</h3>
 
 <a name="all"> </a>
-<h4>Parameters for all resource</h4>
+<h4>Parameters for all resources</h4>
 <p>
 Two parameters are defined that apply to all resources: _id and _language.
 </p>
@@ -273,12 +273,12 @@ the URI/value from a Coding or an Identifier. The syntax for the
 value is one of the following:
 </p>
 <ul>
- <li><b>[parameter]=[code]</b> matches a code/value irrespective of its system namespace</li>
- <li><b>[parameter]=[namespace]|[code]</b> matches a code/value in the given system namespace </li>
- <li><b>[parameter]=|[code]</b> matches a code/value that has no system namespace</li>
+ <li><b>[parameter]=[code]</b>: the value of [code] matches a Coding.code or Identifier.value irrespective of the value of the system property</li>
+ <li><b>[parameter]=[system]|[code]</b>: the value of [code] matches a Coding.code or Identifier.value, and the value of [system] matches the system property of the Identifier or Coding</li>
+ <li><b>[parameter]=|[code]</b>: the value of [code] matches a Coding.code or Identifier.value, and the Coding/Identifier has no system property</li>
 </ul>
 <p>
-Note that the namespace URI and code both must be <a href="#escaping">escaped</a>.
+Note that the namespace URI and code both must be <a href="#escaping">escaped</a>. 
 </p>
 <p>
 If the modifier ":text", is used, the search parameter is processed as a 
@@ -303,7 +303,7 @@ A quantity parameter searches on the <a href="datatypes.html#Quantity">Quantity<
 The syntax for the value follows the form:
 </p>
 <ul>
- <li><b>[parameter]=[comparator][number]|[namespace]|[code]</b> matches a quantity with the given unit</li>
+ <li><b>[parameter]=[comparator][number]|[system]|[code]</b> matches a quantity with the given unit</li>
 </ul>
 <p>
 The comparator is optional; if it is not present, the default comparator is "=". A special value "~" can be used for approximation.  Example searches:
