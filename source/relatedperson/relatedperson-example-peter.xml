@@ -59,6 +59,6 @@
 
   <photo>
     <contentType value="image/jpeg"/>
-    <url value="binary/@f012"/>
+    <url value="Binary/f012"/>
   </photo>
 </RelatedPerson>

@@ -36,7 +36,7 @@
         <birthDate value="1956-12-24"/>
         <!--Fortunately, the doctor is still alive!-->
 <!--        <photo>
-            <reference value="picture/@AB-201.bmp"/>
+            <reference value="Media/AB-201.bmp"/>
             <display value="Picture_Dokter_Bronsig"/>
         </photo> -->
     

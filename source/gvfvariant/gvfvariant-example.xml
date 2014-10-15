@@ -11,7 +11,7 @@
 		</patient>
 	</subject>
 	<meta>
-		<reference value="gvfmeta/@example"/>
+		<reference value="gvfmeta/example"/>
 	</meta>
 	<seqid value="chr1"/>
 	<source value="samtools"/>

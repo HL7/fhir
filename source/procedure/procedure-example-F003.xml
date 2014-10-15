@@ -44,7 +44,7 @@
     </encounter>
     <outcome value="removal of the retropharyngeal abscess"/>
     <report>
-        <reference value="DiagnosticReport/@F004"/>
+        <reference value="DiagnosticReport/F004"/>
         <display value="???????????"/>
     </report>
     <followUp value="described in care plan"/>

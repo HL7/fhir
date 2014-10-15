@@ -44,7 +44,7 @@
     </encounter>
     <outcome value="improved blood circulation"/>
     <report>
-        <reference value="diagnostic report/@F002"/>
+        <reference value="DiagnosticReport/F002"/>
         <display value="????????"/>
     </report>
     <followUp value="described in care plan"/>

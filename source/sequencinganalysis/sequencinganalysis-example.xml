@@ -21,6 +21,6 @@
 		<title value="demo_2.bam"/>
 	</file>
 	<inputLab>
-		<reference value="sequencinglab/@example"/>
+		<reference value="sequencinglab/example"/>
 	</inputLab>
 </SequencingAnalysis>

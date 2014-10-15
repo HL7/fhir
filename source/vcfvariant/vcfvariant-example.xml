@@ -17,7 +17,7 @@
 		<title value="example.vCf"/>
 	</sourceFile>
 	<meta>
-		<reference value="vcfmeta/@example"/>
+		<reference value="vcfmeta/example"/>
 	</meta>
 	<chrom value="chr1"/>
 	<pos value="155205043"/>

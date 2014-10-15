@@ -31,7 +31,7 @@
 		<end value="155205043"/>
 	</coordinate>
 	<inputLab>
-		<reference value="sequencinglab/@example"/>
+		<reference value="sequencinglab/example"/>
 	</inputLab>
 	<quality value="39"/>
 	<read value="A|G"/>
