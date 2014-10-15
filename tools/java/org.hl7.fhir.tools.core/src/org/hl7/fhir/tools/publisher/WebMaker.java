@@ -81,6 +81,7 @@ public class WebMaker {
   private static final String SEARCH_FORM_HOLDER = "<p id=\"srch\"> </p>";
   private static final String SEARCH_LINK = "<div id=\"hl7-search\"> </div>";
   private static final String DISQUS_COMMMENT = "<!-- disqus -->";
+  private static final String DISQUS_COMMMENT_PACKED = "<!--disqus-->";
 
   public void produceHL7Copy() throws Exception {
     List<String> folderList = new ArrayList<String>();
@@ -105,6 +106,8 @@ public class WebMaker {
         // not for the DSTU
 //        if (src.contains(DISQUS_COMMMENT)) 
 //          src = src.replace(DISQUS_COMMMENT, disqusScript());
+//        if (src.contains(DISQUS_COMMMENT_PACKED)) 
+//          src = src.replace(DISQUS_COMMMENT_PACKED, disqusScript());
         // done
         int i = src.indexOf("</body>");
         if (i > 0)
