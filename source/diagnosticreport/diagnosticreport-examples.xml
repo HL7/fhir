@@ -7,7 +7,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/3</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/3/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/3/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1392,7 +1392,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/4</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/4/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/4/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2423,7 +2423,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/5</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/5/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/5/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3443,7 +3443,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/6</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/6/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/6/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4457,7 +4457,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/7</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/7/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/7/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5450,7 +5450,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/8</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/8/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/8/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6449,7 +6449,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/9</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/9/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/9/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7448,7 +7448,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/15</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/15/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/15/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8454,7 +8454,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/16</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/16/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/16/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9485,7 +9485,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/17</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/17/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/17/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10505,7 +10505,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/18</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/18/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/18/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11519,7 +11519,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/19</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/19/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/19/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12512,7 +12512,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/20</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/20/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/20/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13511,7 +13511,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/21</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/21/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/21/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14510,7 +14510,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/25</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/25/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/25/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15096,7 +15096,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/26</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/26/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/26/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15161,7 +15161,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/27</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/27/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/27/_history/1"/>
     <updated>2012-05-23T14:27:01Z</updated>
     <author>
       <name>FHIR Project Team</name>

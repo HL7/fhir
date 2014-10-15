@@ -5,7 +5,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Authored on 8-Nov 2011 by Grahame Grieve. Content extracted from ISO-21090</div>
   </text>
   <target>
-    <reference value="Patient/example/history/1"/>
+    <reference value="Patient/example/_history/1"/>
   </target>
   <!-- nominal activity: editing the standard -->
   <period>

@@ -125,7 +125,7 @@
   <entry>
     <title>Written by Doctor Dave</title>
     <id>http://fhir.healthintersections.com.au/open/Practitioner/example</id>
-    <link rel="self" href="http://fhir.healthintersections.com.au/open/Practitioner/example/history/1"/>
+    <link rel="self" href="http://fhir.healthintersections.com.au/open/Practitioner/example/_history/1"/>
     <updated>2013-05-05T16:13:03Z</updated>
     <author>
       <name>68.151.217.168</name>
@@ -149,7 +149,7 @@
   <entry>
     <title>About Eve Everywoman</title>
     <id>http://fhir.healthintersections.com.au/open/Patient/d1</id>
-    <link rel="self" href="http://fhir.healthintersections.com.au/open/Patient/d1/history/10"/>
+    <link rel="self" href="http://fhir.healthintersections.com.au/open/Patient/d1/_history/10"/>
     <updated>2013-05-05T16:13:03Z</updated>
     <author>
       <name>68.151.217.168</name>
@@ -194,7 +194,7 @@
   <entry>
     <title>Admission to Middlemore </title>
     <id>http://fhir.healthintersections.com.au/open/Encounter/example</id>
-    <link rel="self" href="http://fhir.healthintersections.com.au/open/Encounter/example/history/1"/>
+    <link rel="self" href="http://fhir.healthintersections.com.au/open/Encounter/example/_history/1"/>
     <updated>2013-05-05T16:13:03Z</updated>
     <author>
       <name>68.151.217.168</name>

@@ -9,7 +9,7 @@
   <entry>
     <title>patient, female</title>
     <id>http://hl7.org/fhir/Patient/1</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/1/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/1/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve / HL7 publishing committee</name>
@@ -58,7 +58,7 @@
   <entry>
     <title>patient, male</title>
     <id>http://hl7.org/fhir/Patient/2</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/2/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/2/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -106,7 +106,7 @@
   <entry>
     <title>patient, child</title>
     <id>http://hl7.org/fhir/Patient/3</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/3/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/3/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -153,7 +153,7 @@
   <entry>
     <title>family, daughter</title>
     <id>http://hl7.org/fhir/Patient/4</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/4/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/4/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -201,7 +201,7 @@
   <entry>
     <title>family, husband</title>
     <id>http://hl7.org/fhir/Patient/5</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/5/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/5/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -249,7 +249,7 @@
   <entry>
     <title>family, son</title>
     <id>http://hl7.org/fhir/Patient/6</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/6/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/6/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -296,7 +296,7 @@
   <entry>
     <title>family, wife</title>
     <id>http://hl7.org/fhir/Patient/7</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/7/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/7/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -344,7 +344,7 @@
   <entry>
     <title>next of kin (parent)</title>
     <id>http://hl7.org/fhir/Patient/8</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/8/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/8/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -391,7 +391,7 @@
   <entry>
     <title>next of kin (child)</title>
     <id>http://hl7.org/fhir/Patient/9</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/9/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/9/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -449,7 +449,7 @@
   <entry>
     <title>next of kin (spouse)</title>
     <id>http://hl7.org/fhir/Patient/10</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/10/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/10/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -497,7 +497,7 @@
   <entry>
     <title>next of kin (other)</title>
     <id>http://hl7.org/fhir/Patient/11</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/11/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/11/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -545,7 +545,7 @@
   <entry>
     <title>contact person</title>
     <id>http://hl7.org/fhir/Patient/12</id>
-    <link rel="self" href="http://hl7.org/fhir/Patient/12/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Patient/12/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>

@@ -9,7 +9,7 @@
   <entry>
     <title>healthcare practitioner</title>
     <id>http://hl7.org/fhir/Practitioner/13</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/13/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/13/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -56,7 +56,7 @@
   <entry>
     <title>assigned practitioner</title>
     <id>http://hl7.org/fhir/Practitioner/14</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/14/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/14/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -104,7 +104,7 @@
   <entry>
     <title>physician</title>
     <id>http://hl7.org/fhir/Practitioner/15</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/15/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/15/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -152,7 +152,7 @@
   <entry>
     <title>primary care physician</title>
     <id>http://hl7.org/fhir/Practitioner/16</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/16/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/16/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -200,7 +200,7 @@
   <entry>
     <title>admitting physician</title>
     <id>http://hl7.org/fhir/Practitioner/17</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/17/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/17/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -247,7 +247,7 @@
   <entry>
     <title>attending physician</title>
     <id>http://hl7.org/fhir/Practitioner/18</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/18/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/18/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -295,7 +295,7 @@
   <entry>
     <title>referring physician</title>
     <id>http://hl7.org/fhir/Practitioner/19</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/19/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/19/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -342,7 +342,7 @@
   <entry>
     <title>intern</title>
     <id>http://hl7.org/fhir/Practitioner/20</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/20/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/20/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -390,7 +390,7 @@
   <entry>
     <title>resident</title>
     <id>http://hl7.org/fhir/Practitioner/21</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/21/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/21/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -438,7 +438,7 @@
   <entry>
     <title>chief of staff</title>
     <id>http://hl7.org/fhir/Practitioner/22</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/22/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/22/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -486,7 +486,7 @@
   <entry>
     <title>authenticator</title>
     <id>http://hl7.org/fhir/Practitioner/23</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/23/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/23/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -534,7 +534,7 @@
   <entry>
     <title>specialist</title>
     <id>http://hl7.org/fhir/Practitioner/24</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/24/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/24/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -582,7 +582,7 @@
   <entry>
     <title>allergist/immunologist</title>
     <id>http://hl7.org/fhir/Practitioner/25</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/25/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/25/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -630,7 +630,7 @@
   <entry>
     <title>anesthesiologist</title>
     <id>http://hl7.org/fhir/Practitioner/26</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/26/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/26/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -678,7 +678,7 @@
   <entry>
     <title>cardiologist</title>
     <id>http://hl7.org/fhir/Practitioner/27</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/27/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/27/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -726,7 +726,7 @@
   <entry>
     <title>cardiovascular surgeon</title>
     <id>http://hl7.org/fhir/Practitioner/28</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/28/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/28/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -773,7 +773,7 @@
   <entry>
     <title>dermatologist</title>
     <id>http://hl7.org/fhir/Practitioner/29</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/29/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/29/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -821,7 +821,7 @@
   <entry>
     <title>emergency medicine specialist</title>
     <id>http://hl7.org/fhir/Practitioner/30</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/30/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/30/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -869,7 +869,7 @@
   <entry>
     <title>endocrinologist</title>
     <id>http://hl7.org/fhir/Practitioner/31</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/31/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/31/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -917,7 +917,7 @@
   <entry>
     <title>family practitioner</title>
     <id>http://hl7.org/fhir/Practitioner/32</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/32/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/32/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -964,7 +964,7 @@
   <entry>
     <title>gastroenterologist</title>
     <id>http://hl7.org/fhir/Practitioner/33</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/33/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/33/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1011,7 +1011,7 @@
   <entry>
     <title>geriatrician</title>
     <id>http://hl7.org/fhir/Practitioner/34</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/34/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/34/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1059,7 +1059,7 @@
   <entry>
     <title>hematologist</title>
     <id>http://hl7.org/fhir/Practitioner/35</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/35/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/35/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1107,7 +1107,7 @@
   <entry>
     <title>infectious disease specialist</title>
     <id>http://hl7.org/fhir/Practitioner/36</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/36/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/36/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1155,7 +1155,7 @@
   <entry>
     <title>internist</title>
     <id>http://hl7.org/fhir/Practitioner/37</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/37/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/37/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1202,7 +1202,7 @@
   <entry>
     <title>nephrologist</title>
     <id>http://hl7.org/fhir/Practitioner/38</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/38/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/38/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1249,7 +1249,7 @@
   <entry>
     <title>neurologist</title>
     <id>http://hl7.org/fhir/Practitioner/39</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/39/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/39/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1296,7 +1296,7 @@
   <entry>
     <title>neurosurgeon</title>
     <id>http://hl7.org/fhir/Practitioner/40</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/40/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/40/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1344,7 +1344,7 @@
   <entry>
     <title>OB/GYN</title>
     <id>http://hl7.org/fhir/Practitioner/41</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/41/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/41/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1391,7 +1391,7 @@
   <entry>
     <title>oncologist</title>
     <id>http://hl7.org/fhir/Practitioner/42</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/42/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/42/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1438,7 +1438,7 @@
   <entry>
     <title>ophthalmologist</title>
     <id>http://hl7.org/fhir/Practitioner/43</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/43/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/43/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1486,7 +1486,7 @@
   <entry>
     <title>orthopedic surgeon</title>
     <id>http://hl7.org/fhir/Practitioner/44</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/44/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/44/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1534,7 +1534,7 @@
   <entry>
     <title>otolaryngologist (ENT)</title>
     <id>http://hl7.org/fhir/Practitioner/45</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/45/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/45/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1581,7 +1581,7 @@
   <entry>
     <title>pathologist</title>
     <id>http://hl7.org/fhir/Practitioner/46</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/46/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/46/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1628,7 +1628,7 @@
   <entry>
     <title>pediatrician</title>
     <id>http://hl7.org/fhir/Practitioner/47</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/47/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/47/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1676,7 +1676,7 @@
   <entry>
     <title>plastic surgeon</title>
     <id>http://hl7.org/fhir/Practitioner/48</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/48/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/48/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1724,7 +1724,7 @@
   <entry>
     <title>psychiatrist</title>
     <id>http://hl7.org/fhir/Practitioner/49</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/49/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/49/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1772,7 +1772,7 @@
   <entry>
     <title>pulmonologist</title>
     <id>http://hl7.org/fhir/Practitioner/50</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/50/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/50/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1820,7 +1820,7 @@
   <entry>
     <title>radiologist</title>
     <id>http://hl7.org/fhir/Practitioner/51</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/51/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/51/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1868,7 +1868,7 @@
   <entry>
     <title>rheumatologist</title>
     <id>http://hl7.org/fhir/Practitioner/52</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/52/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/52/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1916,7 +1916,7 @@
   <entry>
     <title>surgeon</title>
     <id>http://hl7.org/fhir/Practitioner/53</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/53/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/53/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -1963,7 +1963,7 @@
   <entry>
     <title>urologist</title>
     <id>http://hl7.org/fhir/Practitioner/54</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/54/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/54/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2011,7 +2011,7 @@
   <entry>
     <title>physician assistant</title>
     <id>http://hl7.org/fhir/Practitioner/55</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/55/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/55/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2059,7 +2059,7 @@
   <entry>
     <title>registered nurse</title>
     <id>http://hl7.org/fhir/Practitioner/56</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/56/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/56/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2107,7 +2107,7 @@
   <entry>
     <title>nursing assistant</title>
     <id>http://hl7.org/fhir/Practitioner/57</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/57/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/57/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2155,7 +2155,7 @@
   <entry>
     <title>chiropractor</title>
     <id>http://hl7.org/fhir/Practitioner/58</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/58/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/58/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2202,7 +2202,7 @@
   <entry>
     <title>dentist</title>
     <id>http://hl7.org/fhir/Practitioner/59</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/59/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/59/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2250,7 +2250,7 @@
   <entry>
     <title>orthodontist</title>
     <id>http://hl7.org/fhir/Practitioner/60</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/60/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/60/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2297,7 +2297,7 @@
   <entry>
     <title>optometrist</title>
     <id>http://hl7.org/fhir/Practitioner/61</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/61/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/61/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2345,7 +2345,7 @@
   <entry>
     <title>pharmacist</title>
     <id>http://hl7.org/fhir/Practitioner/62</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/62/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/62/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2391,7 +2391,7 @@
   <entry>
     <title>podiatrist</title>
     <id>http://hl7.org/fhir/Practitioner/63</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/63/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/63/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2438,7 +2438,7 @@
   <entry>
     <title>psychologist</title>
     <id>http://hl7.org/fhir/Practitioner/64</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/64/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/64/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2486,7 +2486,7 @@
   <entry>
     <title>lab technician</title>
     <id>http://hl7.org/fhir/Practitioner/65</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/65/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/65/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2533,7 +2533,7 @@
   <entry>
     <title>dietician</title>
     <id>http://hl7.org/fhir/Practitioner/66</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/66/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/66/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2579,7 +2579,7 @@
   <entry>
     <title>social worker</title>
     <id>http://hl7.org/fhir/Practitioner/67</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/67/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/67/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2624,7 +2624,7 @@
   <entry>
     <title>occupational therapist</title>
     <id>http://hl7.org/fhir/Practitioner/68</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/68/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/68/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2672,7 +2672,7 @@
   <entry>
     <title>physical therapist</title>
     <id>http://hl7.org/fhir/Practitioner/69</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/69/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/69/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>
@@ -2720,7 +2720,7 @@
   <entry>
     <title>transcriptionist</title>
     <id>http://hl7.org/fhir/Practitioner/70</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/70/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/Practitioner/70/_history/1"/>
     <updated>2012-05-29T23:45:32Z</updated>
     <author>
       <name>Grahame Grieve</name>

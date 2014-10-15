@@ -8,7 +8,7 @@
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/103</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/103/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/103/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -96,7 +96,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/104</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/104/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/104/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -200,7 +200,7 @@ Comment: *PLEASE NOTE AMENDED REPORT*
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/105</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/105/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/105/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -305,7 +305,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/106</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/106/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/106/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -379,7 +379,7 @@ Anti-Factor Xa Comment:
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/107</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/107/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/107/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -447,7 +447,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/108</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/108/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/108/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -523,7 +523,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/109</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/109/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/109/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -597,7 +597,7 @@ CK                828     IU/L   ( &lt;175     )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/110</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/110/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/110/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -655,7 +655,7 @@ TSH                       0.01    L  mIU/L   ( 0.1-4.0  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/111</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/111/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/111/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -741,7 +741,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/112</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/112/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/112/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -816,7 +816,7 @@ C-React Prot      152     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/113</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/113/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/113/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -913,7 +913,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/114</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/114/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/114/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -986,7 +986,7 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/115</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/115/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/115/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1135,7 +1135,7 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/116</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/116/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/116/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1215,7 +1215,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/117</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/117/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/117/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1281,7 +1281,7 @@ Comment: The Potassium result has been checked.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/118</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/118/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/118/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1367,7 +1367,7 @@ Baso         0.1      0.0      0.1      0.1      0.1   x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/119</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/119/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/119/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1488,7 +1488,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/120</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/120/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/120/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1552,7 +1552,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/121</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/121/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/121/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1638,7 +1638,7 @@ Baso                  0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/122</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/122/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/122/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1713,7 +1713,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/123</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/123/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/123/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1810,7 +1810,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/124</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/124/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/124/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1895,7 +1895,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/125</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/125/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/125/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1984,7 +1984,7 @@ Troponin I        0.03    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/126</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/126/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/126/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2073,7 +2073,7 @@ Troponin I        0.03    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/127</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/127/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/127/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2208,7 +2208,7 @@ Comment: Please note moderate thrombocytopenia persists. Please
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/128</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/128/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/128/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2295,7 +2295,7 @@ Protein Total      65     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/129</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/129/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/129/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2438,7 +2438,7 @@ Conclusion: Suggestive of infection.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/130</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/130/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/130/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2517,7 +2517,7 @@ Hrs Since Dose No Info  No Info                            HH:MM
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/131</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/131/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/131/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2606,7 +2606,7 @@ Lipase             87     IU/L   ( &lt;60      )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/132</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/132/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/132/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2731,7 +2731,7 @@ Comment: Instrument differential and parameters reported.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/133</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/133/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/133/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2789,7 +2789,7 @@ INR               1.2                                            0.8-1.3
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/134</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/134/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/134/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2859,7 +2859,7 @@ Albumin            26     g/L    ( 35-50    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/135</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/135/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/135/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2964,7 +2964,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/135a</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/135a/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/135a/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3033,7 +3033,7 @@ INR               3.0H                                           0.8-1.3
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/136</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/136/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/136/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3106,7 +3106,7 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/137</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/137/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/137/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3203,7 +3203,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/138</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/138/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/138/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3324,7 +3324,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/139</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/139/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/139/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3403,7 +3403,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/140</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/140/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/140/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3492,7 +3492,7 @@ Protein Total      77     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/141</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/141/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/141/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3589,7 +3589,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/142</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/142/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/142/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3682,7 +3682,7 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/143</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/143/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/143/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3775,7 +3775,7 @@ Protein Total      70     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/144</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/144/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/144/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -3902,7 +3902,7 @@ Comment: Mild neutropenia.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/145</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/145/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/145/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4023,7 +4023,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/146</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/146/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/146/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4144,7 +4144,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/147</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/147/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/147/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4265,7 +4265,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/148</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/148/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/148/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4386,7 +4386,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/149</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/149/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/149/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4491,7 +4491,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/150</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/150/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/150/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4604,7 +4604,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/151</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/151/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/151/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4725,7 +4725,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/152</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/152/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/152/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4852,7 +4852,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/153</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/153/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/153/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4909,7 +4909,7 @@ Specimen Type:  Serum
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/154</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/154/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/154/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -4990,7 +4990,7 @@ HBsAB Titre                                            :      44 IU/L
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/155</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/155/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/155/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5111,7 +5111,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/156</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/156/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/156/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5180,7 +5180,7 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/157</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/157/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/157/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5301,7 +5301,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/158</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/158/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/158/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5369,7 +5369,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/159</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/159/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/159/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5438,7 +5438,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/160</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/160/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/160/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5559,7 +5559,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/161</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/161/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/161/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5708,7 +5708,7 @@ perinatal or neonatal infection.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/162</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/162/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/162/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5829,7 +5829,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/163</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/163/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/163/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5907,7 +5907,7 @@ Comment: sample not protected from light ward notified for
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/164</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/164/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/164/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -5981,7 +5981,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/165</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/165/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/165/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6053,7 +6053,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/166</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/166/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/166/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6163,7 +6163,7 @@ Conclusion: No clinical information provided.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/167</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/167/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/167/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6280,7 +6280,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/168</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/168/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/168/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6353,7 +6353,7 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/169</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/169/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/169/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6468,7 +6468,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/170</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/170/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/170/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6547,7 +6547,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/171</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/171/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/171/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6636,7 +6636,7 @@ C-React Prot        4     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/172</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/172/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/172/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6733,7 +6733,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/173</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/173/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/173/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6854,7 +6854,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/174</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/174/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/174/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -6930,7 +6930,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/175</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/175/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/175/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7012,7 +7012,7 @@ Protein Total      69     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/176</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/176/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/176/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7124,7 +7124,7 @@ Comment: Note neutrophilia.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/177</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/177/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/177/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7183,7 +7183,7 @@ Troponin I        0.02    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/178</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/178/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/178/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7242,7 +7242,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/179</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/179/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/179/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7301,7 +7301,7 @@ NTRC
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/180</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/180/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/180/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7374,7 +7374,7 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/181</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/181/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/181/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7471,7 +7471,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/182</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/182/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/182/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7533,7 +7533,7 @@ Urea              6.1     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/183</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/183/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/183/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7619,7 +7619,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/184</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/184/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/184/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7758,7 +7758,7 @@ culture.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/185</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/185/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/185/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7879,7 +7879,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/186</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/186/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/186/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -7941,7 +7941,7 @@ Protein/Creat Ratio              30   mg/mmol Creat   ( 15-35    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/187</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/187/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/187/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8014,7 +8014,7 @@ GROIN SWAB                    VRE not detected
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/188</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/188/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/188/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8082,7 +8082,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/189</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/189/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/189/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8168,7 +8168,7 @@ CK                 43     IU/L   ( &lt;175     )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/190</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/190/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/190/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8292,7 +8292,7 @@ Conclusion: Known beta thalassaemia minor. Suggest repeat FBE for an
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/191</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/191/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/191/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8371,7 +8371,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/192</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/192/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/192/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8488,7 +8488,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/193</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/193/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/193/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8550,7 +8550,7 @@ Protein/Creat Ratio             232 H mg/mmol Creat   ( 15-35    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/194</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/194/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/194/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8652,7 +8652,7 @@ No Growth -Detection limit 10^7 CFU/L
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/195</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/195/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/195/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8739,7 +8739,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/196</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/196/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/196/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8812,7 +8812,7 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/197</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/197/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/197/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8909,7 +8909,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/198</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/198/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/198/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -8973,7 +8973,7 @@ Troponin I        0.04    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/199</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/199/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/199/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9079,7 +9079,7 @@ Conclusion: Note persistent anaemia.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1100</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1100/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1100/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9149,7 +9149,7 @@ Albumin            28     g/L    ( 35-50    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1101</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1101/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1101/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9241,7 +9241,7 @@ Comment: Intra-op
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1102</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1102/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1102/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9325,7 +9325,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1103</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1103/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1103/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9446,7 +9446,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1104</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1104/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1104/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9551,7 +9551,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1105</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1105/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1105/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9642,7 +9642,7 @@ C-React Prot        5     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1106</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1106/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1106/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9739,7 +9739,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1107</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1107/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1107/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9802,7 +9802,7 @@ LIPIDS
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1108</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1108/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1108/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9891,7 +9891,7 @@ investigation, please contact the Microbiology Registrar.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1109</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1109/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1109/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -9979,7 +9979,7 @@ Standard culture:   ++ Mixed upper respiratory tract flora
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1110</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1110/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1110/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10081,7 +10081,7 @@ No Growth -Detection limit 10^7 CFU/L
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1111</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1111/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1111/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10139,7 +10139,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1112</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1112/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1112/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10206,7 +10206,7 @@ Comment: The requested tests were not completed as no
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1113</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1113/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1113/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10309,7 +10309,7 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1114</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1114/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1114/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10410,7 +10410,7 @@ culture or special media are required.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1115</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1115/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1115/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10495,7 +10495,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1116</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1116/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1116/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10570,7 +10570,7 @@ Troponin I        0.02    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1117</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1117/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1117/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10673,7 +10673,7 @@ Comment: * Please note: no specimen received.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1118</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1118/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1118/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10758,7 +10758,7 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1119</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1119/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1119/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -10879,7 +10879,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1120</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1120/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1120/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11000,7 +11000,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1121</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1121/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1121/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11062,7 +11062,7 @@ Urea              7.0     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1122</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1122/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1122/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11180,7 +11180,7 @@ Comment: Please note fall in haemoglobin and platelet count since
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1123</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1123/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1123/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11242,7 +11242,7 @@ Urea              9.1     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1124</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1124/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1124/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11304,7 +11304,7 @@ Urea              9.1     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1125</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1125/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1125/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11414,7 +11414,7 @@ Conclusion: Please note fall in haemoglobin since the previous
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1126</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1126/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1126/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11492,7 +11492,7 @@ Antithrombin (Functional)         88     %      (80-120)
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1127</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1127/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1127/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11560,7 +11560,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1128</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1128/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1128/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11653,7 +11653,7 @@ Presumptive  negative for pneumococcal pneumonia.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1129</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1129/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1129/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11715,7 +11715,7 @@ Urea             16.4     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1130</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1130/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1130/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11799,7 +11799,7 @@ yeasts                                    Occasional
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1131</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1131/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1131/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11920,7 +11920,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1132</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1132/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1132/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -11985,7 +11985,7 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1133</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1133/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1133/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12087,7 +12087,7 @@ No Growth -Detection limit 10^7 CFU/L
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1134</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1134/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1134/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12200,7 +12200,7 @@ No Growth -Detection limit 10^7 CFU/L
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1135</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1135/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1135/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12302,7 +12302,7 @@ No Growth -Detection limit 10^7 CFU/L
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1136</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1136/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1136/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12370,7 +12370,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1137</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1137/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1137/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12452,7 +12452,7 @@ Protein Total      55     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1138</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1138/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1138/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12574,7 +12574,7 @@ Conclusion: Increase in leucocyte count since the last examination.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1139</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1139/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1139/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12687,7 +12687,7 @@ No Growth -Detection limit 10^7 CFU/L
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1140</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1140/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1140/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12745,7 +12745,7 @@ Cortisol Diurnal Variation:AM (0800 - 0900): 150 - 650 nmol/L
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1141</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1141/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1141/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12809,7 +12809,7 @@ Osmolality        290     mosm/kg( 280-300  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1142</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1142/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1142/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12871,7 +12871,7 @@ Urine Osmolality                618   mmol/L          ( 50-1200  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1143</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1143/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1143/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -12992,7 +12992,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1144</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1144/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1144/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13054,7 +13054,7 @@ Urine Osmolality                612   mmol/L          ( 50-1200  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1145</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1145/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1145/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13118,7 +13118,7 @@ Osmolality        295     mosm/kg( 280-300  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1146</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1146/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1146/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13205,7 +13205,7 @@ Protein Total      73     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1147</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1147/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1147/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13322,7 +13322,7 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1148</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1148/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1148/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13384,7 +13384,7 @@ Urea              4.1     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1149</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1149/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1149/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13470,7 +13470,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1150</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1150/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1150/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13591,7 +13591,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1151</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1151/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1151/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13712,7 +13712,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1153</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1153/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1153/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13798,7 +13798,7 @@ call 1-800-555-2123 to contact the State Department of Health.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1152</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1152/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1152/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13867,7 +13867,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1154</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1154/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1154/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -13972,7 +13972,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1155</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1155/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1155/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14031,7 +14031,7 @@ Troponin I        0.02    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1162</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1162/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1162/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14090,7 +14090,7 @@ C-React Prot      149     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1163</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1163/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1163/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14159,7 +14159,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1170</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1170/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1170/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14222,7 +14222,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1171</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1171/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1171/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14319,7 +14319,7 @@ Old Ref Ranges prior to 27th April 2004
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1172</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1172/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1172/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14420,7 +14420,7 @@ LIPIDS
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1173</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1173/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1173/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14517,7 +14517,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1180</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1180/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1180/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14590,7 +14590,7 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1181</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1181/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1181/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14705,7 +14705,7 @@ Comment: Instrument differential and parameters reported.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1182</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1182/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1182/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14774,7 +14774,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1183</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1183/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1183/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14905,7 +14905,7 @@ Timentin         S
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1187</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1187/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1187/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -14997,7 +14997,7 @@ Standard culture:   +++  Mixed upper respiratory tract flora
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1188</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1188/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1188/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15118,7 +15118,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1189</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1189/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1189/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15193,7 +15193,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1190</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1190/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1190/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15251,7 +15251,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1191</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1191/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1191/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15333,7 +15333,7 @@ Protein Total      56     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1192</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1192/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1192/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15469,7 +15469,7 @@ Film Comment : Red cells show some microcytes, elongated cells and mildly
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1193</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1193/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1193/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15572,7 +15572,7 @@ CULTURE
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1194</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1194/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1194/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15693,7 +15693,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1195</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1195/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1195/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15766,7 +15766,7 @@ RECTAL SWAB                   VRE not detected
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1196</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1196/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1196/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15825,7 +15825,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1199</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1199/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1199/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15893,7 +15893,7 @@ Comment: The requested tests were not completed as the
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1200</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1200/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1200/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -15961,7 +15961,7 @@ Comment: The specimen received was mislabeled. The ward has  been
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1201</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1201/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1201/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16058,7 +16058,7 @@ Old Ref Ranges prior to 27th April 2004
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1202</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1202/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1202/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16137,7 +16137,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1203</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1203/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1203/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16200,7 +16200,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1204</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1204/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1204/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16297,7 +16297,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1205</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1205/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1205/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16386,7 +16386,7 @@ C-React Prot       12     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1206</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1206/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1206/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16455,7 +16455,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1207</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1207/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1207/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16541,7 +16541,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1208</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1208/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1208/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16623,7 +16623,7 @@ Protein Total      51     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1209</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1209/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1209/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16733,7 +16733,7 @@ Conclusion: Please note fall in haemoglobin since the previous
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1211</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1211/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1211/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16854,7 +16854,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1212</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1212/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1212/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -16975,7 +16975,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1213</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1213/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1213/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17040,7 +17040,7 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1214</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1214/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1214/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17137,7 +17137,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1215</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1215/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1215/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17220,7 +17220,7 @@ Troponin I        0.03    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1216</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1216/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1216/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17324,7 +17324,7 @@ streptococci and diphtheroid bacilli.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1217</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1217/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1217/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17445,7 +17445,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1218</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1218/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1218/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17516,7 +17516,7 @@ G1691A Substitution Result:
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1219</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1219/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1219/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17584,7 +17584,7 @@ MicroAlb/Creat Ratio           5.66 H mg/mmol creat   ( &lt;2.5     )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1220</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1220/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1220/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17705,7 +17705,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1221</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1221/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1221/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17781,7 +17781,7 @@ Protein Total      64     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1222</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1222/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1222/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17867,7 +17867,7 @@ Baso         0.0      0.1      0.0      0.0      0.0   x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1223</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1223/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1223/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -17988,7 +17988,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1224</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1224/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1224/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18075,7 +18075,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1225</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1225/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1225/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18168,7 +18168,7 @@ Protein Total      65     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1226</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1226/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1226/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18271,7 +18271,7 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1227</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1227/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1227/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18405,7 +18405,7 @@ emergence of resistance  and clinical failure.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1228</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1228/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1228/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18469,7 +18469,7 @@ C-React Prot       24     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1229</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1229/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1229/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18581,7 +18581,7 @@ Comment: FBE with BMAT. Report to follow.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1231</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1231/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1231/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18648,7 +18648,7 @@ Comment: The requested tests were not completed as no sample was
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1232</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1232/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1232/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18721,7 +18721,7 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1233</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1233/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1233/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18818,7 +18818,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1234</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1234/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1234/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18877,7 +18877,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1235</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1235/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1235/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -18954,7 +18954,7 @@ Comment: The requested tests were not completed as no
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1236</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1236/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1236/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19033,7 +19033,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1237</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1237/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1237/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19128,7 +19128,7 @@ Comment: Haemolysed. Some tests (*) unavailable.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1238</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1238/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1238/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19239,7 +19239,7 @@ Comment: * Specimen clotted. ED informed.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1239</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1239/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1239/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19360,7 +19360,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1240</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1240/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1240/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19455,7 +19455,7 @@ No Growth After 2 Days.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1240a</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1240a/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1240a/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19534,7 +19534,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1241</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1241/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1241/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19607,7 +19607,7 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1242</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1242/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1242/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19710,7 +19710,7 @@ Comment: Please note mild neutrophilia
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1243</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1243/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1243/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19794,7 +19794,7 @@ Pathologist: To Follow
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1244</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1244/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1244/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19880,7 +19880,7 @@ Pathologist: To Follow
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1245</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1245/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1245/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -19959,7 +19959,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1246</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1246/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1246/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -20048,7 +20048,7 @@ C-React Prot      109     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1247</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1247/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1247/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -20165,7 +20165,7 @@ Comment: Please note mild neutrophilia and mild monocytosis
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1248</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1248/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1248/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -20238,7 +20238,7 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1249</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1249/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1249/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -20335,7 +20335,7 @@ Pathologist: To Follow
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1250</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1250/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1250/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -20436,7 +20436,7 @@ the Blood Bank.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1251</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1251/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1251/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -20541,7 +20541,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1252</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1252/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1252/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -20595,7 +20595,7 @@ Albumin            22     g/L    ( 35-50    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1253</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1253/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1253/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -20710,7 +20710,7 @@ and diphtheroid bacilli.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1254</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1254/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1254/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -20794,7 +20794,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1255</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1255/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1255/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -20895,7 +20895,7 @@ the Blood Bank.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1256</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1256/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1256/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21000,7 +21000,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1257</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1257/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1257/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21095,7 +21095,7 @@ Comment: The CKMB was not measured on this sample. It has
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1268</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1268/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1268/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21200,7 +21200,7 @@ Comment: Please note fall in haemoglobin and platelet count since
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1258</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1258/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1258/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21295,7 +21295,7 @@ Comment
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1259</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1259/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1259/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21416,7 +21416,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1260</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1260/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1260/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21485,7 +21485,7 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1261</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1261/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1261/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21554,7 +21554,7 @@ Comment: A troponin has been measured for this patient in
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1262</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1262/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1262/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21657,7 +21657,7 @@ Hrs Since Dose          No Info    02:00                   HH:MM
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1263</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1263/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1263/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21736,7 +21736,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1264</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1264/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1264/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21829,7 +21829,7 @@ Protein Total      47     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1265</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1265/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1265/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21934,7 +21934,7 @@ Comment: Please note fall in haemoglobin and platelet count since
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1266</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1266/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1266/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -21993,7 +21993,7 @@ NTRC
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1267</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1267/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1267/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -22074,7 +22074,7 @@ Albumin            34     g/L    ( 35-50    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1269</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1269/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1269/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -22171,7 +22171,7 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1270</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1270/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1270/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -22240,7 +22240,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1271</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1271/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1271/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -22321,7 +22321,7 @@ General Comments:
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1272</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1272/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1272/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -22415,7 +22415,7 @@ Standard culture:   +++  Mixed upper respiratory tract flora
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1273</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1273/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1273/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -22564,7 +22564,7 @@ Comment: Post platelet increment
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1274</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1274/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1274/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -22614,7 +22614,7 @@ Lipase            741     IU/L   ( &lt;60      )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1277</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1277/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1277/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -22695,7 +22695,7 @@ Albumin            27     g/L    ( 35-50    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1278</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1278/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1278/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -22808,7 +22808,7 @@ Comment: Instrument differential and parameters reported.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1279</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1279/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1279/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -22910,7 +22910,7 @@ Conclusion: ? Post-op.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1280</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1280/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1280/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23031,7 +23031,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1281</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1281/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1281/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23090,7 +23090,7 @@ NTRS
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1282</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1282/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1282/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23173,7 +23173,7 @@ Post Dose (Peak) level : Not recommended
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1283</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1283/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1283/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23262,7 +23262,7 @@ C-React Prot       19     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1284</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1284/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1284/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23367,7 +23367,7 @@ Comment: Note: mild neutrophilia. Instrument differential and
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1285</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1285/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1285/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23480,7 +23480,7 @@ No Growth -Detection limit 10^7 CFU/L
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1286</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1286/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1286/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23548,7 +23548,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1287</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1287/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1287/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23628,7 +23628,7 @@ Comment: The CKMB was not measured on this sample. It has
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1288</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1288/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1288/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23722,7 +23722,7 @@ Comment: Please note fall in haemoglobin and platelet count since
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1289</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1289/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1289/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23768,7 +23768,7 @@ Blank Report?
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1290</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1290/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1290/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23848,7 +23848,7 @@ sera. This serum sample has been stored for 3 months.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1291</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1291/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1291/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23900,7 +23900,7 @@ HIV-1/2 Ag/Ab Combo by Architect:
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1292</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1292/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1292/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -23962,7 +23962,7 @@ Antinuclear abs     TF
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1293</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1293/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1293/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24036,7 +24036,7 @@ Old Ref Ranges prior to 27th April 2004
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1294</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1294/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1294/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24124,7 +24124,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1295</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1295/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1295/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24183,7 +24183,7 @@ NTRESR
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1296</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1296/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1296/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24242,7 +24242,7 @@ NTRESR
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1297</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1297/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1297/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24310,7 +24310,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1298</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1298/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1298/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24372,7 +24372,7 @@ Urea              6.8     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1299</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1299/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1299/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24458,7 +24458,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1300</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1300/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1300/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24527,7 +24527,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1301</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1301/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1301/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24577,7 +24577,7 @@ NTRF
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1302</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1302/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1302/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24635,7 +24635,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1303</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1303/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1303/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24703,7 +24703,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1304</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1304/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1304/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24791,7 +24791,7 @@ C-React Prot      184     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1305</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1305/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1305/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24899,7 +24899,7 @@ Conclusion: Please note fall in haemoglobin since the previous
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1306</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1306/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1306/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -24972,7 +24972,7 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1307</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1307/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1307/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25093,7 +25093,7 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1308</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1308/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1308/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25182,7 +25182,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1309</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1309/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1309/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25279,7 +25279,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1310</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1310/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1310/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25337,7 +25337,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1311</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1311/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1311/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25415,7 +25415,7 @@ C-React Prot       54     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1312</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1312/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1312/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25513,7 +25513,7 @@ Conclusion: ? Cause of persistent mild thrombocytopenia.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1313</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1313/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1313/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25582,7 +25582,7 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1314</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1314/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1314/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25669,7 +25669,7 @@ Protein Total      80     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1315</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1315/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1315/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25766,7 +25766,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1316</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1316/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1316/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25863,7 +25863,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1317</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1317/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1317/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25927,7 +25927,7 @@ Troponin I        1.02    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1318</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1318/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1318/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -25985,7 +25985,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1319</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1319/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1319/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26054,7 +26054,7 @@ INR               1.0                                            0.8-1.3
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1320</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1320/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1320/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26119,7 +26119,7 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1321</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1321/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1321/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26222,7 +26222,7 @@ Comment: Please note mild neutrophilia
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1322</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1322/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1322/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26309,7 +26309,7 @@ Protein Total      67     g/L    ( 65-85    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1323</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1323/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1323/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26386,7 +26386,7 @@ Comments / Steps Taken
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1324</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1324/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1324/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26491,7 +26491,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1325</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1325/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1325/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26599,7 +26599,7 @@ Conclusion: * Film shows fibrin strands suggestive of a partially
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1326</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1326/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1326/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26672,7 +26672,7 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1327</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1327/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1327/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26775,7 +26775,7 @@ Comment: Please note mild monocytosis
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1328</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1328/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1328/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26848,7 +26848,7 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1329</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1329/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1329/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -26910,7 +26910,7 @@ HbA1c(HPLC)               %      (See Below)
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1330</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1330/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1330/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27054,7 +27054,7 @@ Conclusion: Recent tissue damage/trauma.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1331</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1331/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1331/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27134,7 +27134,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1332</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1332/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1332/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27216,7 +27216,7 @@ Amylase            51     IU/L   ( 22-100   )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1333</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1333/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1333/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27323,7 +27323,7 @@ Standard culture:   +  Mixed upper respiratory tract flora
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1334</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1334/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1334/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27444,7 +27444,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1335</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1335/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1335/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27507,7 +27507,7 @@ Amylase           390 IU/L
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1336</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1336/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1336/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27611,7 +27611,7 @@ streptococci, diphtheroid bacilli \T\ gram negative bacilli.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1337</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1337/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1337/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27692,7 +27692,7 @@ No Beta haemolytic streptococci isolated.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1338</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1338/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1338/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27781,7 +27781,7 @@ be processed.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1339</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1339/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1339/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27855,7 +27855,7 @@ sera. This serum sample has been stored for 3 months.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1340</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1340/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1340/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27913,7 +27913,7 @@ Anaerobic bottle             4   days                 Negative
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1341</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1341/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1341/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -27991,7 +27991,7 @@ C-React Prot       44     mg/L   ( &lt;5       )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1342</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1342/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1342/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28087,7 +28087,7 @@ Conclusion: Suggest repeat FBE to confirm platelet count.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1343</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1343/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1343/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28162,7 +28162,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1344</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1344/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1344/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28259,7 +28259,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1346</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1346/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1346/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28380,7 +28380,7 @@ Note: Reference Ranges shown are for arterial blood only.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1347</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1347/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1347/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28451,7 +28451,7 @@ G1691A Substitution Result:
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1348</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1348/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1348/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28526,7 +28526,7 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1349</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1349/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1349/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28615,7 +28615,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1350</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1350/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1350/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28730,7 +28730,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1351</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1351/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1351/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28817,7 +28817,7 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1352</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1352/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1352/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28906,7 +28906,7 @@ Lupus Inhibitor Comment:
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1353</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1353/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1353/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -28952,7 +28952,7 @@ Blank Report?
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1354</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1354/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1354/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -29022,7 +29022,7 @@ Albumin            23     g/L    ( 35-50    )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1355</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1355/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1355/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -29139,7 +29139,7 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1356</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1356/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1356/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -29236,7 +29236,7 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1357</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1357/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1357/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -29315,7 +29315,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1358</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1358/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1358/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -29410,7 +29410,7 @@ EtOH              0.02    gm%
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1364</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1364/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1364/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -29507,7 +29507,7 @@ Old Ref Ranges prior to 27th April 2004
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1365</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1365/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1365/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -29572,7 +29572,7 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
   <entry>
     <title>Example Lab Report</title>
     <id>http://hl7.org/fhir/DiagnosticReport/1366</id>
-    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1366/history/1"/>
+    <link rel="self" href="http://hl7.org/fhir/DiagnosticReport/1366/_history/1"/>
     <updated>2012-04-14T10:35:23Z</updated>
     <author>
       <name>FHIR Project Team</name>
