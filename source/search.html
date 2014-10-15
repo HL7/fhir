@@ -55,6 +55,12 @@ the results that are returned.
 </p>
 <a name="standard"> </a>
 <h3>Standard Parameters</h3>
+
+<a name="all"> </a>
+<h4>Parameters for all resource</h4>
+<p>
+Two parameters are defined that apply to all resources: _id and _language.
+</p>
 <p>
 The search parameter _id refers to the logical id of the resource, and can be used when the search context specifies a resource type:
 </p>
@@ -73,6 +79,17 @@ read operation</a>:
 except that it returns a bundle with the requested resource, rather than the 
 resource itself. However additional parameters can be added which may provide
 additional functionality on top of this base read equivalence.
+</p>
+<p>
+The search parameter _language refers to the base language of the resource:
+</p>
+<pre>
+ GET [base]/Composition?_language=fr
+</pre>
+<p>
+This search finds any compositions with a designated language of French.
+Note that this is the claimed language of the resource, not the actual
+language of the content.
 </p>
 <h4>Parameters for each resource</h4>
 <p>

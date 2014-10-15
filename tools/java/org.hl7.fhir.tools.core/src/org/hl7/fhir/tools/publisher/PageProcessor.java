@@ -3243,9 +3243,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       StringBuilder b = new StringBuilder();
       b.append("<h2>Search Parameters</h2>\r\n");
       if (resource.getName().equals("Query"))
-        b.append("<p>Search parameters for this resource. The standard parameters also apply as described above.</p>\r\n");
+        b.append("<p>Search parameters for this resource. The <a href=\"#all\">common parameters</a> also apply.</p>\r\n");
       else
-        b.append("<p>Search parameters for this resource. The standard parameters also apply. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
+        b.append("<p>Search parameters for this resource. The <a href=\"search.html#all\">common parameters</a> also apply. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
       List<String> names = new ArrayList<String>();
