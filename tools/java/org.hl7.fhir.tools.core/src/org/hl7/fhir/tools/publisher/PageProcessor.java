@@ -3922,9 +3922,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private void addToValuesets(AtomFeed atom, ValueSet vs, String id) {
-    AtomEntry e = new AtomEntry();
-    e.setId("http://hl7.org/fhir/vs/" + id);
-    e.getLinks().put("self", "http://hl7.org/fhir/vs/" + id);
+    AtomEntry<ValueSet> e = new AtomEntry<ValueSet>();
+    e.setId(id.contains(":") ? id : "http://hl7.org/fhir/vs/" + id);
     e.setTitle("Valueset \"" + id+ "\" to support automated processing");
     e.setUpdated(new DateAndTime(genDate));
     e.setPublished(new DateAndTime(genDate));
