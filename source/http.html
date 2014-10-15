@@ -637,6 +637,21 @@ http header "Category" is used, following the method described for <a href="http
  <a name="tags"> </a> Category: [Tag Term]; scheme="[Tag Scheme]"; label="[Tag label]"(, ...)
 </pre>
 <p>
+Here is an example:
+</p>
+<pre>
+HTTP/1.1 200 OK
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+Last-Modified: Thu, 19 Nov 2013 07:07:32 +1100
+Content-Location: http://[server]/[path]/Patient/234124/_history/24
+Category: http://hl7.org/fhir/v3/ActCode#CEL; scheme=&quot;http://hl7.org/fhir/tag/security&quot;; label=&quot;Celebrity&quot;
+
+&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+...  [snip] ...
+&lt;/Patient&gt;
+</pre>
+<p>
 The label portion is optional. Note that label may come before scheme. 
 Although Category is described as a repeating header, many implementations 
 require unique header names, so multiple tags are representing using the one header.
