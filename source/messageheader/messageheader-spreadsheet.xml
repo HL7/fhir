@@ -251,7 +251,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">MessageHeader.source.software</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Name of software running the system</Data></Cell>
     <Cell><Data ss:Type="String">May include configuration or other information useful in debugging.</Data></Cell>
@@ -410,7 +410,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>24</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -427,8 +427,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
