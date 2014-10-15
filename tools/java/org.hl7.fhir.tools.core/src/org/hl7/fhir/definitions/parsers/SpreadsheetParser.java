@@ -488,7 +488,7 @@ public class SpreadsheetParser {
 
       cd.setDescription(sheet.getColumn(row, "Description"));
       cd.setExample(parseBoolean(sheet.getColumn(row, "Example"), row, false));
-      if (isProfile) {
+      if (isProfile || cd.getBinding() == Binding.Reference) {
         cd.setExtensible(parseFullBoolean(sheet.getColumn(row, "Extensible"), row, false));
         cd.setConformance(BindingConformance.fromCode(sheet.getColumn(row, "Conformance")));
       }

@@ -158,6 +158,12 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           write("<td><a href=\"terminologies.html#example\">Example</a></td>");
         else if (cd.getBinding() == Binding.CodeList || (cd.getBinding() == Binding.ValueSet && cd.getBindingStrength() == BindingStrength.Required))
           write("<td><a href=\"terminologies.html#code\">Fixed</a></td>");
+        else if (cd.getBinding() == Binding.Special && cd.getConformance() == null && (cd.getBindingStrength() == null || cd.getBindingStrength() == BindingStrength.Required))
+          write("<td><a href=\"terminologies.html#code\">Fixed</a></td>");
+        else if (cd.getBinding() == Binding.Reference && cd.getConformance() == null)
+          write("<td><a href=\"terminologies.html#code\">Fixed</a></td>");
+        else if (cd.getConformance() == BindingConformance.EXAMPLE)
+          write("<td><a href=\"terminologies.html#example\">Example</a></td>");
         else
           write("<td><a href=\"terminologies.html#incomplete\">Incomplete</a></td>");
         write("<td valign=\"top\">");
