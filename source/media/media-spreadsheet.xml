@@ -225,19 +225,19 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Media.dateTime</Data></Cell>
+    <Cell><Data ss:Type="String">Media.created</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">When the media was taken/recorded (end)</Data></Cell>
+    <Cell><Data ss:Type="String">When the media was taken/recorded (start)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0008,0020 + 0008,0030</Data></Cell>
-    <Cell><Data ss:Type="String">When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording</Data></Cell>
+    <Cell><Data ss:Type="String">The date/time when the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the start of the recording</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">For an image including multiple frames, this is the start time</Data></Cell>
+    <Cell><Data ss:Type="String">For an image including multiple frames, this is the start time. Creation time is used for tracking, organizing versions and searching</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">.effectiveTime</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -445,7 +445,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

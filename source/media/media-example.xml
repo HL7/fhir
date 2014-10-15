@@ -16,7 +16,7 @@
   </subtype>
 
   <!-- the date this image was created -->
-  <dateTime value="2009-09-03"/>
+  <created value="2009-09-03"/>
 
   <subject>
     <reference value="Patient/xcda"/>
