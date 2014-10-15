@@ -776,8 +776,7 @@ content as is, along with the content type provided by the HTTP headers.
 </p>
 <p>
 Binary resources function with the same interactions as described
-above, except that there is no support for the search interaction. 
-The _format  parameter has no meaning when used with binary 
+above. The _format  parameter has no meaning when used with binary 
 resources: they are always represented using their original content type.
 </p>
 <p>
@@ -807,10 +806,18 @@ Content-Location: http://[server]/[path]/Binary/4/_history/1
 ...  [snip] ...
 &lt;/ClinicalDocument&gt;
 </pre>
-
-
 </div>
 
+<p>
+Searching Binary resources may use the following parameters:
+</p>
+
+<table class="list">
+<tbody><tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td></tr>
+<tr><td>_id</td><td><a href="search.html#token">token</a></td><td>The logical resource id associated with the resource (must be supported by all servers)</td></tr>
+<tr><td>size</td><td><a href="search.html#number">number</a></td><td>Size of the resource in bytes</td></tr>
+<tr><td>contenttype</td><td><a href="search.html#token">token</a></td><td>Content Type of the resource</td></tr>
+</tbody></table>
 
 <a name="paging"> </a>
 <h3>Paging</h3>
