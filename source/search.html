@@ -402,8 +402,19 @@ the type explicitly using the syntax in the second example above).
 <p>
 The result of the search operation is the intersection of the resources that match the criteria specified by each 
 individual search parameter. If a parameter repeats, such as /patient?language=FR&amp;language=NL, then 
-this matches a patient who speaks both languages. If, instead, the search is to find patients that speak either 
-language, then this is a single parameter with multiple values, separated by a ',': "/patient?language=FR,NL". 
+this matches a patient who speaks both languages. This is known as an AND query parameter, since the 
+server is expected to respond only with results which match both values.
+</p>
+<p>
+If, instead, the search is to find patients that speak either 
+language, then this is a single parameter with multiple values, separated by a ','. 
+For example: "/patient?language=FR,NL". This is known as an OR query parameter, 
+since the server is expected to respond with results which match either value.
+</p>
+<p>
+AND parameters and OR parameters may also be combined, for example: 
+"/patient?language=FR,NL&language=EN" would refer to any patient who speaks 
+English as well as either French or Dutch.
 </p>
 <p>
 This allows for simple combinations of and/or values, but doesn't allow a search based on 
