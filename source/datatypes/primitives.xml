@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-21T19:16:26Z</Created>
   <LastSaved>2014-10-14T21:58:56Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,7 +21,6 @@
   <WindowTopX>630</WindowTopX>
   <WindowTopY>780</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -219,9 +218,9 @@
     <Cell><Data ss:Type="String">xs:anyURI+</Data></Cell>
     <Cell><Data ss:Type="String">urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">id</Data><NamedCell ss:Name="id"/></Cell>
-    <Cell><Data ss:Type="String">Any combination of lowercase letters, numerals, &quot;-&quot; and &quot;.&quot;, with a length limit of 36 characters. &#160;(This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.) &#160;Systems SHALL send ids as lower-case but SHOULD interpret them case-insensitively.</Data></Cell>
+    <Cell><Data ss:Type="String">Any combination of lowercase letters, numerals, &quot;-&quot; and &quot;.&quot;, with a length limit of 36 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Systems SHALL send ids as lower-case but SHOULD interpret them case-insensitively.</Data></Cell>
     <Cell><Data ss:Type="String">RFC 4122</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">xs:string+</Data></Cell>
@@ -245,7 +244,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
