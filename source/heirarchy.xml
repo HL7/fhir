@@ -168,6 +168,7 @@ todo: compartments
   <page title="Infrastructure" filename="infrastructure.html">
     <page type="resource" resource="List"/>
     <page type="resource" resource="Media"/>
+    <page type="resource" resource="Basic"/>
     <page type="resource" resource="Other"/>
     <page type="resource" resource="Provenance"/>
     <page type="resource" resource="SecurityEvent"/>

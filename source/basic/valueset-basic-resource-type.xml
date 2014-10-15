@@ -1,0 +1,104 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Basic Resource Types"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set defines codes for resources not yet supported by (or which will never be supported by) FHIR.  Many of the codes listed here will eventually be turned into official resources.  However, there is no guarantee that any particular resource will be created nor that the scope will be exactly as defined by the codes presented here.  Codes in this set will be deprecated if/when formal resources are defined that encompass these concepts."/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/basic-resource-type"/>
+    <concept>
+      <code value="CONSENT"/>
+      <display value="consent"/>
+      <definition value="An assertion of permission for an activity or set of activities to occur, possibly subject to particular limitations.  E.g. surgical consent, information disclosure consent, etc."/>
+    </concept>
+    <concept>
+      <code value="REFERRAL"/>
+      <display value="referral"/>
+      <definition value="A request that care of a particular type be provided to a patient.  Could involve the transfer of care, a consult, etc."/>
+    </concept>
+    <concept>
+      <code value="SLOT"/>
+      <display value="resource slot"/>
+      <definition value="A bounded time-period when a particular set of resources (practioners, devices and/or locations) is available for the delivery of healthcare services.  Used for scheduling."/>
+    </concept>
+    <concept>
+      <code value="APTMT"/>
+      <display value="appointment"/>
+      <definition value="An agreement for a particular type of service to occur for a specified patient at a specific time with a particular set of resources (practitioners, devices, locations, etc.)"/>
+    </concept>
+    <concept>
+      <code value="APTMTREQ"/>
+      <display value="appointment request"/>
+      <definition value="A request that a time be scheduled for a type of service for a specified patient, potentially subject to other constraints"/>
+    </concept>
+    <concept>
+      <code value="TRANSFER"/>
+      <display value="transfer"/>
+      <definition value="The transition of a patient or set of material from one location to another"/>
+    </concept>
+    <concept>
+      <code value="DIET"/>
+      <display value="diet"/>
+      <definition value="The specification of a set of food and/or other nutritonal material to be delivered to a patient."/>
+    </concept>
+    <concept>
+      <code value="ADMINACT"/>
+      <display value="administrative activity"/>
+      <definition value="An occurrence of a non-care-related event in the healthcare domain, such as approvals, reviews, etc."/>
+    </concept>
+    <concept>
+      <code value="EXPOSURE"/>
+      <display value="exposure"/>
+      <definition value="Record of a situation where a subject was exposed to a substance.  Usually of interest to public health."/>
+    </concept>
+    <concept>
+      <code value="INVESTIGATION"/>
+      <display value="investigation"/>
+      <definition value="A formalized inquiry into the circumstances surrounding a particular unplanned event or potential event for the purposes of identifying possible causes and contributing factors for the event"/>
+    </concept>
+    <concept>
+      <code value="ACCOUNT"/>
+      <display value="account"/>
+      <definition value="A financial instrument used to track costs, charges or other amounts."/>
+    </concept>
+    <concept>
+      <code value="INVOICE"/>
+      <display value="invoice"/>
+      <definition value="A request for payment for goods and/or services.  Includes the idea of a healthcare insurance claim."/>
+    </concept>
+    <concept>
+      <code value="ADJUDICAT"/>
+      <display value="invoice adjudication"/>
+      <definition value="The determination of what will be paid against a particular invoice based on coverage, plan rules, etc."/>
+    </concept>
+    <concept>
+      <code value="PAYMENT"/>
+      <display value="payment"/>
+      <definition value="A record of a transfer of funds between accounts and/or individuals"/>
+    </concept>
+    <concept>
+      <code value="PREDETREQ"/>
+      <display value="predetermination request"/>
+      <definition value="A request for a predication of the cost that would be paid under an insurance plan for a hypothetical claim for goods or services"/>
+    </concept>
+    <concept>
+      <code value="PREDETERMINE"/>
+      <display value="predetermination"/>
+      <definition value="An adjudication of what would be paid under an insurance plan for a hypothetical claim for goods or services"/>
+    </concept>
+    <concept>
+      <code value="STUDY"/>
+      <display value="study"/>
+      <definition value="An investigation to determine information about a particular therapy or product"/>
+    </concept>
+    <concept>
+      <code value="PROTOCOL"/>
+      <display value="protocol"/>
+      <definition value="A set of (possibly conditional) steps to be taken to achieve some aim.  Includes study protocols, treatment protocols, emergency protocols, etc."/>
+    </concept>
+  </define>
+</ValueSet>

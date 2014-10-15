@@ -66,6 +66,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Disponibilidad</translation>
         <translation lang="fr">Disponibilité</translation>
     </item>
+    <item id="Basic">
+      <translation lang="en">Basic</translation>
+    </item>
     <item id="Binary">
         <translation lang="en">Binary</translation>
         <translation lang="zh">二进制</translation>
