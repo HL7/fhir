@@ -274,8 +274,12 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       else if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
         AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
         return cd.getBindingStrength().toString()+": <a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">Value Set Definition</a> ("+cd.getDefinition()+")";
-      } else if (cd.getReferredValueSet() != null)
-        return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference()+".html\">See "+cd.getReferredValueSet().getIdentifier()+"</a> ("+cd.getDefinition()+")";
+      } else if (cd.getReferredValueSet() != null) {
+        if (cd.getReference().startsWith("http://hl7.org/fhir/vs/"))
+          return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference().substring(23)+".html\">See "+cd.getReferredValueSet().getIdentifier()+"</a> ("+cd.getDefinition()+")";
+        else 
+          return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference()+".html\">See "+cd.getReferredValueSet().getIdentifier()+"</a> ("+cd.getDefinition()+")";
+      }
       else
       return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference()+".html\">Value Set Definition</a> ("+cd.getDefinition()+")";
     }
