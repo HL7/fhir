@@ -136,7 +136,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Instance id from manufacturer, owner and others</Data></Cell>
     <Cell><Data ss:Type="String">Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Often fixed to the device as a barcode. May include names given to the device in local usage. Note that some of the barcodes affixed to the device identify it's type, not it's instance</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Often fixed to the device as a barcode. May include names given to the device in local usage. Note that some of the barcodes affixed to the device identify its type, not its instance</Data></Cell>
     <Cell><Data ss:Type="String">.id</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

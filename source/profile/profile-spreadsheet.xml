@@ -2510,7 +2510,7 @@
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">This profile has been deprecated, withdrawn or superseded and should no longer be used</Data></Cell>
-    <Cell><Data ss:Type="String">Marking a proile as &quot;retired&quot; is an assertion by the profile author/maintainer that a profile should not be used anymore (often because the author would prefer implementers use something else).  Implementers are permitted to continue to use the profile, but best practice would be to phase it's use out</Data></Cell>
+    <Cell><Data ss:Type="String">Marking a proile as &quot;retired&quot; is an assertion by the profile author/maintainer that a profile should not be used anymore (often because the author would prefer implementers use something else).  Implementers are permitted to continue to use the profile, but best practice would be to phase its use out</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

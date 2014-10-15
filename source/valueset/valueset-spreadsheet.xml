@@ -683,7 +683,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If user cannot select this entry</Data></Cell>
     <Cell><Data ss:Type="String">If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">This shouldn't be understood to exclude it's use for searchig (e..g by subsumption testing). The client should know whether it is appropriate for the user to select an abstract code or not </Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">This shouldn't be understood to exclude its use for searchig (e..g by subsumption testing). The client should know whether it is appropriate for the user to select an abstract code or not </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">ValueSet.expansion.contains.version</Data></Cell>

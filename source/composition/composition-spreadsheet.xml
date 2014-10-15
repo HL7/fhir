@@ -233,7 +233,7 @@
     <Cell><Data ss:Type="String">Version specific identifier for the composition, assigned when each version is created/updated. </Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">While each resource, including the composition itself, has it's own version identifier, this is a formal identifier for the logical version of the composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example</Data></Cell>
+    <Cell><Data ss:Type="String">While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example</Data></Cell>
     <Cell><Data ss:Type="String">.id</Data></Cell>
     <Cell><Data ss:Type="String">.id</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -304,7 +304,7 @@
     <Cell><Data ss:Type="String">Human Readable name/title</Data></Cell>
     <Cell><Data ss:Type="String">Official human-readable label for the composition</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">If compositions do not have a title, the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;) can be used in it's place</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">If compositions do not have a title, the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;) can be used in its place</Data></Cell>
     <Cell><Data ss:Type="String">./title</Data></Cell>
     <Cell><Data ss:Type="String">.title</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -799,7 +799,7 @@
     <Cell><Data ss:Type="String">Narrative</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Text presentation of section, for human interpretation</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all it's entries, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all its entries, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"><Data ss:Type="String">narrative, html, xhtml, display</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">The presence of this text means that the Composition text does not contain details from the section, but only from the context. The text is optional because it is often not appropriate to have text if there are sub-sections. Note that there should always be a text if there is an empty reason present</Data></Cell>

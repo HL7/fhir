@@ -72,7 +72,7 @@ responsible for honoring the contract that applies (including applicable profile
 in both directions.
 </p>
 <p>
-A key aspect of a message is the impact of it's content:
+A key aspect of a message is the impact of its content:
 </p>
 <!--
 <table class="grid">
@@ -196,7 +196,7 @@ resends the message with same two identifiers.
 </p>
 <p>
 In this case, the imaging system successfully received the message, and processed it. Because
-it receives the resent order after 1 minute (which is within it's 15 minute cache time), 
+it receives the resent order after 1 minute (which is within its 15 minute cache time), 
 and the two UUIDs 1 and 2 match a message it has already processed, it knows that it already 
 processed the order, and simply returns the previous response. In the case of additional resent
 queries, the application keeps sending the original response, though it may also alert system
@@ -228,7 +228,7 @@ resends the message with same message id (UUID 4), but creates a new envelope id
 </p>
 <p>
 In this case, the imaging system successfully received the message, and processed it. When 
-it receives the resent order after 1 minute (which is within it's 15 minute cache time), it 
+it receives the resent order after 1 minute (which is within its 15 minute cache time), it 
 sees that although the message id is the same, the envelope id has changed, and it reprocesses
 the message again, and sends a new response.
 </p>

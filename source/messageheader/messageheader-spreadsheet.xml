@@ -180,7 +180,7 @@
     <Cell><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
     <Cell><Data ss:Type="String">Code for the event this message represents</Data></Cell>
-    <Cell><Data ss:Type="String">Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value &quot;http://hl7.org/fhir/message-type&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value &quot;http://hl7.org/fhir/message-type&quot;</Data></Cell>
     <Cell><Data ss:Type="String">Drives the behavior associated with this message</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./payload[classCode=&quot;CACT&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]/code[isNormalDatatype()]/code</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">MSH-9.2-message type.trigger event</Data></Cell>

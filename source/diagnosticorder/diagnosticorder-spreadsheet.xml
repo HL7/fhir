@@ -361,7 +361,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DIagnosticOrderEventDescription</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">More information about the event and it's context</Data><NamedCell
+    <Cell><Data ss:Type="String">More information about the event and its context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Additional information about the event that occurred - e.g. if the status remained unchanged</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

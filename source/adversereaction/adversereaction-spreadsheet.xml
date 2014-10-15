@@ -246,7 +246,7 @@
     <Cell><Data ss:Type="String">If true, indicates that no reaction occurred.</Data></Cell>
     <Cell><Data ss:Type="String">default=false</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s69"><Data ss:Type="String">Generally only useful in conjunction with other positive reaction records.  I.e. &quot;Patient reacted to A and B, but did not react when exposed to C, therefore . . .&quot;</Data></Cell>
-    <Cell><Data ss:Type="String">Note that the normal case is false, which is a double negative - it's not true that this reaction did not occur. The normal case is to assert that a reaction did happen</Data></Cell>
+    <Cell><Data ss:Type="String">Note that the normal case is false, which is a double negative - it i's not true that this reaction did not occur. The normal case is to assert that a reaction did happen</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">actionNegationInd</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>

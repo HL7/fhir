@@ -12,7 +12,7 @@
     <include>
       <system value="http://hl7.org/fhir/v3/ActRelationshipType"/>
       <!-- for these codes, we provide an alternative definition. It is consistent with the  
-         underlying act relationship definition, but specific to it's use in this case -->
+         underlying act relationship definition, but specific to its use in this case -->
       <concept>
         <code value="COMP"/>
         <extension url="http://hl7.org/fhir/Profile/tools-extensions#definition">

@@ -32,7 +32,7 @@ Many specifications define claims that may be made in regard to security princip
  <li><b>http://openid.net/connect/[x]</b>: A claim type defined in the OpenID Connect specification. [x] is the name of the claim, and the value will be an escaped JSON representation of the claim</li>
 </ul>
 <p>
-In addition, this specification defines two claim types of it's own:
+In addition, this specification defines two claim types of its own:
 </p>
 <ul>
  <li><b>http://hl7.org/fhir/tag/security</b>: a reference to a <a href="securitylabel.html">security label</a> - this means that the real world entity has the label applied to it</li>

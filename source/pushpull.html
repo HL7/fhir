@@ -70,7 +70,7 @@ The FHIR specification supports and enables both push and pull:
 <ul>
  <li>Push: The source is a client, and when new data is available, it uses <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, and <a href="http.html#transaction">transaction</a> to push data to the destination, which is a server</li>
  <li>Pull: The source is a server, and the destination is a client. When the client wants to use the data, it uses a combination of <a href="http.html#search">search</a> and <a href="http.html#read">read</a> so the users can find the data they need</li>
- <li>Push/Pull: The source is a server, and the destination is a client. On a regular basis, the destination queries the server for it's <a href="http.html#history">history</a>, and replicates the changes in its own copy of the database</li>
+ <li>Push/Pull: The source is a server, and the destination is a client. On a regular basis, the destination queries the server for its <a href="http.html#history">history</a>, and replicates the changes in its own copy of the database</li>
 </ul>
 
 

@@ -45,7 +45,7 @@ subscription from the server.
 </p>
 <p>
 The server may retry the notification a fixed number of times and/or
-refer errors to it's own alert logs. If the notification fails, the 
+refer errors to its own alert logs. If the notification fails, the 
 server should set the status to 'error', and mark the error in the 
 resource. If the notification succeeds, the server should update
 the status to "active again. If a subscription fails consistently 
@@ -160,7 +160,7 @@ protocol is used to listen for notifications:
 
 <h3>Email/SMS</h3>
 
-A client can register for it's user to receive notifications by
+A client can register for its user to receive notifications by
 email:
 
 <pre class="json">
