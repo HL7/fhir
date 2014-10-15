@@ -38,10 +38,15 @@ summary of their flags (if present).
 </p>
 <p>
 An HTML table is the recommended approach, though this is not required.
-There should be a representation in the narrative for each item in the 
-list, and vice versa, along with clear use of visual hints (borders, 
-lines, bullet marks, etc.) to ensure that human readers do not get 
-confused about which flags belongs with which item on space-poor displays (e.g. to prevent wrapping from separating the flags from the items).
+Each List.item should appear in the narrative for the resource.  I.e. It 
+should not be necessary to retrieve the list items in order to have a 
+human-readable rendering of the content. In addiiton, the narrative 
+should not suggest the list contains items for which there are no 
+corresponding List.item elements. If the list has flags, the representation 
+should make clear use of visual hints (borders, lines, bullet marks, etc.) 
+to ensure that human readers do not get confused about which flags belong 
+with which item on space-poor displays (e.g. to prevent wrapping from 
+separating the flags from the items).
 </p>
 
 <p>
