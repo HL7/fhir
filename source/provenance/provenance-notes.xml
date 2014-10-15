@@ -72,9 +72,9 @@ A version specific reference to a FHIR resource on the same server:
   &lt;agent&gt;
     &lt;type&gt;
       &lt;system value="http://hl7.org/fhir/resource-types"/&gt;
-      &lt;code value="Person"/&gt;
+      &lt;code value="Patient"/&gt;
     &lt;/type&gt;
-    &lt;reference value="person/@34/_history/3"/&gt;
+    &lt;reference value="Patient/34/_history/3"/&gt;
   &lt;/agent&gt;
 </pre>
 </div>
