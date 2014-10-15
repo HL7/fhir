@@ -208,7 +208,7 @@ done when the content can be identified properly, as once the identification is 
 An example of a contained resource:
 </p>
 <pre class="xml"> <!-- Can't fragment test this - too incomplete -->
- &lt;Document xmlns="http://hl7.org/fhir"&gt;
+ &lt;Composition xmlns="http://hl7.org/fhir"&gt;
   &lt;extension&gt;...&lt;/extension&gt;
   &lt;text&gt;...&lt;/text&gt;
   &lt;contained&gt;
@@ -223,13 +223,13 @@ An example of a contained resource:
     &lt;/custodian&gt;
     &lt;!-- other attributes --&gt;
   &lt;information&gt;
- &lt;/Document&gt;
+ &lt;/Composition&gt;
 </pre>
 <p>
 The same example in JSON:
 </p>
 <pre class="json"> 
-{ "resourceType" : "Document",
+{ "resourceType" : "Composition",
   "extension" : { ... },
   "text" : { .. },
   "contained: [
