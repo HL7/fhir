@@ -79,7 +79,7 @@ UDI:
 
 
 
-hl7connect.healthintersections.com.au/svc/fhir/person/search.xml?field=value&other=n
+fhir.healthintersections.com.au/open/person/search.xml?field=value&other=n
 
 
 <Person xmlns="http://hl7.org/fhir">

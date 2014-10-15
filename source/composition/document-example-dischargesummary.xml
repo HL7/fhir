@@ -29,11 +29,11 @@
           <display value="Normal"/>
         </confidentiality>
         <subject>
-          <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1"/>
+          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>
         </subject>
         <author>
-          <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Practitioner/example"/>
+          <reference value="http://fhir.healthintersections.com.au/open/Practitioner/example"/>
           <display value="Doctor Dave"/>
         </author>
         <!-- The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc. -->
@@ -45,7 +45,7 @@
                           Middlemore Hospital between Jan 20 and Feb ist 2013 </div>
           </text>
           <entry>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Encounter/example"/>
+            <reference value="http://fhir.healthintersections.com.au/open/Encounter/example"/>
           </entry>
         </section>
         <section>
@@ -124,8 +124,8 @@
     recipient knows where to go and get it if they need it - assuming it is available on-line of course.-->
   <entry>
     <title>Written by Doctor Dave</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Practitioner/example</id>
-    <link rel="self" href="http://hl7connect.healthintersections.com.au/svc/fhir/Practitioner/example/history/1"/>
+    <id>http://fhir.healthintersections.com.au/open/Practitioner/example</id>
+    <link rel="self" href="http://fhir.healthintersections.com.au/open/Practitioner/example/history/1"/>
     <updated>2013-05-05T16:13:03Z</updated>
     <author>
       <name>68.151.217.168</name>
@@ -148,8 +148,8 @@
   <!-- The Patient who is the subject of the document. Same coments as practitioner. -->
   <entry>
     <title>About Eve Everywoman</title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1</id>
-    <link rel="self" href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1/history/10"/>
+    <id>http://fhir.healthintersections.com.au/open/Patient/d1</id>
+    <link rel="self" href="http://fhir.healthintersections.com.au/open/Patient/d1/history/10"/>
     <updated>2013-05-05T16:13:03Z</updated>
     <author>
       <name>68.151.217.168</name>
@@ -193,8 +193,8 @@
   <!-- The encounter that is being documented.-->
   <entry>
     <title>Admission to Middlemore </title>
-    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Encounter/example</id>
-    <link rel="self" href="http://hl7connect.healthintersections.com.au/svc/fhir/Encounter/example/history/1"/>
+    <id>http://fhir.healthintersections.com.au/open/Encounter/example</id>
+    <link rel="self" href="http://fhir.healthintersections.com.au/open/Encounter/example/history/1"/>
     <updated>2013-05-05T16:13:03Z</updated>
     <author>
       <name>68.151.217.168</name>
@@ -215,7 +215,7 @@
           <text value="Orthopedic Admission"/>
         </type>
         <subject>
-          <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1"/>
+          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
         </subject>
         <hospitalization>
           <period>
@@ -330,7 +330,7 @@
           </flag>
           <deleted value="true"/>
           <item>
-            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/MedicationPrescription/1"/>
+            <reference value="http://fhir.healthintersections.com.au/open/MedicationPrescription/1"/>
             <display value="use of Ventolin Inhaler was discontinued"/>
           </item>
         </entry>
@@ -373,7 +373,7 @@
         <!-- The patient details will generally be in the Document resource in the Document bundle, but could just as easily
         point to a patient resource on a server-->
         <patient>
-          <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1"/>
+          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Peter Patient"/>
         </patient>
         <!-- The prescriber details could also be within the bundle, but has the same options as patient-->
@@ -486,7 +486,7 @@
         <recordedDate value="2012-09-17"/>
         <status value="confirmed"/>
         <subject>
-          <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1"/>
+          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>
         </subject>
         <substance>
@@ -511,7 +511,7 @@
     <content type="text/xml">
       <AdverseReaction xmlns="http://hl7.org/fhir">
         <subject>
-          <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/d1"/>
+          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>
         </subject>
         <didNotOccurFlag value="false"/>
