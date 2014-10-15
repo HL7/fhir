@@ -18,8 +18,8 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>6345</WindowHeight>
   <WindowWidth>20730</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6075</WindowTopY>
+  <WindowTopX>-750</WindowTopX>
+  <WindowTopY>2220</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -278,7 +278,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Specimen.collection.collected[x]</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime|Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Collection time</Data></Cell>
     <Cell><Data ss:Type="String">Time when specimen was collected from subject - the physiologically relevant time</Data></Cell>
