@@ -84,7 +84,7 @@
       
       <element>
         <path value="Observation.value[x]"/>
-        <!-- this can be one of 2 types: a code with a data null flavor, or a quantity. To enforce this, we're going to slice it  -->
+        <!-- this can be one of 2 types: a code with a data absent reason, or a quantity. To enforce this, we're going to slice it  -->
         <slicing>
           <discriminator value="type"/> <!-- todo: how to slice on type -->
           <ordered value="false"/>
