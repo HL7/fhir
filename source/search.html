@@ -27,7 +27,7 @@ In the simplest case, a search is executed by performing a GET operation
 in the RESTful framework:
 </p>
 <pre>
- GET [base-url]/[resourcetype](?parameters)
+ GET [base]/[resourcetype](?parameters)
 </pre>
 <p>
 For this RESTful search, the parameters are a series 
@@ -59,7 +59,7 @@ the results that are returned.
 The search parameter _id refers to the logical id of the resource, and can be used when the search context specifies a resource type:
 </p>
 <pre>
- GET [base-url]/patient?_id=23
+ GET [base]/Patient?_id=23
 </pre>
 <p>
 This search finds the patient resource with the given id (there can only be one 
@@ -67,7 +67,7 @@ resource for a given id). Functionally, this is equivalent to a <a href="http.ht
 read operation</a>:
 </p>
 <pre>
- GET [base-url]/Patient/23
+ GET [base]/Patient/23
 </pre>
 <p>
 except that it returns a bundle with the requested resource, rather than the 
@@ -207,7 +207,7 @@ concepts are relatively straight-forward, there are a number of subtleties invol
 As an example, the following query searches for all the procedures in a patient compartment that occurred over a 2 year period:
 </p>
 <pre>
- GET [base-url]/Patient/23/procedure?date=&gt;2010-01-01&amp;date=&lt;2011-12-31
+ GET [base]/Patient/23/Procedure?date=&gt;2010-01-01&amp;date=&lt;2011-12-31
 </pre>
 
 
@@ -221,8 +221,8 @@ server whether to do a left-partial search. The modifier :exact can be used to i
 that the match needs to be exact (the whole string, including casing and accents). For example:
 </p>
 <pre>
- GET [base-url]/Patient?name=eve
- GET [base-url]/Patient?name:exact=Eve
+ GET [base]/Patient?name=eve
+ GET [base]/Patient?name:exact=Eve
 </pre>
 <p>
 The first is a request to find any patients with "eve" in any part of the name. This would 
@@ -273,10 +273,10 @@ Here are some example searches:
 </p>
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
- <tr><td><pre> GET [base-url]/Patient?identifier=http://acme.org/patient|2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
- <tr><td><pre> GET [base-url]/Patient?gender=male</pre></td><td>Search for any patient with a gender that has a code "male", irrespective of the system. Note that this usually isn't very useful - systems generally define symbols where overlap is coincidental and not informative</td></tr>
- <tr><td><pre> GET [base-url]/Patient?gender=http://hl7.org/fhir/v2/0001|M</pre></td><td>Search for any patient with a gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
- <tr><td><pre> GET [base-url]/Patient?gender:text=male</pre></td><td>Search for any patient with a gender that has a text "male" associated with it (note: this will include "female")</td></tr>
+ <tr><td><pre> GET [base]/Patient?identifier=http://acme.org/patient|2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
+ <tr><td><pre> GET [base]/Patient?gender=male</pre></td><td>Search for any patient with a gender that has a code "male", irrespective of the system. Note that this usually isn't very useful - systems generally define symbols where overlap is coincidental and not informative</td></tr>
+ <tr><td><pre> GET [base]/Patient?gender=http://hl7.org/fhir/v2/0001|M</pre></td><td>Search for any patient with a gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
+ <tr><td><pre> GET [base]/Patient?gender:text=male</pre></td><td>Search for any patient with a gender that has a text "male" associated with it (note: this will include "female")</td></tr>
 </table>
 
 <a name="quantity" />
@@ -294,10 +294,10 @@ The comparator is optional; if it is not present, the default comparator is "=".
 
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
- <tr><td><pre> GET [base-url]/Observation?value=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4 mg where mg is understood as a UCUM unit (system/code)</td></tr>
- <tr><td><pre> GET [base-url]/Observation?value=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where the units - either the code  or the stated human units (units) are "mg"</td></tr>
- <tr><td><pre> GET [base-url]/Observation?value=&lt;5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg where mg is understood as a UCUM unit</td></tr>
- <tr><td><pre> GET [base-url]/Observation?value=~5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit. 
+ <tr><td><pre> GET [base]/Observation?value=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4 mg where mg is understood as a UCUM unit (system/code)</td></tr>
+ <tr><td><pre> GET [base]/Observation?value=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where the units - either the code  or the stated human units (units) are "mg"</td></tr>
+ <tr><td><pre> GET [base]/Observation?value=&lt;5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg where mg is understood as a UCUM unit</td></tr>
+ <tr><td><pre> GET [base]/Observation?value=~5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit. 
    The recommended value for the approximation is 10% of the stated value, but systems may choose other values where appropriate</td></tr>
 </table>
 
@@ -327,7 +327,7 @@ In these cases, multiple different resources may have the same logical identifie
 a type modifier after the name of the parameter to be explicit about the intended type:
 </p>
 <pre>
- GET [base-url]/condition?subject:Patient=23
+ GET [base]/Condition?subject:Patient=23
 </pre>
 <p>
 This searches for any conditions where the subject refers to the patient resource with the 
@@ -353,7 +353,7 @@ the Patient resource includes a parameter <i>name</i> which
 searches on patient name, then the search
 </p>
 <pre>
- GET [base-url]/DiagnosticReport?subject.name=peter
+ GET [base]/DiagnosticReport?subject.name=peter
 </pre>
 <p>
 is a request to return all the lab reports that have a subject whose name includes "peter". Because 
@@ -361,7 +361,7 @@ the Diagnostic Report subject can be one of a set of different resources, it's p
 the search to a particular type:
 </p>
 <pre>
- GET [base-url]/DiagnosticReport?subject:Patient.name=peter
+ GET [base]/DiagnosticReport?subject:Patient.name=peter
 </pre>
 <p>
 Which is a request to return all the lab reports that have a subject which is a patient, whose name includes "peter". 
@@ -441,7 +441,7 @@ multiple words with thesaurus and proximity considerations, and logical operatio
 such as AND, OR etc. For example:
 </p>
 <pre>
- GET [base-url]/Condition?_text=(bone OR liver) and metastases
+ GET [base]/Condition?_text=(bone OR liver) and metastases
 </pre>
 <p>
 This searches for all Condition resources with the word "metastases" and either 
@@ -471,14 +471,14 @@ security labels. Search supports the _tag, _profile and _security parameters to 
 by the term (URI) within the specific tag scheme. For example:
 </p>
 <pre>
- GET [base-url]/Condition?_tag=http://acme.org/fhir/tags/needs-review
+ GET [base]/Condition?_tag=http://acme.org/fhir/tags/needs-review
 </pre>
 <p>
 This searches for all Condition resources with a tag "http://acme.org/fhir/tags/needs-review" in the
 general tag scheme "http://hl7.org/fhir/tag". In the same manner:</p>
 <pre>
- GET [base-url]/DiagnosticReport?_profile=http://hl7.org/fhir/profile/lipid
- GET [base-url]/DiagnosticReport?_profile=http://localhost/profile/lipid
+ GET [base]/DiagnosticReport?_profile=http://hl7.org/fhir/profile/lipid
+ GET [base]/DiagnosticReport?_profile=http://localhost/profile/lipid
 </pre>
 <p>
 restricts the search to only DiagnosticReport resources that are tagged that they conform to a particular profile.
@@ -585,7 +585,7 @@ _include parameters.
 Each _include parameter specifies a path to a url (usually a resource reference):
 </p>
 <pre>
- GET [base-url]/MedicationDispense?_include=MedicationDispense.authorizingPrescription
+ GET [base]/MedicationDispense?_include=MedicationDispense.authorizingPrescription
     &amp;_include=MedicationPrescription.prescriber&amp;criteria...
 </pre>
 <p>
@@ -681,7 +681,7 @@ The client can request the server to return a summary portion of the resources
 only using the parameter "_summary":
 </p>
 <pre>
-   GET [base-url]/ValueSet?_summary=true
+   GET [base]/ValueSet?_summary=true
 </pre>
 <p>
 The <i>_summary</i> parameter requests the server to return only the elements marked 
@@ -744,7 +744,7 @@ More advanced search/query operations are specified by the
 _query parameter:
 </p>
 <pre>
-   GET [base-url]/Patient?_query=name&amp;parameters...
+   GET [base]/Patient?_query=name&amp;parameters...
 </pre>
 <p>
 The _query parameter names a custom search profile that
