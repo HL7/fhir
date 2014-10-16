@@ -9,12 +9,13 @@ repositories of profile definitions, compared with each other, and used as the b
 for code, report and UI generation. 
 </p>
 <p>
-Profile resources have three main parts:
+Profile resources have four main parts:
 </p>
 <ol>
  <li>A metadata section the describes the profile, and supports registry searching</li>
  <li><i>Structures</i> that define and describe how a Resource or Data Type is used</li>
  <li><i>Extension Definitions</i> that define extensions that can be used in structures</li>
+ <li><i>Search Criteria Defintions</i> that define additional mechanisms for searching resources</li>
 </ol>
 <p>
 Note that  as part of the specification itself, a <a href="downloads.html#profiles">full 
@@ -27,7 +28,7 @@ HL7 hosts one for public registration of FHIR profiles at (yet to be done).
 <div> 
 <h2>Boundaries and Relationships</h2> 
 <ul>
- <li>Profiles are used by <a href="conformance.html">Conformance Profiles</a> for specifying how resources are used</li>
+ <li>Profiles are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are used</li>
  <li>Profiles use <a href="valueset.html">Value Sets</a> to specify the content of coded elements</li>
 </ul>
 
@@ -43,8 +44,8 @@ before working with this resource.
 
 <h3>Metadata</h3>
 <p>
-The profile resource has a set of metadata that is mostly shared with the <a href="valueset.html">Value Set</a>
-and <a href="conformance.html">Conformance</a> resources. The metadata describes the profile, and helps 
+The profile resource has a set of metadata that is mostly shared with the <a href="valueset.html">Value Set</a>,
+<a href="conformance.html">Conformance</a> and other infrastructure resources. The metadata describes the profile, and helps 
 find the profile when registered in profile repositories. 
 </p>
 
