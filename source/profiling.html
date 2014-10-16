@@ -343,11 +343,10 @@ These entries together form a "slice group" that is:
 </ol>
 <p>
 The value of the discriminator element is either a path name that identifies
-the child element using a dotted notation, or a URI, which identifies 
-an extension that serves as the discriminator (and which must be found 
-on the element at which the slicing occurs). In the case above, the 
-discriminator is "target.name" (the fact that there is a resource
-boundary between "target" and "name" is implied, not represented directly).
+the child element using a dotted notation. For references, the path
+transitions smoothly across the reference and into the children of the 
+root element/object of the resource. For extensions, an extension can be
+qualified with the URL of the extensions being referred to.
 There are two special names: @type, and @profile. Here are some example discriminators:
 </p>
 <table class="grid">
