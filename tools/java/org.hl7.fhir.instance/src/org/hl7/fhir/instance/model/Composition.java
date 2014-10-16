@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -442,7 +442,7 @@ public class Composition extends Resource {
         protected Resource subjectTarget;
 
         /**
-         * A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all it's entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.
+         * A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all its entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.
          */
         protected Narrative text;
 
@@ -576,14 +576,14 @@ public class Composition extends Resource {
         }
 
         /**
-         * @return {@link #text} (A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all it's entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.)
+         * @return {@link #text} (A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all its entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.)
          */
         public Narrative getText() { 
           return this.text;
         }
 
         /**
-         * @param value {@link #text} (A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all it's entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.)
+         * @param value {@link #text} (A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all its entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.)
          */
         public SectionComponent setText(Narrative value) { 
           this.text = value;
@@ -667,7 +667,7 @@ public class Composition extends Resource {
           childrenList.add(new Property("identifier", "Identifier", "Identifier for the section assigned for business purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("code", "CodeableConcept", "A code identifying the kind of content contained within the section.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("subject", "Reference(Patient|Group|Device)", "Identifies the primary subject of the section.", 0, java.lang.Integer.MAX_VALUE, subject));
-          childrenList.add(new Property("text", "Narrative", "A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all it's entries, but is required to contain sufficient detail to make it 'clinically safe' for a human to just read the narrative.", 0, java.lang.Integer.MAX_VALUE, text));
+          childrenList.add(new Property("text", "Narrative", "A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all its entries, but is required to contain sufficient detail to make it 'clinically safe' for a human to just read the narrative.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("emptyReason", "CodeableConcept", "If the section is empty, why the section is empty.", 0, java.lang.Integer.MAX_VALUE, emptyReason));
           childrenList.add(new Property("order", "CodeableConcept", "If the items in the list or the sub-sections have a meaningful order, what that meaning is. The order of the entries should always match the order in which they are presented in the narrative.", 0, java.lang.Integer.MAX_VALUE, order));
           childrenList.add(new Property("section", "@Composition.section", "A nested sub-section within this section.", 0, java.lang.Integer.MAX_VALUE, section));

@@ -34,9 +34,9 @@ package org.hl7.fhir.instance.model;
 import java.util.*;
 
 /**
- * Other is a conformant for handling resource concepts not yet defined for FHIR or outside HL7's scope of interest.
+ * Basic is a conformant for handling resource concepts not yet defined for FHIR or outside HL7's scope of interest.
  */
-public class Other extends Resource {
+public class Basic extends Resource {
 
     /**
      * Identifier assigned to the resource for business purposes, outside the context of FHIR.
@@ -75,11 +75,11 @@ public class Other extends Resource {
 
     private static final long serialVersionUID = -58884148L;
 
-    public Other() {
+    public Basic() {
       super();
     }
 
-    public Other(CodeableConcept code) {
+    public Basic(CodeableConcept code) {
       super();
       this.code = code;
     }
@@ -111,7 +111,7 @@ public class Other extends Resource {
     /**
      * @param value {@link #code} (Identifies the 'type' of resource - equivalent to the resource name for other resources.)
      */
-    public Other setCode(CodeableConcept value) { 
+    public Basic setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
@@ -126,7 +126,7 @@ public class Other extends Resource {
     /**
      * @param value {@link #subject} (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
      */
-    public Other setSubject(Reference value) { 
+    public Basic setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -141,7 +141,7 @@ public class Other extends Resource {
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
      */
-    public Other setSubjectTarget(Resource value) { 
+    public Basic setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -156,7 +156,7 @@ public class Other extends Resource {
     /**
      * @param value {@link #author} (Indicates who was responsible for creating the resource instance.)
      */
-    public Other setAuthor(Reference value) { 
+    public Basic setAuthor(Reference value) { 
       this.author = value;
       return this;
     }
@@ -171,7 +171,7 @@ public class Other extends Resource {
     /**
      * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates who was responsible for creating the resource instance.)
      */
-    public Other setAuthorTarget(Resource value) { 
+    public Basic setAuthorTarget(Resource value) { 
       this.authorTarget = value;
       return this;
     }
@@ -186,7 +186,7 @@ public class Other extends Resource {
     /**
      * @param value {@link #created} (Identifies when the resource was first created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public Other setCreatedElement(DateType value) { 
+    public Basic setCreatedElement(DateType value) { 
       this.created = value;
       return this;
     }
@@ -201,7 +201,7 @@ public class Other extends Resource {
     /**
      * @param value Identifies when the resource was first created.
      */
-    public Other setCreated(DateAndTime value) { 
+    public Basic setCreated(DateAndTime value) { 
       if (value == null)
         this.created = null;
       else {
@@ -221,8 +221,8 @@ public class Other extends Resource {
         childrenList.add(new Property("created", "date", "Identifies when the resource was first created.", 0, java.lang.Integer.MAX_VALUE, created));
       }
 
-      public Other copy() {
-        Other dst = new Other();
+      public Basic copy() {
+        Basic dst = new Basic();
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
@@ -233,13 +233,13 @@ public class Other extends Resource {
         return dst;
       }
 
-      protected Other typedCopy() {
+      protected Basic typedCopy() {
         return copy();
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.Other;
+    return ResourceType.Basic;
    }
 
 

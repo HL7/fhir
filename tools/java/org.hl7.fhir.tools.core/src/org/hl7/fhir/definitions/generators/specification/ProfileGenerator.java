@@ -95,7 +95,7 @@ public class ProfileGenerator {
     None, 
     Resource,
     DataType
-  }
+  } 
 
   private WorkerContext context;
   private Definitions definitions;
@@ -704,11 +704,11 @@ public class ProfileGenerator {
     // slicing group, add a slicing group "entry" (= first slice member,
     // which holds Slicing information)
     if (!Utilities.noString(e.getProfileName())) {
-      if (!Utilities.noString(e.getDiscriminator()) && !slices.contains(path)) {
+      if (e.getDiscriminator().size() > 0 && !slices.contains(path)) {
         ce.setSlicing(new Profile.ElementSlicingComponent());
-        String[] d = e.getDiscriminator().split("\\|");
+        String[] d = e.getDiscriminator().get(0).split("\\|");
         if (d.length >= 1)
-          ce.getSlicing().setDiscriminator(d[0].trim());
+          ce.getSlicing().addDiscriminator(d[0].trim());
         if (d.length >= 2)
           ce.getSlicing().setOrdered(Boolean.getBoolean(d[1].trim()));
         else
@@ -717,6 +717,9 @@ public class ProfileGenerator {
           ce.getSlicing().setRules(ResourceSlicingRules.fromCode(d[2].trim()));
         else
           ce.getSlicing().setRules(ResourceSlicingRules.OPEN);
+        for (int i = 1; i < e.getDiscriminator().size(); i++) { // we've already process the first in the list
+          ce.getSlicing().addDiscriminator(e.getDiscriminator().get(i).trim());
+        }
         ce = new Profile.ElementComponent();
         c.getElement().add(ce);
         ce.setPath(path);

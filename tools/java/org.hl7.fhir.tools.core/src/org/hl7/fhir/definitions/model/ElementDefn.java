@@ -42,7 +42,7 @@ public class ElementDefn {
 	
 	private List<TypeRef> types = new ArrayList<TypeRef>();
 	private List<ElementDefn> elements = new ArrayList<ElementDefn>();
-
+ 
 	private Integer minCardinality;
 	private Integer maxCardinality;
 	private List<Invariant> statedInvariants = new ArrayList<Invariant>(); // a reference to an invariant defined on another element, but which constrains this one
@@ -74,7 +74,7 @@ public class ElementDefn {
 	private List<String> tasks = new ArrayList<String>();
 	
 	private String profileName; // only in a profile, for slicing
-	private String discriminator; // when slicing
+	private List<String> discriminator = new ArrayList<String>(); // when slicing
 	private String value; // only in a profile
 	private ElementComponent derivation;
 	private boolean inherited; // in a profile, was this element add from the
@@ -691,12 +691,8 @@ public class ElementDefn {
     this.umlBreak = umlBreak;
   }
 
-  public String getDiscriminator() {
+  public List<String> getDiscriminator() {
     return discriminator;
-  }
-
-  public void setDiscriminator(String discriminator) {
-    this.discriminator = discriminator;
   }
 
   public boolean hasSvg() {

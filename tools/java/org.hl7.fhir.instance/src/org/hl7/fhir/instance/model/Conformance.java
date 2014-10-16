@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -774,7 +774,7 @@ public class Conformance extends Resource {
         protected List<SystemInteractionComponent> interaction = new ArrayList<SystemInteractionComponent>();
 
         /**
-         * Definition of an operation or a named query and with it's parameters and their meaning and type.
+         * Definition of an operation or a named query and with its parameters and their meaning and type.
          */
         protected List<ConformanceRestOperationComponent> operation = new ArrayList<ConformanceRestOperationComponent>();
 
@@ -912,7 +912,7 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return {@link #operation} (Definition of an operation or a named query and with it's parameters and their meaning and type.)
+         * @return {@link #operation} (Definition of an operation or a named query and with its parameters and their meaning and type.)
          */
         public List<ConformanceRestOperationComponent> getOperation() { 
           return this.operation;
@@ -920,7 +920,7 @@ public class Conformance extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #operation} (Definition of an operation or a named query and with it's parameters and their meaning and type.)
+         * @return {@link #operation} (Definition of an operation or a named query and with its parameters and their meaning and type.)
          */
         public ConformanceRestOperationComponent addOperation() { 
           ConformanceRestOperationComponent t = new ConformanceRestOperationComponent();
@@ -972,7 +972,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("security", "", "Information about security of implementation.", 0, java.lang.Integer.MAX_VALUE, security));
           childrenList.add(new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction));
-          childrenList.add(new Property("operation", "", "Definition of an operation or a named query and with it's parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
+          childrenList.add(new Property("operation", "", "Definition of an operation or a named query and with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
           childrenList.add(new Property("documentMailbox", "uri", "A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this purpose.", 0, java.lang.Integer.MAX_VALUE, documentMailbox));
         }
 

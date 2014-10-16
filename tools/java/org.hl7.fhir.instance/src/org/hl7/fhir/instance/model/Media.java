@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -104,9 +104,9 @@ public class Media extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.
+     * The date/time when the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the start of the recording.
      */
-    protected DateTimeType dateTime;
+    protected DateTimeType created;
 
     /**
      * Who/What this Media is a record of.
@@ -154,16 +154,16 @@ public class Media extends Resource {
     protected IntegerType frames;
 
     /**
-     * The length of the recording in seconds - for audio and video.
+     * The duration of the recording in seconds - for audio and video.
      */
-    protected IntegerType length;
+    protected IntegerType duration;
 
     /**
      * The actual content of the media - inline or by direct reference to the media source file.
      */
     protected Attachment content;
 
-    private static final long serialVersionUID = -539142937L;
+    private static final long serialVersionUID = 2120969484L;
 
     public Media() {
       super();
@@ -240,37 +240,37 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
+     * @return {@link #created} (The date/time when the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the start of the recording.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateTimeType getDateTimeElement() { 
-      return this.dateTime;
+    public DateTimeType getCreatedElement() { 
+      return this.created;
     }
 
     /**
-     * @param value {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
+     * @param value {@link #created} (The date/time when the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the start of the recording.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public Media setDateTimeElement(DateTimeType value) { 
-      this.dateTime = value;
+    public Media setCreatedElement(DateTimeType value) { 
+      this.created = value;
       return this;
     }
 
     /**
-     * @return When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.
+     * @return The date/time when the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the start of the recording.
      */
-    public DateAndTime getDateTime() { 
-      return this.dateTime == null ? null : this.dateTime.getValue();
+    public DateAndTime getCreated() { 
+      return this.created == null ? null : this.created.getValue();
     }
 
     /**
-     * @param value When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.
+     * @param value The date/time when the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the start of the recording.
      */
-    public Media setDateTime(DateAndTime value) { 
+    public Media setCreated(DateAndTime value) { 
       if (value == null)
-        this.dateTime = null;
+        this.created = null;
       else {
-        if (this.dateTime == null)
-          this.dateTime = new DateTimeType();
-        this.dateTime.setValue(value);
+        if (this.created == null)
+          this.created = new DateTimeType();
+        this.created.setValue(value);
       }
       return this;
     }
@@ -495,37 +495,37 @@ public class Media extends Resource {
     }
 
     /**
-     * @return {@link #length} (The length of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getLength" gives direct access to the value
+     * @return {@link #duration} (The duration of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
      */
-    public IntegerType getLengthElement() { 
-      return this.length;
+    public IntegerType getDurationElement() { 
+      return this.duration;
     }
 
     /**
-     * @param value {@link #length} (The length of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getLength" gives direct access to the value
+     * @param value {@link #duration} (The duration of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
      */
-    public Media setLengthElement(IntegerType value) { 
-      this.length = value;
+    public Media setDurationElement(IntegerType value) { 
+      this.duration = value;
       return this;
     }
 
     /**
-     * @return The length of the recording in seconds - for audio and video.
+     * @return The duration of the recording in seconds - for audio and video.
      */
-    public int getLength() { 
-      return this.length == null ? null : this.length.getValue();
+    public int getDuration() { 
+      return this.duration == null ? null : this.duration.getValue();
     }
 
     /**
-     * @param value The length of the recording in seconds - for audio and video.
+     * @param value The duration of the recording in seconds - for audio and video.
      */
-    public Media setLength(int value) { 
+    public Media setDuration(int value) { 
       if (value == -1)
-        this.length = null;
+        this.duration = null;
       else {
-        if (this.length == null)
-          this.length = new IntegerType();
-        this.length.setValue(value);
+        if (this.duration == null)
+          this.duration = new IntegerType();
+        this.duration.setValue(value);
       }
       return this;
     }
@@ -550,7 +550,7 @@ public class Media extends Resource {
         childrenList.add(new Property("type", "code", "Whether the media is a photo (still image), an audio recording, or a video recording.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("subtype", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, java.lang.Integer.MAX_VALUE, subtype));
         childrenList.add(new Property("identifier", "Identifier", "Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("dateTime", "dateTime", "When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.", 0, java.lang.Integer.MAX_VALUE, dateTime));
+        childrenList.add(new Property("created", "dateTime", "The date/time when the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the start of the recording.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device|Specimen)", "Who/What this Media is a record of.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("operator", "Reference(Practitioner)", "The person who administered the collection of the image.", 0, java.lang.Integer.MAX_VALUE, operator));
         childrenList.add(new Property("view", "CodeableConcept", "The name of the imaging view e.g Lateral or Antero-posterior (AP).", 0, java.lang.Integer.MAX_VALUE, view));
@@ -558,7 +558,7 @@ public class Media extends Resource {
         childrenList.add(new Property("height", "integer", "Height of the image in pixels(photo/video).", 0, java.lang.Integer.MAX_VALUE, height));
         childrenList.add(new Property("width", "integer", "Width of the image in pixels (photo/video).", 0, java.lang.Integer.MAX_VALUE, width));
         childrenList.add(new Property("frames", "integer", "The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.", 0, java.lang.Integer.MAX_VALUE, frames));
-        childrenList.add(new Property("length", "integer", "The length of the recording in seconds - for audio and video.", 0, java.lang.Integer.MAX_VALUE, length));
+        childrenList.add(new Property("duration", "integer", "The duration of the recording in seconds - for audio and video.", 0, java.lang.Integer.MAX_VALUE, duration));
         childrenList.add(new Property("content", "Attachment", "The actual content of the media - inline or by direct reference to the media source file.", 0, java.lang.Integer.MAX_VALUE, content));
       }
 
@@ -569,7 +569,7 @@ public class Media extends Resource {
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
-        dst.dateTime = dateTime == null ? null : dateTime.copy();
+        dst.created = created == null ? null : created.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.operator = operator == null ? null : operator.copy();
         dst.view = view == null ? null : view.copy();
@@ -577,7 +577,7 @@ public class Media extends Resource {
         dst.height = height == null ? null : height.copy();
         dst.width = width == null ? null : width.copy();
         dst.frames = frames == null ? null : frames.copy();
-        dst.length = length == null ? null : length.copy();
+        dst.duration = duration == null ? null : duration.copy();
         dst.content = content == null ? null : content.copy();
         return dst;
       }

@@ -87,7 +87,7 @@ public class SpreadsheetParser {
 	private BindingNameRegistry registry;
   private String dataTypesFolder;
   private String txFolder;
-  private String version;
+  private String version; 
 
 	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version) throws Exception {
 		this.name = name;
@@ -869,7 +869,9 @@ public class SpreadsheetParser {
 			e.setMaxCardinality("*".equals(card[1]) ? null : Integer.parseInt(card[1]));
 		}
 		e.setProfileName(profileName);
-		e.setDiscriminator(discriminator);
+		for (String d : discriminator.split("\\,"))
+		  if (!Utilities.noString(d))
+		    e.getDiscriminator().add(d);
 		doAliases(sheet, row, e);
     if (sheet.hasColumn(row, "Must Understand"))
       throw new Exception("Column 'Must Understand' has been renamed to 'Is Modifier'");

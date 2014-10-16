@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -264,9 +264,8 @@ public class MessageHeader extends Resource {
         super();
       }
 
-      public MessageSourceComponent(StringType software, UriType endpoint) {
+      public MessageSourceComponent(UriType endpoint) {
         super();
-        this.software = software;
         this.endpoint = endpoint;
       }
 
@@ -332,9 +331,13 @@ public class MessageHeader extends Resource {
          * @param value May include configuration or other information useful in debugging.
          */
         public MessageSourceComponent setSoftware(String value) { 
+          if (value == null)
+            this.software = null;
+          else {
             if (this.software == null)
               this.software = new StringType();
             this.software.setValue(value);
+          }
           return this;
         }
 
@@ -600,7 +603,7 @@ public class MessageHeader extends Resource {
     protected InstantType timestamp;
 
     /**
-     * Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".
+     * Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".
      */
     protected Coding event;
 
@@ -753,14 +756,14 @@ public class MessageHeader extends Resource {
     }
 
     /**
-     * @return {@link #event} (Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".)
+     * @return {@link #event} (Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".)
      */
     public Coding getEvent() { 
       return this.event;
     }
 
     /**
-     * @param value {@link #event} (Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".)
+     * @param value {@link #event} (Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".)
      */
     public MessageHeader setEvent(Coding value) { 
       this.event = value;
@@ -977,7 +980,7 @@ public class MessageHeader extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "id", "The identifier of this message.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("timestamp", "instant", "The time that the message was sent.", 0, java.lang.Integer.MAX_VALUE, timestamp));
-        childrenList.add(new Property("event", "Coding", "Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value 'http://hl7.org/fhir/message-type'.", 0, java.lang.Integer.MAX_VALUE, event));
+        childrenList.add(new Property("event", "Coding", "Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value 'http://hl7.org/fhir/message-type'.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("response", "", "Information about the message that this message is a response to.  Only present if this message is a response.", 0, java.lang.Integer.MAX_VALUE, response));
         childrenList.add(new Property("source", "", "The source application from which this message originated.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("destination", "", "The destination application which the message is intended for.", 0, java.lang.Integer.MAX_VALUE, destination));

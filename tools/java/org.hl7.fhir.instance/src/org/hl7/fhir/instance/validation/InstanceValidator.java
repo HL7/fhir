@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.instance.formats.JsonComposer;
-import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.CodeableConcept;
@@ -263,6 +261,8 @@ public class InstanceValidator extends BaseValidator {
     rule(errors, "invalid", path, element.getNamedChild("title") != null, "Entry must have a title");
     rule(errors, "invalid", path, element.getNamedChild("updated") != null, "Entry must have a last updated time");
     rule(errors, "invalid", path, feedHasAuthor || element.getNamedChild("author") != null, "Entry must have an author because the feed doesn't");
+
+
 
     ChildIterator ci = new ChildIterator(path, element);
     while (ci.next()) {

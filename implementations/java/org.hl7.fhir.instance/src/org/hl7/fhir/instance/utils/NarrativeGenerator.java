@@ -37,10 +37,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Attachment;
+import org.hl7.fhir.instance.model.Base64BinaryType;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.CodeableConcept;
@@ -340,6 +342,8 @@ public class NarrativeGenerator {
       x.addText(((InstantType) e).getValue().toHumanDisplay());
     else if (e instanceof DateTimeType)
       x.addText(((DateTimeType) e).getValue().toHumanDisplay());
+    else if (e instanceof Base64BinaryType)
+      x.addText(new Base64().encodeAsString(((Base64BinaryType) e).getValue()));
     else if (e instanceof org.hl7.fhir.instance.model.DateType)
       x.addText(((org.hl7.fhir.instance.model.DateType) e).getValue().toHumanDisplay());
     else if (e instanceof Enumeration)

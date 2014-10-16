@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1139,6 +1139,28 @@ public class JsonParser extends JsonParserBase {
       res.setLastModifiedElement(parseDateTime(json.get("lastModified").getAsString()));
     if (json.has("_lastModified"))
       parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModifiedElement());
+    return res;
+  }
+
+  private Basic parseBasic(JsonObject json) throws Exception {
+    Basic res = new Basic();
+    parseResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("subject"))
+      res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("author"))
+      res.setAuthor(parseReference(json.getAsJsonObject("author")));
+    if (json.has("created"))
+      res.setCreatedElement(parseDate(json.get("created").getAsString()));
+    if (json.has("_created"))
+      parseElementProperties(json.getAsJsonObject("_created"), res.getCreatedElement());
     return res;
   }
 
@@ -3810,10 +3832,10 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("dateTime"))
-      res.setDateTimeElement(parseDateTime(json.get("dateTime").getAsString()));
-    if (json.has("_dateTime"))
-      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeElement());
+    if (json.has("created"))
+      res.setCreatedElement(parseDateTime(json.get("created").getAsString()));
+    if (json.has("_created"))
+      parseElementProperties(json.getAsJsonObject("_created"), res.getCreatedElement());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("operator"))
@@ -3836,10 +3858,10 @@ public class JsonParser extends JsonParserBase {
       res.setFramesElement(parseInteger(json.get("frames").getAsLong()));
     if (json.has("_frames"))
       parseElementProperties(json.getAsJsonObject("_frames"), res.getFramesElement());
-    if (json.has("length"))
-      res.setLengthElement(parseInteger(json.get("length").getAsLong()));
-    if (json.has("_length"))
-      parseElementProperties(json.getAsJsonObject("_length"), res.getLengthElement());
+    if (json.has("duration"))
+      res.setDurationElement(parseInteger(json.get("duration").getAsLong()));
+    if (json.has("_duration"))
+      parseElementProperties(json.getAsJsonObject("_duration"), res.getDurationElement());
     if (json.has("content"))
       res.setContent(parseAttachment(json.getAsJsonObject("content")));
     return res;
@@ -5556,10 +5578,21 @@ public class JsonParser extends JsonParserBase {
   private Profile.ElementSlicingComponent parseProfileElementSlicingComponent(JsonObject json, Profile owner) throws Exception {
     Profile.ElementSlicingComponent res = new Profile.ElementSlicingComponent();
     parseBackboneProperties(json, res);
-    if (json.has("discriminator"))
-      res.setDiscriminatorElement(parseId(json.get("discriminator").getAsString()));
-    if (json.has("_discriminator"))
-      parseElementProperties(json.getAsJsonObject("_discriminator"), res.getDiscriminatorElement());
+    if (json.has("discriminator")) {
+      JsonArray array = json.getAsJsonArray("discriminator");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDiscriminator().add(parseId(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_discriminator")) {
+      JsonArray array = json.getAsJsonArray("_discriminator");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getDiscriminator().size())
+          res.getDiscriminator().add(parseId(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getDiscriminator().get(i));
+      }
+    };
     if (json.has("ordered"))
       res.setOrderedElement(parseBoolean(json.get("ordered").getAsBoolean()));
     if (json.has("_ordered"))
@@ -7211,6 +7244,8 @@ public class JsonParser extends JsonParserBase {
       return parseAppointmentResponse(json);
     else if (t.equals("Availability"))
       return parseAvailability(json);
+    else if (t.equals("Basic"))
+      return parseBasic(json);
     else if (t.equals("CarePlan"))
       return parseCarePlan(json);
     else if (t.equals("Composition"))
@@ -7506,6 +7541,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"AppointmentResponse"))
       return true;
     if (json.has(prefix+"Availability"))
+      return true;
+    if (json.has(prefix+"Basic"))
       return true;
     if (json.has(prefix+"CarePlan"))
       return true;

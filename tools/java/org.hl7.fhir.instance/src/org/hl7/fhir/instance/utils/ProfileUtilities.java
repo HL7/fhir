@@ -9,6 +9,7 @@ import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.BooleanType;
+import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
@@ -512,12 +513,12 @@ public class ProfileUtilities {
     }
     return result;
   }
-
+ 
   private void updateFromSlicing(ElementSlicingComponent dst, ElementSlicingComponent src) {
     if (src.getOrderedElement() != null)
       dst.setOrderedElement(src.getOrderedElement().copy());
-    if (src.getDiscriminatorElement() != null)
-      dst.setDiscriminatorElement(src.getDiscriminatorElement().copy());
+    if (src.getDiscriminator().isEmpty())
+      dst.getDiscriminator().addAll(src.getDiscriminator());
     if (src.getRulesElement() != null)
       dst.setRulesElement(src.getRulesElement().copy());
   }
@@ -526,8 +527,15 @@ public class ProfileUtilities {
     return (diff == null) || (base == null) || (diff == base);
   }
 
-  private boolean discriiminatorMatches(String diff, String base) {
-    return (diff == null) || (base == null) || (diff.equals(base));
+  private boolean discriiminatorMatches(List<IdType> diff, List<IdType> base) {
+    if (diff.isEmpty() || base.isEmpty()) 
+    	return true; 
+    if (diff.size() != base.size())
+    	return false;
+    for (int i = 0; i < diff.size(); i++)
+    	if (diff.get(i).getValue().equals(base.get(i).getValue()))
+    		return false;
+    return true;
   }
 
   private boolean ruleMatches(ResourceSlicingRules diff, ResourceSlicingRules base) {
@@ -541,7 +549,7 @@ public class ProfileUtilities {
 
   private ElementSlicingComponent makeExtensionSlicing() {
     ElementSlicingComponent slice = new ElementSlicingComponent();
-    slice.setDiscriminator("url");
+    slice.addDiscriminator("url");
     slice.setOrdered(true);
     slice.setRules(ResourceSlicingRules.OPENATEND);
     return slice;

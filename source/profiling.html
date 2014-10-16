@@ -11,6 +11,8 @@
 
 <div class="col-9">
 
+[%profilesheader base%]
+
 <h2>Profiling FHIR</h2>
 
 <p>
@@ -354,14 +356,14 @@ There are two special names: @type, and @profile. Here are some example discrimi
  <tr>  <td>List.entry</td> <td>item.reference.name</td> <td>Entries are differentiated by the name element on the target resource - probably an observation, which could be determined by other information in the profile</td> </tr>
  <tr>  <td>List.entry</td> <td>item.reference.@type</td> <td>Entries are differentiated by the type of the target element that the reference points to</td> </tr>
  <tr>  <td>List.entry</td> <td>item.reference.@profile</td> <td>Entries are differentiated by a profile tag on the target of the reference, as specified by a profile (todo: how to do that?)</td> </tr>
- <tr>  <td>List.entry</td> <td>item.extension.@url</td> <td>Entries are differentiated by the url of their extension (this doesn't really make sense)</td> </tr>
+ <tr>  <td>List.entry</td> <td>item.extension.url</td> <td>Entries are differentiated by the url of their extension (this doesn't really make sense)</td> </tr>
  <tr>  <td>List.entry</td> <td>item.extension["http://acme.org/extensions/test"].code</td> <td>Entries are differentiated by the value of the code element in the extension with the nominated URL</td> </tr>
+ <tr>  <td>List.entry.extension</td> <td>url</td> <td>Extensions are differentiated by the value of their url property (usually how extensions are sliced)</td> </tr>
 </table>
 
 <p>
-TODO: examples
+See <a href="profiling-examples.html">examples of slicing and discriminators</a>.
 </p>
-
 
 <a name="extensions"> </a>
 <h3>Extension Definitions</h3>

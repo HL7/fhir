@@ -362,6 +362,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+extHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("narrheader"))
         src = s1+narrHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("profilesheader"))
+        src = s1+profilesHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("extrasheader"))
         src = s1+extrasHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("refheader"))
@@ -1681,6 +1683,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
+  private String profilesHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Profiling FHIR", "profiling.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "profiling-examples.html", mode==null || "examples".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
   private String extrasHeader(String mode) {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
@@ -2353,7 +2364,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
       else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("extheader") || com[0].equals("narrheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || 
-          com[0].equals("txheader") || com[0].equals("refheader") || com[0].equals("extrasheader") ||
+          com[0].equals("txheader") || com[0].equals("refheader") || com[0].equals("extrasheader") || com[0].equals("profilesheader") ||
           com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
@@ -2676,7 +2687,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
       else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("extheader") || com[0].equals("resourcesheader") || 
-          com[0].equals("formatsheader") || com[0].equals("narrheader") || com[0].equals("refheader") ||  com[0].equals("extrasheader") || 
+          com[0].equals("formatsheader") || com[0].equals("narrheader") || com[0].equals("refheader") ||  com[0].equals("extrasheader") || com[0].equals("profilesheader") ||
           com[0].equals("txheader") || com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader")) 
         src = s1+s3;
       else if (com[0].equals("resheader"))

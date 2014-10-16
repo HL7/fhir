@@ -58,6 +58,7 @@ public enum ResourceType {
     AllergyIntolerance,
     Observation,
     RelatedPerson,
+    Basic,
     Specimen,
     Alert,
     Namespace,
@@ -182,6 +183,8 @@ public enum ResourceType {
       return "observation";
     case RelatedPerson:
       return "relatedperson";
+    case Basic:
+      return "basic";
     case Specimen:
       return "specimen";
     case Alert:

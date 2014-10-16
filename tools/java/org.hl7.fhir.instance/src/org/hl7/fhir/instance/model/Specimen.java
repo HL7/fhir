@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -230,11 +230,6 @@ public class Specimen extends Resource {
 
       public SpecimenCollectionComponent() {
         super();
-      }
-
-      public SpecimenCollectionComponent(Type collected) {
-        super();
-        this.collected = collected;
       }
 
         /**

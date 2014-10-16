@@ -91,6 +91,7 @@ todo: compartments
     <page title="Services / SOA" filename="services.html"/>
     <page title="Interaction Patterns" filename="pushpull.html"/>
     <page title="Profiling FHIR" filename="profiling.html">
+      <page title="Examples" filename="profiling-examples.html"/>
       <page title="Profile List" filename="profilelist.html"/>
       <page title="Common Usages" filename="usecases.html"/>
     </page>

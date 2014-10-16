@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -1120,6 +1120,24 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("comment", element.getCommentElement(), false);
       composeDateTimeCore("lastModified", element.getLastModifiedElement(), false);
       composeDateTimeExtras("lastModified", element.getLastModifiedElement(), false);
+    }
+  }
+
+  private void composeBasic(String name, Basic element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeCodeableConcept("code", element.getCode());
+      composeReference("subject", element.getSubject());
+      composeReference("author", element.getAuthor());
+      composeDateCore("created", element.getCreatedElement(), false);
+      composeDateExtras("created", element.getCreatedElement(), false);
     }
   }
 
@@ -3343,8 +3361,8 @@ public class JsonComposer extends JsonComposerBase {
           composeIdentifier(null, e);
         closeArray();
       };
-      composeDateTimeCore("dateTime", element.getDateTimeElement(), false);
-      composeDateTimeExtras("dateTime", element.getDateTimeElement(), false);
+      composeDateTimeCore("created", element.getCreatedElement(), false);
+      composeDateTimeExtras("created", element.getCreatedElement(), false);
       composeReference("subject", element.getSubject());
       composeReference("operator", element.getOperator());
       composeCodeableConcept("view", element.getView());
@@ -3356,8 +3374,8 @@ public class JsonComposer extends JsonComposerBase {
       composeIntegerExtras("width", element.getWidthElement(), false);
       composeIntegerCore("frames", element.getFramesElement(), false);
       composeIntegerExtras("frames", element.getFramesElement(), false);
-      composeIntegerCore("length", element.getLengthElement(), false);
-      composeIntegerExtras("length", element.getLengthElement(), false);
+      composeIntegerCore("duration", element.getDurationElement(), false);
+      composeIntegerExtras("duration", element.getDurationElement(), false);
       composeAttachment("content", element.getContent());
     }
   }
@@ -4809,8 +4827,18 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeBackbone(element);
-      composeIdCore("discriminator", element.getDiscriminatorElement(), false);
-      composeIdExtras("discriminator", element.getDiscriminatorElement(), false);
+      if (element.getDiscriminator().size() > 0) {
+        openArray("discriminator");
+        for (IdType e : element.getDiscriminator()) 
+          composeIdCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getDiscriminator())) {
+          openArray("_discriminator");
+          for (IdType e : element.getDiscriminator()) 
+            composeIdExtras(null, e, true);
+          closeArray();
+        }
+      };
       composeBooleanCore("ordered", element.getOrderedElement(), false);
       composeBooleanExtras("ordered", element.getOrderedElement(), false);
       if (element.getRulesElement() != null) {
@@ -6175,6 +6203,8 @@ public class JsonComposer extends JsonComposerBase {
       composeAppointmentResponse("AppointmentResponse", (AppointmentResponse)resource);
     else if (resource instanceof Availability)
       composeAvailability("Availability", (Availability)resource);
+    else if (resource instanceof Basic)
+      composeBasic("Basic", (Basic)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan("CarePlan", (CarePlan)resource);
     else if (resource instanceof Composition)
@@ -6308,6 +6338,8 @@ public class JsonComposer extends JsonComposerBase {
       composeAppointmentResponse(name, (AppointmentResponse)resource);
     else if (resource instanceof Availability)
       composeAvailability(name, (Availability)resource);
+    else if (resource instanceof Basic)
+      composeBasic(name, (Basic)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan(name, (CarePlan)resource);
     else if (resource instanceof Composition)

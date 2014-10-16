@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 15, 2014 09:05+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1187,9 +1187,9 @@ public class Profile extends Resource {
 
     public static class ElementSlicingComponent extends BackboneElement {
         /**
-         * Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.
+         * Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.
          */
-        protected IdType discriminator;
+        protected List<IdType> discriminator = new ArrayList<IdType>();
 
         /**
          * If the matching elements have to occur in the same order as defined in the profile.
@@ -1201,7 +1201,7 @@ public class Profile extends Resource {
          */
         protected Enumeration<ResourceSlicingRules> rules;
 
-        private static final long serialVersionUID = -1790222992L;
+        private static final long serialVersionUID = -1403817480L;
 
       public ElementSlicingComponent() {
         super();
@@ -1213,39 +1213,40 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #discriminator} (Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.). This is the underlying object with id, value and extensions. The accessor "getDiscriminator" gives direct access to the value
+         * @return {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
-        public IdType getDiscriminatorElement() { 
+        public List<IdType> getDiscriminator() { 
           return this.discriminator;
         }
 
+    // syntactic sugar
         /**
-         * @param value {@link #discriminator} (Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.). This is the underlying object with id, value and extensions. The accessor "getDiscriminator" gives direct access to the value
+         * @return {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
-        public ElementSlicingComponent setDiscriminatorElement(IdType value) { 
-          this.discriminator = value;
-          return this;
+        public IdType addDiscriminatorElement() { 
+          IdType t = new IdType();
+          this.discriminator.add(t);
+          return t;
         }
 
         /**
-         * @return Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.
+         * @param value {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
-        public String getDiscriminator() { 
-          return this.discriminator == null ? null : this.discriminator.getValue();
+        public IdType addDiscriminator(String value) { 
+          IdType t = new IdType();
+          t.setValue(value);
+          this.discriminator.add(t);
+          return t;
         }
 
         /**
-         * @param value Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.
+         * @param value {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
-        public ElementSlicingComponent setDiscriminator(String value) { 
-          if (value == null)
-            this.discriminator = null;
-          else {
-            if (this.discriminator == null)
-              this.discriminator = new IdType();
-            this.discriminator.setValue(value);
-          }
-          return this;
+        public boolean hasDiscriminator(String value) { 
+          for (IdType v : this.discriminator)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
         }
 
         /**
@@ -1318,14 +1319,16 @@ public class Profile extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("discriminator", "id", "Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.", 0, java.lang.Integer.MAX_VALUE, discriminator));
+          childrenList.add(new Property("discriminator", "id", "Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.", 0, java.lang.Integer.MAX_VALUE, discriminator));
           childrenList.add(new Property("ordered", "boolean", "If the matching elements have to occur in the same order as defined in the profile.", 0, java.lang.Integer.MAX_VALUE, ordered));
           childrenList.add(new Property("rules", "code", "Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.", 0, java.lang.Integer.MAX_VALUE, rules));
         }
 
       public ElementSlicingComponent copy() {
         ElementSlicingComponent dst = new ElementSlicingComponent();
-        dst.discriminator = discriminator == null ? null : discriminator.copy();
+        dst.discriminator = new ArrayList<IdType>();
+        for (IdType i : discriminator)
+          dst.discriminator.add(i.copy());
         dst.ordered = ordered == null ? null : ordered.copy();
         dst.rules = rules == null ? null : rules.copy();
         return dst;
