@@ -374,8 +374,8 @@ See <a href="profiling-examples.html">examples of slicing and discriminators</a>
 <p>
 A profile can also define extensions. Some profiles only define extensions and others define 
 extensions as part of defining one or more structures. For an extension definition, the 
-profile defines the code that identifies the extension. The full URI that refers to the 
-extension when it is used in a resource is the Profile.identifier and 
+profile defines the code that identifies the extension. The full URL that refers to the 
+extension when it is used in a resource is the Profile.URL and 
 then # + the code.
 </p>
 <p>
@@ -469,10 +469,6 @@ define the meanings:
 </table>
 <p>
 Note: Example binding isExtensible = false is not generally a useful statement. 
-</p>
-<p>
-A profile can define a set of bindings that it uses directly or it can define a set of bindings 
-for re-use in other profiles. To use bindings in other profiles, just provide an absolute reference (Profile.identifier + "#" + binding name).
 </p>
 
 

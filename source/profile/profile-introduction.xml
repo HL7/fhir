@@ -15,7 +15,7 @@ Profile resources have four main parts:
  <li>A metadata section the describes the profile, and supports registry searching</li>
  <li><i>Structures</i> that define and describe how a Resource or Data Type is used</li>
  <li><i>Extension Definitions</i> that define extensions that can be used in structures</li>
- <li><i>Search Criteria Defintions</i> that define additional mechanisms for searching resources</li>
+ <li><i>Search Criteria Definitions</i> that define additional mechanisms for searching resources</li>
 </ol>
 <p>
 Note that  as part of the specification itself, a <a href="downloads.html#profiles">full 
@@ -50,7 +50,8 @@ find the profile when registered in profile repositories.
 </p>
 
 <table class="grid">
- <tr><td>identifier</td><td>The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique URI, OID, or UUID)</td></tr>
+ <tr><td>url</td><td>The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance. This URL is where the profile can be accessed</td></tr>
+ <tr><td>identifier</td><td>Other identifiers that are used to identify this profile</td></tr>
  <tr><td>version</td><td>
    <p>The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.</p>
    <p>Note that there may be multiple resource versions of the profile that have this same identifier. The resource will have updates that create new versions for technical reasons, whereas the stated version number needs to be under the author's control</p>
