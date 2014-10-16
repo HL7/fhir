@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>1425</WindowTopY>
   <TabRatio>666</TabRatio>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -707,7 +708,7 @@
     <Cell><Data ss:Type="String">.title</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Composition.section.identifier</Data></Cell>
+    <Cell><Data ss:Type="String">!Composition.section.identifier</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"/>
@@ -726,7 +727,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Composition.section.code</Data></Cell>
+    <Cell><Data ss:Type="String">!Composition.section.code</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">CompositionSectionType</Data></Cell>
@@ -768,7 +769,7 @@
     <Cell><Data ss:Type="String">.dataEnterer.assignedEntity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
-    <Cell><Data ss:Type="String">Composition.section.subject</Data></Cell>
+    <Cell><Data ss:Type="String">!Composition.section.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Reference(Patient|Group|Device)</Data></Cell>
@@ -791,7 +792,7 @@
     <Cell><Data ss:Type="String">.informant.informantChoice</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell><Data ss:Type="String">Composition.section.text</Data></Cell>
+    <Cell><Data ss:Type="String">!Composition.section.text</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -809,7 +810,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell><Data ss:Type="String">Composition.section.emptyReason</Data></Cell>
+    <Cell><Data ss:Type="String">!Composition.section.emptyReason</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s74"/>
@@ -828,7 +829,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell><Data ss:Type="String">Composition.section.order</Data></Cell>
+    <Cell><Data ss:Type="String">!Composition.section.order</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"/>
@@ -847,9 +848,8 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">Composition.section.section</Data></Cell>
+    <Cell><Data ss:Type="String">!Composition.section.section</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">@Composition.section</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Nested Section</Data></Cell>
@@ -858,14 +858,12 @@
     <Cell><Data ss:Type="String">.component.section</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell><Data ss:Type="String">Composition.section.entry</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Composition.section.content</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The actual data for the section</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the discrete data that underlies the content for the section.</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Conveys the discrete data associated with the composition</Data></Cell>
-    <Cell><Data ss:Type="String">Because composition represent point-in-time snapshots, resource references should either be to a specific version, or made against resources on the same server with full version tracking, so that the correct versions can easily be assembled.</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The Content of the section</Data></Cell>
+    <Cell><Data ss:Type="String">The content (narrative and data) associated with the section</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Because composition represent point-in-time snapshots, resource references should either be to a specific version, or made against resources on the same server with full version tracking, so that the correct versions can easily be assembled.</Data></Cell>
     <Cell><Data ss:Type="String">unique(./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode!=&quot;DOCSECT&quot; and isNormalAct])</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
    </Row>
@@ -877,11 +875,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>18</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -894,12 +891,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -934,11 +930,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">not(exists(f:emptyReason) and (exists(f:entry) or exists(f:section)))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">Section Rule</Data></Cell>
-    <Cell><Data ss:Type="String">Composition.section</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">A section SHALL have content or one or more sections, but not both.</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">exists(f:entry) != exists(f:section)</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:Span="1"/>
   </Table>
@@ -952,8 +944,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>35</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -962,7 +954,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="11" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:Width="80.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="383.25"/>
@@ -1008,14 +1000,9 @@
     <Cell><Data ss:Type="String">Composition.event.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">section-type</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">Composition.section.code</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">section-entry</Data></Cell>
+    <Cell><Data ss:Type="String">section</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell><Data ss:Type="String">Composition.section.entry</Data></Cell>
+    <Cell><Data ss:Type="String">Composition.section.content</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
@@ -1030,10 +1017,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
