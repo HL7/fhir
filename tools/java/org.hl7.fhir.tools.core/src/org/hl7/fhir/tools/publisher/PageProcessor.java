@@ -1685,7 +1685,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Tags, Bundles, Compartments", "extras.html", mode==null || "base".equals(mode)));
-    b.append(makeHeaderTab("Examples", "extras-example.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Examples", "extras-examples.html", mode==null || "examples".equals(mode)));
     b.append(makeHeaderTab("Formal Definitions", "extras-definitions.html", mode==null || "definitions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();

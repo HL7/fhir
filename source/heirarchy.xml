@@ -90,8 +90,10 @@ todo: compartments
     <page title="Managing Resource Identity" filename="managing.html"/>
     <page title="Services / SOA" filename="services.html"/>
     <page title="Interaction Patterns" filename="pushpull.html"/>
-    <page title="Common Usages" filename="usecases.html"/>
-    <page title="Profile List" filename="profilelist.html"/>
+    <page title="Profiling FHIR" filename="profiling.html">
+      <page title="Profile List" filename="profilelist.html"/>
+      <page title="Common Usages" filename="usecases.html"/>
+    </page>
     <page title="Security" filename="security.html">
       <page title="Security Labels" filename="security-labels.html"/>
     </page>
