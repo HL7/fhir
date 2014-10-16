@@ -117,7 +117,7 @@
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="36.75" ss:Span="1"/>
    <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="239.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="105"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="90"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="3"/>
    <Column ss:Index="14" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
@@ -169,7 +169,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Reference(Patient|Organization)</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Patient</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Who and/or what this is about</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Who and/or what this is about</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
@@ -186,7 +186,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">ContractType</Data></Cell>
-    <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Type of contract (Privacy-Security, Agreement, Insurance) </Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Type of contract (Privacy-Security, Agreement, Insurance) </Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
@@ -196,7 +196,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">ContractSubtype</Data></Cell>
-    <Cell><Data ss:Type="String">SubType</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">More specific type of contract (Privacy, Disclosure-Authorization, etc)</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">More specific type of contract (Privacy, Disclosure-Authorization, Advanced-Directive, DNR, Authorization-to-Treat)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
@@ -205,7 +205,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.issued</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Issued</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s66"><Data ss:Type="String">When this was issued</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">When this was issued.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
@@ -214,7 +214,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.applies</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Applies</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s66"><Data ss:Type="String">Relevant time/time-period when applicable</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Relevant time/time-period when applicable</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
@@ -223,7 +223,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.author</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner|RelatedPerson|Organization)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Author</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s69"><Data ss:Type="String">Contract author or responsible party</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Contract author or responsible party.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
@@ -232,7 +232,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.grantor</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner|RelatedPerson|Organization)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Grantor</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">First Party or delegator</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">First Party to the contract, may be the party who confers or delegates the rights defined in the contract.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
@@ -241,7 +241,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.grantee</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner|RelatedPerson|Organization)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Grantee</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Second Party or delegatee</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">The Second party to the contract, may be the party who accepts obligations or be that to which rights are delegated.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
@@ -250,7 +250,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.witness</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Reference(Practitioner|RelatedPerson|Organization)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Witness</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Witness to the contract</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Who witnesses the contract.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -259,7 +259,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Contract identifier</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Unique Id for this contract.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
@@ -269,7 +269,8 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String">Terms</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s72"><Data ss:Type="String">A contract provision.</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Contract provisions</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">A contract provision.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
@@ -277,7 +278,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.term.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Term identifier</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Unique Id for this particular term. </Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Y</Data></Cell>
@@ -287,7 +288,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">ContractTermType</Data></Cell>
-    <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">Term type</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The type of the term.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -297,7 +298,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">ContractTermSubType</Data></Cell>
-    <Cell><Data ss:Type="String">Subtype</Data></Cell>
+    <Cell><Data ss:Type="String">Term subtype</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The subttype of the term which is appropriate to the term type.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -306,7 +307,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.term.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Reference(Any)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Subject</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Subject for the Term</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Who or what the contract term is about.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -315,7 +316,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.term.text</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Text</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Human readable term text</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Human readable form of the term of the contract.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -324,7 +325,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.friendly</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Attachment</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Friendly</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Human readable contract text</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Friendly Human readable form (might be a reference to the UI used to capture the contract)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -333,7 +334,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.legal</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Attachment</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Legal</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Legal contract text</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Legal text in Human readable form </Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -342,7 +343,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Contract.rule</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Attachment</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Rule</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Computable contract text</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Computable Policy rules (e.g. XACML, DKAL, SecPal)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -374,7 +375,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -391,8 +392,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
