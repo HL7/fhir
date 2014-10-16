@@ -105,6 +105,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Condición</translation>
         <translation lang="fr">Condition</translation>
     </item>
+    <item id="Contract">
+        <translation lang="en">Contract</translation>
+    </item>
     <item id="Conformance">
         <translation lang="en">Conformance</translation>
         <translation lang="zh">遵从</translation>

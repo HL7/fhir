@@ -1,0 +1,13 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The Contract resource is the basal resource to convey information of all manner of contracts for financial (eg. Insurance policies),
+ business arrangements (eg. supply contracts) and privacy and security (eg. consent directives).
+
+Todo
+</p>
+</div>
+
+</div>

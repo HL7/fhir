@@ -154,6 +154,7 @@ todo: compartments
     <page type="resource" resource="Organization"/>
     <page type="resource" resource="HealthcareService"/>
 
+    <page type="resource" resource="Contract"/>
     <page type="resource" resource="Device"/>
     <page type="resource" resource="Location"/>
     <page type="resource" resource="Substance"/>
@@ -198,6 +199,9 @@ todo: compartments
     <page type="resource" resource="ValueSet"/>
     <page type="resource" resource="Namespace"/>
     <page type="resource" resource="ConceptMap"/>
+  </page>
+  <page title="Financial" filename="financial.html">
+    <!-- page type="resource" resource="Contract"/>  -->
   </page>
 </page>
 </fhir>

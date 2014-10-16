@@ -1,0 +1,27 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes sample Contract Type codes.
+    </div>
+  </text>
+  <name value="Contract Type Codes"/>
+  <publisher value="CBCC"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes sample Contract Type codes."/>
+  <status value="draft"/>
+    <define>
+	<system value="http://www.hl7.org/fhir/contracttypecodes"/>
+	<concept>
+      <code value="privacy"/>
+    </concept>
+	<concept>
+      <code value="disclosure"/>
+    </concept>
+	</define>
+</ValueSet>
+
