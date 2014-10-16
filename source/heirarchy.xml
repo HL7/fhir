@@ -29,7 +29,9 @@ todo: compartments
       <page title="Definitions" filename="resource-definitions.html"/>
       <page title="Conformance" filename="conformance-rules.html"/>
       <page title="Tags, Bundles, Compartments" filename="extras.html">
-        <page title="Compartments" filename="compartment-patient.html"/>
+        <page title="Examples" filename="extras-examples.html"/>
+        <page title="Definitions" filename="extras-definitions.html"/>
+        <page title="Patient Compartment" filename="compartment-patient.html"/>
       </page>
       <page title="References" filename="references.html">
         <page title="Definitions" filename="references-definitions.html"/>

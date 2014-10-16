@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2014-10-12T21:23:26Z</LastSaved>
+  <LastSaved>2014-10-15T23:22:27Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1929,9 +1929,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>75</TopRowBottomPane>
+   <TopRowBottomPane>71</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1939,7 +1939,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1948,7 +1947,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>82</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2224,7 +2223,7 @@
     <Cell><Data ss:Type="String">valueset</Data></Cell>
     <Cell><Data ss:Type="String">A vocabulary binding code</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Profile.structure.snapshot.element.definition.binding.reference[x] &amp; Profile.extensionDefn.definition.binding.reference[x]</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Profile.structure.snapshot.element.definition.binding.reference[x] | Profile.extensionDefn.element.definition.binding.reference[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">type</Data></Cell>
