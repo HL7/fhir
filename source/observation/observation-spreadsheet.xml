@@ -10,17 +10,17 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-09-29T04:52:51Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5775</WindowHeight>
-  <WindowWidth>25260</WindowWidth>
-  <WindowTopX>465</WindowTopX>
-  <WindowTopY>1320</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
+  <WindowHeight>2280</WindowHeight>
+  <WindowWidth>20550</WindowWidth>
+  <WindowTopX>-15</WindowTopX>
+  <WindowTopY>2265</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -838,7 +838,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell><Data ss:Type="String">!Observation.normalValue[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Range|string</Data></Cell>
@@ -1146,7 +1146,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1163,6 +1163,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>16</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -1171,7 +1172,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="14.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="201"/>
@@ -1179,6 +1180,7 @@
    <Column ss:StyleID="s85" ss:Width="234.75"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="139.5"/>
    <Column ss:StyleID="s85" ss:Width="320.25"/>
+   <Column ss:StyleID="s85" ss:Width="88.5"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s68">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -1186,16 +1188,9 @@
     <Cell><Data ss:Type="String">English</Data></Cell>
     <Cell><Data ss:Type="String">OCL</Data></Cell>
     <Cell><Data ss:Type="String">XPath</Data></Cell>
+    <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">reference range for quantity</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Observation</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Can only have normal range if value is a quantity</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">exists(f:valueQuantity) or not(exists(f:normalRange))</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="Default"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">reference range</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
@@ -1219,12 +1214,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1232,14 +1228,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1782,7 +1779,13 @@
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">   </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Test</Data></Cell>
+    <Cell><Data ss:Type="String">Test1</Data></Cell>
+    <Cell><Data ss:Type="String">observation-test1-profile-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">observation-test1.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1791,12 +1794,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
+   <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <RangeSelection>R8</RangeSelection>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
