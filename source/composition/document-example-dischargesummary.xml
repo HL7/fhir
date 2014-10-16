@@ -39,82 +39,29 @@
         <!-- The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc. -->
         <section>
           <title value="Encounter Information"/>
-          <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml"> Admitted to Orthopedics Service,
-                          Middlemore Hospital between Jan 20 and Feb ist 2013 </div>
-          </text>
-          <entry>
+          <content>
             <reference value="http://fhir.healthintersections.com.au/open/Encounter/example"/>
-          </entry>
+          </content>
         </section>
         <section>
           <title value="Reason for admission"/>
-          <code>
-            <coding>
-              <system value="http://loinc.org"/>
-              <code value="46241-6"/>
-            </coding>
-          </code>
-          <text>
-            <status value="additional"/>
-            <div xmlns="http://www.w3.org/1999/xhtml"> Acute Asthmatic attack. Was wheezing
-                          for days prior to admission. </div>
-          </text>
-          <entry>
+          <content>
             <reference value="urn:guid:d0dd51d3-3ab2-4c84-b697-a630c3e40e7a"/>
-          </entry>
+          </content>
         </section>
         <!-- Points to the list that groups the medications on discharge -->
         <section>
           <title value="Medications on Discharge"/>
-          <code>
-            <coding>
-              <system value="http://loinc.org"/>
-              <code value="10183-2"/>
-            </coding>
-          </code>
-          <text>
-            <status value="additional"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-              <table>
-                <thead>
-                  <tr>
-                    <td>Medication</td>
-                    <td>Last Change</td>
-                    <td>Last ChangeReason</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Theophylline 200mg BD after meals</td>
-                    <td>continued</td>
-                  </tr>
-                  <tr>
-                    <td>Ventolin Inhaler</td>
-                    <td>stopped</td>
-                    <td>Getting side effect of tremor</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </text>
-          <entry>
+          <content>
             <reference value="urn:guid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
-          </entry>
+          </content>
         </section>
         <!-- Points to the list that groups the allergies -->
         <section>
           <title value="Known allergies"/>
-          <code>
-            <coding>
-              <system value="http://loinc.org"/>
-              <code value="48765-2"/>
-            </coding>
-          </code>
-          <entry>
+          <content>
             <reference value="urn:guid:68f86194-e6e1-4f65-b64a-5314256f8d7b"/>
-          </entry>
+          </content>
         </section>
       </Composition>
     </content>
