@@ -37,6 +37,7 @@ import java.util.List;
 import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Type;
 
 
 /**
@@ -61,9 +62,14 @@ public interface Composer {
 	 */
 	public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception;
 	
-	/**
-	 * Compose a tag list to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
-	 */
-	public void compose(OutputStream stream, List<AtomCategory> tags, boolean pretty) throws Exception;
-	
+  /**
+   * Compose a tag list to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+   */
+  public void compose(OutputStream stream, List<AtomCategory> tags, boolean pretty) throws Exception;
+  
+  /**
+   * Compose a type to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+   */
+  public void compose(OutputStream stream, Type type, boolean pretty) throws Exception;
+  
 }

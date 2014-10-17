@@ -35,6 +35,7 @@ import java.util.List;
 import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Type;
 
 public abstract class ComposerBase extends FormatUtilities implements Composer {
 
@@ -74,5 +75,16 @@ public abstract class ComposerBase extends FormatUtilities implements Composer {
     compose(bytes, tags, true);
     return bytes.toByteArray();
   }
+
+  public String composeString(Type type, boolean pretty) throws Exception {
+    return new String(composeBytes(type, pretty));
+  }
+
+  public byte[] composeBytes(Type type, boolean pretty) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    compose(bytes, type, true);
+    return bytes.toByteArray();
+  }
+
 
 }

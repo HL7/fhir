@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Oct 17, 2014 13:30+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -558,7 +558,7 @@ public class XmlComposer extends XmlComposerBase {
       if (r.getXmlId() == null)
         throw new Exception("Contained Resource has no id - one must be assigned"); // we can't assign one here - what points to it?
       xml.open(FHIR_NS, "contained");
-      composeReference(r);
+      composeResource(r);
       xml.close(FHIR_NS, "contained");
     }
   }
@@ -4205,7 +4205,7 @@ public class XmlComposer extends XmlComposerBase {
   }
 
   @Override
-  protected void composeReference(Resource resource) throws Exception {
+  protected void composeResource(Resource resource) throws Exception {
     if (resource instanceof AdverseReaction)
       composeAdverseReaction("AdverseReaction", (AdverseReaction)resource);
     else if (resource instanceof AdverseReactionRisk)

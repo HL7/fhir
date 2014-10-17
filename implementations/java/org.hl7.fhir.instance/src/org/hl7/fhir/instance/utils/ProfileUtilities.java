@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
+import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.IdType;
@@ -25,6 +26,7 @@ import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
@@ -170,7 +172,6 @@ public class ProfileUtilities {
             res.put(tail, e);
           }
         }
-
       }
     
     return res;
@@ -616,6 +617,8 @@ public class ProfileUtilities {
         dst.setMaxElement(src.getMaxElement().copy());
       if (src.getValue() != null)
         dst.setValue(src.getValue().copy());
+      if (src.getPattern() != null)
+        dst.setPattern(src.getPattern().copy());
       if (src.getExample() != null)
         dst.setExample(src.getExample().copy());
       if (src.getMaxLengthElement() != null)
@@ -873,7 +876,7 @@ public class ProfileUtilities {
     return element.getPath().substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
   }
 
-  private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementComponent definition, ElementComponent fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, Profile profile) {
+  private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementComponent definition, ElementComponent fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, Profile profile) throws Exception {
     // TODO Auto-generated method stub
     Cell c = gen.new Cell();
     row.getCells().add(c);                
@@ -914,16 +917,29 @@ public class ProfileUtilities {
         if (definition.getDefinition().getValue() != null) {        
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
           c.getPieces().add(gen.new Piece(null, "Fixed Value: ", null).addStyle("font-weight:bold"));
-          c.getPieces().add(gen.new Piece(null, "(todo)", null));
+          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getValue()), null));
+        } else if (definition.getDefinition().getPattern() != null) {        
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          c.getPieces().add(gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getPattern()), null));
+        } else if (definition.getDefinition().getExample() != null) {        
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          c.getPieces().add(gen.new Piece(null, "Example: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getExample()), null));
         }
-        // ?? example from definition    
       }
     }
     return c;
   }
 
+  private String buildJson(Type value) throws Exception {
+    JsonComposer json = new JsonComposer();
+    return json.composeString(value, false);
+  }
+
+
   public String describeSlice(ElementSlicingComponent slicing) {
-    return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+slicing.getDiscriminator();
+    return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+slicing.getDiscriminator().toString();
   }
 
   private String describe(ResourceSlicingRules rules) {

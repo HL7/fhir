@@ -7,10 +7,12 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
+import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.IntegerType;
+import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
@@ -25,6 +27,7 @@ import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
@@ -874,7 +877,7 @@ public class ProfileUtilities {
     return element.getPath().substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
   }
 
-  private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementComponent definition, ElementComponent fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, Profile profile) {
+  private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementComponent definition, ElementComponent fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, Profile profile) throws Exception {
     // TODO Auto-generated method stub
     Cell c = gen.new Cell();
     row.getCells().add(c);                
@@ -915,13 +918,29 @@ public class ProfileUtilities {
         if (definition.getDefinition().getValue() != null) {        
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
           c.getPieces().add(gen.new Piece(null, "Fixed Value: ", null).addStyle("font-weight:bold"));
-          c.getPieces().add(gen.new Piece(null, "(todo)", null));
+          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getValue()), null).addStyle("color: darkgreen"));
+        } else if (definition.getDefinition().getPattern() != null) {        
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          c.getPieces().add(gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getPattern()), null).addStyle("color: darkgreen"));
+        } else if (definition.getDefinition().getExample() != null) {        
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          c.getPieces().add(gen.new Piece(null, "Example: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getExample()), null).addStyle("color: darkgreen"));
         }
-        // ?? example from definition    
       }
     }
     return c;
   }
+
+  private String buildJson(Type value) throws Exception {
+    if (value instanceof PrimitiveType)
+      return ((PrimitiveType) value).asStringValue();
+    
+    JsonComposer json = new JsonComposer();
+    return json.composeString(value, false);
+  }
+
 
   public String describeSlice(ElementSlicingComponent slicing) {
     return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+slicing.getDiscriminator().toString();

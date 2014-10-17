@@ -254,7 +254,7 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	    if (entry.getResource() instanceof Binary)
 	      composeBinary("Binary", (Binary) entry.getResource());
 	    else
-	      composeReference(entry.getResource());
+	      composeResource(entry.getResource());
 	    xml.setDefaultNamespace(ATOM_NS);
 	    xml.close(ATOM_NS, "content");
 	    
@@ -276,7 +276,7 @@ public abstract class XmlComposerBase extends ComposerBase  {
 		this.htmlPretty = htmlPretty;
 		xml = writer;
 		xml.setDefaultNamespace(FHIR_NS);
-		composeReference(resource);
+		composeResource(resource);
 	}
 	
 	public void compose(IXMLWriter writer, List<AtomCategory> tags, boolean htmlPretty) throws Exception {
@@ -295,7 +295,7 @@ public abstract class XmlComposerBase extends ComposerBase  {
 		xml.close(FHIR_NS, "taglist");
 	}
 
-	protected abstract void composeReference(Resource resource) throws Exception;
+	protected abstract void composeResource(Resource resource) throws Exception;
 
 	protected void composeElementAttributes(Element element) throws Exception {
     for (String comment : element.getXmlComments())
@@ -335,7 +335,16 @@ public abstract class XmlComposerBase extends ComposerBase  {
 			xml.text(toString(element.getContent()));
 			xml.close(FHIR_NS, name);
 		}    
+	}
 
+  @Override
+  public void compose(OutputStream stream, Type type, boolean pretty) throws Exception {
+    XMLWriter writer = new XMLWriter(stream, "UTF-8");
+    writer.setPretty(pretty);
+    writer.start();
+    xml = writer;
+    composeType("value", type);
+    writer.close();
 	}
 
 }
