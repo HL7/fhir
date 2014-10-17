@@ -1,5 +1,11 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- content goes here -->
+<p>
+In addition to the examples below, see also:
+</p>
+<ul>
+ <li>Example Request Message: <a href="query-example-request.xml.html">XML</a> or <a href="query-example-request.json.html">JSON</a></li>
+ <li>Example Response Message: <a href="query-example-response.xml.html">XML</a> or <a href="query-example-response.json.html">JSON</a></li>
+</ul>
 
 </div>
