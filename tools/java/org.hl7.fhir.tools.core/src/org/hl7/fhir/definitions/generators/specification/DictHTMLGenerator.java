@@ -44,6 +44,7 @@ import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.IdType;
+import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
@@ -165,7 +166,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("Aliases", null, describeAliases(d.getSynonym()));
     tableRowMarkdown("Comments", d.getComments());
     tableRow("Max Length", null, d.getMaxLengthElement() == null ? null : Integer.toString(d.getMaxLength()));
-    tableRow("Fixed Value", null, encodeValue(d.getValue()));
+    tableRowNE("Fixed Value", null, encodeValue(d.getValue()));
     tableRow("Example", null, encodeValue(d.getExample()));
     tableRowNE("Invariants", null, invariants(d.getConstraint()));
     tableRow("LOINC Code", null, getMapping(profile, d, Definitions.LOINC_MAPPING));
@@ -175,9 +176,20 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   private String encodeValue(Type value) throws Exception {
     if (value == null)
       return null;
-    ByteArrayOutputStream b = new ByteArrayOutputStream();
-    new XmlComposer().compose(b, value);
-    return b.toString();
+    if (value instanceof PrimitiveType)
+      return Utilities.escapeXml(((PrimitiveType) value).asStringValue());
+    
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    new XmlComposer().compose(bs, value);
+    String[] lines = bs.toString().split("\\r?\\n");
+    StringBuilder b = new StringBuilder();
+    for (String s : lines) {
+      if (!Utilities.noString(s) && !s.startsWith("<?")) { // eliminate the xml header 
+        b.append(Utilities.escapeXml(s).replace(" ", "&nbsp;")+"<br/>");
+      }
+    }
+    return b.toString();  
+    
   }
 
   private String describeTypes(List<TypeRefComponent> types) throws Exception {
