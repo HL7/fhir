@@ -114,7 +114,11 @@
   <target name="fhir-jar" depends="build">
     <jar destfile="${maven-jar}" filesetmanifest="mergewithoutmain">
       <zipfileset includes="org/hl7/fhir/**/*.class" src="../../../publish/org.hl7.fhir.validator.jar"/>
-      <zipfileset includes="*.profile.xml" dir="../../../publish" prefix="resources"/>
+      <zipfileset includes="profiles-types.xml" dir="../../../publish" prefix="resources"/>
+      <zipfileset includes="profiles-resources.xml" dir="../../../publish" prefix="resources"/>
+      <zipfileset includes="valuesets.xml" dir="../../../publish" prefix="resources"/>
+      <zipfileset includes="v2-tables.xml" dir="../../../publish" prefix="resources"/>
+      <zipfileset includes="v3-codesystems.xml" dir="../../../publish" prefix="resources"/>
       <zipfileset includes="conformance-base.xml" dir="../../../publish" prefix="resources"/>
     </jar>
   </target>
