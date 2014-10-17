@@ -50,6 +50,18 @@ import org.hl7.fhir.utilities.Utilities;
 
 
 public class HeirarchicalTableGenerator  {
+  public static final String TEXT_ICON_REFERENCE = "Reference to another Resource";
+  public static final String TEXT_ICON_PRIMITIVE = "Primitive Data Type";
+  public static final String TEXT_ICON_DATATYPE = "Data Type";
+  public static final String TEXT_ICON_RESOURCE = "Resource";
+  public static final String TEXT_ICON_ELEMENT = "Element";
+  public static final String TEXT_ICON_REUSE = "Reference to another Element";
+  public static final String TEXT_ICON_EXTENSION = "Extension";
+  public static final String TEXT_ICON_CHOICE = "Choice of Types";
+  public static final String TEXT_ICON_SLICE = "Slice Definition";
+  public static final String TEXT_ICON_EXTENSION_SIMPLE = "Simple Extension";
+  public static final String TEXT_ICON_PROFILE = "Profile";
+  public static final String TEXT_ICON_EXTENSION_COMPLEX = "Complex Extension";
 
   public class Piece {
     private String tag;
@@ -163,6 +175,12 @@ public class HeirarchicalTableGenerator  {
       img.hint = hint;
       pieces.add(img);
     }
+    public String text() {
+      StringBuilder b = new StringBuilder();
+      for (Piece p : pieces)
+        b.append(p.text);
+      return b.toString();
+    }
   }
 
   public class Title extends Cell {
@@ -179,6 +197,7 @@ public class HeirarchicalTableGenerator  {
     private List<Cell> cells = new ArrayList<HeirarchicalTableGenerator.Cell>();
     private String icon;
     private String anchor;
+    private String hint;
     
     public List<Row> getSubRows() {
       return subRows;
@@ -189,14 +208,18 @@ public class HeirarchicalTableGenerator  {
     public String getIcon() {
       return icon;
     }
-    public void setIcon(String icon) {
+    public void setIcon(String icon, String hint) {
       this.icon = icon;
+      this.hint = hint;
     }
     public String getAnchor() {
       return anchor;
     }
     public void setAnchor(String anchor) {
       this.anchor = anchor;
+    }
+    public String getHint() {
+      return hint;
     }
     
     
@@ -235,6 +258,7 @@ public class HeirarchicalTableGenerator  {
     TableModel model = new TableModel();
     
     model.getTitles().add(new Title(null, null, "Name", null, null, 0));
+    model.getTitles().add(new Title(null, null, "Flags", null, null, 0));
     model.getTitles().add(new Title(null, null, "Card.", null, null, 0));
     model.getTitles().add(new Title(null, null, "Type", null, null, 100));
     model.getTitles().add(new Title(null, null, "Description & Constraints", null, null, 0));
@@ -248,7 +272,7 @@ public class HeirarchicalTableGenerator  {
     XhtmlNode tr = table.addTag("tr");
     tr.setAttribute("style", "border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;");
     for (Title t : model.getTitles()) {
-      XhtmlNode tc = renderCell(tr, t, "th", null, null, false, null);
+      XhtmlNode tc = renderCell(tr, t, "th", null, null, null, false, null);
       if (t.width != 0)
         tc.setAttribute("style", "width: "+Integer.toString(t.width)+"px");
     }
@@ -264,7 +288,7 @@ public class HeirarchicalTableGenerator  {
     tr.setAttribute("style", "border: 0px; padding:0px; vertical-align: top; background-color: white;");
     boolean first = true;
     for (Cell t : r.getCells()) {
-      renderCell(tr, t, "td", first ? r.getIcon() : null, first ? indents : null, !r.getSubRows().isEmpty(), first ? r.getAnchor() : null);
+      renderCell(tr, t, "td", first ? r.getIcon() : null, first ? r.getHint() : null, first ? indents : null, !r.getSubRows().isEmpty(), first ? r.getAnchor() : null);
       first = false;
     }
     table.addText("\r\n");
@@ -282,7 +306,7 @@ public class HeirarchicalTableGenerator  {
   }
 
 
-  private XhtmlNode renderCell(XhtmlNode tr, Cell c, String name, String icon, List<Boolean> indents, boolean hasChildren, String anchor) throws Exception {
+  private XhtmlNode renderCell(XhtmlNode tr, Cell c, String name, String icon, String hint, List<Boolean> indents, boolean hasChildren, String anchor) throws Exception {
     XhtmlNode tc = tr.addTag(name);
     tc.setAttribute("class", "heirarchy");
     if (indents != null) {
@@ -303,7 +327,9 @@ public class HeirarchicalTableGenerator  {
     else
       tc.setAttribute("style", "vertical-align: top; text-align : left; padding:0px 4px 0px 4px");
     if (!Utilities.noString(icon)) {
-      tc.addTag("img").setAttribute("src", srcFor(icon)).setAttribute("class", "heirarchy").setAttribute("style", "background-color: white;").setAttribute("alt", ".");
+      XhtmlNode img = tc.addTag("img").setAttribute("src", srcFor(icon)).setAttribute("class", "heirarchy").setAttribute("style", "background-color: white;").setAttribute("alt", ".");
+      if (hint != null)
+        img.setAttribute("title", hint);
       tc.addText(" ");
     }
     for (Piece p : c.pieces) {
@@ -367,8 +393,11 @@ public class HeirarchicalTableGenerator  {
     check(!model.getTitles().isEmpty(), "Must have titles");
     for (Cell c : model.getTitles())
       check(c);
-    for (Row r : model.getRows()) 
-      check(r, "rows", model.getTitles().size());    
+    int i = 0;
+    for (Row r : model.getRows()) { 
+      check(r, "rows", model.getTitles().size(), Integer.toString(i));
+      i++;
+    }
   }
 
 
@@ -381,10 +410,13 @@ public class HeirarchicalTableGenerator  {
   }
 
 
-  private void check(Row r, String string, int size) throws Exception {
-    check(r.getCells().size() == size, "All rows must have the same number of columns as the titles");
-    for (Row c : r.getSubRows()) 
-      check(c, "rows", size);    
+  private void check(Row r, String string, int size, String path) throws Exception {    
+    check(r.getCells().size() == size, "All rows must have the same number of columns ("+Integer.toString(size)+") as the titles but row "+path+" doesn't ("+r.getCells().get(0).text()+")");
+    int i = 0;
+    for (Row c : r.getSubRows()) {
+      check(c, "rows", size, path+"."+Integer.toString(i));
+      i++;
+    }
   }
 
 

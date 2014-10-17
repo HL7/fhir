@@ -41,7 +41,7 @@ public class ProfileTableGenerator extends TableGenerator {
     if (!extensionsOnly) {
       Row r = gen.new Row();
       rows.add(r);
-      r.setIcon("icon_profile.png");
+      r.setIcon("icon_profile.png", HeirarchicalTableGenerator.TEXT_ICON_PROFILE);
       r.getCells().add(gen.new Cell(null, null, profile.getName(), null, null));
       r.getCells().add(gen.new Cell());
       r.getCells().add(gen.new Cell(null, null, "Profile", null, null));
@@ -50,7 +50,7 @@ public class ProfileTableGenerator extends TableGenerator {
       for (ProfileStructureComponent s : profile.getStructure()) {
         Row re = gen.new Row();
         r.getSubRows().add(re);
-        re.setIcon("icon_resource.png");
+        re.setIcon("icon_resource.png", HeirarchicalTableGenerator.TEXT_ICON_RESOURCE);
         re.getCells().add(gen.new Cell(null, null, s.getName(), null, null));
         re.getCells().add(gen.new Cell(null, null, "", null, null));
         re.getCells().add(gen.new Cell(null, null, s.getType(), null, null));
@@ -61,7 +61,7 @@ public class ProfileTableGenerator extends TableGenerator {
     if (!p.getExtensions().isEmpty() || extensionsOnly) {
       Row re = gen.new Row();
       rows.add(re);
-      re.setIcon("icon_profile.png");
+      re.setIcon("icon_profile.png", HeirarchicalTableGenerator.TEXT_ICON_PROFILE);
       re.getCells().add(gen.new Cell(null, null, "Extensions", null, null));
       re.getCells().add(gen.new Cell());
       re.getCells().add(gen.new Cell());
@@ -77,7 +77,7 @@ public class ProfileTableGenerator extends TableGenerator {
   private void genResourceProfile(HeirarchicalTableGenerator gen, List<Row> rows, ResourceDefn res) throws Exception {
     Row r = gen.new Row();
     rows.add(r);
-    r.setIcon("icon_resource.png");
+    r.setIcon("icon_resource.png", HeirarchicalTableGenerator.TEXT_ICON_RESOURCE);
     r.getCells().add(gen.new Cell(null, null, res.getRoot().getProfileName(), null, null));
     r.getCells().add(gen.new Cell());
     r.getCells().add(gen.new Cell(null, null, res.getRoot().getName(), null, null));
@@ -93,9 +93,9 @@ public class ProfileTableGenerator extends TableGenerator {
     rows.add(r);
     r.setAnchor(ext.getCode());
     if (ext.getChildren().isEmpty())
-      r.setIcon("icon_extension_simple.png");
+      r.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
     else
-      r.setIcon("icon_extension_complex.png");
+      r.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
     r.getCells().add(gen.new Cell(null, null, ext.getCode(), null, null));
     r.getCells().add(gen.new Cell(null, null, ext.getDefinition().describeCardinality(), null, null));
     r.getCells().add(gen.new Cell(null, null, ext.getDefinition().typeCode(), null, null));

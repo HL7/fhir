@@ -666,8 +666,9 @@ public class ProfileUtilities {
     
     Row re = gen.new Row();
     model.getRows().add(re);
-    re.setIcon("icon_profile.png");
+    re.setIcon("icon_profile.png", HeirarchicalTableGenerator.TEXT_ICON_PROFILE);
     re.getCells().add(gen.new Cell(null, null, "Extensions", null, null));
+    re.getCells().add(gen.new Cell());
     re.getCells().add(gen.new Cell());
     re.getCells().add(gen.new Cell());
     re.getCells().add(gen.new Cell(null, null, "Extensions defined by the URL \""+profile.getUrl()+"\"", null, null));
@@ -684,12 +685,13 @@ public class ProfileUtilities {
     r.setAnchor(ext.getName());
     ElementComponent e = ext.getElement().get(0);
     r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension."+ext.getName(), ext.getName(), e.getDefinition().getFormal(), null));
+    r.getCells().add(gen.new Cell());
     r.getCells().add(gen.new Cell(null, null, describeCardinality(e.getDefinition(), null, new UnusedTracker()), null, null));
     if (ext.getElement().size() == 1) {
-      r.setIcon("icon_extension_simple.png");
+      r.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
       genTypes(gen, pkp, r, e, profileBaseFileName, profile);
     } else {
-      r.setIcon("icon_extension_complex.png");
+      r.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
       r.getCells().add(gen.new Cell());
     }
 
@@ -785,37 +787,41 @@ public class ProfileUtilities {
     boolean hasDef = element.getDefinition() != null;
     boolean ext = false;
     if (s.equals("extension") || s.equals("modifierExtension")) { 
-      row.setIcon("icon_extension_simple.png");
+        row.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
       ext = true;
     } else if (!hasDef || element.getDefinition().getType().size() == 0)
-      row.setIcon("icon_element.gif");
+        row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
     else if (hasDef && element.getDefinition().getType().size() > 1) {
       if (allTypesAre(element.getDefinition().getType(), "Reference"))
-        row.setIcon("icon_reference.png");
+          row.setIcon("icon_reference.png", HeirarchicalTableGenerator.TEXT_ICON_REFERENCE);
       else
-        row.setIcon("icon_choice.gif");
+        row.setIcon("icon_choice.gif", HeirarchicalTableGenerator.TEXT_ICON_CHOICE);
     } else if (hasDef && element.getDefinition().getType().get(0).getCode().startsWith("@"))
-      row.setIcon("icon_reuse.png");
+      row.setIcon("icon_reuse.png", HeirarchicalTableGenerator.TEXT_ICON_REUSE);
     else if (hasDef && isPrimitive(element.getDefinition().getType().get(0).getCode()))
-      row.setIcon("icon_primitive.png");
+      row.setIcon("icon_primitive.png", HeirarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
     else if (hasDef && isReference(element.getDefinition().getType().get(0).getCode()))
-      row.setIcon("icon_reference.png");
+      row.setIcon("icon_reference.png", HeirarchicalTableGenerator.TEXT_ICON_REFERENCE);
     else if (hasDef && isDataType(element.getDefinition().getType().get(0).getCode()))
-      row.setIcon("icon_datatype.gif");
+      row.setIcon("icon_datatype.gif", HeirarchicalTableGenerator.TEXT_ICON_DATATYPE);
     else
-      row.setIcon("icon_resource.png");
+      row.setIcon("icon_resource.png", HeirarchicalTableGenerator.TEXT_ICON_RESOURCE);
     String ref = defPath == null ? null : defPath + makePathLink(element);
       UnusedTracker used = new UnusedTracker();
       used.used = true;
       Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getDefinition().getFormal(), null);
+    row.getCells().add(left);
+    Cell gc = gen.new Cell();
+    row.getCells().add(gc);
     if (element.getDefinition() != null && element.getDefinition().getIsModifier())
-      left.addImage("modifier.png", "This element is a modifier element", "M");
+      gc.addImage("modifier.png", "This element is a modifier element", "M");
     if (element.getDefinition() != null && element.getDefinition().getMustSupport()) 
-      left.addImage("mustsupport.png", "This element must be supported", "S");
+      gc.addImage("mustsupport.png", "This element must be supported", "S");
     if (element.getDefinition() != null && element.getDefinition().getIsSummary()) 
-      left.addImage("summary.png", "This element is included in summaries", "Σ");
+      gc.addImage("summary.png", "This element is included in summaries", "Σ");
+    if (element.getDefinition() != null && (!element.getDefinition().getConstraint().isEmpty() || !element.getDefinition().getCondition().isEmpty())) 
+      gc.addImage("lock.png", "This element has or is affected by some invariants", "I");
   
-      row.getCells().add(left);
     if (ext) {
       if (element.getDefinition() != null && element.getDefinition().getType().size() == 1 && element.getDefinition().getType().get(0).getProfile() != null) {
         ExtensionDefinition extDefn = pkp.getExtensionDefinition(profile, element.getDefinition().getType().get(0).getProfile());
@@ -848,7 +854,7 @@ public class ProfileUtilities {
         generateDescription(gen, row, element, null, used.used, null, null, pkp, profile);
       }
       if (element.getSlicing() != null) {
-        row.setIcon("icon_slice.png");
+        row.setIcon("icon_slice.png", HeirarchicalTableGenerator.TEXT_ICON_SLICE);
         row.getCells().get(2).getPieces().clear();
         for (Cell cell : row.getCells())
           for (Piece p : cell.getPieces()) {
