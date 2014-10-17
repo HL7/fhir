@@ -20,7 +20,7 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>30</WindowTopX>
   <WindowTopY>255</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -376,7 +376,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">http://snomed.info/sct#445518008|Age at onset of clinical finding</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">{ &quot;coding&quot; : [{ &quot;system&quot; : &quot;http://snomed.info/sct&quot;, &quot;code&quot;: &quot;445518008&quot;, &quot;display&quot; : &quot;Age at onset of clinical finding&quot; }]}</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Age at Onset: SNOMED CT  445518008 = Age at onset of clinical finding</Data></Cell>
     <Cell><Data ss:Type="String">Age at onset of an event or observation.  Limited to fixed SNOMED CT  445518008 = Age at onset of clinical finding.</Data></Cell>
    </Row>
@@ -410,6 +410,7 @@
     <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.valueQuantity.system</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s79"><Data ss:Type="String">Observation.valueQuantity.system</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s81"><Data ss:Type="String">http://unitsofmeasure.org </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -441,6 +442,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -448,6 +450,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">ok</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -519,6 +522,7 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <TabColorIndex>10</TabColorIndex>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -539,8 +543,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -674,7 +677,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

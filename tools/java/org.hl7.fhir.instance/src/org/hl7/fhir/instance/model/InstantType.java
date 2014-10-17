@@ -44,7 +44,14 @@ public class InstantType extends PrimitiveType {
 	 */
 	private DateAndTime value;
 
-	/**
+	public InstantType(DateAndTime value) {
+    this.value = value;  
+  }
+
+  public InstantType() {
+  }
+
+  /**
 	 * @return the instant
 	 */
 	public DateAndTime getValue() {

@@ -50,6 +50,16 @@ public class DecimalType extends Type {
    */
   private String original;
 
+  public DecimalType(BigDecimal value) {
+    this.value = value;  
+    if (value != null)
+      original = value.toString();
+  }
+
+  public DecimalType() {
+    // TODO Auto-generated constructor stub
+  }
+
   /**
    * @return the value of the decimal
    */

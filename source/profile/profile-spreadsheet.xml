@@ -169,10 +169,10 @@
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R87C18"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R88C18"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="87" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="88" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="297.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="171.75"/>
@@ -1158,14 +1158,35 @@
     <Cell><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Fixed value: [as defined for a primitive type]</Data><NamedCell
+    <Cell><Data ss:Type="String">Value must be exactly this</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Specifies a primitive value that SHALL hold for this element in the instance</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Specifies a value that SHALL be exactly the value  for this element in the instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">To specify a fixed value for a complex data type, include the child elements for the type and specify fixed values for each property independently</Data><NamedCell
+    <Cell ss:StyleID="s69"><Data ss:Type="String">This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display </Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Profile.structure.snapshot.element.definition.pattern[x]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">2,10</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Value must have at least these property values</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Mostly used for fixing values of CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -1930,7 +1951,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>31</TopRowBottomPane>
+   <TopRowBottomPane>46</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1947,14 +1968,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>32</ActiveRow>
+     <ActiveRow>48</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R87C18"
+  <AutoFilter x:Range="R1C1:R88C18"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>

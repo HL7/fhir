@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -422,59 +422,24 @@ public class Composition extends Resource {
         protected StringType title;
 
         /**
-         * Identifier for the section assigned for business purposes outside the context of FHIR.
+         * The content (narrative and data) associated with the section.
          */
-        protected List<Identifier> identifier = new ArrayList<Identifier>();
+        protected Reference content;
 
         /**
-         * A code identifying the kind of content contained within the section.
+         * The actual object that is the target of the reference (The content (narrative and data) associated with the section.)
          */
-        protected CodeableConcept code;
+        protected Resource contentTarget;
 
-        /**
-         * Identifies the primary subject of the section.
-         */
-        protected Reference subject;
-
-        /**
-         * The actual object that is the target of the reference (Identifies the primary subject of the section.)
-         */
-        protected Resource subjectTarget;
-
-        /**
-         * A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all its entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.
-         */
-        protected Narrative text;
-
-        /**
-         * If the section is empty, why the section is empty.
-         */
-        protected CodeableConcept emptyReason;
-
-        /**
-         * If the items in the list or the sub-sections have a meaningful order, what that meaning is. The order of the entries should always match the order in which they are presented in the narrative.
-         */
-        protected CodeableConcept order;
-
-        /**
-         * A nested sub-section within this section.
-         */
-        protected List<SectionComponent> section = new ArrayList<SectionComponent>();
-
-        /**
-         * Identifies the discrete data that underlies the content for the section.
-         */
-        protected List<Reference> entry = new ArrayList<Reference>();
-        /**
-         * The actual objects that are the target of the reference (Identifies the discrete data that underlies the content for the section.)
-         */
-        protected List<Resource> entryTarget = new ArrayList<Resource>();
-
-
-        private static final long serialVersionUID = 861237074L;
+        private static final long serialVersionUID = 988853445L;
 
       public SectionComponent() {
         super();
+      }
+
+      public SectionComponent(Reference content) {
+        super();
+        this.content = content;
       }
 
         /**
@@ -514,183 +479,45 @@ public class Composition extends Resource {
         }
 
         /**
-         * @return {@link #identifier} (Identifier for the section assigned for business purposes outside the context of FHIR.)
+         * @return {@link #content} (The content (narrative and data) associated with the section.)
          */
-        public List<Identifier> getIdentifier() { 
-          return this.identifier;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #identifier} (Identifier for the section assigned for business purposes outside the context of FHIR.)
-         */
-        public Identifier addIdentifier() { 
-          Identifier t = new Identifier();
-          this.identifier.add(t);
-          return t;
+        public Reference getContent() { 
+          return this.content;
         }
 
         /**
-         * @return {@link #code} (A code identifying the kind of content contained within the section.)
+         * @param value {@link #content} (The content (narrative and data) associated with the section.)
          */
-        public CodeableConcept getCode() { 
-          return this.code;
-        }
-
-        /**
-         * @param value {@link #code} (A code identifying the kind of content contained within the section.)
-         */
-        public SectionComponent setCode(CodeableConcept value) { 
-          this.code = value;
+        public SectionComponent setContent(Reference value) { 
+          this.content = value;
           return this;
         }
 
         /**
-         * @return {@link #subject} (Identifies the primary subject of the section.)
+         * @return {@link #content} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The content (narrative and data) associated with the section.)
          */
-        public Reference getSubject() { 
-          return this.subject;
+        public Resource getContentTarget() { 
+          return this.contentTarget;
         }
 
         /**
-         * @param value {@link #subject} (Identifies the primary subject of the section.)
+         * @param value {@link #content} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The content (narrative and data) associated with the section.)
          */
-        public SectionComponent setSubject(Reference value) { 
-          this.subject = value;
+        public SectionComponent setContentTarget(Resource value) { 
+          this.contentTarget = value;
           return this;
-        }
-
-        /**
-         * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the primary subject of the section.)
-         */
-        public Resource getSubjectTarget() { 
-          return this.subjectTarget;
-        }
-
-        /**
-         * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the primary subject of the section.)
-         */
-        public SectionComponent setSubjectTarget(Resource value) { 
-          this.subjectTarget = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #text} (A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all its entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.)
-         */
-        public Narrative getText() { 
-          return this.text;
-        }
-
-        /**
-         * @param value {@link #text} (A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all its entries, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.)
-         */
-        public SectionComponent setText(Narrative value) { 
-          this.text = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #emptyReason} (If the section is empty, why the section is empty.)
-         */
-        public CodeableConcept getEmptyReason() { 
-          return this.emptyReason;
-        }
-
-        /**
-         * @param value {@link #emptyReason} (If the section is empty, why the section is empty.)
-         */
-        public SectionComponent setEmptyReason(CodeableConcept value) { 
-          this.emptyReason = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #order} (If the items in the list or the sub-sections have a meaningful order, what that meaning is. The order of the entries should always match the order in which they are presented in the narrative.)
-         */
-        public CodeableConcept getOrder() { 
-          return this.order;
-        }
-
-        /**
-         * @param value {@link #order} (If the items in the list or the sub-sections have a meaningful order, what that meaning is. The order of the entries should always match the order in which they are presented in the narrative.)
-         */
-        public SectionComponent setOrder(CodeableConcept value) { 
-          this.order = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #section} (A nested sub-section within this section.)
-         */
-        public List<SectionComponent> getSection() { 
-          return this.section;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #section} (A nested sub-section within this section.)
-         */
-        public SectionComponent addSection() { 
-          SectionComponent t = new SectionComponent();
-          this.section.add(t);
-          return t;
-        }
-
-        /**
-         * @return {@link #entry} (Identifies the discrete data that underlies the content for the section.)
-         */
-        public List<Reference> getEntry() { 
-          return this.entry;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #entry} (Identifies the discrete data that underlies the content for the section.)
-         */
-        public Reference addEntry() { 
-          Reference t = new Reference();
-          this.entry.add(t);
-          return t;
-        }
-
-        /**
-         * @return {@link #entry} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the discrete data that underlies the content for the section.)
-         */
-        public List<Resource> getEntryTarget() { 
-          return this.entryTarget;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("title", "string", "The heading for this particular section.  This will be part of the rendered content for the document.", 0, java.lang.Integer.MAX_VALUE, title));
-          childrenList.add(new Property("identifier", "Identifier", "Identifier for the section assigned for business purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
-          childrenList.add(new Property("code", "CodeableConcept", "A code identifying the kind of content contained within the section.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("subject", "Reference(Patient|Group|Device)", "Identifies the primary subject of the section.", 0, java.lang.Integer.MAX_VALUE, subject));
-          childrenList.add(new Property("text", "Narrative", "A human-readable narrative that represents the 'attested content of the section to a human. The narrative need not encode all its entries, but is required to contain sufficient detail to make it 'clinically safe' for a human to just read the narrative.", 0, java.lang.Integer.MAX_VALUE, text));
-          childrenList.add(new Property("emptyReason", "CodeableConcept", "If the section is empty, why the section is empty.", 0, java.lang.Integer.MAX_VALUE, emptyReason));
-          childrenList.add(new Property("order", "CodeableConcept", "If the items in the list or the sub-sections have a meaningful order, what that meaning is. The order of the entries should always match the order in which they are presented in the narrative.", 0, java.lang.Integer.MAX_VALUE, order));
-          childrenList.add(new Property("section", "@Composition.section", "A nested sub-section within this section.", 0, java.lang.Integer.MAX_VALUE, section));
-          childrenList.add(new Property("entry", "Reference(Any)", "Identifies the discrete data that underlies the content for the section.", 0, java.lang.Integer.MAX_VALUE, entry));
+          childrenList.add(new Property("content", "Reference(Any)", "The content (narrative and data) associated with the section.", 0, java.lang.Integer.MAX_VALUE, content));
         }
 
       public SectionComponent copy() {
         SectionComponent dst = new SectionComponent();
         dst.title = title == null ? null : title.copy();
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
-        dst.code = code == null ? null : code.copy();
-        dst.subject = subject == null ? null : subject.copy();
-        dst.text = text == null ? null : text.copy();
-        dst.emptyReason = emptyReason == null ? null : emptyReason.copy();
-        dst.order = order == null ? null : order.copy();
-        dst.section = new ArrayList<SectionComponent>();
-        for (SectionComponent i : section)
-          dst.section.add(i.copy());
-        dst.entry = new ArrayList<Reference>();
-        for (Reference i : entry)
-          dst.entry.add(i.copy());
+        dst.content = content == null ? null : content.copy();
         return dst;
       }
 

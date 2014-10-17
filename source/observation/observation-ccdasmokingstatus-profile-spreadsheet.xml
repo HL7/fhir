@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
   <LastSaved>2014-09-28T07:40:02Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,8 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -236,7 +238,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -362,6 +363,7 @@
     <Cell><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;version value=&quot;2.48&quot;/&gt;&lt;code value=&quot;72166-2&quot;/&gt;&lt;display value=&quot;Tobacco smoking status NHIS&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Smoking Status: LOINC 72166-2  = Tobacco smoking status NHIS</Data></Cell>
     <Cell><Data ss:Type="String">Smoking Status: Limited to fixed LOINC  value 72166-2  = Tobacco smoking status NHIS.</Data></Cell>
@@ -393,6 +395,7 @@
     <Cell><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -400,6 +403,7 @@
     <Cell><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">ok</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -444,6 +448,7 @@
    </Print>
    <TabColorIndex>10</TabColorIndex>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -464,7 +469,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -501,7 +507,7 @@
    <ErrorMessage>'y' or 'n'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R10C9,R12C9:R14C9</Range>
+   <Range>R12C9:R14C9,R2C9:R10C9</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>

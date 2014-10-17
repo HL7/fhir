@@ -183,7 +183,7 @@
     <Cell><Data ss:Type="String">AddressUse</Data></Cell>
     <Cell><Data ss:Type="String">home | work | temp | old - purpose of this address</Data></Cell>
     <Cell><Data ss:Type="String">The purpose of this address</Data></Cell>
-    <Cell><Data ss:Type="String">Home, Work</Data></Cell>
+    <Cell><Data ss:Type="String">home</Data></Cell>
     <Cell><Data ss:Type="String">Allows an appropriate address to be chosen from a list of many</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old address etc for a current/permanent one. Applications can assume that an address is current unless it explicitly says that it is temporary or old</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">unique(./use)</Data></Cell>
@@ -209,7 +209,8 @@
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Street name, number, direction &amp; P.O. Box etc </Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This component contains the house number, apartment number, street name, street direction, &#10;P.O. Box number, delivery hints, and similar address information</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">home | work | temp | old - purpose of this address</Data></Cell>
+    <Cell><Data ss:Type="String">137 Nowhere Street</Data></Cell>
+    <Cell><Data ss:Type="String">home | work | temp | old - purpose of this address</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">AD.part[parttype = AL]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)&#10;</Data></Cell>
     <Cell><Data ss:Type="String">street address</Data></Cell>
@@ -221,6 +222,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Name of city, town etc.</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The name of the city, town, village or other community or delivery center.</Data></Cell>
+    <Cell><Data ss:Type="String">Erewhon</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Muncipality</Data></Cell>
     <Cell><Data ss:Type="String">AD.part[parttype = CTY]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.3</Data></Cell>
@@ -245,6 +247,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Postal code for area</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A postal code designating a region defined by the postal service.</Data></Cell>
+    <Cell><Data ss:Type="Number">9132</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Zip</Data></Cell>
     <Cell><Data ss:Type="String">AD.part[parttype = ZIP]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.5</Data></Cell>
@@ -269,7 +272,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Time period when address was/is in use</Data></Cell>
     <Cell><Data ss:Type="String">Time period when address was/is in use</Data></Cell>
-    <Cell><Data ss:Type="String">23-Mar 2010 -&gt; 1-Jul 2010</Data></Cell>
+    <Cell><Data ss:Type="String">{ &quot;start&quot; : &quot;2010-03-23&quot;, &quot;end&quot; : &quot;2010-07-01&quot; }</Data></Cell>
     <Cell><Data ss:Type="String">Allows addresses to be placed in historical context</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.12 / XAD.13 + XAD.14&#10;</Data></Cell>
@@ -310,8 +313,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

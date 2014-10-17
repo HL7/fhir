@@ -29,7 +29,9 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +48,8 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
+
+import com.google.gson.JsonObject;
 
 /**
  * General parser for XML content. You instantiate an XmlParser of these, but you 
@@ -65,7 +69,10 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     this.parseComments = parseComments;
   }
 
-
+  protected XmlPullParser loadXml(String source) throws Exception {
+    return loadXml(new ByteArrayInputStream(source.getBytes(StandardCharsets.UTF_8)));
+  }
+  
   protected XmlPullParser loadXml(InputStream stream) throws Exception {
     BufferedInputStream input = new BufferedInputStream(stream);
     XmlPullParserFactory factory = XmlPullParserFactory.newInstance(System.getProperty(XmlPullParserFactory.PROPERTY_NAME), null);
@@ -399,5 +406,12 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     return new DateAndTime(parseString(xpp));    
   }
 
+  public Type parseType(String source, String type) throws Exception {
+    XmlPullParser xml = loadXml(source);
+    return parseType(xml, type);
+  }
+
+  protected abstract Type parseType(XmlPullParser xml, String type) throws Exception;
+ 
  
 }

@@ -39,6 +39,7 @@ import org.hl7.fhir.instance.model.Binary;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -60,6 +61,10 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
 
   private JsonObject loadJson(InputStream input) throws Exception {
     return parser.parse(TextFile.streamToString(input)).getAsJsonObject();
+  }
+  
+  private JsonObject loadJson(String input) throws Exception {
+    return parser.parse(input).getAsJsonObject();
   }
   
   /**
@@ -197,5 +202,11 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     return res;
   }
   
+  public Type parseType(String source, String type) throws Exception {
+    JsonObject json = loadJson(source);
+    return parseType(json, type);
+  }
+
+  protected abstract Type parseType(JsonObject json, String type) throws Exception;
   
 }

@@ -57,6 +57,7 @@ public enum ResourceType {
     Location,
     AllergyIntolerance,
     Observation,
+    Contract,
     RelatedPerson,
     Basic,
     Specimen,
@@ -181,6 +182,8 @@ public enum ResourceType {
       return "allergyintolerance";
     case Observation:
       return "observation";
+    case Contract:
+      return "contract";
     case RelatedPerson:
       return "relatedperson";
     case Basic:

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 13:30+1100 for FHIR v0.3.0
 
 public class ResourceFactory extends Factory {
 
@@ -146,6 +146,8 @@ public class ResourceFactory extends Factory {
             return new Observation();
         if ("AllergyIntolerance".equals(name))
             return new AllergyIntolerance();
+        if ("Contract".equals(name))
+            return new Contract();
         if ("RelatedPerson".equals(name))
             return new RelatedPerson();
         if ("Basic".equals(name))

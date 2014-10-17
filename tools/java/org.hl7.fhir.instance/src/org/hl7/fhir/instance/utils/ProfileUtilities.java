@@ -615,6 +615,8 @@ public class ProfileUtilities {
         dst.setMaxElement(src.getMaxElement().copy());
       if (src.getValue() != null)
         dst.setValue(src.getValue().copy());
+      if (src.getPattern() != null)
+        dst.setPattern(src.getPattern().copy());
       if (src.getExample() != null)
         dst.setExample(src.getExample().copy());
       if (src.getMaxLengthElement() != null)
@@ -922,7 +924,7 @@ public class ProfileUtilities {
   }
 
   public String describeSlice(ElementSlicingComponent slicing) {
-    return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+slicing.getDiscriminator();
+    return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+slicing.getDiscriminator().toString();
   }
 
   private String describe(ResourceSlicingRules rules) {

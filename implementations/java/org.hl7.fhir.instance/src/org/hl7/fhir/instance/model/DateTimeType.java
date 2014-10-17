@@ -40,6 +40,13 @@ public class DateTimeType extends PrimitiveType {
 	 */
 	private DateAndTime value;
 
+	public DateTimeType(DateAndTime value) {
+    this.value = value;  
+  }
+
+  public DateTimeType() {
+  }
+
 	/**
 	 * @return The value of the dateTime
 	 */

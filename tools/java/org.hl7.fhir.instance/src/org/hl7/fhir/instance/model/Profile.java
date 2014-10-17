@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1383,9 +1383,14 @@ public class Profile extends Resource {
         protected StringType nameReference;
 
         /**
-         * Specifies a primitive value that SHALL hold for this element in the instance.
+         * Specifies a value that SHALL be exactly the value  for this element in the instance.
          */
         protected org.hl7.fhir.instance.model.Type value;
+
+        /**
+         * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too.
+         */
+        protected org.hl7.fhir.instance.model.Type pattern;
 
         /**
          * An example value for this element.
@@ -1432,7 +1437,7 @@ public class Profile extends Resource {
          */
         protected List<ElementDefinitionMappingComponent> mapping = new ArrayList<ElementDefinitionMappingComponent>();
 
-        private static final long serialVersionUID = -935240984L;
+        private static final long serialVersionUID = -1222745348L;
 
       public ElementDefinitionComponent() {
         super();
@@ -1745,17 +1750,32 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #value} (Specifies a primitive value that SHALL hold for this element in the instance.)
+         * @return {@link #value} (Specifies a value that SHALL be exactly the value  for this element in the instance.)
          */
         public org.hl7.fhir.instance.model.Type getValue() { 
           return this.value;
         }
 
         /**
-         * @param value {@link #value} (Specifies a primitive value that SHALL hold for this element in the instance.)
+         * @param value {@link #value} (Specifies a value that SHALL be exactly the value  for this element in the instance.)
          */
         public ElementDefinitionComponent setValue(org.hl7.fhir.instance.model.Type value) { 
           this.value = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #pattern} (Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too.)
+         */
+        public org.hl7.fhir.instance.model.Type getPattern() { 
+          return this.pattern;
+        }
+
+        /**
+         * @param value {@link #pattern} (Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too.)
+         */
+        public ElementDefinitionComponent setPattern(org.hl7.fhir.instance.model.Type value) { 
+          this.pattern = value;
           return this;
         }
 
@@ -2015,7 +2035,8 @@ public class Profile extends Resource {
           childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the instance.", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("type", "", "The data type or resource that the value of this element is permitted to be.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("nameReference", "string", "Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.", 0, java.lang.Integer.MAX_VALUE, nameReference));
-          childrenList.add(new Property("value[x]", "*", "Specifies a primitive value that SHALL hold for this element in the instance.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too.", 0, java.lang.Integer.MAX_VALUE, pattern));
           childrenList.add(new Property("example[x]", "*", "An example value for this element.", 0, java.lang.Integer.MAX_VALUE, example));
           childrenList.add(new Property("maxLength", "integer", "Indicates the shortest length that SHALL be supported by conformant instances without truncation.", 0, java.lang.Integer.MAX_VALUE, maxLength));
           childrenList.add(new Property("condition", "id", "A reference to an invariant that may make additional statements about the cardinality or value in the instance.", 0, java.lang.Integer.MAX_VALUE, condition));
@@ -2043,6 +2064,7 @@ public class Profile extends Resource {
           dst.type.add(i.copy());
         dst.nameReference = nameReference == null ? null : nameReference.copy();
         dst.value = value == null ? null : value.copy();
+        dst.pattern = pattern == null ? null : pattern.copy();
         dst.example = example == null ? null : example.copy();
         dst.maxLength = maxLength == null ? null : maxLength.copy();
         dst.condition = new ArrayList<IdType>();

@@ -49,6 +49,16 @@ public class IntegerType extends PrimitiveType {
 	 */
 	private String original;
 	
+	public IntegerType(Integer value) {
+    if (value != null) {
+      this.value = value;
+      original = value.toString();
+    }
+  }
+
+  public IntegerType() {
+  }
+
 	/**
 	 * @return the integer value
 	 */

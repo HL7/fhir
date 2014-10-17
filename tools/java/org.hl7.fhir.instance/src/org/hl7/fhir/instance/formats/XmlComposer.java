@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 13:30+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -948,17 +948,7 @@ public class XmlComposer extends XmlComposerBase {
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
       composeString("title", element.getTitleElement());
-      for (Identifier e : element.getIdentifier()) 
-        composeIdentifier("identifier", e);
-      composeCodeableConcept("code", element.getCode());
-      composeReference("subject", element.getSubject());
-      composeNarrative("text", element.getText());
-      composeCodeableConcept("emptyReason", element.getEmptyReason());
-      composeCodeableConcept("order", element.getOrder());
-      for (Composition.SectionComponent e : element.getSection()) 
-        composeCompositionSectionComponent("section", e);
-      for (Reference e : element.getEntry()) 
-        composeReference("entry", e);
+      composeReference("content", element.getContent());
       xml.close(FHIR_NS, name);
     }
   }
@@ -1329,6 +1319,48 @@ public class XmlComposer extends XmlComposerBase {
         composeEnumeration("mode", element.getModeElement(), new Conformance.DocumentModeEnumFactory());
       composeString("documentation", element.getDocumentationElement());
       composeReference("profile", element.getProfile());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeContract(String name, Contract element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeReference("subject", element.getSubject());
+      composeCodeableConcept("type", element.getType());
+      composeCodeableConcept("subtype", element.getSubtype());
+      composeDateTime("issued", element.getIssuedElement());
+      composePeriod("applies", element.getApplies());
+      for (Reference e : element.getAuthor()) 
+        composeReference("author", e);
+      for (Reference e : element.getGrantor()) 
+        composeReference("grantor", e);
+      for (Reference e : element.getGrantee()) 
+        composeReference("grantee", e);
+      for (Reference e : element.getWitness()) 
+        composeReference("witness", e);
+      composeIdentifier("identifier", element.getIdentifier());
+      for (Contract.ContractTermComponent e : element.getTerm()) 
+        composeContractContractTermComponent("term", e);
+      composeAttachment("friendly", element.getFriendly());
+      composeAttachment("legal", element.getLegal());
+      composeAttachment("rule", element.getRule());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeContractContractTermComponent(String name, Contract.ContractTermComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeIdentifier("identifier", element.getIdentifier());
+      composeCodeableConcept("type", element.getType());
+      composeCodeableConcept("subtype", element.getSubtype());
+      composeReference("subject", element.getSubject());
+      composeString("text", element.getTextElement());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3291,6 +3323,7 @@ public class XmlComposer extends XmlComposerBase {
         composeProfileTypeRefComponent("type", e);
       composeString("nameReference", element.getNameReferenceElement());
       composeType("value", element.getValue());
+      composeType("pattern", element.getPattern());
       composeType("example", element.getExample());
       composeInteger("maxLength", element.getMaxLengthElement());
       for (IdType e : element.getCondition()) 
@@ -4199,6 +4232,8 @@ public class XmlComposer extends XmlComposerBase {
       composeCondition("Condition", (Condition)resource);
     else if (resource instanceof Conformance)
       composeConformance("Conformance", (Conformance)resource);
+    else if (resource instanceof Contract)
+      composeContract("Contract", (Contract)resource);
     else if (resource instanceof Contraindication)
       composeContraindication("Contraindication", (Contraindication)resource);
     else if (resource instanceof DataElement)

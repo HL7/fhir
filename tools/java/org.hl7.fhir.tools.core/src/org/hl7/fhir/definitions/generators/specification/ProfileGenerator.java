@@ -802,6 +802,10 @@ public class ProfileGenerator {
     for (Invariant id : e.getStatedInvariants()) 
       ce.getDefinition().addCondition(id.getId());
     
+    ce.getDefinition().setValue(e.getValue());
+    ce.getDefinition().setPattern(e.getPattern());
+    ce.getDefinition().setExample(e.getExample());
+    
     // we don't know mustSupport here
     ce.getDefinition().setIsModifier(e.isModifier());
     ce.getDefinition().setIsSummaryElement(Factory.newBoolean(e.isSummaryItem()));

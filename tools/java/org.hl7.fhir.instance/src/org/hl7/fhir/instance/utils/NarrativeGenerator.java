@@ -1981,16 +1981,16 @@ public class NarrativeGenerator {
       node.addTag("hr");
       if (section.getTitle() != null)
         node.addTag("h"+Integer.toString(level)).addText(section.getTitle());
-      else if (section.getCode() != null)
-        node.addTag("h"+Integer.toString(level)).addText(displayCodeableConcept(section.getCode()));
+//      else if (section.getCode() != null)
+//        node.addTag("h"+Integer.toString(level)).addText(displayCodeableConcept(section.getCode()));
       
-      if (section.getText() != null) {
-        node.getChildNodes().add(section.getText().getDiv());
-      }
-      
-      if (!section.getSection().isEmpty()) {
-        renderSections(feed, node.addTag("blockquote"), section.getSection(), level+1);
-      }
+//      if (section.getText() != null) {
+//        node.getChildNodes().add(section.getText().getDiv());
+//      }
+//      
+//      if (!section.getSection().isEmpty()) {
+//        renderSections(feed, node.addTag("blockquote"), section.getSection(), level+1);
+//      }
     }
   }
   

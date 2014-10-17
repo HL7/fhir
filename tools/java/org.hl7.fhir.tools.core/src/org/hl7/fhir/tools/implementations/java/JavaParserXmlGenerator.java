@@ -59,6 +59,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 
   private StringBuilder reg = new StringBuilder();
   private StringBuilder regt = new StringBuilder();
+  private StringBuilder regt2 = new StringBuilder();
   private StringBuilder regf = new StringBuilder();
   private StringBuilder regn = new StringBuilder();
   private String genparam;
@@ -90,6 +91,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     for (ElementDefn n : definitions.getTypes().values()) {
       generate(n, JavaGenClass.Type);
       regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+      regt2.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
       regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
       regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
@@ -97,12 +99,14 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     for (ProfiledType n : definitions.getConstraints().values()) {
       generateConstraint(n);
       regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+      regt2.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
       regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
       regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
     for (ElementDefn n : definitions.getStructures().values()) {
       generate(n, JavaGenClass.Structure);
       regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+      regt2.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
       regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
       regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
@@ -456,6 +460,10 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("  protected Type parseType(String prefix, XmlPullParser xpp) throws Exception {\r\n");
     write("    "+regt.toString().substring(9));
     write("    throw new Exception(\"Unknown type \"+xpp.getName());\r\n");
+    write("  }\r\n\r\n");
+    write("  protected Type parseType(XmlPullParser xpp, String type) throws Exception {\r\n");
+    write("    "+regt2.toString().substring(9));
+    write("    throw new Exception(\"Unknown type \"+type);\r\n");
     write("  }\r\n\r\n");
 
     write("  public Element parseFragment(XmlPullParser xpp, String type) throws Exception {\r\n");

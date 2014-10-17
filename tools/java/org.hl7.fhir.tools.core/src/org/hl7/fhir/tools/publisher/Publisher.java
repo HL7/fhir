@@ -416,76 +416,77 @@ public class Publisher implements URIResolver {
         path = path + File.separator;
       page.getFolders().dstDir = path;
     }
-    
+
     if (isGenerate && page.getSvnRevision() == null)
       page.setSvnRevision(checkSubversion(folder));
     registerReferencePlatforms();
 
-    if (initialize(folder)) {
-      page.log("Version " + page.getVersion() + "-" + page.getSvnRevision(), LogMessageType.Hint);
+    if (!initialize(folder)) 
+      throw new Exception("Unable to publish as preconditions aren't met");
 
-      cache = new IniFile(page.getFolders().rootDir + "temp" + File.separator + "build.cache");
-      loadSuppressedMessages(page.getFolders().rootDir);
-      boolean doAny = false;
-      for (String n : dates.keySet()) {
-        Long d = cache.getLongProperty("dates", n);
-        boolean b = d == null || (dates.get(n) > d);
-        cache.setLongProperty("dates", n, dates.get(n).longValue(), null);
-        buildFlags.put(n.toLowerCase(), b);
-        doAny = doAny || b;
-      }
-      if (!doAny || !(new File(page.getFolders().dstDir + "qa.html").exists()))
-        buildFlags.put("all", true); // nothing - build all
-      buildFlags.put("all", true); // override partial bild until it can figured out
-      cache.save();
+    page.log("Version " + page.getVersion() + "-" + page.getSvnRevision(), LogMessageType.Hint);
 
-      if (!buildFlags.get("all"))
-        page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
-      Utilities.createDirectory(page.getFolders().dstDir);
-      Utilities.deleteTempFiles();
+    cache = new IniFile(page.getFolders().rootDir + "temp" + File.separator + "build.cache");
+    loadSuppressedMessages(page.getFolders().rootDir);
+    boolean doAny = false;
+    for (String n : dates.keySet()) {
+      Long d = cache.getLongProperty("dates", n);
+      boolean b = d == null || (dates.get(n) > d);
+      cache.setLongProperty("dates", n, dates.get(n).longValue(), null);
+      buildFlags.put(n.toLowerCase(), b);
+      doAny = doAny || b;
+    }
+    if (!doAny || !(new File(page.getFolders().dstDir + "qa.html").exists()))
+      buildFlags.put("all", true); // nothing - build all
+    buildFlags.put("all", true); // override partial bild until it can figured out
+    cache.save();
 
-      page.getBreadCrumbManager().parse(page.getFolders().srcDir + "heirarchy.xml");
-      page.loadSnomed();
-      page.loadLoinc();
+    if (!buildFlags.get("all"))
+      page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
+    Utilities.createDirectory(page.getFolders().dstDir);
+    Utilities.deleteTempFiles();
 
-      prsr.parse(page.getGenDate());
-      
+    page.getBreadCrumbManager().parse(page.getFolders().srcDir + "heirarchy.xml");
+    page.loadSnomed();
+    page.loadLoinc();
+
+    prsr.parse(page.getGenDate());
+
+    if (page.hasIG()) {
+      loadIG();
+    }
+    if (buildFlags.get("all")) {
+      copyStaticContent();
+    }
+    defineSpecialValues();     
+    loadValueSets1();
+
+
+    if (validate()) {
+      processProfiles();
       if (page.hasIG()) {
-        loadIG();
+        processIGFiles();
       }
-      if (buildFlags.get("all")) {
-        copyStaticContent();
-      }
-      defineSpecialValues();     
-      loadValueSets1();
+      if (isGenerate) {
+        page.log("Clear Directory", LogMessageType.Process);
+        if (buildFlags.get("all"))
+          Utilities.clearDirectory(page.getFolders().dstDir);
+        Utilities.createDirectory(page.getFolders().dstDir + "html");
+        Utilities.createDirectory(page.getFolders().dstDir + "examples");
+        Utilities.clearDirectory(page.getFolders().rootDir + "temp" + File.separator + "hl7" + File.separator + "web");
+        Utilities.clearDirectory(page.getFolders().rootDir + "temp" + File.separator + "hl7" + File.separator + "dload");
 
-
-      if (validate()) {
-        processProfiles();
-        if (page.hasIG()) {
-          processIGFiles();
-        }
-        if (isGenerate) {
-          page.log("Clear Directory", LogMessageType.Process);
-          if (buildFlags.get("all"))
-            Utilities.clearDirectory(page.getFolders().dstDir);
-          Utilities.createDirectory(page.getFolders().dstDir + "html");
-          Utilities.createDirectory(page.getFolders().dstDir + "examples");
-          Utilities.clearDirectory(page.getFolders().rootDir + "temp" + File.separator + "hl7" + File.separator + "web");
-          Utilities.clearDirectory(page.getFolders().rootDir + "temp" + File.separator + "hl7" + File.separator + "dload");
-
-          String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
-          generateECore(prsr.getECoreParseResults(), eCorePath);
-          produceSpecification(eCorePath);
-        } 
-        validateXml();
-        if (isGenerate && buildFlags.get("all"))
-          produceQA();
-        page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
-      } else {
-        page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
-        throw new Exception("Errors executing build. Details logged.");
-      }
+        String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
+        generateECore(prsr.getECoreParseResults(), eCorePath);
+        produceSpecification(eCorePath);
+      } 
+      validateXml();
+      if (isGenerate && buildFlags.get("all"))
+        produceQA();
+      page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+    } else {
+      page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+      throw new Exception("Errors executing build. Details logged.");
     }
   }
 

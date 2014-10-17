@@ -40,7 +40,14 @@ public class IdType extends PrimitiveType {
 	 */
 	protected String value;
 
-	/**
+	public IdType(String value) {
+    this.value = value;  
+  }
+
+  public IdType() {
+  }
+
+  /**
 	 * @return the id
 	 */
 	public String getValue() {

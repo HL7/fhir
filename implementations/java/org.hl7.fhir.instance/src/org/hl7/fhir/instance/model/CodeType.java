@@ -39,6 +39,13 @@ public class CodeType extends PrimitiveType {
 	 */
 	private String value;
 
+	public CodeType(String value) {
+    this.value = value;  
+  }
+
+  public CodeType() {
+  }
+
 	/**
 	 * @return The value of the code
 	 */

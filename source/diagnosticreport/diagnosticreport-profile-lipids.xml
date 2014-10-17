@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
   <LastSaved>2013-07-11T14:18:02Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>15570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -33,10 +33,6 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s62" ss:Name="Hyperlink">
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
-    ss:Underline="Single"/>
   </Style>
   <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
@@ -94,13 +90,6 @@
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
-  </Style>
-  <Style ss:ID="s74" ss:Parent="s62">
-   <Alignment ss:Vertical="Bottom"/>
-   <Borders/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
   <Style ss:ID="s75">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
@@ -253,7 +242,7 @@
     <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">http://loinc.org#57698-3|Lipid panel with direct LDL - Serum or Plasma</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">{ &quot;coding&quot; : [{ &quot;system&quot; : &quot;http://loinc.org&quot;, &quot;code&quot;: &quot;57698-3&quot; , &quot;display&quot; : &quot;Lipid panel with direct LDL - Serum or Plasma&quot;}]}</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Fix the name of the report to an appropriate LOINC code</Data></Cell>
     <Cell><Data ss:Type="String">LOINC Code for Lipid Panel with LDL</Data></Cell>
     <Cell><Data ss:Type="String">LOINC Code for Lipid Panel with LDL</Data></Cell>
@@ -325,11 +314,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -373,8 +362,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s74" ss:HRef="http://loinc.org/#35200-5|Cholesterol"><Data
-      ss:Type="String">http://loinc.org#35200-5|Cholesterol</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">{ &quot;coding&quot; : [{ &quot;system&quot; : &quot;http://loinc.org&quot;, &quot;code&quot;: &quot;35200-5&quot; , &quot;display&quot; : &quot;Cholesterol&quot; }]}</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
     <Cell><Data ss:Type="String">Cholesterol</Data></Cell>
    </Row>
@@ -472,10 +460,10 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">4.5 mmol/L</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">{ &quot;value&quot; : &quot;4.5&quot;, &quot;units&quot; : &quot;mmol/L&quot; }</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">&lt;4.5 mmol/L</Data></Cell>
@@ -534,7 +522,7 @@
    </PageSetup>
    <Unsynced/>
    <SplitHorizontal>1320</SplitHorizontal>
-   <TopRowBottomPane>0</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -542,9 +530,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>1</ActiveCol>
-     <RangeSelection>R18C2:R18C3</RangeSelection>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -591,8 +578,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s74" ss:HRef="http://loinc.org/#35217-9|Triglyceride"><Data
-      ss:Type="String">http://loinc.org#35217-9|Triglyceride</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">{ &quot;coding&quot; : [{ &quot;system&quot; : &quot;http://loinc.org&quot;, &quot;code&quot;: &quot;35217-9&quot; , &quot;display&quot; : &quot;Triglyceride&quot; }]}</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
     <Cell><Data ss:Type="String">Triglyceride</Data></Cell>
    </Row>
@@ -718,8 +704,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -776,8 +762,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s74" ss:HRef="http://loinc.org/#2085-9|HDL Cholesterol"><Data
-      ss:Type="String">http://loinc.org#2085-9|HDL Cholesterol</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">{ &quot;coding&quot; : [{ &quot;system&quot; : &quot;http://loinc.org&quot;, &quot;code&quot;: &quot;2085-9&quot; , &quot;display&quot; : &quot;HDL Cholesterol&quot; }]}</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">HDL Cholesterol</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -882,10 +867,10 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1.5 mmol/L</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">{ &quot;value&quot; : &quot;1.5&quot;, &quot;units&quot; : &quot;mmol/L&quot; }</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">&gt;1.5 mmol/L</Data></Cell>
@@ -965,8 +950,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1164,10 +1149,10 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">3.0 mmol/L</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">{ &quot;value&quot; : &quot;3.0&quot;, &quot;units&quot; : &quot;mmol/L&quot; }</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">&lt;3.0 mmol/L</Data></Cell>
@@ -1224,11 +1209,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveCol>6</ActiveCol>
-     <RangeSelection>C7</RangeSelection>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

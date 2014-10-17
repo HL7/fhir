@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
   <LastSaved>2014-09-21T20:59:01Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,8 @@
   <WindowWidth>25230</WindowWidth>
   <WindowTopX>-11955</WindowTopX>
   <WindowTopY>1950</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -239,7 +241,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -348,6 +349,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;version value=&quot;2.48&quot;/&gt;&lt;code value=&quot;57267-7&quot;/&gt;&lt;display value=&quot;ADL or IADL assistance from any caregiver [OASIS-C]&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;&#10;</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Caregiver Characteristics</Data></Cell>
     <Cell><Data ss:Type="String">Caregiver's willingness and ability to provide care.</Data></Cell>
@@ -452,7 +454,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1121,10 +1124,10 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">http://loinc.org#57267-7|ADL or IADL assistance from any caregiver [OASIS-C]</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">{ &quot;Coding&quot; : [{ &quot;system&quot; : &quot;http://loinc.org&quot;, &quot;code&quot;: &quot;57267-7&quot;, &quot;display&quot; : &quot;ADL or IADL assistance from any caregiver [OASIS-C]&quot; }]}</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Caregiver Characteristics</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Caregiver’s willingness and ability to provide care.</Data></Cell>
@@ -1720,12 +1723,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <LeftColumnVisible>4</LeftColumnVisible>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

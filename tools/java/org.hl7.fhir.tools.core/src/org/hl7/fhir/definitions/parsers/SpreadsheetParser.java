@@ -33,6 +33,7 @@ package org.hl7.fhir.definitions.parsers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -63,7 +64,23 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.Base64BinaryType;
+import org.hl7.fhir.instance.model.CodeType;
+import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.DateTimeType;
+import org.hl7.fhir.instance.model.DateType;
+import org.hl7.fhir.instance.model.DecimalType;
+import org.hl7.fhir.instance.model.IdType;
+import org.hl7.fhir.instance.model.InstantType;
+import org.hl7.fhir.instance.model.IntegerType;
+import org.hl7.fhir.instance.model.OidType;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
+import org.hl7.fhir.instance.model.BooleanType;
+import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.TimeType;
+import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.UriType;
+import org.hl7.fhir.instance.model.UuidType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.tools.publisher.BreadCrumbManager.Page;
 import org.hl7.fhir.utilities.CSFile;
@@ -72,6 +89,8 @@ import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
+
+import com.trilead.ssh2.crypto.Base64;
 
 public class SpreadsheetParser {
 
@@ -942,16 +961,64 @@ public class SpreadsheetParser {
       e.addMapping(n, sheet.getColumn(row, definitions.getMapTypes().get(n).getColumnName()));
     }
 		e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
-		e.setExample(sheet.getColumn(row, "Example"));
+		e.setExample(processValue(sheet, row, "Example", e));
 		e.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
 		e.setDisplayHint(sheet.getColumn(row, "Display Hint"));
 		if (isProfile) {
-			e.setValue(sheet.getColumn(row, "Value"));
+      e.setValue(processValue(sheet, row, "Value", e));
+      e.setPattern(processValue(sheet, row, "Pattern", e));
 		}
 		return e;
 	}
 
-	private void doAliases(Sheet sheet, int row, ElementDefn e) throws Exception {
+	private Type processValue(Sheet sheet, int row, String column, ElementDefn e) throws Exception {
+    String source = sheet.getColumn(row, column);
+    if (Utilities.noString(source))
+      return null;  
+	  if (e.getTypes().size() != 1) 
+      throw new Exception("Unable to process "+column+" unless a single type is speciifed (types = "+e.typeCode()+") "+getLocation(row));
+    if (source.startsWith("{")) {
+      JsonParser json = new JsonParser();
+      return json.parseType(source, e.typeCode());
+    } else if (source.startsWith("<")) {
+      XmlParser xml = new XmlParser();
+      return xml.parseType(source, e.typeCode());
+    } else {
+      String type = e.typeCode();
+      if (type.equals("string"))
+        return new StringType(source);
+      if (type.equals("boolean"))
+        return new BooleanType(Boolean.valueOf(source)); 
+      if (type.equals("integer"))
+        return new IntegerType(Integer.valueOf(source)); 
+      if (type.equals("decimal"))
+        return new DecimalType(new BigDecimal(source)); 
+      if (type.equals("base64Binary"))
+        return new Base64BinaryType(Base64.decode(source.toCharArray()));  
+      if (type.equals("instant"))
+        return new InstantType(new DateAndTime(source)); 
+      if (type.equals("uri"))
+        return new UriType(source); 
+      if (type.equals("date"))
+        return new DateType(new DateAndTime(source)); 
+      if (type.equals("dateTime"))
+        return new DateTimeType(new DateAndTime(source)); 
+      if (type.equals("time"))
+        return new TimeType(source); 
+      if (type.equals("code"))
+        return new CodeType(source); 
+      if (type.equals("oid"))
+        return new OidType(source); 
+      if (type.equals("uuid"))
+        return new UuidType(source); 
+      if (type.equals("id"))
+        return new IdType(source); 
+      throw new Exception("Unable to process "+column+" - unknown type "+type+" @ " +getLocation(row));
+    }
+  }
+
+
+  private void doAliases(Sheet sheet, int row, ElementDefn e) throws Exception {
 		String aliases = sheet.getColumn(row, "Aliases");
 		if (!Utilities.noString(aliases))
 		  if (aliases.contains(";")) {
@@ -1013,7 +1080,7 @@ public class SpreadsheetParser {
 		}		
 		exe.setMaxLength(sheet.getColumn(row, "Max Length"));
     exe.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
-    exe.setExample(sheet.getColumn(row, "Example"));
+    exe.setExample(processValue(sheet, row, "Example", exe));
     exe.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
     exe.setShortDefn(sheet.getColumn(row, "Short Name"));
     String s = sheet.getColumn(row, "Must Understand").toLowerCase();
@@ -1051,10 +1118,10 @@ public class SpreadsheetParser {
 
 
 	    e.getTypes().clear();
-	    e.getElementByName("definition").setValue(uri);
+	    e.getElementByName("definition").setValue(new UriType(uri));
 	    e.getElementByName("ref").ban();
 	    if (e.isModifier())
-	      e.getElementByName("mustUnderstand").setValue("true");
+	      e.getElementByName("mustUnderstand").setValue(new BooleanType(true));
 	    else
 	      e.getElementByName("mustUnderstand").ban();
 	    ElementDefn v = e.getElementByName("value[x]");
@@ -1195,7 +1262,7 @@ public class SpreadsheetParser {
 						"Extensions"));
 				t.setName("extension");
 				t.setProfileName(en);
-				t.getElementByName("code").setValue(en);
+				t.getElementByName("code").setValue(new CodeType(en));
 				res.getElements().add(t);
 			}
 			res = t;

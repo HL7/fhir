@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 13:30+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1436,34 +1436,8 @@ public class JsonParser extends JsonParserBase {
       res.setTitleElement(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
       parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
-    if (json.has("identifier")) {
-      JsonArray array = json.getAsJsonArray("identifier");
-      for (int i = 0; i < array.size(); i++) {
-        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("code"))
-      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
-    if (json.has("subject"))
-      res.setSubject(parseReference(json.getAsJsonObject("subject")));
-    if (json.has("text"))
-      res.setText(parseNarrative(json.getAsJsonObject("text")));
-    if (json.has("emptyReason"))
-      res.setEmptyReason(parseCodeableConcept(json.getAsJsonObject("emptyReason")));
-    if (json.has("order"))
-      res.setOrder(parseCodeableConcept(json.getAsJsonObject("order")));
-    if (json.has("section")) {
-      JsonArray array = json.getAsJsonArray("section");
-      for (int i = 0; i < array.size(); i++) {
-        res.getSection().add(parseCompositionSectionComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("entry")) {
-      JsonArray array = json.getAsJsonArray("entry");
-      for (int i = 0; i < array.size(); i++) {
-        res.getEntry().add(parseReference(array.get(i).getAsJsonObject()));
-      }
-    };
+    if (json.has("content"))
+      res.setContent(parseReference(json.getAsJsonObject("content")));
     return res;
   }
 
@@ -2143,6 +2117,80 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationElement());
     if (json.has("profile"))
       res.setProfile(parseReference(json.getAsJsonObject("profile")));
+    return res;
+  }
+
+  private Contract parseContract(JsonObject json) throws Exception {
+    Contract res = new Contract();
+    parseResourceProperties(json, res);
+    if (json.has("subject"))
+      res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("subtype"))
+      res.setSubtype(parseCodeableConcept(json.getAsJsonObject("subtype")));
+    if (json.has("issued"))
+      res.setIssuedElement(parseDateTime(json.get("issued").getAsString()));
+    if (json.has("_issued"))
+      parseElementProperties(json.getAsJsonObject("_issued"), res.getIssuedElement());
+    if (json.has("applies"))
+      res.setApplies(parsePeriod(json.getAsJsonObject("applies")));
+    if (json.has("author")) {
+      JsonArray array = json.getAsJsonArray("author");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAuthor().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("grantor")) {
+      JsonArray array = json.getAsJsonArray("grantor");
+      for (int i = 0; i < array.size(); i++) {
+        res.getGrantor().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("grantee")) {
+      JsonArray array = json.getAsJsonArray("grantee");
+      for (int i = 0; i < array.size(); i++) {
+        res.getGrantee().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("witness")) {
+      JsonArray array = json.getAsJsonArray("witness");
+      for (int i = 0; i < array.size(); i++) {
+        res.getWitness().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("term")) {
+      JsonArray array = json.getAsJsonArray("term");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTerm().add(parseContractContractTermComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("friendly"))
+      res.setFriendly(parseAttachment(json.getAsJsonObject("friendly")));
+    if (json.has("legal"))
+      res.setLegal(parseAttachment(json.getAsJsonObject("legal")));
+    if (json.has("rule"))
+      res.setRule(parseAttachment(json.getAsJsonObject("rule")));
+    return res;
+  }
+
+  private Contract.ContractTermComponent parseContractContractTermComponent(JsonObject json, Contract owner) throws Exception {
+    Contract.ContractTermComponent res = new Contract.ContractTermComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("subtype"))
+      res.setSubtype(parseCodeableConcept(json.getAsJsonObject("subtype")));
+    if (json.has("subject"))
+      res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("text"))
+      res.setTextElement(parseString(json.get("text").getAsString()));
+    if (json.has("_text"))
+      parseElementProperties(json.getAsJsonObject("_text"), res.getTextElement());
     return res;
   }
 
@@ -5659,6 +5707,9 @@ public class JsonParser extends JsonParserBase {
     Type value = parseType("value", json);
     if (value != null)
       res.setValue(value);
+    Type pattern = parseType("pattern", json);
+    if (pattern != null)
+      res.setPattern(pattern);
     Type example = parseType("example", json);
     if (example != null)
       res.setExample(example);
@@ -7256,6 +7307,8 @@ public class JsonParser extends JsonParserBase {
       return parseCondition(json);
     else if (t.equals("Conformance"))
       return parseConformance(json);
+    else if (t.equals("Contract"))
+      return parseContract(json);
     else if (t.equals("Contraindication"))
       return parseContraindication(json);
     else if (t.equals("DataElement"))
@@ -7489,6 +7542,48 @@ public class JsonParser extends JsonParserBase {
     return null;
   }
 
+  protected Type parseType(JsonObject json, String type) throws Exception {
+    if (type.equals("Period"))
+      return parsePeriod(json);
+    else if (type.equals("Coding"))
+      return parseCoding(json);
+    else if (type.equals("Range"))
+      return parseRange(json);
+    else if (type.equals("Quantity"))
+      return parseQuantity(json);
+    else if (type.equals("Attachment"))
+      return parseAttachment(json);
+    else if (type.equals("Ratio"))
+      return parseRatio(json);
+    else if (type.equals("SampledData"))
+      return parseSampledData(json);
+    else if (type.equals("Reference"))
+      return parseReference(json);
+    else if (type.equals("CodeableConcept"))
+      return parseCodeableConcept(json);
+    else if (type.equals("Identifier"))
+      return parseIdentifier(json);
+    else if (type.equals("Age"))
+      return parseAge(json);
+    else if (type.equals("Count"))
+      return parseCount(json);
+    else if (type.equals("Money"))
+      return parseMoney(json);
+    else if (type.equals("Distance"))
+      return parseDistance(json);
+    else if (type.equals("Duration"))
+      return parseDuration(json);
+    else if (type.equals("Timing"))
+      return parseTiming(json);
+    else if (type.equals("Address"))
+      return parseAddress(json);
+    else if (type.equals("HumanName"))
+      return parseHumanName(json);
+    else if (type.equals("ContactPoint"))
+      return parseContactPoint(json);
+    throw new Exception("Unknown Type "+type);
+  }
+
   private boolean hasTypeName(JsonObject json, String prefix) {
         if (json.has(prefix+"Period"))
       return true;
@@ -7553,6 +7648,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Condition"))
       return true;
     if (json.has(prefix+"Conformance"))
+      return true;
+    if (json.has(prefix+"Contract"))
       return true;
     if (json.has(prefix+"Contraindication"))
       return true;

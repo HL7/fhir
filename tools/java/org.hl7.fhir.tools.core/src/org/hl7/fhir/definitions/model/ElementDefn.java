@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ElementDefn {
@@ -69,13 +70,14 @@ public class ElementDefn {
 	private List<String> aliases = new ArrayList<String>();
 	private String committeeNotes;
 	private String condition;
-	private String example;
 	private String maxLength;
 	private List<String> tasks = new ArrayList<String>();
 	
 	private String profileName; // only in a profile, for slicing
 	private List<String> discriminator = new ArrayList<String>(); // when slicing
-	private String value; // only in a profile
+  private Type example;
+  private Type value; // only in a profile
+  private Type pattern; // only in a profile
 	private ElementComponent derivation;
 	private boolean inherited; // in a profile, was this element add from the
 								// base definition (true) or was it specifically
@@ -441,11 +443,11 @@ public class ElementDefn {
 		return this.typeCode().startsWith("@");
 	}
 	
-	public String getExample() {
+	public Type getExample() {
 		return example;
 	}
 
-	public void setExample(String example) {
+	public void setExample(Type example) {
 		this.example = example;
 	}
 
@@ -457,11 +459,11 @@ public class ElementDefn {
 		this.profileName = profileName;
 	}
 
-	public String getValue() {
+	public Type getValue() {
 		return value;
 	}
 
-	public void setValue(String value) {
+	public void setValue(Type value) {
 		this.value = value;
 	}
 
@@ -762,7 +764,16 @@ public class ElementDefn {
       if (t.getProfile() != null)
         return true;
     return false;
+  }
+
+  public Type getPattern() {
+    return pattern;
+  }
+
+  public void setPattern(Type pattern) {
+    this.pattern = pattern;
   }	
 	
+  
 }
 

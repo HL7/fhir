@@ -28,6 +28,7 @@ package org.hl7.fhir.definitions.generators.specification;
  POSSIBILITY OF SUCH DAMAGE.
 
  */
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -44,7 +45,10 @@ import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.CodeableConcept;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
@@ -344,12 +348,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			else
 				write(en + "</a>&gt;");
 
-			if (elem.typeCode().equals("CodeableConcept"))
-				write(renderCodeableConcept(indent, elem.getValue()) + "&lt;/" + en + "&gt;\r\n");
-			else if (elem.typeCode().equals("Quantity"))
-				write(renderQuantity(indent, elem.getValue()) + "&lt;" + en + "/&gt;\r\n");
-			else
-				write(elem.getValue() + "&lt;" + en + "/&gt;\r\n");
+//			if (elem.typeCode().equals("CodeableConcept"))
+//				write(renderCodeableConcept(indent, elem.getValue()) + "&lt;/" + en + "&gt;\r\n");
+//			else if (elem.typeCode().equals("Quantity"))
+//				write(renderQuantity(indent, elem.getValue()) + "&lt;" + en + "/&gt;\r\n");
+//			else
+//				write(elem.getValue() + "&lt;" + en + "/&gt;\r\n");
+       write(renderType(indent, elem.getValue()) + "&lt;" + en + "/&gt;\r\n");
 		} else {
 			write("<b>" + en);
 			if (defPage == null) {
@@ -636,62 +641,81 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		return b.toString();
 	}
 
+  private String renderType(int indent, Type value) throws Exception {
+    StringBuilder b = new StringBuilder();
+    for (int i = 0; i < indent-2; i++)
+      b.append(" ");
+    String ind = b.toString();
+
+    XmlComposer xml = new XmlComposer();
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    xml.compose(bs, value);
+    bs.close();
+    String[] result = bs.toString().split("\\r?\\n");
+    b = new StringBuilder();
+    for (String s : result) {
+      if (s.startsWith(" ")) // eliminate the wrapper content 
+        b.append("\r\n  "+ind + Utilities.escapeXml(s));
+    }
+    return b.toString()+"\r\n"+ind;  
+  }
+  
 	// code ### | text
-	private String renderCodeableConcept(int indent, String value)
-			throws Exception {
-		StringBuilder s = new StringBuilder();
-		for (int i = 0; i < indent; i++)
-			s.append(" ");
-		String ind = s.toString();
-		s = new StringBuilder();
-		String[] parts = value.split("\\|");
-		
-
-		if (parts[0].length() > 0) {
-		  String[] parts2 = parts[0].split("#");
-		  s.append("\r\n" + ind + "  &lt;coding&gt;");
-		  if (parts2.length > 0 && parts2[0].length() > 0)
-		    s.append("\r\n" + ind + "    &lt;code value=\"" + parts2[0] + "\"/&gt;");
-      if (parts2.length > 1 && parts2[1].length() > 0)
-		    s.append("\r\n" + ind + "    &lt;system value=\"" + parts2[1] + "\"/&gt;");
-      if (parts2.length > 2 && parts2[2].length() > 0)
-		    s.append("\r\n" + ind + "    &lt;display value=\"" + parts2[2] + "\"/&gt;");
-      s.append("\r\n" + ind + "  &lt;/coding&gt;");
-	  }
-    if (parts.length > 1 && parts[1].length() > 0)
-      s.append("\r\n" + ind + "  &lt;text value=\"" + parts[1] + "\"/&gt;");
-		s.append("\r\n" + ind);
-		return s.toString();
-	}
-
-	private String renderQuantity(int indent, String value) throws Exception {
-		StringBuilder s = new StringBuilder();
-		for (int i = 0; i < indent; i++)
-			s.append(" ");
-		String ind = s.toString();
-		s = new StringBuilder();
-		String f = null;
-		if (!Character.isDigit(value.charAt(0))) {
-			f = value.substring(0, 1);
-			value = value.substring(1);
-		}
-		String[] parts = value.split(" ");
-		if (parts.length != 2)
-			throw new Exception("unable to parse fixed quantity value " + value);
-		String v = parts[0];
-		String u = parts[1];
-		s.append("\r\n" + ind + "  &lt;value&gt;" + v + "&lt;/value&gt;");
-		if (f != null)
-			s.append("\r\n" + ind + "  &lt;status&gt;"
-					+ Utilities.escapeXml(Utilities.escapeXml(f))
-					+ "&lt;/status&gt;");
-		s.append("\r\n" + ind + "  &lt;units&gt;" + u + "&lt;/units&gt;");
-		s.append("\r\n" + ind + "  &lt;code&gt;" + u + "&lt;/code&gt;");
-		s.append("\r\n" + ind
-				+ "  &lt;system&gt;urn:hl7-org:sid/ucum&lt;/system&gt;");
-		s.append("\r\n" + ind);
-		return s.toString();
-	}
-
+//	private String renderCodeableConcept(int indent, CodeableConcept value)
+//			throws Exception {
+//		StringBuilder s = new StringBuilder();
+//		for (int i = 0; i < indent; i++)
+//			s.append(" ");
+//		String ind = s.toString();
+//		s = new StringBuilder();
+//		String[] parts = value.split("\\|");
+//		
+//
+//		if (parts[0].length() > 0) {
+//		  String[] parts2 = parts[0].split("#");
+//		  s.append("\r\n" + ind + "  &lt;coding&gt;");
+//		  if (parts2.length > 0 && parts2[0].length() > 0)
+//		    s.append("\r\n" + ind + "    &lt;code value=\"" + parts2[0] + "\"/&gt;");
+//      if (parts2.length > 1 && parts2[1].length() > 0)                   
+//		    s.append("\r\n" + ind + "    &lt;system value=\"" + parts2[1] + "\"/&gt;");
+//      if (parts2.length > 2 && parts2[2].length() > 0)
+//		    s.append("\r\n" + ind + "    &lt;display value=\"" + parts2[2] + "\"/&gt;");
+//      s.append("\r\n" + ind + "  &lt;/coding&gt;");
+//	  }
+//    if (parts.length > 1 && parts[1].length() > 0)
+//      s.append("\r\n" + ind + "  &lt;text value=\"" + parts[1] + "\"/&gt;");
+//		s.append("\r\n" + ind);
+//		return s.toString();
+//	}
+//
+//	private String renderQuantity(int indent, String value) throws Exception {
+//		StringBuilder s = new StringBuilder();
+//		for (int i = 0; i < indent; i++)
+//			s.append(" ");
+//		String ind = s.toString();
+//		s = new StringBuilder();
+//		String f = null;
+//		if (!Character.isDigit(value.charAt(0))) {
+//			f = value.substring(0, 1);
+//			value = value.substring(1);
+//		}
+//		String[] parts = value.split(" ");
+//		if (parts.length != 2)
+//			throw new Exception("unable to parse fixed quantity value " + value);
+//		String v = parts[0];
+//		String u = parts[1];
+//		s.append("\r\n" + ind + "  &lt;value&gt;" + v + "&lt;/value&gt;");
+//		if (f != null)
+//			s.append("\r\n" + ind + "  &lt;status&gt;"
+//					+ Utilities.escapeXml(Utilities.escapeXml(f))
+//					+ "&lt;/status&gt;");
+//		s.append("\r\n" + ind + "  &lt;units&gt;" + u + "&lt;/units&gt;");
+//		s.append("\r\n" + ind + "  &lt;code&gt;" + u + "&lt;/code&gt;");
+//		s.append("\r\n" + ind
+//				+ "  &lt;system&gt;urn:hl7-org:sid/ucum&lt;/system&gt;");
+//		s.append("\r\n" + ind);
+//		return s.toString();
+//	}
+//
 
 }

@@ -41,7 +41,14 @@ public class TimeType extends PrimitiveType {
 	 */
 	private String value;
 
-	/**
+	public TimeType(String value) {
+    this.value = value;  
+  }
+
+  public TimeType() {
+  }
+
+  /**
 	 * @return The value of the dateTime
 	 */
 	public String getValue() {

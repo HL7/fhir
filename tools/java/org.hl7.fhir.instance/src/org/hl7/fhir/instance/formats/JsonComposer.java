@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Oct 16, 2014 21:05+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 13:30+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -1378,29 +1378,7 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       composeStringCore("title", element.getTitleElement(), false);
       composeStringExtras("title", element.getTitleElement(), false);
-      if (element.getIdentifier().size() > 0) {
-        openArray("identifier");
-        for (Identifier e : element.getIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
-      composeCodeableConcept("code", element.getCode());
-      composeReference("subject", element.getSubject());
-      composeNarrative("text", element.getText());
-      composeCodeableConcept("emptyReason", element.getEmptyReason());
-      composeCodeableConcept("order", element.getOrder());
-      if (element.getSection().size() > 0) {
-        openArray("section");
-        for (Composition.SectionComponent e : element.getSection()) 
-          composeCompositionSectionComponent(null, e);
-        closeArray();
-      };
-      if (element.getEntry().size() > 0) {
-        openArray("entry");
-        for (Reference e : element.getEntry()) 
-          composeReference(null, e);
-        closeArray();
-      };
+      composeReference("content", element.getContent());
       close();
     }
   }
@@ -1972,6 +1950,67 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("documentation", element.getDocumentationElement(), false);
       composeStringExtras("documentation", element.getDocumentationElement(), false);
       composeReference("profile", element.getProfile());
+      close();
+    }
+  }
+
+  private void composeContract(String name, Contract element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      composeReference("subject", element.getSubject());
+      composeCodeableConcept("type", element.getType());
+      composeCodeableConcept("subtype", element.getSubtype());
+      composeDateTimeCore("issued", element.getIssuedElement(), false);
+      composeDateTimeExtras("issued", element.getIssuedElement(), false);
+      composePeriod("applies", element.getApplies());
+      if (element.getAuthor().size() > 0) {
+        openArray("author");
+        for (Reference e : element.getAuthor()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.getGrantor().size() > 0) {
+        openArray("grantor");
+        for (Reference e : element.getGrantor()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.getGrantee().size() > 0) {
+        openArray("grantee");
+        for (Reference e : element.getGrantee()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.getWitness().size() > 0) {
+        openArray("witness");
+        for (Reference e : element.getWitness()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      composeIdentifier("identifier", element.getIdentifier());
+      if (element.getTerm().size() > 0) {
+        openArray("term");
+        for (Contract.ContractTermComponent e : element.getTerm()) 
+          composeContractContractTermComponent(null, e);
+        closeArray();
+      };
+      composeAttachment("friendly", element.getFriendly());
+      composeAttachment("legal", element.getLegal());
+      composeAttachment("rule", element.getRule());
+    }
+  }
+
+  private void composeContractContractTermComponent(String name, Contract.ContractTermComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeIdentifier("identifier", element.getIdentifier());
+      composeCodeableConcept("type", element.getType());
+      composeCodeableConcept("subtype", element.getSubtype());
+      composeReference("subject", element.getSubject());
+      composeStringCore("text", element.getTextElement(), false);
+      composeStringExtras("text", element.getTextElement(), false);
       close();
     }
   }
@@ -4886,6 +4925,7 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("nameReference", element.getNameReferenceElement(), false);
       composeStringExtras("nameReference", element.getNameReferenceElement(), false);
       composeType("value", element.getValue());
+      composeType("pattern", element.getPattern());
       composeType("example", element.getExample());
       composeIntegerCore("maxLength", element.getMaxLengthElement(), false);
       composeIntegerExtras("maxLength", element.getMaxLengthElement(), false);
@@ -6215,6 +6255,8 @@ public class JsonComposer extends JsonComposerBase {
       composeCondition("Condition", (Condition)resource);
     else if (resource instanceof Conformance)
       composeConformance("Conformance", (Conformance)resource);
+    else if (resource instanceof Contract)
+      composeContract("Contract", (Contract)resource);
     else if (resource instanceof Contraindication)
       composeContraindication("Contraindication", (Contraindication)resource);
     else if (resource instanceof DataElement)
@@ -6350,6 +6392,8 @@ public class JsonComposer extends JsonComposerBase {
       composeCondition(name, (Condition)resource);
     else if (resource instanceof Conformance)
       composeConformance(name, (Conformance)resource);
+    else if (resource instanceof Contract)
+      composeContract(name, (Contract)resource);
     else if (resource instanceof Contraindication)
       composeContraindication(name, (Contraindication)resource);
     else if (resource instanceof DataElement)

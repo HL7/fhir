@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
   <LastSaved>2014-09-28T21:58:54Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,8 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>-135</WindowTopX>
   <WindowTopY>705</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -255,7 +257,6 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -387,6 +388,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
     <Cell><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
@@ -418,6 +420,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -481,7 +484,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -527,7 +531,7 @@
    <ErrorMessage>'y' or 'n'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C9:R13C9,R4C9:R9C9,R2C9</Range>
+   <Range>R11C9:R13C9,R2C9,R4C9,R6C9:R9C9</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
@@ -1182,6 +1186,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Smoking Status: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
     <Cell><Data ss:Type="String">Smoking Status: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
@@ -1220,6 +1225,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1299,12 +1305,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <LeftColumnVisible>4</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
