@@ -20,7 +20,7 @@
   <WindowWidth>15570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -34,7 +34,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s63">
+  <Style ss:ID="s62">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -43,24 +43,24 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s64">
+  <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s65">
+  <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
    <NumberFormat ss:Format="Short Date"/>
   </Style>
-  <Style ss:ID="s66">
+  <Style ss:ID="s65">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s67">
+  <Style ss:ID="s66">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s68">
+  <Style ss:ID="s67">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -70,7 +70,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s69">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -79,32 +79,32 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s70">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s71">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s74">
    <Borders/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s75">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -112,17 +112,44 @@
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s76">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
    <Interior/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s77">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s78">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -131,46 +158,46 @@
    <Column ss:Width="98.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="808.5"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Value</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">15046b9c-2da0-4b80-82ef-c6af6fcfd2bf</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">id</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">15046b9c-2da0-4b80-82ef-c6af6fcfd2bf</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Example Lipid Profile</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">name</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Example Lipid Profile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">author.name</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Grahame Grieve</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">author.name</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Grahame Grieve</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">author.reference</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">author.reference</Data></Cell>
     <Cell><Data ss:Type="String">grahame@healthintersections.com.au</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">description</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">status</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">status</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">draft</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="DateTime">2012-05-12T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2012-05-12T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">LipidProfile</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">published.structure</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">LipidProfile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">binding</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">binding</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">extension.uri</Data></Cell>
@@ -196,21 +223,21 @@
  </Worksheet>
  <Worksheet ss:Name="LipidProfile">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="9" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="169.5"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="56.25"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="120"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="40.5"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="44.25"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="81"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="61.5"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="99.75"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="12" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="161.25"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="245.25"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
+   x:FullRows="1" ss:StyleID="s65" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="169.5"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="56.25"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="120"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="40.5"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="44.25"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="81"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="99.75"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
+   <Column ss:Index="12" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="245.25"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Profile Name</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -243,7 +270,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">{ &quot;coding&quot; : [{ &quot;system&quot; : &quot;http://loinc.org&quot;, &quot;code&quot;: &quot;57698-3&quot; , &quot;display&quot; : &quot;Lipid panel with direct LDL - Serum or Plasma&quot;}]}</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Fix the name of the report to an appropriate LOINC code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Fix the name of the report to an appropriate LOINC code</Data></Cell>
     <Cell><Data ss:Type="String">LOINC Code for Lipid Panel with LDL</Data></Cell>
     <Cell><Data ss:Type="String">LOINC Code for Lipid Panel with LDL</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">LOINC code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL</Data></Cell>
@@ -254,7 +281,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">Reference(Observation) {#Cholesterol}</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
-    <Cell><Data ss:Type="String">name</Data></Cell>
+    <Cell><Data ss:Type="String">reference.name|true|closed</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Now, Slice the result list into 4 parts for the for atomic results</Data></Cell>
     <Cell><Data ss:Type="String">Cholesterol Result</Data></Cell>
     <Cell><Data ss:Type="String">Reference to Cholesterol Result</Data></Cell>
@@ -265,7 +292,6 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">Reference(Observation){#Triglyceride}</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
-    <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">the value with a # on a resource reference is reference to another profile wit the #[tab name]</Data></Cell>
     <Cell><Data ss:Type="String">Triglyceride Result</Data></Cell>
     <Cell><Data ss:Type="String">Group of elements for Triglyceride result</Data></Cell>
@@ -276,7 +302,6 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">Reference(Observation){#HDLCholesterol}</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
-    <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">HDL Cholesterol Result</Data></Cell>
     <Cell><Data ss:Type="String">Group of elements for HDL Cholesterol result</Data></Cell>
    </Row>
@@ -286,7 +311,6 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">Reference(Observation){#LDLCholesterol}</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
-    <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">LDL Cholesterol result, if reported</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -317,8 +341,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -333,7 +357,7 @@
    <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="84.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="90"/>
    <Column ss:AutoFitWidth="0" ss:Width="183.75"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Profile Name</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -351,167 +375,167 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
-    <Cell ss:Index="2" ss:StyleID="s67"><Data ss:Type="String">Observation</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
+    <Cell ss:Index="2" ss:StyleID="s66"><Data ss:Type="String">Observation</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">todo - do we need to say anything about method?</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.name</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">{ &quot;coding&quot; : [{ &quot;system&quot; : &quot;http://loinc.org&quot;, &quot;code&quot;: &quot;35200-5&quot; , &quot;display&quot; : &quot;Cholesterol&quot; }]}</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
     <Cell><Data ss:Type="String">Cholesterol</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Cholesterol value</Data></Cell>
     <Cell><Data ss:Type="String">Cholesterol value. If a result is not available, use the comments field</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity.value</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.valueQuantity.value</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Actual numerical value</Data></Cell>
     <Cell><Data ss:Type="String">Actual numerical value</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity.comparator</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.valueQuantity.comparator</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">No need for this on cholesterol</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity.units</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.valueQuantity.units</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">mmol/L</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity.system</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.valueQuantity.system</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">http://unitsofmeasure.org</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">http://unitsofmeasure.org</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity.code</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.valueQuantity.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">mmol/L</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.interpretation</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.interpretation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">todo: subset this list </Data></Cell>
     <Cell><Data ss:Type="String">+ | ++ | +++ | - | &#45;- | &#45;&#45;- </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.comments</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Comments about result</Data></Cell>
     <Cell><Data ss:Type="String">May include statements about significant, unexpected or unreliable. values, or information about the source of the value where this may be relevant to the interpretation of the result.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.reliability</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">ok</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Cholesterol values can only be reported when there is no question about their status</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">{ &quot;value&quot; : &quot;4.5&quot;, &quot;units&quot; : &quot;mmol/L&quot; }</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">&lt;4.5 mmol/L</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Per Australian NHF Recommendations</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">{ &quot;value&quot; : &quot;4.5&quot;, &quot;units&quot; : &quot;mmol/L&quot; }</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">&lt;4.5 mmol/L</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Per Australian NHF Recommendations</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s76">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">TODO: so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code…</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Range is a recommended range</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Range is a recommended range</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s73">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">TODO: so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code…</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Range is a recommended range</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Range is a recommended range</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="12" ss:StyleID="s71"/>
-    <Cell ss:Index="14" ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Period</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="12" ss:StyleID="s70"/>
+    <Cell ss:Index="14" ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s77">
-    <Cell ss:Index="2" ss:StyleID="s78"><Data ss:Type="String">Observation.related</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">0..0</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s74">
+    <Cell ss:Index="2" ss:StyleID="s75"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -547,7 +571,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="84.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="117.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="124.5"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Profile Name</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -565,133 +589,133 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s66">
-    <Cell ss:Index="2" ss:StyleID="s67"><Data ss:Type="String">Observation</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s65">
+    <Cell ss:Index="2" ss:StyleID="s66"><Data ss:Type="String">Observation</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">todo - do we need to say anything about method?</Data></Cell>
     <Cell><Data ss:Type="String">Triglyceride Result</Data></Cell>
     <Cell><Data ss:Type="String">Group of elements for Triglyceride result</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.name</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">{ &quot;coding&quot; : [{ &quot;system&quot; : &quot;http://loinc.org&quot;, &quot;code&quot;: &quot;35217-9&quot; , &quot;display&quot; : &quot;Triglyceride&quot; }]}</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
     <Cell><Data ss:Type="String">Triglyceride</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Triglyceride value</Data></Cell>
     <Cell><Data ss:Type="String">Triglyceride value. If a result is not available, use the comments field</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.interpretation</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.interpretation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">todo: subset this list </Data></Cell>
     <Cell><Data ss:Type="String">+ | ++ | +++ | - | &#45;- | &#45;&#45;- </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.comments</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Comments about result</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.reliability</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">ok</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s71">
-    <Cell ss:Index="2" ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell ss:Index="2" ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">2.0 mmol/L</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">&lt;2.0 mmol/L</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Per Australian NHF Recommendations</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">2.0 mmol/L</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">&lt;2.0 mmol/L</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Per Australian NHF Recommendations</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s76">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">TODO: so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code…</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Range is a recommended range</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Range is a recommended range</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s73">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">TODO: so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code…</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Range is a recommended range</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Range is a recommended range</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="12" ss:StyleID="s71"/>
-    <Cell ss:Index="14" ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Period</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="12" ss:StyleID="s70"/>
+    <Cell ss:Index="14" ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s78"><Data ss:Type="String">Observation.related</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s75"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -719,7 +743,7 @@
    <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="110.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="111.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Profile Name</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -737,207 +761,207 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">todo - do we need to say anything about method?</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">HDL Cholesterol Result</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Group of elements for HDL Cholesterol result</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">todo - do we need to say anything about method?</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">HDL Cholesterol Result</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Group of elements for HDL Cholesterol result</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.name</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">{ &quot;coding&quot; : [{ &quot;system&quot; : &quot;http://loinc.org&quot;, &quot;code&quot;: &quot;2085-9&quot; , &quot;display&quot; : &quot;HDL Cholesterol&quot; }]}</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">HDL Cholesterol</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">HDL Cholesterol</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">HDL Cholesterol value</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">HDL Cholesterol value. If a result is not available, use the comments field</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">HDL Cholesterol value</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">HDL Cholesterol value. If a result is not available, use the comments field</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.interpretation</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">todo: subset this list </Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">+ | ++ | +++ | - | &#45;- | &#45;&#45;- </Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.interpretation</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">todo: subset this list </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">+ | ++ | +++ | - | &#45;- | &#45;&#45;- </Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.comments</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Comments about result</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.comments</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Comments about result</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.reliability</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">ok</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.reliability</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">{ &quot;value&quot; : &quot;1.5&quot;, &quot;units&quot; : &quot;mmol/L&quot; }</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">&gt;1.5 mmol/L</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">{ &quot;value&quot; : &quot;1.5&quot;, &quot;units&quot; : &quot;mmol/L&quot; }</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">&gt;1.5 mmol/L</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Per Australian NHF Recommendations</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Per Australian NHF Recommendations</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s76">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">TODO: so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code…</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Range is a recommended range</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Range is a recommended range</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s73">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">TODO: so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code…</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Range is a recommended range</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Range is a recommended range</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="12" ss:StyleID="s71"/>
-    <Cell ss:Index="14" ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Period</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="12" ss:StyleID="s70"/>
+    <Cell ss:Index="14" ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s78"><Data ss:Type="String">Observation.related</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s75"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -965,7 +989,7 @@
    <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="110.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="111.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Profile Name</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -983,223 +1007,223 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">todo - do we need to say anything about method?</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">LDL Cholesterol Result</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Group of elements for LDL Cholesterol result</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">todo - do we need to say anything about method?</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">LDL Cholesterol Result</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Group of elements for LDL Cholesterol result</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">LDLCalculated</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.extension</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Extension{#calculated}</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">LDLCalculated</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.extension</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Extension{#calculated}</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">See comments on the extension definition</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Whether LDL value is calculated</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Whether LDL value is calculated</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">See comments on the extension definition</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Whether LDL value is calculated</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Whether LDL value is calculated</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.name</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">LDLCodes</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Can't fix to a single value. Need to define a value set</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">LDL Cholesterol -measured or calculated per code</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">LDL Cholesterol -measured or calculated per code</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Can't fix to a single value. Need to define a value set</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">LDL Cholesterol -measured or calculated per code</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">LDL Cholesterol -measured or calculated per code</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">LDL Cholesterol value</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">LDL Cholesterol value. If a result is not available, use the comments field</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.valueQuantity</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">LDL Cholesterol value</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">LDL Cholesterol value. If a result is not available, use the comments field</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.interpretation</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">todo: subset this list </Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">+ | ++ | +++ | - | &#45;- | &#45;&#45;- </Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.interpretation</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">todo: subset this list </Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">+ | ++ | +++ | - | &#45;- | &#45;&#45;- </Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.comments</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Comments about result</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.comments</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Comments about result</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.reliability</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">ok</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.reliability</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">{ &quot;value&quot; : &quot;3.0&quot;, &quot;units&quot; : &quot;mmol/L&quot; }</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">&lt;3.0 mmol/L</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Per Australian NHF Recommendations</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">{ &quot;value&quot; : &quot;3.0&quot;, &quot;units&quot; : &quot;mmol/L&quot; }</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">&lt;3.0 mmol/L</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Per Australian NHF Recommendations</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s76">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">TODO: so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code…</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Range is a recommended range</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Range is a recommended range</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s73">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">TODO: so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code…</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Range is a recommended range</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Range is a recommended range</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Period</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s78"><Data ss:Type="String">Observation.related</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s75"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1209,12 +1233,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1222,9 +1245,36 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Row ss:AutoFitHeight="0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="73.5"/>
+   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="54.75"/>
+   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="89.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="80.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="204"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Copyright</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Extensible</Data></Cell>
+    <Cell><Data ss:Type="String">Conformance</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s78"><Data ss:Type="String">LDLCodes</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">LDL Cholesterol codes - measured or calculated</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s78"><Data ss:Type="String">#lipid-ldl-codes</Data></Cell>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="8"><Data ss:Type="String">This content from LOINC®LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</Data></Cell>
+    <Cell><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1233,6 +1283,20 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>9</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1243,7 +1307,7 @@
    <Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="153"/>
    <Column ss:AutoFitWidth="0" ss:Width="270"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Context Type</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -1258,10 +1322,10 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">calculated</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
+    <Cell ss:StyleID="s66"><Data ss:Type="String">calculated</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Observation</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Observation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">LDL is Calculated</Data></Cell>
@@ -1286,6 +1350,53 @@
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
      <ActiveCol>3</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="lipid-ldl-codes">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="89.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="112.5" ss:Span="1"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Display</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://loinc.org</Data></Cell>
+    <Cell><Data ss:Type="String">18262-6</Data></Cell>
+    <Cell><Data ss:Type="String">LDL Cholesterol (Calc)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">http://loinc.org</Data></Cell>
+    <Cell><Data ss:Type="String"> 13457-7</Data></Cell>
+    <Cell><Data ss:Type="String">LDL Cholesterol (Assay)</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -710,7 +710,7 @@ public class ProfileGenerator {
         if (d.length >= 1)
           ce.getSlicing().addDiscriminator(d[0].trim());
         if (d.length >= 2)
-          ce.getSlicing().setOrdered(Boolean.getBoolean(d[1].trim()));
+          ce.getSlicing().setOrdered(Boolean.parseBoolean(d[1].trim()));
         else
           ce.getSlicing().setOrdered(false);
         if (d.length >= 3)
