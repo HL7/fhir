@@ -894,7 +894,7 @@
         </type>
         <isModifier value="false"/>
         <binding>
-          <name value="QuantityCompararator"/>
+          <name value="QuantityComparator"/>
           <isExtensible value="false"/>
           <conformance value="required"/>
           <referenceReference>
