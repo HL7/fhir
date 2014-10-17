@@ -718,6 +718,8 @@ public class QuestionnaireBuilder {
       addCodingQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Quantity"))
       addQuantityQuestions(group, element, path, answerGroups);
+    else if (t.getCode().equals("Money"))
+      addMoneyQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Reference"))
       addReferenceQuestions(group, element, path, t.getProfile(), answerGroups);
     else if (t.getCode().equals("idref"))
@@ -913,6 +915,12 @@ public class QuestionnaireBuilder {
       addQuestion(group, AnswerFormat.STRING, path, "units", "units:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "code", "coded units:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "system", "units system:", answerGroups);
+  }
+
+    private void addMoneyQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+      ToolingExtensions.addType(group, "Money");
+      addQuestion(group, AnswerFormat.DECIMAL, path, "value", "value:", answerGroups);
+      addQuestion(group, AnswerFormat.STRING, path, "currency", "currency:", answerGroups);
   }
 
     private void addAgeQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {

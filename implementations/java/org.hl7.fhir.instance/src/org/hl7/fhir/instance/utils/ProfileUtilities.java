@@ -920,8 +920,10 @@ public class ProfileUtilities {
           c.getPieces().add(gen.new Piece(null, " (", null));
             if (definition.getDefinition().getBinding().getConformance() != null)
               c.getPieces().add(gen.new Piece(null, definition.getDefinition().getBinding().getConformance().toCode(), definition.getDefinition().getBinding().getConformance().getDefinition()));
+            if (definition.getDefinition().getBinding().getConformance() != null && definition.getDefinition().getBinding().getIsExtensibleElement() != null) 
+              c.getPieces().add(gen.new Piece(null, ", ", null));
             if (definition.getDefinition().getBinding().getIsExtensibleElement() != null)
-              c.getPieces().add(gen.new Piece(null, definition.getDefinition().getBinding().getIsExtensibleElement().toString(), null));
+              c.getPieces().add(gen.new Piece(null, definition.getDefinition().getBinding().getIsExtensible() ? "extensible" : "not extensible", null));
           c.getPieces().add(gen.new Piece(null, ")", null));
           }
         }
@@ -958,8 +960,16 @@ public class ProfileUtilities {
 
 
   public String describeSlice(ElementSlicingComponent slicing) {
-    return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+slicing.getDiscriminator().toString();
+    return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+commas(slicing.getDiscriminator());
   }
+
+  private String commas(List<IdType> discriminator) {
+    CommaSeparatedStringBuilder c = new CommaSeparatedStringBuilder();
+    for (IdType id : discriminator)
+      c.append(id.asStringValue());
+    return c.toString();
+  }
+
 
   private String describe(ResourceSlicingRules rules) {
     switch (rules) {
