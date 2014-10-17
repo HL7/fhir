@@ -37,10 +37,10 @@ public class TableGenerator extends BaseGenerator {
     row.getCells().add(gen.new Cell(null, dictLinks() ? pageName+"#"+path.replace("[", "_").replace("]", "_") : null, e.getName(), e.getDefinition(), null));
     Cell gc = gen.new Cell();
     row.getCells().add(gc);
-    if (e.isModifier()) 
-      gc.addImage("modifier.png", "This element is a modifier element", "M");
     if (e.isMustSupport()) 
       gc.addImage("mustsupport.png", "This element must be supported", "S");
+    if (e.isModifier()) 
+      gc.addImage("modifier.png", "This element is a modifier element", "M");
     if (e.isSummaryItem()) 
       gc.addImage("summary.png", "This element is included in summaries", "Σ");
     if (!e.getInvariants().isEmpty() || !e.getStatedInvariants().isEmpty()) 

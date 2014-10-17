@@ -168,11 +168,12 @@ public class HeirarchicalTableGenerator  {
     public void addImage(String src, String hint, String alt) {
       if (pieces.size() > 0 && pieces.get(0).tag == null)
         pieces.get(0).text += " ";
-      Piece img = new Piece("img");
-      img.attributes = new HashMap<String, String>();
-      img.attributes.put("src", src);
-      img.attributes.put("alt", alt);
-      img.hint = hint;
+//      Piece img = new Piece("img");
+      Piece img = new Piece(null, alt, hint);
+//      img.attributes = new HashMap<String, String>();
+//      img.attributes.put("src", src);
+//      img.attributes.put("alt", alt);
+//      img.hint = hint;
       pieces.add(img);
     }
     public String text() {
