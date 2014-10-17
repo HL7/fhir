@@ -26,38 +26,15 @@
     <value value="12345"/>
  </identifier>
  
- <plan>
-    <system value="http://xyz.com/codes/plan"/>
-    <value value="CBI35"/>
- </plan>
+ <plan value="CBI35"/>
  
- <subplan>
-    <system value="http://xyz.com/codes/subplan"/>
-    <value value="123"/>
- </subplan>
+ <subplan value="123"/>
  
  <dependent value="0"/>
  
  <sequence value="1"/>
  
  <subscriber>
-	<name>
-	<use value="official"/>
-	 <family value="Seebetter"/>
-	 <given value="Wanda"/>
-	 <given value="L"/>
-	</name>
-
-	<address>
-	<use value="home"/>
-	 <line value="123 Any St"/>
-	 <city value="Anytown"/>
-	 <state value="BC"/>
-	 <postalCode value="V3R4R5"/>
-	 <country value="CANADA"/>
-	</address>
-
-	<birthdate value="1955-01-01"/>
-
+	<reference value="Patient/4"/>
  </subscriber>
 </Coverage>

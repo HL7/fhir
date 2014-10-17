@@ -26,36 +26,13 @@
     <value value="AB9876"/>
  </identifier>
  
- <plan>
-    <system value="http://xyz.com/codes/plan"/>
-    <value value="11024"/>
- </plan>
+ <plan value="11024"/>
  
- <subplan>
-    <system value="http://xyz.com/codes/subplan"/>
-    <value value="D15C9"/>
- </subplan>
+ <subplan value="D15C9"/>
  
  <dependent value="1"/>
   
  <subscriber>
-	<name>
-	<use value="official"/>
-	 <family value="Seebetter"/>
-	 <given value="Frank"/>
-	 <given value="I"/>
-	</name>
-
-	<address>
-	<use value="home"/>
-	 <line value="123 Any St"/>
-	 <city value="Anytown"/>
-	 <state value="BC"/>
-	 <postalCode value="V3R4R5"/>
-	 <country value="CANADA"/>
-	</address>
-
-	<birthdate value="1952-06-26"/>
-
+	<reference value="Patient/5"/>
  </subscriber>
 </Coverage>

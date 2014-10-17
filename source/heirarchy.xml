@@ -203,7 +203,7 @@ todo: compartments
     <page type="resource" resource="ConceptMap"/>
   </page>
   <page title="Financial" filename="financial.html">
-    <!-- page type="resource" resource="Contract"/>  -->
+    <page type="resource" resource="Coverage"/>
   </page>
 </page>
 </fhir>
