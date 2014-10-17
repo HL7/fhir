@@ -2242,7 +2242,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     Collections.sort(codes);
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><th>Code</th><th>Category</th><th>Description</th><th>Request</th><th>Response</th><th>Notes</th></tr>\r\n");
+    s.append(" <tr><th>Code</th><th>Category</th><th>Description</th><th>Request Resources</th><th>Response Resources</th><th>Notes</th></tr>\r\n");
     for (String c : codes) {
       EventDefn e = definitions.getEvents().get(c);
       if (e.getUsages().size() == 1) {
