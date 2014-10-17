@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-[%settitle RESTful API%]
+[%settitle Search / Query (RESTful API) %]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -519,6 +519,33 @@ to only match on the left side of the target tag term, or to search the label pa
 Note that when a resource is submitted to a server as a create or an update, the server is 
 free to determine which profiles a resource conforms to, and add additional profile tags 
 as appropriate so that resources can be found by this operation.
+</p>
+
+<a name="filter"> </a>
+<a name="_filter"> </a>
+<h4>Advanced filtering</h4>
+
+<p>
+While the search mechanism dscribed above is flexible, and easy to implement
+for simple cases, but is limited in it's ability to express combination 
+queries. To complement this mechanism, a specific search expression 
+parameter can also be used, named "_filter". 
+</p>
+<p>
+For example, this is a moderately simple search: find all the 
+observations for patient with a name including "peter" that have a LOINC code 1234-5:
+</p>
+<pre>
+GET [base]/Observation?name=http://loinc.org|1234-5&amp;subject.name=peter
+</pre>
+<p>
+Using the _filter parameter, the search would be expressed like this:
+</p>
+<pre>
+GET [base]/Observation?filter=name eq http://loinc.org|1234-5 and subject.name co "peter"
+</pre>
+<p>
+The _filter parameter is described in detail on the <a href="search_filter.html">"_Filter Parameter" page</a>.
 </p>
 
 <a name="return"> </a>

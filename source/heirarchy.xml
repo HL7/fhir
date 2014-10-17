@@ -77,8 +77,10 @@ todo: compartments
   </page>
   
   <page title="Implementation" filename="implementation.html">
-    <page title="RESTful API" filename="http.html"/>
-    <page title="Search" filename="search.html"/>
+    <page title="RESTful API" filename="http.html">
+      <page title="Search" filename="search.html"/>
+      <page title="_filter Parameter" filename="search_filter.html"/>
+    </page>  
     <page title="Operations" filename="operations.html">
       <page title="Example" filename="op-example-request.html"/>
     </page>
