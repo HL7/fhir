@@ -38,7 +38,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 
@@ -55,6 +57,7 @@ public class HeirarchicalTableGenerator  {
     private String text;
     private String hint;
     private String style;
+    private Map<String, String> attributes;
     
     public Piece(String tag) {
       super();
@@ -107,12 +110,18 @@ public class HeirarchicalTableGenerator  {
 
     public Piece addStyle(String style) {
       if (this.style != null)
-        this.style = this.style+": "+style;
+        this.style = this.style+"; "+style;
       else
         this.style = style;
       return this;
     }
 
+    public void addToHint(String text) {
+      if (this.hint == null)
+        this.hint = text;
+      else
+        this.hint += (this.hint.endsWith(".") ? " " : ". ")+text;
+    }
   }
   
   public class Cell {
@@ -135,6 +144,24 @@ public class HeirarchicalTableGenerator  {
     public Cell addPiece(Piece piece) {
       pieces.add(piece);
       return this;
+    }
+    public void addStyle(String style) {
+      for (Piece p : pieces)
+        p.addStyle(style);      
+    }
+    public void addToHint(String text) {
+      for (Piece p : pieces)
+        p.addToHint(text);            
+    }
+    public void addImage(String src, String hint, String alt) {
+      if (pieces.size() > 0 && pieces.get(0).tag == null)
+        pieces.get(0).text += " ";
+      Piece img = new Piece("img");
+      img.attributes = new HashMap<String, String>();
+      img.attributes.put("src", src);
+      img.attributes.put("alt", alt);
+      img.hint = hint;
+      pieces.add(img);
     }
   }
 
@@ -281,7 +308,13 @@ public class HeirarchicalTableGenerator  {
     }
     for (Piece p : c.pieces) {
       if (!Utilities.noString(p.getTag())) {
-        addStyle(tc.addTag(p.getTag()), p);
+        XhtmlNode tag = tc.addTag(p.getTag());
+        if (p.attributes != null)
+          for (String n : p.attributes.keySet())
+            tag.setAttribute(n, p.attributes.get(n));
+        if (p.getHint() != null)
+          tag.setAttribute("title", p.getHint());
+        addStyle(tag, p);
       } else if (!Utilities.noString(p.getReference())) {
         XhtmlNode a = addStyle(tc.addTag("a"), p);
         a.setAttribute("href", p.getReference());

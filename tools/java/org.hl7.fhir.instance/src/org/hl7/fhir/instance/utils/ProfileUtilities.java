@@ -807,7 +807,14 @@ public class ProfileUtilities {
     String ref = defPath == null ? null : defPath + makePathLink(element);
     UnusedTracker used = new UnusedTracker();
     used.used = true;
-      Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getDefinition().getFormal(), null);
+    Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getDefinition().getFormal(), null);
+    if (element.getDefinition() != null && element.getDefinition().getIsModifier())
+      left.addImage("modifier.png", "This element is a modifier element", "M");
+    if (element.getDefinition() != null && element.getDefinition().getMustSupport()) 
+      left.addImage("mustsupport.png", "This element must be supported", "S");
+    if (element.getDefinition() != null && element.getDefinition().getIsSummary()) 
+      left.addImage("summary.png", "This element is included in summaries", "Σ");
+  
     row.getCells().add(left);
     if (ext) {
       if (element.getDefinition() != null && element.getDefinition().getType().size() == 1 && element.getDefinition().getType().get(0).getProfile() != null) {
@@ -909,6 +916,16 @@ public class ProfileUtilities {
           String ref = pkp.resolveBinding(definition.getDefinition().getBinding());
           c.getPieces().add(gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(ref, definition.getDefinition().getBinding().getName(), null));
+          if (definition.getDefinition().getBinding().getConformance() != null || definition.getDefinition().getBinding().getIsExtensibleElement() != null) {
+            c.getPieces().add(gen.new Piece(null, " (", null));
+            if (definition.getDefinition().getBinding().getConformance() != null)
+              c.getPieces().add(gen.new Piece(null, definition.getDefinition().getBinding().getConformance().toCode(), definition.getDefinition().getBinding().getConformance().getDefinition()));
+            if (definition.getDefinition().getBinding().getConformance() != null && definition.getDefinition().getBinding().getIsExtensibleElement() != null) 
+              c.getPieces().add(gen.new Piece(null, ", ", null));
+            if (definition.getDefinition().getBinding().getIsExtensibleElement() != null)
+              c.getPieces().add(gen.new Piece(null, definition.getDefinition().getBinding().getIsExtensible() ? "extensible" : "not extensible", null));
+            c.getPieces().add(gen.new Piece(null, ")", null));
+          }
         }
         for (ElementDefinitionConstraintComponent inv : definition.getDefinition().getConstraint()) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
@@ -943,8 +960,16 @@ public class ProfileUtilities {
 
 
   public String describeSlice(ElementSlicingComponent slicing) {
-    return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+slicing.getDiscriminator().toString();
+    return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+commas(slicing.getDiscriminator());
   }
+
+  private String commas(List<IdType> discriminator) {
+    CommaSeparatedStringBuilder c = new CommaSeparatedStringBuilder();
+    for (IdType id : discriminator)
+      c.append(id.asStringValue());
+    return c.toString();
+  }
+
 
   private String describe(ResourceSlicingRules rules) {
     switch (rules) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class CarePlan extends Resource {
             case PLANNED: return "planned";
             case ACTIVE: return "active";
             case COMPLETED: return "completed";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PLANNED: return "The plan is in development or awaiting use but is not yet intended to be acted upon.";
+            case ACTIVE: return "The plan is intended to be followed and used as part of patient care.";
+            case COMPLETED: return "The plan is no longer in use and is not expected to be followed or used in patient care.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PLANNED: return "";
+            case ACTIVE: return "";
+            case COMPLETED: return "";
             default: return "?";
           }
         }
@@ -113,6 +129,24 @@ public class CarePlan extends Resource {
             case ACHIEVED: return "achieved";
             case SUSTAINING: return "sustaining";
             case CANCELLED: return "cancelled";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INPROGRESS: return "The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again).";
+            case ACHIEVED: return "The goal has been met and no further action is needed.";
+            case SUSTAINING: return "The goal has been met, but ongoing activity is needed to sustain the goal objective.";
+            case CANCELLED: return "The goal is no longer being sought.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INPROGRESS: return "";
+            case ACHIEVED: return "";
+            case SUSTAINING: return "";
+            case CANCELLED: return "";
             default: return "?";
           }
         }
@@ -179,6 +213,28 @@ public class CarePlan extends Resource {
             case ONHOLD: return "on hold";
             case COMPLETED: return "completed";
             case CANCELLED: return "cancelled";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case NOTSTARTED: return "Activity is planned but no action has yet been taken.";
+            case SCHEDULED: return "Appointment or other booking has occurred but activity has not yet begun.";
+            case INPROGRESS: return "Activity has been started but is not yet complete.";
+            case ONHOLD: return "Activity was started but has temporarily ceased with an expectation of resumption at a future time.";
+            case COMPLETED: return "The activities have been completed (more or less) as planned.";
+            case CANCELLED: return "The activities have been ended prior to completion (perhaps even before they were started).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case NOTSTARTED: return "";
+            case SCHEDULED: return "";
+            case INPROGRESS: return "";
+            case ONHOLD: return "";
+            case COMPLETED: return "";
+            case CANCELLED: return "";
             default: return "?";
           }
         }
@@ -257,6 +313,30 @@ public class CarePlan extends Resource {
             case PROCEDURE: return "procedure";
             case SUPPLY: return "supply";
             case OTHER: return "other";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DIET: return "Plan for the patient to consume food of a specified nature.";
+            case DRUG: return "Plan for the patient to consume/receive a drug, vaccine or other product.";
+            case ENCOUNTER: return "Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.).";
+            case OBSERVATION: return "Plan to capture information about a patient (vitals, labs, diagnostic images, etc.).";
+            case PROCEDURE: return "Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc.).";
+            case SUPPLY: return "Plan to provide something to the patient (medication, medical supply, etc.).";
+            case OTHER: return "Some other form of action.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DIET: return "";
+            case DRUG: return "";
+            case ENCOUNTER: return "";
+            case OBSERVATION: return "";
+            case PROCEDURE: return "";
+            case SUPPLY: return "";
+            case OTHER: return "";
             default: return "?";
           }
         }

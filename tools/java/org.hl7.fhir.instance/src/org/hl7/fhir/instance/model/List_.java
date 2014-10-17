@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class List_ extends Resource {
             case WORKING: return "working";
             case SNAPSHOT: return "snapshot";
             case CHANGES: return "changes";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case WORKING: return "This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.";
+            case SNAPSHOT: return "This list was prepared as a snapshot. It should not be assumed to be current.";
+            case CHANGES: return "The list is prepared as a statement of changes that have been made or recommended.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case WORKING: return "";
+            case SNAPSHOT: return "";
+            case CHANGES: return "";
             default: return "?";
           }
         }

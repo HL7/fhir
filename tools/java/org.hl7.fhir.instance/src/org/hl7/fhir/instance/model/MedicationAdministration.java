@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -69,6 +69,26 @@ public class MedicationAdministration extends Resource {
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered in error";
             case STOPPED: return "stopped";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INPROGRESS: return "The administration has started but has not yet completed.";
+            case ONHOLD: return "Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called 'suspended'.";
+            case COMPLETED: return "All actions that are implied by the administration have occurred.";
+            case ENTEREDINERROR: return "The administration was entered in error and therefore nullified.";
+            case STOPPED: return "Actions implied by the administration have been permanently halted, before all of them occurred.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INPROGRESS: return "";
+            case ONHOLD: return "";
+            case COMPLETED: return "";
+            case ENTEREDINERROR: return "";
+            case STOPPED: return "";
             default: return "?";
           }
         }

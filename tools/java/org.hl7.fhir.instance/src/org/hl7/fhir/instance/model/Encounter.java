@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -67,6 +67,26 @@ public class Encounter extends Resource {
             case ONLEAVE: return "onleave";
             case FINISHED: return "finished";
             case CANCELLED: return "cancelled";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PLANNED: return "The Encounter has not yet started.";
+            case INPROGRESS: return "The Encounter has begun and the patient is present / the practitioner and the patient are meeting.";
+            case ONLEAVE: return "The Encounter has begun, but the patient is temporarily on leave.";
+            case FINISHED: return "The Encounter has ended.";
+            case CANCELLED: return "The Encounter has ended before it has begun.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PLANNED: return "";
+            case INPROGRESS: return "";
+            case ONLEAVE: return "";
+            case FINISHED: return "";
+            case CANCELLED: return "";
             default: return "?";
           }
         }
@@ -145,6 +165,32 @@ public class Encounter extends Resource {
             case FIELD: return "field";
             case DAYTIME: return "daytime";
             case VIRTUAL: return "virtual";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INPATIENT: return "An encounter during which the patient is hospitalized and stays overnight.";
+            case OUTPATIENT: return "An encounter during which the patient is not hospitalized overnight.";
+            case AMBULATORY: return "An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.";
+            case EMERGENCY: return "An encounter where the patient needs urgent care.";
+            case HOME: return "An encounter where the practitioner visits the patient at his/her home.";
+            case FIELD: return "An encounter taking place outside the regular environment for giving care.";
+            case DAYTIME: return "An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.";
+            case VIRTUAL: return "An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INPATIENT: return "";
+            case OUTPATIENT: return "";
+            case AMBULATORY: return "";
+            case EMERGENCY: return "";
+            case HOME: return "";
+            case FIELD: return "";
+            case DAYTIME: return "";
+            case VIRTUAL: return "";
             default: return "?";
           }
         }

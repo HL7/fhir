@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -60,6 +60,22 @@ public class Location extends Resource {
             case ACTIVE: return "active";
             case SUSPENDED: return "suspended";
             case INACTIVE: return "inactive";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ACTIVE: return "The location is operational.";
+            case SUSPENDED: return "The location is temporarily closed.";
+            case INACTIVE: return "The location is no longer used.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ACTIVE: return "";
+            case SUSPENDED: return "";
+            case INACTIVE: return "";
             default: return "?";
           }
         }
@@ -106,6 +122,20 @@ public class Location extends Resource {
           switch (this) {
             case INSTANCE: return "instance";
             case KIND: return "kind";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INSTANCE: return "The Location resource represents a specific instance of a Location.";
+            case KIND: return "The Location represents a class of Locations.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INSTANCE: return "";
+            case KIND: return "";
             default: return "?";
           }
         }

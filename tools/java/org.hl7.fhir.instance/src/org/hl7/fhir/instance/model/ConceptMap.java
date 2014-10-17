@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class ConceptMap extends Resource {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "This valueset is still under development.";
+            case ACTIVE: return "This valueset is ready for normal use.";
+            case RETIRED: return "This valueset has been withdrawn or superceded and should no longer be used.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRAFT: return "Draft";
+            case ACTIVE: return "Active";
+            case RETIRED: return "Retired";
             default: return "?";
           }
         }
@@ -133,6 +149,34 @@ public class ConceptMap extends Resource {
             case INEXACT: return "inexact";
             case UNMATCHED: return "unmatched";
             case DISJOINT: return "disjoint";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case EQUAL: return "The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identifical or irrelevant (i.e. intensionally identical).";
+            case EQUIVALENT: return "The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).";
+            case WIDER: return "The target mapping is wider in meaning than the source concept.";
+            case SUBSUMES: return "The target mapping subsumes the meaning of the source concept (e.g. the source is-a target).";
+            case NARROWER: return "The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.";
+            case SPECIALISES: return "The target mapping specialises the meaning of the source concept (e.g. the target is-a source).";
+            case INEXACT: return "The target mapping overlaps with the source concept, but both source and target cover additional meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.";
+            case UNMATCHED: return "There is no match for this concept in the destination concept system.";
+            case DISJOINT: return "This is an explicit assertion that there is no mapping between the source and target concept.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case EQUAL: return "";
+            case EQUIVALENT: return "";
+            case WIDER: return "";
+            case SUBSUMES: return "";
+            case NARROWER: return "";
+            case SPECIALISES: return "";
+            case INEXACT: return "";
+            case UNMATCHED: return "";
+            case DISJOINT: return "";
             default: return "?";
           }
         }

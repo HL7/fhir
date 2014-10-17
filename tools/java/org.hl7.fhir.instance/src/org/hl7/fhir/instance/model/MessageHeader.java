@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class MessageHeader extends Resource {
             case OK: return "ok";
             case TRANSIENTERROR: return "transient-error";
             case FATALERROR: return "fatal-error";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case OK: return "The message was accepted and processed without error.";
+            case TRANSIENTERROR: return "Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.";
+            case FATALERROR: return "The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative SHALL describe what the issue is.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case OK: return "";
+            case TRANSIENTERROR: return "";
+            case FATALERROR: return "";
             default: return "?";
           }
         }

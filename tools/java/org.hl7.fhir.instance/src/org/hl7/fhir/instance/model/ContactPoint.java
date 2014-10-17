@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class ContactPoint extends Type {
             case FAX: return "fax";
             case EMAIL: return "email";
             case URL: return "url";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PHONE: return "The value is a telephone number used for voice calls. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.";
+            case FAX: return "The value is a fax machine. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.";
+            case EMAIL: return "The value is an email address.";
+            case URL: return "The value is a url. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PHONE: return "";
+            case FAX: return "";
+            case EMAIL: return "";
+            case URL: return "";
             default: return "?";
           }
         }
@@ -125,6 +143,26 @@ public class ContactPoint extends Type {
             case TEMP: return "temp";
             case OLD: return "old";
             case MOBILE: return "mobile";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case HOME: return "A communication contact point at a home; attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available.";
+            case WORK: return "An office contact point. First choice for business related contacts during business hours.";
+            case TEMP: return "A temporary contact point. The period can provide more detailed information.";
+            case OLD: return "This contact point is no longer in use (or was never correct, but retained for records).";
+            case MOBILE: return "A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case HOME: return "";
+            case WORK: return "";
+            case TEMP: return "";
+            case OLD: return "";
+            case MOBILE: return "";
             default: return "?";
           }
         }

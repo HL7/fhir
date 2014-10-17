@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class Query extends Resource {
             case LIMITED: return "limited";
             case REFUSED: return "refused";
             case ERROR: return "error";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case OK: return "The query was processed successfully.";
+            case LIMITED: return "The query was processed successfully, but some additional limitations were added.";
+            case REFUSED: return "The server refused to process the query.";
+            case ERROR: return "The server tried to process the query, but some error occurred.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case OK: return "";
+            case LIMITED: return "";
+            case REFUSED: return "";
+            case ERROR: return "";
             default: return "?";
           }
         }

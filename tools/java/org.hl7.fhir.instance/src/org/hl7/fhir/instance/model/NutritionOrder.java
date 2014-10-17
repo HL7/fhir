@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -67,6 +67,26 @@ public class NutritionOrder extends Resource {
             case INACTIVE: return "inactive";
             case HELD: return "held";
             case CANCELLED: return "cancelled";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case REQUESTED: return "TODO.";
+            case ACTIVE: return "TODO.";
+            case INACTIVE: return "TODO.";
+            case HELD: return "TODO.";
+            case CANCELLED: return "TODO.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case REQUESTED: return "Requested";
+            case ACTIVE: return "Active";
+            case INACTIVE: return "Inactive";
+            case HELD: return "Held";
+            case CANCELLED: return "Cancelled";
             default: return "?";
           }
         }

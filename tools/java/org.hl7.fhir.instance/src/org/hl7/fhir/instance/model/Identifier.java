@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class Identifier extends Type {
             case OFFICIAL: return "official";
             case TEMP: return "temp";
             case SECONDARY: return "secondary";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case USUAL: return "the identifier recommended for display and use in real-world interactions.";
+            case OFFICIAL: return "the identifier considered to be most trusted for the identification of this item.";
+            case TEMP: return "A temporary identifier.";
+            case SECONDARY: return "An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case USUAL: return "";
+            case OFFICIAL: return "";
+            case TEMP: return "";
+            case SECONDARY: return "";
             default: return "?";
           }
         }

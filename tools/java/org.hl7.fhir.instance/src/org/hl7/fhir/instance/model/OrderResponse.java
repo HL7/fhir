@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -83,6 +83,34 @@ public class OrderResponse extends Resource {
             case REPLACED: return "replaced";
             case ABORTED: return "aborted";
             case COMPLETE: return "complete";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PENDING: return "The order is known, but no processing has occurred at this time.";
+            case REVIEW: return "The order is undergoing initial processing to determine whether it will be accepted (usually this involves human review).";
+            case REJECTED: return "The order was rejected because of a workflow/business logic reason.";
+            case ERROR: return "The order was unable to be processed because of a technical error (i.e. unexpected error).";
+            case ACCEPTED: return "The order has been accepted, and work is in progress.";
+            case CANCELLED: return "Processing the order was halted at the initiators request.";
+            case REPLACED: return "The order has been cancelled and replaced by another.";
+            case ABORTED: return "Processing the order was stopped because of some workflow/business logic reason.";
+            case COMPLETE: return "The order has been completed.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PENDING: return "";
+            case REVIEW: return "";
+            case REJECTED: return "";
+            case ERROR: return "";
+            case ACCEPTED: return "";
+            case CANCELLED: return "";
+            case REPLACED: return "";
+            case ABORTED: return "";
+            case COMPLETE: return "";
             default: return "?";
           }
         }

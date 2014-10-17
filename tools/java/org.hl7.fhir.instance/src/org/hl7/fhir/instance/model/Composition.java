@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -67,6 +67,26 @@ public class Composition extends Resource {
             case APPENDED: return "appended";
             case AMENDED: return "amended";
             case ENTEREDINERROR: return "entered in error";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PRELIMINARY: return "This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.";
+            case FINAL: return "The composition or document is complete and verified by an appropriate person, and no further work is planned.";
+            case APPENDED: return "The composition or document has been modified subsequent to being released as 'final', and is complete and verified by an authorized person. The modifications added new information to the composition or document, but did not revise existing content.";
+            case AMENDED: return "The composition or document has been modified subsequent to being released as 'final', and is complete and verified by an authorized person.";
+            case ENTEREDINERROR: return "The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PRELIMINARY: return "";
+            case FINAL: return "";
+            case APPENDED: return "";
+            case AMENDED: return "";
+            case ENTEREDINERROR: return "";
             default: return "?";
           }
         }
@@ -129,6 +149,24 @@ public class Composition extends Resource {
             case PROFESSIONAL: return "professional";
             case LEGAL: return "legal";
             case OFFICIAL: return "official";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PERSONAL: return "The person authenticated the content in their personal capacity.";
+            case PROFESSIONAL: return "The person authenticated the content in their professional capacity.";
+            case LEGAL: return "The person authenticated the content and accepted legal responsibility for its content.";
+            case OFFICIAL: return "The organization authenticated the content as consistent with their policies and procedures.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PERSONAL: return "";
+            case PROFESSIONAL: return "";
+            case LEGAL: return "";
+            case OFFICIAL: return "";
             default: return "?";
           }
         }

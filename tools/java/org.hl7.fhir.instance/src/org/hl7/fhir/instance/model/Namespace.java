@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class Namespace extends Resource {
             case CODESYSTEM: return "codesystem";
             case IDENTIFIER: return "identifier";
             case ROOT: return "root";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case CODESYSTEM: return "The namespace is used to define concepts and symbols to represent those concepts.  E.g. UCUM, LOINC, NDC code, local lab codes, etc.";
+            case IDENTIFIER: return "The namespace is used to manage identifiers (e.g. license numbers, order numbers, etc.).";
+            case ROOT: return "The namespace is used as the root for other identifiers and namespaces.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case CODESYSTEM: return "";
+            case IDENTIFIER: return "";
+            case ROOT: return "";
             default: return "?";
           }
         }
@@ -109,6 +125,22 @@ public class Namespace extends Resource {
             case PROPOSED: return "proposed";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PROPOSED: return "System has been submitted but not yet approved.";
+            case ACTIVE: return "System is valid for use.";
+            case RETIRED: return "System should no longer be used.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PROPOSED: return "";
+            case ACTIVE: return "";
+            case RETIRED: return "";
             default: return "?";
           }
         }
@@ -163,6 +195,24 @@ public class Namespace extends Resource {
             case UUID: return "uuid";
             case URI: return "uri";
             case OTHER: return "other";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case OID: return "An ISO object identifier.  E.g. 1.2.3.4.5.";
+            case UUID: return "A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.";
+            case URI: return "A uniform resource identifier (ideally a URL - uniform resource locator).  E.g. http://unitsofmeasure.org.";
+            case OTHER: return "Some other type of unique identifier.  E.g HL7-assigned reserved string such as LN for LOINC.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case OID: return "";
+            case UUID: return "";
+            case URI: return "";
+            case OTHER: return "";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class Profile extends Resource {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "This profile is still under development.";
+            case ACTIVE: return "This profile is ready for normal use.";
+            case RETIRED: return "This profile has been deprecated, withdrawn or superseded and should no longer be used.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRAFT: return "";
+            case ACTIVE: return "";
+            case RETIRED: return "";
             default: return "?";
           }
         }
@@ -104,6 +120,18 @@ public class Profile extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case XMLATTR: return "In XML, this property is represented as an attribute not an element.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case XMLATTR: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class PropertyRepresentationEnumFactory implements EnumFactory {
@@ -143,6 +171,22 @@ public class Profile extends Resource {
             case CLOSED: return "closed";
             case OPEN: return "open";
             case OPENATEND: return "openAtEnd";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case CLOSED: return "No additional content is allowed other than that described by the slices in this profile.";
+            case OPEN: return "Additional content is allowed anywhere in the list.";
+            case OPENATEND: return "Additional content is allowed, but only at the end of the list.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case CLOSED: return "";
+            case OPEN: return "";
+            case OPENATEND: return "";
             default: return "?";
           }
         }
@@ -196,6 +240,22 @@ public class Profile extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case CONTAINED: return "The reference is a local reference to a contained resource.";
+            case REFERENCED: return "The reference to a resource that has to be resolved externally to the resource that includes the reference.";
+            case BUNDLED: return "The resource the reference points to will be found in the same bundle as the resource that includes the reference.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case CONTAINED: return "";
+            case REFERENCED: return "";
+            case BUNDLED: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class ResourceAggregationModeEnumFactory implements EnumFactory {
@@ -242,6 +302,20 @@ public class Profile extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case ERROR: return "If the constraint is violated, the resource is not conformant.";
+            case WARNING: return "If the constraint is violated, the resource is conformant, but it is not necessarily following best practice.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ERROR: return "";
+            case WARNING: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class ConstraintSeverityEnumFactory implements EnumFactory {
@@ -285,6 +359,22 @@ public class Profile extends Resource {
             case REQUIRED: return "required";
             case PREFERRED: return "preferred";
             case EXAMPLE: return "example";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case REQUIRED: return "Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.";
+            case PREFERRED: return "For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.";
+            case EXAMPLE: return "The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case REQUIRED: return "";
+            case PREFERRED: return "";
+            case EXAMPLE: return "";
             default: return "?";
           }
         }
@@ -351,6 +441,30 @@ public class Profile extends Resource {
             case REFERENCE: return "reference";
             case COMPOSITE: return "composite";
             case QUANTITY: return "quantity";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case NUMBER: return "Search parameter SHALL be a number (a whole number, or a decimal).";
+            case DATE: return "Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.";
+            case STRING: return "Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.";
+            case TOKEN: return "Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a '|', depending on the modifier used.";
+            case REFERENCE: return "A reference to another resource.";
+            case COMPOSITE: return "A composite search parameter that combines a search on two values together.";
+            case QUANTITY: return "A search parameter that searches on a quantity.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case NUMBER: return "";
+            case DATE: return "";
+            case STRING: return "";
+            case TOKEN: return "";
+            case REFERENCE: return "";
+            case COMPOSITE: return "";
+            case QUANTITY: return "";
             default: return "?";
           }
         }
@@ -421,6 +535,24 @@ public class Profile extends Resource {
             case DATATYPE: return "datatype";
             case MAPPING: return "mapping";
             case EXTENSION: return "extension";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case RESOURCE: return "The context is all elements matching a particular resource element path.";
+            case DATATYPE: return "The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).";
+            case MAPPING: return "The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.";
+            case EXTENSION: return "The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case RESOURCE: return "";
+            case DATATYPE: return "";
+            case MAPPING: return "";
+            case EXTENSION: return "";
             default: return "?";
           }
         }

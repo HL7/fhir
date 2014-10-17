@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class Appointment extends Resource {
             case REQUIRED: return "required";
             case OPTIONAL: return "optional";
             case INFORMATIONONLY: return "information-only";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case REQUIRED: return "The participant is required to attend the appointment.";
+            case OPTIONAL: return "The participant may optionally attend the appointment.";
+            case INFORMATIONONLY: return "The participant is not required to attend the appointment (appointment is about them, not for them).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case REQUIRED: return "";
+            case OPTIONAL: return "";
+            case INFORMATIONONLY: return "";
             default: return "?";
           }
         }
@@ -121,6 +137,28 @@ public class Appointment extends Resource {
             case INPROCESS: return "in-process";
             case COMPLETED: return "completed";
             case NEEDSACTION: return "needs-action";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ACCEPTED: return "The participant has accepted the appointment.";
+            case DECLINED: return "The participant has declined the appointment and will not participate in the appointment.";
+            case TENTATIVE: return "The participant has  tentatively accepted the appointment. This could be automatically created by a system and requires further processing before it can be accepted. There is no commitment that attendance will occur.";
+            case INPROCESS: return "The participant has started the appointment.";
+            case COMPLETED: return "The participant's involvement in the appointment has been completed.";
+            case NEEDSACTION: return "The participant needs to indicate if they accept the appointment by changing this status to one of the other statuses.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ACCEPTED: return "";
+            case DECLINED: return "";
+            case TENTATIVE: return "";
+            case INPROCESS: return "";
+            case COMPLETED: return "";
+            case NEEDSACTION: return "";
             default: return "?";
           }
         }

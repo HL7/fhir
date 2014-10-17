@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class Address extends Type {
             case WORK: return "work";
             case TEMP: return "temp";
             case OLD: return "old";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case HOME: return "A communication address at a home.";
+            case WORK: return "An office address. First choice for business related contacts during business hours.";
+            case TEMP: return "A temporary address. The period can provide more detailed information.";
+            case OLD: return "This address is no longer in use (or was never correct, but retained for records).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case HOME: return "";
+            case WORK: return "";
+            case TEMP: return "";
+            case OLD: return "";
             default: return "?";
           }
         }

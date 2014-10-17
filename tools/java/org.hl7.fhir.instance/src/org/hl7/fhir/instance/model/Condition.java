@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class Condition extends Resource {
             case WORKING: return "working";
             case CONFIRMED: return "confirmed";
             case REFUTED: return "refuted";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PROVISIONAL: return "This is a tentative diagnosis - still a candidate that is under consideration.";
+            case WORKING: return "The patient is being treated on the basis that this is the condition, but it is still not confirmed.";
+            case CONFIRMED: return "There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.";
+            case REFUTED: return "This condition has been ruled out by diagnostic and clinical evidence.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PROVISIONAL: return "";
+            case WORKING: return "";
+            case CONFIRMED: return "";
+            case REFUTED: return "";
             default: return "?";
           }
         }
@@ -113,6 +131,20 @@ public class Condition extends Resource {
           switch (this) {
             case DUETO: return "due-to";
             case FOLLOWING: return "following";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DUETO: return "this condition follows the identified condition/procedure/substance and is a consequence of it.";
+            case FOLLOWING: return "this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DUETO: return "";
+            case FOLLOWING: return "";
             default: return "?";
           }
         }

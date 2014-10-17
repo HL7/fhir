@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class OperationDefinition extends Resource {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "This profile is still under development.";
+            case ACTIVE: return "This profile is ready for normal use.";
+            case RETIRED: return "This profile has been deprecated, withdrawn or superseded and should no longer be used.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRAFT: return "";
+            case ACTIVE: return "";
+            case RETIRED: return "";
             default: return "?";
           }
         }
@@ -108,6 +124,20 @@ public class OperationDefinition extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case OPERATION: return "This operation is invoked as an operation.";
+            case QUERY: return "This operation is a named query, invoked using the search mechanism.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case OPERATION: return "";
+            case QUERY: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class OperationKindEnumFactory implements EnumFactory {
@@ -147,6 +177,20 @@ public class OperationDefinition extends Resource {
           switch (this) {
             case IN: return "in";
             case OUT: return "out";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case IN: return "This is an input parameter.";
+            case OUT: return "This is an output parameter.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case IN: return "";
+            case OUT: return "";
             default: return "?";
           }
         }

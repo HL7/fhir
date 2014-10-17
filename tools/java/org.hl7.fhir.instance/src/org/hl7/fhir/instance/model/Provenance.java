@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class Provenance extends Resource {
             case REVISION: return "revision";
             case QUOTATION: return "quotation";
             case SOURCE: return "source";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DERIVATION: return "A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a preexisting entity.";
+            case REVISION: return "A derivation for which the resulting entity is a revised version of some original.";
+            case QUOTATION: return "The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author.";
+            case SOURCE: return "A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DERIVATION: return "";
+            case REVISION: return "";
+            case QUOTATION: return "";
+            case SOURCE: return "";
             default: return "?";
           }
         }

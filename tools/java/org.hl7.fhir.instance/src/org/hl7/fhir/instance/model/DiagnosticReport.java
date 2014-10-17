@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -79,6 +79,32 @@ public class DiagnosticReport extends Resource {
             case APPENDED: return "appended";
             case CANCELLED: return "cancelled";
             case ENTEREDINERROR: return "entered in error";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case REGISTERED: return "The existence of the report is registered, but there is nothing yet available.";
+            case PARTIAL: return "This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.";
+            case FINAL: return "The report is complete and verified by an authorized person.";
+            case CORRECTED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person.";
+            case AMENDED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person, and data has been changed.";
+            case APPENDED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.";
+            case CANCELLED: return "The report is unavailable because the measurement was not started or not completed (also sometimes called 'aborted').";
+            case ENTEREDINERROR: return "The report has been withdrawn following previous Final release.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case REGISTERED: return "";
+            case PARTIAL: return "";
+            case FINAL: return "";
+            case CORRECTED: return "";
+            case AMENDED: return "";
+            case APPENDED: return "";
+            case CANCELLED: return "";
+            case ENTEREDINERROR: return "";
             default: return "?";
           }
         }

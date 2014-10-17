@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -67,6 +67,26 @@ public class SecurityEvent extends Resource {
             case U: return "U";
             case D: return "D";
             case E: return "E";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case C: return "Create a new database object, such as Placing an Order.";
+            case R: return "Display or print data, such as a Doctor Census.";
+            case U: return "Update data, such as Revise Patient Information.";
+            case D: return "Delete items, such as a doctor master file record.";
+            case E: return "Perform a system or application function such as log-on, program execution or use of an object's method, or perform a query/search operation.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case C: return "Create";
+            case R: return "Read/View/Print";
+            case U: return "Update";
+            case D: return "Delete";
+            case E: return "Execute";
             default: return "?";
           }
         }
@@ -132,6 +152,24 @@ public class SecurityEvent extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case _0: return "The operation completed successfully (whether with warnings or not).";
+            case _4: return "The action was not successful due to some kind of catered for error (often equivalent to an HTTP 400 response).";
+            case _8: return "The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response).";
+            case _12: return "An error of such magnitude occurred that the system is not longer available for use (i.e. the system died).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case _0: return "Success";
+            case _4: return "Minor failure";
+            case _8: return "Serious failure";
+            case _12: return "Major failure";
+            default: return "?";
+          }
+        }
     }
 
   public static class SecurityEventOutcomeEnumFactory implements EnumFactory {
@@ -194,6 +232,26 @@ public class SecurityEvent extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case _1: return "Machine Name, including DNS name.";
+            case _2: return "IP Address.";
+            case _3: return "Telephone Number.";
+            case _4: return "Email address.";
+            case _5: return "URI (User directory, HTTP-PUT, ftp, etc.).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case _1: return "";
+            case _2: return "";
+            case _3: return "";
+            case _4: return "";
+            case _5: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class NetworkTypeEnumFactory implements EnumFactory {
@@ -253,6 +311,24 @@ public class SecurityEvent extends Resource {
             case _2: return "2";
             case _3: return "3";
             case _4: return "4";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case _1: return "Person.";
+            case _2: return "System Object.";
+            case _3: return "Organization.";
+            case _4: return "Other.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case _1: return "";
+            case _2: return "";
+            case _3: return "";
+            case _4: return "";
             default: return "?";
           }
         }
@@ -391,6 +467,64 @@ public class SecurityEvent extends Resource {
             case _22: return "22";
             case _23: return "23";
             case _24: return "24";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case _1: return "This object is the patient that is the subject of care related to this event.  It is identifiable by patient ID or equivalent.  The patient may be either human or animal.";
+            case _2: return "This is a location identified as related to the event.  This is usually the location where the event took place.  Note that for shipping, the usual events are arrival at a location or departure from a location.";
+            case _3: return "This object is any kind of persistent document created as a result of the event.  This could be a paper report, film, electronic report, DICOM Study, etc.  Issues related to medical records life cycle management are conveyed elsewhere.";
+            case _4: return "A logical object related to the event.  (Deprecated).";
+            case _5: return "This is any configurable file used to control creation of documents.  Examples include the objects maintained by the HL7 Master File transactions, Value Sets, etc.";
+            case _6: return "A human participant not otherwise identified by some other category.";
+            case _7: return "(deprecated).";
+            case _8: return "Typically a licensed person who is providing or performing care related to the event, generally a physician.   The key distinction between doctor and practitioner is with regards to their role, not the licensing.  The doctor is the human who actually performed the work.  The practitioner is the human or organization that is responsible for the work.";
+            case _9: return "A person or system that is being notified as part of the event.  This is relevant in situations where automated systems provide notifications to other parties when an event took place.";
+            case _10: return "Insurance company, or any other organization who accepts responsibility for paying for the healthcare event.";
+            case _11: return "A person or active system object involved in the event with a security role.";
+            case _12: return "A person or system object involved in the event with the authority to modify security roles of other objects.";
+            case _13: return "A passive object, such as a role table, that is relevant to the event.";
+            case _14: return "(deprecated)  Relevant to certain RBAC security methodologies.";
+            case _15: return "Any person or organization responsible for providing care.  This encompasses all forms of care, licensed or otherwise, and all sorts of teams and care groups. Note, the distinction between practitioners and the doctor that actually provided the care to the patient.";
+            case _16: return "The source or destination for data transfer, when it does not match some other role.";
+            case _17: return "A source or destination for data transfer, that acts as an archive, database, or similar role.";
+            case _18: return "An object that holds schedule information.  This could be an appointment book, availability information, etc.";
+            case _19: return "An organization or person that is the recipient of services.  This could be an organization that is buying services for a patient, or a person that is buying services for an animal.";
+            case _20: return "An order, task, work item, procedure step, or other description of work to be performed.  E.g., a particular instance of an MPPS.";
+            case _21: return "A list of jobs or a system that provides lists of jobs.  E.g., an MWL SCP.";
+            case _22: return "(Deprecated).";
+            case _23: return "An object that specifies or controls the routing or delivery of items.  For example, a distribution list is the routing criteria for mail.  The items delivered may be documents, jobs, or other objects.";
+            case _24: return "The contents of a query.  This is used to capture the contents of any kind of query.  For security surveillance purposes knowing the queries being made is very important.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case _1: return "Patient";
+            case _2: return "Location";
+            case _3: return "Report";
+            case _4: return "Resource";
+            case _5: return "Master file";
+            case _6: return "User";
+            case _7: return "List";
+            case _8: return "Doctor";
+            case _9: return "Subscriber";
+            case _10: return "Guarantor";
+            case _11: return "Security User Entity";
+            case _12: return "Security User Group";
+            case _13: return "Security Resource";
+            case _14: return "Security Granularity Definition";
+            case _15: return "Practitioner";
+            case _16: return "Data Destination";
+            case _17: return "Data Repository";
+            case _18: return "Schedule";
+            case _19: return "Customer";
+            case _20: return "Job";
+            case _21: return "Job Stream";
+            case _22: return "Table";
+            case _23: return "Routing Criteria";
+            case _24: return "Query";
             default: return "?";
           }
         }
@@ -573,6 +707,46 @@ public class SecurityEvent extends Resource {
             case _13: return "13";
             case _14: return "14";
             case _15: return "15";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case _1: return "Origination / Creation.";
+            case _2: return "Import / Copy from original.";
+            case _3: return "Amendment.";
+            case _4: return "Verification.";
+            case _5: return "Translation.";
+            case _6: return "Access / Use.";
+            case _7: return "De-identification.";
+            case _8: return "Aggregation, summarization, derivation.";
+            case _9: return "Report.";
+            case _10: return "Export / Copy to target.";
+            case _11: return "Disclosure.";
+            case _12: return "Receipt of disclosure.";
+            case _13: return "Archiving.";
+            case _14: return "Logical deletion.";
+            case _15: return "Permanent erasure / Physical destruction.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case _1: return "";
+            case _2: return "";
+            case _3: return "";
+            case _4: return "";
+            case _5: return "";
+            case _6: return "";
+            case _7: return "";
+            case _8: return "";
+            case _9: return "";
+            case _10: return "";
+            case _11: return "";
+            case _12: return "";
+            case _13: return "";
+            case _14: return "";
+            case _15: return "";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -55,6 +55,20 @@ public class Specimen extends Resource {
           switch (this) {
             case PARENT: return "parent";
             case CHILD: return "child";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PARENT: return "The target resource is the parent of the focal specimen resource.";
+            case CHILD: return "The target resource is the child of the focal specimen resource.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PARENT: return "Parent";
+            case CHILD: return "Child";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -83,6 +83,34 @@ public class DiagnosticOrder extends Resource {
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
             case FAILED: return "failed";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case REQUESTED: return "The request has been placed.";
+            case RECEIVED: return "The receiving system has received the order, but not yet decided whether it will be performed.";
+            case ACCEPTED: return "The receiving system has accepted the order, but work has not yet commenced.";
+            case INPROGRESS: return "The work to fulfill the order is happening.";
+            case REVIEW: return "The work is complete, and the outcomes are being reviewed for approval.";
+            case COMPLETED: return "The work has been complete, the report(s) released, and no further work is planned.";
+            case SUSPENDED: return "The request has been held by originating system/user request.";
+            case REJECTED: return "The receiving system has declined to fulfill the request.";
+            case FAILED: return "The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case REQUESTED: return "";
+            case RECEIVED: return "";
+            case ACCEPTED: return "";
+            case INPROGRESS: return "";
+            case REVIEW: return "";
+            case COMPLETED: return "";
+            case SUSPENDED: return "";
+            case REJECTED: return "";
+            case FAILED: return "";
             default: return "?";
           }
         }
@@ -161,6 +189,24 @@ public class DiagnosticOrder extends Resource {
             case URGENT: return "urgent";
             case STAT: return "stat";
             case ASAP: return "asap";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ROUTINE: return "The order has a normal priority.";
+            case URGENT: return "The order should be urgently.";
+            case STAT: return "The order is time-critical.";
+            case ASAP: return "The order should be acted on as soon as possible.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ROUTINE: return "Routine";
+            case URGENT: return "Urgent";
+            case STAT: return "Stat";
+            case ASAP: return "ASAP";
             default: return "?";
           }
         }

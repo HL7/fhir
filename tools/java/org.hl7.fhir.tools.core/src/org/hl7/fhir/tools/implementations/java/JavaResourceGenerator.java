@@ -304,6 +304,28 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		write("          }\r\n"); 
 		write("        }\r\n"); 
 
+    write("        public String getDefinition() {\r\n");
+    write("          switch (this) {\r\n");
+    for (DefinedCode c : cd.getCodes()) {
+      String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("            case "+cc+": return \""+Utilities.escapeJava(c.getDefinition())+"\";\r\n");
+    }   
+    write("            default: return \"?\";\r\n");
+    write("          }\r\n"); 
+    write("        }\r\n"); 
+
+    write("        public String getDisplay() {\r\n");
+    write("          switch (this) {\r\n");
+    for (DefinedCode c : cd.getCodes()) {
+      String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("            case "+cc+": return \""+Utilities.escapeJava(c.getDisplay())+"\";\r\n");
+    }   
+    write("            default: return \"?\";\r\n");
+    write("          }\r\n"); 
+    write("        }\r\n"); 
+
 		write("    }\r\n");
 		write("\r\n");
 

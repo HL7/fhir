@@ -34,7 +34,14 @@ public class TableGenerator extends BaseGenerator {
 
     row.setAnchor(path);
     boolean isProfiledExtension = isProfile && (e.getName().equals("extension") || e.getName().equals("modifierExtension"));
-    row.getCells().add(gen.new Cell(null, dictLinks() ? pageName+"#"+path.replace("[", "_").replace("]", "_") : null, e.getName(), e.getDefinition(), null));
+    Cell gc = gen.new Cell(null, dictLinks() ? pageName+"#"+path.replace("[", "_").replace("]", "_") : null, e.getName(), e.getDefinition(), null);
+    row.getCells().add(gc);
+    if (e.isModifier()) 
+      gc.addImage("modifier.png", "This element is a modifier element", "M");
+    if (e.isMustSupport()) 
+      gc.addImage("mustsupport.png", "This element must be supported", "S");
+    if (e.isSummaryItem()) 
+      gc.addImage("summary.png", "This element is included in summaries", "Σ");
   
     if (resource) {
       row.getCells().add(gen.new Cell()); 
@@ -43,7 +50,6 @@ public class TableGenerator extends BaseGenerator {
       row.getCells().add(gen.new Cell(null, "resources.html", "Resource", null, null)); 
       // todo: base elements
     } else {
-      
       if (!e.getElements().isEmpty()) {
         row.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null)); 
         row.setIcon("icon_element.gif");
@@ -85,6 +91,7 @@ public class TableGenerator extends BaseGenerator {
         row.getCells().add(gen.new Cell(null, null, "", null, null));   
       }
     }
+      
     Cell cc = gen.new Cell(null, null, e.getShortDefn(), null, null);
     row.getCells().add(cc);
     

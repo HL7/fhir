@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class AllergyIntolerance extends Resource {
             case HIGH: return "high";
             case MEDIUM: return "medium";
             case LOW: return "low";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case FATAL: return "Likely to result in death if re-exposed.";
+            case HIGH: return "Likely to result in reactions that will need to be treated if re-exposed.";
+            case MEDIUM: return "Likely to result in reactions that will inconvenience the subject.";
+            case LOW: return "Not likely to result in any inconveniences for the subject.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case FATAL: return "";
+            case HIGH: return "";
+            case MEDIUM: return "";
+            case LOW: return "";
             default: return "?";
           }
         }
@@ -120,6 +138,22 @@ public class AllergyIntolerance extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case ALLERGY: return "Allergic Reaction.";
+            case INTOLERANCE: return "Non-Allergic Reaction.";
+            case UNKNOWN: return "Unknown type.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ALLERGY: return "";
+            case INTOLERANCE: return "";
+            case UNKNOWN: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class SensitivitytypeEnumFactory implements EnumFactory {
@@ -171,6 +205,24 @@ public class AllergyIntolerance extends Resource {
             case CONFIRMED: return "confirmed";
             case REFUTED: return "refuted";
             case RESOLVED: return "resolved";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case SUSPECTED: return "A suspected sensitivity to a substance.";
+            case CONFIRMED: return "The sensitivity has been confirmed and is active.";
+            case REFUTED: return "The sensitivity has been shown to never have existed.";
+            case RESOLVED: return "The sensitivity used to exist but no longer does.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case SUSPECTED: return "";
+            case CONFIRMED: return "";
+            case REFUTED: return "";
+            case RESOLVED: return "";
             default: return "?";
           }
         }

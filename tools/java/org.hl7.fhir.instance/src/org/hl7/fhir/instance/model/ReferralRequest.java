@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -71,6 +71,28 @@ public class ReferralRequest extends Resource {
             case CANCELLED: return "cancelled";
             case REFUSED: return "refused";
             case COMPLETED: return "completed";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "A draft referral that has yet to be send.";
+            case SENT: return "The referral has been transmitted, but not yet acknowledged by the recipient.";
+            case ACTIVE: return "The referral has been acknowledged by the recipient, and is in the process of being actioned.";
+            case CANCELLED: return "The referral has been cancelled without being completed. For example it is no longer needed.";
+            case REFUSED: return "The recipient has declined to accept the referral.";
+            case COMPLETED: return "The referral has been completely actioned.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRAFT: return "";
+            case SENT: return "";
+            case ACTIVE: return "";
+            case CANCELLED: return "";
+            case REFUSED: return "";
+            case COMPLETED: return "";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class AdverseReaction extends Resource {
             case SERIOUS: return "serious";
             case MODERATE: return "moderate";
             case MINOR: return "minor";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case SEVERE: return "Severe complications arose due to the reaction.";
+            case SERIOUS: return "Serious inconvenience to the subject.";
+            case MODERATE: return "Moderate inconvenience to the subject.";
+            case MINOR: return "Minor inconvenience to the subject.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case SEVERE: return "";
+            case SERIOUS: return "";
+            case MODERATE: return "";
+            case MINOR: return "";
             default: return "?";
           }
         }
@@ -120,6 +138,22 @@ public class AdverseReaction extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case DRUGADMIN: return "Drug Administration.";
+            case IMMUNIZ: return "Immunization.";
+            case COINCIDENTAL: return "In the same area as the substance.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRUGADMIN: return "";
+            case IMMUNIZ: return "";
+            case COINCIDENTAL: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class ExposureTypeEnumFactory implements EnumFactory {
@@ -171,6 +205,24 @@ public class AdverseReaction extends Resource {
             case UNLIKELY: return "unlikely";
             case CONFIRMED: return "confirmed";
             case UNKNOWN: return "unknown";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case LIKELY: return "Likely that this specific exposure caused the reaction.";
+            case UNLIKELY: return "Unlikely that this specific exposure caused the reaction - the exposure is being linked to for information purposes.";
+            case CONFIRMED: return "It has been confirmed that this exposure was one of the causes of the reaction.";
+            case UNKNOWN: return "It is unknown whether this exposure had anything to do with the reaction.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case LIKELY: return "";
+            case UNLIKELY: return "";
+            case CONFIRMED: return "";
+            case UNKNOWN: return "";
             default: return "?";
           }
         }

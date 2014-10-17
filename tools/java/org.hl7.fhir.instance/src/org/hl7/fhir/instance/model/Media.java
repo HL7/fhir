@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class Media extends Resource {
             case PHOTO: return "photo";
             case VIDEO: return "video";
             case AUDIO: return "audio";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PHOTO: return "The media consists of one or more unmoving images, including photographs, computer-generated graphs and charts, and scanned documents.";
+            case VIDEO: return "The media consists of a series of frames that capture a moving image.";
+            case AUDIO: return "The media consists of a sound recording.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PHOTO: return "";
+            case VIDEO: return "";
+            case AUDIO: return "";
             default: return "?";
           }
         }

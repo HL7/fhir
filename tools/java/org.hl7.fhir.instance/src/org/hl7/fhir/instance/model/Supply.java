@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -67,6 +67,26 @@ public class Supply extends Resource {
             case RECEIVED: return "received";
             case FAILED: return "failed";
             case CANCELLED: return "cancelled";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case REQUESTED: return "Supply has been requested, but not dispensed.";
+            case DISPENSED: return "Supply is part of a pharmacy order and has been dispensed.";
+            case RECEIVED: return "Supply has been received by the requestor.";
+            case FAILED: return "The supply will not be completed because the supplier was unable or unwilling to supply the item.";
+            case CANCELLED: return "The orderer of the supply cancelled the request.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case REQUESTED: return "Requested";
+            case DISPENSED: return "Dispensed";
+            case RECEIVED: return "Received";
+            case FAILED: return "Failed";
+            case CANCELLED: return "Cancelled";
             default: return "?";
           }
         }
@@ -125,6 +145,22 @@ public class Supply extends Resource {
             case INPROGRESS: return "in progress";
             case DISPENSED: return "dispensed";
             case ABANDONED: return "abandoned";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INPROGRESS: return "Supply has been requested, but not dispensed.";
+            case DISPENSED: return "Supply is part of a pharmacy order and has been dispensed.";
+            case ABANDONED: return "Dispensing was not completed.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INPROGRESS: return "In Progress";
+            case DISPENSED: return "Dispensed";
+            case ABANDONED: return "Abandoned";
             default: return "?";
           }
         }

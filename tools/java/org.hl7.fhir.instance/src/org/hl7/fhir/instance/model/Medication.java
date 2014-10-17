@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -55,6 +55,20 @@ public class Medication extends Resource {
           switch (this) {
             case PRODUCT: return "product";
             case PACKAGE: return "package";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PRODUCT: return "The medication is a product.";
+            case PACKAGE: return "The medication is a package - a contained group of one of more products.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PRODUCT: return "";
+            case PACKAGE: return "";
             default: return "?";
           }
         }

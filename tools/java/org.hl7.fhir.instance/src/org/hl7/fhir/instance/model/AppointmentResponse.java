@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -71,6 +71,28 @@ public class AppointmentResponse extends Resource {
             case INPROCESS: return "in-process";
             case COMPLETED: return "completed";
             case NEEDSACTION: return "needs-action";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ACCEPTED: return "The appointment participant has accepted that they can attend the appointment at the time specified in the AppointmentResponse.";
+            case DECLINED: return "The appointment participant has declined the appointment.";
+            case TENTATIVE: return "The appointment participant has tentatively accepted the appointment.";
+            case INPROCESS: return "The participant has in-process the appointment.";
+            case COMPLETED: return "The participant has completed the appointment.";
+            case NEEDSACTION: return "This is the intitial status of an appointment participant until a participant has replied. It implies that there is no commitment for the appointment.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ACCEPTED: return "";
+            case DECLINED: return "";
+            case TENTATIVE: return "";
+            case INPROCESS: return "";
+            case COMPLETED: return "";
+            case NEEDSACTION: return "";
             default: return "?";
           }
         }

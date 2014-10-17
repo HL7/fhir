@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class Patient extends Resource {
             case FEMALE: return "female";
             case OTHER: return "other";
             case UNKNOWN: return "unknown";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case MALE: return "Male";
+            case FEMALE: return "Female";
+            case OTHER: return "Other";
+            case UNKNOWN: return "Unknown";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case MALE: return "";
+            case FEMALE: return "";
+            case OTHER: return "";
+            case UNKNOWN: return "";
             default: return "?";
           }
         }
@@ -117,6 +135,22 @@ public class Patient extends Resource {
             case REPLACE: return "replace";
             case REFER: return "refer";
             case SEEALSO: return "seealso";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case REPLACE: return "The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.";
+            case REFER: return "The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.";
+            case SEEALSO: return "The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case REPLACE: return "replace";
+            case REFER: return "refer";
+            case SEEALSO: return "see also";
             default: return "?";
           }
         }

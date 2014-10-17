@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -71,6 +71,28 @@ public class Observation extends Resource {
             case AMENDED: return "amended";
             case CANCELLED: return "cancelled";
             case ENTEREDINERROR: return "entered in error";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case REGISTERED: return "The existence of the observation is registered, but there is no result yet available.";
+            case PRELIMINARY: return "This is an initial or interim observation: data may be incomplete or unverified.";
+            case FINAL: return "The observation is complete and verified by an authorized person.";
+            case AMENDED: return "The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.";
+            case CANCELLED: return "The observation is unavailable because the measurement was not started or not completed (also sometimes called 'aborted').";
+            case ENTEREDINERROR: return "The observation has been withdrawn following previous Final release.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case REGISTERED: return "Registered";
+            case PRELIMINARY: return "";
+            case FINAL: return "";
+            case AMENDED: return "";
+            case CANCELLED: return "";
+            case ENTEREDINERROR: return "";
             default: return "?";
           }
         }
@@ -149,6 +171,30 @@ public class Observation extends Resource {
             case CALIBRATING: return "calibrating";
             case ERROR: return "error";
             case UNKNOWN: return "unknown";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case OK: return "The result has no reliability concerns.";
+            case ONGOING: return "An early estimate of value; measurement is still occurring.";
+            case EARLY: return "An early estimate of value; processing is still occurring.";
+            case QUESTIONABLE: return "The observation value should be treated with care.";
+            case CALIBRATING: return "The result has been generated while calibration is occurring.";
+            case ERROR: return "The observation could not be completed because of an error.";
+            case UNKNOWN: return "No observation value was available.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case OK: return "";
+            case ONGOING: return "";
+            case EARLY: return "";
+            case QUESTIONABLE: return "";
+            case CALIBRATING: return "";
+            case ERROR: return "";
+            case UNKNOWN: return "";
             default: return "?";
           }
         }
@@ -231,6 +277,30 @@ public class Observation extends Resource {
             case REPLACES: return "replaces";
             case QUALIFIEDBY: return "qualified-by";
             case INTERFEREDBY: return "interfered-by";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case HASCOMPONENT: return "The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure).";
+            case HASMEMBER: return "This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.";
+            case DERIVEDFROM: return "The target observation is part of the information from which this observation value is derived (e.g. calculated anion gap, Apgar score).";
+            case SEQUELTO: return "This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test).";
+            case REPLACES: return "This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete.";
+            case QUALIFIEDBY: return "The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure).";
+            case INTERFEREDBY: return "The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case HASCOMPONENT: return "";
+            case HASMEMBER: return "";
+            case DERIVEDFROM: return "";
+            case SEQUELTO: return "";
+            case REPLACES: return "";
+            case QUALIFIEDBY: return "";
+            case INTERFEREDBY: return "";
             default: return "?";
           }
         }

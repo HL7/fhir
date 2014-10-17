@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -55,6 +55,20 @@ public class Procedure extends Resource {
           switch (this) {
             case CAUSEDBY: return "caused-by";
             case BECAUSEOF: return "because-of";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case CAUSEDBY: return "This procedure had to be performed because of the related one.";
+            case BECAUSEOF: return "This procedure caused the related one to be performed.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case CAUSEDBY: return "";
+            case BECAUSEOF: return "";
             default: return "?";
           }
         }

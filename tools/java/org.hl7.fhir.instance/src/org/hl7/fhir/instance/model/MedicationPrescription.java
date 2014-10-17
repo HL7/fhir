@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -71,6 +71,28 @@ public class MedicationPrescription extends Resource {
             case ENTEREDINERROR: return "entered in error";
             case STOPPED: return "stopped";
             case SUPERCEDED: return "superceded";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ACTIVE: return "The prescription is 'actionable', but not all actions that are implied by it have occurred yet.";
+            case ONHOLD: return "Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called 'suspended'.";
+            case COMPLETED: return "All actions that are implied by the prescription have occurred (this will rarely be made explicit).";
+            case ENTEREDINERROR: return "The prescription was entered in error and therefore nullified.";
+            case STOPPED: return "Actions implied by the prescription have been permanently halted, before all of them occurred.";
+            case SUPERCEDED: return "The prescription was replaced by a newer one, which encompasses all the information in the previous one.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ACTIVE: return "";
+            case ONHOLD: return "";
+            case COMPLETED: return "";
+            case ENTEREDINERROR: return "";
+            case STOPPED: return "";
+            case SUPERCEDED: return "";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -64,6 +64,24 @@ public class Narrative extends Element {
             case EXTENSIONS: return "extensions";
             case ADDITIONAL: return "additional";
             case EMPTY: return "empty";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case GENERATED: return "The contents of the narrative are entirely generated from the structured data in the resource.";
+            case EXTENSIONS: return "The contents of the narrative are entirely generated from the structured data in the resource and some of the content is generated from extensions.";
+            case ADDITIONAL: return "The contents of the narrative contain additional information not found in the structured data.";
+            case EMPTY: return "the contents of the narrative are some equivalent of 'No human-readable text provided for this resource'.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case GENERATED: return "";
+            case EXTENSIONS: return "";
+            case ADDITIONAL: return "";
+            case EMPTY: return "";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class AdverseReactionRisk extends Resource {
             case CONFIRMED: return "confirmed";
             case RESOLVED: return "resolved";
             case REFUTED: return "refuted";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case UNCONFIRMED: return "A low level of certainty about the propensity for a reaction to the identified Substance.";
+            case CONFIRMED: return "A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.";
+            case RESOLVED: return "A reaction to the identified Substance has been clinically reassessed by testing or rechallenge and considered to be resolved.";
+            case REFUTED: return "A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case UNCONFIRMED: return "Unconfirmed";
+            case CONFIRMED: return "Confirmed";
+            case RESOLVED: return "Resolved";
+            case REFUTED: return "Refuted";
             default: return "?";
           }
         }
@@ -116,6 +134,20 @@ public class AdverseReactionRisk extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case LOW: return "The potential clinical impact of a future reaction is estimated as low risk. Future exposure to the Substance is considered a relative contra-indication.";
+            case HIGH: return "The potential clinical impact of a future reaction is estimated as high risk. Future exposure to the Substance may be considered an absolute contra-indication.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case LOW: return "Low Risk";
+            case HIGH: return "High Risk";
+            default: return "?";
+          }
+        }
     }
 
   public static class ReactionRiskCriticalityEnumFactory implements EnumFactory {
@@ -155,6 +187,20 @@ public class AdverseReactionRisk extends Resource {
           switch (this) {
             case IMMUNE: return "immune";
             case NONIMMUNE: return "non-immune";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case IMMUNE: return "Immune mediated reaction, including allergic reactions and hypersensitivities.";
+            case NONIMMUNE: return "A non-immune mediated reaction, which can include pseudoallergic reactions, side effects, intolerances, drug toxicities (eg to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case IMMUNE: return "Immune Mediated";
+            case NONIMMUNE: return "Non-immune mediated";
             default: return "?";
           }
         }
@@ -201,6 +247,22 @@ public class AdverseReactionRisk extends Resource {
             case FOOD: return "food";
             case MEDICATION: return "medication";
             case ENVIRONMENT: return "environment";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case FOOD: return "Any substance consumed to provide nutritional support for the body.";
+            case MEDICATION: return "Substances administered to achieve a physiological effect.";
+            case ENVIRONMENT: return "Substances that are encountered in the environment.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case FOOD: return "Food";
+            case MEDICATION: return "Medication";
+            case ENVIRONMENT: return "Environment";
             default: return "?";
           }
         }
@@ -254,6 +316,22 @@ public class AdverseReactionRisk extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case UNLIKELY: return "There is a low level of clinical certainty that the reaction was caused by the identified Substance.";
+            case LIKELY: return "There is a high level of clinical certainty that the reaction was caused by the identified Substance.";
+            case CONFIRMED: return "There is a very high level of clinical certainty that the reaction was due to the identified Substance, which may include clinical evidence by testing or rechallenge.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case UNLIKELY: return "Unlikely";
+            case LIKELY: return "Likely";
+            case CONFIRMED: return "Confirmed";
+            default: return "?";
+          }
+        }
     }
 
   public static class ReactionRiskCertaintyEnumFactory implements EnumFactory {
@@ -301,6 +379,22 @@ public class AdverseReactionRisk extends Resource {
             case MILD: return "mild";
             case MODERATE: return "moderate";
             case SEVERE: return "severe";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case MILD: return "Causes mild physiological effects.";
+            case MODERATE: return "Causes moderate physiological effects.";
+            case SEVERE: return "Causes severe physiological effects.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case MILD: return "Mild";
+            case MODERATE: return "Moderate";
+            case SEVERE: return "Severe";
             default: return "?";
           }
         }

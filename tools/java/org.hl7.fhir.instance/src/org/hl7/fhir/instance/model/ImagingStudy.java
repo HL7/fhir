@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -191,6 +191,88 @@ public class ImagingStudy extends Resource {
             case US: return "US";
             case VA: return "VA";
             case XA: return "XA";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case AR: return "";
+            case BMD: return "";
+            case BDUS: return "";
+            case EPS: return "";
+            case CR: return "";
+            case CT: return "";
+            case DX: return "";
+            case ECG: return "";
+            case ES: return "";
+            case XC: return "";
+            case GM: return "";
+            case HD: return "";
+            case IO: return "";
+            case IVOCT: return "";
+            case IVUS: return "";
+            case KER: return "";
+            case LEN: return "";
+            case MR: return "";
+            case MG: return "";
+            case NM: return "";
+            case OAM: return "";
+            case OCT: return "";
+            case OPM: return "";
+            case OP: return "";
+            case OPR: return "";
+            case OPT: return "";
+            case OPV: return "";
+            case PX: return "";
+            case PT: return "";
+            case RF: return "";
+            case RG: return "";
+            case SM: return "";
+            case SRF: return "";
+            case US: return "";
+            case VA: return "";
+            case XA: return "";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case AR: return "";
+            case BMD: return "";
+            case BDUS: return "";
+            case EPS: return "";
+            case CR: return "";
+            case CT: return "";
+            case DX: return "";
+            case ECG: return "";
+            case ES: return "";
+            case XC: return "";
+            case GM: return "";
+            case HD: return "";
+            case IO: return "";
+            case IVOCT: return "";
+            case IVUS: return "";
+            case KER: return "";
+            case LEN: return "";
+            case MR: return "";
+            case MG: return "";
+            case NM: return "";
+            case OAM: return "";
+            case OCT: return "";
+            case OPM: return "";
+            case OP: return "";
+            case OPR: return "";
+            case OPT: return "";
+            case OPV: return "";
+            case PX: return "";
+            case PT: return "";
+            case RF: return "";
+            case RG: return "";
+            case SM: return "";
+            case SRF: return "";
+            case US: return "";
+            case VA: return "";
+            case XA: return "";
             default: return "?";
           }
         }
@@ -377,6 +459,24 @@ public class ImagingStudy extends Resource {
             case OFFLINE: return "OFFLINE";
             case NEARLINE: return "NEARLINE";
             case UNAVAILABLE: return "UNAVAILABLE";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ONLINE: return "Resources are immediately available,.";
+            case OFFLINE: return "Resources need to be retrieved by manual intervention.";
+            case NEARLINE: return "Resources need to be retrieved from relatively slow media.";
+            case UNAVAILABLE: return "Resources cannot be retrieved.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ONLINE: return "";
+            case OFFLINE: return "";
+            case NEARLINE: return "";
+            case UNAVAILABLE: return "";
             default: return "?";
           }
         }
@@ -631,6 +731,122 @@ public class ImagingStudy extends Resource {
             case VA: return "VA";
             case XA: return "XA";
             case XC: return "XC";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case AR: return "";
+            case AU: return "";
+            case BDUS: return "";
+            case BI: return "";
+            case BMD: return "";
+            case CR: return "";
+            case CT: return "";
+            case DG: return "";
+            case DX: return "";
+            case ECG: return "";
+            case EPS: return "";
+            case ES: return "";
+            case GM: return "";
+            case HC: return "";
+            case HD: return "";
+            case IO: return "";
+            case IVOCT: return "";
+            case IVUS: return "";
+            case KER: return "";
+            case KO: return "";
+            case LEN: return "";
+            case LS: return "";
+            case MG: return "";
+            case MR: return "";
+            case NM: return "";
+            case OAM: return "";
+            case OCT: return "";
+            case OP: return "";
+            case OPM: return "";
+            case OPT: return "";
+            case OPV: return "";
+            case OT: return "";
+            case PR: return "";
+            case PT: return "";
+            case PX: return "";
+            case REG: return "";
+            case RF: return "";
+            case RG: return "";
+            case RTDOSE: return "";
+            case RTIMAGE: return "";
+            case RTPLAN: return "";
+            case RTRECORD: return "";
+            case RTSTRUCT: return "";
+            case SEG: return "";
+            case SM: return "";
+            case SMR: return "";
+            case SR: return "";
+            case SRF: return "";
+            case TG: return "";
+            case US: return "";
+            case VA: return "";
+            case XA: return "";
+            case XC: return "";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case AR: return "";
+            case AU: return "";
+            case BDUS: return "";
+            case BI: return "";
+            case BMD: return "";
+            case CR: return "";
+            case CT: return "";
+            case DG: return "";
+            case DX: return "";
+            case ECG: return "";
+            case EPS: return "";
+            case ES: return "";
+            case GM: return "";
+            case HC: return "";
+            case HD: return "";
+            case IO: return "";
+            case IVOCT: return "";
+            case IVUS: return "";
+            case KER: return "";
+            case KO: return "";
+            case LEN: return "";
+            case LS: return "";
+            case MG: return "";
+            case MR: return "";
+            case NM: return "";
+            case OAM: return "";
+            case OCT: return "";
+            case OP: return "";
+            case OPM: return "";
+            case OPT: return "";
+            case OPV: return "";
+            case OT: return "";
+            case PR: return "";
+            case PT: return "";
+            case PX: return "";
+            case REG: return "";
+            case RF: return "";
+            case RG: return "";
+            case RTDOSE: return "";
+            case RTIMAGE: return "";
+            case RTPLAN: return "";
+            case RTRECORD: return "";
+            case RTSTRUCT: return "";
+            case SEG: return "";
+            case SM: return "";
+            case SMR: return "";
+            case SR: return "";
+            case SRF: return "";
+            case TG: return "";
+            case US: return "";
+            case VA: return "";
+            case XA: return "";
+            case XC: return "";
             default: return "?";
           }
         }

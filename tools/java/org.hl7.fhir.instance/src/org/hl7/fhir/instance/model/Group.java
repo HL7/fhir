@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -71,6 +71,28 @@ public class Group extends Resource {
             case DEVICE: return "device";
             case MEDICATION: return "medication";
             case SUBSTANCE: return "substance";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PERSON: return "Group contains 'person' Patient resources.";
+            case ANIMAL: return "Group contains 'animal' Patient resources.";
+            case PRACTITIONER: return "Group contains healthcare practitioner resources.";
+            case DEVICE: return "Group contains Device resources.";
+            case MEDICATION: return "Group contains Medication resources.";
+            case SUBSTANCE: return "Group contains Substance resources.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PERSON: return "";
+            case ANIMAL: return "";
+            case PRACTITIONER: return "";
+            case DEVICE: return "";
+            case MEDICATION: return "";
+            case SUBSTANCE: return "";
             default: return "?";
           }
         }

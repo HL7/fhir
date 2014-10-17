@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class Slot extends Resource {
             case FREE: return "FREE";
             case BUSYUNAVAILABLE: return "BUSY-UNAVAILABLE";
             case BUSYTENTATIVE: return "BUSY-TENTATIVE";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case BUSY: return "Indicates that the time interval is busy because one  or more events have been scheduled for that interval.";
+            case FREE: return "Indicates that the time interval is free for scheduling.";
+            case BUSYUNAVAILABLE: return "Indicates that the time interval is busy and that the interval can not be scheduled.";
+            case BUSYTENTATIVE: return "Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case BUSY: return "";
+            case FREE: return "";
+            case BUSYUNAVAILABLE: return "";
+            case BUSYTENTATIVE: return "";
             default: return "?";
           }
         }

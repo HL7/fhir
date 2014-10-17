@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -63,6 +63,24 @@ public class OperationOutcome extends Resource {
             case ERROR: return "error";
             case WARNING: return "warning";
             case INFORMATION: return "information";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case FATAL: return "The issue caused the action to fail, and no further checking could be performed.";
+            case ERROR: return "The issue is sufficiently important to cause the action to fail.";
+            case WARNING: return "The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired.";
+            case INFORMATION: return "The issue has no relation to the degree of success of the action.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case FATAL: return "";
+            case ERROR: return "";
+            case WARNING: return "";
+            case INFORMATION: return "";
             default: return "?";
           }
         }

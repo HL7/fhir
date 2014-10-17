@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -55,6 +55,22 @@ public class QuestionnaireAnswers extends Resource {
         throw new Exception("Unknown QuestionnaireAnswersStatus code '"+codeString+"'");
         }
         public String toCode() {
+          switch (this) {
+            case INPROGRESS: return "in progress";
+            case COMPLETED: return "completed";
+            case AMENDED: return "amended";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INPROGRESS: return "This QuestionnaireAnswers has been partially filled out with answers, but changes or additions are still expected to be made to it.";
+            case COMPLETED: return "This QuestionnaireAnswers has been filled out with answers, and the current content is regarded as definitive.";
+            case AMENDED: return "This QuestionnaireAnswers has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
           switch (this) {
             case INPROGRESS: return "in progress";
             case COMPLETED: return "completed";

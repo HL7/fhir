@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -55,6 +55,22 @@ public class Questionnaire extends Resource {
         throw new Exception("Unknown QuestionnaireStatus code '"+codeString+"'");
         }
         public String toCode() {
+          switch (this) {
+            case DRAFT: return "draft";
+            case PUBLISHED: return "published";
+            case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "This Questionnaire is not ready for official use.";
+            case PUBLISHED: return "This Questionnaire is ready for use.";
+            case RETIRED: return "This Questionnaire should no longer be used to gather data.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
           switch (this) {
             case DRAFT: return "draft";
             case PUBLISHED: return "published";
@@ -153,6 +169,44 @@ public class Questionnaire extends Resource {
             case ATTACHMENT: return "attachment";
             case REFERENCE: return "reference";
             case QUANTITY: return "quantity";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case BOOLEAN: return "Answer is a yes/no answer.";
+            case DECIMAL: return "Answer is a floating point number.";
+            case INTEGER: return "Answer is an integer.";
+            case DATE: return "Answer is a date.";
+            case DATETIME: return "Answer is a date and time.";
+            case INSTANT: return "Answer is a system timestamp.";
+            case TIME: return "Answer is a time independent of date.";
+            case STRING: return "Answer is a short (few words to short sentence) free-text entry.";
+            case TEXT: return "Answer is a long (potentially multi-paragram) free-text entry.";
+            case CHOICE: return "Answer is a choice from a list of options.";
+            case OPENCHOICE: return "Answer is a choice from a list of options or a free-text entry.";
+            case ATTACHMENT: return "Answer is binary content such as a image, PDF, etc.";
+            case REFERENCE: return "Answer is a reference to another resource (practitioner, organization, etc.).";
+            case QUANTITY: return "Answer is a combination of a numeric value and unit.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case BOOLEAN: return "";
+            case DECIMAL: return "";
+            case INTEGER: return "";
+            case DATE: return "";
+            case DATETIME: return "";
+            case INSTANT: return "";
+            case TIME: return "";
+            case STRING: return "";
+            case TEXT: return "";
+            case CHOICE: return "";
+            case OPENCHOICE: return "";
+            case ATTACHMENT: return "";
+            case REFERENCE: return "";
+            case QUANTITY: return "";
             default: return "?";
           }
         }

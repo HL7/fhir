@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class Conformance extends Resource {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "This conformance statement is still under development.";
+            case ACTIVE: return "This conformance statement is ready for use in production systems.";
+            case RETIRED: return "This conformance statement has been withdrawn or superceded and should no longer be used.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRAFT: return "";
+            case ACTIVE: return "";
+            case RETIRED: return "";
             default: return "?";
           }
         }
@@ -105,6 +121,20 @@ public class Conformance extends Resource {
           switch (this) {
             case CLIENT: return "client";
             case SERVER: return "server";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case CLIENT: return "The application acts as a server for this resource.";
+            case SERVER: return "The application acts as a client for this resource.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case CLIENT: return "";
+            case SERVER: return "";
             default: return "?";
           }
         }
@@ -175,6 +205,34 @@ public class Conformance extends Resource {
             case HISTORYTYPE: return "history-type";
             case CREATE: return "create";
             case SEARCHTYPE: return "search-type";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case READ: return "";
+            case VREAD: return "";
+            case UPDATE: return "";
+            case DELETE: return "";
+            case HISTORYINSTANCE: return "";
+            case VALIDATE: return "";
+            case HISTORYTYPE: return "";
+            case CREATE: return "";
+            case SEARCHTYPE: return "";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case READ: return "";
+            case VREAD: return "";
+            case UPDATE: return "";
+            case DELETE: return "";
+            case HISTORYINSTANCE: return "";
+            case VALIDATE: return "";
+            case HISTORYTYPE: return "";
+            case CREATE: return "";
+            case SEARCHTYPE: return "";
             default: return "?";
           }
         }
@@ -268,6 +326,30 @@ public class Conformance extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case NUMBER: return "Search parameter SHALL be a number (a whole number, or a decimal).";
+            case DATE: return "Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.";
+            case STRING: return "Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.";
+            case TOKEN: return "Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a '|', depending on the modifier used.";
+            case REFERENCE: return "A reference to another resource.";
+            case COMPOSITE: return "A composite search parameter that combines a search on two values together.";
+            case QUANTITY: return "A search parameter that searches on a quantity.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case NUMBER: return "";
+            case DATE: return "";
+            case STRING: return "";
+            case TOKEN: return "";
+            case REFERENCE: return "";
+            case COMPOSITE: return "";
+            case QUANTITY: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class SearchParamTypeEnumFactory implements EnumFactory {
@@ -334,6 +416,22 @@ public class Conformance extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case TRANSACTION: return "";
+            case SEARCHSYSTEM: return "";
+            case HISTORYSYSTEM: return "";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case TRANSACTION: return "";
+            case SEARCHSYSTEM: return "";
+            case HISTORYSYSTEM: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class SystemRestfulInteractionEnumFactory implements EnumFactory {
@@ -384,6 +482,22 @@ public class Conformance extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case CONSEQUENCE: return "The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment.";
+            case CURRENCY: return "The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.";
+            case NOTIFICATION: return "The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case CONSEQUENCE: return "";
+            case CURRENCY: return "";
+            case NOTIFICATION: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class MessageSignificanceCategoryEnumFactory implements EnumFactory {
@@ -430,6 +544,20 @@ public class Conformance extends Resource {
             default: return "?";
           }
         }
+        public String getDefinition() {
+          switch (this) {
+            case SENDER: return "The application sends requests and receives responses.";
+            case RECEIVER: return "The application receives requests and sends responses.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case SENDER: return "";
+            case RECEIVER: return "";
+            default: return "?";
+          }
+        }
     }
 
   public static class MessageConformanceEventModeEnumFactory implements EnumFactory {
@@ -469,6 +597,20 @@ public class Conformance extends Resource {
           switch (this) {
             case PRODUCER: return "producer";
             case CONSUMER: return "consumer";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PRODUCER: return "The application produces documents of the specified type.";
+            case CONSUMER: return "The application consumes documents of the specified type.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PRODUCER: return "";
+            case CONSUMER: return "";
             default: return "?";
           }
         }

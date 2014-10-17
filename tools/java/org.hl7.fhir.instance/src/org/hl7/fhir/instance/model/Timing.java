@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -88,6 +88,36 @@ public class Timing extends Type {
             case PCM: return "PCM";
             case PCD: return "PCD";
             case PCV: return "PCV";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case HS: return "event occurs [duration] before the hour of sleep (or trying to).";
+            case WAKE: return "event occurs [duration] after waking.";
+            case AC: return "event occurs [duration] before a meal (from the Latin ante cibus).";
+            case ACM: return "event occurs [duration] before breakfast (from the Latin ante cibus matutinus).";
+            case ACD: return "event occurs [duration] before lunch (from the Latin ante cibus diurnus).";
+            case ACV: return "event occurs [duration] before dinner (from the Latin ante cibus vespertinus).";
+            case PC: return "event occurs [duration] after a meal (from the Latin post cibus).";
+            case PCM: return "event occurs [duration] after breakfast (from the Latin post cibus matutinus).";
+            case PCD: return "event occurs [duration] after lunch (from the Latin post cibus diurnus).";
+            case PCV: return "event occurs [duration] after dinner (from the Latin post cibus vespertinus).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case HS: return "";
+            case WAKE: return "";
+            case AC: return "";
+            case ACM: return "";
+            case ACD: return "";
+            case ACV: return "";
+            case PC: return "";
+            case PCM: return "";
+            case PCD: return "";
+            case PCV: return "";
             default: return "?";
           }
         }
@@ -182,6 +212,30 @@ public class Timing extends Type {
             case WK: return "wk";
             case MO: return "mo";
             case A: return "a";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case S: return "second.";
+            case MIN: return "minute.";
+            case H: return "hour.";
+            case D: return "day.";
+            case WK: return "week.";
+            case MO: return "month.";
+            case A: return "year.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case S: return "";
+            case MIN: return "";
+            case H: return "";
+            case D: return "";
+            case WK: return "";
+            case MO: return "";
+            case A: return "";
             default: return "?";
           }
         }

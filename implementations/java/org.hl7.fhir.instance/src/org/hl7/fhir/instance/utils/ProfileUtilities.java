@@ -12,6 +12,7 @@ import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.IntegerType;
+import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
@@ -807,6 +808,13 @@ public class ProfileUtilities {
       UnusedTracker used = new UnusedTracker();
       used.used = true;
       Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getDefinition().getFormal(), null);
+    if (element.getDefinition() != null && element.getDefinition().getIsModifier())
+      left.addImage("modifier.png", "This element is a modifier element", "M");
+    if (element.getDefinition() != null && element.getDefinition().getMustSupport()) 
+      left.addImage("mustsupport.png", "This element must be supported", "S");
+    if (element.getDefinition() != null && element.getDefinition().getIsSummary()) 
+      left.addImage("summary.png", "This element is included in summaries", "Σ");
+  
       row.getCells().add(left);
     if (ext) {
       if (element.getDefinition() != null && element.getDefinition().getType().size() == 1 && element.getDefinition().getType().get(0).getProfile() != null) {
@@ -908,6 +916,14 @@ public class ProfileUtilities {
           String ref = pkp.resolveBinding(definition.getDefinition().getBinding());
           c.getPieces().add(gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(ref, definition.getDefinition().getBinding().getName(), null));
+          if (definition.getDefinition().getBinding().getConformance() != null || definition.getDefinition().getBinding().getIsExtensibleElement() != null) {
+          c.getPieces().add(gen.new Piece(null, " (", null));
+            if (definition.getDefinition().getBinding().getConformance() != null)
+              c.getPieces().add(gen.new Piece(null, definition.getDefinition().getBinding().getConformance().toCode(), definition.getDefinition().getBinding().getConformance().getDefinition()));
+            if (definition.getDefinition().getBinding().getIsExtensibleElement() != null)
+              c.getPieces().add(gen.new Piece(null, definition.getDefinition().getBinding().getIsExtensibleElement().toString(), null));
+          c.getPieces().add(gen.new Piece(null, ")", null));
+          }
         }
         for (ElementDefinitionConstraintComponent inv : definition.getDefinition().getConstraint()) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
@@ -917,15 +933,15 @@ public class ProfileUtilities {
         if (definition.getDefinition().getValue() != null) {        
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
           c.getPieces().add(gen.new Piece(null, "Fixed Value: ", null).addStyle("font-weight:bold"));
-          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getValue()), null));
+          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getValue()), null).addStyle("color: darkgreen"));
         } else if (definition.getDefinition().getPattern() != null) {        
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
           c.getPieces().add(gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold"));
-          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getPattern()), null));
+          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getPattern()), null).addStyle("color: darkgreen"));
         } else if (definition.getDefinition().getExample() != null) {        
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
           c.getPieces().add(gen.new Piece(null, "Example: ", null).addStyle("font-weight:bold"));
-          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getExample()), null));
+          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getExample()), null).addStyle("color: darkgreen"));
         }
       }
     }
@@ -933,6 +949,9 @@ public class ProfileUtilities {
   }
 
   private String buildJson(Type value) throws Exception {
+    if (value instanceof PrimitiveType)
+      return ((PrimitiveType) value).asStringValue();
+    
     JsonComposer json = new JsonComposer();
     return json.composeString(value, false);
   }

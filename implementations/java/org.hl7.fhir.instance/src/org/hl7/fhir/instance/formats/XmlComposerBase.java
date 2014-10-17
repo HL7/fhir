@@ -181,11 +181,11 @@ public abstract class XmlComposerBase extends ComposerBase  {
     xml.setPretty(true);
     xml.start();
     xml.setDefaultNamespace(FHIR_NS);
-    composeType("", type);
+    composeType("value", type);
     xml.close();
   }
 
-	protected abstract void composeType(String preix, Type type) throws Exception;
+	protected abstract void composeType(String prefix, Type type) throws Exception;
 
 	private <T extends Resource>void composeEntry(AtomEntry<T> entry) throws Exception {
 		AtomEntry<T> e = entry;

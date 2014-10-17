@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 17, 2014 14:21+1100 for FHIR v0.3.0
+// Generated on Fri, Oct 17, 2014 23:18+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -59,6 +59,22 @@ public class ValueSet extends Resource {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "This valueset is still under development.";
+            case ACTIVE: return "This valueset is ready for normal use.";
+            case RETIRED: return "This valueset has been withdrawn or superceded and should no longer be used.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRAFT: return "Draft";
+            case ACTIVE: return "Active";
+            case RETIRED: return "Retired";
             default: return "?";
           }
         }
@@ -121,6 +137,28 @@ public class ValueSet extends Resource {
             case REGEX: return "regex";
             case IN: return "in";
             case NOTIN: return "not in";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case EQUAL: return "The specified property of the code equals the provided value.";
+            case ISA: return "The specified property of the code has an is-a relationship with the provided value.";
+            case ISNOTA: return "The specified property of the code does not have an is-a relationship with the provided value.";
+            case REGEX: return "The specified property of the code  matches the regex specified in the provided value.";
+            case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).";
+            case NOTIN: return "The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case EQUAL: return "";
+            case ISA: return "";
+            case ISNOTA: return "";
+            case REGEX: return "";
+            case IN: return "";
+            case NOTIN: return "";
             default: return "?";
           }
         }
