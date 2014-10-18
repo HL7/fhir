@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2013-08-06T15:29:17Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>2640</WindowTopX>
   <WindowTopY>2880</WindowTopY>
+  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -823,7 +824,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1174,21 +1174,17 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:Width="123"/>
    <Column ss:AutoFitWidth="0" ss:Width="221.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="81.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="90"/>
-   <Column ss:Width="63"/>
    <Column ss:Width="174"/>
    <Column ss:Width="60"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Strength</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Extensibility</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
    </Row>
@@ -1196,16 +1192,12 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">ProtocolStatus</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">The lifecycle status of a Protocol</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">complete</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">#protocol-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">ProtocolType</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">High-level categorization of the protocol</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">complete</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">#protocol-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1215,15 +1207,11 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">ConditionValue</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Value of observation used as basis for conditional execution of one or more activities</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -1255,6 +1243,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>3</ActiveCol>
+     <RangeSelection>C4:C5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1415,7 +1406,6 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <RangeSelection>R2C1:R2C5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1424,16 +1414,17 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="126"/>
    <Column ss:Width="83.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="156.75" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Identity</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Profile</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
@@ -1442,28 +1433,39 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">General Protocol Example</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">protocol</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">protocol-example.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC example1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">ad-4833pnfp-341</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">protocol-cdisc-example1.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC2</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC example2</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String" x:Ticked="1">048</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">protocol-cdisc-example2.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC3</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC example3</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">efc10262</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">protocol-cdisc-example3.xml</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Study</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Study protocol example</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">study</Data></Cell>
+    <Cell><Data ss:Type="String">protocol-study-profile-example.xml</Data></Cell>
+    <Cell><Data ss:Type="String">Study Protocol</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1473,11 +1475,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <RangeSelection>R3C1:R5C6</RangeSelection>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
