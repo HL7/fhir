@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-07-28T00:56:32Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <RefModeR1C1/>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -355,7 +355,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -375,8 +374,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -964,7 +963,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Operations">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="207"/>
    <Row ss:AutoFitHeight="0">
@@ -972,7 +971,6 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Use</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Min</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Max</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Conformance</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Title</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Documentation</Data></Cell>
@@ -981,7 +979,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">hash</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">Generate Password Hash</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Generate Password Hash</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Given a login / password pair, generate a password hash for the SecurityPrincipal.passwordHash element</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -989,27 +987,24 @@
     <Cell><Data ss:Type="String">in</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">SHALL</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The login with which this password is associated. The login is required so that the server can use this as part of the salt, if desired</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">The login with which this password is associated. The login is required so that the server can use this as part of the salt, if desired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">hash.password</Data></Cell>
     <Cell><Data ss:Type="String">in</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">SHALL</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">the password to generate the hash for</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">the password to generate the hash for</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">hash.outcome</Data></Cell>
     <Cell><Data ss:Type="String">out</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">SHALL</Data></Cell>
     <Cell><Data ss:Type="String">base64Binary</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">the hash of the password - included in an operation outcome</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">the hash of the password - included in an operation outcome</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1025,11 +1020,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>4</ActiveCol>
+     <RangeSelection>C5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
