@@ -20,7 +20,6 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>120</WindowTopX>
   <WindowTopY>9000</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -107,6 +106,9 @@
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s76">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -116,14 +118,11 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s78">
-   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
-  </Style>
   <Style ss:ID="s79">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -154,7 +153,7 @@
     <Cell><Data ss:Type="String">Comments</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
-    <Cell><Data ss:Type="String">SNOMED-CT</Data></Cell>
+    <Cell><Data ss:Type="String">SNOMED-CT Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
@@ -446,12 +445,13 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>18</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -459,16 +459,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R3C1:R28C6</RangeSelection>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -743,7 +741,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">condition-quick-occurrence</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Profile of the &quot;Condition Occurrence&quot; class within the QUICK decision support/quality metrics model</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Profile of the &quot;Condition Occurrence&quot; class within the QUICK decision support/quality metrics model</Data></Cell>
     <Cell><Data ss:Type="String">condition-quick-occurrence-spreadsheet.xml</Data></Cell>
     <Cell><Data ss:Type="String">condition-quick-occurrence.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
@@ -755,7 +753,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -775,24 +773,24 @@
    <Column ss:AutoFitWidth="0" ss:Width="95.25"/>
    <Column ss:Width="186"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">General</Data></Cell>
     <Cell><Data ss:Type="String">General Condition Example</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">condition-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">2nd Case</Data></Cell>
     <Cell><Data ss:Type="String">2nd Example</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">example2</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">example2</Data></Cell>
     <Cell><Data ss:Type="String">condition-example2.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -987,14 +985,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">due-to</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">this condition follows the identified condition/procedure/substance and is a consequence of it</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The consequence may be good or bad</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">this condition follows the identified condition/procedure/substance and is a consequence of it</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The consequence may be good or bad</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">following</Data></Cell>
     <Cell><Data ss:Type="String">this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">This condition follows the identified condition/procedure/substance, but may or may not be a consequence (i.e. causually linked)</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">This condition follows the identified condition/procedure/substance, but may or may not be a consequence (i.e. causually linked)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
