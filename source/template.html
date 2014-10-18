@@ -31,19 +31,70 @@ Resource Content
 <a name="<%name%>"> </a>
 <a name="<%title%>"> </a>
 
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-struc">Structure</a></li>
+    <li><a href="#tabs-uml">UML</a></li>
+    <li><a href="#tabs-xml">XML</a></li>
+    <li><a href="#tabs-json">JSON</a></li>
+    <li><a href="#tabs-all">All</a></li>
+  </ul>
+  <div id="tabs-struc">
+
+<div id="tbl">
+<p><b>Structure</b></p>
+ <div id="tbl-inner">
+  <%resource-table%>
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-uml">
+  
 <div id="uml">
-<a name="uml"> </a>
 <p><b>UML Diagram</b></p>
  <div id="uml-inner">
  <%svg%>
  </div>
 </div>
 
+  </div>
+  <div id="tabs-xml">
+
+<div id="xml">
+<p><b>XML Template</b></p>
+ <div id="xml-inner">
+  <%xml%>
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-json>
+
+<div id="json">
+<p><b>JSON Template</b></p>
+ <div id="xml-inner">
+  <p>todo</p>
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-all>
+
 <div id="tbl">
 <a name="tbl"> </a>
 <p><b>Structure</b></p>
  <div id="tbl-inner">
   <%resource-table%>
+ </div>
+</div>
+
+ 
+<div id="uml">
+<a name="uml"> </a>
+<p><b>UML Diagram</b></p>
+ <div id="uml-inner">
+ <%svg%>
  </div>
 </div>
 
@@ -55,7 +106,18 @@ Resource Content
  </div>
 </div>
 
-
+<div id="json">
+<a name="json"> </a>
+<p><b>JSON Template</b></p>
+ <div id="xml-inner">
+  <p>to do</p>
+ </div>
+</div>
+  
+  </div>
+</div>
+  
+<p>&nbsp;</p>  
 <p>Alternate definitions: <a href="<%name%>.xsd">Schema</a>/<a href="<%name%>.sch">Schematron</a>, 
 Resource Profile (<a href="<%name%>.profile.xml.html">XML</a>, <a href="<%name%>.profile.json.html">JSON</a>), 
 <a href="<%name%>.questionnaire.html">Questionnaire</a></p>
@@ -75,6 +137,14 @@ Resource Profile (<a href="<%name%>.profile.xml.html">XML</a>, <a href="<%name%>
 </div>
 
 <%file newfooter%>
+
+
+
+<script src="external/jquery/jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+$( '#tabs' ).tabs();
+</script>
     
 </body>
 </html>
