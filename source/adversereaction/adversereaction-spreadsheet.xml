@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2013-12-28T16:48:43Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,7 +21,6 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -789,14 +788,15 @@
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="179.25"/>
    <Column ss:Width="249.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="144.75" ss:Span="1"/>
-   <Column ss:Index="5" ss:Width="132.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="144.75"/>
+   <Column ss:Width="45"/>
+   <Column ss:Width="132.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Conformance</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">Comments</Data></Cell>
@@ -812,7 +812,7 @@
     <Cell><Data ss:Type="String">SymptomType</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">The type of symptom.</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">http://apps.who.int/classifications/icd10/browse/2010/en</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">ICD-10 Reaction codes</Data></Cell>
     <Cell ss:StyleID="s79"/>
