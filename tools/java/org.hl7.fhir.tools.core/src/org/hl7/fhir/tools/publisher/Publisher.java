@@ -4414,6 +4414,8 @@ public class Publisher implements URIResolver {
           if (n.length > 1)
             map.setComments(n[1].substring(0, n[1].length() - 1));
           n = n[0].split("\\.");
+          if (n.length != 2)
+            throw new Exception("Error processing v3 map value for "+cd.getName()+"."+c.getCode()+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
           tbls.add(n[0].substring(1));
           map.setCodeSystem("http://hl7.org/fhir/v3/" + n[0].substring(1));
           map.setCode(n[1]);
