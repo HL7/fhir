@@ -320,6 +320,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">ResultadoOperación</translation>
         <translation lang="fr">RésultatOpération</translation>
     </item>
+    <item id="OralHealthClaim">
+        <translation lang="en">OralHealthClaim</translation>
+    </item>
     <item id="Order">
         <translation lang="en">Order</translation>
         <translation lang="zh">医嘱</translation>

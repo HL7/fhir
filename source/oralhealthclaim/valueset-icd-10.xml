@@ -1,0 +1,39 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes sample ICD 10 codes.
+    </div>
+  </text>
+  <name value="ICD-10 Codes"/>
+  <publisher value="Financial Management"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes sample ICD-10 codes."/>
+  <status value="draft"/>
+    <define>
+	<system value="urn:ISO-3950"/>
+	<concept>
+      <code value="123456"/>
+    </concept>
+	<concept>
+      <code value="987654"/>
+    </concept>
+	<concept>
+      <code value="123987"/>
+    </concept>
+	<concept>
+      <code value="112233"/>
+    </concept>
+	<concept>
+      <code value="997755"/>
+    </concept>
+	<concept>
+      <code value="321789"/>
+    </concept>
+	</define>
+</ValueSet>
+

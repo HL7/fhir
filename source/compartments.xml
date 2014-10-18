@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9945</WindowHeight>
-  <WindowWidth>23610</WindowWidth>
+  <WindowHeight>10365</WindowHeight>
+  <WindowWidth>17205</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -107,7 +107,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="81" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="82" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -298,6 +298,11 @@
     <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OralHealthClaim</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">enterer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Order</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">source</Data></Cell>
@@ -457,7 +462,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>34</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -465,7 +470,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>44</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

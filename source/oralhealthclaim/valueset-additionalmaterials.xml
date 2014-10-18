@@ -1,0 +1,39 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes sample additional material type codes.
+    </div>
+  </text>
+  <name value="Additional Material Codes"/>
+  <publisher value="Financial Management"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes sample additional material type codes."/>
+  <status value="draft"/>
+    <define>
+	<system value="urn:ex-addmatrl"/>
+	<concept>
+      <code value="xray"/>
+    </concept>
+	<concept>
+      <code value="image"/>
+    </concept>
+	<concept>
+      <code value="email"/>
+    </concept>
+	<concept>
+      <code value="model"/>
+    </concept>
+	<concept>
+      <code value="document"/>
+    </concept>
+	<concept>
+      <code value="other"/>
+    </concept>
+	</define>
+</ValueSet>
+

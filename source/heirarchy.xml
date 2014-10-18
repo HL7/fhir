@@ -204,6 +204,7 @@ todo: compartments
   </page>
   <page title="Financial" filename="financial.html">
     <page type="resource" resource="Coverage"/>
+    <page type="resource" resource="OralHealthClaim"/>
   </page>
 </page>
 </fhir>
