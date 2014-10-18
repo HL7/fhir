@@ -196,7 +196,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">profile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">structure</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">published.structure</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Message</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -214,8 +214,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>18</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
