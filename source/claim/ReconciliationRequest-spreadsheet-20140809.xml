@@ -11,7 +11,7 @@
   <LastPrinted>2014-08-09T20:51:46Z</LastPrinted>
   <Created>2012-03-19T11:15:11Z</Created>
   <LastSaved>2014-08-09T20:56:01Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -174,7 +174,7 @@
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
     <Cell><Data ss:Type="String">CDAnet v4 Mapping</Data></Cell>
-    <Cell><Data ss:Type="String">CPhA3 (Pharmacy)</Data></Cell>
+    <Cell><Data ss:Type="String">CPhA3 (Pharmacy) Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
