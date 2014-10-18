@@ -10,7 +10,7 @@
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:15:11Z</Created>
   <LastSaved>2014-10-17T23:52:49Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -1776,6 +1776,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Description</Data></Cell>
+    <Cell><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AccidentType</Data></Cell>
@@ -1966,12 +1967,11 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>6</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
