@@ -26,6 +26,7 @@
   <WindowWidth>17205</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1597,7 +1598,6 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1927,7 +1927,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Patient conditions and symptoms</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-FM-conditions</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-fm-conditions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s92"/>
@@ -1965,11 +1965,13 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <TopRowVisible>6</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

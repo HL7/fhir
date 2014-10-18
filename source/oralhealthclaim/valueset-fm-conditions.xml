@@ -15,7 +15,7 @@
   <description value="This value set includes sample Conditions codes."/>
   <status value="draft"/>
     <define>
-	<system value="urn:ISO-3950"/>
+	<system value="urn:ex-fm-conditions"/>
 	<concept>
       <code value="123987"/> <!-- headache -->
     </concept>
