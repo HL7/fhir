@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:22:15Z</Created>
   <LastSaved>2013-04-22T02:38:01Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,7 @@
   <WindowWidth>23250</WindowWidth>
   <WindowTopX>3360</WindowTopX>
   <WindowTopY>3510</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -163,11 +164,10 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">.classCode</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Should this be an HL7-defined code?  Do we need more (e.g. accomodation)</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">ActivityDefinition.code</Data></Cell>
@@ -466,12 +466,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
-   <LeftColumnVisible>6</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -512,21 +510,17 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="131.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="211.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="62.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="123"/>
-   <Column ss:AutoFitWidth="0" ss:Width="141.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="92.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Strength</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Extensibility</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
    </Row>
@@ -534,16 +528,12 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">ActivityDefinitionCategory</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">High-level categorization of the type of activity in a protocol.</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">complete</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">#activity-definition-category</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">ActivityDefinitionType</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Detailed type of planned activity.  E.g. CBC</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -561,10 +551,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
+     <RangeSelection>C4:C5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
