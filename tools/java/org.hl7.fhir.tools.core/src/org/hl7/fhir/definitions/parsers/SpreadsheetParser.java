@@ -1013,7 +1013,7 @@ public class SpreadsheetParser {
         return new UuidType(source); 
       if (type.equals("id"))
         return new IdType(source); 
-      throw new Exception("Unable to process "+column+" - unknown type "+type+" @ " +getLocation(row));
+      throw new Exception("Unable to process primitive value provided for "+column+" - unhandled type "+type+" @ " +getLocation(row));
     }
   }
 

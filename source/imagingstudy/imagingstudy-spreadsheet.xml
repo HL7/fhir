@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-01-28T21:29:06Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,7 @@
   <WindowWidth>28815</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>45</WindowTopY>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -295,8 +296,7 @@
     <Cell><Data ss:Type="String">Accession Number (0008,0050)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0050</Data></Cell>
     <Cell><Data ss:Type="String">AccessionNumber</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell><Data ss:Type="String">Accession Number</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Accession Number</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="15" ss:StyleID="s67"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=ACSN, moodCode=EVN].id</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -337,8 +337,7 @@
     <Cell><Data ss:Type="String">All series.modality if actual acquisition modalities</Data></Cell>
     <Cell><Data ss:Type="String">0008,0061</Data></Cell>
     <Cell><Data ss:Type="String">ModalitiesInStudy</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell><Data ss:Type="String">A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19)</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="15" ss:StyleID="s67"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -352,8 +351,7 @@
     <Cell><Data ss:Type="String">Referring physician (0008,0090)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0090</Data></Cell>
     <Cell><Data ss:Type="String">ReferringPhysiciansName</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell><Data ss:Type="String">The requesting/referring physician</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">The requesting/referring physician</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="15" ss:StyleID="s67"><Data ss:Type="String">.outboundRelationship[typeCode=FLFS].target[classCode=DGIMG, moodCode=RQO].participation[typeCode=AUT].role</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -423,8 +421,7 @@
     <Cell><Data ss:Type="String">Diagnoses etc with request (0040,1002)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0040,1002, 0008,1080</Data></Cell>
     <Cell><Data ss:Type="String">Admitting Diagnoses Description</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell><Data ss:Type="String">Diagnoses etc provided with request</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Diagnoses etc provided with request</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="15" ss:StyleID="s67"><Data ss:Type="String">.outboundRelationship[typeCode=PERT].target</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -438,8 +435,7 @@
     <Cell><Data ss:Type="String">Type of procedure performed (0008,1032)</Data></Cell>
     <Cell><Data ss:Type="String">0008,1032</Data></Cell>
     <Cell><Data ss:Type="String">Procedure Code Sequence</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell><Data ss:Type="String">Type of procedure performed</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Type of procedure performed</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="15" ss:StyleID="s67"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=PROC, moodCode=EVN]</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -453,8 +449,7 @@
     <Cell><Data ss:Type="String">Who interpreted images (0008,1060)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0008,1060</Data></Cell>
     <Cell><Data ss:Type="String">Name of Physician(s) Reading Study</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell><Data ss:Type="String">Who read study and interpreted the images</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Who read study and interpreted the images</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">or is this 4008,010C?</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">.participation[typeCode=PRF].role</Data></Cell>
@@ -961,9 +956,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>42</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -975,9 +970,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>51</ActiveRow>
      <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
