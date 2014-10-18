@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2013-08-04T13:16:39Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,7 @@
   <WindowWidth>25605</WindowWidth>
   <WindowTopX>1605</WindowTopX>
   <WindowTopY>1260</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -225,7 +226,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -572,18 +572,17 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="93"/>
    <Column ss:AutoFitWidth="0" ss:Width="221.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="81.75" ss:Span="1"/>
-   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="107.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="81.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Management</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
    </Row>
@@ -591,7 +590,6 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">AlertStatus</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Indicates whether this alert is active and needs to be displayed to a user, or whether it is no longer needed or entered in error</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">static</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">#alert-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -599,12 +597,10 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"/>
    </Row>
@@ -622,6 +618,7 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
