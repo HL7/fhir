@@ -10,7 +10,7 @@
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:15:11Z</Created>
   <LastSaved>2014-09-09T00:38:43Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -113,23 +113,23 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s79">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s82">
+  <Style ss:ID="s81">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -173,7 +173,7 @@
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">CDAnet v4 Mapping</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">CPhA3 (Pharmacy)</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">CPhA3 (Pharmacy) Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
@@ -350,9 +350,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>9</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>15</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -364,11 +364,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>12</ActiveCol>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -377,7 +376,7 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="1" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -421,10 +420,10 @@
     <Cell><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="110.25">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -461,49 +460,49 @@
     <Cell><Data ss:Type="String">issuer</Data></Cell>
     <Cell><Data ss:Type="String">The identity of the insurer</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Coverage.issuer</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Coverage.issuer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
     <Cell><Data ss:Type="String">The primary identifier of the insured</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Coverage.identifier</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Coverage.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">type</Data></Cell>
     <Cell><Data ss:Type="String">The kind of coverage</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Coverage.type</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Coverage.type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">plan</Data></Cell>
     <Cell><Data ss:Type="String">A plan or policy identifier</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Coverage.plan</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Coverage.plan</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subplan</Data></Cell>
     <Cell><Data ss:Type="String">Sub-plan identifier</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Coverage.subplan</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Coverage.subplan</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">group</Data></Cell>
     <Cell><Data ss:Type="String">Group identifier</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Coverage.group</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Coverage.group</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">dependent</Data></Cell>
     <Cell><Data ss:Type="String">Dependent number</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Coverage.dependent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Coverage.dependent</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">sequence</Data></Cell>
     <Cell><Data ss:Type="String">Sequence number</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Coverage.sequence</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Coverage.sequence</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -532,12 +531,12 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s80" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="114.75"/>
-   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="201.75"/>
-   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="53.25" ss:Span="1"/>
-   <Column ss:Index="5" ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="130.5"/>
-   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="214.5"/>
+   x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="114.75"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="201.75"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="53.25" ss:Span="1"/>
+   <Column ss:Index="5" ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="214.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
@@ -548,20 +547,20 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s63"><Data ss:Type="String">CoverageType</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The type of insurance: public health, worker compensation; private accident, auto, private health, etc.)</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The type of insurance: public health, worker compensation; private accident, auto, private health, etc.)</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActCoverageTypeCode</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActCoverageTypeCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s77"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -656,7 +655,7 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Committee Notes</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Vocab</Data></Cell>
-    <Cell ss:Index="20" ss:StyleID="s82"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:Index="20" ss:StyleID="s81"><Data ss:Type="String">Example</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Coverage.planHolder.language</Data></Cell>
