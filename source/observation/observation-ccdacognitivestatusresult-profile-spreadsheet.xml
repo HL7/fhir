@@ -20,7 +20,7 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>-135</WindowTopX>
   <WindowTopY>705</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -274,34 +274,30 @@
  <Worksheet ss:Name="CCDACognitiveStatusResult">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=CCDACognitiveStatusResult!R1C3:R1C21" ss:Hidden="1"/>
+    ss:RefersTo="=CCDACognitiveStatusResult!R1C1:R1C19" ss:Hidden="1"/>
    <NamedRange ss:Name="Observation.interpretation"
     ss:RefersTo="=CCDACognitiveStatusResult!#REF!"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="21" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="201"/>
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="126"/>
    <Column ss:StyleID="s72" ss:Width="41.25"/>
    <Column ss:StyleID="s72" ss:Width="34.5"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
+   <Column ss:Index="7" ss:StyleID="s72" ss:Width="191.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
    <Column ss:StyleID="s72" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="16" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="14" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="22" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
-    ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
-    <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
-    <Cell><Data ss:Type="String">Base Element</Data></Cell>
+   <Column ss:Index="19" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="158.25"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
+   <Row ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Profile Name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -335,9 +331,7 @@
     <Cell><Data ss:Type="String">Display Name</Data></Cell>
     <Cell><Data ss:Type="String">Display notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">4.  MAY contain zero or one [0..1] @negationInd (CONF:14344). &#10;9/27/2014 EH:  assume using value set approach </Data></Cell>
-    <Cell ss:StyleID="s73"/>
+   <Row ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">CCDACognitiveStatusResult</Data></Cell>
     <Cell><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s76"/>
@@ -347,33 +341,31 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="13" ss:StyleID="s77"/>
+    <Cell ss:Index="11" ss:StyleID="s77"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell><Data ss:Type="String">4.  MAY contain zero or one [0..1] @negationInd (CONF:14344). </Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">9/27/2014 EH:  assume using value set approach </Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">11. SHOULD contain zero or more [0..*] interpretationCode (CONF:14264). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
+   <Row ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">AdditionalInterpretationCodes</Data></Cell>
     <Cell><Data ss:Type="String">Observation.extension</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s76"><Data ss:Type="String">yes</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s76"><Data ss:Type="String">yes</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Extension{#AdditionalInterpretationCodes}</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="13" ss:StyleID="s77"/>
+    <Cell ss:Index="11" ss:StyleID="s77"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell><Data ss:Type="String">11. SHOULD contain zero or more [0..*] interpretationCode (CONF:14264). </Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
@@ -382,72 +374,65 @@
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">6.  SHALL contain exactly one [1..1] code (CONF:14591). &#10;a.  This code SHOULD contain zero or one [0..1] @code=&quot;373930000&quot; &#10;Cognitive function finding (CodeSystem: SNOMED-CT &#10;2.16.840.1.113883.6.96) (CONF:14592). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
+   <Row ss:Height="135">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
     <Cell><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
+    <Cell><Data ss:Type="String">6.  SHALL contain exactly one [1..1] code (CONF:14591). &#10;a.  This code SHOULD contain zero or one [0..1] @code=&quot;373930000&quot; &#10;Cognitive function finding (CodeSystem: SNOMED-CT &#10;2.16.840.1.113883.6.96) (CONF:14592). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">10. SHALL contain exactly one [1..1] value (CONF:14263). &#10;a.  If xsi:type=“CD”, SHOULD contain a code from SNOMED CT &#10;(CodeSystem: 2.16.840.1.113883.6.96) (CONF:14271). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
+   <Row ss:Height="105">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">#CognitiveStatusResultCodes</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">#CognitiveStatusResultCodes</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">10. SHALL contain exactly one [1..1] value (CONF:14263). &#10;a.  If xsi:type=“CD”, SHOULD contain a code from SNOMED CT &#10;(CodeSystem: 2.16.840.1.113883.6.96) (CONF:14271). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">7.  SHOULD contain zero or one [0..1] text (CONF:14258). &#10;a.  The text, if present, SHOULD contain zero or one [0..1] &#10;reference/@value (CONF:14259). &#10;i.  This reference/@value SHALL begin with a '#' and SHALL point &#10;to its corresponding narrative (using the approach defined in &#10;CDA Release 2, section 4.3.5.1) (CONF:14260). &#10;EH:  Should contain a an internal reference?  how  to map this?</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.comments</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.comments</Data></Cell>
+   <Row ss:Height="180">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">7.  SHOULD contain zero or one [0..1] text (CONF:14258). &#10;a.  The text, if present, SHOULD contain zero or one [0..1] &#10;reference/@value (CONF:14259). &#10;i.  This reference/@value SHALL begin with a '#' and SHALL point &#10;to its corresponding narrative (using the approach defined in &#10;CDA Release 2, section 4.3.5.1) (CONF:14260). </Data></Cell>
+    <Cell><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">EH:  Should contain a an internal reference?  how  to map this?</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">9.  SHALL contain exactly one [1..1] effectiveTime (CONF:14261).&#10;</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
+   <Row ss:Height="105">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">The onset date SHALL be recorded in the low element of the &#10;effectiveTime element when known.&#10;The resolution date SHALL be recorded in the high element of the &#10;effectiveTime element when known. &#10;</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">9.  SHALL contain exactly one [1..1] effectiveTime (CONF:14261).&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">The onset date SHALL be recorded in the low element of the &#10;effectiveTime element when known.&#10;The resolution date SHALL be recorded in the high element of the &#10;effectiveTime element when known. &#10;</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">8.  SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed &#10;(CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:14323). &#10;9/27/2014 EH:  mapped to 'final'&#10;</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
+   <Row ss:Height="90">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">8.  SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed &#10;(CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:14323). </Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/27/2014 EH:  mapped to 'final'</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">5.  SHALL contain at least one [1..*] id (CONF:14257). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.identifier</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.identifier</Data></Cell>
+   <Row ss:Height="30">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.identifier</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">5.  SHALL contain at least one [1..*] id (CONF:14257). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">9/26/2014 EH: constrain to patients</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.subject</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.subject</Data></Cell>
+   <Row ss:Height="30">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Reference(Patient)</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">Reference(Patient)</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/26/2014 EH: constrain to patients</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">14. MAY contain zero or one [0..1] author (CONF:14266). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.performer</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.performer</Data></Cell>
+   <Row ss:Height="30">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">14. MAY contain zero or one [0..1] author (CONF:14266). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">13. MAY contain zero or more [0..*] entryRelationship (CONF:14331) such that &#10;it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; refers to &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14588). &#10;b.  SHALL contain exactly one [1..1] Non-Medicinal Supply Activity &#10;(templateId:2.16.840.1.113883.10.20.22.4.50) (CONF:14351). &#10;14. SHALL contain zero or more [0..*] entryRelationship (CONF:14335) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; refers to &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14589). &#10;b.  SHALL contain exactly one [1..1]  Caregiver Characteristics  &#10;(templateId:2.16.840.1.113883.10.20.22.4.72) (CONF:14352). &#10;15. SHALL contain zero or more [0..*] entryRelationship (CONF:14467) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14590). &#10;b.  SHALL contain exactly one [1..1] Assessment Scale Observation &#10;(templateId:2.16.840.1.113883.10.20.22.4.69) (CONF:14468). &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related</Data></Cell>
+   <Row ss:Height="409.5">
     <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">Observation.related</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">MAY contain zero or more [0..*] .related&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Caregiver Characteristics ' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity ' &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">13. MAY contain zero or more [0..*] entryRelationship (CONF:14331) such that &#10;it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; refers to &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14588). &#10;b.  SHALL contain exactly one [1..1] Non-Medicinal Supply Activity &#10;(templateId:2.16.840.1.113883.10.20.22.4.50) (CONF:14351). &#10;14. SHALL contain zero or more [0..*] entryRelationship (CONF:14335) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;REFR&quot; refers to &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14589). &#10;b.  SHALL contain exactly one [1..1]  Caregiver Characteristics  &#10;(templateId:2.16.840.1.113883.10.20.22.4.72) (CONF:14352). &#10;15. SHALL contain zero or more [0..*] entryRelationship (CONF:14467) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component &#10;(CodeSystem: HL7ActRelationshipType &#10;2.16.840.1.113883.5.1002) (CONF:14590). &#10;b.  SHALL contain exactly one [1..1] Assessment Scale Observation &#10;(templateId:2.16.840.1.113883.10.20.22.4.69) (CONF:14468). &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
+    <Cell><Data ss:Type="String">MAY contain zero or more [0..*] .related&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Caregiver Characteristics ' &#10;and /or&#10;SHALL contain [1..1] related.type 'refers to'&#10;SHALL contain  [1..1] related.target 'Non-Medicinal Supply Activity ' &#10;9/28/2014EH:   TODO ( need to figure out this slicing and code mapping</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -456,7 +441,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -464,12 +448,13 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <TabColorIndex>10</TabColorIndex>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
-   <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
+   <SplitVertical>2</SplitVertical>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -477,27 +462,28 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>4</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>12</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C11:R13C11</Range>
+   <Range>R2C9:R13C9</Range>
    <Type>List</Type>
    <Value>DISCRIMINATOR</Value>
    <ErrorMessage>Allowed values are &quot;name&quot; or &quot;url&quot;</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C12:R13C12</Range>
+   <Range>R2C10:R13C10</Range>
    <Type>List</Type>
    <Value>VALUE</Value>
    <ErrorHide/>
@@ -505,44 +491,44 @@
    <ErrorMessage>Use</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C6:R13C6,R2C6</Range>
+   <Range>R4C4:R13C4,R2C4</Range>
    <Type>List</Type>
    <Value>INVARIENT_ID</Value>
    <ErrorMessage>Invarient ID does not exist</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R13C5</Range>
+   <Range>R2C3:R13C3</Range>
    <Type>List</Type>
    <Value>CARD</Value>
    <ErrorStyle>Info</ErrorStyle>
    <ErrorMessage>The format is n..n</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R13C7</Range>
+   <Range>R2C5:R13C5</Range>
    <Type>List</Type>
    <Value>IS_MODIFIER</Value>
    <ErrorMessage>'yes'  or 'no'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C8:R13C8</Range>
+   <Range>R2C6:R13C6</Range>
    <Type>List</Type>
    <Value>MUST_SUPPORT</Value>
    <ErrorMessage>'y' or 'n'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C9:R13C9,R2C9,R4C9,R6C9:R9C9</Range>
+   <Range>R11C7:R13C7,R2C7,R4C7,R6C7:R9C7</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C9</Range>
+   <Range>R10C7</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorHide/>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
-  <AutoFilter x:Range="R1C3:R1C21"
+  <AutoFilter x:Range="R1C1:R1C19"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -631,7 +617,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

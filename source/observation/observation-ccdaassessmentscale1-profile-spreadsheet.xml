@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
   <LastSaved>2014-10-11T01:34:35Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,7 +21,7 @@
   <WindowTopX>120</WindowTopX>
   <WindowTopY>855</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
-  <RefModeR1C1/>
+  <SelectedSheets>2</SelectedSheets>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -154,6 +154,11 @@
   <Style ss:ID="s86">
    <Interior ss:Color="#D8D8D8" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s87">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="BINDNG" ss:RefersTo="=NamedValidationRanges!R1C6:R5C6"/>
@@ -275,36 +280,28 @@
  <Worksheet ss:Name="CCDAAssessmentScaleObservation">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=CCDAAssessmentScaleObservation!R1C3:R2C21" ss:Hidden="1"/>
+    ss:RefersTo="=CCDAAssessmentScaleObservation!R1C1:R2C17" ss:Hidden="1"/>
    <NamedRange ss:Name="Observation.interpretation"
     ss:RefersTo="=CCDAAssessmentScaleObservation!#REF!"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="220.5" ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
-   <Column ss:StyleID="s73" ss:Width="206.25"/>
    <Column ss:StyleID="s72" ss:Width="41.25"/>
    <Column ss:StyleID="s72" ss:Width="34.5"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
+   <Column ss:Index="5" ss:StyleID="s72" ss:Width="191.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
    <Column ss:StyleID="s72" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="16" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="12" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="268.5"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="22" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
-    ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
-    <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
-    <Cell><Data ss:Type="String"> Base Elements</Data></Cell>
-    <Cell><Data ss:Type="String">Profile Name</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Column ss:Index="17" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
+   <Row ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Inv.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Is Modifier</Data><NamedCell
@@ -335,13 +332,7 @@
     <Cell><Data ss:Type="String">Display Name</Data></Cell>
     <Cell><Data ss:Type="String">Display notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell><Data ss:Type="String">CCDAAssessmentScale</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:StyleID="s75">
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -359,96 +350,78 @@
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="114">
-    <Cell><Data ss:Type="String">5.  SHALL contain exactly one [1..1] code (CONF:14439). &#10;a.  SHOULD be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or &#10;SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) identifying the &#10;assessment scale (CONF:14440). </Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Assessment Scale</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Assessment Scale</Data></Cell>
     <Cell><Data ss:Type="String">Assessment Scale Observation.  This should be either a an appropriate LOINC or SNOMED CT code identifying the assessment scale</Data></Cell>
+    <Cell><Data ss:Type="String">5.  SHALL contain exactly one [1..1] code (CONF:14439). &#10;a.  SHOULD be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or &#10;SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) identifying the &#10;assessment scale (CONF:14440). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">9.  SHALL contain exactly one [1..1] value (CONF:14450). </Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.value[x]</Data></Cell>
+   <Row>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">9.  SHALL contain exactly one [1..1] value (CONF:14450). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="87">
-    <Cell><Data ss:Type="String">Such derivation expression can contain a text calculation of how the &#10;components total up to the summed score  &#10;6.  MAY contain zero or one [0..1] derivationExpr (CONF:14637). </Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.comments</Data></Cell>
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Derivation expression</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Derivation expression</Data></Cell>
     <Cell><Data ss:Type="String">Derivation expression. Such derivation expression can contain a text calculation of how the components total up to the summed score.</Data></Cell>
+    <Cell><Data ss:Type="String">Such derivation expression can contain a text calculation of how the &#10;components total up to the summed score  &#10;6.  MAY contain zero or one [0..1] derivationExpr (CONF:14637). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="63.75">
-    <Cell><Data ss:Type="String">8.  SHALL contain exactly one [1..1] effectiveTime (CONF:14445). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Clinically effective time</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Clinically effective time</Data></Cell>
     <Cell><Data ss:Type="String">Represents clinically effective time of the measurement, which may be when the &#10;measurement was performed (e.g., a BP measurement), or may be when sample &#10;was taken (and measured some time afterwards)   </Data></Cell>
+    <Cell><Data ss:Type="String">8.  SHALL contain exactly one [1..1] effectiveTime (CONF:14445). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">7.  SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; (CodeSystem: &#10;ActStatus 2.16.840.1.113883.5.14) (CONF:14444). &#10;9/20/2014EH mapped &quot;completed&quot;to  &quot;final&quot;</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">7.  SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; (CodeSystem: &#10;ActStatus 2.16.840.1.113883.5.14) (CONF:14444). </Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">9/20/2014EH mapped &quot;completed&quot;to  &quot;final&quot;</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="17.25">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">9/20/2014 EH: constrained reliability to &quot;OK&quot;</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.reliability</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.reliability</Data></Cell>
+   <Row>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s79"><Data ss:Type="String">9/20/2014 EH: constrained reliability to &quot;OK&quot;</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">4.  SHALL contain at least one [1..*] id (CONF:14438). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.identifier</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.identifier</Data></Cell>
+   <Row>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">4.  SHALL contain at least one [1..*] id (CONF:14438). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">9/26/2014 EH: constrain to patients</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.subject</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.subject</Data></Cell>
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Reference(Patient)</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Patient)</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">9/26/2014 EH: constrain to patients</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="210">
-    <Cell><Data ss:Type="String">13. MAY contain zero or more [0..*] referenceRange (CONF:16799). &#10;The referenceRange, if present, SHALL contain exactly one [1..1] &#10;observationRange (CONF:16800). &#10;This observationRange SHOULD contain zero or one [0..1] text &#10;(CONF:16801). &#10;1.  The text, if present, SHOULD contain zero or one [0..1] &#10;reference (CONF:16802). &#10;a.  The reference, if present, MAY contain zero or &#10;one [0..1] @value (CONF:16803). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
+   <Row ss:Height="195">
     <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">13. MAY contain zero or more [0..*] referenceRange (CONF:16799). &#10;The referenceRange, if present, SHALL contain exactly one [1..1] &#10;observationRange (CONF:16800). &#10;This observationRange SHOULD contain zero or one [0..1] text &#10;(CONF:16801). &#10;1.  The text, if present, SHOULD contain zero or one [0..1] &#10;reference (CONF:16802). &#10;a.  The reference, if present, MAY contain zero or &#10;one [0..1] @value (CONF:16803). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="195">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The text, if present, SHOULD contain zero or one [0..1] &#10;reference (CONF:16802). &#10;a.  The reference, if present, MAY contain zero or &#10;one [0..1] @value (CONF:16803). &#10;i.  This reference/@value SHALL begin with &#10;a '#' and SHALL point to its &#10;corresponding narrative (using the &#10;approach defined in CDA Release 2, &#10;section 4.3.5.1) (CONF:16804).   &#10;9/20/2014 EH: Is this an internal reference (URL)?  Discuss</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange.text</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.referenceRange.text</Data></Cell>
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">The referenceRange/observationRange/text, if present, MAY contain a &#10;description of the scale (e.g. for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= &#10;moderate pain, 8 to 10 = severe pain)  </Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s80"><Data ss:Type="String">The text, if present, SHOULD contain zero or one [0..1] &#10;reference (CONF:16802). &#10;a.  The reference, if present, MAY contain zero or &#10;one [0..1] @value (CONF:16803). &#10;i.  This reference/@value SHALL begin with &#10;a '#' and SHALL point to its &#10;corresponding narrative (using the &#10;approach defined in CDA Release 2, &#10;section 4.3.5.1) (CONF:16804).   </Data></Cell>
+    <Cell><Data ss:Type="String">The referenceRange/observationRange/text, if present, MAY contain a &#10;description of the scale (e.g. for a Pain Scale 1 to 10:  1 to 3 = little pain, 4 to 7= &#10;moderate pain, 8 to 10 = severe pain)  </Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; (CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:16720). </Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">9/20/2014 EH: Is this an internal reference (URL)?  Discuss</Data></Cell>
+    <Cell ss:Index="19" ss:StyleID="s87"><Data ss:Type="String">9/20/2014 EH: map &quot;completed&quot; to &quot;final&quot;</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="165">
-    <Cell><Data ss:Type="String">12. SHOULD contain zero or more [0..*] entryRelationship (CONF:14451) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component &#10;(CONF:16741). &#10;b.  SHALL contain exactly one [1..1] Assessment Scale Supporting &#10;Observation (templateId:2.16.840.1.113883.10.20.22.4.86) &#10;(CONF:16742). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.related</Data></Cell>
+   <Row ss:Height="165">
     <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">12. SHOULD contain zero or more [0..*] entryRelationship (CONF:14451) such &#10;that it &#10;a.  SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component &#10;(CONF:16741). &#10;b.  SHALL contain exactly one [1..1] Assessment Scale Supporting &#10;Observation (templateId:2.16.840.1.113883.10.20.22.4.86) &#10;(CONF:16742). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">12a.  SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component &#10;9/20/2014 EH: should be mappped to  COMP to derived-from&#10;(CONF:16741). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related.type</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.related.type</Data></Cell>
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">has-component </Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">has-component </Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">12a.  SHALL contain exactly one [1..1] @typeCode=&quot;COMP&quot; has component &#10;9/20/2014 EH: should be mappped to  COMP to derived-from&#10;(CONF:16741). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">12b.  SHALL contain exactly one [1..1] Assessment Scale Supporting &#10;Observation (templateId:2.16.840.1.113883.10.20.22.4.86) &#10;(CONF:16742). &#10;9/21/2014 EH: need to limit type to reference specific profiles - TODO</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related.target</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.related.target</Data></Cell>
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Reference(Observation){#CCDAAssessmentSupporting}</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Observation){#CCDAAssessmentSupporting}</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">12b.  SHALL contain exactly one [1..1] Assessment Scale Supporting &#10;Observation (templateId:2.16.840.1.113883.10.20.22.4.86) &#10;(CONF:16742).</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">9/21/2014 EH: need to limit type to reference specific profiles - TODO</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -457,7 +430,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -466,99 +438,100 @@
    </Print>
    <TabColorIndex>10</TabColorIndex>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
-   <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <TopRowBottomPane>11</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>2</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R24C6</Range>
+   <Range>R2C2:R24C2</Range>
    <Type>List</Type>
    <Value>INVARIENT_ID</Value>
    <ErrorMessage>Invarient ID does not exist</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R24C5</Range>
+   <Range>R2C1:R24C1</Range>
    <Type>List</Type>
    <Value>CARD</Value>
    <ErrorStyle>Info</ErrorStyle>
    <ErrorMessage>The format is n..n</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R24C7</Range>
+   <Range>R2C3:R24C3</Range>
    <Type>List</Type>
    <Value>IS_MODIFIER</Value>
    <ErrorMessage>'yes'  or 'no'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C8:R24C8</Range>
+   <Range>R2C4:R24C4</Range>
    <Type>List</Type>
    <Value>MUST_SUPPORT</Value>
    <ErrorMessage>'y' or 'n'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9:R14C9</Range>
+   <Range>R2C5:R14C5</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C9</Range>
+   <Range>R15C5</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorHide/>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
-  <AutoFilter x:Range="R1C3:R2C21"
+  <AutoFilter x:Range="R1C1:R2C17"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="CCDAAssessmentSupporting">
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="21" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="220.5" ss:Span="1"/>
-   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:Width="206.25"/>
    <Column ss:Width="41.25"/>
    <Column ss:Width="34.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
-   <Column ss:Index="9" ss:Width="191.25"/>
+   <Column ss:Index="7" ss:Width="191.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="145.5"/>
    <Column ss:Width="129.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="16" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="14" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="22" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
+   <Column ss:Index="19" ss:AutoFitWidth="0" ss:Width="192.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Editor's Comment</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Unchanged from Base Element</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Profile Name</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Element</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Card.</Data></Cell>
@@ -582,8 +555,6 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Display notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s76"/>
@@ -607,8 +578,6 @@
     <Cell ss:StyleID="s75"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalCodedValue</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
@@ -622,18 +591,16 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Additional coded results</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This extension is used when there are multiple result values for a single Observation Resource.  The first result for this observation is the value[x] element and any additional coded results for this observation will go here.</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The base Observation resource is limited to a single result of any type.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Having a single value for each Observation Resource is preferred.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalNumericValue</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
@@ -647,18 +614,16 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Additional quantitative results</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This extension is used when there are multiple result values for a single Observation Resource.  The first result for this observation is the value[x] element and any additional quantitative (numeric) results for this observation will go here.</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The base Observation resource is limited to a single result of any type.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Having a single value for each Observation Resource is preferred.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
-    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalAttachementValue</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
@@ -672,18 +637,16 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Additional attachment results</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This extension is used when there are multiple result values for a single Observation Resource.  The first result for this observation is the value[x] element and any additional attachment (numeric) results for this observation will go here.</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The base Observation resource is limited to a single result of any type.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Having a single value for each Observation Resource is preferred.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalRatioValue</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
@@ -697,18 +660,16 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Additional ratio results</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This extension is used when there are multiple result values for a single Observation Resource.  The first result for this observation is the value[x] element and any additional ratio (e.g. classic titers) results for this observation will go here.</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The base Observation resource is limited to a single result of any type.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Having a single value for each Observation Resource is preferred.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalDateTimeValue</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
@@ -722,18 +683,16 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Additional datetime results</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This extension is used when there are multiple result values for a single Observation Resource.  The first result for this observation is the value[x] element and any additional dateTime results for this observation will go here.</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The base Observation resource is limited to a single result of any type.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Having a single value for each Observation Resource is preferred.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalTimeValue</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
@@ -747,18 +706,16 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Additional time results</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This extension is used when there are multiple result values for a single Observation Resource.  The first result for this observation is the value[x] element and any additional time results for this observation will go here.</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The base Observation resource is limited to a single result of any type.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Having a single value for each Observation Resource is preferred.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">AdditionalPeriodValue</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.extension</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
@@ -772,18 +729,16 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Additional time period results</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This extension is used when there are multiple result values for a single Observation Resource.  The first result for this observation is the value[x] element and any additional period results for this observation will go here.</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The base Observation resource is limited to a single result of any type.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Having a single value for each Observation Resource is preferred.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH:Extension for AdditionalResults - will need one for each allowed type except string and sampled data.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SHALL contain exactly one [1..1] code with @xsi:type=&quot;CE&quot; (CONF:16717).&#10;a. This code SHALL contain exactly one [1..1] @code (CONF:16738).&#10;i. Such that observation/code SHALL be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) and represents components of the scale (CONF:14458) (CONF:16739).</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
@@ -797,7 +752,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Assessment Scale Component Observation Name</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This observations represents a component of an Assessment Scale.</Data></Cell>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SHALL contain exactly one [1..1] code with @xsi:type=&quot;CE&quot; (CONF:16717).&#10;a. This code SHALL contain exactly one [1..1] @code (CONF:16738).&#10;i. Such that observation/code SHALL be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) and represents components of the scale (CONF:14458) (CONF:16739).</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -807,8 +762,6 @@
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;a. If xsi:type=&quot;CD&quot; , MAY have a translation code to further specify the source if the instrument has an applicable code system and valueSet for the integer (CONF:14639) (CONF:16755).&#10;9/27/2014 EH:  how could you code an integer?  what does 'integer' mean in this context?</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.value[x]</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.value[x]</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
@@ -822,18 +775,16 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">7. SHALL contain at least one [1..*] value (CONF:16754).&#10;a. If xsi:type=&quot;CD&quot; , MAY have a translation code to further specify the source if the instrument has an applicable code system and valueSet for the integer (CONF:14639) (CONF:16755).</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">9/27/2014 EH:  how could you code an integer?  what does 'integer' mean in this context?</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; (CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:16720).  9/20/2014 EH: map &quot;completed&quot; to &quot;final&quot;</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
@@ -841,23 +792,21 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s72"/>
+    <Cell ss:Index="9" ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">final</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; (CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:16720). </Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">9/20/2014 EH: map &quot;completed&quot; to &quot;final&quot;</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">4. SHALL contain at least one [1..*] id (CONF:16724).</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.identifier</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.identifier</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..*</Data></Cell>
@@ -871,7 +820,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">4. SHALL contain at least one [1..*] id (CONF:16724).</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -881,8 +830,6 @@
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"/>
@@ -913,53 +860,56 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <TabColorIndex>50</TabColorIndex>
    <Selected/>
-   <TopRowVisible>6</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R14C9</Range>
+   <Range>R14C7</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorHide/>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9,R10C9:R11C9,R13C9</Range>
+   <Range>R2C7,R13C7,R10C7:R11C7</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C8:R14C8</Range>
+   <Range>R2C6:R14C6</Range>
    <Type>List</Type>
    <Value>MUST_SUPPORT</Value>
    <ErrorMessage>'y' or 'n'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R14C7</Range>
+   <Range>R2C5:R14C5</Range>
    <Type>List</Type>
    <Value>IS_MODIFIER</Value>
    <ErrorMessage>'yes'  or 'no'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R14C5</Range>
+   <Range>R2C3:R14C3</Range>
    <Type>List</Type>
    <Value>CARD</Value>
    <ErrorStyle>Info</ErrorStyle>
    <ErrorMessage>The format is n..n</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R14C6</Range>
+   <Range>R2C4:R14C4</Range>
    <Type>List</Type>
    <Value>INVARIENT_ID</Value>
    <ErrorMessage>Invarient ID does not exist</ErrorMessage>

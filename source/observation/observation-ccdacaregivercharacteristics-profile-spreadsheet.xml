@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
   <LastSaved>2014-09-21T20:59:01Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,8 +20,7 @@
   <WindowWidth>25230</WindowWidth>
   <WindowTopX>-11955</WindowTopX>
   <WindowTopY>1950</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -259,34 +258,30 @@
  <Worksheet ss:Name="CCDACaregiverCharacteristics">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=CCDACaregiverCharacteristics!R1C3:R2C21" ss:Hidden="1"/>
+    ss:RefersTo="=CCDACaregiverCharacteristics!R1C1:R2C19" ss:Hidden="1"/>
    <NamedRange ss:Name="Observation.interpretation"
     ss:RefersTo="=CCDACaregiverCharacteristics!#REF!"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="21" ss:ExpandedRowCount="13" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="220.5"/>
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="89.25"/>
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="54.75"/>
-   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:StyleID="s72" ss:Width="145.5"/>
+   <Column ss:StyleID="s73" ss:Width="177.75"/>
    <Column ss:StyleID="s72" ss:Width="41.25"/>
    <Column ss:StyleID="s72" ss:Width="34.5"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
+   <Column ss:Index="7" ss:StyleID="s72" ss:Width="191.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
    <Column ss:StyleID="s72" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="16" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="14" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="22" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
-    ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
-    <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
-    <Cell><Data ss:Type="String">Unchanged from Base Element</Data></Cell>
+   <Column ss:Index="19" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="149.25"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
+   <Row ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Profile Name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -320,9 +315,7 @@
     <Cell><Data ss:Type="String">Display Name</Data></Cell>
     <Cell><Data ss:Type="String">Display notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH: This may belong in Questionaire instead of here.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+   <Row ss:Height="45" ss:StyleID="s75">
     <Cell ss:StyleID="s63"><Data ss:Type="String">CCDACaregiverCharacteristics</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation</Data><NamedCell
@@ -339,86 +332,78 @@
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19" ss:StyleID="s72"><Data ss:Type="String">9/21/2014 EH: This may belong in Questionaire instead of here.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">5.  SHALL contain exactly one [1..1] code (CONF:14230). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
+   <Row ss:Height="180">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;version value=&quot;2.48&quot;/&gt;&lt;code value=&quot;57267-7&quot;/&gt;&lt;display value=&quot;ADL or IADL assistance from any caregiver [OASIS-C]&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;&#10;</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Caregiver Characteristics</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;version value=&quot;2.48&quot;/&gt;&lt;code value=&quot;57267-7&quot;/&gt;&lt;display value=&quot;ADL or IADL assistance from any caregiver [OASIS-C]&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;&#10;</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Caregiver Characteristics</Data></Cell>
     <Cell><Data ss:Type="String">Caregiver's willingness and ability to provide care.</Data></Cell>
+    <Cell><Data ss:Type="String">5.  SHALL contain exactly one [1..1] code (CONF:14230). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">7.  SHALL contain exactly one [1..1] value (CONF:14599). &#10;a.  Where the @code SHALL be selected from LOINC (codeSystem: &#10;2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: &#10;2.16.840.1.113883.6.96 (CONF:14600).  </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
+   <Row ss:Height="135">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s77"><Data ss:Type="String">AssessmentSupportingObservationCodes</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s77"><Data ss:Type="String">AssessmentSupportingObservationCodes</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">7.  SHALL contain exactly one [1..1] value (CONF:14599). &#10;a.  Where the @code SHALL be selected from LOINC (codeSystem: &#10;2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: &#10;2.16.840.1.113883.6.96 (CONF:14600).  </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SHALL contain exactly one [1..1] statusCode=&quot;Completed&quot; (CodeSystem: &#10;ActStatus 2.16.840.1.113883.5.14) (CONF:14233). &#10;9/21/2014 EH: mapped 'completed' to 'final'</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.status</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.status</Data></Cell>
+   <Row ss:Height="75">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SHALL contain exactly one [1..1] statusCode=&quot;Completed&quot; (CodeSystem: &#10;ActStatus 2.16.840.1.113883.5.14) (CONF:14233). </Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/21/2014 EH: mapped 'completed' to 'final'</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">9/21/2014 EH:fixed to OK</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.reliability</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.reliability</Data></Cell>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">ok</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/21/2014 EH:fixed to OK</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.bodySite</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.bodySite</Data></Cell>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.bodySite</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.method</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.method</Data></Cell>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.method</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">4.  SHALL contain at least one [1..*] id (CONF:14223). </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.identifier</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.identifier</Data></Cell>
+   <Row ss:Height="30">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.identifier</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">4.  SHALL contain at least one [1..*] id (CONF:14223). </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="225">
-    <Cell><Data ss:Type="String">8.  SHALL contain at least one [1..*] participant (CONF:14227). &#10;a.  Such participants MAY contain zero or one [0..1] time (CONF:14830). &#10;i.  The time, if present, SHALL contain exactly one [1..1] low &#10;(CONF:14831). &#10;b.  Such participants SHALL contain exactly one [1..1] participantRole &#10;(CONF:14228). &#10;i.  This participantRole SHALL contain exactly one [1..1] &#10;@classCode=&quot;IND&quot; (CONF:14229). &#10;9/21/2014 EH: map &quot;IND&quot; to Patient assuming this is target of observation.</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.subject</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.subject</Data></Cell>
+   <Row ss:Height="240">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Reference(Patient)|Reference(Group)</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Person requiring care</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">Reference(Patient)|Reference(Group)</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Person requiring care</Data></Cell>
     <Cell><Data ss:Type="String">This is the person for whom the caretaker's ablility or williness to provide care is being questioned.</Data></Cell>
+    <Cell><Data ss:Type="String">8.  SHALL contain at least one [1..*] participant (CONF:14227). &#10;a.  Such participants MAY contain zero or one [0..1] time (CONF:14830). &#10;i.  The time, if present, SHALL contain exactly one [1..1] low &#10;(CONF:14831). &#10;b.  Such participants SHALL contain exactly one [1..1] participantRole &#10;(CONF:14228). &#10;i.  This participantRole SHALL contain exactly one [1..1] &#10;@classCode=&quot;IND&quot; (CONF:14229). </Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/21/2014 EH: map &quot;IND&quot; to Patient assuming this is target of observation.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.specimen</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.specimen</Data></Cell>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.specimen</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.related</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.related</Data></Cell>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.related</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/21/2014 EH:</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -427,7 +412,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -435,12 +419,13 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <TabColorIndex>10</TabColorIndex>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
-   <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <SplitVertical>2</SplitVertical>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -448,58 +433,57 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>4</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C9:R24C9,R2C9:R9C9</Range>
+   <Range>R11C7:R24C7,R2C7:R9C7</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C9</Range>
+   <Range>R10C7</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorHide/>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R23C6</Range>
+   <Range>R2C4:R23C4</Range>
    <Type>List</Type>
    <Value>INVARIENT_ID</Value>
    <ErrorMessage>Invarient ID does not exist</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R23C5</Range>
+   <Range>R2C3:R23C3</Range>
    <Type>List</Type>
    <Value>CARD</Value>
    <ErrorStyle>Info</ErrorStyle>
    <ErrorMessage>The format is n..n</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R23C7</Range>
+   <Range>R2C5:R23C5</Range>
    <Type>List</Type>
    <Value>IS_MODIFIER</Value>
    <ErrorMessage>'yes'  or 'no'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C8:R23C8</Range>
+   <Range>R2C6:R23C6</Range>
    <Type>List</Type>
    <Value>MUST_SUPPORT</Value>
    <ErrorMessage>'y' or 'n'</ErrorMessage>
   </DataValidation>
-  <AutoFilter x:Range="R1C3:R2C21"
+  <AutoFilter x:Range="R1C1:R2C19"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -1723,7 +1707,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
   <LastSaved>2014-09-28T21:58:54Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,8 +20,7 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>465</WindowTopX>
   <WindowTopY>3360</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -255,34 +254,30 @@
  <Worksheet ss:Name="CCDACommentActivity">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=CCDACommentActivity!R1C3:R2C21" ss:Hidden="1"/>
+    ss:RefersTo="=CCDACommentActivity!R1C1:R2C19" ss:Hidden="1"/>
    <NamedRange ss:Name="Observation.interpretation"
     ss:RefersTo="=CCDACommentActivity!#REF!"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="21" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="220.5"/>
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="112.5"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="117.75"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="113.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="32.25"/>
    <Column ss:StyleID="s72" ss:Width="34.5"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="58.5" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s72" ss:Width="191.25"/>
+   <Column ss:Index="7" ss:StyleID="s72" ss:Width="191.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="145.5"/>
    <Column ss:StyleID="s72" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="16" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="14" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="22" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192"
-    ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
-    <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
-    <Cell><Data ss:Type="String">Base Element</Data></Cell>
+   <Column ss:Index="19" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="141.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
+   <Row ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Profile Name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -316,9 +311,7 @@
     <Cell><Data ss:Type="String">Display Name</Data></Cell>
     <Cell><Data ss:Type="String">Display notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1.  Data elements defined elsewhere in the specification SHALL NOT be recorded &#10;using the Comment Activity (CONF:9429). &#10;9/28/2014 EH: TODO ???</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+   <Row ss:Height="75" ss:StyleID="s75">
     <Cell><Data ss:Type="String">CCDACommentActivity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation</Data><NamedCell
@@ -335,46 +328,46 @@
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1.  Data elements defined elsewhere in the specification SHALL NOT be recorded &#10;using the Comment Activity (CONF:9429). </Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">9/28/2014 EH: TODO ???</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">5.  SHALL contain exactly one [1..1] code=&quot;48767-8&quot; Annotation Comment &#10;(CodeSystem: LOINC 2.16.840.1.113883.6.1) (CONF:9428). &#10;</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.name</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
+   <Row ss:Height="135">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;version value=&quot;2.48&quot;/&gt;&lt;code value=&quot;48767-8&quot;/&gt;&lt;display value=&quot;Annotation Comment&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Comment: LOINC 48767-8 = Annotation Comment</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://loinc.org&quot;/&gt;&lt;version value=&quot;2.48&quot;/&gt;&lt;code value=&quot;48767-8&quot;/&gt;&lt;display value=&quot;Annotation Comment&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Comment: LOINC 48767-8 = Annotation Comment</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">5.  SHALL contain exactly one [1..1] code=&quot;48767-8&quot; Annotation Comment &#10;(CodeSystem: LOINC 2.16.840.1.113883.6.1) (CONF:9428). &#10;</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">a.  This text SHALL contain exactly one [1..1] reference (CONF:15967). &#10;i.  This reference SHALL contain exactly one [1..1] @value &#10;(CONF:15968). &#10;1.  This reference/@value SHALL begin with a '#' and SHALL &#10;point to its corresponding narrative (using the &#10;approach defined in CDA Release 2, section 4.3.5.1) &#10;(CONF:15969). &#10;9/28/2014 EH:  TODO  discuss how</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.valueString</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.valueString</Data></Cell>
+   <Row ss:Height="195">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.valueString</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">a.  This text SHALL contain exactly one [1..1] reference (CONF:15967). &#10;i.  This reference SHALL contain exactly one [1..1] @value &#10;(CONF:15968). &#10;1.  This reference/@value SHALL begin with a '#' and SHALL &#10;point to its corresponding narrative (using the &#10;approach defined in CDA Release 2, section 4.3.5.1) &#10;(CONF:15969). </Data></Cell>
+    <Cell><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">9/28/2014 EH:  TODO  discuss how</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">a.  The author, if present, SHALL contain exactly one [1..1] time &#10;(CONF:9434). &#10;9/28/2014 EH: issued vs applied?</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.issued</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.issued</Data></Cell>
+   <Row ss:Height="45">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Reference(Patient)</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">Reference(Patient)</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">a.  The author, if present, SHALL contain exactly one [1..1] time &#10;(CONF:9434). </Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">9/28/2014 EH: issued vs applied?</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">constraint to patient</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.subject</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.subject</Data></Cell>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">constraint to patient</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">6.  MAY contain zero or one [0..1] author (CONF:9433). &#10;a.  The author, if present, SHALL contain exactly one [1..1] time &#10;(CONF:9434). &#10;b.  The author, if present, SHALL contain exactly one [1..1] &#10;assignedAuthor (CONF:9435). &#10;i.  This assignedAuthor SHALL contain exactly one [1..1] id &#10;(CONF:9436). &#10;ii.  This assignedAuthor SHALL contain exactly one [1..1] addr &#10;(CONF:9437). &#10;1.  The content of addr SHALL be a conformant US Realm &#10;Address (AD.US.FIELDED) &#10;(2.16.840.1.113883.10.20.22.5.2) (CONF:10480). &#10;iii.  SHALL include assignedPerson/name or &#10;representedOrganization/name (CONF:9438). &#10;iv.  An  assignedPerson/name SHALL be a conformant US Realm &#10;Person Name (PN.US.FIELDED) &#10;(2.16.840.1.113883.10.20.22.5.1.1) (CONF:9439). &#10;9/28/2014 EH: This is all in Provider</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Observation.performer</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.performer</Data></Cell>
+   <Row ss:Height="409.5">
+    <Cell ss:Index="2"><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">6.  MAY contain zero or one [0..1] author (CONF:9433). &#10;a.  The author, if present, SHALL contain exactly one [1..1] time &#10;(CONF:9434). &#10;b.  The author, if present, SHALL contain exactly one [1..1] &#10;assignedAuthor (CONF:9435). &#10;i.  This assignedAuthor SHALL contain exactly one [1..1] id &#10;(CONF:9436). &#10;ii.  This assignedAuthor SHALL contain exactly one [1..1] addr &#10;(CONF:9437). &#10;1.  The content of addr SHALL be a conformant US Realm &#10;Address (AD.US.FIELDED) &#10;(2.16.840.1.113883.10.20.22.5.2) (CONF:10480). &#10;iii.  SHALL include assignedPerson/name or &#10;representedOrganization/name (CONF:9438). &#10;iv.  An  assignedPerson/name SHALL be a conformant US Realm &#10;Person Name (PN.US.FIELDED) &#10;(2.16.840.1.113883.10.20.22.5.1.1) (CONF:9439). &#10;9/28/2014 EH: This is all in Provider</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -383,7 +376,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -391,12 +383,13 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <TabColorIndex>10</TabColorIndex>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
-   <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <SplitVertical>2</SplitVertical>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -404,27 +397,26 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>4</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C11:R15C11</Range>
+   <Range>R2C9:R15C9</Range>
    <Type>List</Type>
    <Value>DISCRIMINATOR</Value>
    <ErrorMessage>Allowed values are &quot;name&quot; or &quot;url&quot;</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C12:R21C12</Range>
+   <Range>R2C10:R21C10</Range>
    <Type>List</Type>
    <Value>VALUE</Value>
    <ErrorHide/>
@@ -432,44 +424,44 @@
    <ErrorMessage>Use</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C9</Range>
+   <Range>R5C7</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorHide/>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C9:R18C9,R2C9:R4C9</Range>
+   <Range>R7C7:R18C7,R2C7:R4C7</Range>
    <Type>List</Type>
    <Value>TYPE</Value>
    <ErrorMessage>must be  a valid datatype or resource</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R17C6</Range>
+   <Range>R2C4:R17C4</Range>
    <Type>List</Type>
    <Value>INVARIENT_ID</Value>
    <ErrorMessage>Invarient ID does not exist</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R17C5</Range>
+   <Range>R2C3:R17C3</Range>
    <Type>List</Type>
    <Value>CARD</Value>
    <ErrorStyle>Info</ErrorStyle>
    <ErrorMessage>The format is n..n</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R17C7</Range>
+   <Range>R2C5:R17C5</Range>
    <Type>List</Type>
    <Value>IS_MODIFIER</Value>
    <ErrorMessage>'yes'  or 'no'</ErrorMessage>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C8:R17C8</Range>
+   <Range>R2C6:R17C6</Range>
    <Type>List</Type>
    <Value>MUST_SUPPORT</Value>
    <ErrorMessage>'y' or 'n'</ErrorMessage>
   </DataValidation>
-  <AutoFilter x:Range="R1C3:R2C21"
+  <AutoFilter x:Range="R1C1:R2C19"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -1685,7 +1677,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <LeftColumnVisible>4</LeftColumnVisible>
    <Panes>
     <Pane>
