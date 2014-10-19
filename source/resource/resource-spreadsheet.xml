@@ -9,17 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-10-29T07:44:28Z</LastSaved>
-  <Version>12.00</Version>
+  <LastSaved>2014-10-19T11:01:42Z</LastSaved>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>6285</WindowHeight>
-  <WindowWidth>22755</WindowWidth>
+  <WindowWidth>18480</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -57,6 +58,13 @@
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s67">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
   <Style ss:ID="s68">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
    <Borders/>
@@ -74,25 +82,18 @@
   <Style ss:ID="s71">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s72">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
    <Column ss:Index="4" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="53.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="30"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="57"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="47.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="57" ss:Span="2"/>
+   <Column ss:Index="9" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="47.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:Index="12" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s64">
@@ -102,6 +103,8 @@
     <Cell><Data ss:Type="String">Must Understand</Data></Cell>
     <Cell><Data ss:Type="String">UML</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">Extensible</Data></Cell>
+    <Cell><Data ss:Type="String">Default Meaning</Data></Cell>
     <Cell><Data ss:Type="String">Binding</Data></Cell>
     <Cell><Data ss:Type="String">Short Name</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
@@ -120,53 +123,42 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">Entity. Role, or Act</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">Entity. Role, or Act</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="210">
-    <Cell><Data ss:Type="String">Resource.extension</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">Resource.meta</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Extension</Data></Cell>
+    <Cell><Data ss:Type="String">id</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Metadata about the resource</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">The metadata about the resource. This is content that is maintained by the infrarstructure, and is maintained by the infrastructure. Changes to the content are managed by the process directly, and may not always be associated with version changes to the resource</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">The only time that a resource does not have an id is when it is being submitted to the server using a create operation</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Additional Content defined by implementations</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">extensions, user content</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone</Data></Cell>
-    <Cell><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="210">
-    <Cell><Data ss:Type="String">Resource.modifierExtension</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Extensions that cannot be ignored</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">extensions, user content</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone</Data></Cell>
-    <Cell><Data ss:Type="String">N/A</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="210">
+   <Row ss:AutoFitHeight="0" ss:Height="409.5">
     <Cell><Data ss:Type="String">Resource.language</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Language of the resource content</Data></Cell>
     <Cell><Data ss:Type="String">The base language in which the resource is written</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource&#10;&#10;Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -179,7 +171,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Narrative</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Text summary of the resource, for human interpretation</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">narrative, html, xhtml, display</Data></Cell>
@@ -191,10 +184,43 @@
     <Cell><Data ss:Type="String">Resource.contained</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Contained, inline Resources</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Contained, inline Resources</Data></Cell>
     <Cell><Data ss:Type="String">These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope</Data></Cell>
     <Cell><Data ss:Type="String">inline resources, anonymous resources, contained resources</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again</Data></Cell>
+    <Cell><Data ss:Type="String">N/A</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="210">
+    <Cell><Data ss:Type="String">Resource.extension</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Extension</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Additional Content defined by implementations</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">extensions, user content</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone</Data></Cell>
+    <Cell><Data ss:Type="String">N/A</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="330">
+    <Cell><Data ss:Type="String">Resource.modifierExtension</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Extension</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Extensions that cannot be ignored</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">extensions, user content</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
   </Table>
@@ -231,6 +257,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
