@@ -5,7 +5,9 @@ public enum ResourceType {
     Supply,
     Organization,
     Group,
+    OralHealthClaim,
     ValueSet,
+    Coverage,
     AdverseReactionRisk,
     ImmunizationRecommendation,
     Appointment,
@@ -78,8 +80,12 @@ public enum ResourceType {
       return "organization";
     case Group:
       return "group";
+    case OralHealthClaim:
+      return "oralhealthclaim";
     case ValueSet:
       return "valueset";
+    case Coverage:
+      return "coverage";
     case AdverseReactionRisk:
       return "adversereactionrisk";
     case ImmunizationRecommendation:

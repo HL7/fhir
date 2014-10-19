@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Oct 18, 2014 08:13+1100 for FHIR v0.3.0
+// Generated on Mon, Oct 20, 2014 10:47+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -2247,6 +2247,50 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("author"))
       res.setAuthor(parseReference(json.getAsJsonObject("author")));
+    return res;
+  }
+
+  private Coverage parseCoverage(JsonObject json) throws Exception {
+    Coverage res = new Coverage();
+    parseResourceProperties(json, res);
+    if (json.has("issuer"))
+      res.setIssuer(parseReference(json.getAsJsonObject("issuer")));
+    if (json.has("period"))
+      res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
+    if (json.has("type"))
+      res.setType(parseCoding(json.getAsJsonObject("type")));
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("group"))
+      res.setGroupElement(parseString(json.get("group").getAsString()));
+    if (json.has("_group"))
+      parseElementProperties(json.getAsJsonObject("_group"), res.getGroupElement());
+    if (json.has("plan"))
+      res.setPlanElement(parseString(json.get("plan").getAsString()));
+    if (json.has("_plan"))
+      parseElementProperties(json.getAsJsonObject("_plan"), res.getPlanElement());
+    if (json.has("subplan"))
+      res.setSubplanElement(parseString(json.get("subplan").getAsString()));
+    if (json.has("_subplan"))
+      parseElementProperties(json.getAsJsonObject("_subplan"), res.getSubplanElement());
+    if (json.has("dependent"))
+      res.setDependentElement(parseInteger(json.get("dependent").getAsLong()));
+    if (json.has("_dependent"))
+      parseElementProperties(json.getAsJsonObject("_dependent"), res.getDependentElement());
+    if (json.has("sequence"))
+      res.setSequenceElement(parseInteger(json.get("sequence").getAsLong()));
+    if (json.has("_sequence"))
+      parseElementProperties(json.getAsJsonObject("_sequence"), res.getSequenceElement());
+    if (json.has("subscriber"))
+      res.setSubscriber(parseReference(json.getAsJsonObject("subscriber")));
+    if (json.has("network"))
+      res.setNetwork(parseIdentifier(json.getAsJsonObject("network")));
+    if (json.has("contract")) {
+      JsonArray array = json.getAsJsonArray("contract");
+      for (int i = 0; i < array.size(); i++) {
+        res.getContract().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
     return res;
   }
 
@@ -4944,6 +4988,313 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  private OralHealthClaim parseOralHealthClaim(JsonObject json) throws Exception {
+    OralHealthClaim res = new OralHealthClaim();
+    parseResourceProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("use"))
+      res.setUseElement(parseEnumeration(json.get("use").getAsString(), OralHealthClaim.UseLink.NULL, new OralHealthClaim.UseLinkEnumFactory()));
+    if (json.has("_use"))
+      parseElementProperties(json.getAsJsonObject("_use"), res.getUseElement());
+    if (json.has("fundsReserve"))
+      res.setFundsReserve(parseCoding(json.getAsJsonObject("fundsReserve")));
+    if (json.has("enterer"))
+      res.setEnterer(parseReference(json.getAsJsonObject("enterer")));
+    if (json.has("insurer"))
+      res.setInsurer(parseReference(json.getAsJsonObject("insurer")));
+    if (json.has("ruleset"))
+      res.setRuleset(parseCoding(json.getAsJsonObject("ruleset")));
+    if (json.has("originalRuleset"))
+      res.setOriginalRuleset(parseCoding(json.getAsJsonObject("originalRuleset")));
+    if (json.has("priority"))
+      res.setPriority(parseCoding(json.getAsJsonObject("priority")));
+    if (json.has("date"))
+      res.setDateElement(parseDate(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
+    if (json.has("organization"))
+      res.setOrganization(parseReference(json.getAsJsonObject("organization")));
+    if (json.has("facility"))
+      res.setFacility(parseReference(json.getAsJsonObject("facility")));
+    if (json.has("payee"))
+      res.setPayee(parseOralHealthClaimPayeeComponent(json.getAsJsonObject("payee"), res));
+    if (json.has("referral"))
+      res.setReferral(parseReference(json.getAsJsonObject("referral")));
+    if (json.has("diagnosis")) {
+      JsonArray array = json.getAsJsonArray("diagnosis");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDiagnosis().add(parseOralHealthClaimDiagnosisComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("condition")) {
+      JsonArray array = json.getAsJsonArray("condition");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCondition().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("patient"))
+      res.setPatient(parseReference(json.getAsJsonObject("patient")));
+    if (json.has("coverage")) {
+      JsonArray array = json.getAsJsonArray("coverage");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCoverage().add(parseOralHealthClaimCoverageComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("exception")) {
+      JsonArray array = json.getAsJsonArray("exception");
+      for (int i = 0; i < array.size(); i++) {
+        res.getException().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("school"))
+      res.setSchoolElement(parseString(json.get("school").getAsString()));
+    if (json.has("_school"))
+      parseElementProperties(json.getAsJsonObject("_school"), res.getSchoolElement());
+    if (json.has("accident"))
+      res.setAccidentElement(parseDate(json.get("accident").getAsString()));
+    if (json.has("_accident"))
+      parseElementProperties(json.getAsJsonObject("_accident"), res.getAccidentElement());
+    if (json.has("accidentType"))
+      res.setAccidentType(parseCoding(json.getAsJsonObject("accidentType")));
+    if (json.has("interventionException")) {
+      JsonArray array = json.getAsJsonArray("interventionException");
+      for (int i = 0; i < array.size(); i++) {
+        res.getInterventionException().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("missingteeth")) {
+      JsonArray array = json.getAsJsonArray("missingteeth");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMissingteeth().add(parseOralHealthClaimMissingTeethComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("orthoPlan"))
+      res.setOrthoPlan(parseOralHealthClaimOrthodonticPlanComponent(json.getAsJsonObject("orthoPlan"), res));
+    if (json.has("item")) {
+      JsonArray array = json.getAsJsonArray("item");
+      for (int i = 0; i < array.size(); i++) {
+        res.getItem().add(parseOralHealthClaimItemsComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("additionalMaterials")) {
+      JsonArray array = json.getAsJsonArray("additionalMaterials");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAdditionalMaterials().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    return res;
+  }
+
+  private OralHealthClaim.PayeeComponent parseOralHealthClaimPayeeComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+    OralHealthClaim.PayeeComponent res = new OralHealthClaim.PayeeComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCoding(json.getAsJsonObject("type")));
+    if (json.has("provider"))
+      res.setProvider(parseReference(json.getAsJsonObject("provider")));
+    if (json.has("organization"))
+      res.setOrganization(parseReference(json.getAsJsonObject("organization")));
+    if (json.has("person"))
+      res.setPerson(parseReference(json.getAsJsonObject("person")));
+    return res;
+  }
+
+  private OralHealthClaim.DiagnosisComponent parseOralHealthClaimDiagnosisComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+    OralHealthClaim.DiagnosisComponent res = new OralHealthClaim.DiagnosisComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("sequence"))
+      res.setSequenceElement(parseInteger(json.get("sequence").getAsLong()));
+    if (json.has("_sequence"))
+      parseElementProperties(json.getAsJsonObject("_sequence"), res.getSequenceElement());
+    if (json.has("diagnosis"))
+      res.setDiagnosis(parseCoding(json.getAsJsonObject("diagnosis")));
+    return res;
+  }
+
+  private OralHealthClaim.CoverageComponent parseOralHealthClaimCoverageComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+    OralHealthClaim.CoverageComponent res = new OralHealthClaim.CoverageComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("sequence"))
+      res.setSequenceElement(parseInteger(json.get("sequence").getAsLong()));
+    if (json.has("_sequence"))
+      parseElementProperties(json.getAsJsonObject("_sequence"), res.getSequenceElement());
+    if (json.has("focal"))
+      res.setFocalElement(parseBoolean(json.get("focal").getAsBoolean()));
+    if (json.has("_focal"))
+      parseElementProperties(json.getAsJsonObject("_focal"), res.getFocalElement());
+    if (json.has("coverage"))
+      res.setCoverage(parseReference(json.getAsJsonObject("coverage")));
+    if (json.has("businessArrangement"))
+      res.setBusinessArrangementElement(parseString(json.get("businessArrangement").getAsString()));
+    if (json.has("_businessArrangement"))
+      parseElementProperties(json.getAsJsonObject("_businessArrangement"), res.getBusinessArrangementElement());
+    if (json.has("relationship"))
+      res.setRelationship(parseCoding(json.getAsJsonObject("relationship")));
+    if (json.has("preauthref")) {
+      JsonArray array = json.getAsJsonArray("preauthref");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPreauthref().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_preauthref")) {
+      JsonArray array = json.getAsJsonArray("_preauthref");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getPreauthref().size())
+          res.getPreauthref().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getPreauthref().get(i));
+      }
+    };
+    if (json.has("originalRuleset"))
+      res.setOriginalRuleset(parseCoding(json.getAsJsonObject("originalRuleset")));
+    return res;
+  }
+
+  private OralHealthClaim.MissingTeethComponent parseOralHealthClaimMissingTeethComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+    OralHealthClaim.MissingTeethComponent res = new OralHealthClaim.MissingTeethComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("tooth"))
+      res.setTooth(parseCoding(json.getAsJsonObject("tooth")));
+    if (json.has("reason"))
+      res.setReason(parseCoding(json.getAsJsonObject("reason")));
+    if (json.has("extractiondate"))
+      res.setExtractiondateElement(parseDate(json.get("extractiondate").getAsString()));
+    if (json.has("_extractiondate"))
+      parseElementProperties(json.getAsJsonObject("_extractiondate"), res.getExtractiondateElement());
+    return res;
+  }
+
+  private OralHealthClaim.OrthodonticPlanComponent parseOralHealthClaimOrthodonticPlanComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+    OralHealthClaim.OrthodonticPlanComponent res = new OralHealthClaim.OrthodonticPlanComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("start"))
+      res.setStartElement(parseDate(json.get("start").getAsString()));
+    if (json.has("_start"))
+      parseElementProperties(json.getAsJsonObject("_start"), res.getStartElement());
+    if (json.has("examFee"))
+      res.setExamFee(parseMoney(json.getAsJsonObject("examFee")));
+    if (json.has("diagnosticFee"))
+      res.setDiagnosticFee(parseMoney(json.getAsJsonObject("diagnosticFee")));
+    if (json.has("initialPayment"))
+      res.setInitialPayment(parseMoney(json.getAsJsonObject("initialPayment")));
+    if (json.has("durationMonths"))
+      res.setDurationMonthsElement(parseInteger(json.get("durationMonths").getAsLong()));
+    if (json.has("_durationMonths"))
+      parseElementProperties(json.getAsJsonObject("_durationMonths"), res.getDurationMonthsElement());
+    if (json.has("paymentCount"))
+      res.setPaymentCountElement(parseInteger(json.get("paymentCount").getAsLong()));
+    if (json.has("_paymentCount"))
+      parseElementProperties(json.getAsJsonObject("_paymentCount"), res.getPaymentCountElement());
+    if (json.has("periodicPayment"))
+      res.setPeriodicPayment(parseMoney(json.getAsJsonObject("periodicPayment")));
+    return res;
+  }
+
+  private OralHealthClaim.ItemsComponent parseOralHealthClaimItemsComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+    OralHealthClaim.ItemsComponent res = new OralHealthClaim.ItemsComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("sequence"))
+      res.setSequenceElement(parseInteger(json.get("sequence").getAsLong()));
+    if (json.has("_sequence"))
+      parseElementProperties(json.getAsJsonObject("_sequence"), res.getSequenceElement());
+    if (json.has("type"))
+      res.setType(parseCoding(json.getAsJsonObject("type")));
+    if (json.has("service"))
+      res.setService(parseCoding(json.getAsJsonObject("service")));
+    if (json.has("serviceDate"))
+      res.setServiceDateElement(parseDate(json.get("serviceDate").getAsString()));
+    if (json.has("_serviceDate"))
+      parseElementProperties(json.getAsJsonObject("_serviceDate"), res.getServiceDateElement());
+    if (json.has("provider"))
+      res.setProvider(parseReference(json.getAsJsonObject("provider")));
+    if (json.has("fee"))
+      res.setFee(parseMoney(json.getAsJsonObject("fee")));
+    if (json.has("udi"))
+      res.setUdi(parseCoding(json.getAsJsonObject("udi")));
+    if (json.has("bodySite"))
+      res.setBodySite(parseCoding(json.getAsJsonObject("bodySite")));
+    if (json.has("subsite")) {
+      JsonArray array = json.getAsJsonArray("subsite");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSubsite().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("modifier")) {
+      JsonArray array = json.getAsJsonArray("modifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getModifier().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("detail")) {
+      JsonArray array = json.getAsJsonArray("detail");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDetail().add(parseOralHealthClaimDetailComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("prosthesis"))
+      res.setProsthesis(parseOralHealthClaimProsthesisComponent(json.getAsJsonObject("prosthesis"), owner));
+    return res;
+  }
+
+  private OralHealthClaim.DetailComponent parseOralHealthClaimDetailComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+    OralHealthClaim.DetailComponent res = new OralHealthClaim.DetailComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("sequence"))
+      res.setSequenceElement(parseInteger(json.get("sequence").getAsLong()));
+    if (json.has("_sequence"))
+      parseElementProperties(json.getAsJsonObject("_sequence"), res.getSequenceElement());
+    if (json.has("type"))
+      res.setType(parseCoding(json.getAsJsonObject("type")));
+    if (json.has("service"))
+      res.setService(parseCoding(json.getAsJsonObject("service")));
+    if (json.has("fee"))
+      res.setFee(parseMoney(json.getAsJsonObject("fee")));
+    if (json.has("udi"))
+      res.setUdi(parseCoding(json.getAsJsonObject("udi")));
+    if (json.has("subDetail")) {
+      JsonArray array = json.getAsJsonArray("subDetail");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSubDetail().add(parseOralHealthClaimSubDetailComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  private OralHealthClaim.SubDetailComponent parseOralHealthClaimSubDetailComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+    OralHealthClaim.SubDetailComponent res = new OralHealthClaim.SubDetailComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("sequence"))
+      res.setSequenceElement(parseInteger(json.get("sequence").getAsLong()));
+    if (json.has("_sequence"))
+      parseElementProperties(json.getAsJsonObject("_sequence"), res.getSequenceElement());
+    if (json.has("type"))
+      res.setType(parseCoding(json.getAsJsonObject("type")));
+    if (json.has("service"))
+      res.setService(parseCoding(json.getAsJsonObject("service")));
+    if (json.has("fee"))
+      res.setFee(parseMoney(json.getAsJsonObject("fee")));
+    if (json.has("udi"))
+      res.setUdi(parseCoding(json.getAsJsonObject("udi")));
+    return res;
+  }
+
+  private OralHealthClaim.ProsthesisComponent parseOralHealthClaimProsthesisComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+    OralHealthClaim.ProsthesisComponent res = new OralHealthClaim.ProsthesisComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("initial"))
+      res.setInitialElement(parseBoolean(json.get("initial").getAsBoolean()));
+    if (json.has("_initial"))
+      parseElementProperties(json.getAsJsonObject("_initial"), res.getInitialElement());
+    if (json.has("priorDate"))
+      res.setPriorDateElement(parseDate(json.get("priorDate").getAsString()));
+    if (json.has("_priorDate"))
+      parseElementProperties(json.getAsJsonObject("_priorDate"), res.getPriorDateElement());
+    if (json.has("priorMaterial"))
+      res.setPriorMaterial(parseCoding(json.getAsJsonObject("priorMaterial")));
+    return res;
+  }
+
   private Order parseOrder(JsonObject json) throws Exception {
     Order res = new Order();
     parseResourceProperties(json, res);
@@ -7311,6 +7662,8 @@ public class JsonParser extends JsonParserBase {
       return parseContract(json);
     else if (t.equals("Contraindication"))
       return parseContraindication(json);
+    else if (t.equals("Coverage"))
+      return parseCoverage(json);
     else if (t.equals("DataElement"))
       return parseDataElement(json);
     else if (t.equals("Device"))
@@ -7367,6 +7720,8 @@ public class JsonParser extends JsonParserBase {
       return parseOperationDefinition(json);
     else if (t.equals("OperationOutcome"))
       return parseOperationOutcome(json);
+    else if (t.equals("OralHealthClaim"))
+      return parseOralHealthClaim(json);
     else if (t.equals("Order"))
       return parseOrder(json);
     else if (t.equals("OrderResponse"))
@@ -7653,6 +8008,8 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"Contraindication"))
       return true;
+    if (json.has(prefix+"Coverage"))
+      return true;
     if (json.has(prefix+"DataElement"))
       return true;
     if (json.has(prefix+"Device"))
@@ -7708,6 +8065,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"OperationDefinition"))
       return true;
     if (json.has(prefix+"OperationOutcome"))
+      return true;
+    if (json.has(prefix+"OralHealthClaim"))
       return true;
     if (json.has(prefix+"Order"))
       return true;

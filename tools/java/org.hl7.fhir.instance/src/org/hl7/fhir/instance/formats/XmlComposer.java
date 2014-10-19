@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Oct 18, 2014 08:13+1100 for FHIR v0.3.0
+// Generated on Mon, Oct 20, 2014 10:47+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -1394,6 +1394,28 @@ public class XmlComposer extends XmlComposerBase {
       composeCodeableConcept("action", element.getAction());
       composeDateTime("date", element.getDateElement());
       composeReference("author", element.getAuthor());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeCoverage(String name, Coverage element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeReference("issuer", element.getIssuer());
+      composePeriod("period", element.getPeriod());
+      composeCoding("type", element.getType());
+      composeIdentifier("identifier", element.getIdentifier());
+      composeString("group", element.getGroupElement());
+      composeString("plan", element.getPlanElement());
+      composeString("subplan", element.getSubplanElement());
+      composeInteger("dependent", element.getDependentElement());
+      composeInteger("sequence", element.getSequenceElement());
+      composeReference("subscriber", element.getSubscriber());
+      composeIdentifier("network", element.getNetwork());
+      for (Reference e : element.getContract()) 
+        composeReference("contract", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -2919,6 +2941,185 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
+  private void composeOralHealthClaim(String name, OralHealthClaim element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeIdentifier("identifier", element.getIdentifier());
+      if (element.getUseElement() != null)
+        composeEnumeration("use", element.getUseElement(), new OralHealthClaim.UseLinkEnumFactory());
+      composeCoding("fundsReserve", element.getFundsReserve());
+      composeReference("enterer", element.getEnterer());
+      composeReference("insurer", element.getInsurer());
+      composeCoding("ruleset", element.getRuleset());
+      composeCoding("originalRuleset", element.getOriginalRuleset());
+      composeCoding("priority", element.getPriority());
+      composeDate("date", element.getDateElement());
+      composeReference("organization", element.getOrganization());
+      composeReference("facility", element.getFacility());
+      composeOralHealthClaimPayeeComponent("payee", element.getPayee());
+      composeReference("referral", element.getReferral());
+      for (OralHealthClaim.DiagnosisComponent e : element.getDiagnosis()) 
+        composeOralHealthClaimDiagnosisComponent("diagnosis", e);
+      for (Coding e : element.getCondition()) 
+        composeCoding("condition", e);
+      composeReference("patient", element.getPatient());
+      for (OralHealthClaim.CoverageComponent e : element.getCoverage()) 
+        composeOralHealthClaimCoverageComponent("coverage", e);
+      for (Coding e : element.getException()) 
+        composeCoding("exception", e);
+      composeString("school", element.getSchoolElement());
+      composeDate("accident", element.getAccidentElement());
+      composeCoding("accidentType", element.getAccidentType());
+      for (Coding e : element.getInterventionException()) 
+        composeCoding("interventionException", e);
+      for (OralHealthClaim.MissingTeethComponent e : element.getMissingteeth()) 
+        composeOralHealthClaimMissingTeethComponent("missingteeth", e);
+      composeOralHealthClaimOrthodonticPlanComponent("orthoPlan", element.getOrthoPlan());
+      for (OralHealthClaim.ItemsComponent e : element.getItem()) 
+        composeOralHealthClaimItemsComponent("item", e);
+      for (Coding e : element.getAdditionalMaterials()) 
+        composeCoding("additionalMaterials", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeOralHealthClaimPayeeComponent(String name, OralHealthClaim.PayeeComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCoding("type", element.getType());
+      composeReference("provider", element.getProvider());
+      composeReference("organization", element.getOrganization());
+      composeReference("person", element.getPerson());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeOralHealthClaimDiagnosisComponent(String name, OralHealthClaim.DiagnosisComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeInteger("sequence", element.getSequenceElement());
+      composeCoding("diagnosis", element.getDiagnosis());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeOralHealthClaimCoverageComponent(String name, OralHealthClaim.CoverageComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeInteger("sequence", element.getSequenceElement());
+      composeBoolean("focal", element.getFocalElement());
+      composeReference("coverage", element.getCoverage());
+      composeString("businessArrangement", element.getBusinessArrangementElement());
+      composeCoding("relationship", element.getRelationship());
+      for (StringType e : element.getPreauthref()) 
+        composeString("preauthref", e);
+      composeCoding("originalRuleset", element.getOriginalRuleset());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeOralHealthClaimMissingTeethComponent(String name, OralHealthClaim.MissingTeethComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCoding("tooth", element.getTooth());
+      composeCoding("reason", element.getReason());
+      composeDate("extractiondate", element.getExtractiondateElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeOralHealthClaimOrthodonticPlanComponent(String name, OralHealthClaim.OrthodonticPlanComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeDate("start", element.getStartElement());
+      composeMoney("examFee", element.getExamFee());
+      composeMoney("diagnosticFee", element.getDiagnosticFee());
+      composeMoney("initialPayment", element.getInitialPayment());
+      composeInteger("durationMonths", element.getDurationMonthsElement());
+      composeInteger("paymentCount", element.getPaymentCountElement());
+      composeMoney("periodicPayment", element.getPeriodicPayment());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeOralHealthClaimItemsComponent(String name, OralHealthClaim.ItemsComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeInteger("sequence", element.getSequenceElement());
+      composeCoding("type", element.getType());
+      composeCoding("service", element.getService());
+      composeDate("serviceDate", element.getServiceDateElement());
+      composeReference("provider", element.getProvider());
+      composeMoney("fee", element.getFee());
+      composeCoding("udi", element.getUdi());
+      composeCoding("bodySite", element.getBodySite());
+      for (Coding e : element.getSubsite()) 
+        composeCoding("subsite", e);
+      for (Coding e : element.getModifier()) 
+        composeCoding("modifier", e);
+      for (OralHealthClaim.DetailComponent e : element.getDetail()) 
+        composeOralHealthClaimDetailComponent("detail", e);
+      composeOralHealthClaimProsthesisComponent("prosthesis", element.getProsthesis());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeOralHealthClaimDetailComponent(String name, OralHealthClaim.DetailComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeInteger("sequence", element.getSequenceElement());
+      composeCoding("type", element.getType());
+      composeCoding("service", element.getService());
+      composeMoney("fee", element.getFee());
+      composeCoding("udi", element.getUdi());
+      for (OralHealthClaim.SubDetailComponent e : element.getSubDetail()) 
+        composeOralHealthClaimSubDetailComponent("subDetail", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeOralHealthClaimSubDetailComponent(String name, OralHealthClaim.SubDetailComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeInteger("sequence", element.getSequenceElement());
+      composeCoding("type", element.getType());
+      composeCoding("service", element.getService());
+      composeMoney("fee", element.getFee());
+      composeCoding("udi", element.getUdi());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeOralHealthClaimProsthesisComponent(String name, OralHealthClaim.ProsthesisComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeBoolean("initial", element.getInitialElement());
+      composeDate("priorDate", element.getPriorDateElement());
+      composeCoding("priorMaterial", element.getPriorMaterial());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
   private void composeOrder(String name, Order element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
@@ -4236,6 +4437,8 @@ public class XmlComposer extends XmlComposerBase {
       composeContract("Contract", (Contract)resource);
     else if (resource instanceof Contraindication)
       composeContraindication("Contraindication", (Contraindication)resource);
+    else if (resource instanceof Coverage)
+      composeCoverage("Coverage", (Coverage)resource);
     else if (resource instanceof DataElement)
       composeDataElement("DataElement", (DataElement)resource);
     else if (resource instanceof Device)
@@ -4292,6 +4495,8 @@ public class XmlComposer extends XmlComposerBase {
       composeOperationDefinition("OperationDefinition", (OperationDefinition)resource);
     else if (resource instanceof OperationOutcome)
       composeOperationOutcome("OperationOutcome", (OperationOutcome)resource);
+    else if (resource instanceof OralHealthClaim)
+      composeOralHealthClaim("OralHealthClaim", (OralHealthClaim)resource);
     else if (resource instanceof Order)
       composeOrder("Order", (Order)resource);
     else if (resource instanceof OrderResponse)
