@@ -20,7 +20,7 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>150</WindowTopY>
-  <RefModeR1C1/>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -206,7 +206,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -288,11 +287,10 @@
     <Cell ss:Index="7"><Data ss:Type="String">Name of county</Data></Cell>
     <Cell ss:Index="10" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Decide on whether we need an explicit omitReason to indicate the fact that (and the reason why) a question on a form remain unanswered.&#10;Gives the flexibility to support both just sending the answered questions or exchanging the &quot;full&quot; form, on which each question is either answered&#10;or explicitly omitted.&lt;/p&gt;&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="16" ss:StyleID="Default"/>
     <Cell ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -364,13 +362,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>7</ActiveCol>
-    </Pane>
-   </Panes>
+   <Selected/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
