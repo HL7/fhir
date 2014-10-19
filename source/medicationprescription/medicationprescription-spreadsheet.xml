@@ -10,7 +10,7 @@
   <LastAuthor>Hugh Glover</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-09-18T16:01:33Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,8 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>600</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1249,7 +1250,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1269,7 +1269,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -1293,37 +1293,37 @@
     <Cell ss:StyleID="s90"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">The prescription is 'actionable', but not all actions that are implied by it have occurred yet.</Data></Cell>
-    <Cell><Data ss:Type="String">active</Data></Cell>
+    <Cell><Data ss:Type="String">ActStatus.active</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="38.25">
     <Cell ss:StyleID="s90"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">on hold</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called &quot;suspended&quot;.</Data></Cell>
-    <Cell><Data ss:Type="String">suspended</Data></Cell>
+    <Cell><Data ss:Type="String">ActStatus.suspended</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="25.5">
     <Cell ss:StyleID="s90"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">All actions that are implied by the prescription have occurred (this will rarely be made explicit).</Data></Cell>
-    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell><Data ss:Type="String">ActStatus.completed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="25.5">
     <Cell ss:StyleID="s90"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">entered in error</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">The prescription was entered in error and therefore nullified.</Data></Cell>
-    <Cell><Data ss:Type="String">nullified</Data></Cell>
+    <Cell><Data ss:Type="String">ActStatus.nullified</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="25.5">
     <Cell ss:StyleID="s90"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Actions implied by the prescription have been permanently halted, before all of them occurred.</Data></Cell>
-    <Cell><Data ss:Type="String">aborted</Data></Cell>
+    <Cell><Data ss:Type="String">ActStatus.aborted</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="25.5">
     <Cell ss:StyleID="s90"><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">superceded</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">The prescription was replaced by a newer one, which encompasses all the information in the previous one.</Data></Cell>
-    <Cell><Data ss:Type="String">obsolete</Data></Cell>
+    <Cell><Data ss:Type="String">ActStatus.obsolete</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s90"/>
@@ -1336,6 +1336,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

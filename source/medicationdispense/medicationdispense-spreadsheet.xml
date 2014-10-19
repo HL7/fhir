@@ -10,7 +10,7 @@
   <LastAuthor>Hugh Glover</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-01-22T18:24:21Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>5</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -212,9 +213,6 @@
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s99">
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
-  </Style>
   <Style ss:ID="s100">
    <Alignment ss:Horizontal="Center" ss:Vertical="Top"/>
   </Style>
@@ -229,6 +227,34 @@
   <Style ss:ID="s102">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s109">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s110">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s111">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s112">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s113">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -1209,26 +1235,26 @@
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="198.75" ss:Span="1"/>
    <Column ss:Index="7" ss:StyleID="s90" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">v3</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">v3</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationDispenseType</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc. </Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">MedicationDispenseType</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc. </Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActPharmacySupplyType</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">ActPharmacySupplyType&#160;</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActPharmacySupplyType</Data></Cell>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">ActPharmacySupplyType&#160;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">MedicationDispenseStatus</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">A code specifying the state of the dispense event.</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">MedicationDispenseStatus</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">A code specifying the state of the dispense event.</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#medication-dispense-status</Data></Cell>
     <Cell><Data ss:Type="String">ActStatus</Data></Cell>
@@ -1251,8 +1277,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1275,31 +1301,31 @@
     <Cell ss:StyleID="s100"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">in progress</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">The dispense has started but has not yet completed.</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">ActStatus.active</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s100"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">on hold</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">ActStatus.suspended</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s100"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">All actions that are implied by the dispense have occurred.</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">ActStatus.completed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s100"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">entered in error</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">The dispense was entered in error and therefore nullified.</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">nullified</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">ActStatus.nullified</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s100"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Actions implied by the dispense have been permanently halted, before all of them occurred.</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">aborted</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">ActStatus.aborted</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
