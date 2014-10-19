@@ -20,6 +20,7 @@
   <WindowWidth>15570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -168,7 +169,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -180,7 +180,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Picture">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="44" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="44" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="169.5"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -188,12 +188,12 @@
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="40.5"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="44.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="61.5"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="220.5"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
-   <Column ss:Index="12" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:Index="11" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="245.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="16" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="153"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s71">
     <Cell><Data ss:Type="String">Profile Name</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -203,7 +203,6 @@
     <Cell><Data ss:Type="String">Binding</Data></Cell>
     <Cell><Data ss:Type="String">Must Support</Data></Cell>
     <Cell><Data ss:Type="String">Value</Data></Cell>
-    <Cell><Data ss:Type="String">Editor's Comment</Data></Cell>
     <Cell><Data ss:Type="String">Short Name</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Requirements</Data></Cell>
@@ -223,7 +222,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Extension</Data></Cell>
     <Cell><Data ss:Type="String">Extension{#accession}</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Used by the requester to link back to the original context</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Used by the requester to link back to the original context</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">StudyId</Data></Cell>
@@ -231,7 +230,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Extension</Data></Cell>
     <Cell><Data ss:Type="String">Extension{#studyid}</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The session in which the picture was taken</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">The session in which the picture was taken</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">SeriesId</Data></Cell>
@@ -239,7 +238,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Extension</Data></Cell>
     <Cell><Data ss:Type="String">Extension{#seriesid}</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The series of images in which this picture was taken</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">The series of images in which this picture was taken</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.name</Data></Cell>
@@ -248,24 +247,24 @@
     <Cell><Data ss:Type="String">ImagingModality</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">There's no suitable LOINC code</Data></Cell>
     <Cell><Data ss:Type="String">Modality this picture is from</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s73"><Data ss:Type="String">There's no suitable LOINC code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.valueAttachment</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Attachment</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">The image pixel content as dicom, png, jpg, or tiff</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.valueAttachment.contentType</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">mime type of the actual image</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.valueAttachment.data</Data></Cell>
@@ -273,8 +272,8 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">base64Binary</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">if the pixel data is included directly in the resource</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.valueAttachment.url</Data></Cell>
@@ -282,227 +281,227 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">if the pixel data is hosted on some server somewhere</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.valueAttachment.size</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">Size of the image in bytes</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.interpretation</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">base64Binary</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">No interpretation when the observation is just a picture</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">No interpretation when the observation is just a picture</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">No comments when the observation is just a picture</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">No comments when the observation is just a picture</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">dateTIme</Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="Default"><Data ss:Type="String">When the image was taken</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="Default"><Data ss:Type="String">When the image was taken</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">instant</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Not tracked for an Image</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Not tracked for an Image</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">final</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Images do not have status</Data></Cell>
+    <Cell><Data ss:Type="String">Images do not have status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">ok</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Images are always considered reliable</Data></Cell>
+    <Cell><Data ss:Type="String">Images are always considered reliable</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.bodySite</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The part of the body that this is an image of</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">The part of the body that this is an image of</Data></Cell>
     <Cell><Data ss:Type="String">The part of the body that this is an image of</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.method</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">How the image was taken</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">How the image was taken</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">A reference to the method/protocol that was followed when the images were taken</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Identifier for the image</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Identifier for the image</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Identifier for the image</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Reference(Patient|Group|Device)</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Who/What this image is taken of</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Who/What this image is taken of</Data></Cell>
     <Cell><Data ss:Type="String">Who/What this image is taken of</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The person who generated the image</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">The person who generated the image</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
     <Cell><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">An inapplicable concept for pictures</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">An inapplicable concept for pictures</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">deviceName</Data></Cell>
     <Cell><Data ss:Type="String">Observation.component</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Name of the manufacturer</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Name of the manufacturer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/picture-fields|device|Device Name</Data></Cell>
-    <Cell><Data ss:Type="String">have to fix our own codes for this</Data></Cell>
     <Cell><Data ss:Type="String">fixed code</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">have to fix our own codes for this</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.value[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">actual value</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">actual value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">height</Data></Cell>
     <Cell><Data ss:Type="String">Observation.component</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Height of the image</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Height of the image</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/picture-fields#height#Height</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">fixed code</Data></Cell>
+    <Cell><Data ss:Type="String">fixed code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.value[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">actual value</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">actual value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">width</Data></Cell>
     <Cell><Data ss:Type="String">Observation.component</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Width of the image</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Width of the image</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/picture-fields#width#Width</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">fixed code</Data></Cell>
+    <Cell><Data ss:Type="String">fixed code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.value[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">actual value</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">actual value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">bits</Data></Cell>
     <Cell><Data ss:Type="String">Observation.component</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Number of bits of colour (2..32)</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Number of bits of colour (2..32)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/picture-fields#bits#Bit Count</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">fixed code</Data></Cell>
+    <Cell><Data ss:Type="String">fixed code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.value[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">actual value</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">actual value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">frames</Data></Cell>
     <Cell><Data ss:Type="String">Observation.component</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Number of frames</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Number of frames</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/picture-fields#frames#Frame Count</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">fixed code</Data></Cell>
+    <Cell><Data ss:Type="String">fixed code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.value[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">actual value</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">actual value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">frameDelay</Data></Cell>
     <Cell><Data ss:Type="String">Observation.component</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Length of time between frames</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Length of time between frames</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/picture-fields#frameDelay#Frame Delay Duration</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">fixed code</Data></Cell>
+    <Cell><Data ss:Type="String">fixed code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.value[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">actual value</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">actual value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">view</Data></Cell>
     <Cell><Data ss:Type="String">Observation.component</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Imaging view e.g Lateral or Antero-posterior (AP)</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Imaging view e.g Lateral or Antero-posterior (AP)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/picture-fields#view#Patient Orientation</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">fixed code</Data></Cell>
+    <Cell><Data ss:Type="String">fixed code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.component.value[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">actual value</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">actual value</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -518,11 +517,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>8</ActiveCol>
+     <RangeSelection>C9</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
