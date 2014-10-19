@@ -1472,9 +1472,11 @@ public class NarrativeGenerator {
     String s = Utilities.padLeft("", '.', i*2);
     td.addText(s);
     td.addText(c.getCode());
-    XhtmlNode a = td.addTag("a");
-    a.setAttribute("name", Utilities.nmtokenize(c.getCode()));
-    a.addText(" ");
+    if (c.getCode() != null) {
+      XhtmlNode a = td.addTag("a");
+      a.setAttribute("name", Utilities.nmtokenize(c.getCode()));
+      a.addText(" ");
+    }
     
     td = tr.addTag("td");
     if (c.getDisplay() != null)
