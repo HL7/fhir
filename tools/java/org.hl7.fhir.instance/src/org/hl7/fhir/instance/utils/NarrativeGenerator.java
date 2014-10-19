@@ -1052,7 +1052,7 @@ public class NarrativeGenerator {
           if (display != null)
             td.addText(" ("+display+")");
           ConceptMapElementMapComponent ccm = ccl.getMap().get(0); 
-          tr.addTag("td").addText(ccm.getEquivalence().toString());
+          tr.addTag("td").addText(ccm.getEquivalence() == null ? "" : ccm.getEquivalence().toString());
           td = tr.addTag("td");
           td.addText(ccm.getCode());
           display = getDisplayForConcept(ccm.getCodeSystem(), ccm.getCode());
@@ -1507,7 +1507,7 @@ public class NarrativeGenerator {
       		  td.addTag("br");
       	first = false;
       	XhtmlNode span = td.addTag("span");
-      	span.setAttribute("title", mapping.getEquivalence().toString());
+      	span.setAttribute("title", mapping.getEquivalence() == null ? "" : mapping.getEquivalence().toString());
       	span.addText(getCharForEquivalence(mapping));
       	a = td.addTag("a");
       	a.setAttribute("href", prefix+maps.get(m)+"#"+mapping.getCode());
@@ -1534,6 +1534,8 @@ public class NarrativeGenerator {
 
 
   private String getCharForEquivalence(ConceptMapElementMapComponent mapping) {
+    if (mapping.getEquivalence() == null)
+      return "";
 	  switch (mapping.getEquivalence()) {
 	  case EQUAL : return "=";
 	  case EQUIVALENT : return "~";
