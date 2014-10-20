@@ -8,6 +8,8 @@
   </text>
   <name value="Funds Reservation Codes"/>
   <publisher value="Financial Management"/>
+  <copyright value="This is an example set"/>
+  <status value="draft"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
@@ -15,7 +17,7 @@
   <description value="This value set includes sample funds reservation type codes."/>
   <status value="draft"/>
     <define>
-	<system value="urn:ISO-3950"/>
+	<system value="http://hl7.org/fhir/fundsreserve"/>
 	<concept>
       <code value="patient"/>
     </concept>
@@ -23,7 +25,7 @@
       <code value="provider"/>
     </concept>
 	<concept>
-      <code value="nane"/>
+      <code value="none"/>
     </concept>
 	</define>
 </ValueSet>

@@ -8,6 +8,9 @@
   </text>
   <name value="Additional Material Codes"/>
   <publisher value="Financial Management"/>
+  <copyright value="This is an example set"/>
+  <status value="draft"/>
+  <extensible value="false"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
@@ -15,7 +18,7 @@
   <description value="This value set includes sample additional material type codes."/>
   <status value="draft"/>
     <define>
-	<system value="urn:ex-addmatrl"/>
+	<system value="http://hl7.org/fhir/additionalmaterials"/>
 	<concept>
       <code value="xray"/>
     </concept>

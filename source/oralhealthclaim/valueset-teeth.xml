@@ -8,6 +8,8 @@
   </text>
   <name value="Teeth Codes"/>
   <publisher value="FHIR Project team"/>
+  <copyright value="This is an example set"/>
+  <status value="draft"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
@@ -15,7 +17,7 @@
   <description value="This value set includes the FDI Teeth codes."/>
   <status value="draft"/>
     <define>
-	<system value="urn:ex-fdi"/>
+	<system value="http://hl7.org/fhir/ex-fdi"/>
 	<concept>
     <code value="11"/>
   </concept>

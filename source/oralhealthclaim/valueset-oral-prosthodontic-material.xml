@@ -8,6 +8,8 @@
   </text>
   <name value="Oral Prostho Material type Codes"/>
   <publisher value="Financial Management"/>
+  <copyright value="This is an example set"/>
+  <status value="draft"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
@@ -15,7 +17,7 @@
   <description value="This value set includes sample Oral Prosthodontic Material type codes."/>
   <status value="draft"/>
     <define>
-	<system value="urn:ex-oralprostho"/>
+	<system value="http://hl7.org/fhir/ex-oralprostho"/>
 	<concept>
       <code value="1"/> <!-- Fixed Bridge -->
     </concept>

@@ -8,6 +8,8 @@
   </text>
   <name value="Payee type Codes"/>
   <publisher value="Financial Management"/>
+  <copyright value="This is an example set"/>
+  <status value="draft"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
@@ -15,7 +17,7 @@
   <description value="This value set includes sample Payee type codes."/>
   <status value="draft"/>
     <define>
-	<system value="urn:ISO-3950"/>
+	<system value="http://hl7.org/fhir/payeetype"/>
 	<concept>
       <code value="subscriber"/> 
     </concept>

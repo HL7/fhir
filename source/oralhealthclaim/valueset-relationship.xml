@@ -8,6 +8,8 @@
   </text>
   <name value="Surface Codes"/>
   <publisher value="FHIR Project team"/>
+  <copyright value="This is an example set"/>
+  <status value="draft"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
@@ -15,7 +17,7 @@
   <description value="This value set includes the Patient to subscriber relationship codes."/>
   <status value="draft"/>
     <define>
-	<system value="urn:ISO-3950"/>
+	<system value="http://hl7.org/fhir/relationship"/>
 	<concept>
     <code value="1"/>
   </concept>
