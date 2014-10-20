@@ -499,3 +499,27 @@ font-size: 90%;
 line-height: 2.4;
 white-space: nowrap;
 }
+
+
+.linecounter { 
+  counter-reset: listing 
+}
+
+code { counter-increment: listing; }
+
+.linecounter  i:before { 
+  content: counter(listing) ". "; color: black; 
+}
+
+.linecounter i { 
+  float: left; 
+  clear: both; 
+  min-width: 2.5em; 
+}
+
+.linecounter code:before { 
+  content: counter(listing) ". "; 
+  color: black; 
+  display: inline-block; 
+  min-width: 2.5em; 
+}

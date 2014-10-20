@@ -53,7 +53,7 @@ This is an example of how a <a href="patient.html">patient</a> is represented as
 </p>
 
 <div class="example">
-<pre class="json code">
+<pre class="json linecounter">
 <code>{</code>
 <code>  "resourceType": "Patient",</code>
 <code>  "meta" : {</code>
@@ -150,7 +150,7 @@ point. In the example below we see the creation of a Patient.
 </p>
 
 <div class="example">
-<pre class="http code">
+<pre class="http linecounter">
 <code>POST /Patient HTTP/1.1</code>
 <code>Authorization: Bearer 37CC0B0E-C15B-4578-9AC1-D83DCED2B2F9</code>
 <code>Accept: application/json+fhir</code>
@@ -184,7 +184,7 @@ do so.
 </p>
 
 <div class="example">
-<pre class="http code">
+<pre class="http linecounter">
 <code>HTTP/1.1 201 Created</code>
 <code>Content-Length: 161</code>
 <code>Content-Type: application/json+fhir</code>
@@ -221,7 +221,7 @@ Here is an example of a server rejecting a resource because of server defined bu
 </p>
 
 <div class="example">
-<pre class="http code">
+<pre class="http linecounter">
 <code>HTTP/1.1 422 Unprocessable Entity</code>
 <code>Content-Length: 161</code>
 <code>Content-Type: application/json+fhir</code>
@@ -252,7 +252,7 @@ Notes:
 end point, as in this example. 
 </p>
 <div class="example">
-<pre class="http code">
+<pre class="http linecounter">
 GET /Patient/347?_format=xml HTTP/1.1
 Host: example.com
 Accept: application/xml+fhir
@@ -276,7 +276,7 @@ The response to a GET contains the Resource.
 </p>
 
 <div class="example">
-<pre class="http code">
+<pre class="http linecounter">
 <code>HTTP/1.1 200 OK</code>
 <code>Content-Length: 729</code>
 <code>Content-Type: application/xml+fhir</code>
@@ -337,7 +337,7 @@ The response to a search request is a <a href="extras.html#bundle">bundle</a>: l
 </p>
 
 <div class="example">
-<pre class="json code">
+<pre class="json linecounter">
 <code>{</code>
 <code>  "resourceType": "SearchResults",</code>
 <code>  "meta" : {</code>
@@ -349,7 +349,7 @@ The response to a search request is a <a href="extras.html#bundle">bundle</a>: l
 <code>  "link": [</code>
 <code>    {</code>
 <code>      "name" : "next",</code>
-<code>      "url" : "https://example.com/base/MedicationPrescription?patient=347&amp;searchId=ff15fd40-ff71-4b48-b366-09c706bed9d0&page=2"</code>
+<code>      "url" : "https://example.com/base/MedicationPrescription?patient=347&amp;searchId=ff15fd40-ff71-4b48-b366-09c706bed9d0&amp;page=2"</code>
 <code>    }, {</code>
 <code>      "name" : "self",</code>
 <code>      "url" : "https://example.com/base/MedicationPrescription?patient=347"</code>
