@@ -124,8 +124,8 @@ Each resource has an associated set of <a href="resources.html#metadata">resourc
 <table class="grid">
   <tr><th>Metadata Item</th><th>Where found in HTTP</th></tr>
   <tr><td><a href="resources.html#metadata">Logical Id</a></td><td>The Id is represented explicitly in the URL</td></tr>
-  <tr><td><a href="resources.html#metadata">Version Id</a></td><td>The Version Id is represented by the full canonical URL in the content-location header (see <a href="#vread">vread</a> below). 
-     The Version Id may also be represented in the http ETag, but the use of ETag is not needed by this specification</td></tr>
+  <tr><td><a href="resources.html#metadata">Version Id</a></td><td>The Version Id is represented in the ETag header. It SHOULD also be returned 
+    as a full canonical URL in the content-location header (see <a href="#vread">vread</a> below)</td></tr>
   <tr><td>Last Modified Date</td><td>HTTP Last-Modified header</td></tr>
 </table>
 <p></p>
@@ -202,7 +202,7 @@ is performed by an HTTP GET command as shown:
 This returns a single instance with the content specified for the resource type.
 This url may be accessed by a browser. The possible values for the 
 <a href="resources.html#metadata">Logical Id</a> (id) itself are described in the <a href="datatypes.html#id">id type</a>.
-Servers are required to return a content-location header with the response which is the full version 
+Servers SHOULD return an ETag with the versionId and a content-location header with the response which is the full version 
 specific url (see vread below) and a Last-Modified header.
 <p>
 Note: Unknown resources and deleted resources are treated differently on a read: A GET for a deleted 
@@ -223,10 +223,6 @@ is performed by an HTTP GET command as shown:
 <p>
 This returns a single instance with the content specified for the resource type for that
 version of the resource. 
-<!-- this - what does it mean?
-Servers may return a content-location header with the response which is the url 
-requested and a Last-Modified header. 
--->
 </p>
 <p>
 The <a href="resources.html#metadata">Version Id</a> (vid) is an opaque identifier that conforms to the same <a href="datatypes.html#id">format requirements</a> as 
@@ -255,8 +251,8 @@ The update interaction is performed by an HTTP PUT command as shown:
 </pre>
 <p>
 If the interaction is successful, the server SHALL return either a 200 OK if the resource was updated, or a 201 Created if the resource was created,
-with a Last-Modified header, and a Location and Content-Location header that refers to the specific version created by the 
-update interaction. The server MAY send an OperationOutcome resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.
+with a Last-Modified header, and an ETag header which contains the new versionId of the resource. A Content-Location header that refers to the specific version created by the 
+update interaction SHOULD also be returned. The server MAY send an OperationOutcome resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.
 </p>
 <p>
 Servers are permitted to reject update interactions because of integrity concerns or business 
@@ -264,13 +260,7 @@ rules implemented on the server, and return HTTP status codes accordingly (usual
 A server SHOULD accept the resource as submitted when accepts the update, and return the same
 content when it is subsequently read. However systems may not be able to do this; see 
 the note on <a href="#transactional-integrity">transactional integrity</a> for discussion. 
-</p>
-<p>
-In particular, servers may choose to implement version-aware updates, where the only updates that are 
-accepted quote the current version of the resource. In this case, the client must submit the currently 
-correct version specific URL in the Content-Location in the PUT request. If the value is missing, 
-the server SHALL return a 412 Preconditions failed response. Clients SHOULD submit a proper Content-Location 
-header and SHALL correctly understand a 409 response as an update conflict.
+<a name="versionaware"> </a>
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -285,6 +275,53 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 <p>
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting updates, but are not required to do so. The impact of this on digital signatures may need to be considered.
 </p>
+
+<a name="versionaware"> </a>
+<a name="concurrency"> </a>
+<h3>Managing Resource Contention</h3>
+<p>
+<a href="http://www.w3.org/1999/04/Editing/">Lost Updates</a>, where two clients update the same 
+resource, and the second overwrites the updates of the first, can be prevented using a combination
+of the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETag</a> and 
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.24">If-Match</a> header.  
+</p>
+<p>
+To support this usage, servers SHOULD always return an ETag with each resource:
+</p>
+<pre class="http">
+HTTP 200 OK
+Date: Sat, 09 Feb 2013 16:09:50 GMT
+Last-Modified: Sat, 02 Feb 2013 12:02:47 GMT
+ETag: 23
+Content-Type: application/json+fhir
+</pre>
+<p>
+The value of the ETag SHALL match the value of the version id for the resource. Servers 
+are allowed to generate the version id in whatever fashion that they wish, so long 
+as they are valid according to the <a href="datatypes.html#id">id</a> data type,
+and are unique within the address space of all versions of the same resource.
+When resources are returned as part of a bundle (e.g. see <a href="#search">search</a> below), the server 
+should return the ETag value as an attribute named "etag" in the FHIR namespace 
+("http://hl7.org/fhir") on the feed.entry element (or, for JSON, a property "etag" on the 
+feed.entry object).
+</p>
+<p>
+If the client wishes to request a version aware update, it submits the request with an
+If-Match header that quotes the ETag from the server:
+</p>
+<pre class="http">
+PUT /Patient/347 HTTP/1.1
+If-Match: 23
+</pre>
+<p>
+If the version id given in the If-Match header does not match, the server returns a 
+412 Pre-condition failed status code instead of updating the resource. 
+</p>
+<p>
+Servers can require that clients provide an IF-Match header by returning 412 Pre-condition failed
+status codes when no If-Match header is found. 
+</p>
+
 
 <a name="delete"> </a>
 <h3>delete</h3>
@@ -452,9 +489,9 @@ The interaction is performed by an HTTP OPTIONS or a GET command as shown:
 Applications SHALL return a <a href="conformance.html">Conformance Resource</a> that specifies which resource types and interactions are supported
 for the GET command, and SHOULD do so for the OPTIONS command. If a 404 Unknown is returned from the GET, FHIR is not supported on the 
 nominated service url. The GET command is defined because not all client libraries are able to perform an OPTIONS command. 
-A Content-Location header SHALL be returned with the conformance resource. The value of the header SHALL change if the 
-conformance statement itself changes. The URI provided in the header MAY be a literal location where this version of the
-conformance statement is (and will continue to be) available. Additional parameters that are required to be returned with 
+An ETag header SHALL be returned with the conformance resource. The value of the header SHALL change if the 
+conformance statement itself changes. In addition, a Content-Location header with a literal location where this version of the
+conformance statement is (and will continue to be) available MAY be returned. Additional parameters that are required to be returned with 
 the OPTIONS command are defined in the <a href="#hdata">OMG hData RESTful Transport</a> specification. 
 </p>
 <p>
@@ -577,8 +614,13 @@ the resource, which is now the client's previous version:
 <p>
 A server SHOULD accept "http://localhost" in place of the [base] to ease
 processing where the host name may be unknown (e.g. where proxies are involved).
-The predecessor-version is treated as if it were the content-location header
-on an update interaction.
+</p>
+<p>
+Version aware updates apply to transactions. The client indicates the version
+of the resource using an etag attribute on the feed.entry. If the value of 
+ETag doesn't match the server's version (or is missing and the server is
+configured to require it), the entire transaction must fail with a 412 
+Pre-condition Failed message.
 </p>
 
 <a name="history"> </a>
@@ -645,6 +687,7 @@ Content-Type: text/xml
 Access-Control-Allow-Origin: *
 Last-Modified: Thu, 19 Nov 2013 07:07:32 +1100
 Content-Location: http://[server]/[path]/Patient/234124/_history/24
+ETag: 24
 Category: http://hl7.org/fhir/v3/ActCode#CEL; scheme=&quot;http://hl7.org/fhir/tag/security&quot;; label=&quot;Celebrity&quot;
 
 &lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
@@ -757,7 +800,7 @@ built on top of version-aware updates. In this pattern:
  <li>The server provides a <a href="#read">read</a> operation for any resource it accepts <a href="#update">update</a> operations on</li>
  <li>Before updating, the client <a href="#read">reads</a> the latest version of the resource</li>
  <li>The client applies the changes it wants to the resource, leaving other information intact (note the <a href="extensibility.html#exchange">extension related rules</a> around this)</li>
- <li>The client writes the result back as an <a href="#update">update</a> operation, and is able to handle a 409 response (usually by trying again)</li>
+ <li>The client writes the result back as an <a href="#update">update</a> operation, and is able to handle a 409 or 412 response (usually by trying again)</li>
 </ul>
 <p>
 If clients follow this pattern, then information from other systems
@@ -815,6 +858,7 @@ HTTP/1.1 200 OK
 Content-Type: text/xml
 Access-Control-Allow-Origin: *
 Last-Modified: Thu, 24 Oct 2013 00:41:55 +0000
+ETag: 1
 Content-Location: http://[server]/[path]/Binary/4/_history/1
 
 &lt;ClinicalDocument xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 

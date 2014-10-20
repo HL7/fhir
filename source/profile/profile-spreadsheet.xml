@@ -1079,7 +1079,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s69"><Data ss:Type="String">If the element is a reference to another resource, this element contains &quot;Reference&quot;, and the profile element refers to the profile of the allowed target of the resource, which may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/profiles/Patient). There would be one pair of type/code for each allowed target resource type</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s69"><Data ss:Type="String">If the element is a reference to another resource, this element contains &quot;Reference&quot;, and the profile element refers to the profile of the allowed target of the resource, which may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/Profile/Patient). There would be one pair of type/code for each allowed target resource type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>

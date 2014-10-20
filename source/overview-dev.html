@@ -50,7 +50,7 @@ for all exchanges.  Each resource has the following <a href="resources.html">com
  <li>An <a href="extensibility.html">extensibility framework</a> to support variation in healthcare</li>
 </ul>
 <p>
-Resources are represented as either <a href="xml.html">XML</a> or <a href="json.html">JSON</a>. There are <%resourcecount%> 
+Resources are represented as either <a href="xml.html">XML</a> or <a href="json.html">JSON</a>. There are currently <%resourcecount%> 
 different <a href="resourcelist.html">resource types defined</a> in the FHIR specification. 
 </p>
 
@@ -263,10 +263,10 @@ end point, as in this example.
 </p>
 <div class="example">
 <pre class="http linecounter">
-GET /Patient/347?_format=xml HTTP/1.1
-Host: example.com
-Accept: application/xml+fhir
-Cache-Control: no-cache
+<code>GET /Patient/347?_format=xml HTTP/1.1</code>
+<code>Host: example.com</code>
+<code>Accept: application/xml+fhir</code>
+<code>Cache-Control: no-cache</code>
 </pre>
 </div>
 
@@ -297,7 +297,7 @@ The response to a GET contains the Resource.
 <code>&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;</code>
 <code>  &lt;meta&gt;</code>
 <code>    &lt;id value=&quot;347&quot;/&gt;</code>
-<code>    &lt;versionId value=&quot;347&quot;/&gt;</code>
+<code>    &lt;versionId value=&quot;1&quot;/&gt;</code>
 <code>    &lt;lastUpdated value=&quot;2014-08-18T01:43:30Z&quot;/&gt;</code>
 <code>  &lt;/meta&gt;</code>
 <code>  &lt;!-- content as shown above for patient --&gt;  </code>
@@ -393,6 +393,74 @@ Notes:
   <li><b>link</b> (line 14) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
   <li><b>item</b> (line 23) - The actual resources in this set of results</li>
   <li>In addition, the search operation is also able to <a href="search.html#include">return additional related resources</a> as well</li>
+</ul>
+
+<h3>Update Request</h3>
+<p>
+The client sends the server a new version of the resource to replace the exist version.
+</p>
+
+<div class="example">
+<pre class="http linecounter">
+<code>PUT /Patient/347 HTTP/1.1</code>
+<code>Host: example.com</code>
+<code>Content-Type: application/json+fhir</code>
+<code>Content-Length: 1435</code>
+<code>Accept: application/json+fhir</code>
+<code>If-Match: 1</code>
+<code> </code>
+<code>{</code>
+<code>  "resourceType": "Patient",</code>
+<code>  "meta" : {</code>
+<code>    "id" : "347",</code>
+<code>    "versionId" : "1",</code>
+<code>    "lastUpdated" : "2014-08-18T01:43:30Z"    </code>
+<code>  },</code>
+<code>  ...</code>
+<code>}</code>
+</pre>
+</div>
+
+ <p>
+Notes:
+</p>
+<ul>
+  <li><b>resourceType</b> (line 1) - "Patient" in the url must match the resource type in the resource (line 9)</li>
+  <li><b>resource id</b> (line 1, "347") - This must match meta.id (line 11)</li>
+  <li><b>If-Match</b> (line 6) - if this is provided, it must match the value in meta.versionId (line 12), and the server must check the version integrity, or return 412 if it doesn't support versions</li>
+  <li><b>meta.lastUpdated</b> (line 10) - This value is ignored, and will be updated by the server</li>
+  <li><b>resource content</b> (line 14) - Not shown here, the same as Patient above</li>
+</ul>
+
+<h3>Update Response</h3>
+<p>
+The response to an update request has metadata / status, and optionally an OperationOutcome:
+</p>
+
+<div class="example">
+<pre class="http linecounter">
+<code>HTTP/1.1 200 OK</code>
+<code>Content-Length: 161</code>
+<code>Content-Type: application/json+fhir</code>
+<code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
+<code>ETag: 2</code>
+<code> </code>
+<code>{</code>
+<code>  &quot;resourceType&quot;: &quot;OperationOutcome&quot;,</code>
+<code>  &quot;text&quot;: {</code>
+<code>    &quot;status&quot;: &quot;generated&quot;,</code>
+<code>    &quot;div&quot;: &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;The operation was succesful&lt;/div&gt;&quot;</code>
+<code>  }</code>
+<code>}</code>
+</pre>
+</div>
+
+
+<p>
+Notes:
+</p>
+<ul>
+  <li><b>ETag</b> (line 5) - This is the versionId of the new version</li>
 </ul>
 
 </div>
