@@ -287,7 +287,13 @@ of the <a href="http://www.hl7.org/Special/committees/index.cfm">HL7 Work Groups
 <script src="external/jquery/jquery.js"> </script>
 <script src="jquery-ui.min.js"> </script>
 <script>
-var currentTabIndex = sessionStorage.getItem('fhir-resourcelist-tab-index');
+try {
+  var currentTabIndex = sessionStorage.getItem('fhir-resourcelist-tab-index');
+}
+catch(exception){ 
+  // happens on IE when running locally    
+}
+
 if (!currentTabIndex)
   currentTabIndex = '0';
 
@@ -296,7 +302,12 @@ $( '#tabs' ).tabs({
          activate: function( event, ui ) {
              var active = $('.selector').tabs('option', 'active');
              currentTabIndex = ui.newTab.index();
-             sessionStorage.setItem('fhir-resourcelist-tab-index', currentTabIndex);
+             try {
+               localStorage.setItem('fhir-resourcelist-tab-index', currentTabIndex);
+             }
+             catch(exception){ 
+               // happens on IE when running locally    
+             }
          }
      });
 </script>

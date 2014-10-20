@@ -143,7 +143,13 @@ Resource Profile (<a href="<%name%>.profile.xml.html">XML</a>, <a href="<%name%>
 <script src="external/jquery/jquery.js"> </script>
 <script src="jquery-ui.min.js"> </script>
 <script>
-var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+try {
+  var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+}
+catch(exception){ 
+  // happens on IE when running locally    
+}
+
 if (!currentTabIndex)
   currentTabIndex = '0';
 
@@ -152,7 +158,12 @@ $( '#tabs' ).tabs({
          activate: function( event, ui ) {
              var active = $('.selector').tabs('option', 'active');
              currentTabIndex = ui.newTab.index();
-             sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
+             try {
+               localStorage.setItem('fhir-resource-tab-index', currentTabIndex);
+             }
+             catch(exception){ 
+               // happens on IE when running locally    
+             }
          }
      });
 </script>
