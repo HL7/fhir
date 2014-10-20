@@ -10,7 +10,7 @@
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:15:11Z</Created>
   <LastSaved>2014-10-17T23:52:49Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -22,11 +22,10 @@
   </Colors>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4125</WindowHeight>
-  <WindowWidth>17205</WindowWidth>
+  <WindowHeight>7680</WindowHeight>
+  <WindowWidth>21060</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -105,10 +104,6 @@
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s73">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Interior ss:Color="#70AD47" ss:Pattern="Solid"/>
-  </Style>
   <Style ss:ID="s75">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Interior/>
@@ -139,10 +134,6 @@
     ss:Bold="1"/>
    <Interior ss:Color="#D0CECE" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s83">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
-  </Style>
   <Style ss:ID="s85">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
@@ -158,12 +149,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#E7E6E6" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s88">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s90">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
@@ -219,7 +204,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="95" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="22" ss:ExpandedRowCount="101" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s65" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="264.75"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="56.25"/>
@@ -237,7 +222,7 @@
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="18" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="100.5"
     ss:Span="1"/>
-   <Column ss:Index="23" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="43.5"/>
+   <Column ss:Index="22" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="43.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -260,7 +245,6 @@
     <Cell><Data ss:Type="String">Existing Standard&#10;X12</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
-    <Cell><Data ss:Type="String">80% of claims</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s68">
     <Cell ss:StyleID="s66"><Data ss:Type="String">OralHealthClaim</Data></Cell>
@@ -272,7 +256,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"><Data ss:Type="String">A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.</Data></Cell>
-    <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -308,7 +291,6 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s68">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.identifier</Data></Cell>
@@ -332,7 +314,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s68">
@@ -346,7 +327,6 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">complete | proposed | exploratory | other</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).</Data></Cell>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">complete | proposed |exploratory | other</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -370,7 +350,6 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">FundsReserve</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Funds reserving</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.</Data></Cell>
-    <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -408,7 +387,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.insurer</Data></Cell>
@@ -432,7 +410,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135" ss:StyleID="s68">
@@ -457,7 +434,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s68">
@@ -482,7 +458,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
@@ -507,7 +482,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
@@ -518,7 +492,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Completion date</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Creation date</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">The date when the enclosed suite of services were performed or completed</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -532,7 +506,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s68">
@@ -557,7 +530,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s68">
@@ -570,7 +542,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Service Facility</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Facility where the services were provided.</Data></Cell>
-    <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -606,7 +577,6 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s68">
     <Cell ss:StyleID="s66"><Data ss:Type="String">OralHealthClaim.payee</Data></Cell>
@@ -630,7 +600,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
@@ -655,7 +624,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s68">
@@ -680,7 +648,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s68">
@@ -705,7 +672,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s68">
@@ -718,7 +684,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Other person who is the payee</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">The person other than the subscriber who is to be reimbursed for the claim (the party to whom any benefit is assigned)</Data></Cell>
-    <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -754,7 +719,6 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s68">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.referral</Data></Cell>
@@ -779,7 +743,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s69">
     <Cell ss:StyleID="s70"><Data ss:Type="String">!Diagnostic Information</Data></Cell>
@@ -791,7 +754,6 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -826,7 +788,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
@@ -851,7 +812,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s68">
@@ -876,7 +836,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s69">
@@ -889,7 +848,6 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -924,7 +882,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s69">
@@ -937,7 +894,6 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -972,7 +928,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s69">
@@ -996,7 +951,6 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">OralHealthClaim.coverage</Data></Cell>
@@ -1007,7 +961,6 @@
     <Cell><Data ss:Type="String">Financial instrument by which payment information for health care</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Health care programs and insurers are significant payors of health service costs</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">Coverage</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">OralHealthClaim.coverage.sequence</Data></Cell>
@@ -1016,8 +969,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Service instance</Data></Cell>
     <Cell><Data ss:Type="String">A service line item.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">To maintain order of the coverages.</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Was 0..1</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">OralHealthClaim.coverage.focal</Data></Cell>
@@ -1027,8 +978,6 @@
     <Cell><Data ss:Type="String">Is the focal Coverage</Data></Cell>
     <Cell><Data ss:Type="String">The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">To identify which coverage is being adjudicated.</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Was 0..1</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">OralHealthClaim.coverage.coverage</Data></Cell>
@@ -1040,7 +989,6 @@
     <Cell ss:Index="17" ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s68">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.coverage.businessArrangement</Data></Cell>
@@ -1065,7 +1013,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">OralHealthClaim.coverage.relationship</Data></Cell>
@@ -1076,7 +1023,6 @@
     <Cell><Data ss:Type="String">The relationship of the patient to the subscriber</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">To determine relationship between the patient and the subscriber</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">C03</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">OralHealthClaim.coverage.preauthref</Data></Cell>
@@ -1087,7 +1033,6 @@
     <Cell ss:Index="11"><Data ss:Type="String">To provide any pre=determination or prior authorization reference.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Was Idetntity</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F03</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">!OralHealthClaim.coverage.remittance</Data></Cell>
@@ -1098,7 +1043,6 @@
     <Cell ss:Index="11"><Data ss:Type="String">Used by downstream payers to determine what balance remains and the net payable.</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s81"><Data ss:Type="String">Remittance Profile</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">EOB</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s68">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.coverage.originalRuleset</Data></Cell>
@@ -1122,7 +1066,6 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
@@ -1130,14 +1073,13 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">OralHealthClaim.exception</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">Exception</Data></Cell>
     <Cell><Data ss:Type="String">Eligibility exceptions</Data></Cell>
     <Cell><Data ss:Type="String">Factors which may influence the applicability of coverage</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">To determine extenuating circumstances for coverage </Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">C09</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">OralHealthClaim.school</Data></Cell>
@@ -1147,7 +1089,6 @@
     <Cell><Data ss:Type="String">Name of school</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String"> Often required for over-age dependents</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">C10</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">OralHealthClaim.accident</Data></Cell>
@@ -1157,7 +1098,6 @@
     <Cell><Data ss:Type="String">Date of an accident which these services are addessing.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Coverage may be dependant on accidents.</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F02</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">OralHealthClaim.accidentType</Data></Cell>
@@ -1167,7 +1107,6 @@
     <Cell><Data ss:Type="String">Accident Type</Data></Cell>
     <Cell><Data ss:Type="String">Type of accident: work, auto, etc.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Coverage may be dependant on the type of accident.</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.interventionException</Data></Cell>
@@ -1177,7 +1116,6 @@
     <Cell><Data ss:Type="String">Intervention and exception code (Pharma)</Data></Cell>
     <Cell><Data ss:Type="String">A list of intervention and exception codes which may influence the adjudication of the claim.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Coverage may be modified based on exception information provided.</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
     <Cell ss:StyleID="s70"><Data ss:Type="String">!Oral Health Specific</Data></Cell>
@@ -1190,7 +1128,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Missing Teeth</Data></Cell>
     <Cell><Data ss:Type="String">A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The list of missing teeth may influence the adjudication of services for example with Bridges.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Oral&#10;Claim, PD, PA</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">OralHealthClaim.missingteeth.tooth</Data></Cell>
@@ -1200,7 +1137,6 @@
     <Cell><Data ss:Type="String">Tooth Code</Data></Cell>
     <Cell><Data ss:Type="String">The code identifying which tooth is missing.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Provides the tooth number of the missing tooth.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Oral&#10;Claim, PD, PA</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F23</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1211,7 +1147,6 @@
     <Cell><Data ss:Type="String">Reason for missing</Data></Cell>
     <Cell><Data ss:Type="String">Missing reason may be: E-extraction, O-other</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Provides the reason for the missing tooth.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Oral&#10;Claim, PD, PA</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">not used</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1221,7 +1156,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Date of Extraction</Data></Cell>
     <Cell><Data ss:Type="String">The date of the extraction either known from records or patient reported estimate.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Some services and adjudications require this information.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Oral&#10;Claim, PD, PA</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F24</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
@@ -1294,7 +1228,6 @@
     <Cell><Data ss:Type="String" x:Ticked="1">=Items</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Goods and Servcies</Data></Cell>
     <Cell><Data ss:Type="String">First tier of goods and services</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OralHealthClaim.item.sequence</Data></Cell>
@@ -1303,16 +1236,14 @@
     <Cell ss:Index="8"><Data ss:Type="String">Service instance</Data></Cell>
     <Cell><Data ss:Type="String">A service line number.</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F07</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">ItemType</Data></Cell>
-    <Cell><Data ss:Type="String">Type of product or service</Data></Cell>
+    <Cell><Data ss:Type="String">Group or type of product or service</Data></Cell>
     <Cell><Data ss:Type="String">The type of product or service.</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">OralHealthClaim.item.service</Data></Cell>
@@ -1322,9 +1253,17 @@
     <Cell><Data ss:Type="String">Item Code</Data></Cell>
     <Cell><Data ss:Type="String">If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.</Data></Cell>
     <Cell ss:StyleID="s75"/>
-    <Cell ss:Index="14" ss:StyleID="s83"><Data ss:Type="String">Reverted from Procedure - not the same thing. 20140420</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s75"/>
     <Cell ss:Index="18"><Data ss:Type="String">F06</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">OralHealthClaim.item.quantity</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Count of Products or Services</Data></Cell>
+    <Cell><Data ss:Type="String">The number of repetitions of a service or product.</Data></Cell>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:Index="14" ss:StyleID="s75"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.serviceDate</Data></Cell>
@@ -1333,7 +1272,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Date of Service</Data></Cell>
     <Cell><Data ss:Type="String">The date when the enclosed suite of services were performed or completed</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F09</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.provider</Data></Cell>
@@ -1342,7 +1280,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Responsible practitioner</Data></Cell>
     <Cell><Data ss:Type="String">The practitioner who is responsible for the services rendered to the patient</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">not used</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.fee</Data></Cell>
@@ -1352,7 +1289,16 @@
     <Cell><Data ss:Type="String">If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group. </Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:Index="18"><Data ss:Type="String">F12</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.total</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Money</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Total item cost</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The sum of the quantity times the unit fee for an addtional service or product or charge.</Data></Cell>
+    <Cell ss:StyleID="s75"/>
+    <Cell><Data ss:Type="String">If a fee is present the associated product/service code must be present</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">F13/F14</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.udi</Data></Cell>
@@ -1362,7 +1308,6 @@
     <Cell><Data ss:Type="String">Unique Device Identifier</Data></Cell>
     <Cell><Data ss:Type="String">List of Unique Device Identifiers associated with this line item.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The UDI code and issuer if applicable for the supplied product.</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.bodySite</Data></Cell>
@@ -1371,9 +1316,7 @@
     <Cell><Data ss:Type="String">OralSites</Data></Cell>
     <Cell><Data ss:Type="String">Service Location</Data></Cell>
     <Cell><Data ss:Type="String">Physical service site on the patient (limb, tooth, etc).</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">ToothQSA</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F10</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">OralHealthClaim.item.subsite</Data></Cell>
@@ -1382,9 +1325,7 @@
     <Cell><Data ss:Type="String">Surface</Data></Cell>
     <Cell><Data ss:Type="String">Service Sub-location</Data></Cell>
     <Cell><Data ss:Type="String">A region or surface of the site, eg. limb region or tooth surface(s).</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Surface</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F11</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">OralHealthClaim.item.modifier</Data></Cell>
@@ -1394,41 +1335,37 @@
     <Cell><Data ss:Type="String">Service/Product billing modifiers</Data></Cell>
     <Cell><Data ss:Type="String">Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">May impact on adjudication.</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">OralTypeCodes</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F16 (required field for Oral) and F05</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s86">
     <Cell ss:StyleID="s87"><Data ss:Type="String">!Additional Charges (lab, expense, materials, components, tax)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String" x:Ticked="1">=Detail</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String" x:Ticked="1">=Detail</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Additional items</Data></Cell>
     <Cell><Data ss:Type="String">Second tier of goods and services</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.sequence</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.sequence</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Service instance</Data></Cell>
     <Cell><Data ss:Type="String">A service line number.</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F07</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.type</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">ItemType</Data></Cell>
-    <Cell><Data ss:Type="String">Type of product or service</Data></Cell>
+    <Cell><Data ss:Type="String">Group or type of product or service</Data></Cell>
     <Cell><Data ss:Type="String">The type of product or service.</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.service</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.service</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">ServiceProduct</Data></Cell>
@@ -1436,10 +1373,18 @@
     <Cell><Data ss:Type="String">If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:Index="18"><Data ss:Type="String">F34/F35</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.quantity</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Count of Products or Services</Data></Cell>
+    <Cell><Data ss:Type="String">The number of repetitions of a service or product.</Data></Cell>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:Index="14" ss:StyleID="s75"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.fee</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.fee</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Money</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Additional item fee</Data></Cell>
@@ -1447,50 +1392,55 @@
     <Cell ss:StyleID="s75"/>
     <Cell><Data ss:Type="String">If a fee is present the associated product/service code must be present</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F13/F14</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.udi</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.total</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Money</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Total additional item cost</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The sum of the quantity times the unit fee for an addtional service or product or charge.</Data></Cell>
+    <Cell ss:StyleID="s75"/>
+    <Cell><Data ss:Type="String">If a fee is present the associated product/service code must be present</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">F13/F14</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.udi</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">UDI</Data></Cell>
     <Cell><Data ss:Type="String">Unique Device Identifier</Data></Cell>
     <Cell><Data ss:Type="String">List of Unique Device Identifiers associated with this line item.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The UDI code and issuer if applicable for the supplied product.</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s86">
     <Cell ss:StyleID="s87"><Data ss:Type="String">!Additional Charges (lab, expense, materials, components, tax)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=SubDetail</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Additional items</Data></Cell>
     <Cell><Data ss:Type="String">Third tier of goods and services</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.sequence</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.sequence</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Service instance</Data></Cell>
     <Cell><Data ss:Type="String">A service line number.</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F07</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.type</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">ItemType</Data></Cell>
     <Cell><Data ss:Type="String">Type of product or service</Data></Cell>
     <Cell><Data ss:Type="String">The type of product or service.</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.service</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.service</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">ServiceProduct</Data></Cell>
@@ -1498,10 +1448,18 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">The fee for an addtional service or product or charge.</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:Index="18"><Data ss:Type="String">F34/F35</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.fee</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.quantity</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Count of Products or Services</Data></Cell>
+    <Cell><Data ss:Type="String">The number of repetitions of a service or product.</Data></Cell>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:Index="14" ss:StyleID="s75"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.fee</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Money</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Additional item fee</Data></Cell>
@@ -1509,17 +1467,25 @@
     <Cell ss:StyleID="s75"/>
     <Cell><Data ss:Type="String">If a fee is present the associated product/service code must be present</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F13/F14</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.udi</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.total</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Money</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Total additional item cost</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The sum of the quantity times the unit fee for an addtional service or product or charge.</Data></Cell>
+    <Cell ss:StyleID="s75"/>
+    <Cell><Data ss:Type="String">If a fee is present the associated product/service code must be present</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">F13/F14</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">OralHealthClaim.item.detail.subDetail.udi</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">UDI</Data></Cell>
     <Cell><Data ss:Type="String">Unique Device Identifier</Data></Cell>
     <Cell><Data ss:Type="String">List of Unique Device Identifiers associated with this line item.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The UDI code and issuer if applicable for the supplied product.</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s86">
     <Cell ss:StyleID="s85"><Data ss:Type="String">!Oral Health Specific Detail</Data></Cell>
@@ -1531,7 +1497,6 @@
     <Cell><Data ss:Type="String" x:Ticked="1">=Prosthesis</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Prosthetic details</Data></Cell>
     <Cell><Data ss:Type="String">The materials and placement date of prior fixed prosthesis. </Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Oral&#10;Claim, PD, PA</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">OralHealthClaim.item.prosthesis.initial</Data></Cell>
@@ -1540,7 +1505,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Is this the initial service</Data></Cell>
     <Cell><Data ss:Type="String">Is this the initial placement of a fixed prosthesis?</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">May impact on adjudication.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Oral&#10;Claim, PD, PA</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F15/F18 Only for Denture, Crown, Bridge</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1550,7 +1514,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Initial service Date</Data></Cell>
     <Cell><Data ss:Type="String">Date of the initial placement.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">May impact on adjudication.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Oral&#10;Claim, PD, PA</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F04/F19</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1561,7 +1524,6 @@
     <Cell><Data ss:Type="String">Prosthetic Material</Data></Cell>
     <Cell><Data ss:Type="String">Material of the prior denture or bridge prosthesis. (Oral)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">May impact on adjudication.</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Oral&#10;Claim, PD, PA</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">F20/F21</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
@@ -1598,10 +1560,11 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1614,12 +1577,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>93</ActiveRow>
+     <ActiveCol>12</ActiveCol>
+     <RangeSelection>R94C13:R97C13</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1966,7 +1929,6 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
