@@ -1,0 +1,116 @@
+<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\remittance.xsd">
+
+ <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the ClaimResponse</div>
+  </text>
+
+  <identifier>
+    <system value="http://www.BenefitsInc.com/fhir/remittance"/>
+    <value value="R3500"/>
+  </identifier>
+
+  <request>
+	<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
+  </request>
+  
+  <requestIdentifier>
+    <system value="http://happyvalley.com/claims"/>
+    <value value="12345"/>
+  </requestIdentifier>
+
+  <outcome value="complete"/>
+  
+  <note value="Claim settled as per contract."/>
+
+  <date value="2014-08-16"/>
+
+  <organization>
+    <reference value="Organization/2"/>
+  </organization>
+
+  <requestOrganization>
+    <reference value="Organization/1"/>
+  </requestOrganization>
+ 
+  <payeeType>
+     <system value="http://hl7.org/fhir/payeetype"/>
+     <code value="provider"/>
+  </payeeType>
+
+ <!-- Adjudication details -->
+ 
+ <item>
+
+   <sequenceLinkId value="1"/> 
+
+   <adjudication>
+     <code>
+       <code value="eligible"/>
+	 </code>
+	 <amount>
+ 	    <value value="135.57"/>
+		<system value="urn:std:iso:4217"/>
+		<code value="USD"/>
+	 </amount>
+   </adjudication>
+
+   <adjudication>
+     <code>
+       <code value="copay"/>
+	 </code>
+	 <amount>
+	    <value value="10.00"/>
+		<system value="urn:std:iso:4217"/>
+		<code value="USD"/>
+	 </amount>  
+   </adjudication>
+
+   <adjudication>
+     <code>
+       <code value="eligpercent"/>
+	 </code>
+	 <value value="80.00"/>
+   </adjudication>
+
+   <adjudication>
+     <code>
+       <code value="benefit"/>
+	 </code>
+	 <amount>
+  	    <value value="100.47"/>
+		<system value="urn:std:iso:4217"/>
+		<code value="USD"/>
+	 </amount>	
+   </adjudication>
+   
+ </item>
+
+ <totalCost>
+	<value value="135.57"/>
+	<system value="urn:std:iso:4217"/>
+	<code value="USD"/>
+ </totalCost>	
+ 
+ <totalBenefit>
+	<value value="100.47"/>
+	<system value="urn:std:iso:4217"/>
+	<code value="USD"/>
+ </totalBenefit>
+ 
+ <!-- Payment details -->
+ 
+ <paymentDate value="2014-08-31"/>
+ 
+ <paymentAmount>
+	<value value="100.47"/>
+	<system value="urn:std:iso:4217"/>
+	<code value="USD"/>
+ </paymentAmount>	
+ 
+ <paymentRef>
+    <system value="http://www.BenefitsInc.com/fhir/paymentRef"/>
+    <value value="201408-2-1569478"/>
+ </paymentRef>	
+
+</ClaimResponse>

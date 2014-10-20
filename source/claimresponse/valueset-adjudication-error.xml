@@ -1,0 +1,27 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes a smattering of adjudication codes.
+    </div>
+  </text>
+  <name value="Adjudication Error Codes"/>
+  <publisher value="Financial Management"/>
+  <copyright value="This is an example set"/>
+  <status value="draft"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes a adjudication of Adjudication codes"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/adjudication-error"/>
+    <concept>
+      <code value="A001"/> <!-- missing identifier -->
+    </concept>
+    <concept>
+      <code value="A002"/> <!-- missing or invalid USE code -->
+    </concept>
+  </define>
+</ValueSet>

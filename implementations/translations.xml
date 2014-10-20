@@ -87,6 +87,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Reclamación</translation>
         <translation lang="fr">Réclamation</translation>
     </item>
+    <item id="ClaimResponse">
+        <translation lang="en">ClaimResponse</translation>
+    </item>
     <item id="Composition">
         <translation lang="en">Composition</translation>
         <translation lang="zh">组合</translation>
