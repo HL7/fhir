@@ -30,6 +30,13 @@ to enable the provision of integrated healthcare across a
 wide range of teams.
 </p>
 
+<p>
+The intended scope of FHIR is broad, covering human and veterinary,
+clinical care, public health, clinical trials, administration and
+financial aspects.  The standard is intended for global use in a wide
+variety of architectures and scenarios.
+</p>
+
 <h3>Framework</h3>
 <p>
 FHIR is based on "Resources" which are the common building block
@@ -102,16 +109,18 @@ This is an example of how a <a href="patient.html">patient</a> is represented as
 </div>
 
 <p>
-Notes:  
+Each resource consists of:  
 </p>
 <ul>
-  <li><b>resourceType</b> (line 2) - FHIR defines many different types of resources. See <a href="resourcelist.html">the full index</a></li>
-  <li><b>meta</b> (lines 3 - 7) - <a href="resources.html#meta">Common data to all resources</a> managed by the infrasturcture (discussed further below)</li>
-  <li><b>text</b> (lines 12 - 17) - XHTML that provides a <a href="narrative.html">human readable representation</a> for the resource</li>
-  <li><b>extension</b> (lines 12 - 17) - <a href="extensbility.html">Extensions</a> defined by the extensbility framework</li>
-  <li><b>data</b> (lines 18 - 43) - data elements defined for each type of resource</li>
-  <li>JSON: note that though this specification always shows the JSON properties in the order they are defined, many JSON libraries order properties by other criteria</li>
+  <li><b>resourceType</b> (line 2) - Required: FHIR defines many different types of resources. See <a href="resourcelist.html">the full index</a></li>
+  <li><b>meta</b> (lines 3 - 7) - Usually Required: <a href="resources.html#meta">Common data to all resources</a> managed by the infrasturcture (discussed further below)</li>
+  <li><b>text</b> (lines 12 - 17) - Required: XHTML that provides a <a href="narrative.html">human readable representation</a> for the resource</li>
+  <li><b>extension</b> (lines 12 - 17) - Optional: <a href="extensbility.html">Extensions</a> defined by the extensbility framework</li>
+  <li><b>data</b> (lines 18 - 43) - Optional: data elements defined for each type of resource</li>
 </ul>
+<p>
+Note that though this specification always shows the JSON properties in the order they are defined, many JSON libraries order properties by other criteria
+</p>
 
 <h3>Interactions</h3>
 <p>
@@ -151,7 +160,7 @@ point. In the example below we see the creation of a Patient.
 
 <div class="example">
 <pre class="http linecounter">
-<code>POST /Patient HTTP/1.1</code>
+<code>POST {some base URL}/Patient HTTP/1.1</code>
 <code>Authorization: Bearer 37CC0B0E-C15B-4578-9AC1-D83DCED2B2F9</code>
 <code>Accept: application/json+fhir</code>
 <code>Content-Type: application/json+fhir</code>
@@ -170,7 +179,7 @@ Submit a new patient to the server, and ask it to store the patient with an id o
 <ul>
   <li><b>/Patient</b> (line 1) - the manager for all patients - use the name of the type of resource</li>
   <li><b>Authorization</b> (line 2) - see <a href="security.html">Security for FHIR</a></li>
-  <li><b>Accept/Content-Type</b> (lines 3-4) - the content type for all FHIR resources as represented in JSON (or application/xml+fhir for the XML version). FHIR resources are always represented in UTF-8</li>
+  <li><b>Accept, Content-Type</b> (lines 3-4) - the content type for all FHIR resources as represented in JSON (or application/xml+fhir for the XML version). FHIR resources are always represented in UTF-8</li>
   <li>Resource Content, lines 8+ - There's no meta property at this point (this is the only place where that's true). The rest of the resource is the same content as above</li>
 </ul>
 
@@ -291,7 +300,7 @@ The response to a GET contains the Resource.
 <code>    &lt;versionId value=&quot;347&quot;/&gt;</code>
 <code>    &lt;lastUpdated value=&quot;2014-08-18T01:43:30Z&quot;/&gt;</code>
 <code>  &lt;/meta&gt;</code>
-<code>  &lt;!-- content as show above for patient --&gt;  </code>
+<code>  &lt;!-- content as shown above for patient --&gt;  </code>
 <code>&lt;/Patient&gt;</code>
 </pre>
 </div>
@@ -302,7 +311,7 @@ Notes:
 <ul>
   <li><b>id</b> (line 10) - The id of the resource. This must match the id in the read request</li>
   <li><b>versionId</b> (line 11) - The current version id of the resource. Best practice is that this value matches the ETag (see <a href="http.html#update">version aware update</a>), but clients must never assume this</li>
-  <li>Note servers are not required to support versioning, but they are strongly encouraged to do so</li>
+  <li>Note that servers are not required to support versioning, but are strongly encouraged to do so</li>
   <li><b>lastUpdated</b> (line 12) - This must match the value in the HTTP header</li>
 </ul>
 
@@ -310,7 +319,7 @@ Notes:
 <p>
 In addition to getting single known resources it is possible to find resources by 
 <a href="http.html#search">searching the resource end point</a> with a <a href="search.html">set of 
-criteria</a> describing the set of resources that should be retrieved, and their order. The
+criteria</a> describing the set of resources that should be retrieved and their order. The
 general pattern is:
 </p>
 <div class="example">
@@ -320,7 +329,7 @@ GET base/{resourceType}?criteria HTTP/1.1
 </div>
 <p>
 or simply https://example.com/{resourceType}?criteria. The criteria is a set of 
-http parameters that specify which resources to return. the search operation
+http parameters that specify which resources to return. The search operation
 </p>
 
 <div class="example">
@@ -377,13 +386,13 @@ Notes:
 </p>
 <ul>
   <li><b>resourceType</b> (line 7) - "SearchResults" is the name for a bundle returned from a search</li>
-  <li><b>meta.id</b> (line 9) - An identifier assigned to this particular bundle. The server should assign a unique id to this bundle that it will not be re-used. Note that in some budnles - though not search reuslts - this must be <a href="extras.html#bundle-unique">globally unique</a></li>
+  <li><b>meta.id</b> (line 9) - An identifier assigned to this particular bundle. The server should assign a unique id to this bundle that it will not be re-used. Note that in some bundles - though not search reuslts - this must be <a href="extras.html#bundle-unique">globally unique</a></li>
   <li><b>meta.lastUpdated</b> (line 10) - This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The lastUpdated data SHALL be the same or more recent than the most recent resource in the results</li>
   <li><b>base</b> (line 12) - The base URL for any relative <a href="references.html">references</a> in the resources. The server SHOULD provide this value</li>
   <li><b>total</b> (line 13) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
   <li><b>link</b> (line 14) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
   <li><b>item</b> (line 23) - The actual resources in this set of results</li>
-  <li>In addition, the search operation is also able to return additional related resources as well</li>
+  <li>In addition, the search operation is also able to <a href="search.html#include">return additional related resources</a> as well</li>
 </ul>
 
 </div>
