@@ -8,6 +8,8 @@
   </text>
   <name value="Contract Type Codes"/>
   <publisher value="CBCC"/>
+  <copyright value="This is an example set"/>
+  <status value="draft"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
