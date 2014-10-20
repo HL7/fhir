@@ -691,7 +691,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
         write(indent+"public boolean has"+getTitle(getElementName(e.getName(), false))+"("+getSimpleType(tn)+" value) { \r\n");
         write(indent+"  for ("+tn+" v : this."+getElementName(e.getName(), true)+")\r\n");
-        write(indent+"    if (v.getValue().equals(value))\r\n");
+        write(indent+"    if (v.getValue().equals(value)) // "+e.typeCode()+"\r\n");
         write(indent+"      return true;\r\n");
         write(indent+"  return false;\r\n");
         write(indent+"}\r\n");
