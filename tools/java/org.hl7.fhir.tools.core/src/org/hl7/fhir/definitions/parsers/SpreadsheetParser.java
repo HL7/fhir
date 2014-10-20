@@ -647,23 +647,18 @@ public class SpreadsheetParser {
 			}
 		}
 
-    sheet = loadSheet("Invariants");
-    Map<String,Invariant> invariants = null;
-    if (sheet != null)
-      invariants = readInvariants(sheet);
-		
     List<String> namedSheets = new ArrayList<String>();
     
 		if (p.getMetadata().containsKey("published.structure")) {
 		  for (String n : p.getMetadata().get("published.structure")) {
 		    if (!Utilities.noString(n))
-		    parseProfileSheet(definitions, p, invariants, n, namedSheets, true);
+		    parseProfileSheet(definitions, p, n, namedSheets, true);
 		  }
 		}
     
 		int i = 0;
     while (i < namedSheets.size()) {
-      parseProfileSheet(definitions, p, invariants, namedSheets.get(i), namedSheets, false);
+      parseProfileSheet(definitions, p, namedSheets.get(i), namedSheets, false);
       i++;
     }
 
@@ -688,10 +683,19 @@ public class SpreadsheetParser {
 	}
 
 
-  private void parseProfileSheet(Definitions definitions, ProfileDefn p, Map<String, Invariant> invariants, String n, List<String> namedSheets, boolean published) throws Exception {
+  private void parseProfileSheet(Definitions definitions, ProfileDefn p, String n, List<String> namedSheets, boolean published) throws Exception {
     Sheet sheet;
     ResourceDefn resource = new ResourceDefn();
     resource.setPublishedInProfile(published);
+
+		sheet = loadSheet(n+"-Inv");
+	  Map<String,Invariant> invariants = null;
+    if (sheet != null) {
+	    invariants = readInvariants(sheet);
+	  } else {
+	  	invariants = new HashMap<String,Invariant>();
+		}
+		
     sheet = loadSheet(n);
     if (sheet == null)
       throw new Exception("The Profile referred to a tab by the name of '"+n+"', but no tab by the name could be found");
@@ -720,6 +724,25 @@ public class SpreadsheetParser {
     if (sheet != null) {
       readSearchParams(resource, sheet, true);
     }
+
+		if (invariants != null) {
+			for (Invariant inv : invariants.values()) {
+			  if (Utilities.noString(inv.getContext())) 
+			    log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context", LogMessageType.Warning);
+			  else {
+			    ElementDefn ed = findContext(resource.getRoot(), inv.getContext(), "Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" Context");
+			    // TODO: Need to resolve context based on element name, not just path
+			    if (ed.getName().endsWith("[x]") && !inv.getContext().endsWith("[x]"))
+			      inv.setFixedName(inv.getContext().substring(inv.getContext().lastIndexOf(".")+1));
+			    ed.getInvariants().put(inv.getId(), inv);
+			    if (Utilities.noString(inv.getXpath()))
+		        log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement", LogMessageType.Warning);
+			    else if (inv.getXpath().contains("\""))
+	          log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character", LogMessageType.Warning);
+			  }
+			}
+		}
+
     resource.getRoot().setProfileName(n);
     p.getResources().add(resource);
   }

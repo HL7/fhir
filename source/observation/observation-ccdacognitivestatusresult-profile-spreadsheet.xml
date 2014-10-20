@@ -62,13 +62,6 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
    <NumberFormat ss:Format="Short Date"/>
   </Style>
-  <Style ss:ID="s70">
-   <Alignment ss:Vertical="Bottom"/>
-   <Borders/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
   <Style ss:ID="s71">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
@@ -161,6 +154,13 @@
   <Style ss:ID="s87">
    <Interior ss:Color="#D8D8D8" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s88" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="BINDNG" ss:RefersTo="=NamedValidationRanges!R1C6:R5C6"/>
@@ -170,7 +170,8 @@
   <NamedRange ss:Name="DISCRIMINATOR"
    ss:RefersTo="=NamedValidationRanges!R1C10:R3C10"/>
   <NamedRange ss:Name="EXAMPLE" ss:RefersTo="=NamedValidationRanges!R1C7:R3C7"/>
-  <NamedRange ss:Name="INVARIENT_ID" ss:RefersTo="=Invariants!R1C1:R30C1"/>
+  <NamedRange ss:Name="INVARIENT_ID"
+   ss:RefersTo="='CCDACognitiveStatusResult-Inv'!R1C1:R30C1"/>
   <NamedRange ss:Name="IS_MODIFIER" ss:RefersTo="=NamedValidationRanges!R1C3:R3C3"/>
   <NamedRange ss:Name="METADATA_STATUS"
    ss:RefersTo="=NamedValidationRanges!R1C1:R4C1"/>
@@ -234,7 +235,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">http://hl7.org/fhir/Profile/observation-ccdacognitivestatusresult</Data></Cell>
+    <Cell ss:StyleID="s88" ss:HRef="http://hl7.org/fhir/Profile/observation-ccdacognitivestatusresult"><Data
+      ss:Type="String">http://hl7.org/fhir/Profile/observation-ccdacognitivestatusresult</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s71"><Data ss:Type="String">introduction</Data></Cell>
@@ -259,7 +261,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -297,7 +300,7 @@
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="19" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="158.25"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
-   <Row ss:Height="30" ss:StyleID="s74">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Profile Name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -331,7 +334,7 @@
     <Cell><Data ss:Type="String">Display Name</Data></Cell>
     <Cell><Data ss:Type="String">Display notes</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s75"><Data ss:Type="String">CCDACognitiveStatusResult</Data></Cell>
     <Cell><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s76"/>
@@ -353,7 +356,7 @@
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s75"><Data ss:Type="String">AdditionalInterpretationCodes</Data></Cell>
     <Cell><Data ss:Type="String">Observation.extension</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">0..*</Data></Cell>
@@ -374,7 +377,7 @@
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -383,27 +386,27 @@
     <Cell><Data ss:Type="String">Cognitive Function: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
     <Cell><Data ss:Type="String">6.  SHALL contain exactly one [1..1] code (CONF:14591). &#10;a.  This code SHOULD contain zero or one [0..1] @code=&quot;373930000&quot; &#10;Cognitive function finding (CodeSystem: SNOMED-CT &#10;2.16.840.1.113883.6.96) (CONF:14592). </Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">#CognitiveStatusResultCodes</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">10. SHALL contain exactly one [1..1] value (CONF:14263). &#10;a.  If xsi:type=“CD”, SHOULD contain a code from SNOMED CT &#10;(CodeSystem: 2.16.840.1.113883.6.96) (CONF:14271). </Data></Cell>
    </Row>
-   <Row ss:Height="180">
+   <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">7.  SHOULD contain zero or one [0..1] text (CONF:14258). &#10;a.  The text, if present, SHOULD contain zero or one [0..1] &#10;reference/@value (CONF:14259). &#10;i.  This reference/@value SHALL begin with a '#' and SHALL point &#10;to its corresponding narrative (using the approach defined in &#10;CDA Release 2, section 4.3.5.1) (CONF:14260). </Data></Cell>
     <Cell><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">EH:  Should contain a an internal reference?  how  to map this?</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.appliesDateTime</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">9.  SHALL contain exactly one [1..1] effectiveTime (CONF:14261).&#10;</Data></Cell>
     <Cell><Data ss:Type="String">The onset date SHALL be recorded in the low element of the &#10;effectiveTime element when known.&#10;The resolution date SHALL be recorded in the high element of the &#10;effectiveTime element when known. &#10;</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">code</Data></Cell>
@@ -411,23 +414,23 @@
     <Cell ss:Index="14"><Data ss:Type="String">8.  SHALL contain exactly one [1..1] statusCode=&quot;completed&quot; Completed &#10;(CodeSystem: ActStatus 2.16.840.1.113883.5.14) (CONF:14323). </Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">9/27/2014 EH:  mapped to 'final'</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.identifier</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">5.  SHALL contain at least one [1..*] id (CONF:14257). </Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">9/26/2014 EH: constrain to patients</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">14. MAY contain zero or one [0..1] author (CONF:14266). </Data></Cell>
    </Row>
-   <Row ss:Height="409.5">
+   <Row ss:AutoFitHeight="0" ss:Height="409.5">
     <Cell ss:StyleID="s73"/>
     <Cell><Data ss:Type="String">Observation.related</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
@@ -441,6 +444,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -452,7 +456,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -466,11 +470,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -532,7 +534,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="Invariants">
+ <Worksheet ss:Name="CCDACognitiveStatusResult-Inv">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s77" ss:Width="15.75"/>
@@ -552,11 +554,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data><NamedCell ss:Name="INVARIENT_ID"/></Cell>
     <Cell><Data ss:Type="String">additional interpretation codes</Data></Cell>
-    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
-       html:Color="#000000">http://hl7.org/fhir/Profile/observation-ccdacognitivestatusresult#</Font><B><Font
-        html:Color="#000000">AdditionalInterpretationCodes</Font></B></ss:Data></Cell>
-    <Cell><Data ss:Type="String">Can only be valued If observation.interpretation is valued.</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">exists(f:interpretation)</Data></Cell>
+    <Cell><Data ss:Type="String">Observation</Data></Cell>
+    <Cell><Data ss:Type="String">Can't have additional interpretations unless intpretation exists</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">exists(f:interpretation) or not(exists(f:extension[@url='http://hl7.org/fhir/Profile/observation-ccdacognitivestatusresult#AdditionalInterpretationCodes']))</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -570,8 +570,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

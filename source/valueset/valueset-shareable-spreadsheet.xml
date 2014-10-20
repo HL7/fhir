@@ -20,7 +20,7 @@
   <WindowWidth>15270</WindowWidth>
   <WindowTopX>5670</WindowTopX>
   <WindowTopY>6735</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -84,7 +84,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s76" ss:Parent="s63">
+  <Style ss:ID="s75" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -92,7 +92,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -100,10 +100,10 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -333,8 +333,8 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">If for testing purposes, not real usage</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</Data></Cell>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</Data></Cell>
+    <Cell ss:StyleID="s75"/>
     <Cell ss:Index="11"><Data ss:Type="String">Allows filtering of valuesets that are appropriate for use vs. not</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -343,7 +343,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Whether this is intended to be used with an extensible binding</Data></Cell>
     <Cell><Data ss:Type="String">Whether this is intended to be used with an extensible binding or not</Data></Cell>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s75"/>
     <Cell><Data ss:Type="String">It is not required to say whether this intent applies</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -505,8 +505,8 @@
     <Cell ss:Index="2"><Data ss:Type="String">ValueSet.compose.include.filter</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Select codes/concepts by their properties (including relationships)</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.</Data></Cell>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:Index="11"><Data ss:Type="String">Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
@@ -519,8 +519,8 @@
        html:Color="#000000">A property defined by the code system</Font><Font
        html:Face="Arial Unicode MS" x:Family="Swiss" html:Size="10"
        html:Color="#808080"> </Font></ss:Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">A code that identifies a property defined in the code system</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">A code that identifies a property defined in the code system</Data></Cell>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:Index="12"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -529,8 +529,8 @@
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">FilterOperator</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">= | is-a | is-not-a | regex | in | not in</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The kind of operation to perform as a part of the filter criteria</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The kind of operation to perform as a part of the filter criteria</Data></Cell>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:Index="12"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -539,9 +539,9 @@
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">!</Data></Cell>
     <Cell><Data ss:Type="String">Code from the system, or regex criteria</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value</Data></Cell>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:Index="11" ss:StyleID="s79"><Data ss:Type="String">Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:Index="11" ss:StyleID="s77"><Data ss:Type="String">Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -619,7 +619,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -648,13 +647,13 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="Invariants">
+ <Worksheet ss:Name="Definition-Inv">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="10" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s80" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s78" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="162.75"/>
-   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="309.75"/>
-   <Column ss:Index="6" ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="447"/>
+   <Column ss:Index="3" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="162.75"/>
+   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="309.75"/>
+   <Column ss:Index="6" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="447"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s72">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -689,7 +688,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s81"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s79"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell><Data ss:Type="String">SHALL have a code or a display</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:code) or exists(f:display)</Data></Cell>
    </Row>
@@ -720,6 +719,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

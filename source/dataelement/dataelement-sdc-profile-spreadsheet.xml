@@ -188,7 +188,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">StructuredDataCaptureElement</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">SDCElement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">resource</Data></Cell>
@@ -227,16 +227,17 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>10</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="StructuredDataCaptureElement">
+ <Worksheet ss:Name="SDCElement">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=StructuredDataCaptureElement!R1C1:R41C20" ss:Hidden="1"/>
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=SDCElement!R1C1:R41C20"
+    ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="22" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
@@ -901,7 +902,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="Invariants">
+ <Worksheet ss:Name="SDCElement-Inv">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s78" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s78" ss:Width="15.75"/>

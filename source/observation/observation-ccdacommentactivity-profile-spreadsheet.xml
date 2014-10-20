@@ -20,7 +20,7 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>465</WindowTopX>
   <WindowTopY>3360</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -154,7 +154,8 @@
   <NamedRange ss:Name="DISCRIMINATOR"
    ss:RefersTo="=NamedValidationRanges!R1C10:R3C10"/>
   <NamedRange ss:Name="EXAMPLE" ss:RefersTo="=NamedValidationRanges!R1C7:R3C7"/>
-  <NamedRange ss:Name="INVARIENT_ID" ss:RefersTo="=Invariants!R1C1:R30C1"/>
+  <NamedRange ss:Name="INVARIENT_ID"
+   ss:RefersTo="='CCDACommentActivity-Inv'!R1C1:R30C1"/>
   <NamedRange ss:Name="IS_MODIFIER" ss:RefersTo="=NamedValidationRanges!R1C3:R3C3"/>
   <NamedRange ss:Name="METADATA_STATUS"
    ss:RefersTo="=NamedValidationRanges!R1C1:R4C1"/>
@@ -277,7 +278,7 @@
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="19" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="141.75"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="192" ss:Span="1"/>
-   <Row ss:Height="30" ss:StyleID="s74">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s74">
     <Cell><Data ss:Type="String">Profile Name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -311,7 +312,7 @@
     <Cell><Data ss:Type="String">Display Name</Data></Cell>
     <Cell><Data ss:Type="String">Display notes</Data></Cell>
    </Row>
-   <Row ss:Height="75" ss:StyleID="s75">
+   <Row ss:AutoFitHeight="0" ss:Height="75" ss:StyleID="s75">
     <Cell><Data ss:Type="String">CCDACommentActivity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Observation</Data><NamedCell
@@ -336,7 +337,7 @@
     <Cell><Data ss:Type="String">9/28/2014 EH: TODO ???</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -344,14 +345,14 @@
     <Cell ss:Index="12"><Data ss:Type="String">Comment: LOINC 48767-8 = Annotation Comment</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">5.  SHALL contain exactly one [1..1] code=&quot;48767-8&quot; Annotation Comment &#10;(CodeSystem: LOINC 2.16.840.1.113883.6.1) (CONF:9428). &#10;</Data></Cell>
    </Row>
-   <Row ss:Height="195">
+   <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.valueString</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">a.  This text SHALL contain exactly one [1..1] reference (CONF:15967). &#10;i.  This reference SHALL contain exactly one [1..1] @value &#10;(CONF:15968). &#10;1.  This reference/@value SHALL begin with a '#' and SHALL &#10;point to its corresponding narrative (using the &#10;approach defined in CDA Release 2, section 4.3.5.1) &#10;(CONF:15969). </Data></Cell>
     <Cell><Data ss:Type="String">Should contain a an internal reference  TODO : how  to map this?</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">9/28/2014 EH:  TODO  discuss how</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -359,12 +360,12 @@
     <Cell ss:Index="14"><Data ss:Type="String">a.  The author, if present, SHALL contain exactly one [1..1] time &#10;(CONF:9434). </Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">9/28/2014 EH: issued vs applied?</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">constraint to patient</Data></Cell>
    </Row>
-   <Row ss:Height="409.5">
+   <Row ss:AutoFitHeight="0" ss:Height="409.5">
     <Cell ss:Index="2"><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">6.  MAY contain zero or one [0..1] author (CONF:9433). &#10;a.  The author, if present, SHALL contain exactly one [1..1] time &#10;(CONF:9434). &#10;b.  The author, if present, SHALL contain exactly one [1..1] &#10;assignedAuthor (CONF:9435). &#10;i.  This assignedAuthor SHALL contain exactly one [1..1] id &#10;(CONF:9436). &#10;ii.  This assignedAuthor SHALL contain exactly one [1..1] addr &#10;(CONF:9437). &#10;1.  The content of addr SHALL be a conformant US Realm &#10;Address (AD.US.FIELDED) &#10;(2.16.840.1.113883.10.20.22.5.2) (CONF:10480). &#10;iii.  SHALL include assignedPerson/name or &#10;representedOrganization/name (CONF:9438). &#10;iv.  An  assignedPerson/name SHALL be a conformant US Realm &#10;Person Name (PN.US.FIELDED) &#10;(2.16.840.1.113883.10.20.22.5.1.1) (CONF:9439). &#10;9/28/2014 EH: This is all in Provider</Data></Cell>
@@ -376,6 +377,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -383,7 +385,6 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <TabColorIndex>10</TabColorIndex>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -465,7 +466,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="Invariants">
+ <Worksheet ss:Name="CCDACommentActivity-Inv">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s77" ss:Width="15.75"/>
@@ -482,10 +483,10 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">OCL</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">XPath</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="Number">1</Data><NamedCell ss:Name="INVARIENT_ID"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Observation.issued</Data></Cell>
-    <Cell><Data ss:Type="String">SHALL be present if the provider reference is present</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Observation</Data></Cell>
+    <Cell><Data ss:Type="String">Issued SHALL be present if the provider reference is present</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:performer)) or exists(f:issued) </Data></Cell>
    </Row>
   </Table>
@@ -496,10 +497,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
