@@ -143,7 +143,18 @@ Resource Profile (<a href="<%name%>.profile.xml.html">XML</a>, <a href="<%name%>
 <script src="external/jquery/jquery.js"> </script>
 <script src="jquery-ui.min.js"> </script>
 <script>
-$( '#tabs' ).tabs();
+var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+if (!currentTabIndex)
+  currentTabIndex = '0';
+
+$( '#tabs' ).tabs({
+         active: currentTabIndex,
+         activate: function( event, ui ) {
+             var active = $('.selector').tabs('option', 'active');
+             currentTabIndex = ui.newTab.index();
+             sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
+         }
+     });
 </script>
     
 </body>
