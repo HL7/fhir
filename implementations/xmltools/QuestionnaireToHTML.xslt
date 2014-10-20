@@ -37,6 +37,9 @@
   <xsl:param name="saveOnly" select="'false'">
     <!-- If true, the "draft" save will be disabled -->
   </xsl:param>
+  <xsl:param name="suppressWarnings" select="'false'">
+    <!-- If true, warning messages will not be displayed -->
+  </xsl:param>
   <xsl:variable name="htmlNamespace" select="'http://www.w3.org/1999/xhtml'"/>
   <xsl:variable name="phrases">
     <!-- These are words that will be embedded within the generated HTML.  Captured as a variable to allow overriding in downstream transforms -->
@@ -1062,9 +1065,11 @@ function closeCodeSelect() {
         <xsl:when test="$answerType='choice' or $answerType='open-choice'">
           <xsl:choose>
             <xsl:when test="not(f:options/f:reference/@value)">
-              <xsl:message>
-                <xsl:value-of select="concat('WARNING: A question was defined as requiring a coded answer, but no set of allowed values was declared so unable to expose code choices for question: ', f:linkId/@value, ' &quot;', f:text/@value, '&quot;')"/>
-              </xsl:message>
+              <xsl:if test="not($suppressWarnings='true')">
+                <xsl:message>
+                  <xsl:value-of select="concat('WARNING: A question was defined as requiring a coded answer, but no set of allowed values was declared so unable to expose code choices for question: ', f:linkId/@value, ' &quot;', f:text/@value, '&quot;')"/>
+                </xsl:message>
+              </xsl:if>
             </xsl:when>
             <xsl:otherwise>
               <xsl:variable name="valueset">
@@ -1102,9 +1107,11 @@ function closeCodeSelect() {
               </xsl:variable>
               <xsl:choose>
                 <xsl:when test="$codingCount=0 and $operationOutcome!='too-costly'">                
-                  <xsl:message>
-                    <xsl:value-of select="concat('WARNING: Unable to resolve value set reference ', f:options/f:reference/@value, ' so unable to expose code choices for question: ', f:text/@value)"/>
-                  </xsl:message>
+                  <xsl:if test="not($suppressWarnings='true')">
+                    <xsl:message>
+                      <xsl:value-of select="concat('WARNING: Unable to resolve value set reference ', f:options/f:reference/@value, ' so unable to expose code choices for question: ', f:text/@value)"/>
+                    </xsl:message>
+                  </xsl:if>
                 </xsl:when>
                 <xsl:when test="($codingCount&gt;$maxListboxCodings or $operationOutcome='too-costly') and $expansionServer!='' and $jQueryPath!=''">
                   <!-- Lookup -->
@@ -1212,20 +1219,26 @@ function closeCodeSelect() {
           </xsl:choose>
         </xsl:when>
         <xsl:when test="$answerType='reference'">
-          <xsl:message>WARNING: Reference is not yet a supported type - treating as string</xsl:message>
+          <xsl:if test="not($suppressWarnings='true')">
+            <xsl:message>WARNING: Reference is not yet a supported type - treating as string</xsl:message>
+          </xsl:if>
           <input tabindex="text"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:choose>
             <xsl:when test="normalize-space($answerType)=''">
-              <xsl:message>
-                <xsl:value-of select="concat('WARNING: Answer format was not declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>
-              </xsl:message>
+              <xsl:if test="not($suppressWarnings='true')">
+                <xsl:message>
+                  <xsl:value-of select="concat('WARNING: Answer format was not declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>
+                </xsl:message>
+              </xsl:if>
             </xsl:when>
             <xsl:when test="not($answerType='string')">
-              <xsl:message>
-                <xsl:value-of select="concat('WARNING: Unrecognized answer format ', $answerType, ' was declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>
-              </xsl:message>
+              <xsl:if test="not($suppressWarnings='true')">
+                <xsl:message>
+                  <xsl:value-of select="concat('WARNING: Unrecognized answer format ', $answerType, ' was declared for question: ', f:text/@value, '&#x0a;Treating answer as string.')"/>
+                </xsl:message>
+              </xsl:if>
             </xsl:when>
           </xsl:choose>
           <input type="text"/>
@@ -1608,9 +1621,11 @@ function closeCodeSelect() {
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message>
-          <xsl:value-of select="concat('Value set ', f:name/@value, ' is too complex to be expanded by this transform - no codes displayed for question.')"/>
-        </xsl:message>
+        <xsl:if test="not($suppressWarnings='true')">
+          <xsl:message>
+            <xsl:value-of select="concat('WARNING: Value set ', f:name/@value, ' is too complex to be expanded by this transform - no codes displayed for question.')"/>
+          </xsl:message>
+        </xsl:if>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
