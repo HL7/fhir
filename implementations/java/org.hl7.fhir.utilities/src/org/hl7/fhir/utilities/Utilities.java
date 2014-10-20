@@ -276,7 +276,7 @@ public class Utilities {
     StreamSource xsrc = new StreamSource(new ByteArrayInputStream(xslt));
     f.setURIResolver(new ZipURIResolver(files));
     Transformer t = f.newTransformer(xsrc);
-
+ 
     t.setURIResolver(new ZipURIResolver(files));
     StreamSource src = new StreamSource(new ByteArrayInputStream(source));
     ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -307,12 +307,21 @@ public class Utilities {
     
   }
 
-
   public static void saxonTransform(String xsltDir, String source, String xslt, String dest, URIResolver alt) throws Exception {
+  	saxonTransform(xsltDir, source, xslt, dest, alt, null);
+  }
+
+  public static void saxonTransform(String xsltDir, String source, String xslt, String dest, URIResolver alt, Map<String, String> params) throws Exception {
     TransformerFactoryImpl f = new net.sf.saxon.TransformerFactoryImpl();
+    f.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
     StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
     f.setURIResolver(new MyURIResolver(xsltDir, alt));
     Transformer t = f.newTransformer(xsrc);
+ 		if (params != null) {
+ 			for (Map.Entry<String, String> entry : params.entrySet()) {
+ 				t.setParameter(entry.getKey(), entry.getValue());
+ 			}
+  	}
     
     t.setURIResolver(new MyURIResolver(xsltDir, alt));
     StreamSource src = new StreamSource(new FileInputStream(source));

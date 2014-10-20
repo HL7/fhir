@@ -2949,12 +2949,15 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(html, page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml.html");
 
     File tmpTransform = Utilities.createTempFile("tmp", ".html");
+    HashMap<String, String> params = new HashMap<String, String>();
+    params.put("suppressWarnings", "true");
     Utilities.saxonTransform(
           Utilities.path(page.getFolders().rootDir, "implementations", "xmltools"), // directory for xslt references  
           page.getFolders().dstDir + resource.getName().toLowerCase() + ".questionnaire.xml",  // source to run xslt on 
           Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "QuestionnaireToHTML.xslt"), // xslt file to run 
           tmpTransform.getAbsolutePath(), // file to produce
-          this // handle to self to implement URI resolver for terminology fetching
+          this, // handle to self to implement URI resolver for terminology fetching
+          params
     );
        
     // now, generate the form
