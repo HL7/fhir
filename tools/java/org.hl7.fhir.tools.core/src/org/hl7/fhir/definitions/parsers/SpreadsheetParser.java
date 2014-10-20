@@ -269,35 +269,38 @@ public class SpreadsheetParser {
         String name = sheet.getColumn(row, "Name");
         String use = sheet.getColumn(row, "Use"); 
         String doco = sheet.getColumn(row, "Documentation");
-        if (!name.contains(".")) {
-          boolean system = false;
-          boolean type = false;
-          boolean instance = false;
-          for (String c : use.split("\\|")) {
-            c = c.trim();
-            if ("system".equalsIgnoreCase(c))
-              system = true;
-            else if ("resource".equalsIgnoreCase(c))
-              type = true;
-            else if ("instance".equalsIgnoreCase(c))
-              instance = true;
-            else 
-              throw new Exception("unknown operation use code "+c);
-          }
-          root.getOperations().put(name, new Operation(name, system, type, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer")));
-        } else {
-          String[] parts = name.split("\\.");
-          if (!use.equals("in") && !use.equals("out"))
-            throw new Exception("Only allowed types are 'in' or 'out' at "+getLocation(row));
-          Operation operation = root.getOperations().get(parts[0]);
-          if (operation == null)
-            throw new Exception("Unknown Operation '"+parts[0]+"' at "+getLocation(row));
-          String type = sheet.getColumn(row, "Type");
-          String profile = sheet.getColumn(row, "Profile");
-          String min = sheet.getColumn(row, "Min");
-          String max = sheet.getColumn(row, "Max");
-          operation.getParameters().add(new OperationParameter(parts[1], use, doco, Integer.parseInt(min), max, type, profile));
-        }
+				
+				if (name != null && !name.equals("") && !name.startsWith("!")) {
+	        if (!name.contains(".")) {
+	          boolean system = false;
+	          boolean type = false;
+	          boolean instance = false;
+	          for (String c : use.split("\\|")) {
+	            c = c.trim();
+	            if ("system".equalsIgnoreCase(c))
+	              system = true;
+	            else if ("resource".equalsIgnoreCase(c))
+	              type = true;
+	            else if ("instance".equalsIgnoreCase(c))
+	              instance = true;
+	            else 
+	              throw new Exception("unknown operation use code "+c);
+	          }
+	          root.getOperations().put(name, new Operation(name, system, type, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer")));
+	        } else {
+	          String[] parts = name.split("\\.");
+	          if (!use.equals("in") && !use.equals("out"))
+	            throw new Exception("Only allowed types are 'in' or 'out' at "+getLocation(row));
+	          Operation operation = root.getOperations().get(parts[0]);
+	          if (operation == null)
+	            throw new Exception("Unknown Operation '"+parts[0]+"' at "+getLocation(row));
+	          String type = sheet.getColumn(row, "Type");
+	          String profile = sheet.getColumn(row, "Profile");
+	          String min = sheet.getColumn(row, "Min");
+	          String max = sheet.getColumn(row, "Max");
+	          operation.getParameters().add(new OperationParameter(parts[1], use, doco, Integer.parseInt(min), max, type, profile));
+	        }
+	      }
       }
 	  }
 	}
@@ -725,7 +728,7 @@ public class SpreadsheetParser {
 		if (sheet != null) {
 			for (int row = 0; row < sheet.rows.size(); row++) {
 				String name = sheet.getColumn(row, "Name");
-				if (name != null && !name.equals("")) {
+				if (name != null && !name.equals("") && !name.startsWith("!")) {
 				  String id  = sheet.getColumn(row, "Identity");
 					String desc = sheet.getColumn(row, "Description");
 					if (desc == null || desc.equals(""))
@@ -776,7 +779,7 @@ public class SpreadsheetParser {
 		if (sheet != null) {
 			for (int row = 0; row < sheet.rows.size(); row++) {
 				String code = sheet.getColumn(row, "Event Code");
-				if (code != null && !code.equals("")) {
+				if (code != null && !code.equals("") && !code.startsWith("!")) {
 					EventDefn e = new EventDefn();
 					events.add(e);
 					e.setCode(code);
