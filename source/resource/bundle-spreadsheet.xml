@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-10-19T11:30:59Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,6 @@
   <WindowWidth>18480</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -59,16 +58,16 @@
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s67">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
    <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
   </Style>
   <Style ss:ID="s68">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -134,7 +133,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
+    <Cell><Data ss:Type="String">Meta</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:Index="14" ss:StyleID="Default"/>
@@ -142,7 +142,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">base</Data></Cell>
+    <Cell><Data ss:Type="String">Bundle.base</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -168,9 +168,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The total number of matches for the search</Data></Cell>
     <Cell><Data ss:Type="String">The total number of matches for the search</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Only used if the bundle is a search result set</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Only used if the bundle is a search result set</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Bundle.link</Data></Cell>
@@ -181,10 +181,10 @@
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Links related to this Bundle</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">A series of links that provide context to this bundle </Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">A series of links that provide context to this bundle </Data></Cell>
     <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Bundle.link.name</Data></Cell>
@@ -195,10 +195,10 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="10" ss:StyleID="s67"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:Index="10" ss:StyleID="s68"/>
     <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Bundle.link.url</Data></Cell>
@@ -209,10 +209,10 @@
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="10" ss:StyleID="s67"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:Index="10" ss:StyleID="s68"/>
     <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Bundle.item</Data></Cell>
@@ -263,8 +263,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -272,7 +272,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="153"/>
@@ -286,30 +286,6 @@
     <Cell><Data ss:Type="String">English</Data></Cell>
     <Cell><Data ss:Type="String">OCL</Data></Cell>
     <Cell><Data ss:Type="String">XPath</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">No narrative in contained resources</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">If the resource is contained in another resource, it SHALL not contain any narrative</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">not(parent::f:contained and f:text)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">No nested contained resources</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">If the resource is contained in another resource, it SHALL not contain nested Resources</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">not(parent::f:contained and f:contained)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">No contained resources that are not referenced from elsewhere</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">exists(for $id in f:contained/*/@id return $id[not(descendant::f:reference/@value=concat('#', $id))])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
@@ -354,8 +330,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2:R4</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
