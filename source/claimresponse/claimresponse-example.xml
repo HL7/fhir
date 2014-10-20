@@ -21,7 +21,7 @@
 
   <outcome value="complete"/>
   
-  <note value="Claim settled as per contract."/>
+  <disposition value="Claim settled as per contract."/>
 
   <date value="2014-08-16"/>
 

@@ -88,32 +88,9 @@
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s70">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
-  </Style>
   <Style ss:ID="s71">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Interior/>
-  </Style>
-  <Style ss:ID="s72">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s73">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s74">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s75">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
@@ -174,9 +151,13 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s98">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Interior ss:Color="#F8CBAD" ss:Pattern="Solid"/>
+  <Style ss:ID="s119">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -258,115 +239,115 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s119">
     <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.identifier</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Response  number</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Response  number</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">The Response Reference Number</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s72">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.request</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Reference(OralHealthClaim)</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Request</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Original request resource referrence</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">A02|G01</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s119">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.request</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Reference(OralHealthClaim)</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Request</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Original request resource referrence</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">A02|G01</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.requestIdentifier</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Request identifiers</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Original request identifer</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Transaction Reference Number</Data></Cell>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">A02|G01</Data></Cell>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s119">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.requestIdentifier</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Request identifiers</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Original request identifer</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Transaction Reference Number</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">A02|G01</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.outcome</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">RemittanceOutcome</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">complete | error</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Transaction status: error, complete</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s119">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.outcome</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">RemittanceOutcome</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">complete | error</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Transaction status: error, complete</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s72">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.note</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Disposition Message</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">A description of the status of the adjudication.</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s119">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.disposition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Disposition Message</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">A description of the status of the adjudication.</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s65">
     <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.ruleset</Data></Cell>
@@ -420,7 +401,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Date of Service</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Creation date</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The date when the enclosed suite of services were performed or completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -457,7 +438,7 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.requestProvider</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.requestProvider</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -479,7 +460,7 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.requestOrganization</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.requestOrganization</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -566,7 +547,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.noteNumber</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Note Number</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">A list of note references to the notes provided below.</Data></Cell>
@@ -575,7 +556,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">!Response Fields</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.adjudication</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.adjudication</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -596,7 +577,7 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.adjudication.code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.adjudication.code</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -617,14 +598,14 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.adjudication.amount</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.adjudication.amount</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Money</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Monitary amount</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Monitory amount associated with the code</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -638,10 +619,10 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.adjudication.value</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.adjudication.value</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Non-monitory value</Data></Cell>
     <Cell><Data ss:Type="String">A non-monitary value for example a percentage. Mutually exclusive to the amount element above.</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -658,14 +639,14 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">!Additional Charges (lab, expense, materials, components, tax)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=ItemDetail</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">The second tier service adjudications for submitted services.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.sequenceLinkId</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.sequenceLinkId</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Service instance</Data></Cell>
@@ -673,14 +654,14 @@
     <Cell ss:Index="17"><Data ss:Type="String">F07</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.ajudication</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.ajudication</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=DetailAdjudication</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">The adjudications results.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.ajudication.code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.ajudication.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">Adjudication</Data></Cell>
@@ -689,31 +670,31 @@
     <Cell ss:Index="13" ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.ajudication.amount</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.ajudication.amount</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Money</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s71"><Data ss:Type="String">Monitary amount</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Monitory amount associated with the code.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.ajudication.value</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.ajudication.value</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Non-monitory value</Data></Cell>
     <Cell><Data ss:Type="String">A non-monitary value for example a percentage. Mutually exclusive to the amount element above.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s79">
     <Cell ss:StyleID="s82"><Data ss:Type="String">!Additional.Additional Charges (lab, expense, materials, components, tax)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.subdetail</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.subdetail</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=ItemSubdetail</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">The third tier service adjudications for submitted services.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.subdetail.sequenceLinkId</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.subdetail.sequenceLinkId</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Service instance</Data></Cell>
@@ -721,14 +702,14 @@
     <Cell ss:Index="17"><Data ss:Type="String">F07</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.subdetail.ajudication</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.subdetail.ajudication</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=SubdetailAdjudication</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">The adjudications results.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.subdetail.ajudication.code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.subdetail.ajudication.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">Adjudication</Data></Cell>
@@ -737,67 +718,67 @@
     <Cell ss:Index="13" ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.subdetail.ajudication.amount</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.subdetail.ajudication.amount</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Money</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s71"><Data ss:Type="String">Monitary amount</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Monitory amount associated with the code.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.item.detail.subdetail.ajudication.value</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.item.detail.subdetail.ajudication.value</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Non-monitory value</Data></Cell>
     <Cell><Data ss:Type="String">A non-monitary value for example a percentage. Mutually exclusive to the amount element above.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s79">
     <Cell ss:StyleID="s78"><Data ss:Type="String">!Additional Items</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additems</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">=AddedItems</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=AddedItem</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">The first tier service adjudications for payor added services.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additems.ssequenceLinkId</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.ssequenceLinkId</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Service instances</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">List of input service items which this service line is intended to replace.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additems.service</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.service</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">ServiceProduct</Data></Cell>
-    <Cell><Data ss:Type="String">Item code</Data></Cell>
+    <Cell><Data ss:Type="String">Group, Service or Product</Data></Cell>
     <Cell><Data ss:Type="String">A code to indicate the Professional Service or Product supplied.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additems.fee</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.fee</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Money</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Professional fee or Product charge</Data></Cell>
     <Cell><Data ss:Type="String">The fee charged for the professional service or product..</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String" x:Ticked="1">ClaimResponse.additems.noteNumberLinkId</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String" x:Ticked="1">ClaimResponse.additem.noteNumberLinkId</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Note Number</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">A list of note references to the notes provided below.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ClaimResponse.additems.ajudication</Data></Cell>
+    <Cell><Data ss:Type="String">ClaimResponse.additem.ajudication</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AddedItemAdjudication</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">The adjudications results.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additems.ajudication.code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.ajudication.code</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -808,54 +789,54 @@
     <Cell ss:StyleID="s81"><Data ss:Type="String">Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additems.ajudication.amount</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.ajudication.amount</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Money</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Monitary amount</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Monitory amount associated with the code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additems.ajudication.value</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.ajudication.value</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Non-monitory value</Data></Cell>
     <Cell><Data ss:Type="String">A non-monitary value for example a percentage. Mutually exclusive to the amount element above.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.additems.detail</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.detail</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AddedItemsDetail</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">The second tier service adjudications for payor added services.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.additems.detail.service</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.detail.service</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">ServiceProduct</Data></Cell>
-    <Cell><Data ss:Type="String">Item code</Data></Cell>
+    <Cell><Data ss:Type="String">Service or Product</Data></Cell>
     <Cell><Data ss:Type="String">A code to indicate the Professional Service or Product supplied.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.additems.detail.fee</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.detail.fee</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Money</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Professional fee or Product charge</Data></Cell>
     <Cell><Data ss:Type="String">The fee charged for the professional service or product..</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.additems.detail.ajudication</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.detail.ajudication</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AddedItemDetailAdjudication</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">The adjudications results.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.additems.detail.ajudication.code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.detail.ajudication.code</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -866,21 +847,21 @@
     <Cell ss:StyleID="s81"><Data ss:Type="String">Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.additems.detail.ajudication.amount</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.detail.ajudication.amount</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Money</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Monitary amount</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Monitory amount associated with the code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ClaimResponse.additems.detail.ajudication.value</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ClaimResponse.additem.detail.ajudication.value</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">decimal</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Non-monitory value</Data></Cell>
     <Cell><Data ss:Type="String">A non-monitary value for example a percentage. Mutually exclusive to the amount element above.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s79">
@@ -897,21 +878,21 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String" x:Ticked="1">ClaimResponse.error.sequenceLinkId</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Item Instance</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Item sequence number</Data></Cell>
     <Cell><Data ss:Type="String">The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s73"><Data ss:Type="String" x:Ticked="1">ClaimResponse.error.detailSequenceLinkId</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String" x:Ticked="1">ClaimResponse.error.detailSequenceLinkId</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Detail1 Sequence</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Detail sequence number</Data></Cell>
     <Cell><Data ss:Type="String">The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s73"><Data ss:Type="String" x:Ticked="1">ClaimResponse.error.subdetailSequenceLinkId</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String" x:Ticked="1">ClaimResponse.error.subdetailSequenceLinkId</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Detail2 Sequence</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Subdetail sequence number</Data></Cell>
     <Cell><Data ss:Type="String">The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -985,12 +966,12 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Payment identifier</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Payment identifer</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Payment Reference Number</Data></Cell>
+    <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">changed name from number to identifier</Data></Cell>
+    <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
@@ -1211,21 +1192,21 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ClaimResponse.notes</Data></Cell>
+    <Cell><Data ss:Type="String">ClaimResponse.note</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">left</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=Notes</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Note text</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">ClaimResponse.notes.number</Data></Cell>
+    <Cell><Data ss:Type="String">ClaimResponse.note.number</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Note Number</Data></Cell>
     <Cell><Data ss:Type="String">An integer associated with each note which may be referred to from each service line item.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ClaimResponse.notes.type</Data></Cell>
+    <Cell><Data ss:Type="String">ClaimResponse.note.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">NoteType</Data></Cell>
@@ -1233,10 +1214,10 @@
     <Cell><Data ss:Type="String">The note purpose: Print/Display.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ClaimResponse.notes.text</Data></Cell>
+    <Cell><Data ss:Type="String">ClaimResponse.note.text</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Notes text</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Note text</Data></Cell>
     <Cell><Data ss:Type="String">The note text.</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">G32</Data></Cell>
    </Row>
@@ -1257,7 +1238,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>43</TopRowBottomPane>
+   <TopRowBottomPane>73</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1274,8 +1255,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>50</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>76</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
