@@ -81,6 +81,13 @@
   <Style ss:ID="s71">
    <Alignment ss:Vertical="Top"/>
   </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="8" x:FullColumns="1"
@@ -135,7 +142,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Meta</Data></Cell>
+    <Cell><Data ss:Type="String">id</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Metadata about the resource</Data></Cell>
@@ -144,7 +151,7 @@
     <Cell><Data ss:Type="String">The only time that a resource does not have an id is when it is being submitted to the server using a create operation</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Change the type to Meta once it's supported</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="409.5">
     <Cell><Data ss:Type="String">Resource.language</Data></Cell>
@@ -240,9 +247,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -250,6 +257,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -257,8 +265,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
