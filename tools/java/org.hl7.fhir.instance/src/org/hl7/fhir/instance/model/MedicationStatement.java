@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -306,10 +306,10 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -389,10 +389,10 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return this.reasonNotGiven;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #reasonNotGiven} (A code indicating why the medication was not taken.)
      */
+    // syntactic sugar
     public CodeableConcept addReasonNotGiven() { 
       CodeableConcept t = new CodeableConcept();
       this.reasonNotGiven.add(t);
@@ -451,10 +451,10 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return this.device;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #device} (An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
      */
+    // syntactic sugar
     public Reference addDevice() { 
       Reference t = new Reference();
       this.device.add(t);
@@ -485,10 +485,10 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return this.dosage;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #dosage} (Indicates how the medication is/was used by the patient.)
      */
+    // syntactic sugar
     public MedicationStatementDosageComponent addDosage() { 
       MedicationStatementDosageComponent t = new MedicationStatementDosageComponent();
       this.dosage.add(t);

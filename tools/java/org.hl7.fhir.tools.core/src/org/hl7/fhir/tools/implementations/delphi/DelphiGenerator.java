@@ -1581,9 +1581,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       } else {
         defPriv1.append("    F"+getTitle(s)+" : "+tn+";\r\n");
         defPriv2.append("    Procedure Set"+getTitle(s)+"(value : "+tn+");\r\n");
-        defPub.append("    {@member "+s+"\r\n");
-        defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
-        defPub.append("    }\r\n");
         if (simpleTypes.containsKey(tn)) {
           String sn = simpleTypes.get(tn);
           defPriv2.append("    Function Get"+getTitle(s)+"ST : "+sn+";\r\n");
@@ -1592,9 +1589,18 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           defPub.append("      Typed access to "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
           defPub.append("    }\r\n");
           defPub.append("    property "+s+" : "+sn+" read Get"+getTitle(s)+"ST write Set"+getTitle(s)+"ST;\r\n");
+          defPub.append("    {@member "+s+"Element\r\n");
+          defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
+          defPub.append("    }\r\n");
           defPub.append("    property "+s+"Element : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
         } else {
+          defPub.append("    {@member "+s+"\r\n");
+          defPub.append("      Typed access to "+Utilities.normaliseEolns(e.getDefinition())+" (defined for API consistency)\r\n");
+          defPub.append("    }\r\n");
           defPub.append("    property "+s+" : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
+          defPub.append("    {@member "+s+"Element\r\n");
+          defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
+          defPub.append("    }\r\n");
           defPub.append("    property "+s+"Element : "+tn+" read F"+getTitle(s)+" write Set"+getTitle(s)+";\r\n");
         }
       }
@@ -1788,7 +1794,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   private String parseName(String tn) {
-    return tn.startsWith("TFhir") ? tn.substring(5) : tn.substring(1);
+    if (tn.equals("TFhirResource"))
+      return "InnerResource";
+    else
+      return tn.startsWith("TFhir") ? tn.substring(5) : tn.substring(1);
   }
 
   private void defineList(String tn, String tnl, String sn, ClassCategory category, boolean isAbstract) {
@@ -2138,6 +2147,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       pn = "TDateAndTime";
     if (tn.equals("Boolean"))
       pn = "Boolean";
+    if (tn.equals("Base64Binary"))
+      pn = "TBytes";
 
     factoryIntf.append("    {@member new"+tn+"\r\n      create a new "+t.getCode()+"\r\n    }\r\n    {!script nolink}\r\n    function new"+tn+" : TFhir"+tn+";\r\n");
     factoryImpl.append("function TFhirResourceFactory.new"+tn+" : TFhir"+tn+";\r\nbegin\r\n  result := TFhir"+tn+".create;\r\nend;\r\n\r\n");
@@ -2197,7 +2208,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     impl2.append("Destructor TFhir"+tn+".Destroy;\r\n");
     impl2.append("begin\r\n");
     if (!derived) {
-      if (!pn.equals("String") && !pn.equals("Boolean"))
+      if (!pn.equals("String") && !pn.equals("Boolean") && !pn.equals("TBytes"))
         impl2.append("  FValue.free;\r\n");
     }
     impl2.append("  inherited;\r\n");
@@ -2219,7 +2230,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       impl2.append("  inherited;\r\n");
       if (pn.equals("Boolean"))
         impl2.append("  oList.add(TFHIRProperty.create(self, 'value', '"+breakConstant(t.getCode())+"', LCBooleanToString(FValue)));\r\n");
-      else if (!pn.equals("String"))
+      else if (!pn.equals("String") && !pn.equals("TBytes"))
         impl2.append("  oList.add(TFHIRProperty.create(self, 'value', '"+breakConstant(t.getCode())+"', FValue.toString));\r\n");
       else 
         impl2.append("  oList.add(TFHIRProperty.create(self, 'value', '"+breakConstant(t.getCode())+"', FValue));\r\n");
@@ -2229,7 +2240,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       impl2.append("procedure TFhir"+tn+".Assign(oSource : TAdvObject);\r\n");
       impl2.append("begin\r\n");
       impl2.append("  inherited;\r\n");
-      if (!pn.equals("String") && !pn.equals("Boolean")) 
+      if (!pn.equals("String") && !pn.equals("Boolean") && !pn.equals("TBytes")) 
         impl2.append("  FValue := TFhir"+tn+"(oSource).Value.Link;\r\n");
       else 
         impl2.append("  FValue := TFhir"+tn+"(oSource).Value;\r\n");
@@ -2247,7 +2258,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     if (!derived) {
       impl2.append("procedure TFhir"+tn+".setValue(value : "+pn+");\r\n");
       impl2.append("begin\r\n");
-      if (!pn.equals("String") && !pn.equals("Boolean")) 
+      if (!pn.equals("String") && !pn.equals("Boolean") && !pn.equals("TBytes")) 
         impl2.append("  FValue.free;\r\n");
       impl2.append("  FValue := value;\r\n");
       impl2.append("end;\r\n\r\n");
@@ -2854,15 +2865,21 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       types.add(s);
     Collections.sort(types);
 
-    for (String s : types)  {
+    
+    for (int i = 0; i < types.size(); i++)  {
+      String s = types.get(i);
       String s2 = prefix + getTitle(s);
       if (GeneratorUtils.isDelphiReservedWord(s2))
         s2 = s2 + "_";
-      def.append("    "+s2+", {@enum.value "+Utilities.normaliseEolns(definitions.getResourceByName(s).getDefinition())+" }\r\n");
-      con.append("'"+s+"', ");
+      con.append("'"+s);
+      if (i < types.size() - 1) {
+        def.append("    "+s2+", {@enum.value "+Utilities.normaliseEolns(definitions.getResourceByName(s).getDefinition())+" }\r\n");
+        con.append("', ");
+      } else {
+        def.append("    "+s2+"); {@enum.value "+Utilities.normaliseEolns(definitions.getResourceByName(s).getDefinition())+" }\r\n");
+        con.append("');");
+      }
     }
-    def.append("    "+prefix+"Binary); {@enum.value Binary Resource }\r\n");
-    con.append("'Binary');");
 
     def.append("\r\n  TFhirResourceTypeSet = set of TFhirResourceType;");
 
@@ -2871,12 +2888,12 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     for (String s : types) {
       cmp.append(", ''");
     }    
-    cmp.append(", ''),\r\n     ");
+    cmp.append("),\r\n     ");
 
     con.append("\r\n  PLURAL_CODES_TFhirResourceType : Array[TFhirResourceType] of String = (");
     con.append("'', ");
-    for (String s : types) {
-      con.append("'"+Utilities.pluralizeMe(s.toLowerCase())+"',\r\n     ");
+    for (int i = 0; i < types.size(); i++) {
+      String s = types.get(i);
       cmp.append("(''");
       Compartment c = definitions.getCompartmentByName(s.toLowerCase());
       if (c == null) {
@@ -2889,37 +2906,47 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           cmp.append(", '"+p+"'");
         }    
       }
-      cmp.append(", ''),\r\n     ");
+      if (i == types.size() - 1) {
+        cmp.append("));\r\n");
+        con.append("'"+Utilities.pluralizeMe(s.toLowerCase())+"');\r\n     ");
+      } else {
+        cmp.append("),\r\n");
+        con.append("'"+Utilities.pluralizeMe(s.toLowerCase())+"',\r\n     ");
+      }
     }
-    con.append("'binaries');");
-    cmp.append("(''");
-    for (String s : types) {
-      cmp.append(", ''");
-    }    
-    cmp.append(", ''));\r\n");
+  
 
     con.append("\r\n  LOWERCASE_CODES_TFhirResourceType : Array[TFhirResourceType] of String = (");
     con.append("'', ");
-    for (String s : types) {
-      con.append("'"+s.toLowerCase()+"',\r\n     ");
+    for (int i = 0; i < types.size(); i++) {
+      String s = types.get(i);
+      if (i == types.size() - 1) 
+        con.append("'"+s.toLowerCase()+"');\r\n     ");
+      else
+        con.append("'"+s.toLowerCase()+"',\r\n     ");
     }
-    con.append("'binary');");
 
     con.append("\r\n  CLASSES_TFhirResourceType : Array[TFhirResourceType] of TFhirResourceClass = (");
     con.append("nil, ");
-    for (String s : types) {
-      con.append("TFhir"+getTitle(s)+",\r\n     ");
+    for (int i = 0; i < types.size(); i++) {
+      String s = types.get(i);
+      if (i == types.size() - 1)
+        con.append("TFhir"+getTitle(s)+");\r\n     ");
+      else
+        con.append("TFhir"+getTitle(s)+",\r\n     ");
     }
-    con.append("TFhirBinary);");
 
     con.append("\r\n  ALL_RESOURCE_TYPES = [");
-    for (String s : types)  {
+    for (int i = 0; i < types.size(); i++) {
+      String s = types.get(i);
       String s2 = prefix + getTitle(s);
       if (GeneratorUtils.isDelphiReservedWord(s2))
         s2 = s2 + "_";
-      con.append(s2+",\r\n     ");
+      if (i == types.size() - 1)
+        con.append(s2+"];\r\n     ");
+      else
+        con.append(s2+",\r\n     ");
     }
-    con.append("frtBinary];\r\n");
 
 
     defCodeRes.enumDefs.add(def.toString());
@@ -2981,28 +3008,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     def.append("  TFhirResourceClass = class of TFhirResource;\r\n");
     def.append("  \r\n");
     def.append("  \r\n");
-    def.append("  {@Class TFhirBinary : TFhirResource\r\n");
-    def.append("    Special Binary Resource\r\n");
-    def.append("  }\r\n");
-    def.append("  {!.Net HL7Connect.Fhir.Binary}\r\n");
-    def.append("  TFhirBinary = class (TFhirResource)\r\n");
-    types.add("TFhirBinary");
-    def.append("  private\r\n");
-    def.append("    FContent : TAdvBuffer;\r\n");
-    def.append("    FContentType : string;\r\n");
-    def.append("  protected\r\n");
-    def.append("    function GetResourceType : TFhirResourceType; override;\r\n");
-    def.append("    function GetHasASummary : Boolean; override;\r\n");
-    def.append("  public\r\n");
-    def.append("    Constructor Create; Overload; Override;\r\n");
-    def.append("    Destructor Destroy; Override;\r\n");
-    def.append("  published\r\n");
-    def.append("    Property Content : TAdvBuffer read FContent;\r\n");
-    def.append("    Property ContentType : string read FContentType write FContentType;\r\n");
-    def.append("  end;\r\n");
-    def.append("  \r\n");
-
-    def.append("\r\n");
     StringBuilder impl2 = new StringBuilder();
     impl2.append("{ TFhirResource }\r\n\r\n");
     impl2.append("constructor TFhirResource.Create;\r\n");
@@ -3065,28 +3070,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     impl2.append("end;\r\n\r\n");
 
 
-    impl2.append("constructor TFhirBinary.Create;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  inherited;\r\n");
-    impl2.append("  FContent := TAdvBuffer.create;\r\n");
-    impl2.append("end;\r\n");
-    impl2.append("\r\n");
-    impl2.append("destructor TFhirBinary.Destroy;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  FContent.free;\r\n");
-    impl2.append("  inherited;\r\n");
-    impl2.append("end;\r\n");
-    impl2.append("\r\n");    
-    impl2.append("function TFhirBinary.GetResourceType : TFhirResourceType;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  result := frtBinary;\r\n");
-    impl2.append("end;\r\n");
-    impl2.append("\r\n");    
-    impl2.append("function TFhirBinary.GetHasASummary : Boolean;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  result := false;\r\n");
-    impl2.append("end;\r\n");
-    impl2.append("\r\n");    
     defCodeRes.classDefs.add(def.toString());
     defCodeRes.classImpls.add(impl2.toString());
     defCodeRes.classFwds.add("  TFhirResource = class;\r\n");
@@ -3197,8 +3180,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "  if (element = nil) Then\r\n"+
             "    Raise Exception.Create('error - element is nil')\r\n"+
             prsrRegX.toString()+
-            "  else if (element.baseName = 'Binary') Then\r\n"+
-            "    result := ParseBinary(element, path)\r\n"+
             "  else\r\n"+
             "    raise Exception.create('Error: the element '+element.baseName+' is not recognised as a valid resource name');\r\n" +
             "end;\r\n\r\n"
@@ -3211,7 +3192,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "    Raise Exception.Create('error - resource is nil');\r\n"+
             "  Case resource.ResourceType of\r\n"+
             srlsRegX.toString()+
-            "    frtBinary: ComposeBinary(xml, TFhirBinary(resource));\r\n"+
             "  else\r\n"+
             "    raise Exception.create('Internal error: the resource type '+CODES_TFhirResourceType[resource.ResourceType]+' is not a valid resource type');\r\n" +
             "  end;\r\n"+
@@ -3225,8 +3205,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "begin\r\n"+
             "  s := jsn['resourceType'];\r\n "+
             prsrRegJ.toString().substring(6)+
-            "  else if s = 'Binary' Then\r\n"+
-            "    result := ParseBinary(jsn)\r\n"+
             "  else\r\n"+
             "    raise Exception.create('error: the element '+s+' is not a valid resource name');\r\n" +
             "end;\r\n\r\n"
@@ -3236,8 +3214,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "function TFHIRJsonParser.ParseFragment(jsn : TJsonObject; type_ : String) : TFhirElement;\r\n"+
             "begin\r\n  "+
             prsrFragJ.toString().substring(6)+
-            "  else if type_ = 'Binary' Then\r\n"+
-            "    result := ParseBinary(jsn)\r\n"+
             "  else\r\n"+
             "    raise Exception.create('error: the element '+type_+' is not a valid fragment name');\r\n" +
             "end;\r\n\r\n"
@@ -3247,8 +3223,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "function TFHIRXmlParser.ParseFragment(element : IXMLDOMElement) : TFhirElement;\r\n"+
             "begin\r\n  "+
             prsrFragX.toString().substring(6)+
-            "  else if sameText(element.nodeName, 'Binary') Then\r\n"+
-            "    result := ParseBinary(element, element.nodeName)\r\n"+
             "  else\r\n"+
             "    raise Exception.create('error: the element '+element.nodeName+' is not a valid fragment name');\r\n" +
             "end;\r\n\r\n"
@@ -3282,7 +3256,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "  json.value('resourceType', CODES_TFhirResourceType[resource.ResourceType]);\r\n"+
             "  Case resource.ResourceType of\r\n"+
             srlsRegJ.toString()+
-            "    frtBinary: ComposeBinary(json, TFhirBinary(resource));\r\n"+
             "  else\r\n"+
             "    raise Exception.create('Internal error: the resource type '+CODES_TFhirResourceType[resource.ResourceType]+' is not a valid resource type');\r\n" +
             "  end;\r\n"+

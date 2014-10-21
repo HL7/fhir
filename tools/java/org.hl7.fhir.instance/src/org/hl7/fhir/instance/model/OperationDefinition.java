@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -764,10 +764,10 @@ public class OperationDefinition extends Resource {
       return this.telecom;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
+    // syntactic sugar
     public ContactPoint addTelecom() { 
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
@@ -817,10 +817,10 @@ public class OperationDefinition extends Resource {
       return this.code;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #code} (A set of terms from external terminologies that may be used to assist with indexing and searching of templates.)
      */
+    // syntactic sugar
     public Coding addCode() { 
       Coding t = new Coding();
       this.code.add(t);
@@ -1100,10 +1100,10 @@ public class OperationDefinition extends Resource {
       return this.type;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
+    // syntactic sugar
     public CodeType addTypeElement() { 
       CodeType t = new CodeType();
       this.type.add(t);
@@ -1125,7 +1125,7 @@ public class OperationDefinition extends Resource {
      */
     public boolean hasType(String value) { 
       for (CodeType v : this.type)
-        if (v.getValue().equals(value))
+        if (v.equals(value)) // code
           return true;
       return false;
     }
@@ -1169,10 +1169,10 @@ public class OperationDefinition extends Resource {
       return this.parameter;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #parameter} (Parameters for the operation/query.)
      */
+    // syntactic sugar
     public OperationDefinitionParameterComponent addParameter() { 
       OperationDefinitionParameterComponent t = new OperationDefinitionParameterComponent();
       this.parameter.add(t);

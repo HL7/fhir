@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -234,10 +234,10 @@ public class Composition extends Resource {
           return this.mode;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #mode} (The type of attestation the authenticator offers.)
          */
+    // syntactic sugar
         public Enumeration<CompositionAttestationMode> addModeElement() { 
           Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>();
           this.mode.add(t);
@@ -259,7 +259,7 @@ public class Composition extends Resource {
          */
         public boolean hasMode(CompositionAttestationMode value) { 
           for (Enumeration<CompositionAttestationMode> v : this.mode)
-            if (v.getValue().equals(value))
+            if (v.equals(value)) // code
               return true;
           return false;
         }
@@ -383,10 +383,10 @@ public class Composition extends Resource {
           return this.code;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #code} (This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.)
          */
+    // syntactic sugar
         public CodeableConcept addCode() { 
           CodeableConcept t = new CodeableConcept();
           this.code.add(t);
@@ -415,10 +415,10 @@ public class Composition extends Resource {
           return this.detail;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #detail} (Full details for the event(s) the composition/documentation consents.)
          */
+    // syntactic sugar
         public Reference addDetail() { 
           Reference t = new Reference();
           this.detail.add(t);
@@ -863,10 +863,10 @@ public class Composition extends Resource {
       return this.author;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #author} (Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).)
      */
+    // syntactic sugar
     public Reference addAuthor() { 
       Reference t = new Reference();
       this.author.add(t);
@@ -887,10 +887,10 @@ public class Composition extends Resource {
       return this.attester;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #attester} (A participant who has attested to the accuracy of the composition/document.)
      */
+    // syntactic sugar
     public CompositionAttesterComponent addAttester() { 
       CompositionAttesterComponent t = new CompositionAttesterComponent();
       this.attester.add(t);
@@ -934,10 +934,10 @@ public class Composition extends Resource {
       return this.event;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #event} (The clinical service, such as a colonoscopy or an appendectomy, being documented.)
      */
+    // syntactic sugar
     public CompositionEventComponent addEvent() { 
       CompositionEventComponent t = new CompositionEventComponent();
       this.event.add(t);
@@ -981,10 +981,10 @@ public class Composition extends Resource {
       return this.section;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #section} (The root of the sections that make up the composition.)
      */
+    // syntactic sugar
     public SectionComponent addSection() { 
       SectionComponent t = new SectionComponent();
       this.section.add(t);

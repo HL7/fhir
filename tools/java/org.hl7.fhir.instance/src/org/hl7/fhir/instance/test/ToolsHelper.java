@@ -123,7 +123,7 @@ public class ToolsHelper {
 			utils.generateSnapshot(base, derived, address, ae.getResource().getName());
 			client.update(Profile.class, ae.getResource(), parts[1]);
     } else {
-    	throw new Exception("not done yet");
+    	throw new Exception("not done yet (address = "+address+")");
     }
     
 	}

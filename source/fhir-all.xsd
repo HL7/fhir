@@ -30,5 +30,4 @@ Copyright (c) 2011+, HL7, Inc
 -->
 <xs:schema xmlns="http://hl7.org/fhir" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="<%version%>">
 <!--%resources%-->
-  <xs:include schemaLocation="binary.xsd"/>
 </xs:schema>

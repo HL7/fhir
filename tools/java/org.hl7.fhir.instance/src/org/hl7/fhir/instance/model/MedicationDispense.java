@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -416,10 +416,10 @@ public class MedicationDispense extends Resource {
           return this.receiver;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #receiver} (Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.)
          */
+    // syntactic sugar
         public Reference addReceiver() { 
           Reference t = new Reference();
           this.receiver.add(t);
@@ -440,10 +440,10 @@ public class MedicationDispense extends Resource {
           return this.dosage;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #dosage} (Indicates how the medication is to be used by the patient.)
          */
+    // syntactic sugar
         public MedicationDispenseDispenseDosageComponent addDosage() { 
           MedicationDispenseDispenseDosageComponent t = new MedicationDispenseDispenseDosageComponent();
           this.dosage.add(t);
@@ -761,10 +761,10 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return this.reason;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #reason} (Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.)
          */
+    // syntactic sugar
         public CodeableConcept addReason() { 
           CodeableConcept t = new CodeableConcept();
           this.reason.add(t);
@@ -778,10 +778,10 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return this.responsibleParty;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #responsibleParty} (The person or organization that has primary responsibility for the substitution.)
          */
+    // syntactic sugar
         public Reference addResponsibleParty() { 
           Reference t = new Reference();
           this.responsibleParty.add(t);
@@ -1000,10 +1000,10 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return this.authorizingPrescription;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #authorizingPrescription} (Indicates the medication order that is being dispensed against.)
      */
+    // syntactic sugar
     public Reference addAuthorizingPrescription() { 
       Reference t = new Reference();
       this.authorizingPrescription.add(t);
@@ -1034,10 +1034,10 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return this.dispense;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #dispense} (Indicates the details of the dispense event such as the days supply and quantity of medication dispensed.)
      */
+    // syntactic sugar
     public MedicationDispenseDispenseComponent addDispense() { 
       MedicationDispenseDispenseComponent t = new MedicationDispenseDispenseComponent();
       this.dispense.add(t);

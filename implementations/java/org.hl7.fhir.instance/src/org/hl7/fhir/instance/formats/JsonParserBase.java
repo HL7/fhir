@@ -79,7 +79,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
 		if ("Bundle".equals(rt))
       r.setFeed(parseAtom(json));
     else  
-      r.setResource(parseResource(json));
+    r.setResource(parseResource(json));
     return r;    
   }
 
@@ -113,14 +113,14 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     XhtmlParser prsr = new XhtmlParser();
     return prsr.parse(value, "div").getChildNodes().get(0);
   }
-
-  protected Resource parseBinary(JsonObject json) throws Exception {
-    Binary res = new Binary();
-    parseResourceProperties(json, res);
-    res.setContentType(json.get("contentType").getAsString());
-    res.setContent(Base64.decodeBase64(json.get("content").getAsString().getBytes()));
-    return res;
-  }
+//
+//  protected Resource parseBinary(JsonObject json) throws Exception {
+//    Binary res = new Binary();
+//    parseResourceProperties(json, res);
+//    res.setContentType(json.get("contentType").getAsString());
+//    res.setContent(Base64.decodeBase64(json.get("content").getAsString().getBytes()));
+//    return res;
+//  }
 
   private AtomFeed parseAtom(JsonObject json) throws Exception {
     AtomFeed res = new AtomFeed();

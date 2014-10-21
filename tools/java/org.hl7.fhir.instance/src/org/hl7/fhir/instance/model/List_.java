@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -148,10 +148,10 @@ public class List_ extends Resource {
           return this.flag;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #flag} (The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.)
          */
+    // syntactic sugar
         public CodeableConcept addFlag() { 
           CodeableConcept t = new CodeableConcept();
           this.flag.add(t);
@@ -354,10 +354,10 @@ public class List_ extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Identifier for the List assigned for business purposes outside the context of FHIR.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -550,10 +550,10 @@ public class List_ extends Resource {
       return this.entry;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #entry} (Entries in this list.)
      */
+    // syntactic sugar
     public ListEntryComponent addEntry() { 
       ListEntryComponent t = new ListEntryComponent();
       this.entry.add(t);

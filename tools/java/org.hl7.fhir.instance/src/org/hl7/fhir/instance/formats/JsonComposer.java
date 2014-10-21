@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -1277,6 +1277,21 @@ public class JsonComposer extends JsonComposerBase {
       composeDateExtras("created", element.getCreatedElement(), false);
   }
 
+  private void composeBinary(String name, Binary element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeBinaryInner(element);
+    }
+  }
+
+  private void composeBinaryInner(Binary element) throws Exception {
+      composeResourceElements(element);
+      composeCodeCore("contentType", element.getContentTypeElement(), false);
+      composeCodeExtras("contentType", element.getContentTypeElement(), false);
+      composeBase64BinaryCore("content", element.getContentElement(), false);
+      composeBase64BinaryExtras("content", element.getContentElement(), false);
+  }
+
   private void composeCarePlan(String name, CarePlan element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -1436,6 +1451,349 @@ public class JsonComposer extends JsonComposerBase {
       composeQuantity("quantity", element.getQuantity());
       composeStringCore("details", element.getDetailsElement(), false);
       composeStringExtras("details", element.getDetailsElement(), false);
+  }
+
+  private void composeClaimResponse(String name, ClaimResponse element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeClaimResponseInner(element);
+    }
+  }
+
+  private void composeClaimResponseInner(ClaimResponse element) throws Exception {
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeReference("request", element.getRequest());
+      if (element.getRequestIdentifier().size() > 0) {
+        openArray("requestIdentifier");
+        for (Identifier e : element.getRequestIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.getOutcomeElement() != null) {
+        composeEnumerationCore("outcome", element.getOutcomeElement(), new ClaimResponse.RSLinkEnumFactory(), false);
+        composeEnumerationExtras("outcome", element.getOutcomeElement(), new ClaimResponse.RSLinkEnumFactory(), false);
+      }
+      composeStringCore("disposition", element.getDispositionElement(), false);
+      composeStringExtras("disposition", element.getDispositionElement(), false);
+      composeCoding("ruleset", element.getRuleset());
+      composeCoding("originalRuleset", element.getOriginalRuleset());
+      composeDateCore("date", element.getDateElement(), false);
+      composeDateExtras("date", element.getDateElement(), false);
+      composeReference("organization", element.getOrganization());
+      composeReference("requestProvider", element.getRequestProvider());
+      composeReference("requestOrganization", element.getRequestOrganization());
+      composeCoding("payeeType", element.getPayeeType());
+      if (element.getItem().size() > 0) {
+        openArray("item");
+        for (ClaimResponse.ItemsComponent e : element.getItem()) 
+          composeClaimResponseItemsComponent(null, e);
+        closeArray();
+      };
+      if (element.getAdditem().size() > 0) {
+        openArray("additem");
+        for (ClaimResponse.AddedItemComponent e : element.getAdditem()) 
+          composeClaimResponseAddedItemComponent(null, e);
+        closeArray();
+      };
+      if (element.getError().size() > 0) {
+        openArray("error");
+        for (ClaimResponse.ErrorsComponent e : element.getError()) 
+          composeClaimResponseErrorsComponent(null, e);
+        closeArray();
+      };
+      composeMoney("totalCost", element.getTotalCost());
+      composeMoney("unallocDeductable", element.getUnallocDeductable());
+      composeMoney("totalBenefit", element.getTotalBenefit());
+      composeMoney("paymentAdjustment", element.getPaymentAdjustment());
+      composeCoding("paymentAdjustmentReason", element.getPaymentAdjustmentReason());
+      composeDateCore("paymentDate", element.getPaymentDateElement(), false);
+      composeDateExtras("paymentDate", element.getPaymentDateElement(), false);
+      composeMoney("paymentAmount", element.getPaymentAmount());
+      composeIdentifier("paymentRef", element.getPaymentRef());
+      composeCoding("reserved", element.getReserved());
+      composeCoding("form", element.getForm());
+      if (element.getNote().size() > 0) {
+        openArray("note");
+        for (ClaimResponse.NotesComponent e : element.getNote()) 
+          composeClaimResponseNotesComponent(null, e);
+        closeArray();
+      };
+  }
+
+  private void composeClaimResponseItemsComponent(String name, ClaimResponse.ItemsComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseItemsComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseItemsComponentInner(ClaimResponse.ItemsComponent element) throws Exception {
+      composeBackbone(element);
+      composeIntegerCore("sequenceLinkId", element.getSequenceLinkIdElement(), false);
+      composeIntegerExtras("sequenceLinkId", element.getSequenceLinkIdElement(), false);
+      if (element.getNoteNumber().size() > 0) {
+        openArray("noteNumber");
+        for (IntegerType e : element.getNoteNumber()) 
+          composeIntegerCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getNoteNumber())) {
+          openArray("_noteNumber");
+          for (IntegerType e : element.getNoteNumber()) 
+            composeIntegerExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.getAdjudication().size() > 0) {
+        openArray("adjudication");
+        for (ClaimResponse.ItemAdjudicationComponent e : element.getAdjudication()) 
+          composeClaimResponseItemAdjudicationComponent(null, e);
+        closeArray();
+      };
+      if (element.getDetail().size() > 0) {
+        openArray("detail");
+        for (ClaimResponse.ItemDetailComponent e : element.getDetail()) 
+          composeClaimResponseItemDetailComponent(null, e);
+        closeArray();
+      };
+  }
+
+  private void composeClaimResponseItemAdjudicationComponent(String name, ClaimResponse.ItemAdjudicationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseItemAdjudicationComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseItemAdjudicationComponentInner(ClaimResponse.ItemAdjudicationComponent element) throws Exception {
+      composeBackbone(element);
+      composeCoding("code", element.getCode());
+      composeMoney("amount", element.getAmount());
+      composeDecimalCore("value", element.getValueElement(), false);
+      composeDecimalExtras("value", element.getValueElement(), false);
+  }
+
+  private void composeClaimResponseItemDetailComponent(String name, ClaimResponse.ItemDetailComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseItemDetailComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseItemDetailComponentInner(ClaimResponse.ItemDetailComponent element) throws Exception {
+      composeBackbone(element);
+      composeIntegerCore("sequenceLinkId", element.getSequenceLinkIdElement(), false);
+      composeIntegerExtras("sequenceLinkId", element.getSequenceLinkIdElement(), false);
+      if (element.getAdjudication().size() > 0) {
+        openArray("adjudication");
+        for (ClaimResponse.DetailAdjudicationComponent e : element.getAdjudication()) 
+          composeClaimResponseDetailAdjudicationComponent(null, e);
+        closeArray();
+      };
+      if (element.getSubdetail().size() > 0) {
+        openArray("subdetail");
+        for (ClaimResponse.ItemSubdetailComponent e : element.getSubdetail()) 
+          composeClaimResponseItemSubdetailComponent(null, e);
+        closeArray();
+      };
+  }
+
+  private void composeClaimResponseDetailAdjudicationComponent(String name, ClaimResponse.DetailAdjudicationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseDetailAdjudicationComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseDetailAdjudicationComponentInner(ClaimResponse.DetailAdjudicationComponent element) throws Exception {
+      composeBackbone(element);
+      composeCoding("code", element.getCode());
+      composeMoney("amount", element.getAmount());
+      composeDecimalCore("value", element.getValueElement(), false);
+      composeDecimalExtras("value", element.getValueElement(), false);
+  }
+
+  private void composeClaimResponseItemSubdetailComponent(String name, ClaimResponse.ItemSubdetailComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseItemSubdetailComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseItemSubdetailComponentInner(ClaimResponse.ItemSubdetailComponent element) throws Exception {
+      composeBackbone(element);
+      composeIntegerCore("sequenceLinkId", element.getSequenceLinkIdElement(), false);
+      composeIntegerExtras("sequenceLinkId", element.getSequenceLinkIdElement(), false);
+      if (element.getAdjudication().size() > 0) {
+        openArray("adjudication");
+        for (ClaimResponse.SubdetailAdjudicationComponent e : element.getAdjudication()) 
+          composeClaimResponseSubdetailAdjudicationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  private void composeClaimResponseSubdetailAdjudicationComponent(String name, ClaimResponse.SubdetailAdjudicationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseSubdetailAdjudicationComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseSubdetailAdjudicationComponentInner(ClaimResponse.SubdetailAdjudicationComponent element) throws Exception {
+      composeBackbone(element);
+      composeCoding("code", element.getCode());
+      composeMoney("amount", element.getAmount());
+      composeDecimalCore("value", element.getValueElement(), false);
+      composeDecimalExtras("value", element.getValueElement(), false);
+  }
+
+  private void composeClaimResponseAddedItemComponent(String name, ClaimResponse.AddedItemComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseAddedItemComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseAddedItemComponentInner(ClaimResponse.AddedItemComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.getSsequenceLinkId().size() > 0) {
+        openArray("ssequenceLinkId");
+        for (IntegerType e : element.getSsequenceLinkId()) 
+          composeIntegerCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getSsequenceLinkId())) {
+          openArray("_ssequenceLinkId");
+          for (IntegerType e : element.getSsequenceLinkId()) 
+            composeIntegerExtras(null, e, true);
+          closeArray();
+        }
+      };
+      composeCoding("service", element.getService());
+      composeMoney("fee", element.getFee());
+      if (element.getNoteNumberLinkId().size() > 0) {
+        openArray("noteNumberLinkId");
+        for (IntegerType e : element.getNoteNumberLinkId()) 
+          composeIntegerCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getNoteNumberLinkId())) {
+          openArray("_noteNumberLinkId");
+          for (IntegerType e : element.getNoteNumberLinkId()) 
+            composeIntegerExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.getAjudication().size() > 0) {
+        openArray("ajudication");
+        for (ClaimResponse.AddedItemAdjudicationComponent e : element.getAjudication()) 
+          composeClaimResponseAddedItemAdjudicationComponent(null, e);
+        closeArray();
+      };
+      if (element.getDetail().size() > 0) {
+        openArray("detail");
+        for (ClaimResponse.AddedItemsDetailComponent e : element.getDetail()) 
+          composeClaimResponseAddedItemsDetailComponent(null, e);
+        closeArray();
+      };
+  }
+
+  private void composeClaimResponseAddedItemAdjudicationComponent(String name, ClaimResponse.AddedItemAdjudicationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseAddedItemAdjudicationComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseAddedItemAdjudicationComponentInner(ClaimResponse.AddedItemAdjudicationComponent element) throws Exception {
+      composeBackbone(element);
+      composeCoding("code", element.getCode());
+      composeMoney("amount", element.getAmount());
+      composeDecimalCore("value", element.getValueElement(), false);
+      composeDecimalExtras("value", element.getValueElement(), false);
+  }
+
+  private void composeClaimResponseAddedItemsDetailComponent(String name, ClaimResponse.AddedItemsDetailComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseAddedItemsDetailComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseAddedItemsDetailComponentInner(ClaimResponse.AddedItemsDetailComponent element) throws Exception {
+      composeBackbone(element);
+      composeCoding("service", element.getService());
+      composeMoney("fee", element.getFee());
+      if (element.getAjudication().size() > 0) {
+        openArray("ajudication");
+        for (ClaimResponse.AddedItemDetailAdjudicationComponent e : element.getAjudication()) 
+          composeClaimResponseAddedItemDetailAdjudicationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  private void composeClaimResponseAddedItemDetailAdjudicationComponent(String name, ClaimResponse.AddedItemDetailAdjudicationComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseAddedItemDetailAdjudicationComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseAddedItemDetailAdjudicationComponentInner(ClaimResponse.AddedItemDetailAdjudicationComponent element) throws Exception {
+      composeBackbone(element);
+      composeCoding("code", element.getCode());
+      composeMoney("amount", element.getAmount());
+      composeDecimalCore("value", element.getValueElement(), false);
+      composeDecimalExtras("value", element.getValueElement(), false);
+  }
+
+  private void composeClaimResponseErrorsComponent(String name, ClaimResponse.ErrorsComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseErrorsComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseErrorsComponentInner(ClaimResponse.ErrorsComponent element) throws Exception {
+      composeBackbone(element);
+      composeIntegerCore("sequenceLinkId", element.getSequenceLinkIdElement(), false);
+      composeIntegerExtras("sequenceLinkId", element.getSequenceLinkIdElement(), false);
+      composeIntegerCore("detailSequenceLinkId", element.getDetailSequenceLinkIdElement(), false);
+      composeIntegerExtras("detailSequenceLinkId", element.getDetailSequenceLinkIdElement(), false);
+      composeIntegerCore("subdetailSequenceLinkId", element.getSubdetailSequenceLinkIdElement(), false);
+      composeIntegerExtras("subdetailSequenceLinkId", element.getSubdetailSequenceLinkIdElement(), false);
+      composeCoding("code", element.getCode());
+  }
+
+  private void composeClaimResponseNotesComponent(String name, ClaimResponse.NotesComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeClaimResponseNotesComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeClaimResponseNotesComponentInner(ClaimResponse.NotesComponent element) throws Exception {
+      composeBackbone(element);
+      composeIntegerCore("number", element.getNumberElement(), false);
+      composeIntegerExtras("number", element.getNumberElement(), false);
+      composeCoding("type", element.getType());
+      composeStringCore("text", element.getTextElement(), false);
+      composeStringExtras("text", element.getTextElement(), false);
   }
 
   private void composeComposition(String name, Composition element) throws Exception {
@@ -4519,6 +4877,54 @@ public class JsonComposer extends JsonComposerBase {
       };
   }
 
+  private void composeNewBundle(String name, NewBundle element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeNewBundleInner(element);
+    }
+  }
+
+  private void composeNewBundleInner(NewBundle element) throws Exception {
+      composeResourceElements(element);
+      composeUriCore("base", element.getBaseElement(), false);
+      composeUriExtras("base", element.getBaseElement(), false);
+      composeIntegerCore("total", element.getTotalElement(), false);
+      composeIntegerExtras("total", element.getTotalElement(), false);
+      if (element.getLink().size() > 0) {
+        openArray("link");
+        for (NewBundle.NewBundleLinkComponent e : element.getLink()) 
+          composeNewBundleNewBundleLinkComponent(null, e);
+        closeArray();
+      };
+      if (element.getItem().size() > 0) {
+        openArray("item");
+        for (Resource e : element.getItem()) {
+          open(null);
+          composeResource(e);
+          close();
+        }
+        closeArray();
+      };
+      composeBase64BinaryCore("signature", element.getSignatureElement(), false);
+      composeBase64BinaryExtras("signature", element.getSignatureElement(), false);
+  }
+
+  private void composeNewBundleNewBundleLinkComponent(String name, NewBundle.NewBundleLinkComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeNewBundleNewBundleLinkComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeNewBundleNewBundleLinkComponentInner(NewBundle.NewBundleLinkComponent element) throws Exception {
+      composeBackbone(element);
+      composeStringCore("relation", element.getRelationElement(), false);
+      composeStringExtras("relation", element.getRelationElement(), false);
+      composeUriCore("url", element.getUrlElement(), false);
+      composeUriExtras("url", element.getUrlElement(), false);
+  }
+
   private void composeNutritionOrder(String name, NutritionOrder element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -5123,10 +5529,12 @@ public class JsonComposer extends JsonComposerBase {
       composeIntegerExtras("sequence", element.getSequenceElement(), false);
       composeCoding("type", element.getType());
       composeCoding("service", element.getService());
+      composeQuantity("quantity", element.getQuantity());
       composeDateCore("serviceDate", element.getServiceDateElement(), false);
       composeDateExtras("serviceDate", element.getServiceDateElement(), false);
       composeReference("provider", element.getProvider());
       composeMoney("fee", element.getFee());
+      composeMoney("total", element.getTotal());
       composeCoding("udi", element.getUdi());
       composeCoding("bodySite", element.getBodySite());
       if (element.getSubsite().size() > 0) {
@@ -5164,7 +5572,9 @@ public class JsonComposer extends JsonComposerBase {
       composeIntegerExtras("sequence", element.getSequenceElement(), false);
       composeCoding("type", element.getType());
       composeCoding("service", element.getService());
+      composeQuantity("quantity", element.getQuantity());
       composeMoney("fee", element.getFee());
+      composeMoney("total", element.getTotal());
       composeCoding("udi", element.getUdi());
       if (element.getSubDetail().size() > 0) {
         openArray("subDetail");
@@ -5188,7 +5598,9 @@ public class JsonComposer extends JsonComposerBase {
       composeIntegerExtras("sequence", element.getSequenceElement(), false);
       composeCoding("type", element.getType());
       composeCoding("service", element.getService());
+      composeQuantity("quantity", element.getQuantity());
       composeMoney("fee", element.getFee());
+      composeMoney("total", element.getTotal());
       composeCoding("udi", element.getUdi());
   }
 
@@ -7483,8 +7895,12 @@ public class JsonComposer extends JsonComposerBase {
       composeAvailability("Availability", (Availability)resource);
     else if (resource instanceof Basic)
       composeBasic("Basic", (Basic)resource);
+    else if (resource instanceof Binary)
+      composeBinary("Binary", (Binary)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan("CarePlan", (CarePlan)resource);
+    else if (resource instanceof ClaimResponse)
+      composeClaimResponse("ClaimResponse", (ClaimResponse)resource);
     else if (resource instanceof Composition)
       composeComposition("Composition", (Composition)resource);
     else if (resource instanceof ConceptMap)
@@ -7547,6 +7963,8 @@ public class JsonComposer extends JsonComposerBase {
       composeMessageHeader("MessageHeader", (MessageHeader)resource);
     else if (resource instanceof Namespace)
       composeNamespace("Namespace", (Namespace)resource);
+    else if (resource instanceof NewBundle)
+      composeNewBundle("NewBundle", (NewBundle)resource);
     else if (resource instanceof NutritionOrder)
       composeNutritionOrder("NutritionOrder", (NutritionOrder)resource);
     else if (resource instanceof Observation)
@@ -7624,8 +8042,12 @@ public class JsonComposer extends JsonComposerBase {
       composeAvailability(name, (Availability)resource);
     else if (resource instanceof Basic)
       composeBasic(name, (Basic)resource);
+    else if (resource instanceof Binary)
+      composeBinary(name, (Binary)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan(name, (CarePlan)resource);
+    else if (resource instanceof ClaimResponse)
+      composeClaimResponse(name, (ClaimResponse)resource);
     else if (resource instanceof Composition)
       composeComposition(name, (Composition)resource);
     else if (resource instanceof ConceptMap)
@@ -7688,6 +8110,8 @@ public class JsonComposer extends JsonComposerBase {
       composeMessageHeader(name, (MessageHeader)resource);
     else if (resource instanceof Namespace)
       composeNamespace(name, (Namespace)resource);
+    else if (resource instanceof NewBundle)
+      composeNewBundle(name, (NewBundle)resource);
     else if (resource instanceof NutritionOrder)
       composeNutritionOrder(name, (NutritionOrder)resource);
     else if (resource instanceof Observation)

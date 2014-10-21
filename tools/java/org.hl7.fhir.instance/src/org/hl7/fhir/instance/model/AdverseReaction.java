@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -597,10 +597,10 @@ public class AdverseReaction extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (This records identifiers associated with this reaction that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -742,10 +742,10 @@ public class AdverseReaction extends Resource {
       return this.symptom;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #symptom} (The signs and symptoms that were observed as part of the reaction.)
      */
+    // syntactic sugar
     public AdverseReactionSymptomComponent addSymptom() { 
       AdverseReactionSymptomComponent t = new AdverseReactionSymptomComponent();
       this.symptom.add(t);
@@ -759,10 +759,10 @@ public class AdverseReaction extends Resource {
       return this.exposure;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #exposure} (An exposure to a substance that preceded a reaction occurrence.)
      */
+    // syntactic sugar
     public AdverseReactionExposureComponent addExposure() { 
       AdverseReactionExposureComponent t = new AdverseReactionExposureComponent();
       this.exposure.add(t);

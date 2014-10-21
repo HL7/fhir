@@ -75,6 +75,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Binario</translation>
         <translation lang="fr">Binaire</translation>
     </item>
+    <item id="NewBundle">
+      <translation lang="en">NewBundle</translation>
+    </item>
     <item id="CarePlan">
         <translation lang="en">CarePlan</translation>
         <translation lang="zh">护理计划</translation>

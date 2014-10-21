@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -452,10 +452,10 @@ public class Namespace extends Resource {
           return this.telecom;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #telecom} (Identifies the mechanism(s) by which they can be contacted.)
          */
+    // syntactic sugar
         public ContactPoint addTelecom() { 
           ContactPoint t = new ContactPoint();
           this.telecom.add(t);
@@ -814,10 +814,10 @@ public class Namespace extends Resource {
       return this.uniqueId;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #uniqueId} (Indicates how the system may be identified when referenced in electronic exchange.)
      */
+    // syntactic sugar
     public NamespaceUniqueIdComponent addUniqueId() { 
       NamespaceUniqueIdComponent t = new NamespaceUniqueIdComponent();
       this.uniqueId.add(t);

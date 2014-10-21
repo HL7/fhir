@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -383,10 +383,10 @@ public class Procedure extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -445,10 +445,10 @@ public class Procedure extends Resource {
       return this.bodySite;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #bodySite} (Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.)
      */
+    // syntactic sugar
     public CodeableConcept addBodySite() { 
       CodeableConcept t = new CodeableConcept();
       this.bodySite.add(t);
@@ -462,10 +462,10 @@ public class Procedure extends Resource {
       return this.indication;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #indication} (The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.)
      */
+    // syntactic sugar
     public CodeableConcept addIndication() { 
       CodeableConcept t = new CodeableConcept();
       this.indication.add(t);
@@ -479,10 +479,10 @@ public class Procedure extends Resource {
       return this.performer;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #performer} (Limited to 'real' people rather than equipment.)
      */
+    // syntactic sugar
     public ProcedurePerformerComponent addPerformer() { 
       ProcedurePerformerComponent t = new ProcedurePerformerComponent();
       this.performer.add(t);
@@ -577,10 +577,10 @@ public class Procedure extends Resource {
       return this.report;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #report} (This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.)
      */
+    // syntactic sugar
     public Reference addReport() { 
       Reference t = new Reference();
       this.report.add(t);
@@ -611,10 +611,10 @@ public class Procedure extends Resource {
       return this.complication;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #complication} (Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues.)
      */
+    // syntactic sugar
     public CodeableConcept addComplication() { 
       CodeableConcept t = new CodeableConcept();
       this.complication.add(t);
@@ -664,10 +664,10 @@ public class Procedure extends Resource {
       return this.relatedItem;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #relatedItem} (Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure.)
      */
+    // syntactic sugar
     public ProcedureRelatedItemComponent addRelatedItem() { 
       ProcedureRelatedItemComponent t = new ProcedureRelatedItemComponent();
       this.relatedItem.add(t);

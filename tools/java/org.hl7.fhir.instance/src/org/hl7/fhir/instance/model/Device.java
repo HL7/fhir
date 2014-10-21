@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -136,10 +136,10 @@ public class Device extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -474,10 +474,10 @@ public class Device extends Resource {
       return this.contact;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #contact} (Contact details for an organization or a particular human that is responsible for the device.)
      */
+    // syntactic sugar
     public ContactPoint addContact() { 
       ContactPoint t = new ContactPoint();
       this.contact.add(t);

@@ -1032,10 +1032,7 @@ public class SvgGenerator extends BaseGenerator {
           if (!firstP)
             if (prog.breaktext(xml, "|", t))
               return;
-          if (definitions.getFutureResources().containsKey(t))
-            prog.attribute(xml, "title", "This resource is not been defined yet");
-          else
-            prog.attribute(xml, "xlink:href", GeneratorUtils.getSrcFile(t, false) + ".html#" + t);
+          prog.attribute(xml, "xlink:href", GeneratorUtils.getSrcFile(t, false) + ".html#" + t);
           prog.element(xml, "a", t);
           firstP = false;
         }

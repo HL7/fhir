@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1026,10 +1026,10 @@ public class Conformance extends Resource {
           return this.resource;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #resource} (A specification of the restful capabilities of the solution for a specific resource type.)
          */
+    // syntactic sugar
         public ConformanceRestResourceComponent addResource() { 
           ConformanceRestResourceComponent t = new ConformanceRestResourceComponent();
           this.resource.add(t);
@@ -1043,10 +1043,10 @@ public class Conformance extends Resource {
           return this.interaction;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #interaction} (A specification of restful operations supported by the system.)
          */
+    // syntactic sugar
         public SystemInteractionComponent addInteraction() { 
           SystemInteractionComponent t = new SystemInteractionComponent();
           this.interaction.add(t);
@@ -1060,10 +1060,10 @@ public class Conformance extends Resource {
           return this.operation;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #operation} (Definition of an operation or a named query and with its parameters and their meaning and type.)
          */
+    // syntactic sugar
         public ConformanceRestOperationComponent addOperation() { 
           ConformanceRestOperationComponent t = new ConformanceRestOperationComponent();
           this.operation.add(t);
@@ -1077,10 +1077,10 @@ public class Conformance extends Resource {
           return this.documentMailbox;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
          */
+    // syntactic sugar
         public UriType addDocumentMailboxElement() { 
           UriType t = new UriType();
           this.documentMailbox.add(t);
@@ -1102,7 +1102,7 @@ public class Conformance extends Resource {
          */
         public boolean hasDocumentMailbox(String value) { 
           for (UriType v : this.documentMailbox)
-            if (v.getValue().equals(value))
+            if (v.equals(value)) // uri
               return true;
           return false;
         }
@@ -1210,10 +1210,10 @@ public class Conformance extends Resource {
           return this.service;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #service} (Types of security services are supported/required by the system.)
          */
+    // syntactic sugar
         public CodeableConcept addService() { 
           CodeableConcept t = new CodeableConcept();
           this.service.add(t);
@@ -1263,10 +1263,10 @@ public class Conformance extends Resource {
           return this.certificate;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #certificate} (Certificates associated with security profiles.)
          */
+    // syntactic sugar
         public ConformanceRestSecurityCertificateComponent addCertificate() { 
           ConformanceRestSecurityCertificateComponent t = new ConformanceRestSecurityCertificateComponent();
           this.certificate.add(t);
@@ -1521,10 +1521,10 @@ public class Conformance extends Resource {
           return this.interaction;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #interaction} (Identifies a restful operation supported by the solution.)
          */
+    // syntactic sugar
         public ResourceInteractionComponent addInteraction() { 
           ResourceInteractionComponent t = new ResourceInteractionComponent();
           this.interaction.add(t);
@@ -1610,10 +1610,10 @@ public class Conformance extends Resource {
           return this.searchInclude;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #searchInclude} (A list of _include values supported by the server.)
          */
+    // syntactic sugar
         public StringType addSearchIncludeElement() { 
           StringType t = new StringType();
           this.searchInclude.add(t);
@@ -1635,7 +1635,7 @@ public class Conformance extends Resource {
          */
         public boolean hasSearchInclude(String value) { 
           for (StringType v : this.searchInclude)
-            if (v.getValue().equals(value))
+            if (v.equals(value)) // string
               return true;
           return false;
         }
@@ -1647,10 +1647,10 @@ public class Conformance extends Resource {
           return this.searchParam;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #searchParam} (Additional search parameters for implementations to support and/or make use of.)
          */
+    // syntactic sugar
         public ConformanceRestResourceSearchParamComponent addSearchParam() { 
           ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
           this.searchParam.add(t);
@@ -1979,10 +1979,10 @@ public class Conformance extends Resource {
           return this.target;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #target} (Types of resource (if a resource is referenced).)
          */
+    // syntactic sugar
         public CodeType addTargetElement() { 
           CodeType t = new CodeType();
           this.target.add(t);
@@ -2004,7 +2004,7 @@ public class Conformance extends Resource {
          */
         public boolean hasTarget(String value) { 
           for (CodeType v : this.target)
-            if (v.getValue().equals(value))
+            if (v.equals(value)) // code
               return true;
           return false;
         }
@@ -2016,10 +2016,10 @@ public class Conformance extends Resource {
           return this.chain;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #chain} (Chained names supported.)
          */
+    // syntactic sugar
         public StringType addChainElement() { 
           StringType t = new StringType();
           this.chain.add(t);
@@ -2041,7 +2041,7 @@ public class Conformance extends Resource {
          */
         public boolean hasChain(String value) { 
           for (StringType v : this.chain)
-            if (v.getValue().equals(value))
+            if (v.equals(value)) // string
               return true;
           return false;
         }
@@ -2425,10 +2425,10 @@ public class Conformance extends Resource {
           return this.event;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #event} (A description of the solution's support for an event at this end point.)
          */
+    // syntactic sugar
         public ConformanceMessagingEventComponent addEvent() { 
           ConformanceMessagingEventComponent t = new ConformanceMessagingEventComponent();
           this.event.add(t);
@@ -2612,10 +2612,10 @@ public class Conformance extends Resource {
           return this.protocol;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #protocol} (A list of the messaging transport protocol(s) identifiers, supported by this endpoint.)
          */
+    // syntactic sugar
         public Coding addProtocol() { 
           Coding t = new Coding();
           this.protocol.add(t);
@@ -3183,10 +3183,10 @@ public class Conformance extends Resource {
       return this.telecom;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #telecom} (Contacts for Organization relevant to this conformance statement.  The contacts may be a website, email, phone numbers, etc.)
      */
+    // syntactic sugar
     public ContactPoint addTelecom() { 
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
@@ -3434,10 +3434,10 @@ public class Conformance extends Resource {
       return this.format;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #format} (A list of the formats supported by this implementation.)
      */
+    // syntactic sugar
     public CodeType addFormatElement() { 
       CodeType t = new CodeType();
       this.format.add(t);
@@ -3459,7 +3459,7 @@ public class Conformance extends Resource {
      */
     public boolean hasFormat(String value) { 
       for (CodeType v : this.format)
-        if (v.getValue().equals(value))
+        if (v.equals(value)) // code
           return true;
       return false;
     }
@@ -3471,10 +3471,10 @@ public class Conformance extends Resource {
       return this.profile;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #profile} (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
+    // syntactic sugar
     public Reference addProfile() { 
       Reference t = new Reference();
       this.profile.add(t);
@@ -3505,10 +3505,10 @@ public class Conformance extends Resource {
       return this.rest;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #rest} (A definition of the restful capabilities of the solution, if any.)
      */
+    // syntactic sugar
     public ConformanceRestComponent addRest() { 
       ConformanceRestComponent t = new ConformanceRestComponent();
       this.rest.add(t);
@@ -3522,10 +3522,10 @@ public class Conformance extends Resource {
       return this.messaging;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #messaging} (A description of the messaging capabilities of the solution.)
      */
+    // syntactic sugar
     public ConformanceMessagingComponent addMessaging() { 
       ConformanceMessagingComponent t = new ConformanceMessagingComponent();
       this.messaging.add(t);
@@ -3539,10 +3539,10 @@ public class Conformance extends Resource {
       return this.document;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #document} (A document definition.)
      */
+    // syntactic sugar
     public ConformanceDocumentComponent addDocument() { 
       ConformanceDocumentComponent t = new ConformanceDocumentComponent();
       this.document.add(t);

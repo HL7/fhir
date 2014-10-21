@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -617,10 +617,10 @@ public class CarePlan extends Resource {
           return this.concern;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #concern} (The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.)
          */
+    // syntactic sugar
         public Reference addConcern() { 
           Reference t = new Reference();
           this.concern.add(t);
@@ -729,10 +729,10 @@ public class CarePlan extends Resource {
           return this.goal;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
          */
+    // syntactic sugar
         public StringType addGoalElement() { 
           StringType t = new StringType();
           this.goal.add(t);
@@ -754,7 +754,7 @@ public class CarePlan extends Resource {
          */
         public boolean hasGoal(String value) { 
           for (StringType v : this.goal)
-            if (v.getValue().equals(value))
+            if (v.equals(value)) // idref
               return true;
           return false;
         }
@@ -834,10 +834,10 @@ public class CarePlan extends Resource {
           return this.actionResulting;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #actionResulting} (Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.)
          */
+    // syntactic sugar
         public Reference addActionResulting() { 
           Reference t = new Reference();
           this.actionResulting.add(t);
@@ -1132,10 +1132,10 @@ public class CarePlan extends Resource {
           return this.performer;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #performer} (Identifies who's expected to be involved in the activity.)
          */
+    // syntactic sugar
         public Reference addPerformer() { 
           Reference t = new Reference();
           this.performer.add(t);
@@ -1354,10 +1354,10 @@ public class CarePlan extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -1484,10 +1484,10 @@ public class CarePlan extends Resource {
       return this.concern;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #concern} (Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.)
      */
+    // syntactic sugar
     public Reference addConcern() { 
       Reference t = new Reference();
       this.concern.add(t);
@@ -1518,10 +1518,10 @@ public class CarePlan extends Resource {
       return this.participant;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #participant} (Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.)
      */
+    // syntactic sugar
     public CarePlanParticipantComponent addParticipant() { 
       CarePlanParticipantComponent t = new CarePlanParticipantComponent();
       this.participant.add(t);
@@ -1535,10 +1535,10 @@ public class CarePlan extends Resource {
       return this.goal;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #goal} (Describes the intended objective(s) of carrying out the Care Plan.)
      */
+    // syntactic sugar
     public CarePlanGoalComponent addGoal() { 
       CarePlanGoalComponent t = new CarePlanGoalComponent();
       this.goal.add(t);
@@ -1552,10 +1552,10 @@ public class CarePlan extends Resource {
       return this.activity;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #activity} (Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
      */
+    // syntactic sugar
     public CarePlanActivityComponent addActivity() { 
       CarePlanActivityComponent t = new CarePlanActivityComponent();
       this.activity.add(t);

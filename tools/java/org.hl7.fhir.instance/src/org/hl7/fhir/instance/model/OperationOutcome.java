@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -236,10 +236,10 @@ public class OperationOutcome extends Resource {
           return this.location;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
+    // syntactic sugar
         public StringType addLocationElement() { 
           StringType t = new StringType();
           this.location.add(t);
@@ -261,7 +261,7 @@ public class OperationOutcome extends Resource {
          */
         public boolean hasLocation(String value) { 
           for (StringType v : this.location)
-            if (v.getValue().equals(value))
+            if (v.equals(value)) // string
               return true;
           return false;
         }
@@ -305,10 +305,10 @@ public class OperationOutcome extends Resource {
       return this.issue;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #issue} (An error, warning or information message that results from a system action.)
      */
+    // syntactic sugar
     public OperationOutcomeIssueComponent addIssue() { 
       OperationOutcomeIssueComponent t = new OperationOutcomeIssueComponent();
       this.issue.add(t);

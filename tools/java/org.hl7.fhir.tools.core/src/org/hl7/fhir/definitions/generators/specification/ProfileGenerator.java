@@ -847,7 +847,7 @@ public class ProfileGenerator {
         makeExtensionSlice("modifierExtension", pd, p, c, e, path);
 
         if (!path.contains(".")) {
-          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseReference().getRoot().getElementByName("language")));
+          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseReferenceBase().getRoot().getElementByName("language")));
           c.getElement().add(createBaseDefinition(p, path, definitions.getBaseReference().getRoot().getElementByName("text")));
           c.getElement().add(createBaseDefinition(p, path, definitions.getBaseReference().getRoot().getElementByName("contained")));
         }

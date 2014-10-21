@@ -9,6 +9,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.tools.publisher.PageProcessor;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
@@ -105,9 +106,9 @@ public class ProfileTableGenerator extends TableGenerator {
 //    else
 //      r.getCells().add(gen.new Cell());
     if (root)
-      r.getCells().add(gen.new Cell(null, null, ext.getDefinition().getShortDefn(), null, null).addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null)));
+      r.getCells().add(gen.new Cell(Utilities.isURL(ext.getDefinition().getShortDefn()) ? ext.getDefinition().getShortDefn() : null, null, ext.getDefinition().getShortDefn(), null, null).addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null)));
     else
-      r.getCells().add(gen.new Cell(null, null, ext.getDefinition().getShortDefn(), null, null));
+      r.getCells().add(gen.new Cell(Utilities.isURL(ext.getDefinition().getShortDefn()) ? ext.getDefinition().getShortDefn() : null, null, ext.getDefinition().getShortDefn(), null, null));
     for (ExtensionDefn child : ext.getChildren()) {
       genExtension(gen, r.getSubRows(), child, false);
     }

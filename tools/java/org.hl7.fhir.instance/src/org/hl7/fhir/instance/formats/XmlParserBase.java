@@ -230,21 +230,21 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
   }
 
 
-
-  protected Resource parseBinary(XmlPullParser xpp) throws Exception {
-    Binary res = new Binary();
-    parseElementAttributes(xpp, res);
-    res.setContentType(xpp.getAttributeValue(null, "contentType"));
-    int eventType = next(xpp);
-    if (eventType == XmlPullParser.TEXT) {
-      res.setContent(Base64.decodeBase64(xpp.getText().getBytes()));
-      eventType = next(xpp);
-    }
-    if (eventType != XmlPullParser.END_TAG)
-      throw new Exception("Bad String Structure");
-    next(xpp);
-    return res;
-  }
+//
+//  protected Resource parseBinary(XmlPullParser xpp) throws Exception {
+//    Binary res = new Binary();
+//    parseElementAttributes(xpp, res);
+//    res.setContentType(xpp.getAttributeValue(null, "contentType"));
+//    int eventType = next(xpp);
+//    if (eventType == XmlPullParser.TEXT) {
+//      res.setContent(Base64.decodeBase64(xpp.getText().getBytes()));
+//      eventType = next(xpp);
+//    }
+//    if (eventType != XmlPullParser.END_TAG)
+//      throw new Exception("Bad String Structure");
+//    next(xpp);
+//    return res;
+//  }
 
   private AtomFeed parseFeed(XmlPullParser xpp) throws Exception {
     if (!(xpp.getNamespace().equals(ATOM_NS) || (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("TagList"))))

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -264,10 +264,10 @@ public class HumanName extends Type {
       return this.family;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
+    // syntactic sugar
     public StringType addFamilyElement() { 
       StringType t = new StringType();
       this.family.add(t);
@@ -289,7 +289,7 @@ public class HumanName extends Type {
      */
     public boolean hasFamily(String value) { 
       for (StringType v : this.family)
-        if (v.getValue().equals(value))
+        if (v.equals(value)) // string
           return true;
       return false;
     }
@@ -301,10 +301,10 @@ public class HumanName extends Type {
       return this.given;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #given} (Given name.)
      */
+    // syntactic sugar
     public StringType addGivenElement() { 
       StringType t = new StringType();
       this.given.add(t);
@@ -326,7 +326,7 @@ public class HumanName extends Type {
      */
     public boolean hasGiven(String value) { 
       for (StringType v : this.given)
-        if (v.getValue().equals(value))
+        if (v.equals(value)) // string
           return true;
       return false;
     }
@@ -338,10 +338,10 @@ public class HumanName extends Type {
       return this.prefix;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
+    // syntactic sugar
     public StringType addPrefixElement() { 
       StringType t = new StringType();
       this.prefix.add(t);
@@ -363,7 +363,7 @@ public class HumanName extends Type {
      */
     public boolean hasPrefix(String value) { 
       for (StringType v : this.prefix)
-        if (v.getValue().equals(value))
+        if (v.equals(value)) // string
           return true;
       return false;
     }
@@ -375,10 +375,10 @@ public class HumanName extends Type {
       return this.suffix;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
+    // syntactic sugar
     public StringType addSuffixElement() { 
       StringType t = new StringType();
       this.suffix.add(t);
@@ -400,7 +400,7 @@ public class HumanName extends Type {
      */
     public boolean hasSuffix(String value) { 
       for (StringType v : this.suffix)
-        if (v.getValue().equals(value))
+        if (v.equals(value)) // string
           return true;
       return false;
     }

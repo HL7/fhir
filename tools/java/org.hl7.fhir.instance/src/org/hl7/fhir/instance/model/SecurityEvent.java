@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -889,10 +889,10 @@ public class SecurityEvent extends Resource {
           return this.subtype;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #subtype} (Identifier for the category of event.)
          */
+    // syntactic sugar
         public CodeableConcept addSubtype() { 
           CodeableConcept t = new CodeableConcept();
           this.subtype.add(t);
@@ -1128,10 +1128,10 @@ public class SecurityEvent extends Resource {
           return this.role;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.)
          */
+    // syntactic sugar
         public CodeableConcept addRole() { 
           CodeableConcept t = new CodeableConcept();
           this.role.add(t);
@@ -1573,10 +1573,10 @@ public class SecurityEvent extends Resource {
           return this.type;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #type} (Code specifying the type of source where event originated.)
          */
+    // syntactic sugar
         public Coding addType() { 
           Coding t = new Coding();
           this.type.add(t);
@@ -1947,10 +1947,10 @@ public class SecurityEvent extends Resource {
           return this.detail;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #detail} (Additional Information about the Object.)
          */
+    // syntactic sugar
         public SecurityEventObjectDetailComponent addDetail() { 
           SecurityEventObjectDetailComponent t = new SecurityEventObjectDetailComponent();
           this.detail.add(t);
@@ -2146,10 +2146,10 @@ public class SecurityEvent extends Resource {
       return this.participant;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #participant} (A person, a hardware device or software process.)
      */
+    // syntactic sugar
     public SecurityEventParticipantComponent addParticipant() { 
       SecurityEventParticipantComponent t = new SecurityEventParticipantComponent();
       this.participant.add(t);
@@ -2178,10 +2178,10 @@ public class SecurityEvent extends Resource {
       return this.object;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #object} (Specific instances of data or objects that have been accessed.)
      */
+    // syntactic sugar
     public SecurityEventObjectComponent addObject() { 
       SecurityEventObjectComponent t = new SecurityEventObjectComponent();
       this.object.add(t);

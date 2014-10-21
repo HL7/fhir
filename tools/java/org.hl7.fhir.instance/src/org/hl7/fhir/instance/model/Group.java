@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -472,10 +472,10 @@ public class Group extends Resource {
       return this.characteristic;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #characteristic} (Identifies the traits shared by members of the group.)
      */
+    // syntactic sugar
     public GroupCharacteristicComponent addCharacteristic() { 
       GroupCharacteristicComponent t = new GroupCharacteristicComponent();
       this.characteristic.add(t);
@@ -489,10 +489,10 @@ public class Group extends Resource {
       return this.member;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #member} (Identifies the resource instances that are members of the group.)
      */
+    // syntactic sugar
     public Reference addMember() { 
       Reference t = new Reference();
       this.member.add(t);

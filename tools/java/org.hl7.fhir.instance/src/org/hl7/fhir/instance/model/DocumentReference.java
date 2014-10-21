@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -370,10 +370,10 @@ public class DocumentReference extends Resource {
           return this.parameter;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #parameter} (A list of named parameters that is used in the service call.)
          */
+    // syntactic sugar
         public DocumentReferenceServiceParameterComponent addParameter() { 
           DocumentReferenceServiceParameterComponent t = new DocumentReferenceServiceParameterComponent();
           this.parameter.add(t);
@@ -533,10 +533,10 @@ public class DocumentReference extends Resource {
           return this.event;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #event} (This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.)
          */
+    // syntactic sugar
         public CodeableConcept addEvent() { 
           CodeableConcept t = new CodeableConcept();
           this.event.add(t);
@@ -770,10 +770,10 @@ public class DocumentReference extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Other identifiers associated with the document, including version independent, source record and workflow related identifiers.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -847,10 +847,10 @@ public class DocumentReference extends Resource {
       return this.author;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
      */
+    // syntactic sugar
     public Reference addAuthor() { 
       Reference t = new Reference();
       this.author.add(t);
@@ -1082,10 +1082,10 @@ public class DocumentReference extends Resource {
       return this.relatesTo;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #relatesTo} (Relationships that this document has with other document references that already exist.)
      */
+    // syntactic sugar
     public DocumentReferenceRelatesToComponent addRelatesTo() { 
       DocumentReferenceRelatesToComponent t = new DocumentReferenceRelatesToComponent();
       this.relatesTo.add(t);
@@ -1135,10 +1135,10 @@ public class DocumentReference extends Resource {
       return this.confidentiality;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #confidentiality} (A code specifying the level of confidentiality of the XDS Document.)
      */
+    // syntactic sugar
     public CodeableConcept addConfidentiality() { 
       CodeableConcept t = new CodeableConcept();
       this.confidentiality.add(t);
@@ -1220,10 +1220,10 @@ public class DocumentReference extends Resource {
       return this.format;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
+    // syntactic sugar
     public UriType addFormatElement() { 
       UriType t = new UriType();
       this.format.add(t);
@@ -1245,7 +1245,7 @@ public class DocumentReference extends Resource {
      */
     public boolean hasFormat(String value) { 
       for (UriType v : this.format)
-        if (v.getValue().equals(value))
+        if (v.equals(value)) // uri
           return true;
       return false;
     }

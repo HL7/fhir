@@ -280,6 +280,8 @@ public class EPubManager implements FileNotifier {
         reportError(msg);      
       }
     }
+    if (node.getAttributes().containsKey("id"))
+      e.anchors.add(node.getAttribute("id"));
     for (XhtmlNode child : node.getChildNodes())
       checkAnchors(child, e);    
   }
@@ -316,7 +318,7 @@ public class EPubManager implements FileNotifier {
       if (href.endsWith("qa.html") || href.endsWith(".epub.zip")) 
         return;
       String target = collapse(base, path);
-      if (target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".xsd") || target.endsWith(".zip") || target.endsWith(".txt") || target.endsWith(".sch") || target.endsWith(".pdf") || target.endsWith(".epub")) {
+      if (target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".xsd") || target.endsWith(".zip") || target.endsWith(".txt") || target.endsWith(".xls") || target.endsWith(".sch") || target.endsWith(".pdf") || target.endsWith(".epub")) {
         if (!(new File(Utilities.path(page.getFolders().dstDir, target)).exists()))
           reportError("Broken Link in "+base+": '"+href+"' not found at \""+Utilities.path(page.getFolders().dstDir, target)+"\" ("+node.allText()+")");
         node.setAttribute("href", "http://hl7.org/fhir/"+target.replace(File.separatorChar, '/'));
@@ -333,7 +335,10 @@ public class EPubManager implements FileNotifier {
       }
     } else 
       e = getEntryForFile(base);
-    if (!Utilities.noString(anchor)) {
+    if (Utilities.noString(anchor)) {
+//      if (e == null) - need to enable this an fix everything it finds
+//        reportError("Broken Link in "+base+": '"+href+"' anchor not found ("+node.allText()+")");
+    } else {
       if (e!= null) {
         if (!e.checked)
           check(e);

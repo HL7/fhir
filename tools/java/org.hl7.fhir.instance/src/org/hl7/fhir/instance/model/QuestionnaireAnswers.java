@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -291,10 +291,10 @@ public class QuestionnaireAnswers extends Resource {
           return this.group;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #group} (A sub-group within a group. The ordering of groups within this group is relevant.)
          */
+    // syntactic sugar
         public GroupComponent addGroup() { 
           GroupComponent t = new GroupComponent();
           this.group.add(t);
@@ -308,10 +308,10 @@ public class QuestionnaireAnswers extends Resource {
           return this.question;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #question} (Set of questions within this group. The order of questions within the group is relevant.)
          */
+    // syntactic sugar
         public QuestionComponent addQuestion() { 
           QuestionComponent t = new QuestionComponent();
           this.question.add(t);
@@ -451,10 +451,10 @@ public class QuestionnaireAnswers extends Resource {
           return this.answer;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #answer} (The respondent's answer(s) to the question.)
          */
+    // syntactic sugar
         public QuestionAnswerComponent addAnswer() { 
           QuestionAnswerComponent t = new QuestionAnswerComponent();
           this.answer.add(t);
@@ -468,10 +468,10 @@ public class QuestionnaireAnswers extends Resource {
           return this.group;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
          */
+    // syntactic sugar
         public GroupComponent addGroup() { 
           GroupComponent t = new GroupComponent();
           this.group.add(t);

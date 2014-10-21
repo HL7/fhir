@@ -2814,7 +2814,8 @@ public class Publisher implements URIResolver {
     // because we'll pick up a little more information as we process the
     // resource
     Profile p = generateProfile(resource, n, xml);
-    generateQuestionnaire(n, p);
+    if (n.equals("Bundle"))
+      generateQuestionnaire(n, p);
   }
 
   private void produceOperation(ResourceDefn r, Operation op) throws Exception {

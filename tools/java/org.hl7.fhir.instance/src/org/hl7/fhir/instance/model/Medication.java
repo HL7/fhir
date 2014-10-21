@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -133,10 +133,10 @@ public class Medication extends Resource {
           return this.ingredient;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #ingredient} (Identifies a particular constituent of interest in the product.)
          */
+    // syntactic sugar
         public MedicationProductIngredientComponent addIngredient() { 
           MedicationProductIngredientComponent t = new MedicationProductIngredientComponent();
           this.ingredient.add(t);
@@ -286,10 +286,10 @@ public class Medication extends Resource {
           return this.content;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #content} (A set of components that go to make up the described item.)
          */
+    // syntactic sugar
         public MedicationPackageContentComponent addContent() { 
           MedicationPackageContentComponent t = new MedicationPackageContentComponent();
           this.content.add(t);

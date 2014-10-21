@@ -637,5 +637,10 @@ public class Utilities {
   public static String makeUuidUrn() {
     return "urn:uuid:"+UUID.randomUUID().toString().toLowerCase();
   }
-  
+
+  public static boolean isURL(String s) {
+    boolean ok = s.matches("^http(s{0,1})://[a-zA-Z0-9_/\\-\\.]+\\.([A-Za-z/]{2,5})[a-zA-Z0-9_/\\&\\?\\=\\-\\.\\~\\%]*");
+    return ok;
+ }
+
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -475,10 +475,10 @@ public class Supply extends Resource {
           return this.receiver;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #receiver} (Identifies the person who picked up the Supply.)
          */
+    // syntactic sugar
         public Reference addReceiver() { 
           Reference t = new Reference();
           this.receiver.add(t);
@@ -714,10 +714,10 @@ public class Supply extends Resource {
       return this.dispense;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #dispense} (Indicates the details of the dispense event such as the days supply and quantity of a supply dispensed.)
      */
+    // syntactic sugar
     public SupplyDispenseComponent addDispense() { 
       SupplyDispenseComponent t = new SupplyDispenseComponent();
       this.dispense.add(t);

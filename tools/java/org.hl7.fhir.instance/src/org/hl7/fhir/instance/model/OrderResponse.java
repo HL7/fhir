@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -238,10 +238,10 @@ public class OrderResponse extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -434,10 +434,10 @@ public class OrderResponse extends Resource {
       return this.fulfillment;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #fulfillment} (Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
      */
+    // syntactic sugar
     public Reference addFulfillment() { 
       Reference t = new Reference();
       this.fulfillment.add(t);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -737,10 +737,10 @@ In some situations, this attribute may be used instead of quantity to identify t
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -961,10 +961,10 @@ In some situations, this attribute may be used instead of quantity to identify t
       return this.dosageInstruction;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #dosageInstruction} (Indicates how the medication is to be used by the patient.)
      */
+    // syntactic sugar
     public MedicationPrescriptionDosageInstructionComponent addDosageInstruction() { 
       MedicationPrescriptionDosageInstructionComponent t = new MedicationPrescriptionDosageInstructionComponent();
       this.dosageInstruction.add(t);

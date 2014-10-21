@@ -1,5 +1,7 @@
 package org.hl7.fhir.instance.model;
 
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
+
 public enum ResourceType {
     Condition,
     Supply,
@@ -22,6 +24,7 @@ public enum ResourceType {
     OperationOutcome,
     Conformance,
     Media,
+    Binary,
     Other,
     HealthcareService,
     Profile,
@@ -34,6 +37,7 @@ public enum ResourceType {
     Practitioner,
     CarePlan,
     Provenance,
+    NewBundle,
     Device,
     Query,
     Order,
@@ -53,6 +57,7 @@ public enum ResourceType {
     OperationDefinition,
     DeviceObservationReport,
     NutritionOrder,
+    ClaimResponse,
     ReferralRequest,
     RiskAssessment,
     FamilyHistory,
@@ -67,8 +72,8 @@ public enum ResourceType {
     Namespace,
     Patient,
     AdverseReaction,
-    DiagnosticOrder,
-    Binary;
+    DiagnosticOrder;
+
 
     public String getPath() {;
       switch (this) {
@@ -114,6 +119,8 @@ public enum ResourceType {
       return "conformance";
     case Media:
       return "media";
+    case Binary:
+      return "binary";
     case Other:
       return "other";
     case HealthcareService:
@@ -138,6 +145,8 @@ public enum ResourceType {
       return "careplan";
     case Provenance:
       return "provenance";
+    case NewBundle:
+      return "newbundle";
     case Device:
       return "device";
     case Query:
@@ -176,6 +185,8 @@ public enum ResourceType {
       return "deviceobservationreport";
     case NutritionOrder:
       return "nutritionorder";
+    case ClaimResponse:
+      return "claimresponse";
     case ReferralRequest:
       return "referralrequest";
     case RiskAssessment:
@@ -206,8 +217,6 @@ public enum ResourceType {
       return "adversereaction";
     case DiagnosticOrder:
       return "diagnosticorder";
-    case Binary:
-      return "binary";
     }
       return null;
   }

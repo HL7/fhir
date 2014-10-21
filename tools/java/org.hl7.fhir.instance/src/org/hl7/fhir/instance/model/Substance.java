@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -334,10 +334,10 @@ public class Substance extends Resource {
       return this.ingredient;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #ingredient} (A substance can be composed of other substances.)
      */
+    // syntactic sugar
     public SubstanceIngredientComponent addIngredient() { 
       SubstanceIngredientComponent t = new SubstanceIngredientComponent();
       this.ingredient.add(t);

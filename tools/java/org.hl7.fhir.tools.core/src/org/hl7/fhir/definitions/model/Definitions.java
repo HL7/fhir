@@ -79,9 +79,9 @@ public class Definitions {
 	private Map<String, TypeDefn> infrastructure = new HashMap<String, TypeDefn>();
 	private List<String> shared = new ArrayList<String>(); 
 	private Map<String, ResourceDefn> resources = new HashMap<String, ResourceDefn>();
-	private Map<String, ResourceDefn> futureResources = new HashMap<String, ResourceDefn>();
 	private List<String> deletedResources = new ArrayList<String>();
-	private ResourceDefn baseResource;
+  private ResourceDefn baseResource;
+  private ResourceDefn baseResourceBase;
   private List<String> aggregationEndpoints = new ArrayList<String>();
 
 	private Map<String, EventDefn> events = new HashMap<String, EventDefn>();
@@ -102,6 +102,11 @@ public class Definitions {
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
 	public TypeDefn getElementDefn(String name) throws Exception {
+    if (name.equals("Resource"))
+      return baseResource.getRoot();
+    if (name.equals("ResourceBase"))
+      return baseResourceBase.getRoot();
+    
 		TypeDefn root = null;
 		if (types.containsKey(name))
 			root = types.get(name);
@@ -187,12 +192,7 @@ public class Definitions {
 		return resources;
 	}
 	
-	// Returns the list of names (as codes) of all Resources under the
-	// [future-resources] section of the fhir.ini
-	public Map<String, ResourceDefn> getFutureResources() {
-		return futureResources;
-	}
-	
+
 	public ResourceDefn getResourceByName(String name) throws Exception {
 		ResourceDefn root = null;
 		if (resources.containsKey(name))
@@ -278,6 +278,14 @@ public class Definitions {
 
   public void setBaseReference(ResourceDefn baseResource) {
     this.baseResource = baseResource;
+  }
+
+  public ResourceDefn getBaseReferenceBase() {
+    return baseResourceBase;
+  }
+
+  public void setBaseReferenceBase(ResourceDefn baseResource) {
+    this.baseResourceBase = baseResource;
   }
 
   public List<BindingSpecification> getCommonBindings() {

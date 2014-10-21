@@ -309,16 +309,16 @@ public abstract class JsonComposerBase extends ComposerBase {
 		json.endObject();
 	}
 
-  protected void composeBinary(String name, Binary element) throws Exception {
-    if (element != null) {
-      prop("resourceType", "Binary");
-      if (element.getXmlId() != null)
-        prop("id", element.getXmlId());
-      prop("contentType", element.getContentType());
-      prop("content", toString(element.getContent()));
-    }    
-    
-  }
+//  protected void composeBinary(String name, Binary element) throws Exception {
+//    if (element != null) {
+//      prop("resourceType", "Binary");
+//      if (element.getXmlId() != null)
+//        prop("id", element.getXmlId());
+//      prop("contentType", element.getContentType());
+//      prop("content", toString(element.getContent()));
+//    }    
+//    
+//  }
 
   protected boolean anyHasExtras(List<? extends Element> list) {
 	  for (Element e : list) {

@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-10-19T11:01:42Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,6 +20,7 @@
   <WindowWidth>18480</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -64,7 +65,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s68">
+  <Style ss:ID="s69">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -72,25 +73,18 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s69">
+  <Style ss:ID="s70">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s71">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s71">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
   <Style ss:ID="s72">
-   <Alignment ss:Vertical="Bottom"/>
-   <Borders/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
+   <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -128,45 +122,11 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ResourceBase</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"><Data ss:Type="String">Entity. Role, or Act</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Resource.meta</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">id</Data></Cell>
-    <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Metadata about the resource</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">The metadata about the resource. This is content that is maintained by the infrarstructure, and is maintained by the infrastructure. Changes to the content are managed by the process directly, and may not always be associated with version changes to the resource</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">The only time that a resource does not have an id is when it is being submitted to the server using a create operation</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Change the type to Meta once it's supported</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="409.5">
-    <Cell><Data ss:Type="String">Resource.language</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Language of the resource content</Data></Cell>
-    <Cell><Data ss:Type="String">The base language in which the resource is written</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource&#10;&#10;Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)</Data></Cell>
-    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -208,8 +168,8 @@
     <Cell ss:Index="9" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Additional Content defined by implementations</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">extensions, user content</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">extensions, user content</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
@@ -224,8 +184,8 @@
     <Cell ss:Index="9" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Extensions that cannot be ignored</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">extensions, user content</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">extensions, user content</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
@@ -247,9 +207,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -257,16 +217,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -275,12 +233,12 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.25"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -382,10 +340,10 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -590,19 +548,19 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

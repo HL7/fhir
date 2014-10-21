@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -470,10 +470,10 @@ public class DiagnosticOrder extends Resource {
           return this.specimen;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #specimen} (If the item is related to a specific speciment.)
          */
+    // syntactic sugar
         public Reference addSpecimen() { 
           Reference t = new Reference();
           this.specimen.add(t);
@@ -555,10 +555,10 @@ public class DiagnosticOrder extends Resource {
           return this.event;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #event} (A summary of the events of interest that have occurred as this item of the request is processed.)
          */
+    // syntactic sugar
         public DiagnosticOrderEventComponent addEvent() { 
           DiagnosticOrderEventComponent t = new DiagnosticOrderEventComponent();
           this.event.add(t);
@@ -748,10 +748,10 @@ public class DiagnosticOrder extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Identifiers assigned to this order by the order or by the receiver.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -831,10 +831,10 @@ public class DiagnosticOrder extends Resource {
       return this.supportingInformation;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #supportingInformation} (Additional clinical information about the patient or specimen that may influence test interpretations.)
      */
+    // syntactic sugar
     public Reference addSupportingInformation() { 
       Reference t = new Reference();
       this.supportingInformation.add(t);
@@ -855,10 +855,10 @@ public class DiagnosticOrder extends Resource {
       return this.specimen;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #specimen} (One or more specimens that the diagnostic investigation is about.)
      */
+    // syntactic sugar
     public Reference addSpecimen() { 
       Reference t = new Reference();
       this.specimen.add(t);
@@ -961,10 +961,10 @@ public class DiagnosticOrder extends Resource {
       return this.event;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #event} (A summary of the events of interest that have occurred as the request is processed. E.g. when the order was made, various processing steps (specimens received), when it was completed.)
      */
+    // syntactic sugar
     public DiagnosticOrderEventComponent addEvent() { 
       DiagnosticOrderEventComponent t = new DiagnosticOrderEventComponent();
       this.event.add(t);
@@ -978,10 +978,10 @@ public class DiagnosticOrder extends Resource {
       return this.item;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #item} (The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.)
      */
+    // syntactic sugar
     public DiagnosticOrderItemComponent addItem() { 
       DiagnosticOrderItemComponent t = new DiagnosticOrderItemComponent();
       this.item.add(t);

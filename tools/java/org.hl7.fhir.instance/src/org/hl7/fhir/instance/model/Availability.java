@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -91,10 +91,10 @@ public class Availability extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (External Ids for this item.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -108,10 +108,10 @@ public class Availability extends Resource {
       return this.type;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #type} (The schedule type can be used for the categorization of healthcare services or other appointment types.)
      */
+    // syntactic sugar
     public CodeableConcept addType() { 
       CodeableConcept t = new CodeableConcept();
       this.type.add(t);

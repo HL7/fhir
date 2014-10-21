@@ -10,7 +10,7 @@
   <LastAuthor>David Hay</LastAuthor>
   <Created>2013-07-04T21:40:49Z</Created>
   <LastSaved>2014-01-06T04:40:41Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -107,7 +108,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="83" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="85" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -131,6 +132,12 @@
     <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">recorder</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Binary</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NewBundle</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan</Data></Cell>
@@ -473,8 +480,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>6</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

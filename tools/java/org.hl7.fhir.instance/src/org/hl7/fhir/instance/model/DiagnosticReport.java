@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -549,10 +549,10 @@ public class DiagnosticReport extends Resource {
       return this.requestDetail;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #requestDetail} (Details concerning a test requested.)
      */
+    // syntactic sugar
     public Reference addRequestDetail() { 
       Reference t = new Reference();
       this.requestDetail.add(t);
@@ -613,10 +613,10 @@ public class DiagnosticReport extends Resource {
       return this.specimen;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #specimen} (Details about the specimens on which this Disagnostic report is based.)
      */
+    // syntactic sugar
     public Reference addSpecimen() { 
       Reference t = new Reference();
       this.specimen.add(t);
@@ -647,10 +647,10 @@ public class DiagnosticReport extends Resource {
       return this.result;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #result} (Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
+    // syntactic sugar
     public Reference addResult() { 
       Reference t = new Reference();
       this.result.add(t);
@@ -681,10 +681,10 @@ public class DiagnosticReport extends Resource {
       return this.imagingStudy;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #imagingStudy} (One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
+    // syntactic sugar
     public Reference addImagingStudy() { 
       Reference t = new Reference();
       this.imagingStudy.add(t);
@@ -715,10 +715,10 @@ public class DiagnosticReport extends Resource {
       return this.image;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #image} (A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).)
      */
+    // syntactic sugar
     public DiagnosticReportImageComponent addImage() { 
       DiagnosticReportImageComponent t = new DiagnosticReportImageComponent();
       this.image.add(t);
@@ -768,10 +768,10 @@ public class DiagnosticReport extends Resource {
       return this.codedDiagnosis;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #codedDiagnosis} (Codes for the conclusion.)
      */
+    // syntactic sugar
     public CodeableConcept addCodedDiagnosis() { 
       CodeableConcept t = new CodeableConcept();
       this.codedDiagnosis.add(t);
@@ -785,10 +785,10 @@ public class DiagnosticReport extends Resource {
       return this.presentedForm;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #presentedForm} (Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.)
      */
+    // syntactic sugar
     public Attachment addPresentedForm() { 
       Attachment t = new Attachment();
       this.presentedForm.add(t);

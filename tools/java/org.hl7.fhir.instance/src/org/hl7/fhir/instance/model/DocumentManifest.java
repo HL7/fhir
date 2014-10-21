@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -228,10 +228,10 @@ public class DocumentManifest extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Other identifiers associated with the document, including version independent, source record and workflow related identifiers.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -245,10 +245,10 @@ public class DocumentManifest extends Resource {
       return this.subject;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
+    // syntactic sugar
     public Reference addSubject() { 
       Reference t = new Reference();
       this.subject.add(t);
@@ -269,10 +269,10 @@ public class DocumentManifest extends Resource {
       return this.recipient;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #recipient} (A patient, practitioner, or organization for which this set of documents is intended.)
      */
+    // syntactic sugar
     public Reference addRecipient() { 
       Reference t = new Reference();
       this.recipient.add(t);
@@ -308,10 +308,10 @@ public class DocumentManifest extends Resource {
       return this.author;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
      */
+    // syntactic sugar
     public Reference addAuthor() { 
       Reference t = new Reference();
       this.author.add(t);
@@ -517,10 +517,10 @@ public class DocumentManifest extends Resource {
       return this.content;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #content} (The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.)
      */
+    // syntactic sugar
     public Reference addContent() { 
       Reference t = new Reference();
       this.content.add(t);

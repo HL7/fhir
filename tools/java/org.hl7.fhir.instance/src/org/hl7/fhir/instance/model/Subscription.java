@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -626,10 +626,10 @@ public class Subscription extends Resource {
       return this.contact;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #contact} (Todo.)
      */
+    // syntactic sugar
     public ContactPoint addContact() { 
       ContactPoint t = new ContactPoint();
       this.contact.add(t);
@@ -794,10 +794,10 @@ public class Subscription extends Resource {
       return this.tag;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #tag} (Todo.)
      */
+    // syntactic sugar
     public SubscriptionTagComponent addTag() { 
       SubscriptionTagComponent t = new SubscriptionTagComponent();
       this.tag.add(t);

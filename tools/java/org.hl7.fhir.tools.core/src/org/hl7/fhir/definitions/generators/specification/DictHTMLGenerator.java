@@ -513,10 +513,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		      for (String p : t.getParams()) {
 		        if (!firstp)
 		          b.append(" | ");
-		        if (definitions.getFutureResources().containsKey(p))
-		          b.append("<span title=\"This resource is not been defined yet\">"+p+"</span>");
-		        else
-		          b.append("<a href=\""+typeLink(p)+"\">"+p+"</a>");
+            b.append("<a href=\""+typeLink(p)+"\">"+p+"</a>");
 		        firstp = false;
 		      }
 		      b.append(")");

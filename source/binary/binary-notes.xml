@@ -1,0 +1,24 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<a name="rest"> </a>
+<h3>Serving Binary Resources using the RESTful API</h3>
+
+<p>
+The Binary resources behaves slightly differently to all other resources on the RESTful API.
+speifically, when a read request is made for the binary resource that doesn't explicitly
+specify the FHIR content types "application/xml+fhir" or "application/json+fhir", then 
+the content should be returned using the content type stated in the resource. 
+e.g. if the content type in the resource is application/pdf, then the content should
+be returned as a PDF directly. 
+</p>
+<p>
+Note that due to the way the web infastructure works, it is not possible to make blanket
+rules about the relationship between the "Accept" field in the http request, and the 
+return type, which is why there is no hard rule about this. However the intent is that
+unless specifically requested, the FHIR XML/JSON representation is not returned. 
+</p>
+<p>
+Note that in the native binary represnetation, the metadata is not available directly,
+though some of it is replicated in the HTTP response headers.
+</p>
+</div>

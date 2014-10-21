@@ -156,19 +156,21 @@ public class SpreadsheetParser {
 		for (int row = 0; row < sheet.rows.size(); row++) {
 			processLine(resource, sheet, row, invariants);
 		}
-		
-		for (Invariant inv : invariants.values()) {
-		  if (Utilities.noString(inv.getContext())) 
-		    log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context", LogMessageType.Warning);
-		  else {
-		    ElementDefn ed = findContext(resource.getRoot(), inv.getContext(), "Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" Context");
-		    if (ed.getName().endsWith("[x]") && !inv.getContext().endsWith("[x]"))
-		      inv.setFixedName(inv.getContext().substring(inv.getContext().lastIndexOf(".")+1));
-		    ed.getInvariants().put(inv.getId(), inv);
-		    if (Utilities.noString(inv.getXpath()))
-	        log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement", LogMessageType.Warning);
-		    else if (inv.getXpath().contains("\""))
-          log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character", LogMessageType.Warning);
+
+		if (invariants != null) {
+		  for (Invariant inv : invariants.values()) {
+		    if (Utilities.noString(inv.getContext())) 
+		      log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context", LogMessageType.Warning);
+		    else {
+		      ElementDefn ed = findContext(resource.getRoot(), inv.getContext(), "Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" Context");
+		      if (ed.getName().endsWith("[x]") && !inv.getContext().endsWith("[x]"))
+		        inv.setFixedName(inv.getContext().substring(inv.getContext().lastIndexOf(".")+1));
+		      ed.getInvariants().put(inv.getId(), inv);
+		      if (Utilities.noString(inv.getXpath()))
+		        log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement", LogMessageType.Warning);
+		      else if (inv.getXpath().contains("\""))
+		        log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character", LogMessageType.Warning);
+		    }
 		  }
 		}
 		
@@ -391,7 +393,7 @@ public class SpreadsheetParser {
 	}
 
   private void readSearchParams(ResourceDefn root2, Sheet sheet, boolean forProfile) throws Exception {
-    if (!forProfile) {
+    if (!forProfile && !root2.getName().equals("ResourceBase")) {
       root2.getSearchParams().put("_id", new SearchParameter("_id","The logical resource id associated with the resource (must be supported by all servers)",SearchType.token));
       root2.getSearchParams().put("_language", new SearchParameter("_language","The stated language of the resource",SearchType.token).addPath("language"));
     }
@@ -779,7 +781,7 @@ public class SpreadsheetParser {
 				}
 			}
 		}
-		if (defn.getExamples().size() == 0) {
+		if (defn.getExamples().size() == 0 && (!(defn.getName().equals("Resource") || defn.getName().equals("ResourceBase")))) {
 			File file = new CSFile(folder + title + "-example.xml");
 			if (!file.exists())
 				throw new Exception("Example (file '" + file.getAbsolutePath()

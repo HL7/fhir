@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -572,10 +572,10 @@ public class OralHealthClaim extends Resource {
           return this.preauthref;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #preauthref} (A list of references from the Insurer to which these services pertain.)
          */
+    // syntactic sugar
         public StringType addPreauthrefElement() { 
           StringType t = new StringType();
           this.preauthref.add(t);
@@ -597,7 +597,7 @@ public class OralHealthClaim extends Resource {
          */
         public boolean hasPreauthref(String value) { 
           for (StringType v : this.preauthref)
-            if (v.getValue().equals(value))
+            if (v.equals(value)) // string
               return true;
           return false;
         }
@@ -1006,6 +1006,11 @@ public class OralHealthClaim extends Resource {
         protected Coding service;
 
         /**
+         * The number of repetitions of a service or product.
+         */
+        protected Quantity quantity;
+
+        /**
          * The date when the enclosed suite of services were performed or completed.
          */
         protected DateType serviceDate;
@@ -1024,6 +1029,11 @@ public class OralHealthClaim extends Resource {
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
         protected Money fee;
+
+        /**
+         * The sum of the quantity times the unit fee for an addtional service or product or charge.
+         */
+        protected Money total;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
@@ -1055,7 +1065,7 @@ public class OralHealthClaim extends Resource {
          */
         protected ProsthesisComponent prosthesis;
 
-        private static final long serialVersionUID = -493159959L;
+        private static final long serialVersionUID = 1304307193L;
 
       public ItemsComponent() {
         super();
@@ -1127,6 +1137,21 @@ public class OralHealthClaim extends Resource {
          */
         public ItemsComponent setService(Coding value) { 
           this.service = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #quantity} (The number of repetitions of a service or product.)
+         */
+        public Quantity getQuantity() { 
+          return this.quantity;
+        }
+
+        /**
+         * @param value {@link #quantity} (The number of repetitions of a service or product.)
+         */
+        public ItemsComponent setQuantity(Quantity value) { 
+          this.quantity = value;
           return this;
         }
 
@@ -1212,6 +1237,21 @@ public class OralHealthClaim extends Resource {
         }
 
         /**
+         * @return {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         */
+        public Money getTotal() { 
+          return this.total;
+        }
+
+        /**
+         * @param value {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         */
+        public ItemsComponent setTotal(Money value) { 
+          this.total = value;
+          return this;
+        }
+
+        /**
          * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
         public Coding getUdi() { 
@@ -1248,10 +1288,10 @@ public class OralHealthClaim extends Resource {
           return this.subsite;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #subsite} (A region or surface of the site, eg. limb region or tooth surface(s).)
          */
+    // syntactic sugar
         public Coding addSubsite() { 
           Coding t = new Coding();
           this.subsite.add(t);
@@ -1265,10 +1305,10 @@ public class OralHealthClaim extends Resource {
           return this.modifier;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.)
          */
+    // syntactic sugar
         public Coding addModifier() { 
           Coding t = new Coding();
           this.modifier.add(t);
@@ -1282,10 +1322,10 @@ public class OralHealthClaim extends Resource {
           return this.detail;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #detail} (Second tier of goods and services.)
          */
+    // syntactic sugar
         public DetailComponent addDetail() { 
           DetailComponent t = new DetailComponent();
           this.detail.add(t);
@@ -1312,9 +1352,11 @@ public class OralHealthClaim extends Resource {
           childrenList.add(new Property("sequence", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("serviceDate", "date", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, serviceDate));
           childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
           childrenList.add(new Property("fee", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, fee));
+          childrenList.add(new Property("total", "Money", "The sum of the quantity times the unit fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, total));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("bodySite", "Coding", "Physical service site on the patient (limb, tooth, etc).", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("subsite", "Coding", "A region or surface of the site, eg. limb region or tooth surface(s).", 0, java.lang.Integer.MAX_VALUE, subsite));
@@ -1328,9 +1370,11 @@ public class OralHealthClaim extends Resource {
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.type = type == null ? null : type.copy();
         dst.service = service == null ? null : service.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
         dst.serviceDate = serviceDate == null ? null : serviceDate.copy();
         dst.provider = provider == null ? null : provider.copy();
         dst.fee = fee == null ? null : fee.copy();
+        dst.total = total == null ? null : total.copy();
         dst.udi = udi == null ? null : udi.copy();
         dst.bodySite = bodySite == null ? null : bodySite.copy();
         dst.subsite = new ArrayList<Coding>();
@@ -1365,9 +1409,19 @@ public class OralHealthClaim extends Resource {
         protected Coding service;
 
         /**
+         * The number of repetitions of a service or product.
+         */
+        protected Quantity quantity;
+
+        /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
         protected Money fee;
+
+        /**
+         * The sum of the quantity times the unit fee for an addtional service or product or charge.
+         */
+        protected Money total;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
@@ -1379,7 +1433,7 @@ public class OralHealthClaim extends Resource {
          */
         protected List<SubDetailComponent> subDetail = new ArrayList<SubDetailComponent>();
 
-        private static final long serialVersionUID = 1100408936L;
+        private static final long serialVersionUID = -246067624L;
 
       public DetailComponent() {
         super();
@@ -1455,6 +1509,21 @@ public class OralHealthClaim extends Resource {
         }
 
         /**
+         * @return {@link #quantity} (The number of repetitions of a service or product.)
+         */
+        public Quantity getQuantity() { 
+          return this.quantity;
+        }
+
+        /**
+         * @param value {@link #quantity} (The number of repetitions of a service or product.)
+         */
+        public DetailComponent setQuantity(Quantity value) { 
+          this.quantity = value;
+          return this;
+        }
+
+        /**
          * @return {@link #fee} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
         public Money getFee() { 
@@ -1466,6 +1535,21 @@ public class OralHealthClaim extends Resource {
          */
         public DetailComponent setFee(Money value) { 
           this.fee = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         */
+        public Money getTotal() { 
+          return this.total;
+        }
+
+        /**
+         * @param value {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         */
+        public DetailComponent setTotal(Money value) { 
+          this.total = value;
           return this;
         }
 
@@ -1491,10 +1575,10 @@ public class OralHealthClaim extends Resource {
           return this.subDetail;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #subDetail} (Third tier of goods and services.)
          */
+    // syntactic sugar
         public SubDetailComponent addSubDetail() { 
           SubDetailComponent t = new SubDetailComponent();
           this.subDetail.add(t);
@@ -1506,7 +1590,9 @@ public class OralHealthClaim extends Resource {
           childrenList.add(new Property("sequence", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("fee", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, fee));
+          childrenList.add(new Property("total", "Money", "The sum of the quantity times the unit fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, total));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("subDetail", "", "Third tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, subDetail));
         }
@@ -1516,7 +1602,9 @@ public class OralHealthClaim extends Resource {
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.type = type == null ? null : type.copy();
         dst.service = service == null ? null : service.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
         dst.fee = fee == null ? null : fee.copy();
+        dst.total = total == null ? null : total.copy();
         dst.udi = udi == null ? null : udi.copy();
         dst.subDetail = new ArrayList<SubDetailComponent>();
         for (SubDetailComponent i : subDetail)
@@ -1543,16 +1631,26 @@ public class OralHealthClaim extends Resource {
         protected Coding service;
 
         /**
+         * The number of repetitions of a service or product.
+         */
+        protected Quantity quantity;
+
+        /**
          * The fee for an addtional service or product or charge.
          */
         protected Money fee;
+
+        /**
+         * The sum of the quantity times the unit fee for an addtional service or product or charge.
+         */
+        protected Money total;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
         protected Coding udi;
 
-        private static final long serialVersionUID = 284255118L;
+        private static final long serialVersionUID = 843495326L;
 
       public SubDetailComponent() {
         super();
@@ -1628,6 +1726,21 @@ public class OralHealthClaim extends Resource {
         }
 
         /**
+         * @return {@link #quantity} (The number of repetitions of a service or product.)
+         */
+        public Quantity getQuantity() { 
+          return this.quantity;
+        }
+
+        /**
+         * @param value {@link #quantity} (The number of repetitions of a service or product.)
+         */
+        public SubDetailComponent setQuantity(Quantity value) { 
+          this.quantity = value;
+          return this;
+        }
+
+        /**
          * @return {@link #fee} (The fee for an addtional service or product or charge.)
          */
         public Money getFee() { 
@@ -1639,6 +1752,21 @@ public class OralHealthClaim extends Resource {
          */
         public SubDetailComponent setFee(Money value) { 
           this.fee = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         */
+        public Money getTotal() { 
+          return this.total;
+        }
+
+        /**
+         * @param value {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         */
+        public SubDetailComponent setTotal(Money value) { 
+          this.total = value;
           return this;
         }
 
@@ -1662,7 +1790,9 @@ public class OralHealthClaim extends Resource {
           childrenList.add(new Property("sequence", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("service", "Coding", "The fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("fee", "Money", "The fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, fee));
+          childrenList.add(new Property("total", "Money", "The sum of the quantity times the unit fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, total));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
         }
 
@@ -1671,7 +1801,9 @@ public class OralHealthClaim extends Resource {
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.type = type == null ? null : type.copy();
         dst.service = service == null ? null : service.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
         dst.fee = fee == null ? null : fee.copy();
+        dst.total = total == null ? null : total.copy();
         dst.udi = udi == null ? null : udi.copy();
         return dst;
       }
@@ -2294,10 +2426,10 @@ public class OralHealthClaim extends Resource {
       return this.diagnosis;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #diagnosis} (Ordered list of patient diagnosis for which care is sought.)
      */
+    // syntactic sugar
     public DiagnosisComponent addDiagnosis() { 
       DiagnosisComponent t = new DiagnosisComponent();
       this.diagnosis.add(t);
@@ -2311,10 +2443,10 @@ public class OralHealthClaim extends Resource {
       return this.condition;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #condition} (List of patient conditions for which care is sought.)
      */
+    // syntactic sugar
     public Coding addCondition() { 
       Coding t = new Coding();
       this.condition.add(t);
@@ -2358,10 +2490,10 @@ public class OralHealthClaim extends Resource {
       return this.coverage;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #coverage} (Financial instrument by which payment information for health care.)
      */
+    // syntactic sugar
     public CoverageComponent addCoverage() { 
       CoverageComponent t = new CoverageComponent();
       this.coverage.add(t);
@@ -2375,10 +2507,10 @@ public class OralHealthClaim extends Resource {
       return this.exception;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #exception} (Factors which may influence the applicability of coverage.)
      */
+    // syntactic sugar
     public Coding addException() { 
       Coding t = new Coding();
       this.exception.add(t);
@@ -2479,10 +2611,10 @@ public class OralHealthClaim extends Resource {
       return this.interventionException;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #interventionException} (A list of intervention and exception codes which may influence the adjudication of the claim.)
      */
+    // syntactic sugar
     public Coding addInterventionException() { 
       Coding t = new Coding();
       this.interventionException.add(t);
@@ -2496,10 +2628,10 @@ public class OralHealthClaim extends Resource {
       return this.missingteeth;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #missingteeth} (A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.)
      */
+    // syntactic sugar
     public MissingTeethComponent addMissingteeth() { 
       MissingTeethComponent t = new MissingTeethComponent();
       this.missingteeth.add(t);
@@ -2528,10 +2660,10 @@ public class OralHealthClaim extends Resource {
       return this.item;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #item} (First tier of goods and services.)
      */
+    // syntactic sugar
     public ItemsComponent addItem() { 
       ItemsComponent t = new ItemsComponent();
       this.item.add(t);
@@ -2545,10 +2677,10 @@ public class OralHealthClaim extends Resource {
       return this.additionalMaterials;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #additionalMaterials} (Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.)
      */
+    // syntactic sugar
     public Coding addAdditionalMaterials() { 
       Coding t = new Coding();
       this.additionalMaterials.add(t);

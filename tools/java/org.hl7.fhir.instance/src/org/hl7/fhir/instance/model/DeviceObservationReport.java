@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -77,10 +77,10 @@ public class DeviceObservationReport extends Resource {
           return this.channel;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #channel} (Groups together physiological measurement data and derived data.)
          */
+    // syntactic sugar
         public DeviceObservationReportVirtualDeviceChannelComponent addChannel() { 
           DeviceObservationReportVirtualDeviceChannelComponent t = new DeviceObservationReportVirtualDeviceChannelComponent();
           this.channel.add(t);
@@ -143,10 +143,10 @@ public class DeviceObservationReport extends Resource {
           return this.metric;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #metric} (A piece of measured or derived data that is reported by the machine.)
          */
+    // syntactic sugar
         public DeviceObservationReportVirtualDeviceChannelMetricComponent addMetric() { 
           DeviceObservationReportVirtualDeviceChannelMetricComponent t = new DeviceObservationReportVirtualDeviceChannelMetricComponent();
           this.metric.add(t);
@@ -396,10 +396,10 @@ public class DeviceObservationReport extends Resource {
       return this.virtualDevice;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #virtualDevice} (A medical-related subsystem of a medical device.)
      */
+    // syntactic sugar
     public DeviceObservationReportVirtualDeviceComponent addVirtualDevice() { 
       DeviceObservationReportVirtualDeviceComponent t = new DeviceObservationReportVirtualDeviceComponent();
       this.virtualDevice.add(t);

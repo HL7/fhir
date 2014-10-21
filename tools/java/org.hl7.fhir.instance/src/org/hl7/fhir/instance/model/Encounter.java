@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -269,10 +269,10 @@ public class Encounter extends Resource {
           return this.type;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #type} (Role of participant in encounter.)
          */
+    // syntactic sugar
         public CodeableConcept addType() { 
           CodeableConcept t = new CodeableConcept();
           this.type.add(t);
@@ -490,10 +490,10 @@ public class Encounter extends Resource {
           return this.accomodation;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #accomodation} (Where the patient stays during this encounter.)
          */
+    // syntactic sugar
         public EncounterHospitalizationAccomodationComponent addAccomodation() { 
           EncounterHospitalizationAccomodationComponent t = new EncounterHospitalizationAccomodationComponent();
           this.accomodation.add(t);
@@ -522,10 +522,10 @@ public class Encounter extends Resource {
           return this.specialCourtesy;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #specialCourtesy} (Special courtesies (VIP, board member).)
          */
+    // syntactic sugar
         public CodeableConcept addSpecialCourtesy() { 
           CodeableConcept t = new CodeableConcept();
           this.specialCourtesy.add(t);
@@ -539,10 +539,10 @@ public class Encounter extends Resource {
           return this.specialArrangement;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #specialArrangement} (Wheelchair, translator, stretcher, etc.)
          */
+    // syntactic sugar
         public CodeableConcept addSpecialArrangement() { 
           CodeableConcept t = new CodeableConcept();
           this.specialArrangement.add(t);
@@ -994,10 +994,10 @@ public class Encounter extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Identifier(s) by which this encounter is known.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -1075,10 +1075,10 @@ public class Encounter extends Resource {
       return this.type;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #type} (Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).)
      */
+    // syntactic sugar
     public CodeableConcept addType() { 
       CodeableConcept t = new CodeableConcept();
       this.type.add(t);
@@ -1122,10 +1122,10 @@ public class Encounter extends Resource {
       return this.participant;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #participant} (The main practitioner responsible for providing the service.)
      */
+    // syntactic sugar
     public EncounterParticipantComponent addParticipant() { 
       EncounterParticipantComponent t = new EncounterParticipantComponent();
       this.participant.add(t);
@@ -1274,10 +1274,10 @@ public class Encounter extends Resource {
       return this.location;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #location} (List of locations at which the patient has been.)
      */
+    // syntactic sugar
     public EncounterLocationComponent addLocation() { 
       EncounterLocationComponent t = new EncounterLocationComponent();
       this.location.add(t);

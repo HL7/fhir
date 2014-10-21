@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -183,10 +183,10 @@ public class Organization extends Resource {
           return this.telecom;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.)
          */
+    // syntactic sugar
         public ContactPoint addTelecom() { 
           ContactPoint t = new ContactPoint();
           this.telecom.add(t);
@@ -335,10 +335,10 @@ public class Organization extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Identifier for the organization that is used to identify the organization across multiple disparate systems.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -403,10 +403,10 @@ public class Organization extends Resource {
       return this.telecom;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #telecom} (A contact detail for the organization.)
      */
+    // syntactic sugar
     public ContactPoint addTelecom() { 
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
@@ -420,10 +420,10 @@ public class Organization extends Resource {
       return this.address;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #address} (An address for the organization.)
      */
+    // syntactic sugar
     public Address addAddress() { 
       Address t = new Address();
       this.address.add(t);
@@ -467,10 +467,10 @@ public class Organization extends Resource {
       return this.contact;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #contact} (Contact for the organization for a certain purpose.)
      */
+    // syntactic sugar
     public OrganizationContactComponent addContact() { 
       OrganizationContactComponent t = new OrganizationContactComponent();
       this.contact.add(t);
@@ -484,10 +484,10 @@ public class Organization extends Resource {
       return this.location;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #location} (Location(s) the organization uses to provide services.)
      */
+    // syntactic sugar
     public Reference addLocation() { 
       Reference t = new Reference();
       this.location.add(t);

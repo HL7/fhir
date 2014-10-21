@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -160,10 +160,10 @@ public class Specimen extends Resource {
           return this.target;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #target} (The specimen resource that is the target of this relationship.)
          */
+    // syntactic sugar
         public Reference addTarget() { 
           Reference t = new Reference();
           this.target.add(t);
@@ -283,10 +283,10 @@ public class Specimen extends Resource {
           return this.comment;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
+    // syntactic sugar
         public StringType addCommentElement() { 
           StringType t = new StringType();
           this.comment.add(t);
@@ -308,7 +308,7 @@ public class Specimen extends Resource {
          */
         public boolean hasComment(String value) { 
           for (StringType v : this.comment)
-            if (v.getValue().equals(value))
+            if (v.equals(value)) // string
               return true;
           return false;
         }
@@ -483,10 +483,10 @@ public class Specimen extends Resource {
           return this.additive;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #additive} (Material used in the processing step.)
          */
+    // syntactic sugar
         public Reference addAdditive() { 
           Reference t = new Reference();
           this.additive.add(t);
@@ -578,10 +578,10 @@ public class Specimen extends Resource {
           return this.identifier;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #identifier} (Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances.)
          */
+    // syntactic sugar
         public Identifier addIdentifier() { 
           Identifier t = new Identifier();
           this.identifier.add(t);
@@ -792,10 +792,10 @@ public class Specimen extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Id for specimen.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -824,10 +824,10 @@ public class Specimen extends Resource {
       return this.source;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #source} (Parent specimen from which the focal specimen was a component.)
      */
+    // syntactic sugar
     public SpecimenSourceComponent addSource() { 
       SpecimenSourceComponent t = new SpecimenSourceComponent();
       this.source.add(t);
@@ -937,10 +937,10 @@ public class Specimen extends Resource {
       return this.treatment;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #treatment} (Details concerning treatment and processing steps for the specimen.)
      */
+    // syntactic sugar
     public SpecimenTreatmentComponent addTreatment() { 
       SpecimenTreatmentComponent t = new SpecimenTreatmentComponent();
       this.treatment.add(t);
@@ -954,10 +954,10 @@ public class Specimen extends Resource {
       return this.container;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #container} (The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.)
      */
+    // syntactic sugar
     public SpecimenContainerComponent addContainer() { 
       SpecimenContainerComponent t = new SpecimenContainerComponent();
       this.container.add(t);

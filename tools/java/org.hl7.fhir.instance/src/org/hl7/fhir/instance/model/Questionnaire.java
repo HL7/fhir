@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -406,10 +406,10 @@ public class Questionnaire extends Resource {
           return this.concept;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #concept} (Identifies a how this group of questions is known in a particular terminology such as LOINC.)
          */
+    // syntactic sugar
         public Coding addConcept() { 
           Coding t = new Coding();
           this.concept.add(t);
@@ -531,10 +531,10 @@ public class Questionnaire extends Resource {
           return this.group;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #group} (A sub-group within a group. The ordering of groups within this group is relevant.)
          */
+    // syntactic sugar
         public GroupComponent addGroup() { 
           GroupComponent t = new GroupComponent();
           this.group.add(t);
@@ -548,10 +548,10 @@ public class Questionnaire extends Resource {
           return this.question;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #question} (Set of questions within this group. The order of questions within the group is relevant.)
          */
+    // syntactic sugar
         public QuestionComponent addQuestion() { 
           QuestionComponent t = new QuestionComponent();
           this.question.add(t);
@@ -686,10 +686,10 @@ public class Questionnaire extends Resource {
           return this.concept;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #concept} (Identifies a how this group of questions is known in a particular terminology such as LOINC.)
          */
+    // syntactic sugar
         public Coding addConcept() { 
           Coding t = new Coding();
           this.concept.add(t);
@@ -877,10 +877,10 @@ public class Questionnaire extends Resource {
           return this.group;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
          */
+    // syntactic sugar
         public GroupComponent addGroup() { 
           GroupComponent t = new GroupComponent();
           this.group.add(t);
@@ -967,10 +967,10 @@ public class Questionnaire extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (This records identifiers associated with this question set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);

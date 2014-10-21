@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -426,10 +426,10 @@ public class Coverage extends Resource {
       return this.contract;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #contract} (The policy(s) which constitute this insurance coverage.)
      */
+    // syntactic sugar
     public Reference addContract() { 
       Reference t = new Reference();
       this.contract.add(t);

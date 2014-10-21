@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -82,10 +82,10 @@ public class HealthcareService extends Resource {
           return this.specialty;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #specialty} (Collection of Specialties handled by the Service Site. This is more of a Medical Term.)
          */
+    // syntactic sugar
         public CodeableConcept addSpecialty() { 
           CodeableConcept t = new CodeableConcept();
           this.specialty.add(t);
@@ -143,10 +143,10 @@ public class HealthcareService extends Resource {
           return this.daysOfWeek;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #daysOfWeek} (Indicates which Days of the week are available between the Start and End Times.)
          */
+    // syntactic sugar
         public CodeableConcept addDaysOfWeek() { 
           CodeableConcept t = new CodeableConcept();
           this.daysOfWeek.add(t);
@@ -578,10 +578,10 @@ public class HealthcareService extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (External Ids for this item.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -640,10 +640,10 @@ public class HealthcareService extends Resource {
       return this.serviceType;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #serviceType} (A specific type of service that may be delivered or performed.)
      */
+    // syntactic sugar
     public ServiceTypeComponent addServiceType() { 
       ServiceTypeComponent t = new ServiceTypeComponent();
       this.serviceType.add(t);
@@ -882,10 +882,10 @@ public class HealthcareService extends Resource {
       return this.availableTime;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #availableTime} (A Collection of times that the Service Site is available.)
      */
+    // syntactic sugar
     public HealthcareServiceAvailableTimeComponent addAvailableTime() { 
       HealthcareServiceAvailableTimeComponent t = new HealthcareServiceAvailableTimeComponent();
       this.availableTime.add(t);
@@ -899,10 +899,10 @@ public class HealthcareService extends Resource {
       return this.notAvailableTime;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #notAvailableTime} (Not avail times - need better description.)
      */
+    // syntactic sugar
     public HealthcareServiceNotAvailableTimeComponent addNotAvailableTime() { 
       HealthcareServiceNotAvailableTimeComponent t = new HealthcareServiceNotAvailableTimeComponent();
       this.notAvailableTime.add(t);
@@ -988,10 +988,10 @@ public class HealthcareService extends Resource {
       return this.programName;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #programName} (Program Names that can be used to categorize the service.)
      */
+    // syntactic sugar
     public StringType addProgramNameElement() { 
       StringType t = new StringType();
       this.programName.add(t);
@@ -1013,7 +1013,7 @@ public class HealthcareService extends Resource {
      */
     public boolean hasProgramName(String value) { 
       for (StringType v : this.programName)
-        if (v.getValue().equals(value))
+        if (v.equals(value)) // string
           return true;
       return false;
     }
@@ -1025,10 +1025,10 @@ public class HealthcareService extends Resource {
       return this.contactPoint;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #contactPoint} (List of contacts related to this specific healthcare service. If this is empty, then refer to the location's contacts.)
      */
+    // syntactic sugar
     public ContactPoint addContactPoint() { 
       ContactPoint t = new ContactPoint();
       this.contactPoint.add(t);
@@ -1042,10 +1042,10 @@ public class HealthcareService extends Resource {
       return this.characteristic;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #characteristic} (Collection of Characteristics (attributes).)
      */
+    // syntactic sugar
     public CodeableConcept addCharacteristic() { 
       CodeableConcept t = new CodeableConcept();
       this.characteristic.add(t);
@@ -1059,10 +1059,10 @@ public class HealthcareService extends Resource {
       return this.referralMethod;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #referralMethod} (Ways that the service accepts referrals.)
      */
+    // syntactic sugar
     public CodeableConcept addReferralMethod() { 
       CodeableConcept t = new CodeableConcept();
       this.referralMethod.add(t);
@@ -1076,10 +1076,10 @@ public class HealthcareService extends Resource {
       return this.setting;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #setting} (The setting where this service can be provided, such is in home, or at location in organisation.)
      */
+    // syntactic sugar
     public CodeableConcept addSetting() { 
       CodeableConcept t = new CodeableConcept();
       this.setting.add(t);
@@ -1093,10 +1093,10 @@ public class HealthcareService extends Resource {
       return this.targetGroup;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #targetGroup} (Collection of Target Groups for the Service Site (The target audience that this service is for).)
      */
+    // syntactic sugar
     public CodeableConcept addTargetGroup() { 
       CodeableConcept t = new CodeableConcept();
       this.targetGroup.add(t);
@@ -1110,10 +1110,10 @@ public class HealthcareService extends Resource {
       return this.coverageArea;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #coverageArea} (Need better description.)
      */
+    // syntactic sugar
     public CodeableConcept addCoverageArea() { 
       CodeableConcept t = new CodeableConcept();
       this.coverageArea.add(t);
@@ -1127,10 +1127,10 @@ public class HealthcareService extends Resource {
       return this.catchmentArea;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #catchmentArea} (Need better description.)
      */
+    // syntactic sugar
     public CodeableConcept addCatchmentArea() { 
       CodeableConcept t = new CodeableConcept();
       this.catchmentArea.add(t);
@@ -1144,10 +1144,10 @@ public class HealthcareService extends Resource {
       return this.serviceCode;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #serviceCode} (List of the specific.)
      */
+    // syntactic sugar
     public CodeableConcept addServiceCode() { 
       CodeableConcept t = new CodeableConcept();
       this.serviceCode.add(t);

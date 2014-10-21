@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -337,10 +337,10 @@ public class ConceptMap extends Resource {
           return this.dependsOn;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #dependsOn} (A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.)
          */
+    // syntactic sugar
         public OtherElementComponent addDependsOn() { 
           OtherElementComponent t = new OtherElementComponent();
           this.dependsOn.add(t);
@@ -354,10 +354,10 @@ public class ConceptMap extends Resource {
           return this.map;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #map} (A concept from the target value set that this concept maps to.)
          */
+    // syntactic sugar
         public ConceptMapElementMapComponent addMap() { 
           ConceptMapElementMapComponent t = new ConceptMapElementMapComponent();
           this.map.add(t);
@@ -713,10 +713,10 @@ public class ConceptMap extends Resource {
           return this.product;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #product} (A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
          */
+    // syntactic sugar
         public OtherElementComponent addProduct() { 
           OtherElementComponent t = new OtherElementComponent();
           this.product.add(t);
@@ -972,10 +972,10 @@ public class ConceptMap extends Resource {
       return this.telecom;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #telecom} (Contacts of the publisher to assist a user in finding and communicating with the publisher.)
      */
+    // syntactic sugar
     public ContactPoint addTelecom() { 
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
@@ -1195,10 +1195,10 @@ public class ConceptMap extends Resource {
       return this.element;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #element} (Mappings for a concept from the source set.)
      */
+    // syntactic sugar
     public ConceptMapElementComponent addElement() { 
       ConceptMapElementComponent t = new ConceptMapElementComponent();
       this.element.add(t);

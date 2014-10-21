@@ -1,0 +1,1812 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Grahame</Author>
+  <LastAuthor>Grahame</LastAuthor>
+  <Created>2012-03-19T11:12:07Z</Created>
+  <LastSaved>2014-10-21T03:27:42Z</LastSaved>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <SupBook>
+   <Path>Invariants</Path>
+   <SheetName>Invariants</SheetName>
+  </SupBook>
+  <WindowHeight>2580</WindowHeight>
+  <WindowWidth>9870</WindowWidth>
+  <WindowTopX>5520</WindowTopX>
+  <WindowTopY>6075</WindowTopY>
+  <RefModeR1C1/>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s67">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s76">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s77">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s78">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous"/>
+   </Borders>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s82">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s83">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s84">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Data Elements">
+  <Names>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='Data Elements'!R1C1:R100C21" ss:Hidden="1"/>
+  </Names>
+  <Table ss:ExpandedColumnCount="21" ss:ExpandedRowCount="100" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s63" ss:Width="227.25"/>
+   <Column ss:StyleID="s62" ss:Width="29.25"/>
+   <Column ss:StyleID="s62" ss:Width="34.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="28.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="27.75"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="27"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="81"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="80.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="120.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="120"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:Index="18" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="103.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="50.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="66"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45.75" ss:StyleID="s65">
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Element</Data><Comment
+      ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Format is ResourceName.componentName.componentName</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Card.</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Min and max repetitions n..m</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Inv.</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Comma-delimited list of Ids from Invariant tab that controls appearance of this element</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Type</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see the wiki</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Is Modifier</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">If Y, indicates this element modifies the meaning of sibling or descendant elements.  Defaults to N</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Summary</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">If Y, element is included in the summary view (query with _summary=true).  Default is N</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Extensible</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Binding</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Binding for coded data - either from local Bindings tab or declared elsewhere</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Example</Data><Comment ss:Author="Lloyd"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">An example of the expected sort of value for this element.</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Regex</Data><Comment ss:Author="Lloyd"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Indicates a regular expression that the value of this element must meet.  Only allowed for simple data types.</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Short Label</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Short description or code1 | code2 | code3 +</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Definition</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Full definition - required</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Requirements</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Why element/resource is needed or why selected constraints chosen</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Comments</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes for implementers</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">To Do</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Things to bug you about if they're not done :&gt;</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">RIM Mapping</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">E.g. RIMClass[classCode=foo,moodCode=bar].someAssociation[typeCode=code].attribute</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">v2 Mapping</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">E.g. SEG.1.2.3</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">??? Mapping</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Change column name to one from mappingSpaces.xml.  Add more if needed</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">UML</Data><Comment ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Guidance for class location in UML diagram.  Only specify on root.&#10;See wiki for guidance</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Display Hint</Data><Comment ss:Author="Lloyd"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Provides guidance to narrative auto-generator.  Check Wiki documentation</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Committee Notes</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Not published</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s69">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Binary</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Resource</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s70"><Data ss:Type="String">N</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Pure binary content defined by sime other format than FHIR</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">A binary resource can contain any content, whether text, image, pdf, zip archive, etc</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">There are situations where it is useful or required to handle pure binary content using the same framework as other resources</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Typically, Binary resources are used for handling content such as:&#10;&#10;* CDA Documents (i.e. with XDS)&#10;* PDF Documents&#10;* Images (the Media resource is preferred for handling images, but not possible when the content is already binary - e.g. XDS)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">N/A</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Binary.contentType</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><Data ss:Type="String">N</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">MimeType</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">MimeType of the binary content</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">MimeType of the binary content represented as a standard MimeType (BCP 13)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Binary.content</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">base64Binary</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><Data ss:Type="String">N</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">The actual content</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The actual content, base64 encoded</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">If the content type is itself base64 encoding, then this will be base64 encoded twice - what is created by un-base64ing the content must be the specified content type</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7" ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15" ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C19:R100C19</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;left,right,up,down,[xpixels];[ypixels]&quot;</Value>
+   <ErrorHide/>
+   <ErrorStyle>Info</ErrorStyle>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C16:R100C18</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;N/A&quot;</Value>
+   <ErrorHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C8:R100C8</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;Bindings!A2..A30&quot;</Value>
+   <ErrorHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C5:R100C7</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;Y,N&quot;</Value>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C4:R100C4</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
+   <ErrorHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C3:R100C3</Range>
+   <Type>List</Type>
+   <Value>Invariants!#REF!</Value>
+   <ErrorHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C2:R100C2</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;0..1,1..1,0..*,1..*&quot;</Value>
+  </DataValidation>
+  <AutoFilter x:Range="R1C1:R100C21"
+   xmlns="urn:schemas-microsoft-com:office:excel">
+  </AutoFilter>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C11:R100C11</Range>
+   <Condition>
+    <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Format Style='background:yellow'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C1:R100C1</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C20,R2C2:R2C3,R2C5:R2C6,R2C8:R2C10</Range>
+   <Condition>
+    <Value1>RC&lt;&gt;&quot;&quot;</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C2:R100C2,R2C12:R100C12</Range>
+   <Condition>
+    <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C9:R100C10</Range>
+   <Condition>
+    <Value1>AND(SEARCH(&quot;|&quot;,RC4)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C10:R100C10</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(RC4,1),LOWER(LEFT(RC4,1)))))</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C11:R100C12</Range>
+   <Condition>
+    <Value1>AND(RC11&lt;&gt;&quot;&quot;,RC11=RC12)</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C16:R2C17</Range>
+   <Condition>
+    <Value1>RC=&quot;&quot;</Value1>
+    <Format Style='background:orange'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C16:R100C17</Range>
+   <Condition>
+    <Value1>AND(RC1&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C)),RC=&quot;&quot;)</Value1>
+    <Format Style='background:orange'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R5C1:R100C21,R2C1:R4C6,R2C8:R4C21</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R5C1:R100C21,R2C1:R4C6,R2C8:R4C21</Range>
+   <Condition>
+    <Value1>RC2=&quot;0..0&quot;</Value1>
+    <Format Style='background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C19:R100C19</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC4,1)&lt;&gt;&quot;@&quot;,LEFT(R[1]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[1]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+ </Worksheet>
+ <Worksheet ss:Name="Search">
+  <Names>
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C4"
+    ss:Hidden="1"/>
+  </Names>
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="2" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s80" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="57"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="210"/>
+   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="382.5"/>
+   <Row ss:AutoFitHeight="0" ss:Height="31.5" ss:StyleID="s81">
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Name</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique name for search parameter - required, lower-camel-case string</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Type</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Data type for parameter</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Path</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element.  E.g. ResourceName.node1.node2</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Description</Data><Comment
+      ss:Author="Lloyd McKenzie"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">               <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font>             </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">contenttype</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Binary.contentType</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C2:R30C2</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;number,date,string,token,reference,composite,quantity&quot;</Value>
+  </DataValidation>
+  <AutoFilter x:Range="R1C1:R1C4" xmlns="urn:schemas-microsoft-com:office:excel">
+  </AutoFilter>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C3</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C3</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C3</Range>
+   <Condition>
+    <Value1>RC2=&quot;0..0&quot;</Value1>
+    <Format Style='background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+ </Worksheet>
+</Workbook>

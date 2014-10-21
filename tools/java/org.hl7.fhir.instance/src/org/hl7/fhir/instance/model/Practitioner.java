@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -158,10 +158,10 @@ public class Practitioner extends Resource {
           return this.identifier;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #identifier} (An identifier that applies to this person's qualification in this role.)
          */
+    // syntactic sugar
         public Identifier addIdentifier() { 
           Identifier t = new Identifier();
           this.identifier.add(t);
@@ -342,10 +342,10 @@ public class Practitioner extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (An identifier that applies to this person in this role.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -374,10 +374,10 @@ public class Practitioner extends Resource {
       return this.telecom;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #telecom} (A contact detail for the practitioner, e.g. a telephone number or an email address.)
      */
+    // syntactic sugar
     public ContactPoint addTelecom() { 
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
@@ -391,10 +391,10 @@ public class Practitioner extends Resource {
       return this.address;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #address} (The postal address where the practitioner can be found or visited or to which mail can be delivered.)
      */
+    // syntactic sugar
     public Address addAddress() { 
       Address t = new Address();
       this.address.add(t);
@@ -480,10 +480,10 @@ public class Practitioner extends Resource {
       return this.photo;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #photo} (Image of the person.)
      */
+    // syntactic sugar
     public Attachment addPhoto() { 
       Attachment t = new Attachment();
       this.photo.add(t);
@@ -527,10 +527,10 @@ public class Practitioner extends Resource {
       return this.role;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #role} (Roles which this practitioner is authorized to perform for the organization.)
      */
+    // syntactic sugar
     public CodeableConcept addRole() { 
       CodeableConcept t = new CodeableConcept();
       this.role.add(t);
@@ -544,10 +544,10 @@ public class Practitioner extends Resource {
       return this.specialty;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #specialty} (Specific specialty of the practitioner.)
      */
+    // syntactic sugar
     public CodeableConcept addSpecialty() { 
       CodeableConcept t = new CodeableConcept();
       this.specialty.add(t);
@@ -576,10 +576,10 @@ public class Practitioner extends Resource {
       return this.location;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #location} (The location(s) at which this practitioner provides care.)
      */
+    // syntactic sugar
     public Reference addLocation() { 
       Reference t = new Reference();
       this.location.add(t);
@@ -610,10 +610,10 @@ public class Practitioner extends Resource {
       return this.qualification;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #qualification} (Qualifications obtained by training and certification.)
      */
+    // syntactic sugar
     public PractitionerQualificationComponent addQualification() { 
       PractitionerQualificationComponent t = new PractitionerQualificationComponent();
       this.qualification.add(t);
@@ -627,10 +627,10 @@ public class Practitioner extends Resource {
       return this.communication;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #communication} (A language the practitioner is able to use in patient communication.)
      */
+    // syntactic sugar
     public CodeableConcept addCommunication() { 
       CodeableConcept t = new CodeableConcept();
       this.communication.add(t);

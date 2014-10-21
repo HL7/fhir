@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -327,10 +327,10 @@ public class Contraindication extends Resource {
       return this.implicated;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #implicated} (Indicates the resource representing the current activity or proposed activity that.)
      */
+    // syntactic sugar
     public Reference addImplicated() { 
       Reference t = new Reference();
       this.implicated.add(t);
@@ -504,10 +504,10 @@ public class Contraindication extends Resource {
       return this.mitigation;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #mitigation} (Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.)
      */
+    // syntactic sugar
     public ContraindicationMitigationComponent addMitigation() { 
       ContraindicationMitigationComponent t = new ContraindicationMitigationComponent();
       this.mitigation.add(t);

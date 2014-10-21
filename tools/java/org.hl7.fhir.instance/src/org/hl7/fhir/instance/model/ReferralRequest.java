@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -284,10 +284,10 @@ public class ReferralRequest extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Business Id that uniquely identifies the referral/care transfer request instance.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -406,10 +406,10 @@ public class ReferralRequest extends Resource {
       return this.recipient;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #recipient} (The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.)
      */
+    // syntactic sugar
     public Reference addRecipient() { 
       Reference t = new Reference();
       this.recipient.add(t);
@@ -547,10 +547,10 @@ public class ReferralRequest extends Resource {
       return this.serviceRequested;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #serviceRequested} (The service(s) that is/are requested to be provided to the patient.)
      */
+    // syntactic sugar
     public CodeableConcept addServiceRequested() { 
       CodeableConcept t = new CodeableConcept();
       this.serviceRequested.add(t);
@@ -564,10 +564,10 @@ public class ReferralRequest extends Resource {
       return this.supportingInformation;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #supportingInformation} (Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.)
      */
+    // syntactic sugar
     public Reference addSupportingInformation() { 
       Reference t = new Reference();
       this.supportingInformation.add(t);

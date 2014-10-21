@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1029,10 +1029,10 @@ public class Observation extends Resource {
       return this.performer;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #performer} (Who was responsible for asserting the observed value as "true".)
      */
+    // syntactic sugar
     public Reference addPerformer() { 
       Reference t = new Reference();
       this.performer.add(t);
@@ -1083,10 +1083,10 @@ public class Observation extends Resource {
       return this.referenceRange;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #referenceRange} (Guidance on how to interpret the value by comparison to a normal or recommended range.)
      */
+    // syntactic sugar
     public ObservationReferenceRangeComponent addReferenceRange() { 
       ObservationReferenceRangeComponent t = new ObservationReferenceRangeComponent();
       this.referenceRange.add(t);
@@ -1100,10 +1100,10 @@ public class Observation extends Resource {
       return this.related;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #related} (Related observations - either components, or previous observations, or statements of derivation.)
      */
+    // syntactic sugar
     public ObservationRelatedComponent addRelated() { 
       ObservationRelatedComponent t = new ObservationRelatedComponent();
       this.related.add(t);

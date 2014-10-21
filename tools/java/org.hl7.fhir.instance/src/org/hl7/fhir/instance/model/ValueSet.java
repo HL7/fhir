@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -343,10 +343,10 @@ public class ValueSet extends Resource {
           return this.concept;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #concept} (Concepts in the code system.)
          */
+    // syntactic sugar
         public ConceptDefinitionComponent addConcept() { 
           ConceptDefinitionComponent t = new ConceptDefinitionComponent();
           this.concept.add(t);
@@ -563,10 +563,10 @@ public class ValueSet extends Resource {
           return this.designation;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #designation} (Additional representations for the concept - other languages, aliases, specialised purposes, used for particular purposes, etc.)
          */
+    // syntactic sugar
         public ConceptDefinitionDesignationComponent addDesignation() { 
           ConceptDefinitionDesignationComponent t = new ConceptDefinitionDesignationComponent();
           this.designation.add(t);
@@ -580,10 +580,10 @@ public class ValueSet extends Resource {
           return this.concept;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #concept} (Child Concepts (is-a / contains).)
          */
+    // syntactic sugar
         public ConceptDefinitionComponent addConcept() { 
           ConceptDefinitionComponent t = new ConceptDefinitionComponent();
           this.concept.add(t);
@@ -773,10 +773,10 @@ public class ValueSet extends Resource {
           return this.import_;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
          */
+    // syntactic sugar
         public UriType addImportElement() { 
           UriType t = new UriType();
           this.import_.add(t);
@@ -798,7 +798,7 @@ public class ValueSet extends Resource {
          */
         public boolean hasImport(String value) { 
           for (UriType v : this.import_)
-            if (v.getValue().equals(value))
+            if (v.equals(value)) // uri
               return true;
           return false;
         }
@@ -810,10 +810,10 @@ public class ValueSet extends Resource {
           return this.include;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #include} (Include one or more codes from a code system.)
          */
+    // syntactic sugar
         public ConceptSetComponent addInclude() { 
           ConceptSetComponent t = new ConceptSetComponent();
           this.include.add(t);
@@ -827,10 +827,10 @@ public class ValueSet extends Resource {
           return this.exclude;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #exclude} (Exclude one or more codes from the value set.)
          */
+    // syntactic sugar
         public ConceptSetComponent addExclude() { 
           ConceptSetComponent t = new ConceptSetComponent();
           this.exclude.add(t);
@@ -967,10 +967,10 @@ public class ValueSet extends Resource {
           return this.concept;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #concept} (Specifies a concept to be included or excluded.)
          */
+    // syntactic sugar
         public ConceptReferenceComponent addConcept() { 
           ConceptReferenceComponent t = new ConceptReferenceComponent();
           this.concept.add(t);
@@ -984,10 +984,10 @@ public class ValueSet extends Resource {
           return this.filter;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #filter} (Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.)
          */
+    // syntactic sugar
         public ConceptSetFilterComponent addFilter() { 
           ConceptSetFilterComponent t = new ConceptSetFilterComponent();
           this.filter.add(t);
@@ -1119,10 +1119,10 @@ public class ValueSet extends Resource {
           return this.designation;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #designation} (Additional representations for this concept when used in this value set - other languages, aliases, specialised purposes, used for particular purposes, etc.)
          */
+    // syntactic sugar
         public ConceptDefinitionDesignationComponent addDesignation() { 
           ConceptDefinitionDesignationComponent t = new ConceptDefinitionDesignationComponent();
           this.designation.add(t);
@@ -1371,10 +1371,10 @@ public class ValueSet extends Resource {
           return this.contains;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #contains} (Codes in the value set.)
          */
+    // syntactic sugar
         public ValueSetExpansionContainsComponent addContains() { 
           ValueSetExpansionContainsComponent t = new ValueSetExpansionContainsComponent();
           this.contains.add(t);
@@ -1624,10 +1624,10 @@ public class ValueSet extends Resource {
           return this.contains;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #contains} (Codes contained in this concept.)
          */
+    // syntactic sugar
         public ValueSetExpansionContainsComponent addContains() { 
           ValueSetExpansionContainsComponent t = new ValueSetExpansionContainsComponent();
           this.contains.add(t);
@@ -1978,10 +1978,10 @@ public class ValueSet extends Resource {
       return this.telecom;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #telecom} (Contacts of the publisher to assist a user in finding and communicating with the publisher.)
      */
+    // syntactic sugar
     public ContactPoint addTelecom() { 
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);

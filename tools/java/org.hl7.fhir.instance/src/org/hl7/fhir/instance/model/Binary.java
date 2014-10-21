@@ -1,51 +1,151 @@
 package org.hl7.fhir.instance.model;
 
+/*
+  Copyright (c) 2011+, HL7, Inc.
+  All rights reserved.
+  
+  Redistribution and use in source and binary forms, with or without modification, 
+  are permitted provided that the following conditions are met:
+  
+   * Redistributions of source code must retain the above copyright notice, this 
+     list of conditions and the following disclaimer.
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
+     and/or other materials provided with the distribution.
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
+     prior written permission.
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+  POSSIBILITY OF SUCH DAMAGE.
+  
+*/
+
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
+
+import java.util.*;
+
 /**
- * A class that represents the special FHIR resource "Binary"
+ * A binary resource can contain any content, whether text, image, pdf, zip archive, etc.
  */
 public class Binary extends Resource {
 
-  private static final long serialVersionUID = -5374982878067063027L;
+    /**
+     * MimeType of the binary content represented as a standard MimeType (BCP 13).
+     */
+    protected CodeType contentType;
 
-	@Override
+    /**
+     * The actual content, base64 encoded.
+     */
+    protected Base64BinaryType content;
+
+    private static final long serialVersionUID = 974764407L;
+
+    public Binary() {
+      super();
+    }
+
+    public Binary(CodeType contentType, Base64BinaryType content) {
+      super();
+      this.contentType = contentType;
+      this.content = content;
+    }
+
+    /**
+     * @return {@link #contentType} (MimeType of the binary content represented as a standard MimeType (BCP 13).). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
+     */
+    public CodeType getContentTypeElement() { 
+      return this.contentType;
+    }
+
+    /**
+     * @param value {@link #contentType} (MimeType of the binary content represented as a standard MimeType (BCP 13).). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
+     */
+    public Binary setContentTypeElement(CodeType value) { 
+      this.contentType = value;
+      return this;
+    }
+
+    /**
+     * @return MimeType of the binary content represented as a standard MimeType (BCP 13).
+     */
+    public String getContentType() { 
+      return this.contentType == null ? null : this.contentType.getValue();
+    }
+
+    /**
+     * @param value MimeType of the binary content represented as a standard MimeType (BCP 13).
+     */
+    public Binary setContentType(String value) { 
+        if (this.contentType == null)
+          this.contentType = new CodeType();
+        this.contentType.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #content} (The actual content, base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getContent" gives direct access to the value
+     */
+    public Base64BinaryType getContentElement() { 
+      return this.content;
+    }
+
+    /**
+     * @param value {@link #content} (The actual content, base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getContent" gives direct access to the value
+     */
+    public Binary setContentElement(Base64BinaryType value) { 
+      this.content = value;
+      return this;
+    }
+
+    /**
+     * @return The actual content, base64 encoded.
+     */
+    public byte[] getContent() { 
+      return this.content == null ? null : this.content.getValue();
+    }
+
+    /**
+     * @param value The actual content, base64 encoded.
+     */
+    public Binary setContent(byte[] value) { 
+        if (this.content == null)
+          this.content = new Base64BinaryType();
+        this.content.setValue(value);
+      return this;
+    }
+
+      protected void listChildren(List<Property> childrenList) {
+        super.listChildren(childrenList);
+        childrenList.add(new Property("contentType", "code", "MimeType of the binary content represented as a standard MimeType (BCP 13).", 0, java.lang.Integer.MAX_VALUE, contentType));
+        childrenList.add(new Property("content", "base64Binary", "The actual content, base64 encoded.", 0, java.lang.Integer.MAX_VALUE, content));
+      }
+
+      public Binary copy() {
+        Binary dst = new Binary();
+        dst.contentType = contentType == null ? null : contentType.copy();
+        dst.content = content == null ? null : content.copy();
+        return dst;
+      }
+
+      protected Binary typedCopy() {
+        return copy();
+      }
+
+  @Override
   public ResourceType getResourceType() {
     return ResourceType.Binary;
-  }
+   }
 
-  /**
-   * The content of the binary
-   */
-  private byte[] content;
-  
-  /**
-   * The mimetype of the binary content
-   */
-  private String contentType;
-  
-  /**
-   * @return The content of the binary
-   */
-  public byte[] getContent() {
-    return content;
-  }
-  /**
-   * @param content The content of the binary
-   */
-  public void setContent(byte[] content) {
-    this.content = content;
-  }
-  /**
-   * @return The mimetype of the binary content
-   */
-  public String getContentType() {
-    return contentType;
-  }
-  /**
-   * @param contentType The mimetype of the binary content
-   */
-  public void setContentType(String contentType) {
-    this.contentType = contentType;
-  }
-  
-  
+
 }
+

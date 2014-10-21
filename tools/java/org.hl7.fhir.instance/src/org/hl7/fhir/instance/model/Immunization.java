@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -62,10 +62,10 @@ public class Immunization extends Resource {
           return this.reason;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #reason} (Reasons why a vaccine was administered.)
          */
+    // syntactic sugar
         public CodeableConcept addReason() { 
           CodeableConcept t = new CodeableConcept();
           this.reason.add(t);
@@ -79,10 +79,10 @@ public class Immunization extends Resource {
           return this.refusalReason;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #refusalReason} (Refusal or exemption reasons.)
          */
+    // syntactic sugar
         public CodeableConcept addRefusalReason() { 
           CodeableConcept t = new CodeableConcept();
           this.refusalReason.add(t);
@@ -692,10 +692,10 @@ public class Immunization extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (A unique identifier assigned to this adverse reaction record.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -1102,10 +1102,10 @@ public class Immunization extends Resource {
       return this.reaction;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #reaction} (Categorical data indicating that an adverse event is associated in time to an immunization.)
      */
+    // syntactic sugar
     public ImmunizationReactionComponent addReaction() { 
       ImmunizationReactionComponent t = new ImmunizationReactionComponent();
       this.reaction.add(t);
@@ -1119,10 +1119,10 @@ public class Immunization extends Resource {
       return this.vaccinationProtocol;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #vaccinationProtocol} (Contains information about the protocol(s) under which the vaccine was administered.)
      */
+    // syntactic sugar
     public ImmunizationVaccinationProtocolComponent addVaccinationProtocol() { 
       ImmunizationVaccinationProtocolComponent t = new ImmunizationVaccinationProtocolComponent();
       this.vaccinationProtocol.add(t);

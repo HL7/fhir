@@ -194,7 +194,10 @@
     <link href="urn:uuid:1e404af3-077f-4bee-b7a6-a9be97e1ce32" rel="self"/>
     <updated>2013-07-01T13:11:33Z</updated>
     <content type="text/xml">
-      <Binary contentType="text/plain" xmlns="http://hl7.org/fhir">YXNkYXNkYXNkYXNkYXNk</Binary>
+      <Binary xmlns="http://hl7.org/fhir">
+        <contentType value="text/plain"/>
+        <content value="YXNkYXNkYXNkYXNkYXNk"/>
+      </Binary>
     </content>
   </entry>
 </feed>

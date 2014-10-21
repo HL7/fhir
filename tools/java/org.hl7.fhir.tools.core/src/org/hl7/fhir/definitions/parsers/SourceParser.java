@@ -215,12 +215,16 @@ public class SourceParser {
 		
     logger.log("Load Resources", LogMessageType.Process);
 		for (String n : ini.getPropertyNames("resources"))
-			loadReference(n, definitions.getResources(), false);
+			loadResource(n, definitions.getResources(), false);
 		
-		ResourceDefn baseResource = loadReference("resource", null, false);
-		baseResource.setAbstract(true);
-		definitions.setBaseReference(baseResource);
-		
+    ResourceDefn baseResourceBase = loadResource("resourcebase", null, false);
+    baseResourceBase.setAbstract(true);
+    definitions.setBaseReferenceBase(baseResourceBase);
+    
+    ResourceDefn baseResource = loadResource("resource", null, false);
+    baseResource.setAbstract(true);
+    definitions.setBaseReference(baseResource);
+
 		loadCompartments();
 		loadStatusCodes();
 		
@@ -233,21 +237,6 @@ public class SourceParser {
 		for (String n : ini.getPropertyNames("svg"))
 		  definitions.getDiagrams().put(n, ini.getStringProperty("svg", n));
 		
-		if (ini.getPropertyNames("future-resources") != null)
-		  for (String n : ini.getPropertyNames("future-resources")) {
-		    DefinedCode cd = new DefinedCode(ini.getStringProperty(
-		        "future-resources", n), "Yet to be defined", n);
-		    definitions.getKnownResources().put(n, cd);
-
-		    ResourceDefn futureResource = new ResourceDefn();
-		    futureResource.setName(cd.getCode());
-		    futureResource.setDefinition("Future resource " + cd.getCode()
-		        + ". As yet undefined.");
-		    futureResource.setForFutureUse(true);
-		    definitions.getFutureResources().put(cd.getCode(), futureResource);
-		  }
-
-		eCoreParseResults.getType().addAll(CompositeTypeConverter.buildResourcesFromFhirModel(definitions.getFutureResources().values() ));
 		eCoreParseResults.getEvent().addAll(EventConverter.buildEventsFromFhirModel(definitions.getEvents().values()));
 	
 		// As a second pass, resolve typerefs to the types
@@ -528,7 +517,7 @@ public class SourceParser {
 		}
 	}
 
-	private ResourceDefn loadReference(String n, Map<String, ResourceDefn> map, boolean sandbox) throws Exception {
+	private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, boolean sandbox) throws Exception {
 		String src = sandbox ? sndBoxDir : srcDir;
 		File spreadsheet = new CSFile((sandbox ? sndBoxDir : srcDir) + n + File.separatorChar + n + "-spreadsheet.xml");
 		if (!spreadsheet.exists())

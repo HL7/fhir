@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -426,10 +426,10 @@ public class Contract extends Resource {
       return this.author;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #author} (Contract author or responsible party.)
      */
+    // syntactic sugar
     public Reference addAuthor() { 
       Reference t = new Reference();
       this.author.add(t);
@@ -450,10 +450,10 @@ public class Contract extends Resource {
       return this.grantor;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #grantor} (First Party to the contract, may be the party who confers or delegates the rights defined in the contract.)
      */
+    // syntactic sugar
     public Reference addGrantor() { 
       Reference t = new Reference();
       this.grantor.add(t);
@@ -474,10 +474,10 @@ public class Contract extends Resource {
       return this.grantee;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #grantee} (The Second party to the contract, may be the party who accepts obligations or be that to which rights are delegated.)
      */
+    // syntactic sugar
     public Reference addGrantee() { 
       Reference t = new Reference();
       this.grantee.add(t);
@@ -498,10 +498,10 @@ public class Contract extends Resource {
       return this.witness;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #witness} (Who witnesses the contract.)
      */
+    // syntactic sugar
     public Reference addWitness() { 
       Reference t = new Reference();
       this.witness.add(t);
@@ -537,10 +537,10 @@ public class Contract extends Resource {
       return this.term;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #term} (A contract provision.)
      */
+    // syntactic sugar
     public ContractTermComponent addTerm() { 
       ContractTermComponent t = new ContractTermComponent();
       this.term.add(t);

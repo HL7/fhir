@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -214,10 +214,10 @@ public class Condition extends Resource {
           return this.assessment;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #assessment} (Reference to a formal record of the evidence on which the staging assessment is based.)
          */
+    // syntactic sugar
         public Reference addAssessment() { 
           Reference t = new Reference();
           this.assessment.add(t);
@@ -292,10 +292,10 @@ public class Condition extends Resource {
           return this.detail;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #detail} (Links to other relevant information, including pathology reports.)
          */
+    // syntactic sugar
         public Reference addDetail() { 
           Reference t = new Reference();
           this.detail.add(t);
@@ -655,10 +655,10 @@ public class Condition extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -935,10 +935,10 @@ public class Condition extends Resource {
       return this.evidence;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #evidence} (Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.)
      */
+    // syntactic sugar
     public ConditionEvidenceComponent addEvidence() { 
       ConditionEvidenceComponent t = new ConditionEvidenceComponent();
       this.evidence.add(t);
@@ -952,10 +952,10 @@ public class Condition extends Resource {
       return this.location;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #location} (The anatomical location where this condition manifests itself.)
      */
+    // syntactic sugar
     public ConditionLocationComponent addLocation() { 
       ConditionLocationComponent t = new ConditionLocationComponent();
       this.location.add(t);
@@ -969,10 +969,10 @@ public class Condition extends Resource {
       return this.relatedItem;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #relatedItem} (Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition.)
      */
+    // syntactic sugar
     public ConditionRelatedItemComponent addRelatedItem() { 
       ConditionRelatedItemComponent t = new ConditionRelatedItemComponent();
       this.relatedItem.add(t);

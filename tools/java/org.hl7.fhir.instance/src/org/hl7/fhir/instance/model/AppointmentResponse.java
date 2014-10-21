@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -218,10 +218,10 @@ public class AppointmentResponse extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -265,10 +265,10 @@ public class AppointmentResponse extends Resource {
       return this.participantType;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #participantType} (Role of participant in the appointment.)
      */
+    // syntactic sugar
     public CodeableConcept addParticipantType() { 
       CodeableConcept t = new CodeableConcept();
       this.participantType.add(t);
@@ -282,10 +282,10 @@ public class AppointmentResponse extends Resource {
       return this.individual;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #individual} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
      */
+    // syntactic sugar
     public Reference addIndividual() { 
       Reference t = new Reference();
       this.individual.add(t);

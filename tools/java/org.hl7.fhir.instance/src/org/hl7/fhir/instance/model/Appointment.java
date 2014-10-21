@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -244,10 +244,10 @@ public class Appointment extends Resource {
           return this.type;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #type} (Role of participant in the appointment.)
          */
+    // syntactic sugar
         public CodeableConcept addType() { 
           CodeableConcept t = new CodeableConcept();
           this.type.add(t);
@@ -487,10 +487,10 @@ public class Appointment extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -706,10 +706,10 @@ public class Appointment extends Resource {
       return this.slot;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #slot} (The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
      */
+    // syntactic sugar
     public Reference addSlot() { 
       Reference t = new Reference();
       this.slot.add(t);
@@ -836,10 +836,10 @@ public class Appointment extends Resource {
       return this.participant;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #participant} (List of participants involved in the appointment.)
      */
+    // syntactic sugar
     public AppointmentParticipantComponent addParticipant() { 
       AppointmentParticipantComponent t = new AppointmentParticipantComponent();
       this.participant.add(t);

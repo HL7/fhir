@@ -290,10 +290,10 @@ public class WebMaker {
       if ("a".equals(node.getName()) && node.getAttributes().containsKey("href")) {
         String s = node.getAttributes().get("href");
         String sl = s.toLowerCase();
-        if (sl.equals("fhir-spec.zip")) 
-          node.getAttributes().put("href", "http://hl7.org/documentcenter/public/standards/FHIR"+DSTU_PATH_PORTION+"/fhir-spec.zip");
-        else 
-          if (sl.endsWith(".chm") || sl.endsWith(".eap") || sl.endsWith(".zip")) 
+//        if (sl.equals("fhir-spec.zip")) 
+//          node.getAttributes().put("href", "http://hl7.org/documentcenter/public/standards/FHIR"+DSTU_PATH_PORTION+"/fhir-spec.zip");
+//        else 
+        if (sl.endsWith(".chm") || sl.endsWith(".eap") || sl.endsWith(".zip")) 
           node.getAttributes().put("href", "/documentcenter/public/standards/FHIR"+DSTU_PATH_PORTION+"/"+s);
       }
       for (XhtmlNode child : node.getChildNodes()) 

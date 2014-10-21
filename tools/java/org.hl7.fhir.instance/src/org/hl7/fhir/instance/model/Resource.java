@@ -123,6 +123,8 @@ public abstract class Resource extends BackboneElement {
     return null;
   }
 
+  public abstract Resource copy();
+
 
 //  private ResourceResolverService resourceResolver;
 //  

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -284,10 +284,10 @@ public class Query extends Resource {
           return this.parameter;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #parameter} (Parameters server used.)
          */
+    // syntactic sugar
         public Extension addParameter() { 
           Extension t = new Extension();
           this.parameter.add(t);
@@ -301,10 +301,10 @@ public class Query extends Resource {
           return this.first;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #first} (To get first page (if paged).)
          */
+    // syntactic sugar
         public Extension addFirst() { 
           Extension t = new Extension();
           this.first.add(t);
@@ -318,10 +318,10 @@ public class Query extends Resource {
           return this.previous;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #previous} (To get previous page (if paged).)
          */
+    // syntactic sugar
         public Extension addPrevious() { 
           Extension t = new Extension();
           this.previous.add(t);
@@ -335,10 +335,10 @@ public class Query extends Resource {
           return this.next;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #next} (To get next page (if paged).)
          */
+    // syntactic sugar
         public Extension addNext() { 
           Extension t = new Extension();
           this.next.add(t);
@@ -352,10 +352,10 @@ public class Query extends Resource {
           return this.last;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #last} (To get last page (if paged).)
          */
+    // syntactic sugar
         public Extension addLast() { 
           Extension t = new Extension();
           this.last.add(t);
@@ -369,10 +369,10 @@ public class Query extends Resource {
           return this.reference;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #reference} (Resources that are the results of the search.)
          */
+    // syntactic sugar
         public Reference addReference() { 
           Reference t = new Reference();
           this.reference.add(t);
@@ -492,10 +492,10 @@ public class Query extends Resource {
       return this.parameter;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #parameter} (Set of query parameters with values.)
      */
+    // syntactic sugar
     public Extension addParameter() { 
       Extension t = new Extension();
       this.parameter.add(t);

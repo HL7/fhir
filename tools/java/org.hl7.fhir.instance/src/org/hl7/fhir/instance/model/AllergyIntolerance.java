@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -352,10 +352,10 @@ public class AllergyIntolerance extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -595,10 +595,10 @@ public class AllergyIntolerance extends Resource {
       return this.reaction;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #reaction} (Reactions associated with the sensitivity.)
      */
+    // syntactic sugar
     public Reference addReaction() { 
       Reference t = new Reference();
       this.reaction.add(t);
@@ -629,10 +629,10 @@ public class AllergyIntolerance extends Resource {
       return this.sensitivityTest;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #sensitivityTest} (Observations that confirm or refute the sensitivity.)
      */
+    // syntactic sugar
     public Reference addSensitivityTest() { 
       Reference t = new Reference();
       this.sensitivityTest.add(t);

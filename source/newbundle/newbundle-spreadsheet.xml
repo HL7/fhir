@@ -9,17 +9,19 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-10-19T11:30:59Z</LastSaved>
-  <Version>12.00</Version>
+  <LastSaved>2014-10-20T23:19:41Z</LastSaved>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>6285</WindowHeight>
-  <WindowWidth>18480</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6135</WindowTopY>
+  <WindowWidth>6480</WindowWidth>
+  <WindowTopX>17520</WindowTopX>
+  <WindowTopY>2745</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -83,7 +85,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="10" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -115,34 +117,23 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Bundle</Data></Cell>
+    <Cell><Data ss:Type="String">NewBundle</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:Index="7"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">ResourceBase</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Teest Bundle</Data></Cell>
+    <Cell><Data ss:Type="String">Teest Bundle</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:Index="14" ss:StyleID="Default"><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Bundle.meta</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Meta</Data></Cell>
-    <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Bundle.base</Data></Cell>
+    <Cell><Data ss:Type="String">NewBundle.base</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -158,7 +149,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Bundle.total</Data></Cell>
+    <Cell><Data ss:Type="String">NewBundle.total</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -173,8 +164,8 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Only used if the bundle is a search result set</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Bundle.link</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">NewBundle.link</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -187,7 +178,7 @@
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Bundle.link.name</Data></Cell>
+    <Cell><Data ss:Type="String">NewBundle.link.relation</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -195,13 +186,14 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="10" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">http://www.iana.org/assignments/link-relations/link-relations.xhtml</Data></Cell>
+    <Cell><Data ss:Type="String">A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]]</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Bundle.link.url</Data></Cell>
+    <Cell><Data ss:Type="String">NewBundle.link.url</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -209,13 +201,14 @@
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="10" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">Reference details for the link</Data></Cell>
+    <Cell><Data ss:Type="String">The reference details for the link</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Bundle.item</Data></Cell>
+    <Cell><Data ss:Type="String">NewBundle.item</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
@@ -223,11 +216,13 @@
     <Cell><Data ss:Type="String">Resources that are contained in this bundle</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Bundle.signature</Data></Cell>
+    <Cell><Data ss:Type="String">NewBundle.signature</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Base64Binary</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">base64Binary</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">XML Digitalsignature</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">XML Digital Signature (base64 encoded)</Data></Cell>
+    <Cell><Data ss:Type="String">XML Digital Signature - base64 encoded</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">This is base 64 encoded to address issues with json/xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -243,7 +238,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -263,8 +257,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -586,6 +580,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -605,8 +600,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>9</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -534,10 +534,10 @@ public class AdverseReactionRisk extends Resource {
           return this.manifestation;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #manifestation} (Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event.)
          */
+    // syntactic sugar
         public CodeableConcept addManifestation() { 
           CodeableConcept t = new CodeableConcept();
           this.manifestation.add(t);
@@ -838,10 +838,10 @@ public class AdverseReactionRisk extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -1182,10 +1182,10 @@ public class AdverseReactionRisk extends Resource {
       return this.event;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #event} (Details about each Adverse Reaction Event linked to exposure to the identified Substance.)
      */
+    // syntactic sugar
     public AdverseReactionRiskEventComponent addEvent() { 
       AdverseReactionRiskEventComponent t = new AdverseReactionRiskEventComponent();
       this.event.add(t);

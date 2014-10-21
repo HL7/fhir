@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -823,10 +823,10 @@ public class MessageHeader extends Resource {
       return this.destination;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #destination} (The destination application which the message is intended for.)
      */
+    // syntactic sugar
     public MessageDestinationComponent addDestination() { 
       MessageDestinationComponent t = new MessageDestinationComponent();
       this.destination.add(t);
@@ -975,10 +975,10 @@ public class MessageHeader extends Resource {
       return this.data;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #data} (The actual data of the message - a reference to the root/focus class of the event.)
      */
+    // syntactic sugar
     public Reference addData() { 
       Reference t = new Reference();
       this.data.add(t);

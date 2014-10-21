@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1438,10 +1438,10 @@ public class ImagingStudy extends Resource {
           return this.instance;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #instance} (A single image taken from a patient.)
          */
+    // syntactic sugar
         public ImagingStudySeriesInstanceComponent addInstance() { 
           ImagingStudySeriesInstanceComponent t = new ImagingStudySeriesInstanceComponent();
           this.instance.add(t);
@@ -2036,10 +2036,10 @@ public class ImagingStudy extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (Other identifiers for the study.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -2053,10 +2053,10 @@ public class ImagingStudy extends Resource {
       return this.order;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #order} (A list of the diagnostic orders that resulted in this imaging study being performed.)
      */
+    // syntactic sugar
     public Reference addOrder() { 
       Reference t = new Reference();
       this.order.add(t);
@@ -2087,10 +2087,10 @@ public class ImagingStudy extends Resource {
       return this.modality;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #modality} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
+    // syntactic sugar
     public Enumeration<ImagingModality> addModalityElement() { 
       Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
       this.modality.add(t);
@@ -2112,7 +2112,7 @@ public class ImagingStudy extends Resource {
      */
     public boolean hasModality(ImagingModality value) { 
       for (Enumeration<ImagingModality> v : this.modality)
-        if (v.getValue().equals(value))
+        if (v.equals(value)) // code
           return true;
       return false;
     }
@@ -2326,10 +2326,10 @@ public class ImagingStudy extends Resource {
       return this.procedure;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #procedure} (Type of procedure performed.)
      */
+    // syntactic sugar
     public Coding addProcedure() { 
       Coding t = new Coding();
       this.procedure.add(t);
@@ -2409,10 +2409,10 @@ public class ImagingStudy extends Resource {
       return this.series;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #series} (Each study has one or more series of image instances.)
      */
+    // syntactic sugar
     public ImagingStudySeriesComponent addSeries() { 
       ImagingStudySeriesComponent t = new ImagingStudySeriesComponent();
       this.series.add(t);

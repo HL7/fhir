@@ -139,7 +139,10 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     // TODO Auto-generated method stub  
     write(" "+elem.getName()+"=\"");
 
-    write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+"</span>");
+    if (Utilities.isURL(elem.getShortDefn()))
+      write("<span style=\"color: navy\"><a href=\""+Utilities.escapeXml(elem.getShortDefn())+"\">" + Utilities.escapeXml(elem.getShortDefn())+"</a></span>");
+    else
+      write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+"</span>");
     String t = elem.typeCode();
     write(" (<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t, false)+ ".html#" + t) + "\">" + t + "</a></span>)\"");
   }
@@ -224,7 +227,10 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           write("&gt;");
           write("<span style=\" color: Gray\">&lt;!-- </span>");
           writeTypeLinks(ex.getDefinition(), 0);
-          write(" <span style=\"color: navy\">"+Utilities.escapeXml(ex.getDefinition().getShortDefn())+"</span>");
+          if (Utilities.isURL(ex.getDefinition().getShortDefn()))
+            write("<span style=\"color: navy\"><a href=\""+Utilities.escapeXml(ex.getDefinition().getShortDefn())+"\">" + Utilities.escapeXml(ex.getDefinition().getShortDefn())+"</a></span>");
+          else
+            write(" <span style=\"color: navy\">"+Utilities.escapeXml(ex.getDefinition().getShortDefn())+"</span>");
           write(" <span style=\" color: Gray\">--&gt; </span>&lt;/" + vn + ">\r\n");
         } else if (ex.getDefinition().getTypes().size() == 1) {
           write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t, false)+ ".html#" + t) + "\">" + t+ "</a></span>]\"/>");
@@ -595,9 +601,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           w = w + p.length(); 
           
           // TODO: Display action and/or profile information
-					if( definitions.getFutureResources().containsKey(p)) 
-              write("<a title=\"This resource has not been defined yet\">" + p + "</a>");                
-          else if (p.equals("Any")) {
+					if (p.equals("Any")) {
             write("<a href=\"" + "resourcelist.html" + "\">" + p + "</a>");								
           }
           else if (t.getName().equals("Reference") && t.getParams().size() == 1 && !Utilities.noString(t.getProfile()))

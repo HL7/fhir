@@ -380,7 +380,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">The compatment code</Data></Cell>
+    <Cell><Data ss:Type="String">The compartment code</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">DeviceObservationReport.virtualDevice.code</Data></Cell>
     <Cell ss:StyleID="s63"/>

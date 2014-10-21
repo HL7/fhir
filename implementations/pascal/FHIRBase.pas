@@ -41,6 +41,7 @@ Interface
 
 Uses
   Classes,
+  EncdDecd,
   DateAndTime,
   SysUtils,
   AdvExceptions,
@@ -137,6 +138,7 @@ type
     Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; oObject : TFHIRObject); Overload;
     Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; oList : TFHIRObjectList); Overload;
     Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; sValue : String); Overload;
+    Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; Value : TBytes); Overload;
     Destructor Destroy; Override;
 
     Property hasValue : Boolean read GetHasValue;
@@ -235,6 +237,7 @@ type
     constructor create(value : String); Overload;
     constructor create(value : TDateAndTime); Overload;
     constructor create(value : boolean); Overload;
+    constructor create(value : TBytes); Overload;
     property value : string read FValue write FValue;
   end;
 
@@ -1043,6 +1046,12 @@ begin
   self.value := value.AsXML;
 end;
 
+constructor TFHIRObjectText.create(value: TBytes);
+begin
+  Create;
+  self.value := EncodeBase64(@value[0], length(value));
+end;
+
 procedure TFHIRObjectText.ListProperties(oList: TFHIRPropertyList; bInheritedProperties: Boolean);
 begin
   if (bInheritedProperties) Then
@@ -1335,6 +1344,16 @@ end;
 function TFHIRProperty.GetHasValue: Boolean;
 begin
   result := (FList <> nil) and (Flist.Count > 0);
+end;
+
+constructor TFHIRProperty.Create(oOwner: TFHIRObject; const sName, sType: String; Value: TBytes);
+begin
+  Create;
+  FName := sName;
+  FType := sType;
+  FList := TFHIRObjectList.Create;
+  if (length(value) > 0) then
+    FList.Add(TFhirString.Create(EncodeBase64(@value[0], length(value))));
 end;
 
 { TFHIRPropertyList }

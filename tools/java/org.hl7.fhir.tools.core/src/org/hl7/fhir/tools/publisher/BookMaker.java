@@ -180,9 +180,6 @@ public class BookMaker {
             } 
           }
         }
-      }
-      else if (page.getDefinitions().getFutureResources().containsKey(a.allText())) {
-        a.addText(" (Broken Link: not done yet)");
       } else {
        // page.log("unable to resolve reference to "+a.getAttributes().get("href").substring(1)+" on \""+a.allText()+"\"");
         a.addText(" (Known Broken Link - needs to be resolved)");

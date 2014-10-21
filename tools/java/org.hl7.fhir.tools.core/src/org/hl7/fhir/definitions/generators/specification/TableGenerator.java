@@ -95,7 +95,7 @@ public class TableGenerator extends BaseGenerator {
       }
     }
       
-    Cell cc = gen.new Cell(null, null, e.getShortDefn(), null, null);
+    Cell cc = gen.new Cell(Utilities.isURL(e.getShortDefn()) ? e.getShortDefn() : null, null, e.getShortDefn(), null, null);
     row.getCells().add(cc);
     
     // constraints

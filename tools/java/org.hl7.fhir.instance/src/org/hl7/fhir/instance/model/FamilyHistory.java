@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -224,10 +224,10 @@ public class FamilyHistory extends Resource {
           return this.condition;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #condition} (The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.)
          */
+    // syntactic sugar
         public FamilyHistoryRelationConditionComponent addCondition() { 
           FamilyHistoryRelationConditionComponent t = new FamilyHistoryRelationConditionComponent();
           this.condition.add(t);
@@ -441,10 +441,10 @@ public class FamilyHistory extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -560,10 +560,10 @@ public class FamilyHistory extends Resource {
       return this.relation;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #relation} (The related person. Each FamilyHistory resource contains the entire family history for a single person.)
      */
+    // syntactic sugar
     public FamilyHistoryRelationComponent addRelation() { 
       FamilyHistoryRelationComponent t = new FamilyHistoryRelationComponent();
       this.relation.add(t);

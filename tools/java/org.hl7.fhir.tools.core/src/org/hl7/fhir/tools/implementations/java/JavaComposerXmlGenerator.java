@@ -118,7 +118,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
 //      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
     
-    genReference();
+    genResource();
 
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
@@ -157,7 +157,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     write("\r\n");
   }
 
-  private void genReference() throws Exception {
+  private void genResource() throws Exception {
     write("  private void composeResourceAttributes(Resource element) throws Exception {\r\n");
     write("    composeElementAttributes(element);\r\n");
     write("  }\r\n\r\n");
@@ -415,7 +415,15 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
             tn = upFirst(tn)+"Type";
 
           write("      for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
-          write("        "+comp+"(\""+name+"\", e);\r\n");
+          if (e.typeCode().equals("Resource")) { 
+            write("      {\r\n");
+            write("        xml.open(FHIR_NS, \""+name+"\");\r\n");
+            write("        "+comp+"(e);\r\n");
+            write("        xml.close(FHIR_NS, \""+name+"\");\r\n");
+            write("      }\r\n");            
+          } else {
+            write("        "+comp+"(\""+name+"\", e);\r\n");
+          }
   	    } else {
             write("        for (Enumeration<"+prepEnumName(en)+"> e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
             write("          composeEnumeration(\""+name+"\", e, new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory());\r\n");
@@ -427,6 +435,12 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
 //        write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
       } else if (isJavaPrimitive(e)) {
         write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element());\r\n");
+      } else if (e.typeCode().equals("Resource")) {
+        write("      {\r\n");
+        write("        xml.open(FHIR_NS, \""+name+"\");\r\n");
+        write("        "+comp+"(element.get"+upFirst(getElementName(name, false))+"Element());\r\n");
+        write("        xml.close(FHIR_NS, \""+name+"\");\r\n");
+        write("      }\r\n");
       } else {
         write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"());\r\n");
       }

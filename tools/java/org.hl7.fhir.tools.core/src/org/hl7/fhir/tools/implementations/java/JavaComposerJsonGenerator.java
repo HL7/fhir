@@ -416,6 +416,15 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
             write("            "+comp+"Extras(null, e, true);\r\n");
             write("          closeArray();\r\n");
             write("        }\r\n");
+          } else if (e.typeCode().equals("Resource")){
+            write("        openArray(\""+name+"\");\r\n");
+            write("        for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) {\r\n");
+            write("          open(null);\r\n");
+            write("          "+comp+"(e);\r\n");
+            write("          close();\r\n");
+            write("        }\r\n");
+            write("        closeArray();\r\n");
+            
           } else {
             write("        openArray(\""+name+"\");\r\n");
             write("        for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");

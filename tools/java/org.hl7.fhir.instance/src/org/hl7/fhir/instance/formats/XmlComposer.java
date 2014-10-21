@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -797,6 +797,17 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
+  private void composeBinary(String name, Binary element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeCode("contentType", element.getContentTypeElement());
+      composeBase64Binary("content", element.getContentElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
   private void composeCarePlan(String name, CarePlan element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
@@ -883,6 +894,207 @@ public class XmlComposer extends XmlComposerBase {
       composeQuantity("dailyAmount", element.getDailyAmount());
       composeQuantity("quantity", element.getQuantity());
       composeString("details", element.getDetailsElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponse(String name, ClaimResponse element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      for (Identifier e : element.getIdentifier()) 
+        composeIdentifier("identifier", e);
+      composeReference("request", element.getRequest());
+      for (Identifier e : element.getRequestIdentifier()) 
+        composeIdentifier("requestIdentifier", e);
+      if (element.getOutcomeElement() != null)
+        composeEnumeration("outcome", element.getOutcomeElement(), new ClaimResponse.RSLinkEnumFactory());
+      composeString("disposition", element.getDispositionElement());
+      composeCoding("ruleset", element.getRuleset());
+      composeCoding("originalRuleset", element.getOriginalRuleset());
+      composeDate("date", element.getDateElement());
+      composeReference("organization", element.getOrganization());
+      composeReference("requestProvider", element.getRequestProvider());
+      composeReference("requestOrganization", element.getRequestOrganization());
+      composeCoding("payeeType", element.getPayeeType());
+      for (ClaimResponse.ItemsComponent e : element.getItem()) 
+        composeClaimResponseItemsComponent("item", e);
+      for (ClaimResponse.AddedItemComponent e : element.getAdditem()) 
+        composeClaimResponseAddedItemComponent("additem", e);
+      for (ClaimResponse.ErrorsComponent e : element.getError()) 
+        composeClaimResponseErrorsComponent("error", e);
+      composeMoney("totalCost", element.getTotalCost());
+      composeMoney("unallocDeductable", element.getUnallocDeductable());
+      composeMoney("totalBenefit", element.getTotalBenefit());
+      composeMoney("paymentAdjustment", element.getPaymentAdjustment());
+      composeCoding("paymentAdjustmentReason", element.getPaymentAdjustmentReason());
+      composeDate("paymentDate", element.getPaymentDateElement());
+      composeMoney("paymentAmount", element.getPaymentAmount());
+      composeIdentifier("paymentRef", element.getPaymentRef());
+      composeCoding("reserved", element.getReserved());
+      composeCoding("form", element.getForm());
+      for (ClaimResponse.NotesComponent e : element.getNote()) 
+        composeClaimResponseNotesComponent("note", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseItemsComponent(String name, ClaimResponse.ItemsComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeInteger("sequenceLinkId", element.getSequenceLinkIdElement());
+      for (IntegerType e : element.getNoteNumber()) 
+        composeInteger("noteNumber", e);
+      for (ClaimResponse.ItemAdjudicationComponent e : element.getAdjudication()) 
+        composeClaimResponseItemAdjudicationComponent("adjudication", e);
+      for (ClaimResponse.ItemDetailComponent e : element.getDetail()) 
+        composeClaimResponseItemDetailComponent("detail", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseItemAdjudicationComponent(String name, ClaimResponse.ItemAdjudicationComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCoding("code", element.getCode());
+      composeMoney("amount", element.getAmount());
+      composeDecimal("value", element.getValueElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseItemDetailComponent(String name, ClaimResponse.ItemDetailComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeInteger("sequenceLinkId", element.getSequenceLinkIdElement());
+      for (ClaimResponse.DetailAdjudicationComponent e : element.getAdjudication()) 
+        composeClaimResponseDetailAdjudicationComponent("adjudication", e);
+      for (ClaimResponse.ItemSubdetailComponent e : element.getSubdetail()) 
+        composeClaimResponseItemSubdetailComponent("subdetail", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseDetailAdjudicationComponent(String name, ClaimResponse.DetailAdjudicationComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCoding("code", element.getCode());
+      composeMoney("amount", element.getAmount());
+      composeDecimal("value", element.getValueElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseItemSubdetailComponent(String name, ClaimResponse.ItemSubdetailComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeInteger("sequenceLinkId", element.getSequenceLinkIdElement());
+      for (ClaimResponse.SubdetailAdjudicationComponent e : element.getAdjudication()) 
+        composeClaimResponseSubdetailAdjudicationComponent("adjudication", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseSubdetailAdjudicationComponent(String name, ClaimResponse.SubdetailAdjudicationComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCoding("code", element.getCode());
+      composeMoney("amount", element.getAmount());
+      composeDecimal("value", element.getValueElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseAddedItemComponent(String name, ClaimResponse.AddedItemComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      for (IntegerType e : element.getSsequenceLinkId()) 
+        composeInteger("ssequenceLinkId", e);
+      composeCoding("service", element.getService());
+      composeMoney("fee", element.getFee());
+      for (IntegerType e : element.getNoteNumberLinkId()) 
+        composeInteger("noteNumberLinkId", e);
+      for (ClaimResponse.AddedItemAdjudicationComponent e : element.getAjudication()) 
+        composeClaimResponseAddedItemAdjudicationComponent("ajudication", e);
+      for (ClaimResponse.AddedItemsDetailComponent e : element.getDetail()) 
+        composeClaimResponseAddedItemsDetailComponent("detail", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseAddedItemAdjudicationComponent(String name, ClaimResponse.AddedItemAdjudicationComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCoding("code", element.getCode());
+      composeMoney("amount", element.getAmount());
+      composeDecimal("value", element.getValueElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseAddedItemsDetailComponent(String name, ClaimResponse.AddedItemsDetailComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCoding("service", element.getService());
+      composeMoney("fee", element.getFee());
+      for (ClaimResponse.AddedItemDetailAdjudicationComponent e : element.getAjudication()) 
+        composeClaimResponseAddedItemDetailAdjudicationComponent("ajudication", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseAddedItemDetailAdjudicationComponent(String name, ClaimResponse.AddedItemDetailAdjudicationComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCoding("code", element.getCode());
+      composeMoney("amount", element.getAmount());
+      composeDecimal("value", element.getValueElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseErrorsComponent(String name, ClaimResponse.ErrorsComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeInteger("sequenceLinkId", element.getSequenceLinkIdElement());
+      composeInteger("detailSequenceLinkId", element.getDetailSequenceLinkIdElement());
+      composeInteger("subdetailSequenceLinkId", element.getSubdetailSequenceLinkIdElement());
+      composeCoding("code", element.getCode());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeClaimResponseNotesComponent(String name, ClaimResponse.NotesComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeInteger("number", element.getNumberElement());
+      composeCoding("type", element.getType());
+      composeString("text", element.getTextElement());
       xml.close(FHIR_NS, name);
     }
   }
@@ -2716,6 +2928,37 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
+  private void composeNewBundle(String name, NewBundle element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeUri("base", element.getBaseElement());
+      composeInteger("total", element.getTotalElement());
+      for (NewBundle.NewBundleLinkComponent e : element.getLink()) 
+        composeNewBundleNewBundleLinkComponent("link", e);
+      for (Resource e : element.getItem()) 
+      {
+        xml.open(FHIR_NS, "item");
+        composeResource(e);
+        xml.close(FHIR_NS, "item");
+      }
+      composeBase64Binary("signature", element.getSignatureElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeNewBundleNewBundleLinkComponent(String name, NewBundle.NewBundleLinkComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeString("relation", element.getRelationElement());
+      composeUri("url", element.getUrlElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
   private void composeNutritionOrder(String name, NutritionOrder element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
@@ -3062,9 +3305,11 @@ public class XmlComposer extends XmlComposerBase {
       composeInteger("sequence", element.getSequenceElement());
       composeCoding("type", element.getType());
       composeCoding("service", element.getService());
+      composeQuantity("quantity", element.getQuantity());
       composeDate("serviceDate", element.getServiceDateElement());
       composeReference("provider", element.getProvider());
       composeMoney("fee", element.getFee());
+      composeMoney("total", element.getTotal());
       composeCoding("udi", element.getUdi());
       composeCoding("bodySite", element.getBodySite());
       for (Coding e : element.getSubsite()) 
@@ -3086,7 +3331,9 @@ public class XmlComposer extends XmlComposerBase {
       composeInteger("sequence", element.getSequenceElement());
       composeCoding("type", element.getType());
       composeCoding("service", element.getService());
+      composeQuantity("quantity", element.getQuantity());
       composeMoney("fee", element.getFee());
+      composeMoney("total", element.getTotal());
       composeCoding("udi", element.getUdi());
       for (OralHealthClaim.SubDetailComponent e : element.getSubDetail()) 
         composeOralHealthClaimSubDetailComponent("subDetail", e);
@@ -3102,7 +3349,9 @@ public class XmlComposer extends XmlComposerBase {
       composeInteger("sequence", element.getSequenceElement());
       composeCoding("type", element.getType());
       composeCoding("service", element.getService());
+      composeQuantity("quantity", element.getQuantity());
       composeMoney("fee", element.getFee());
+      composeMoney("total", element.getTotal());
       composeCoding("udi", element.getUdi());
       xml.close(FHIR_NS, name);
     }
@@ -4423,8 +4672,12 @@ public class XmlComposer extends XmlComposerBase {
       composeAvailability("Availability", (Availability)resource);
     else if (resource instanceof Basic)
       composeBasic("Basic", (Basic)resource);
+    else if (resource instanceof Binary)
+      composeBinary("Binary", (Binary)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan("CarePlan", (CarePlan)resource);
+    else if (resource instanceof ClaimResponse)
+      composeClaimResponse("ClaimResponse", (ClaimResponse)resource);
     else if (resource instanceof Composition)
       composeComposition("Composition", (Composition)resource);
     else if (resource instanceof ConceptMap)
@@ -4487,6 +4740,8 @@ public class XmlComposer extends XmlComposerBase {
       composeMessageHeader("MessageHeader", (MessageHeader)resource);
     else if (resource instanceof Namespace)
       composeNamespace("Namespace", (Namespace)resource);
+    else if (resource instanceof NewBundle)
+      composeNewBundle("NewBundle", (NewBundle)resource);
     else if (resource instanceof NutritionOrder)
       composeNutritionOrder("NutritionOrder", (NutritionOrder)resource);
     else if (resource instanceof Observation)

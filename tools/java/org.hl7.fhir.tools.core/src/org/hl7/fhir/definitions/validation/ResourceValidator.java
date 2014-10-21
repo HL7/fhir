@@ -229,7 +229,7 @@ public class ResourceValidator extends BaseValidator {
     String sd = e.getShortDefn();
     if( sd.length() > 0)
 		{
-			rule(errors, "structure", path, sd.contains("|") || Character.isUpperCase(sd.charAt(0)) || !Character.isLetter(sd.charAt(0)), "Short Description must start with an uppercase character ('"+sd+"')");
+			rule(errors, "structure", path, sd.contains("|") || Character.isUpperCase(sd.charAt(0)) || !Character.isLetter(sd.charAt(0)) || Utilities.isURL(sd), "Short Description must start with an uppercase character ('"+sd+"')");
 		    rule(errors, "structure", path, !sd.endsWith(".") || sd.endsWith("etc."), "Short Description must not end with a period ('"+sd+"')");
 		    rule(errors, "structure", path, e.getDefinition().contains("|") || Character.isUpperCase(e.getDefinition().charAt(0)) || !Character.isLetter(e.getDefinition().charAt(0)), "Long Description must start with an uppercase character ('"+e.getDefinition()+"')");
 		}
@@ -307,6 +307,7 @@ public class ResourceValidator extends BaseValidator {
 		}
 
 	}
+
 
   private boolean hasGoodCode(List<DefinedCode> codes) {
     for (DefinedCode d : codes) 

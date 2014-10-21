@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -234,10 +234,10 @@ public class Patient extends Resource {
           return this.relationship;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #relationship} (The nature of the relationship between the patient and the contact person.)
          */
+    // syntactic sugar
         public CodeableConcept addRelationship() { 
           CodeableConcept t = new CodeableConcept();
           this.relationship.add(t);
@@ -266,10 +266,10 @@ public class Patient extends Resource {
           return this.telecom;
         }
 
-    // syntactic sugar
         /**
          * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
          */
+    // syntactic sugar
         public ContactPoint addTelecom() { 
           ContactPoint t = new ContactPoint();
           this.telecom.add(t);
@@ -703,10 +703,10 @@ public class Patient extends Resource {
       return this.identifier;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #identifier} (An identifier that applies to this person as a patient.)
      */
+    // syntactic sugar
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
@@ -720,10 +720,10 @@ public class Patient extends Resource {
       return this.name;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #name} (A name associated with the individual.)
      */
+    // syntactic sugar
     public HumanName addName() { 
       HumanName t = new HumanName();
       this.name.add(t);
@@ -737,10 +737,10 @@ public class Patient extends Resource {
       return this.telecom;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.)
      */
+    // syntactic sugar
     public ContactPoint addTelecom() { 
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
@@ -841,10 +841,10 @@ public class Patient extends Resource {
       return this.address;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #address} (Addresses for the individual.)
      */
+    // syntactic sugar
     public Address addAddress() { 
       Address t = new Address();
       this.address.add(t);
@@ -888,10 +888,10 @@ public class Patient extends Resource {
       return this.photo;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #photo} (Image of the person.)
      */
+    // syntactic sugar
     public Attachment addPhoto() { 
       Attachment t = new Attachment();
       this.photo.add(t);
@@ -905,10 +905,10 @@ public class Patient extends Resource {
       return this.contact;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #contact} (A contact party (e.g. guardian, partner, friend) for the patient.)
      */
+    // syntactic sugar
     public ContactComponent addContact() { 
       ContactComponent t = new ContactComponent();
       this.contact.add(t);
@@ -937,10 +937,10 @@ public class Patient extends Resource {
       return this.communication;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #communication} (Languages which may be used to communicate with the patient about his or her health.)
      */
+    // syntactic sugar
     public CodeableConcept addCommunication() { 
       CodeableConcept t = new CodeableConcept();
       this.communication.add(t);
@@ -954,10 +954,10 @@ public class Patient extends Resource {
       return this.careProvider;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #careProvider} (Patient's nominated care provider.)
      */
+    // syntactic sugar
     public Reference addCareProvider() { 
       Reference t = new Reference();
       this.careProvider.add(t);
@@ -1008,10 +1008,10 @@ public class Patient extends Resource {
       return this.link;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #link} (Link to another patient resource that concerns the same actual person.)
      */
+    // syntactic sugar
     public PatientLinkComponent addLink() { 
       PatientLinkComponent t = new PatientLinkComponent();
       this.link.add(t);

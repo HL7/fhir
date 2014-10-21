@@ -1143,7 +1143,7 @@ end;
 function TFHIRFactory.makeBinaryContent(source: TAdvBuffer; mimeType: String): TFhirBinary;
 begin
   result := makeBinary;
-  result.Content.Assign(source);
+  result.Content := source.AsBytes;
   result.ContentType := mimeType;
 end;
 

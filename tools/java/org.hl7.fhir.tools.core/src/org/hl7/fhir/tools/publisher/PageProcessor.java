@@ -1383,7 +1383,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (!e.getName().equals("DocumentInformation"))
           if (!definitions.dataTypeIsSharedInfo(e.getName()))
             scanForUsage(b, cd, e, "datatypes.html#"+e.getName());
-
     } else {
       for (AtomEntry ae : valueSets.values()) {
         if ((name+".html").equals(ae.getLinks().get("path"))) {
@@ -2276,13 +2275,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : names) {
       DefinedCode c = definitions.getKnownResources().get(n);
       String htmlFilename = c.getComment();
-      
-      if( definitions.getFutureResources().containsKey(c.getCode()) )
-    	  htmlFilename = "resourcelist";
-      
+           
       html.append("  <tr><td><a href=\""+htmlFilename+".html\">"+c.getCode()+"</a></td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
     }       
-    html.append("  <tr><td><a href=\"http.html#binary\">Binary</a></td><td>Pure binary content (special case)</td></tr>");
     return html.toString();
   }
 

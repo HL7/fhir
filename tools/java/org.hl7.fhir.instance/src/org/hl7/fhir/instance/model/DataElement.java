@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -756,10 +756,10 @@ public class DataElement extends Resource {
       return this.telecom;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
+    // syntactic sugar
     public ContactPoint addTelecom() { 
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
@@ -877,10 +877,10 @@ public class DataElement extends Resource {
       return this.category;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #category} (A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.)
      */
+    // syntactic sugar
     public CodeableConcept addCategory() { 
       CodeableConcept t = new CodeableConcept();
       this.category.add(t);
@@ -894,10 +894,10 @@ public class DataElement extends Resource {
       return this.code;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #code} (A code that provides the meaning for a data element according to a particular terminology.)
      */
+    // syntactic sugar
     public Coding addCode() { 
       Coding t = new Coding();
       this.code.add(t);
@@ -1055,10 +1055,10 @@ public class DataElement extends Resource {
       return this.synonym;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
+    // syntactic sugar
     public StringType addSynonymElement() { 
       StringType t = new StringType();
       this.synonym.add(t);
@@ -1080,7 +1080,7 @@ public class DataElement extends Resource {
      */
     public boolean hasSynonym(String value) { 
       for (StringType v : this.synonym)
-        if (v.getValue().equals(value))
+        if (v.equals(value)) // string
           return true;
       return false;
     }
@@ -1209,10 +1209,10 @@ public class DataElement extends Resource {
       return this.mapping;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #mapping} (Identifies a concept from an external specification that roughly corresponds to this element.)
      */
+    // syntactic sugar
     public DataElementMappingComponent addMapping() { 
       DataElementMappingComponent t = new DataElementMappingComponent();
       this.mapping.add(t);

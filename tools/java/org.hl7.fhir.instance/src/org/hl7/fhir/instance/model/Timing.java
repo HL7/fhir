@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -578,10 +578,10 @@ public class Timing extends Type {
       return this.event;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #event} (Identifies specific time periods when the event should occur.)
      */
+    // syntactic sugar
     public Period addEvent() { 
       Period t = new Period();
       this.event.add(t);

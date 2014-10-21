@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -61,10 +61,10 @@ public class CodeableConcept extends Type {
       return this.coding;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #coding} (A reference to a code defined by a terminology system.)
      */
+    // syntactic sugar
     public Coding addCoding() { 
       Coding t = new Coding();
       this.coding.add(t);

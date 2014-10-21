@@ -113,7 +113,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
     JavaFactoryGenerator jFactoryGen = new JavaFactoryGenerator(new FileOutputStream(javaDir+"ResourceFactory.java"));
     
-    generateResourceTypeEnum();
+    generateResourceTypeEnum(version, svnRevision, genDate);
     for (String n : definitions.getResources().keySet()) {
       ResourceDefn root = definitions.getResourceByName(n); 
       JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
@@ -121,17 +121,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       jrg.close();
       hashes.put(n, Long.toString(jrg.getHashSum()));
       jFactoryGen.registerReference(n,  root.getName());
-    }
-
-    generateResourceTypeEnum();
-    for (ResourceDefn resource : definitions.getFutureResources().values()) {
-      ElementDefn e = new ElementDefn();
-      e.setName(resource.getName());
-      JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(e.getName())+".java"), definitions);
-      jrg.generate(e, javaClassName(e.getName()), definitions.getBindings(), JavaGenClass.Resource, null, genDate, version);
-      jrg.close();
-      hashes.put(resource.getName(), Long.toString(jrg.getHashSum()));
-      jFactoryGen.registerReference(resource.getName(),  e.getName());
     }
 
     for (String n : definitions.getInfrastructure().keySet()) {
@@ -227,35 +216,31 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     return s;
   }
 
-  private void generateResourceTypeEnum() throws Exception {
+  private void generateResourceTypeEnum(String version, String svnRevision, Date genDate) throws Exception {
 
     OutputStreamWriter output = new OutputStreamWriter(new FileOutputStream(javaDir+"ResourceType.java")); 
     output.write("package org.hl7.fhir.instance.model;\r\n");
     output.write("\r\n");
-    output.write("public enum ResourceType {\r\n");
+    output.write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
+    output.write("public enum ResourceType {");
 
+    boolean first = true;
     for (String n : definitions.getResources().keySet()) {
-      output.write("    "+n+",\r\n");
+      if (first)
+        first = false;
+      else
+        output.write(",");
+      output.write("\r\n    "+n);
     }
-    for (String n : definitions.getFutureResources().keySet()) {
-      output.write("    "+n+",\r\n");
-    }
+    output.write(";\r\n\r\n");
 
-    output.write("    Binary;\r\n");
     output.write("\r\n    public String getPath() {;\r\n");
     output.write("      switch (this) {\r\n");
-      for (String n : definitions.getResources().keySet()) {
-        output.write("    case "+n+":\r\n");
-        output.write("      return \""+n.toLowerCase()+"\";\r\n");
-      }
+    for (String n : definitions.getResources().keySet()) {
+      output.write("    case "+n+":\r\n");
+      output.write("      return \""+n.toLowerCase()+"\";\r\n");
+    }
 
-      for (String n : definitions.getFutureResources().keySet()) {
-        output.write("    case "+n+":\r\n");
-        output.write("      return \""+n.toLowerCase()+"\";\r\n");
-      }    
-    
-      output.write("    case Binary:\r\n");
-      output.write("      return \"binary\";\r\n");
     output.write("    }\r\n      return null;\r\n");
     output.write("  }\r\n\r\n");
     output.write("}\r\n");

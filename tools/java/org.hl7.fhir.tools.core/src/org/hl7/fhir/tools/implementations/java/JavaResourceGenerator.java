@@ -671,9 +671,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
 			write(indent+"}\r\n");
       write("\r\n");
-      write("    // syntactic sugar\r\n");
       jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
       if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.getTypes().get(0).isIdRef() || e.typeCode().equals("xml:lang"))) {
+        write("    // syntactic sugar\r\n");
         write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"Element() { \r\n");
         write(indent+"  "+tn+" t = new "+tn+"();\r\n");
         write(indent+"  this."+getElementName(e.getName(), true)+".add(t);\r\n");
@@ -700,12 +700,15 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"}\r\n");
         write("\r\n");
       } else {
-        write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
-        write(indent+"  "+tn+" t = new "+tn+"();\r\n");
-        write(indent+"  this."+getElementName(e.getName(), true)+".add(t);\r\n");
-        write(indent+"  return t;\r\n");
-        write(indent+"}\r\n");
-        write("\r\n");
+        if (!tn.equals("Resource")) {
+          write("    // syntactic sugar\r\n");
+          write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
+          write(indent+"  "+tn+" t = new "+tn+"();\r\n");
+          write(indent+"  this."+getElementName(e.getName(), true)+".add(t);\r\n");
+          write(indent+"  return t;\r\n");
+          write(indent+"}\r\n");
+          write("\r\n");
+        }
 
         if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 20, 2014 11:01+1100 for FHIR v0.3.0
+// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -448,10 +448,10 @@ public class RiskAssessment extends Resource {
       return this.basis;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #basis} (Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
+    // syntactic sugar
     public Reference addBasis() { 
       Reference t = new Reference();
       this.basis.add(t);
@@ -472,10 +472,10 @@ public class RiskAssessment extends Resource {
       return this.prediction;
     }
 
-    // syntactic sugar
     /**
      * @return {@link #prediction} (Describes the expected outcome for the subject.)
      */
+    // syntactic sugar
     public RiskAssessmentPredictionComponent addPrediction() { 
       RiskAssessmentPredictionComponent t = new RiskAssessmentPredictionComponent();
       this.prediction.add(t);

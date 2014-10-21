@@ -813,10 +813,10 @@ public class ProfileUtilities {
     row.getCells().add(left);
     Cell gc = gen.new Cell();
     row.getCells().add(gc);
-    if (element.getDefinition() != null && element.getDefinition().getMustSupport()) 
-      gc.addImage("mustsupport.png", "This element must be supported", "S");
     if (element.getDefinition() != null && element.getDefinition().getIsModifier())
       gc.addImage("modifier.png", "This element is a modifier element", "M");
+    if (element.getDefinition() != null && element.getDefinition().getMustSupport()) 
+      gc.addImage("mustsupport.png", "This element must be supported", "S");
     if (element.getDefinition() != null && element.getDefinition().getIsSummary()) 
       gc.addImage("summary.png", "This element is included in summaries", "Σ");
     if (element.getDefinition() != null && (!element.getDefinition().getConstraint().isEmpty() || !element.getDefinition().getCondition().isEmpty())) 

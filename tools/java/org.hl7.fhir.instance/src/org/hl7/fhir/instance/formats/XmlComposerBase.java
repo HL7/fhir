@@ -251,9 +251,9 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	    xml.attribute("type", "text/xml");
 	    xml.open(ATOM_NS, "content");
 	    xml.setDefaultNamespace(FHIR_NS); 
-	    if (entry.getResource() instanceof Binary)
-	      composeBinary("Binary", (Binary) entry.getResource());
-	    else
+//	    if (entry.getResource() instanceof Binary)
+//	      composeBinary("Binary", (Binary) entry.getResource());
+//	    else
 	      composeResource(entry.getResource());
 	    xml.setDefaultNamespace(ATOM_NS);
 	    xml.close(ATOM_NS, "content");
@@ -327,15 +327,15 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	}
 
 
-	protected void composeBinary(String name, Binary element) throws Exception {
-		if (element != null) {
-			composeElementAttributes(element);
-			xml.attribute("contentType", element.getContentType());
-			xml.open(FHIR_NS, name);
-			xml.text(toString(element.getContent()));
-			xml.close(FHIR_NS, name);
-		}    
-	}
+//	protected void composeBinary(String name, Binary element) throws Exception {
+//		if (element != null) {
+//			composeElementAttributes(element);
+//			xml.attribute("contentType", element.getContentType());
+//			xml.open(FHIR_NS, name);
+//			xml.text(toString(element.getContent()));
+//			xml.close(FHIR_NS, name);
+//		}    
+//	}
 
   @Override
   public void compose(OutputStream stream, Type type, boolean pretty) throws Exception {
