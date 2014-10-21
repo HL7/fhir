@@ -20,7 +20,7 @@
   <WindowWidth>25260</WindowWidth>
   <WindowTopX>615</WindowTopX>
   <WindowTopY>4380</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -456,7 +456,6 @@
    </Print>
    <TabColorIndex>10</TabColorIndex>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -933,7 +932,7 @@
   </DataValidation>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="1" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s77" ss:Width="15.75"/>
    <Column ss:Index="3" ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="192"/>
@@ -948,9 +947,6 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">OCL</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">XPath</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data><NamedCell ss:Name="INVARIENT_ID"/></Cell>
-   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -959,6 +955,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
