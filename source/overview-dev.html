@@ -66,7 +66,7 @@ This is an example of how a <a href="patient.html">patient</a> is represented as
 <code>  "meta" : {</code>
 <code>    "id" : "23434",</code>
 <code>    "versionId" : "12",</code>
-<code>    "lastUpdated" : "2014-08-18T01:43:30Z"    </code>
+<code>    "lastUpdated" : "2014-08-18T01:43:30Z"</code>
 <code>  }</code>
 <code>  "text": {</code>
 <code>    "status": "generated",</code>
@@ -113,7 +113,7 @@ Each resource consists of:
 </p>
 <ul>
   <li><b>resourceType</b> (line 2) - Required: FHIR defines many different types of resources. See <a href="resourcelist.html">the full index</a></li>
-  <li><b>meta</b> (lines 3 - 7) - Usually Required: <a href="resources.html#meta">Common data to all resources</a> managed by the infrasturcture (discussed further below)</li>
+  <li><b>meta</b> (lines 3 - 7) - Usually Required: <a href="resources.html#meta">Common data to all resources</a> and managed by the infrasturcture</li>
   <li><b>text</b> (lines 12 - 17) - Required: XHTML that provides a <a href="narrative.html">human readable representation</a> for the resource</li>
   <li><b>extension</b> (lines 12 - 17) - Optional: <a href="extensbility.html">Extensions</a> defined by the extensbility framework</li>
   <li><b>data</b> (lines 18 - 43) - Optional: data elements defined for each type of resource</li>
@@ -349,7 +349,7 @@ The response to a search request is a <a href="extras.html#bundle">bundle</a>: l
 <div class="example">
 <pre class="json linecounter">
 <code>{</code>
-<code>  "resourceType": "SearchResults",</code>
+<code>  "resourceType": "Bundle",</code>
 <code>  "meta" : {</code>
 <code>    "id" : "eceb4882-5c7e-4ca4-af62-995dfb8cef01"</code>
 <code>    "lastUpdated" : "2014-08-19T15:43:30Z"</code>
@@ -463,6 +463,45 @@ Notes:
   <li><b>ETag</b> (line 5) - This is the versionId of the new version</li>
 </ul>
 
+<h3>Other metadata</h3>
+<p>
+Here is a full metadata header:
+</p>
+
+<div class="example">
+<pre class="json linecounter">
+<code>  "meta" : {</code>
+<code>    "id" : "23434",</code>
+<code>    "versionId" : "12",</code>
+<code>    "lastUpdated" : "2014-08-18T01:43:30Z",</code>
+<code>    "ruleSet" : "http://example-consortium.org/fhir/specification",</code>
+<code>    "profile" : "http://example-consortium.org/fhir/profile/patient",</code>
+<code>    "security" : {</code>
+<code>      "system" : "http://hl7.org/fhir/v3/ActCode",</code>
+<code>      "code" : "EMP"</code>
+<code>    },</code>
+<code>    "tag" : {</code>
+<code>      "system" : "http://example.com/codes/workflow",</code>
+<code>      "code" : "needs-review"</code>
+<code>    }</code>
+<code>  }</code>
+<code>}</code>
+</pre>
+</div>
+
+<p>
+Implementers notes:  
+</p>
+<ul>
+  <li><b>meta.id</b> (line 2) - defined when the resource is created, and never changed. Only missing when the resource is first created</li>
+  <li><b>meta.versionId</b> (line 3) - changes each time any resource contents change (except for the last 3 elements in meta)  </li>
+  <li><b>meta.lastUpdated</b> (line 4) - Changes when the versionId changes</li>
+  <li><b>meta.ruleSet</b> (line 5) - A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. See <a href="profiling.html#ruleset">Profile Rule Sets</a> for further discussion</li>
+  <li><b>meta.profile</b> (line 6) - An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion</a>. Can be changed as profiles and value sets change or the system rechecks conformance</li>
+  <li><b>meta.security</b> (lines 7 - 10) - <a href="securitylabels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-stystem chooses to</li>
+  <li><b>meta.tag</b> (lines 11 - 14) - <a href="extras.html">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider the tags when interpreting the meaning of a resource. Tags can be <a href="http.html#tags">updated</a> without changing the resource version</li>
+</ul>
+
 </div>
 
 [%file newfooter%]
@@ -470,3 +509,4 @@ Notes:
     
 </body>
 </html>
+
