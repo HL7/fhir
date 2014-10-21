@@ -238,22 +238,22 @@
     <Cell><Data ss:Type="String">A set of images produced in single study (one or more series of references images)</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Reference IHE radiology TF vol 2 table 4.14.1</Data></Cell>
     <Cell><Data ss:Type="String">Manifest,XDS-I summary, Key Images</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Manifest of a set of images produced in study. The set of images may include every image in the study, or it may be an incomplete sample, such as a list of key images</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="15" ss:StyleID="s67"><Data ss:Type="String">Act[classCode=COMPOSITION, moodCode=EVN]</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImagingStudy.dateTime</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImagingStudy.started</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">When the study was performed</Data></Cell>
+    <Cell><Data ss:Type="String">When the study was started (0008,0020)+(0008,0030)</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">0008,0020+0008,0030</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">StudyDate, StudyTime</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">2011-01-01T11:01:20.000000</Data></Cell>
-    <Cell><Data ss:Type="String">Date and Time the study took place</Data></Cell>
+    <Cell><Data ss:Type="String">Date and Time the study started.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="15" ss:StyleID="s67"><Data ss:Type="String">.effectiveTime</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -289,7 +289,7 @@
     <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">ImagingStudy.accessionNo</Data></Cell>
+    <Cell><Data ss:Type="String">ImagingStudy.accession</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -330,7 +330,7 @@
     <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">ImagingStudy.modality</Data></Cell>
+    <Cell><Data ss:Type="String">ImagingStudy.modalityList</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">ImagingModality</Data></Cell>
@@ -696,7 +696,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">ImagingStudy.series.instance</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">right</Data></Cell>
@@ -956,9 +956,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>18</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>11</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -970,12 +970,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1157,16 +1156,16 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">ImagingStudy.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">started</Data></Cell>
+    <Cell><Data ss:Type="String">When the study was started</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">The date the study was done was taken</Data></Cell>
-    <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">ImagingStudy.dateTime</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">ImagingStudy.started</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">accession</Data></Cell>
     <Cell><Data ss:Type="String">The accession id for the image</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">ImagingStudy.accessionNo</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">ImagingStudy.accession</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">study</Data></Cell>
@@ -1381,7 +1380,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1464,8 +1464,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
