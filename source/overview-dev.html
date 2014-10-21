@@ -497,7 +497,7 @@ Implementers notes:
   <li><b>meta.versionId</b> (line 3) - changes each time any resource contents change (except for the last 3 elements in meta)  </li>
   <li><b>meta.lastUpdated</b> (line 4) - Changes when the versionId changes</li>
   <li><b>meta.ruleSet</b> (line 5) - A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. See <a href="profiling.html#ruleset">Profile Rule Sets</a> for further discussion</li>
-  <li><b>meta.profile</b> (line 6) - An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion</a>. Can be changed as profiles and value sets change or the system rechecks conformance</li>
+  <li><b>meta.profile</b> (line 6) - An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. Can be changed as profiles and value sets change or the system rechecks conformance</li>
   <li><b>meta.security</b> (lines 7 - 10) - <a href="securitylabels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-stystem chooses to</li>
   <li><b>meta.tag</b> (lines 11 - 14) - <a href="extras.html">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider the tags when interpreting the meaning of a resource. Tags can be <a href="http.html#tags">updated</a> without changing the resource version</li>
 </ul>
