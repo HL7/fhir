@@ -17,7 +17,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>12480</WindowHeight>
-  <WindowWidth>28815</WindowWidth>
+  <WindowWidth>20730</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>45</WindowTopY>
   <RefModeR1C1/>
@@ -489,11 +489,11 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Number of this series in overall sequence (0020,0011)</Data></Cell>
+    <Cell><Data ss:Type="String">Numeric identifier of this series (0020,0011)</Data></Cell>
     <Cell><Data ss:Type="String">0020,0011</Data></Cell>
     <Cell><Data ss:Type="String">SeriesNumber</Data></Cell>
     <Cell><Data ss:Type="String">3</Data></Cell>
-    <Cell><Data ss:Type="String">The number of this series in the overall sequence</Data></Cell>
+    <Cell><Data ss:Type="String">The Numeric identifier of this series in the study.</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="15" ss:StyleID="s67"><Data ss:Type="String">.inboundRelationship[type=COMP, source[classCode=COMPOSITION, moodCode=EVN]].sequenceNumber</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -956,9 +956,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>42</TopRowBottomPane>
+   <TopRowBottomPane>18</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -974,8 +974,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>51</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
