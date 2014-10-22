@@ -1116,7 +1116,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">default=false</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">default: false</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Is recording a non-reaction really in the 80%?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
