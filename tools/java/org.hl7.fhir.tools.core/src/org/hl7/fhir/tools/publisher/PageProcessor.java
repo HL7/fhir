@@ -469,6 +469,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+Utilities.escapeXml(name.toUpperCase().substring(0, 1)+name.substring(1))+s3;
       else if (com[0].equals("name"))
         src = s1+name+s3;
+      else if (com[0].equals("canonicalname"))
+        src = s1+makeCanonical(name)+s3;
       else if (com[0].equals("version"))
         src = s1+version+s3;
       else if (com[0].equals("gendate"))
@@ -635,6 +637,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String makeCanonical(String name) {
+    int i = name.lastIndexOf(".");
+    if (i == -1)
+      throw new Error("unable to get canonical name for "+name);
+    return name.substring(0, i)+".canonical"+name.substring(i);
   }
 
   private String genIGProfilelist() {

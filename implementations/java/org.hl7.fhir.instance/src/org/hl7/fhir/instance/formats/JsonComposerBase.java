@@ -57,43 +57,58 @@ import com.google.gson.stream.JsonWriter;
 
 public abstract class JsonComposerBase extends ComposerBase {
 
-	protected JsonWriter json;
+	protected JsonCreator json;
 	private boolean htmlPretty;
-	//private boolean jsonPretty;
+  private boolean canonical;
 
 	/**
 	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
 	@Override
   public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
+		checkCanBePretty(pretty);
 		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
-		JsonWriter writer = new JsonWriter(osw);
-
-        writer.setIndent(pretty ? "  ":"");
+		JsonCreator writer;
+		if (canonical)
+      writer = new JsonCreatorCanonical(osw);
+		else
+		  writer = new JsonCreatorGson(osw);
+    writer.setIndent(pretty ? "  ":"");
 		writer.beginObject();
 		compose(writer, resource);
 		writer.endObject();
+		writer.finish();
 		osw.flush();
 	}
+
+	protected void checkCanBePretty(boolean pretty) throws Exception {
+	  // ok. 	  
+  }
 
 	/**
 	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
 	@Override
   public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception {
+		checkCanBePretty(pretty);
 		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
-		JsonWriter writer = new JsonWriter(osw);
-        writer.setIndent(pretty ? "  ":"");
+    JsonCreator writer;
+    if (canonical)
+      writer = new JsonCreatorCanonical(osw);
+    else
+      writer = new JsonCreatorGson(osw);
+    writer.setIndent(pretty ? "  ":"");
 		writer.beginObject();
 		compose(writer, feed);
 		writer.endObject();
+    writer.finish();
 		osw.flush();
 	}
 
 	/**
 	 * Compose a resource using a pre-existing JsonWriter
 	 */
-	public void compose(JsonWriter writer, Resource resource) throws Exception {
+	public void compose(JsonCreator writer, Resource resource) throws Exception {
 		json = writer;
 		composeResource(resource);
 	}
@@ -101,7 +116,7 @@ public abstract class JsonComposerBase extends ComposerBase {
 	/**
 	 * Compose a bundle using a pre-existing JsonWriter
 	 */
-	public void compose(JsonWriter writer, AtomFeed feed) throws Exception {
+	public void compose(JsonCreator writer, AtomFeed feed) throws Exception {
 		json = writer;
 		composeFeed(feed);
 	}
@@ -112,7 +127,8 @@ public abstract class JsonComposerBase extends ComposerBase {
 	 */
 	@Override
   public void compose(OutputStream writer, List<AtomCategory> tags, boolean pretty) throws Exception {
-		
+		checkCanBePretty(pretty);
+
 	}
 
   // standard order for round-tripping examples succesfully:
@@ -229,12 +245,17 @@ public abstract class JsonComposerBase extends ComposerBase {
 	}
 
   public void compose(OutputStream stream, Type type, boolean pretty) throws Exception {
+  	checkCanBePretty(pretty);
     OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
-    json = new JsonWriter(osw);
+    if (canonical)
+      json = new JsonCreatorCanonical(osw);
+    else
+      json = new JsonCreatorGson(osw);
     json.setIndent(pretty ? "  ":"");
     json.beginObject();
     composeTypeInner(type);
     json.endObject();
+    json.finish();
     osw.flush();
   }
   	
@@ -326,6 +347,11 @@ public abstract class JsonComposerBase extends ComposerBase {
 	  		return true;
 	  }
 	  return false;
+  }
+
+  public void setCanonical(boolean canonical) {
+    this.canonical = canonical;
+    
   }
 
 }

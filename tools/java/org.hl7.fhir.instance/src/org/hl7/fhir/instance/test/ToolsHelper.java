@@ -74,6 +74,8 @@ public class ToolsHelper {
         self.executeRoundTrip(args);
       else if (args[0].equals("json")) 
         self.executeJson(args);
+      else if (args[0].equals("cxml")) 
+        self.executeCanonicalXml(args);
       else if (args[0].equals("version")) 
         self.executeVersion(args);
       else if (args[0].equals("fragments")) 
@@ -276,6 +278,7 @@ public class ToolsHelper {
     FileInputStream in;
     File source = new CSFile(args[1]);
     File dest = new CSFile(args[2]);
+    File destc = new CSFile(Utilities.changeFileExt(args[2], ".canonical.json"));
     File destt = new CSFile(args[2]+".tmp");
 
     if (!source.exists())        
@@ -285,15 +288,41 @@ public class ToolsHelper {
     ResourceOrFeed rf = p.parseGeneral(in);
     JsonComposer json = new JsonComposer();
     if (rf.getFeed() != null) {
-      json.compose(new FileOutputStream(dest), rf.getFeed(), false);
+      json.compose(new FileOutputStream(dest), rf.getFeed(), true);
+      json.setCanonical(true);
+      json.compose(new FileOutputStream(destc), rf.getFeed(), false);
       json.setSuppressXhtml("Snipped for Brevity");
+      json.setCanonical(false);
       json.compose(new FileOutputStream(destt), rf.getFeed(), true);
     } else {
-      json.compose(new FileOutputStream(dest), rf.getResource(), false);
+      json.compose(new FileOutputStream(dest), rf.getResource(), true);
+      json.setCanonical(true);
+      json.compose(new FileOutputStream(destc), rf.getResource(), false);
       json.setSuppressXhtml("Snipped for Brevity");
+      json.setCanonical(false);
       json.compose(new FileOutputStream(destt), rf.getResource(), true);
     }
     return TextFile.fileToString(destt.getAbsolutePath());
+  }
+
+  public void executeCanonicalXml(String[] args) throws Exception {
+    FileInputStream in;
+    File source = new CSFile(args[1]);
+    File dest = new CSFile(args[2]);
+
+    if (!source.exists())        
+      throw new Exception("Source File \""+source.getAbsolutePath()+"\" not found");
+    in = new CSFileInputStream(source);
+    XmlParser p = new XmlParser();
+    ResourceOrFeed rf = p.parseGeneral(in);
+    XmlComposer cxml = new XmlComposer();
+    if (rf.getFeed() != null) {
+      cxml.setCanonical(true);
+      cxml.compose(new FileOutputStream(dest), rf.getFeed(), false);
+    } else {
+      cxml.setCanonical(true);
+      cxml.compose(new FileOutputStream(dest), rf.getResource(), false);
+    }
   }
 
   private void executeVersion(String[] args) throws Exception {

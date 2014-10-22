@@ -516,6 +516,8 @@ public class NarrativeGenerator {
         String[] list = displayHint.split(";");
         for (String item : list) {
           String[] parts = item.split(":");
+          if (parts.length != 2)
+            throw new Exception("error reading display hint: '"+displayHint+"'");
           hints.put(parts[0].trim(), parts[1].trim());
         }
       }

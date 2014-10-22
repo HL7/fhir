@@ -75,7 +75,7 @@ import org.hl7.fhir.utilities.ZipGenerator;
 
 public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
-  private static final boolean IN_PROCESS = false;
+  private static final boolean IN_PROCESS = true;
   
   private FolderManager folders;
   private String javaDir;
@@ -624,5 +624,47 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
   @Override
   public String getVersion() {
     return Version.VERSION; // this has to be hard coded, but we'll fetch if later from the client and check that it's correct
+  }
+
+  public void canonicaliseXml(String rootDir, String sourceFile, String destFile) throws Exception {
+    // for debugging: do it in process
+    if (IN_PROCESS) {
+      ToolsHelper t = new ToolsHelper();
+      String[] cmds = new String[] {"json", sourceFile, destFile};    
+      t.executeCanonicalXml(cmds);
+    } else {
+
+      // execute the jar file javatest.jar
+      // it will produce either the specified output file, or [output file].err with an exception
+      // 
+      File file = new CSFile(destFile);
+      if (file.exists())
+        file.delete();
+      file = new CSFile(destFile+".err");
+      if (file.exists())
+        file.delete();
+
+      List<String> command = new ArrayList<String>();
+      command.add("java");
+      command.add("-jar");
+      command.add("org.hl7.fhir.tools.jar");
+      command.add("cxml");
+      command.add(sourceFile);
+      command.add(destFile);
+
+      ProcessBuilder builder = new ProcessBuilder(command);
+      builder.directory(new File(rootDir));
+
+      final Process process = builder.start();
+      BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+      String s;
+      while ((s = stdError.readLine()) != null) {
+        System.err.println(s);
+      }    
+
+      process.waitFor();
+      if (new File(destFile+".err").exists())
+        throw new Exception(TextFile.fileToString(destFile+".err"));
+    } 
   }
 }

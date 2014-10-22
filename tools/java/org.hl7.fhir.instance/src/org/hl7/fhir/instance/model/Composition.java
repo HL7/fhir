@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Oct 21, 2014 23:06+1100 for FHIR v0.3.0
+// Generated on Wed, Oct 22, 2014 17:27+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -455,9 +455,19 @@ public class Composition extends Resource {
 
     public static class SectionComponent extends BackboneElement {
         /**
-         * The heading for this particular section.  This will be part of the rendered content for the document.
+         * The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.
          */
         protected StringType title;
+
+        /**
+         * A code identifying the kind of content contained within the section. This must be consistent with the section title.
+         */
+        protected CodeableConcept code;
+
+        /**
+         * A nested sub-section within this section.
+         */
+        protected List<SectionComponent> section = new ArrayList<SectionComponent>();
 
         /**
          * The content (narrative and data) associated with the section.
@@ -469,7 +479,7 @@ public class Composition extends Resource {
          */
         protected Resource contentTarget;
 
-        private static final long serialVersionUID = 988853445L;
+        private static final long serialVersionUID = 1072912421L;
 
       public SectionComponent() {
         super();
@@ -481,14 +491,14 @@ public class Composition extends Resource {
       }
 
         /**
-         * @return {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+         * @return {@link #title} (The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
         public StringType getTitleElement() { 
           return this.title;
         }
 
         /**
-         * @param value {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+         * @param value {@link #title} (The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
         public SectionComponent setTitleElement(StringType value) { 
           this.title = value;
@@ -496,14 +506,14 @@ public class Composition extends Resource {
         }
 
         /**
-         * @return The heading for this particular section.  This will be part of the rendered content for the document.
+         * @return The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.
          */
         public String getTitle() { 
           return this.title == null ? null : this.title.getValue();
         }
 
         /**
-         * @param value The heading for this particular section.  This will be part of the rendered content for the document.
+         * @param value The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.
          */
         public SectionComponent setTitle(String value) { 
           if (value == null)
@@ -514,6 +524,38 @@ public class Composition extends Resource {
             this.title.setValue(value);
           }
           return this;
+        }
+
+        /**
+         * @return {@link #code} (A code identifying the kind of content contained within the section. This must be consistent with the section title.)
+         */
+        public CodeableConcept getCode() { 
+          return this.code;
+        }
+
+        /**
+         * @param value {@link #code} (A code identifying the kind of content contained within the section. This must be consistent with the section title.)
+         */
+        public SectionComponent setCode(CodeableConcept value) { 
+          this.code = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #section} (A nested sub-section within this section.)
+         */
+        public List<SectionComponent> getSection() { 
+          return this.section;
+        }
+
+        /**
+         * @return {@link #section} (A nested sub-section within this section.)
+         */
+    // syntactic sugar
+        public SectionComponent addSection() { 
+          SectionComponent t = new SectionComponent();
+          this.section.add(t);
+          return t;
         }
 
         /**
@@ -548,13 +590,19 @@ public class Composition extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("title", "string", "The heading for this particular section.  This will be part of the rendered content for the document.", 0, java.lang.Integer.MAX_VALUE, title));
+          childrenList.add(new Property("title", "string", "The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.", 0, java.lang.Integer.MAX_VALUE, title));
+          childrenList.add(new Property("code", "CodeableConcept", "A code identifying the kind of content contained within the section. This must be consistent with the section title.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("section", "@Composition.section", "A nested sub-section within this section.", 0, java.lang.Integer.MAX_VALUE, section));
           childrenList.add(new Property("content", "Reference(Any)", "The content (narrative and data) associated with the section.", 0, java.lang.Integer.MAX_VALUE, content));
         }
 
       public SectionComponent copy() {
         SectionComponent dst = new SectionComponent();
         dst.title = title == null ? null : title.copy();
+        dst.code = code == null ? null : code.copy();
+        dst.section = new ArrayList<SectionComponent>();
+        for (SectionComponent i : section)
+          dst.section.add(i.copy());
         dst.content = content == null ? null : content.copy();
         return dst;
       }
