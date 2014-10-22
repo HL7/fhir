@@ -475,15 +475,15 @@ Here is a full metadata header:
 <code>    "versionId" : "12",</code>
 <code>    "lastUpdated" : "2014-08-18T01:43:30Z",</code>
 <code>    "ruleSet" : "http://example-consortium.org/fhir/specification",</code>
-<code>    "profile" : "http://example-consortium.org/fhir/profile/patient",</code>
-<code>    "security" : {</code>
+<code>    "profile" : ["http://example-consortium.org/fhir/profile/patient"],</code>
+<code>    "security" : [{</code>
 <code>      "system" : "http://hl7.org/fhir/v3/ActCode",</code>
 <code>      "code" : "EMP"</code>
-<code>    },</code>
-<code>    "tag" : {</code>
+<code>    }],</code>
+<code>    "tag" : [{</code>
 <code>      "system" : "http://example.com/codes/workflow",</code>
 <code>      "code" : "needs-review"</code>
-<code>    }</code>
+<code>    }]</code>
 <code>  }</code>
 <code>}</code>
 </pre>
