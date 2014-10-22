@@ -18,8 +18,8 @@
 <p>
 The base FHIR specification (this specification) describes a set of base resources, frameworks
 and APIs that are used in many different contexts in healthcare. However there is wide 
-variance around the world and across the healthcare eco-system around 
-practices, reuqirements, regulations, education and what actions are feasible 
+between jurisdictions and across the healthcare eco-system around 
+practices, requirements, regulations, education and what actions are feasible 
 and/or beneficial.
 </p>
 <p>
@@ -29,63 +29,58 @@ As a consequence, this specification requires further adaptation to particular
 contexts of use. Typically, these adaptations specify:
 </p>
 <ul>
- <li>Rules about which elements are or are not used</li>
+ <li>Rules about which resource elements are or are not used, and what additional elements are added that are not part of the base specification</li>
  <li>Rules about which API features are used, and how</li>
  <li>Rules about which terminologies and used in particular elements</li>
- <li>Descriptions of how the elements and API features map to local requirements</li>
+ <li>Descriptions of how the Resource elements and API features map to local requirements</li>
 </ul>
 <p>
 Note that because of the nature of the healthcare eco-system, there may be multiple 
-layers of adaptation - by healthcare domain, by country, by institution, and/or by vendor/implementation. 
+overlapping set of adaptation - by healthcare domain, by country, by institution, and/or by vendor/implementation. 
 </p>
 <p>
-The base FHIR specification provides a set of metadata / conformance resources 
-that describe how a specific solution is or should be built:
+Typically, adaptations (either actual implementations or specifications - sometimes called "Implementation Guides")
+both restrict and extend APIs, resources and terminologies. FHIR provides a set of resources that 
+represent the decisions that have been made, and to build useful services from them. These
+resources are known as the reflection resources. These reflection resources allow you to:
 </p>
 <ul>
- <li><a href="conformance.html">Conformance</a> Resource: describes how a client or server uses or should use the FHIR API</li>
- <li><a href="profile.html">Profile</a> Resource: describes a set of rules about how a resource or data type is used</li>
- <li><a href="valueset.html">Value Set</a> Resource: describes a set of codes or concepts that can be used in a particular context</li>
- <li><a href="conceptmap.html">Concept Map</a> Resource: maps between terminologies and/or structures </li>
- <li><a href="operationdefinition.html">OperationDefinition</a> Resource: describes additional operations over and above the RESTful interactions defined in the specification</li>
- <li><a href="namespace.html">Namespace</a> Resource: provides formal definitions of system namespaces for identifiers and terminologies</li>
- <li><a href="dataelement.html">DataElement</a> Resource: describes data elements that are used across FHIR and other contexts</li>
-</ul>
-<p>
-For implementer convenience, the specification itself publishes its base definitions using these same resources. 
-</p>
-<p>
-Typically, implementations or regional standards both restrict and extend APIs, resources and terminologies. 
-The basic concepts for extension are described in <a href="extensiblity.html">"Extensibility"</a>. 
-Specifically, the conformance resources allow you to:
-</p>
-<ul>
- <li>Indicate that <a href="http.html">some API calls</a> are not used for a particular use (Conforamnce Resource)</li>
- <li>Add additional <a href="operations.html">operations</a> or <a href="search.html">search parameters</a> not in the base specification (using the OperationDefinition resource or the Profile following the policy discussed below)</li>
- <li>Identify specific elements in resources that are not used (Profile resource)</li>
+ <li>Indicate that <a href="http.html">some API calls</a> are not used for a particular use , and provide additional details about how the API calls are used (<a href="conformance.html">Conformance</a> Resource)</li>
+ <li>Add additional <a href="operations.html">operations</a> or <a href="search.html">search parameters</a> not in the base specification 
+   (using the <a href="operationdefinition.html">OperationDefinition</a> resource or the <a href="parameterdefinition.html">ParameterDefinition</a> Resource</li>
+ <li>Identify specific elements in resources that are not used (<a href="profile.html">Profile</a> Resource)</li>
+ <li>Describe how existing elements in resources are used (Profile resource)</li>
  <li>Define new elements that are used resources or data types (Profile resource)</li>
- <li>Mix custom and standard terminologies and choose which codes from these to use for a particular use (Profile and ValueSet resources)</li>
+ <li>Mix custom and standard terminologies and choose which codes from these to use for a particular use (Profile and <a href="valueset.html">Value Set</a> Resources)</li>
+ <li>Map between local and standard terminologies or content models (<a href="conceptmap.html">Concept Map</a> Resource)</li>
+ <li>Register system namespaces for identifiers and terminologies (<a href="namespace.html">Namespace</a> Resource)</li>
+ <li>Describe and register specific Data Elements that are used across systems in a Data Dictionary (<a href="dataelement.html">DataElement</a> Resource)</li>
 </ul>
+<p>
+These need to be used following the policies discussed below, and also 
+following the basic concepts for extension are described in <a href="extensibility.html">"Extensibility"</a>. 
+For implementer convenience, the specification itself publishes its base definitions using these same resources.
+</p>
 
 <a name="api"> </a>
 <h3>Extending and Restricting the API</h3>
 <p>
-A conformance resource lists the interactions (read, update, search, etc) that a server provides or that a client uses, along with 
+A conformance resource lists the REST interactions (read, update, search, etc) that a server provides or that a client uses, along with 
 some supporting information for each. It can also be used to define a set of desired behavior (e.g. as part of a specification or
 a Request for Proposal).  The only interaction that servers are required to support is the <a href="http.html#conformance">Conformance</a>
 interaction itself - to retrieve the server's conformance statement. Beyond that, servers and clients support and use whichever
 API calls are relevant to their use case.
 </p>
 <p>
-In addition the operations that FHIR provides, servers are allowed to provide additional 
+In addition the operations that FHIR provides, servers may provide additional 
 operations that are not part of the FHIR specification. Implementers can safely do this 
-by appending '$' and an operation name to an existing FHIR URL, as the <a href="operations.html">Operations
+by appending a custom operation name prefixed with '$' to an existing FHIR URL, as the <a href="operations.html">Operations
 framework</a> does. The Conformance resource supports defining what OperationDefinitions make use of particular
 names on an end point.  If services are defined that are not declared using OperationDefinition, it may be
 appropriate to use longer names, reducing the chance of collision (and confusion) with services declared by
 other interfaces.  The base specification will never define operation names with a "." in them, so 
-implementers are recommended to use a name such as "ihe.someService" using some appropriate prefix 
-to reduce the likelihood of name conflicts.
+implementers are recommended to use some appropriate prefix for their names (such as "ihe.someService")
+to reduce the likelihood of name conflicts. 
 </p>
 <p>
 Implementations are encouraged, but not required, to define operations using the standard
@@ -94,8 +89,8 @@ resource, but some operations may involve formats that can't be described that w
 </p>
 <p>
 Implementations are also able to extend the FHIR API using additional content types. 
-For instance, it might be useful to retrieve or update the appointment resources using a vCard
-based format. vCard defines its own mime type, and these additional mime types can 
+For instance, it might be useful to <a href="http.html#read">read</a> or <a href="http.html#update">update</a> 
+the appointment resources using a vCard based format. vCard defines its own mime type, and these additional mime types can 
 safely be used in addition to those defined in this specification.
 </p>
 
@@ -116,12 +111,13 @@ What profiles can do is limited in some respects:
 <ul>
  <li>Profiles cannot break the rules established in the base specification (e.g. if the element cardinality is 1..1 in the base specification, a profile cannot say it is 0..1, or 1..*)</li>
  <li>Profiles cannot specify default values or meanings for elements</li>
+ <li>Profiles cannot give more specific names to elements</li>
  <li>It must be safe to process a resource without knowing of the profile</li>
 </ul>
 <p>
-The consequence of this is that if a profile mandates behavior that cannot 
-be ignored, it must also mandate an extension with isModifier=true in the
-instance. Another way of saying this is that knowledge must be explicit in
+The consequence of this is that if a profile mandates extended behavior that cannot 
+be ignored, it must also mandate the use of a <a href="extensibility.html#modifiers">modifier extension</a>. 
+Another way of saying this is that knowledge must be explicit in
 the instance, not implicit in the profile. 
 </p>
 <p>
@@ -130,22 +126,28 @@ resource was being negated (e.g. asserting that it never happened), it could not
 in the profile itself that this is what the resource means; instead, the profile must 
 say that the resource must have an extension that represents this knowledge. 
 </p>
-
+<p>
+There is the facility to mark resources that they can only be safely understood by 
+a process that is aware of and understands a set of published rules. For more information,
+see <a href="resources.html#ruleset">Restricted Understanding of Resources</a>.
+</p>
+ 
 
 <h3>Structure</h3>
 <p>
 A profile specifies one or more sets of restrictions ("structures") on the content of a FHIR resource or data type. 
 Each structure has a name (unique in the scope of the profile) that is used 
-to reference the structure. The following kinds of statements can be made about how a element is used:
+to reference the structure. The following kinds of statements can be made about how an element is used:
 </p>
 <ul>
  <li>Restricting the cardinality of the element. e.g. the base might allow 0..*, and a particular application might support 1..2</li>
  <li>Ruling out use of an element by setting its maximum cardinality to 0</li>
+ <li>•	Restricting the contents of an element to a single fixed value</li>
  <li>Making additional invariants on the content of nested elements within the resource (expressed as XPath statements)</li>
  <li>Restricting the types for an element that allows multiple types</li>
  <li>Requiring a typed element or the target of a resource reference to conform to another structure profile (declared in the same profile, or elsewhere)</li>
  <li>Specifying a binding to a different terminology value set (see below)</li>
- <li>Providing alternative definitions for the elements defined in a Resource to explain how they are used in the context of the Profile</li>
+ <li>Providing alternative definitions and examples for the elements defined in a Resource to explain how they are used in the context of the Profile</li>
  <li>Providing more specific or additional mappings (e.g. to v2 or v3) for the resource when used in a particular context</li>
  <li>Declaring that one or more elements in the profile must be 'supported' (see below)</li>
 </ul>
@@ -178,8 +180,8 @@ defines the following structure:
  &lt;/Root&gt;
 </pre>
 <p>
-or its JSON equivalent. The structure SHALL be coherent - children are never 
-implied, and the path statements SHALL always be in order. The element list is 
+or its JSON equivalent. The structure is coherent - children are never 
+implied, and the path statements are always in order. The element list is 
 a linear list rather than being explicitly nested because profile structures
 are frequently used in multiple places within a single profile, and this re-use
 is easier with a flat structure.
@@ -195,9 +197,12 @@ statement or both.
 <p>Differential statements describe only the differences that they make 
 relative to another profile (which is most often the base FHIR resource or data type). 
 For example, a profile may make a single element mandadory (cardinality 1..1).
-In the case of a differential sturcture, it will contain a single element 
+In the case of a differential structure, it will contain a single element 
 with the path of the element being made mandatory, and a cardinality statement.
-Nothing else is stated - all the rest of the structure is implied.
+Nothing else is stated - all the rest of the structure is implied (note:
+this implies that a differential profile can be sparse, and only 
+mention the elements that are changed, without having to list the
+full structure).
 </p>
 <p>
 In order to properly understand a differential structure, it must be 
@@ -221,26 +226,28 @@ systems should always have the snapshot view propulated.
 <h3>Slicing</h3>
 <p>
 One common feature of profiles is to take an element that may occur more than once (e.g. in a list), <!-- What about slicing type choices? -->
-and describe a series of different restrictions on the elements in the list with associated 
-additional meaning with each element, so that the list is split into a series of individual 
-elements or sub-lists. In FHIR, this operation is known as "Slicing" a collection.
+and split the list into a series of sublists, each with different restrictions on the elements in the sublist with associated 
+additional meaning. In FHIR, this operation is known as "Slicing" a list. It is common to 
+“slice” a list into sub-lists containing just one element, effectively putting constraints on each element in the list.
 </p>
 <p>
 Here is an example to illustrate the process:
 </p>
 <img alt="Slicing diagram" src="slicing.png" width="461" height="353"/>
 <p>
-In this example, the base resource defines the "related" element which may occur
-multiple times. Each related element has a "type" element, and a "target" element
-which identifies another observation. In this diagram, for convenience, the contents 
+In this example, the base resource defines the "related" element which refers to 
+another Observation which is related to the main Observation and which may occur
+multiple times. Each "related" element has a "type" element specifying the nature 
+of the relationship (component, replacement, derivation etc.), and a "target" element
+which identifies the actual observation. In this diagram, for convenience, the contents 
 of the target element are shown in the inner box instead of the showing the target 
-reference explicitly. Note that to avoid adding clutter to this simplified example, 
+reference explicitly. Also, to avoid adding clutter to this simplified example, 
 the "name" attribute of Observation is shown as just a code not a full CodeableConcept.
 </p>
 <p>
 The profile for Blood Pressure constrains the related element list into 
-2 different elements: a systolic element, and a diastolic element. Each of these
-elements has a fixed value for the type element, and a the profile also fixes the 
+2 sublists of one element: a systolic element, and a diastolic element. Each of these
+elements has a fixed value for the type element, and the profile also fixes the 
 contents of the target observation as well, specifying a fixed LOINC code for
 the name and specifying that both have a value of type Quantity. This process
 is known as "slicing" and the Systolic and Diastolic elements are called "slices".
@@ -267,8 +274,9 @@ instance looks like this:
 </pre>
 <p>
 In order to determine that the first related item corresponds to "Systolic" in 
-the profile,  system checks the values of the elements - in this case, the name element
-in the resource that target refers to. 
+the profile  to determine to which additional constraints for a sub-list the item conforms, 
+the system checks the values of the elements - in this case, the name element
+in the resource that target refers to. This element is called the “discriminator”.
 </p>
 
 <a name="discriminator"> </a>
@@ -289,7 +297,7 @@ are used to tell the slices apart.
 </p>
 <p>
 When a discriminator is provided, the composite of the values of 
-the elements nominated in the discriminator is unique and distint
+the elements nominated in the discriminator is unique and distinct
 for each possible slice and applications can easily determine
 which slice an item in a list corresponds to. The intention is that 
 this can be done in generated code.
@@ -297,10 +305,10 @@ this can be done in generated code.
 <p>
 When a profile nominates one or more discriminators, it SHALL 
 fix the value of the element for each discriminator for each 
-slice, or if the contained element has a terminology binding, it SHALL be 
+slice, or if the element has a terminology binding, it SHALL be 
 associated with a complete binding with a version specific <a href="valueset.html">Value Set</a> 
 reference that enumerates the possible codes in the value set.
-THe profile SHALL ensure that there is no overlap between the 
+The profile SHALL ensure that there is no overlap between the 
 set of values and/or codes in the value sets between slices.
 </p>
 <p>
@@ -312,8 +320,8 @@ where each resource only has one of the nominated elements,
 as long as they are distinct across slices. 
 </p>
 <p>
-A profile is not required to nominate any discrimator at all 
-for a slice, but profiles that don't identify descriminators are describing 
+A profile is not required to nominate any discriminator at all 
+for a slice, but profiles that don't identify discriminators are describing 
 content that is very difficult to process, and so this is 
 discouraged.
 </p>
@@ -327,14 +335,17 @@ These entries together form a "slice group" that is:
 	<li><b>Initiated by a "slicing entry"</b> That is, the first
 		<i>element</i> in a slice group must contain a
 		<i>slicing</i> property that defines the
-		<i>discriminator</i> for all members of the group.</li>
+		<i>discriminator</i> for all members of the group.  It also contains the unconstrained definition of the element that is sliced</li>
 
 	<li><b>Mutually exclusive</b>. This means that each
 		<i>element</i> in a slice group SHALL describe a
 		distinct set of  values for the group's
 		<i>discriminators</i>.  Because of this constraint, an 
 	        element in a resource <b>instance</b> will never match more
-		than one <i>element</i> in a given slice group (unless no discriminators are nominated).</li>
+		than one <i>element</i> in a given slice group. If no discriminators are named, 
+    it SHOULD still be possible to differentiate the slices based 
+    on their properties, though it may be substantially harder to 
+    do so</li>
 
 	<li><b>Serialized as a group</b>. The entries in a slice
 		group must be <b>adjacent</b> in a serialized Profile,
@@ -360,13 +371,14 @@ There are two special names: @type, and @profile. Here are some example discrimi
  <tr>  <td>List.entry</td> <td>item.reference.name</td> <td>Entries are differentiated by the name element on the target resource - probably an observation, which could be determined by other information in the profile</td> </tr>
  <tr>  <td>List.entry</td> <td>item.reference.@type</td> <td>Entries are differentiated by the type of the target element that the reference points to</td> </tr>
  <tr>  <td>List.entry</td> <td>item.reference.@profile</td> <td>Entries are differentiated by a profile tag on the target of the reference, as specified by a profile (todo: how to do that?)</td> </tr>
- <tr>  <td>List.entry</td> <td>item.extension.url</td> <td>Entries are differentiated by the url of their extension (this doesn't really make sense)</td> </tr>
  <tr>  <td>List.entry</td> <td>item.extension["http://acme.org/extensions/test"].code</td> <td>Entries are differentiated by the value of the code element in the extension with the nominated URL</td> </tr>
  <tr>  <td>List.entry.extension</td> <td>url</td> <td>Extensions are differentiated by the value of their url property (usually how extensions are sliced)</td> </tr>
+ <tr>  <td>List.entry</td> <td>item.reference.@type, item.reference.name</td> <td>Extensions are differentiated by the combination of item.reference.name, and, if it has one, the name element. This would be
+   appropriate for where a List might be comprised of a Condition, and set of observations, each differentiated by it's name - the condition has no name, so that is evaluated as a null in the discriminator set</td> </tr>
 </table>
 
 <p>
-See <a href="profiling-examples.html">examples of slicing and discriminators</a>.
+See also <a href="profiling-examples.html">examples of slicing and discriminators</a>.
 </p>
 
 <a name="extensions"> </a>
@@ -374,14 +386,16 @@ See <a href="profiling-examples.html">examples of slicing and discriminators</a>
 <p>
 A profile can also define extensions. Some profiles only define extensions and others define 
 extensions as part of defining one or more structures. For an extension definition, the 
-profile defines the code that identifies the extension. The full URL that refers to the 
+profile defines the "name" that identifies the extension. The full URL that refers to the 
 extension when it is used in a resource is the Profile.URL and 
-then # + the code.
+then # + the name.
 </p>
 <p>
 The extension definition also defines the context where the extension can be used (usually
 a particular path or a data type) and then defines the extension element using the same details used to 
-profile the structural elements.
+profile the structural elements. This means that a single extension can be defined once and used on 
+different Resource and/or datatypes, e.g. one would only have to define an extension for “hair color” 
+once, and then specify it can be used on both Patient and Practitioner.
 </p>
 <p>
 Note that in the case of a profile that defines an extension and then uses it, the
@@ -395,9 +409,9 @@ see <a href="extensibility.html">Extensibility</a>.
 
 <h4>Using Extensions in Structures</h4>
 <p>
-Defining an extension means that it can be used in FHIR instances somewhere. To actually
-use an extension, the extension list on the resource needs to be sliced. This is shown in 
-<a href="extensibility-examples.html#sliceextensions">the extensibility examples</a></p>
+Defining an extension means that it can be used in FHIR instances somewhere. To actually 
+prescribe the use of an extension in an instance, the extension list on the resource 
+needs to be sliced. This is shown in <a href="extensibility-examples.html#sliceextensions">the extensibility examples</a></p>
 <p>
 Note that the minimum cardinality of an extension SHALL be a valid restriction
 on the minimum cardinality in the definition of the extension. if the minimum
@@ -416,7 +430,7 @@ set of possible codes the element may contain. The binding identifies the
 definition of the set of possible codes and controls how tightly the set of the possible codes is interpreted.
 </p>
 <p>
-The set of possible codes is either a formal reference to a value set 
+The set of possible codes is either a formal reference to a <a href="valueset.html">ValueSet</a> 
 resource, which may be version specific, or a general reference to some web content that defines a set of 
 codes. The second is most appropriate where set of values is defined by 
 some external standard (such as mime types). Alternatively, where the binding
@@ -464,8 +478,8 @@ define the meanings:
 <table>
  <tr><td><b>Conformance</b></td><td><b>isExtensible=false</b></td><td><b>isExtensible=true</b></td></tr>
  <tr><td><b>Required</b></td><td>Implementers SHALL use a code from the defined set</td><td>Implementers SHALL use a code from the defined set if one is applicable, but otherwise may provide their own code or use text</td></tr>
- <tr><td><b>Preferred</b></td><td>Implementers SHOULD use a code from the defined set</td><td>Implementers SHOULD use a code from the defined set if one is applicable, but MAY provide their own code or use text</td></tr>
- <tr><td><b>Example</b></td><td>Implementers MAY use a code from the defined set</td><td>Implementers MAY use a code from the defined set or provide their own code or use text</td></tr>
+ <tr><td><b>Preferred</b></td><td>Implementers SHOULD use a code from the defined set<br/>Using a different code will generate a warning from a validator</td><td>Implementers SHOULD use a code from the defined set if one is applicable, but MAY provide their own code or use text</td></tr>
+ <tr><td><b>Example</b></td><td>Implementers MAY use a code from the defined set, or provide their own code, or use text</td></tr>
 </table>
 <p>
 Note: Example binding isExtensible = false is not generally a useful statement. 
@@ -482,7 +496,7 @@ Profiles can bind to these value sets instead of the ones defined in the base
 specification, following these rules:
 </p>
 <table class="grid">
- <tr> <td><b>Binding Type</b></td> <td><b>Profile Properties</b></td> <td><b>Customization Rules</b></td> </tr>
+ <tr> <td><b>Binding Type in base specification</b></td> <td><b>Matching Profile Properties</b></td> <td><b>Customization Rules in Profiles</b></td> </tr>
 
  <tr> <td>Complete</td> <td>conformance = required, extensible = false</td> <td>The value set can only contain codes contained in the value set specified by the FHIR specification</td> </tr>
  <tr> <td>Incomplete</td> <td>conformance = preferred and extensible = true</td> <td>The value set can contain codes not found in the base value set. These additional codes SHOULD not have the same meaning as existing codes in the base value set</td> </tr>
