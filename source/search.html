@@ -141,7 +141,7 @@ separated from the parameter name by a colon. Modifiers are:</p>
   equates to not having the relevant element in the resource). Searching for "gender:missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
  <li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), instead of the default behavior, which is that the search does partial matches. It is at the discretion of the server whether to do a left-partial search</li>
- <li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes</li>
+ <li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other define modifiers are ";in", ":below", ":above", ":in" and ":not-in" which are described below</li>
  <li>For reference: ":[type]" where [type] is the name of a type of resource</li>
 </ul>
 
@@ -159,6 +159,7 @@ value in a URL). Examples:
  <tr><td>[parameter]=&lt;=100</td><td>Values that are less or equal to 100</td></tr>
  <tr><td>[parameter]=&gt;100</td><td>Values that are greater than 100</td></tr>
  <tr><td>[parameter]=&gt;=100</td><td>Values that are greater or equal to 100</td></tr>
+ <tr><td>[parameter]=!=100</td><td>Values that are not equal to 100. Precision works as for equals (this operation is the logical converse of equals)</td></tr>
 </table>
 <p>
 For comparisons involving &lt; or &gt;, uncertainty does not factor, and the precision of the numbers is considered arbitrarily high.
@@ -196,6 +197,7 @@ concepts are relatively straight-forward, there are a number of subtleties invol
  <li>Date parameter searches are always matched based on the behavior of intervals, as follows:
    <ul>
      <li>For [parameter]=[date], the requirement is that the search interval fully contains the time of the target. i.e. [parameter]=2013-01-14 includes 2013-01-14T00:00 (obviously) and also 2013-01-14T10:00 but not 2013-01-15T00:00</li>
+     <li>For [parameter]=!=[date], the requirement is that the search interval does not fully contain the time of the target. i.e. [parameter]=!=2013-01-14 includes 2013-01-15T00:00 but not 2013-01-14T00:00 or 2013-01-14T10:00</li>
 	 <li>For "[parameter]=&lt;[date]", the requirement is that the interval of the time before [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
 	 <li>For "[parameter]=&gt;[date]", the requirement is that the interval of the time after [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
@@ -280,11 +282,21 @@ value is one of the following:
 <p>
 Note that the namespace URI and code both must be <a href="#escaping">escaped</a>. 
 </p>
+<p><b>Modifiers:</b></p>
+<table class="lines">
+ <tr> <td><b>Modifier</b></td> <td><b>Use</b></td> </tr>
+ <tr> <td>:text</td> <td>the search parameter is processed as a string that searches text associated with the code/value - either <i>CodeableConcept.text</i>, <i>Coding.display</i>, or <i>Identifier.label</i></td> </tr>
+ <tr> <td>:not</td> <td>reverse the code matching described in the paragraph above</td> </tr>
+ <tr> <td>:above</td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource subsumes the specified search code (e.g. the search concept has an is-a relationship with the coding in the resource)</td> </tr>
+ <tr> <td>:below</td> <td>the search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource is subsumed by the specified search code (e.g. the coding in the resource has an is-a relationship with the search concept)</td> </tr>
+ <tr> <td>:in</td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified <a href="valueset.html">value set</a>. The reference may be literal (to an address where the value set can be found) or logical (a referecnce to ValueSet.identifier)</td> </tr>
+ <tr> <td>:not-in</td> <td>the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set</td> </tr>
+</table>
 <p>
-If the modifier ":text", is used, the search parameter is processed as a 
-string that searches text associated with the code/value - either <i>CodeableConcept.text</i>,
-<i>Coding.display</i>, or <i>Identifier.label</i>.
+Most servers will only process value sets that are already known/registered/supported internally, but serers can elect to accept any valid reference to a value set.
+Servers may elect to consider concept mappings when testing for subsumption relationships. 
 </p>
+
 <p>
 Here are some example searches:
 </p>
