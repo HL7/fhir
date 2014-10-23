@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -77,10 +77,10 @@ public class AdverseReaction extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case SEVERE: return "";
-            case SERIOUS: return "";
-            case MODERATE: return "";
-            case MINOR: return "";
+            case SEVERE: return "severe";
+            case SERIOUS: return "serious";
+            case MODERATE: return "moderate";
+            case MINOR: return "minor";
             default: return "?";
           }
         }
@@ -148,9 +148,9 @@ public class AdverseReaction extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case DRUGADMIN: return "";
-            case IMMUNIZ: return "";
-            case COINCIDENTAL: return "";
+            case DRUGADMIN: return "drugadmin";
+            case IMMUNIZ: return "immuniz";
+            case COINCIDENTAL: return "coincidental";
             default: return "?";
           }
         }
@@ -219,10 +219,10 @@ public class AdverseReaction extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case LIKELY: return "";
-            case UNLIKELY: return "";
-            case CONFIRMED: return "";
-            case UNKNOWN: return "";
+            case LIKELY: return "likely";
+            case UNLIKELY: return "unlikely";
+            case CONFIRMED: return "confirmed";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -102,15 +102,15 @@ public class DiagnosticOrder extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case REQUESTED: return "";
-            case RECEIVED: return "";
-            case ACCEPTED: return "";
-            case INPROGRESS: return "";
-            case REVIEW: return "";
-            case COMPLETED: return "";
-            case SUSPENDED: return "";
-            case REJECTED: return "";
-            case FAILED: return "";
+            case REQUESTED: return "requested";
+            case RECEIVED: return "received";
+            case ACCEPTED: return "accepted";
+            case INPROGRESS: return "in progress";
+            case REVIEW: return "review";
+            case COMPLETED: return "completed";
+            case SUSPENDED: return "suspended";
+            case REJECTED: return "rejected";
+            case FAILED: return "failed";
             default: return "?";
           }
         }

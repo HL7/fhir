@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -72,9 +72,9 @@ public class Conformance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case DRAFT: return "";
-            case ACTIVE: return "";
-            case RETIRED: return "";
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case RETIRED: return "retired";
             default: return "?";
           }
         }
@@ -133,8 +133,8 @@ public class Conformance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case CLIENT: return "";
-            case SERVER: return "";
+            case CLIENT: return "client";
+            case SERVER: return "server";
             default: return "?";
           }
         }
@@ -224,15 +224,15 @@ public class Conformance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case READ: return "";
-            case VREAD: return "";
-            case UPDATE: return "";
-            case DELETE: return "";
-            case HISTORYINSTANCE: return "";
-            case VALIDATE: return "";
-            case HISTORYTYPE: return "";
-            case CREATE: return "";
-            case SEARCHTYPE: return "";
+            case READ: return "read";
+            case VREAD: return "vread";
+            case UPDATE: return "update";
+            case DELETE: return "delete";
+            case HISTORYINSTANCE: return "history-instance";
+            case VALIDATE: return "validate";
+            case HISTORYTYPE: return "history-type";
+            case CREATE: return "create";
+            case SEARCHTYPE: return "search-type";
             default: return "?";
           }
         }
@@ -340,13 +340,13 @@ public class Conformance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case NUMBER: return "";
-            case DATE: return "";
-            case STRING: return "";
-            case TOKEN: return "";
-            case REFERENCE: return "";
-            case COMPOSITE: return "";
-            case QUANTITY: return "";
+            case NUMBER: return "number";
+            case DATE: return "date";
+            case STRING: return "string";
+            case TOKEN: return "token";
+            case REFERENCE: return "reference";
+            case COMPOSITE: return "composite";
+            case QUANTITY: return "quantity";
             default: return "?";
           }
         }
@@ -426,9 +426,9 @@ public class Conformance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case TRANSACTION: return "";
-            case SEARCHSYSTEM: return "";
-            case HISTORYSYSTEM: return "";
+            case TRANSACTION: return "transaction";
+            case SEARCHSYSTEM: return "search-system";
+            case HISTORYSYSTEM: return "history-system";
             default: return "?";
           }
         }
@@ -492,9 +492,9 @@ public class Conformance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case CONSEQUENCE: return "";
-            case CURRENCY: return "";
-            case NOTIFICATION: return "";
+            case CONSEQUENCE: return "Consequence";
+            case CURRENCY: return "Currency";
+            case NOTIFICATION: return "Notification";
             default: return "?";
           }
         }
@@ -553,8 +553,8 @@ public class Conformance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case SENDER: return "";
-            case RECEIVER: return "";
+            case SENDER: return "sender";
+            case RECEIVER: return "receiver";
             default: return "?";
           }
         }
@@ -609,8 +609,8 @@ public class Conformance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case PRODUCER: return "";
-            case CONSUMER: return "";
+            case PRODUCER: return "producer";
+            case CONSUMER: return "consumer";
             default: return "?";
           }
         }

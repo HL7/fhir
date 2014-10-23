@@ -105,8 +105,8 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
       e.setXmlId(json.get("id").getAsString());
     if (!Utilities.noString(e.getXmlId()))
       idMap.put(e.getXmlId(), e);
-    if (json.has("_comment")) {
-      JsonArray array = json.getAsJsonArray("_comment");
+    if (json.has("fhir_comments")) {
+      JsonArray array = json.getAsJsonArray("fhir_comments");
       for (int i = 0; i < array.size(); i++) {
         e.getXmlComments().add(array.get(i).getAsString());
       }

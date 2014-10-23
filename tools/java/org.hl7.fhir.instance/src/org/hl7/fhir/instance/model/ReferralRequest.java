@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -87,12 +87,12 @@ public class ReferralRequest extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case DRAFT: return "";
-            case SENT: return "";
-            case ACTIVE: return "";
-            case CANCELLED: return "";
-            case REFUSED: return "";
-            case COMPLETED: return "";
+            case DRAFT: return "draft";
+            case SENT: return "sent";
+            case ACTIVE: return "active";
+            case CANCELLED: return "cancelled";
+            case REFUSED: return "refused";
+            case COMPLETED: return "completed";
             default: return "?";
           }
         }

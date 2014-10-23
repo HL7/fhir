@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -193,20 +193,20 @@ public class Questionnaire extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case BOOLEAN: return "";
-            case DECIMAL: return "";
-            case INTEGER: return "";
-            case DATE: return "";
-            case DATETIME: return "";
-            case INSTANT: return "";
-            case TIME: return "";
-            case STRING: return "";
-            case TEXT: return "";
-            case CHOICE: return "";
-            case OPENCHOICE: return "";
-            case ATTACHMENT: return "";
-            case REFERENCE: return "";
-            case QUANTITY: return "";
+            case BOOLEAN: return "boolean";
+            case DECIMAL: return "decimal";
+            case INTEGER: return "integer";
+            case DATE: return "date";
+            case DATETIME: return "dateTime";
+            case INSTANT: return "instant";
+            case TIME: return "time";
+            case STRING: return "string";
+            case TEXT: return "text";
+            case CHOICE: return "choice";
+            case OPENCHOICE: return "open-choice";
+            case ATTACHMENT: return "attachment";
+            case REFERENCE: return "reference";
+            case QUANTITY: return "quantity";
             default: return "?";
           }
         }

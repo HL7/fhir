@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -244,11 +244,11 @@ public class SecurityEvent extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case _1: return "";
-            case _2: return "";
-            case _3: return "";
-            case _4: return "";
-            case _5: return "";
+            case _1: return "1";
+            case _2: return "2";
+            case _3: return "3";
+            case _4: return "4";
+            case _5: return "5";
             default: return "?";
           }
         }
@@ -325,10 +325,10 @@ public class SecurityEvent extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case _1: return "";
-            case _2: return "";
-            case _3: return "";
-            case _4: return "";
+            case _1: return "1";
+            case _2: return "2";
+            case _3: return "3";
+            case _4: return "4";
             default: return "?";
           }
         }
@@ -732,21 +732,21 @@ public class SecurityEvent extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case _1: return "";
-            case _2: return "";
-            case _3: return "";
-            case _4: return "";
-            case _5: return "";
-            case _6: return "";
-            case _7: return "";
-            case _8: return "";
-            case _9: return "";
-            case _10: return "";
-            case _11: return "";
-            case _12: return "";
-            case _13: return "";
-            case _14: return "";
-            case _15: return "";
+            case _1: return "1";
+            case _2: return "2";
+            case _3: return "3";
+            case _4: return "4";
+            case _5: return "5";
+            case _6: return "6";
+            case _7: return "7";
+            case _8: return "8";
+            case _9: return "9";
+            case _10: return "10";
+            case _11: return "11";
+            case _12: return "12";
+            case _13: return "13";
+            case _14: return "14";
+            case _15: return "15";
             default: return "?";
           }
         }

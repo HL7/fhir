@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -77,10 +77,10 @@ public class ContactPoint extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case PHONE: return "";
-            case FAX: return "";
-            case EMAIL: return "";
-            case URL: return "";
+            case PHONE: return "phone";
+            case FAX: return "fax";
+            case EMAIL: return "email";
+            case URL: return "url";
             default: return "?";
           }
         }
@@ -158,11 +158,11 @@ public class ContactPoint extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case HOME: return "";
-            case WORK: return "";
-            case TEMP: return "";
-            case OLD: return "";
-            case MOBILE: return "";
+            case HOME: return "home";
+            case WORK: return "work";
+            case TEMP: return "temp";
+            case OLD: return "old";
+            case MOBILE: return "mobile";
             default: return "?";
           }
         }

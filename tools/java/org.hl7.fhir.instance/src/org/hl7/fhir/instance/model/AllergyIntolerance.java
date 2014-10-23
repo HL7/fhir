@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -77,10 +77,10 @@ public class AllergyIntolerance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case FATAL: return "";
-            case HIGH: return "";
-            case MEDIUM: return "";
-            case LOW: return "";
+            case FATAL: return "fatal";
+            case HIGH: return "high";
+            case MEDIUM: return "medium";
+            case LOW: return "low";
             default: return "?";
           }
         }
@@ -148,9 +148,9 @@ public class AllergyIntolerance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case ALLERGY: return "";
-            case INTOLERANCE: return "";
-            case UNKNOWN: return "";
+            case ALLERGY: return "allergy";
+            case INTOLERANCE: return "intolerance";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -219,10 +219,10 @@ public class AllergyIntolerance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case SUSPECTED: return "";
-            case CONFIRMED: return "";
-            case REFUTED: return "";
-            case RESOLVED: return "";
+            case SUSPECTED: return "suspected";
+            case CONFIRMED: return "confirmed";
+            case REFUTED: return "refuted";
+            case RESOLVED: return "resolved";
             default: return "?";
           }
         }

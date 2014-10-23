@@ -229,12 +229,27 @@ public class HeirarchicalTableGenerator  {
   public class TableModel {
     private List<Title> titles = new ArrayList<HeirarchicalTableGenerator.Title>();
     private List<Row> rows = new ArrayList<HeirarchicalTableGenerator.Row>();
+    private String docoRef;
+    private String docoImg;
     public List<Title> getTitles() {
       return titles;
     }
     public List<Row> getRows() {
       return rows;
     }
+    public String getDocoRef() {
+      return docoRef;
+    }
+    public String getDocoImg() {
+      return docoImg;
+    }
+    public void setDocoRef(String docoRef) {
+      this.docoRef = docoRef;
+    }
+    public void setDocoImg(String docoImg) {
+      this.docoImg = docoImg;
+    }
+    
   }
 
 
@@ -263,6 +278,8 @@ public class HeirarchicalTableGenerator  {
     model.getTitles().add(new Title(null, null, "Card.", null, null, 0));
     model.getTitles().add(new Title(null, null, "Type", null, null, 100));
     model.getTitles().add(new Title(null, null, "Description & Constraints", null, null, 0));
+    model.setDocoImg("help16.png");
+    model.setDocoRef("formats.html#table");
     return model;
   }
 
@@ -272,11 +289,15 @@ public class HeirarchicalTableGenerator  {
     table.setAttribute("style", "border: 0px; font-size: 11px; font-family: verdana; vertical-align: top;");
     XhtmlNode tr = table.addTag("tr");
     tr.setAttribute("style", "border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;");
+    XhtmlNode tc = null;
     for (Title t : model.getTitles()) {
-      XhtmlNode tc = renderCell(tr, t, "th", null, null, null, false, null);
+      tc = renderCell(tr, t, "th", null, null, null, false, null);
       if (t.width != 0)
         tc.setAttribute("style", "width: "+Integer.toString(t.width)+"px");
     }
+    if (tc != null)
+      tc.addTag("span").setAttribute("style", "float: right").addTag("a").setAttribute("title", "Legend for this format").setAttribute("href", model.getDocoRef()).addTag("img").setAttribute("alt", "doco").setAttribute("src", model.getDocoImg());
+      
     for (Row r : model.getRows()) {
       renderRow(table, r, 0, new ArrayList<Boolean>());
     }

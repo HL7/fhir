@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -77,10 +77,10 @@ public class Provenance extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case DERIVATION: return "";
-            case REVISION: return "";
-            case QUOTATION: return "";
-            case SOURCE: return "";
+            case DERIVATION: return "derivation";
+            case REVISION: return "revision";
+            case QUOTATION: return "quotation";
+            case SOURCE: return "source";
             default: return "?";
           }
         }

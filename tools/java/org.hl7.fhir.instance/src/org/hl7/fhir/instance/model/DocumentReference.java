@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -72,9 +72,9 @@ public class DocumentReference extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case CURRENT: return "";
-            case SUPERCEDED: return "";
-            case ENTEREDINERROR: return "";
+            case CURRENT: return "current";
+            case SUPERCEDED: return "superceded";
+            case ENTEREDINERROR: return "entered in error";
             default: return "?";
           }
         }
@@ -143,10 +143,10 @@ public class DocumentReference extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case REPLACES: return "";
-            case TRANSFORMS: return "";
-            case SIGNS: return "";
-            case APPENDS: return "";
+            case REPLACES: return "replaces";
+            case TRANSFORMS: return "transforms";
+            case SIGNS: return "signs";
+            case APPENDS: return "appends";
             default: return "?";
           }
         }

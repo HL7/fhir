@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -102,15 +102,15 @@ public class OrderResponse extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case PENDING: return "";
-            case REVIEW: return "";
-            case REJECTED: return "";
-            case ERROR: return "";
-            case ACCEPTED: return "";
-            case CANCELLED: return "";
-            case REPLACED: return "";
-            case ABORTED: return "";
-            case COMPLETE: return "";
+            case PENDING: return "pending";
+            case REVIEW: return "review";
+            case REJECTED: return "rejected";
+            case ERROR: return "error";
+            case ACCEPTED: return "accepted";
+            case CANCELLED: return "cancelled";
+            case REPLACED: return "replaced";
+            case ABORTED: return "aborted";
+            case COMPLETE: return "complete";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -82,11 +82,11 @@ public class Encounter extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case PLANNED: return "";
-            case INPROGRESS: return "";
-            case ONLEAVE: return "";
-            case FINISHED: return "";
-            case CANCELLED: return "";
+            case PLANNED: return "planned";
+            case INPROGRESS: return "in progress";
+            case ONLEAVE: return "onleave";
+            case FINISHED: return "finished";
+            case CANCELLED: return "cancelled";
             default: return "?";
           }
         }
@@ -183,14 +183,14 @@ public class Encounter extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case INPATIENT: return "";
-            case OUTPATIENT: return "";
-            case AMBULATORY: return "";
-            case EMERGENCY: return "";
-            case HOME: return "";
-            case FIELD: return "";
-            case DAYTIME: return "";
-            case VIRTUAL: return "";
+            case INPATIENT: return "inpatient";
+            case OUTPATIENT: return "outpatient";
+            case AMBULATORY: return "ambulatory";
+            case EMERGENCY: return "emergency";
+            case HOME: return "home";
+            case FIELD: return "field";
+            case DAYTIME: return "daytime";
+            case VIRTUAL: return "virtual";
             default: return "?";
           }
         }

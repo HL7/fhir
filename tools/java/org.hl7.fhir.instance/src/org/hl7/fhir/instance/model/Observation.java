@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -88,11 +88,11 @@ public class Observation extends Resource {
         public String getDisplay() {
           switch (this) {
             case REGISTERED: return "Registered";
-            case PRELIMINARY: return "";
-            case FINAL: return "";
-            case AMENDED: return "";
-            case CANCELLED: return "";
-            case ENTEREDINERROR: return "";
+            case PRELIMINARY: return "preliminary";
+            case FINAL: return "final";
+            case AMENDED: return "amended";
+            case CANCELLED: return "cancelled";
+            case ENTEREDINERROR: return "entered in error";
             default: return "?";
           }
         }
@@ -188,13 +188,13 @@ public class Observation extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case OK: return "";
-            case ONGOING: return "";
-            case EARLY: return "";
-            case QUESTIONABLE: return "";
-            case CALIBRATING: return "";
-            case ERROR: return "";
-            case UNKNOWN: return "";
+            case OK: return "ok";
+            case ONGOING: return "ongoing";
+            case EARLY: return "early";
+            case QUESTIONABLE: return "questionable";
+            case CALIBRATING: return "calibrating";
+            case ERROR: return "error";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -294,13 +294,13 @@ public class Observation extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case HASCOMPONENT: return "";
-            case HASMEMBER: return "";
-            case DERIVEDFROM: return "";
-            case SEQUELTO: return "";
-            case REPLACES: return "";
-            case QUALIFIEDBY: return "";
-            case INTERFEREDBY: return "";
+            case HASCOMPONENT: return "has-component";
+            case HASMEMBER: return "has-member";
+            case DERIVEDFROM: return "derived-from";
+            case SEQUELTO: return "sequel-to";
+            case REPLACES: return "replaces";
+            case QUALIFIEDBY: return "qualified-by";
+            case INTERFEREDBY: return "interfered-by";
             default: return "?";
           }
         }

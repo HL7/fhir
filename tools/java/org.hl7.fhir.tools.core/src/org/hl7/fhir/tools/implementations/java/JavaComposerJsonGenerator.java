@@ -136,7 +136,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("    if (element.getXmlId() != null)\r\n");
     write("      prop(\"id\", element.getXmlId());\r\n");
     write("      if (!element.getXmlComments().isEmpty() || !canonical) {\r\n");
-    write("        openArray(\"_comment\");\r\n");
+    write("        openArray(\"fhir_comments\");\r\n");
     write("        for (String s : element.getXmlComments())\r\n");
     write("          prop(null,  s);\r\n");
     write("         closeArray();\r\n");

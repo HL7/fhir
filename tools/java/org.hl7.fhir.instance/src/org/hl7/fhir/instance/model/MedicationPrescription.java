@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -87,12 +87,12 @@ public class MedicationPrescription extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case ACTIVE: return "";
-            case ONHOLD: return "";
-            case COMPLETED: return "";
-            case ENTEREDINERROR: return "";
-            case STOPPED: return "";
-            case SUPERCEDED: return "";
+            case ACTIVE: return "active";
+            case ONHOLD: return "on hold";
+            case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered in error";
+            case STOPPED: return "stopped";
+            case SUPERCEDED: return "superceded";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -72,9 +72,9 @@ public class OperationDefinition extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case DRAFT: return "";
-            case ACTIVE: return "";
-            case RETIRED: return "";
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case RETIRED: return "retired";
             default: return "?";
           }
         }
@@ -133,8 +133,8 @@ public class OperationDefinition extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case OPERATION: return "";
-            case QUERY: return "";
+            case OPERATION: return "operation";
+            case QUERY: return "query";
             default: return "?";
           }
         }
@@ -189,8 +189,8 @@ public class OperationDefinition extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case IN: return "";
-            case OUT: return "";
+            case IN: return "in";
+            case OUT: return "out";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -237,42 +237,42 @@ public class ImagingStudy extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case AR: return "";
-            case BMD: return "";
-            case BDUS: return "";
-            case EPS: return "";
-            case CR: return "";
-            case CT: return "";
-            case DX: return "";
-            case ECG: return "";
-            case ES: return "";
-            case XC: return "";
-            case GM: return "";
-            case HD: return "";
-            case IO: return "";
-            case IVOCT: return "";
-            case IVUS: return "";
-            case KER: return "";
-            case LEN: return "";
-            case MR: return "";
-            case MG: return "";
-            case NM: return "";
-            case OAM: return "";
-            case OCT: return "";
-            case OPM: return "";
-            case OP: return "";
-            case OPR: return "";
-            case OPT: return "";
-            case OPV: return "";
-            case PX: return "";
-            case PT: return "";
-            case RF: return "";
-            case RG: return "";
-            case SM: return "";
-            case SRF: return "";
-            case US: return "";
-            case VA: return "";
-            case XA: return "";
+            case AR: return "AR";
+            case BMD: return "BMD";
+            case BDUS: return "BDUS";
+            case EPS: return "EPS";
+            case CR: return "CR";
+            case CT: return "CT";
+            case DX: return "DX";
+            case ECG: return "ECG";
+            case ES: return "ES";
+            case XC: return "XC";
+            case GM: return "GM";
+            case HD: return "HD";
+            case IO: return "IO";
+            case IVOCT: return "IVOCT";
+            case IVUS: return "IVUS";
+            case KER: return "KER";
+            case LEN: return "LEN";
+            case MR: return "MR";
+            case MG: return "MG";
+            case NM: return "NM";
+            case OAM: return "OAM";
+            case OCT: return "OCT";
+            case OPM: return "OPM";
+            case OP: return "OP";
+            case OPR: return "OPR";
+            case OPT: return "OPT";
+            case OPV: return "OPV";
+            case PX: return "PX";
+            case PT: return "PT";
+            case RF: return "RF";
+            case RG: return "RG";
+            case SM: return "SM";
+            case SRF: return "SRF";
+            case US: return "US";
+            case VA: return "VA";
+            case XA: return "XA";
             default: return "?";
           }
         }
@@ -473,10 +473,10 @@ public class ImagingStudy extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case ONLINE: return "";
-            case OFFLINE: return "";
-            case NEARLINE: return "";
-            case UNAVAILABLE: return "";
+            case ONLINE: return "ONLINE";
+            case OFFLINE: return "OFFLINE";
+            case NEARLINE: return "NEARLINE";
+            case UNAVAILABLE: return "UNAVAILABLE";
             default: return "?";
           }
         }
@@ -794,59 +794,59 @@ public class ImagingStudy extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case AR: return "";
-            case AU: return "";
-            case BDUS: return "";
-            case BI: return "";
-            case BMD: return "";
-            case CR: return "";
-            case CT: return "";
-            case DG: return "";
-            case DX: return "";
-            case ECG: return "";
-            case EPS: return "";
-            case ES: return "";
-            case GM: return "";
-            case HC: return "";
-            case HD: return "";
-            case IO: return "";
-            case IVOCT: return "";
-            case IVUS: return "";
-            case KER: return "";
-            case KO: return "";
-            case LEN: return "";
-            case LS: return "";
-            case MG: return "";
-            case MR: return "";
-            case NM: return "";
-            case OAM: return "";
-            case OCT: return "";
-            case OP: return "";
-            case OPM: return "";
-            case OPT: return "";
-            case OPV: return "";
-            case OT: return "";
-            case PR: return "";
-            case PT: return "";
-            case PX: return "";
-            case REG: return "";
-            case RF: return "";
-            case RG: return "";
-            case RTDOSE: return "";
-            case RTIMAGE: return "";
-            case RTPLAN: return "";
-            case RTRECORD: return "";
-            case RTSTRUCT: return "";
-            case SEG: return "";
-            case SM: return "";
-            case SMR: return "";
-            case SR: return "";
-            case SRF: return "";
-            case TG: return "";
-            case US: return "";
-            case VA: return "";
-            case XA: return "";
-            case XC: return "";
+            case AR: return "AR";
+            case AU: return "AU";
+            case BDUS: return "BDUS";
+            case BI: return "BI";
+            case BMD: return "BMD";
+            case CR: return "CR";
+            case CT: return "CT";
+            case DG: return "DG";
+            case DX: return "DX";
+            case ECG: return "ECG";
+            case EPS: return "EPS";
+            case ES: return "ES";
+            case GM: return "GM";
+            case HC: return "HC";
+            case HD: return "HD";
+            case IO: return "IO";
+            case IVOCT: return "IVOCT";
+            case IVUS: return "IVUS";
+            case KER: return "KER";
+            case KO: return "KO";
+            case LEN: return "LEN";
+            case LS: return "LS";
+            case MG: return "MG";
+            case MR: return "MR";
+            case NM: return "NM";
+            case OAM: return "OAM";
+            case OCT: return "OCT";
+            case OP: return "OP";
+            case OPM: return "OPM";
+            case OPT: return "OPT";
+            case OPV: return "OPV";
+            case OT: return "OT";
+            case PR: return "PR";
+            case PT: return "PT";
+            case PX: return "PX";
+            case REG: return "REG";
+            case RF: return "RF";
+            case RG: return "RG";
+            case RTDOSE: return "RTDOSE";
+            case RTIMAGE: return "RTIMAGE";
+            case RTPLAN: return "RTPLAN";
+            case RTRECORD: return "RTRECORD";
+            case RTSTRUCT: return "RTSTRUCT";
+            case SEG: return "SEG";
+            case SM: return "SM";
+            case SMR: return "SMR";
+            case SR: return "SR";
+            case SRF: return "SRF";
+            case TG: return "TG";
+            case US: return "US";
+            case VA: return "VA";
+            case XA: return "XA";
+            case XC: return "XC";
             default: return "?";
           }
         }

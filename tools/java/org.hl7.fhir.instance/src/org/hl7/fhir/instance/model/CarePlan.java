@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -72,9 +72,9 @@ public class CarePlan extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case PLANNED: return "";
-            case ACTIVE: return "";
-            case COMPLETED: return "";
+            case PLANNED: return "planned";
+            case ACTIVE: return "active";
+            case COMPLETED: return "completed";
             default: return "?";
           }
         }
@@ -143,10 +143,10 @@ public class CarePlan extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case INPROGRESS: return "";
-            case ACHIEVED: return "";
-            case SUSTAINING: return "";
-            case CANCELLED: return "";
+            case INPROGRESS: return "in progress";
+            case ACHIEVED: return "achieved";
+            case SUSTAINING: return "sustaining";
+            case CANCELLED: return "cancelled";
             default: return "?";
           }
         }
@@ -229,12 +229,12 @@ public class CarePlan extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case NOTSTARTED: return "";
-            case SCHEDULED: return "";
-            case INPROGRESS: return "";
-            case ONHOLD: return "";
-            case COMPLETED: return "";
-            case CANCELLED: return "";
+            case NOTSTARTED: return "not started";
+            case SCHEDULED: return "scheduled";
+            case INPROGRESS: return "in progress";
+            case ONHOLD: return "on hold";
+            case COMPLETED: return "completed";
+            case CANCELLED: return "cancelled";
             default: return "?";
           }
         }
@@ -330,13 +330,13 @@ public class CarePlan extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case DIET: return "";
-            case DRUG: return "";
-            case ENCOUNTER: return "";
-            case OBSERVATION: return "";
-            case PROCEDURE: return "";
-            case SUPPLY: return "";
-            case OTHER: return "";
+            case DIET: return "diet";
+            case DRUG: return "drug";
+            case ENCOUNTER: return "encounter";
+            case OBSERVATION: return "observation";
+            case PROCEDURE: return "procedure";
+            case SUPPLY: return "supply";
+            case OTHER: return "other";
             default: return "?";
           }
         }

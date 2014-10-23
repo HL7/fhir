@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -72,9 +72,9 @@ public class MessageHeader extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case OK: return "";
-            case TRANSIENTERROR: return "";
-            case FATALERROR: return "";
+            case OK: return "ok";
+            case TRANSIENTERROR: return "transient-error";
+            case FATALERROR: return "fatal-error";
             default: return "?";
           }
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -78,10 +78,10 @@ public class Quantity extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case LESS_THAN: return "";
-            case LESS_OR_EQUAL: return "";
-            case GREATER_OR_EQUAL: return "";
-            case GREATER_THAN: return "";
+            case LESS_THAN: return "<";
+            case LESS_OR_EQUAL: return "<=";
+            case GREATER_OR_EQUAL: return ">=";
+            case GREATER_THAN: return ">";
             default: return "?";
           }
         }

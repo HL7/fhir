@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -68,8 +68,8 @@ public class ClaimResponse extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case COMPLETE: return "";
-            case ERROR: return "";
+            case COMPLETE: return "complete";
+            case ERROR: return "error";
             default: return "?";
           }
         }

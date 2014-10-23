@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -78,10 +78,10 @@ public class Narrative extends Element {
         }
         public String getDisplay() {
           switch (this) {
-            case GENERATED: return "";
-            case EXTENSIONS: return "";
-            case ADDITIONAL: return "";
-            case EMPTY: return "";
+            case GENERATED: return "generated";
+            case EXTENSIONS: return "extensions";
+            case ADDITIONAL: return "additional";
+            case EMPTY: return "empty";
             default: return "?";
           }
         }

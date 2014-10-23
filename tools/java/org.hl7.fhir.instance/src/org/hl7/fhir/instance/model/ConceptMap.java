@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -168,15 +168,15 @@ public class ConceptMap extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case EQUAL: return "";
-            case EQUIVALENT: return "";
-            case WIDER: return "";
-            case SUBSUMES: return "";
-            case NARROWER: return "";
-            case SPECIALISES: return "";
-            case INEXACT: return "";
-            case UNMATCHED: return "";
-            case DISJOINT: return "";
+            case EQUAL: return "equal";
+            case EQUIVALENT: return "equivalent";
+            case WIDER: return "wider";
+            case SUBSUMES: return "subsumes";
+            case NARROWER: return "narrower";
+            case SPECIALISES: return "specialises";
+            case INEXACT: return "inexact";
+            case UNMATCHED: return "unmatched";
+            case DISJOINT: return "disjoint";
             default: return "?";
           }
         }

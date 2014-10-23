@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -72,9 +72,9 @@ public class DataElement extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case DRAFT: return "";
-            case ACTIVE: return "";
-            case RETIRED: return "";
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case RETIRED: return "retired";
             default: return "?";
           }
         }
@@ -138,9 +138,9 @@ public class DataElement extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case REQUIRED: return "";
-            case PREFERRED: return "";
-            case EXAMPLE: return "";
+            case REQUIRED: return "required";
+            case PREFERRED: return "preferred";
+            case EXAMPLE: return "example";
             default: return "?";
           }
         }

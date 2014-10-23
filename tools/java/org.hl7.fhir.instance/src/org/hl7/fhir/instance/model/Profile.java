@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -72,9 +72,9 @@ public class Profile extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case DRAFT: return "";
-            case ACTIVE: return "";
-            case RETIRED: return "";
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case RETIRED: return "retired";
             default: return "?";
           }
         }
@@ -128,7 +128,7 @@ public class Profile extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case XMLATTR: return "";
+            case XMLATTR: return "xmlAttr";
             default: return "?";
           }
         }
@@ -184,9 +184,9 @@ public class Profile extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case CLOSED: return "";
-            case OPEN: return "";
-            case OPENATEND: return "";
+            case CLOSED: return "closed";
+            case OPEN: return "open";
+            case OPENATEND: return "openAtEnd";
             default: return "?";
           }
         }
@@ -250,9 +250,9 @@ public class Profile extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case CONTAINED: return "";
-            case REFERENCED: return "";
-            case BUNDLED: return "";
+            case CONTAINED: return "contained";
+            case REFERENCED: return "referenced";
+            case BUNDLED: return "bundled";
             default: return "?";
           }
         }
@@ -311,8 +311,8 @@ public class Profile extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case ERROR: return "";
-            case WARNING: return "";
+            case ERROR: return "error";
+            case WARNING: return "warning";
             default: return "?";
           }
         }
@@ -372,9 +372,9 @@ public class Profile extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case REQUIRED: return "";
-            case PREFERRED: return "";
-            case EXAMPLE: return "";
+            case REQUIRED: return "required";
+            case PREFERRED: return "preferred";
+            case EXAMPLE: return "example";
             default: return "?";
           }
         }
@@ -458,13 +458,13 @@ public class Profile extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case NUMBER: return "";
-            case DATE: return "";
-            case STRING: return "";
-            case TOKEN: return "";
-            case REFERENCE: return "";
-            case COMPOSITE: return "";
-            case QUANTITY: return "";
+            case NUMBER: return "number";
+            case DATE: return "date";
+            case STRING: return "string";
+            case TOKEN: return "token";
+            case REFERENCE: return "reference";
+            case COMPOSITE: return "composite";
+            case QUANTITY: return "quantity";
             default: return "?";
           }
         }
@@ -549,10 +549,10 @@ public class Profile extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case RESOURCE: return "";
-            case DATATYPE: return "";
-            case MAPPING: return "";
-            case EXTENSION: return "";
+            case RESOURCE: return "resource";
+            case DATATYPE: return "datatype";
+            case MAPPING: return "mapping";
+            case EXTENSION: return "extension";
             default: return "?";
           }
         }

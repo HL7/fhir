@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -72,9 +72,9 @@ public class Appointment extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case REQUIRED: return "";
-            case OPTIONAL: return "";
-            case INFORMATIONONLY: return "";
+            case REQUIRED: return "required";
+            case OPTIONAL: return "optional";
+            case INFORMATIONONLY: return "information-only";
             default: return "?";
           }
         }
@@ -153,12 +153,12 @@ public class Appointment extends Resource {
         }
         public String getDisplay() {
           switch (this) {
-            case ACCEPTED: return "";
-            case DECLINED: return "";
-            case TENTATIVE: return "";
-            case INPROCESS: return "";
-            case COMPLETED: return "";
-            case NEEDSACTION: return "";
+            case ACCEPTED: return "accepted";
+            case DECLINED: return "declined";
+            case TENTATIVE: return "tentative";
+            case INPROCESS: return "in-process";
+            case COMPLETED: return "completed";
+            case NEEDSACTION: return "needs-action";
             default: return "?";
           }
         }

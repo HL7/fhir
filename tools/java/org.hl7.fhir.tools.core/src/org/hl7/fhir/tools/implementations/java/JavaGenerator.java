@@ -504,6 +504,11 @@ public boolean doesTest() {
 
   @Override
 public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception {
+    if (IN_PROCESS) {
+      ToolsHelper t = new ToolsHelper();
+      String[] cmds = new String[] {"round", sourceFile, destFile};    
+      t.executeRoundTrip(cmds);
+    } else {
     // execute the jar file javatest.jar
     // it will produce either the specified output file, or [output file].err with an exception
     // 
@@ -531,6 +536,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       throw new Exception(TextFile.fileToString(destFile+".err"));
     if (!(new File(destFile).exists()))
         throw new Exception("Neither output nor error file created");
+    }
   }
 
   public String convertToJson(String rootDir, String sourceFile, String destFile) throws Exception {

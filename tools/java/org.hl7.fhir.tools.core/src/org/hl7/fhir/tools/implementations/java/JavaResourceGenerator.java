@@ -320,7 +320,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     for (DefinedCode c : cd.getCodes()) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
-      write("            case "+cc+": return \""+Utilities.escapeJava(c.getDisplay())+"\";\r\n");
+      write("            case "+cc+": return \""+Utilities.escapeJava(Utilities.noString(c.getDisplay()) ? c.getCode() : c.getDisplay())+"\";\r\n");
     }   
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 

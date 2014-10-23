@@ -342,7 +342,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 					+ "\">div</b>" +  ((elem.isModifier() || elem.isMustSupport()) ? "</span>" : "") 
 					+ (defPage == null ? "</span>" : "</a>") 
 					+ " xmlns=\"http://www.w3.org/1999/xhtml\"&gt; <span style=\"color: Gray\">&lt;!--</span> <span style=\"color: navy\">"
-					+ Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem)
+					+ Utilities.escapeXml(elem.getShortDefn())
 					+ "</span><span style=\"color: Gray\">&lt; --&gt;</span> &lt;/div&gt;\r\n");
 		}
 		// element has a constraint which fixes its value
@@ -431,7 +431,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			if (elem.getElements().isEmpty() && !sharedDT) {
 				if ("See Extensions".equals(elem.getShortDefn())) {
 					write(" <a href=\"extensibility.html\"><span style=\"color: navy\">"
-							+ Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem)
+							+ Utilities.escapeXml(elem.getShortDefn())
 							+ "</span></a> ");
 				} else {
 					// if (!elem.isXmlIDRef())
@@ -440,26 +440,26 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				  BindingSpecification bs = definitions.getBindingByName(elem.getBindingName());
 				  if (bs != null && bs.getBinding() != Binding.Unbound && !Utilities.noString(bs.getReference())) { 
 				    if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
-				      write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");
+				      write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
 				    else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
 				      if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
 				        AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference()); // night be null in a partial build
-				        write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+				        write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
 				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
 	                AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
-	                write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+	                write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+ "</a>");
 				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
 				        BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+bs.getReference().substring(23), bs);
 				        if (bs1 != null)
-                  write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+                  write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
                 else
-                  write("<a href=\"valueset-"+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+                  write("<a href=\"valueset-"+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
 				      } else
 				        throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
 				    } else
-				      write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");				  
+				      write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");				  
 				  } else
-					  write("<span style=\"color: navy\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</span>");
+					  write("<span style=\"color: navy\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShortDefn()) + "</span>");
           if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
             write("</span>");
 				}
@@ -470,7 +470,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 						writeCardinality(elem);
 	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
 	            write("<span style=\"text-decoration: line-through\">");
-	          write("" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem));
+	          write("" + Utilities.escapeXml(elem.getShortDefn()));
 	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
 	            write("</span>");
 	          write(" --&gt;</span>");
@@ -479,7 +479,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 						writeCardinality(elem);
 	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
 	            write("<span style=\"text-decoration: line-through\">");
-	          write(" " + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem));
+	          write(" " + Utilities.escapeXml(elem.getShortDefn()));
 	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
 	            write("</span>");
 	          write(" --&gt;</span>");
@@ -493,7 +493,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
             writeCardinality(elem);
             if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
               write("<span style=\"text-decoration: line-through\">");
-            write(" "+Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem));
+            write(" "+Utilities.escapeXml(elem.getShortDefn()));
             if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
               write("</span>");
             write(" --&gt;</span>");
@@ -550,13 +550,6 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 	  else
 	    return "";
 	}
-
-  private String getIsSummaryFlag(ElementDefn elem) {
-    if (elem.isSummaryItem())
-      return "<span title=\"This element is included in a summary view (See Search/Query)\" style=\"color: Navy\"> &#167;</span>";
-    else 
-      return "";
-  }
 
   private int writeTypeLinks(ElementDefn elem, int indent) throws Exception {
     write(" <span style=\"color: darkgreen\">");

@@ -50,9 +50,11 @@ import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionMappingComponent;
+import org.hl7.fhir.instance.model.Profile.ElementSlicingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
+import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
@@ -101,6 +103,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
           String title = ec.getPath() + (ec.getName() == null ? "" : "(" +ec.getName() +")");
           write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
           generateElementInner(profile, ec.getDefinition());
+          if (ec.getSlicing() != null)
+            generateSlicing(profile, ec.getSlicing());
         }
       }
       write("</table>\r\n");
@@ -108,6 +112,29 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     }
     flush();
     close();
+  }
+
+  private void generateSlicing(Profile profile, ElementSlicingComponent slicing) throws IOException {
+    StringBuilder b = new StringBuilder();
+    if (slicing.getOrdered())
+      b.append("<li>ordered</li>");
+    else
+      b.append("<li>unordered</li>");
+    if (slicing.getRules() != null && slicing.getRules() != ResourceSlicingRules.NULL)
+      b.append("<li>"+slicing.getRules().getDisplay()+"</li>");
+    if (!slicing.getDiscriminator().isEmpty()) {
+      b.append("<li>discriminators: ");
+      boolean first = true;
+      for (IdType s : slicing.getDiscriminator()) {
+        if (first)
+          first = false;
+        else
+          b.append(", ");
+        b.append(s.asStringValue());
+      }
+      b.append("</li>");
+    }
+    tableRow("Slicing", "profiling.html#slicing", "This element introduces a set of slices. The slicing rules are: <ul> "+b.toString()+"</ul>");
   }
 
   private String makePathLink(ElementComponent element) {
@@ -171,7 +198,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRowNE("Invariants", null, invariants(d.getConstraint()));
     tableRow("LOINC Code", null, getMapping(profile, d, Definitions.LOINC_MAPPING));
     tableRow("SNOMED-CT Code", null, getMapping(profile, d, Definitions.SNOMED_MAPPING));
-  }
+   }
 
   private String encodeValue(Type value) throws Exception {
     if (value == null)

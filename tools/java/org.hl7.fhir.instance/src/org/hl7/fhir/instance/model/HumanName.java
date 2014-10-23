@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -92,13 +92,13 @@ public class HumanName extends Type {
         }
         public String getDisplay() {
           switch (this) {
-            case USUAL: return "";
-            case OFFICIAL: return "";
-            case TEMP: return "";
-            case NICKNAME: return "";
-            case ANONYMOUS: return "";
-            case OLD: return "";
-            case MAIDEN: return "";
+            case USUAL: return "usual";
+            case OFFICIAL: return "official";
+            case TEMP: return "temp";
+            case NICKNAME: return "nickname";
+            case ANONYMOUS: return "anonymous";
+            case OLD: return "old";
+            case MAIDEN: return "maiden";
             default: return "?";
           }
         }
