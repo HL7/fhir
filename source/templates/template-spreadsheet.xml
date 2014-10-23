@@ -3320,7 +3320,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4:R100C4</Range>
    <Type>List</Type>
-   <Value>Invariants!RC[-3]:R[48]C[-3]</Value>
+   <Value>Invariants!R2C1:R50C1</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">

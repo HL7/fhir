@@ -13,10 +13,7 @@
   <Version>12.00</Version>
  </DocumentProperties>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <SupBook>
-   <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Invariants</Path>
-   <SheetName>Invariants</SheetName>
-  </SupBook>
+  
   <SupBook>
    <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Data Elements</Path>
    <SheetName>Data Elements</SheetName>
@@ -1222,7 +1219,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">Globally unique code specifying the format of the document.  Along with the typeCode, it should provide sufficient information to allow potential document consumer to know if it will be able to process the document.  &#10;The formatCode shall be sufficiently specific to ensure processing/display by identifying a document encoding, structure and template (e.g., for a CDA Document, the fact that it complies with a CDA schema, possibly a template and the choice of a content-specific style sheet). &#10;</Data></Cell>
-    <Cell><Data ss:Type="String">Format codes may be specified by multiple organizations.  Format codes defined by the IHE ITI domain shall have names with the prefix&#10;urn:ihe:iti:&#10;Format codes defined by other IHE domains shall have names with the prefix&#10;urn:ihe:’domain initials’:&#10;Format codes defined by the creating entity shall have names with the prefix&#10;urn:ad: ’name of creating entity’:&#10;Creating Entity shall be unique&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">Format codes may be specified by multiple organizations.  Format codes defined by the IHE ITI domain shall have names with the prefix&#10;urn:ihe:iti:&#10;Format codes defined by other IHE domains shall have names with the prefix&#10;urn:ihe:???domain initials???:&#10;Format codes defined by the creating entity shall have names with the prefix&#10;urn:ad: ???name of creating entity???:&#10;Creating Entity shall be unique&#10;</Data></Cell>
    </Row>
    <Row ss:Height="60" ss:StyleID="s65">
     <Cell><Data ss:Type="String">size</Data></Cell>
@@ -1858,7 +1855,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">implied by XDS workflow</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">This attribute is always set to Approved as part of the submission of new XDS Documents. It may be changed to Deprecated under the primary responsibility of the Document Source with possible patient supervision. Although XDS supports the ability to delete documents, there is no such state as “the Document Entry is removed” (only an audit trail is kept if such a deletion is allowed).</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">This attribute is always set to Approved as part of the submission of new XDS Documents. It may be changed to Deprecated under the primary responsibility of the Document Source with possible patient supervision. Although XDS supports the ability to delete documents, there is no such state as ???the Document Entry is removed??? (only an audit trail is kept if such a deletion is allowed).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2133,7 +2130,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Code globally uniquely specifying the format of the document. Along with the typeCode, it should provide sufficient information to allow any potential XDS Document Consumer to know if it will be able to process the document. The formatCode shall be sufficiently specific to ensure processing/display by identifying a document encoding, structure and template (e.g., for a CDA Document, the fact that it complies with a CDA schema, possibly a template and the choice of a content-specific style sheet).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Format codes may be specified by multiple organizations. Format codes defined by ITI shall have names with the prefix urn:ihe:iti:. Format codes defined by other IHE domains shall have names with the prefix urn:ihe:’domain initials’: Format codes defined by the Affinity Domain shall have names with the prefix urn:ad:’name of affinity domain’: Affinity Domains shall be unique. The prefixes described here are not assumed to be exhaustive.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Format codes may be specified by multiple organizations. Format codes defined by ITI shall have names with the prefix urn:ihe:iti:. Format codes defined by other IHE domains shall have names with the prefix urn:ihe:???domain initials???: Format codes defined by the Affinity Domain shall have names with the prefix urn:ad:???name of affinity domain???: Affinity Domains shall be unique. The prefixes described here are not assumed to be exhaustive.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2313,7 +2310,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more eventCodes are included, they shall not conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as “key words” for certain types of queries</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more eventCodes are included, they shall not conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as ???key words??? for certain types of queries</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4158,7 +4155,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C6:R100C6</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!RC[-5]:R[48]C[-5]</Value>
+   <Value>Invariants!RC[-5]:R[48]C[-5]</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -6986,7 +6983,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C6:R100C6</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!RC[-5]:R[48]C[-5]</Value>
+   <Value>Invariants!RC[-5]:R[48]C[-5]</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -9769,7 +9766,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C6:R100C6</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!RC[-5]:R[48]C[-5]</Value>
+   <Value>Invariants!RC[-5]:R[48]C[-5]</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -12569,7 +12566,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C6:R100C6</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!RC[-5]:R[48]C[-5]</Value>
+   <Value>Invariants!RC[-5]:R[48]C[-5]</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -15361,7 +15358,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C6:R100C6</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!RC[-5]:R[48]C[-5]</Value>
+   <Value>Invariants!RC[-5]:R[48]C[-5]</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -18152,7 +18149,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C6:R100C6</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!RC[-5]:R[48]C[-5]</Value>
+   <Value>Invariants!RC[-5]:R[48]C[-5]</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -20015,7 +20012,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C7:R40C7</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!RC[-6]:R[48]C[-6]</Value>
+   <Value>Invariants!RC[-6]:R[48]C[-6]</Value>
    <ErrorHide/>
   </DataValidation>
   <AutoFilter x:Range="R1C1:R40C23"

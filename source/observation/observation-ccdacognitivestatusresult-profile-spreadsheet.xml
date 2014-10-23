@@ -13,10 +13,7 @@
   <Version>12.00</Version>
  </DocumentProperties>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <SupBook>
-   <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Invariants</Path>
-   <SheetName>Invariants</SheetName>
-  </SupBook>
+  
   <SupBook>
    <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Data Elements</Path>
    <SheetName>Data Elements</SheetName>
@@ -1325,7 +1322,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">10. SHALL contain exactly one [1..1] value (CONF:14263). &#10;a.  If xsi:type=“CD”, SHOULD contain a code from SNOMED CT &#10;(CodeSystem: 2.16.840.1.113883.6.96) (CONF:14271). </Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">10. SHALL contain exactly one [1..1] value (CONF:14263). &#10;a.  If xsi:type=???CD???, SHOULD contain a code from SNOMED CT &#10;(CodeSystem: 2.16.840.1.113883.6.96) (CONF:14271). </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3789,7 +3786,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C6:R100C6</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!RC[-5]:R[48]C[-5]</Value>
+   <Value>Invariants!RC[-5]:R[48]C[-5]</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -6580,7 +6577,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C6:R100C6</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!RC[-5]:R[48]C[-5]</Value>
+   <Value>Invariants!RC[-5]:R[48]C[-5]</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -8997,7 +8994,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C7:R40C7</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!RC[-6]:R[48]C[-6]</Value>
+   <Value>Invariants!RC[-6]:R[48]C[-6]</Value>
    <ErrorHide/>
   </DataValidation>
   <AutoFilter x:Range="R1C1:R40C23"
@@ -11524,7 +11521,7 @@
     <Cell><Data ss:Type="String">Smoking Status: SNOMED CT 373930000 = Cognitive function finding</Data></Cell>
    </Row>
    <Row ss:Height="90">
-    <Cell><Data ss:Type="String">10. SHALL contain exactly one [1..1] value (CONF:14263). &#10;a.  If xsi:type=“CD”, SHOULD contain a code from SNOMED CT &#10;(CodeSystem: 2.16.840.1.113883.6.96) (CONF:14271). </Data></Cell>
+    <Cell><Data ss:Type="String">10. SHALL contain exactly one [1..1] value (CONF:14263). &#10;a.  If xsi:type=???CD???, SHOULD contain a code from SNOMED CT &#10;(CodeSystem: 2.16.840.1.113883.6.96) (CONF:14271). </Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>

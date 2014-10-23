@@ -16,10 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <SupBook>
-   <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Invariants</Path>
-   <SheetName>Invariants</SheetName>
-  </SupBook>
+  
   <WindowHeight>2580</WindowHeight>
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
@@ -1417,7 +1414,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Value sets that share the same Use information can be grouped together by that information for implementation purposes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">This is likely to be a “point in time” view and should not be considered an authoritative listing of all uses of the value set</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">This is likely to be a ???point in time??? view and should not be considered an authoritative listing of all uses of the value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1513,7 +1510,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">Workflow Status is used to represent details of the value set development process while the value set has an Activity Status of Preliminary. The development of a value set often follows a formal workflow process from initiation to completion, and this element carries the state variable for this state machine. The assumption is that when first created a value set would have a workflow state of Draft. Additional workflow states may be used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">The values that this element may assume include phrases that capture various stages in review and approval. In addition to the minimum of “Draft”,  these include “Proposed”, “Approved”, “Ready to Publish”.  There may be additional states defined by different developers. This is an optional element because the use of Activity Status “Preliminary” may be sufficient for some implementations</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">The values that this element may assume include phrases that capture various stages in review and approval. In addition to the minimum of ???Draft???,  these include ???Proposed???, ???Approved???, ???Ready to Publish???.  There may be additional states defined by different developers. This is an optional element because the use of Activity Status ???Preliminary??? may be sufficient for some implementations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2471,7 +2468,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C7:R44C7</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!#REF!</Value>
+   <Value>Invariants!R2C1:R50C1</Value>
    <ErrorHide/>
   </DataValidation>
   <AutoFilter x:Range="R1C1:R44C23"
