@@ -16,7 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  
+  <SupBook>
+   <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Invariants</Path>
+   <SheetName>Invariants</SheetName>
+  </SupBook>
   <WindowHeight>2580</WindowHeight>
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
@@ -1119,7 +1122,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s91"><Data ss:Type="String">comment</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">comments</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2425,7 +2428,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2468,7 +2472,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R6C7:R44C7</Range>
    <Type>List</Type>
-   <Value>Invariants!R2C1:R50C1</Value>
+   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
   <AutoFilter x:Range="R1C1:R44C23"

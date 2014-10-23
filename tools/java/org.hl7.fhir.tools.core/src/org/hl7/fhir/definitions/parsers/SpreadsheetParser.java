@@ -344,9 +344,10 @@ public class SpreadsheetParser {
             if (!efile.exists())
               throw new Exception("Profile Example " + name + " file '" + efile.getAbsolutePath() + "' not found parsing " + this.name);
           }
+          boolean dontDecompose = parseBoolean(sheet.getColumn(row, "noDecompose"), row, false);
           RegisteredProfile rp = new RegisteredProfile(name, title, source, file.getAbsolutePath(), type);
           if (efile != null)
-            rp.getExamples().put(etitle, new Example(etitle, Utilities.fileTitle(etitle), "General Example for "+title, efile, ExampleType.XmlFile, true));
+            rp.getExamples().put(etitle, new Example(etitle, Utilities.fileTitle(etitle), "General Example for "+title, efile, ExampleType.XmlFile, true, dontDecompose));
           defn.getProfiles().add(rp);
         }
       }
@@ -767,7 +768,7 @@ public class SpreadsheetParser {
 					if (Utilities.noString(pn)) {
 					defn.getExamples().add(new Example(name, id, desc, file, 
 							parseExampleType(type, row),
-							parseBoolean(sheet.getColumn(row, "In Book"), row, false)));
+							parseBoolean(sheet.getColumn(row, "In Book"), row, false), parseBoolean(sheet.getColumn(row, "noDecompose"), row, false)));
 					} else {
 					  RegisteredProfile rp = null;
 					  for (RegisteredProfile r : defn.getProfiles()) {
@@ -776,7 +777,7 @@ public class SpreadsheetParser {
 					  }
 					  if (rp == null)
               throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
-					  rp.getExamples().put(filename, new Example(filename, id, desc, file, parseExampleType(type, row), parseBoolean(sheet.getColumn(row, "In Book"), row, false)));
+					  rp.getExamples().put(filename, new Example(filename, id, desc, file, parseExampleType(type, row), parseBoolean(sheet.getColumn(row, "In Book"), row, false), parseBoolean(sheet.getColumn(row, "noDecompose"), row, false)));
 					}
 				}
 			}
@@ -788,7 +789,7 @@ public class SpreadsheetParser {
 						+ "') not found parsing " + this.name);
 			defn.getExamples().add(
 					new Example("General", "example", "Example of " + title, file, ExampleType.XmlFile,
-							true));
+							true, false));
 		}		
 	}
 

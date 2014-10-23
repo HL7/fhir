@@ -3007,6 +3007,7 @@ public class Publisher implements URIResolver {
           .getLocalName());
     }
 
+    //!!
     // check the narrative. We generate auto-narrative. If the resource didn't
     // have it's own original narrative, then we save it anyway
     // todo: this uses the version of the resource in the generator, not the current one. This needs to be moved to the compiled code when it's stable
