@@ -49,13 +49,16 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class ToolingExtensions {
 
-  public static final String EXT_COMMENT = "http://hl7.org/fhir/Profile/tools-extensions#comment";
-  public static final String EXT_DISPLAY = "http://hl7.org/fhir/Profile/tools-extensions#display";
-  public static final String EXT_DEFINITION = "http://hl7.org/fhir/Profile/tools-extensions#definition";
-  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/Profile/tools-extensions#deprecated";
-  public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/Profile/tools-extensions#issue-source";
-  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/Profile/tools-extensions#subsumes";
-  public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/Profile/tools-extensions#display-hint";
+  // registered
+  public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/Profile/Profile.extensions#display-hint";
+  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/Profile/ValueSet.extensions#subsumes";
+  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/Profile/ValueSet.extensions#deprecated";
+  public static final String EXT_DEFINITION = "http://hl7.org/fhir/Profile/ValueSet.extensions#definition";
+  public static final String EXT_COMMENT = "http://hl7.org/fhir/Profile/ValueSet.extensions#comment";
+  public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/Profile/OperationOutcome.extensions#issue-source";
+  private static final String EXT_IDENTIFIER = "http://hl7.org/fhir/Profile/element-extensions#identifier";
+
+  // unregistered?
   public static final String EXT_FLYOVER = "http://hl7.org/fhir/Profile/questionnaire-extensions#flyover";
   private static final String EXT_QTYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
   private static final String EXT_EXPANSION_CLOSED = "http://hl7.org/fhir/Profile/questionnaire-extensions#closed";
@@ -63,7 +66,6 @@ public class ToolingExtensions {
   private static final String EXTENSION_FILTER_ONLY = "http://www.healthintersections.com.au/fhir/Profile/metadata#expandNeedsFilter";
   private static final String EXT_TYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
   private static final String EXT_REFERENCE = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
-  private static final String EXT_IDENTIFIER = "http://www.healthintersections.com.au/fhir/Profile/tools-extensions#identifier";
 
   public static Extension makeIssueSource(Source source) {
     Extension ex = new Extension();
@@ -100,15 +102,6 @@ public class ToolingExtensions {
 
   public static String getDisplayHint(Element def) throws Exception {
     return readStringExtension(def, EXT_DISPLAY_HINT);    
-  }
-
-  public static void addDisplay(Element def, String hint) throws Exception {
-    if (!Utilities.noString(hint))
-      def.getExtensions().add(Factory.newExtension(EXT_DISPLAY, Factory.newString_(hint), true));   
-  }
-
-  public static String getDisplay(Element def) throws Exception {
-    return readStringExtension(def, EXT_DISPLAY);    
   }
 
   public static String readStringExtension(Element c, String uri) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 22:01+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -1428,6 +1428,8 @@ public class XmlComposer extends XmlComposerBase {
       composeReference("profile", element.getProfile());
       for (Conformance.ResourceInteractionComponent e : element.getInteraction()) 
         composeConformanceResourceInteractionComponent("interaction", e);
+      if (element.getVersioningElement() != null)
+        composeEnumeration("versioning", element.getVersioningElement(), new Conformance.VersioningPolicyEnumFactory());
       composeBoolean("readHistory", element.getReadHistoryElement());
       composeBoolean("updateCreate", element.getUpdateCreateElement());
       for (StringType e : element.getSearchInclude()) 

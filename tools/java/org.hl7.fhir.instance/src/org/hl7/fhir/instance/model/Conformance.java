@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 23, 2014 13:30+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 22:01+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -282,6 +282,72 @@ public class Conformance extends Resource {
         return "create";
       if (code == TypeRestfulInteraction.SEARCHTYPE)
         return "search-type";
+      return "?";
+      }
+    }
+
+    public enum VersioningPolicy {
+        NOVERSION, // VersionId meta-property is not suppoerted (server) or used (client).
+        VERSIONED, // VersionId meta-property is suppoerted (server) or used (client).
+        VERSIONEDUPDATE, // VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client).
+        NULL; // added to help the parsers
+        public static VersioningPolicy fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("no-version".equals(codeString))
+          return NOVERSION;
+        if ("versioned".equals(codeString))
+          return VERSIONED;
+        if ("versioned-update".equals(codeString))
+          return VERSIONEDUPDATE;
+        throw new Exception("Unknown VersioningPolicy code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case NOVERSION: return "no-version";
+            case VERSIONED: return "versioned";
+            case VERSIONEDUPDATE: return "versioned-update";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case NOVERSION: return "VersionId meta-property is not suppoerted (server) or used (client).";
+            case VERSIONED: return "VersionId meta-property is suppoerted (server) or used (client).";
+            case VERSIONEDUPDATE: return "VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case NOVERSION: return "No VersionId Support";
+            case VERSIONED: return "Versioned";
+            case VERSIONEDUPDATE: return "VersionId tracked fully";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class VersioningPolicyEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("no-version".equals(codeString))
+          return VersioningPolicy.NOVERSION;
+        if ("versioned".equals(codeString))
+          return VersioningPolicy.VERSIONED;
+        if ("versioned-update".equals(codeString))
+          return VersioningPolicy.VERSIONEDUPDATE;
+        throw new Exception("Unknown VersioningPolicy code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == VersioningPolicy.NOVERSION)
+        return "no-version";
+      if (code == VersioningPolicy.VERSIONED)
+        return "versioned";
+      if (code == VersioningPolicy.VERSIONEDUPDATE)
+        return "versioned-update";
       return "?";
       }
     }
@@ -1422,6 +1488,11 @@ public class Conformance extends Resource {
         protected List<ResourceInteractionComponent> interaction = new ArrayList<ResourceInteractionComponent>();
 
         /**
+         * Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.
+         */
+        protected Enumeration<VersioningPolicy> versioning;
+
+        /**
          * A flag for whether the server is able to return past versions as part of the vRead operation.
          */
         protected BooleanType readHistory;
@@ -1441,7 +1512,7 @@ public class Conformance extends Resource {
          */
         protected List<ConformanceRestResourceSearchParamComponent> searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
 
-        private static final long serialVersionUID = -1054517479L;
+        private static final long serialVersionUID = -1375327002L;
 
       public ConformanceRestResourceComponent() {
         super();
@@ -1529,6 +1600,42 @@ public class Conformance extends Resource {
           ResourceInteractionComponent t = new ResourceInteractionComponent();
           this.interaction.add(t);
           return t;
+        }
+
+        /**
+         * @return {@link #versioning} (Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
+         */
+        public Enumeration<VersioningPolicy> getVersioningElement() { 
+          return this.versioning;
+        }
+
+        /**
+         * @param value {@link #versioning} (Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
+         */
+        public ConformanceRestResourceComponent setVersioningElement(Enumeration<VersioningPolicy> value) { 
+          this.versioning = value;
+          return this;
+        }
+
+        /**
+         * @return Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.
+         */
+        public VersioningPolicy getVersioning() { 
+          return this.versioning == null ? null : this.versioning.getValue();
+        }
+
+        /**
+         * @param value Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.
+         */
+        public ConformanceRestResourceComponent setVersioning(VersioningPolicy value) { 
+          if (value == null)
+            this.versioning = null;
+          else {
+            if (this.versioning == null)
+              this.versioning = new Enumeration<VersioningPolicy>();
+            this.versioning.setValue(value);
+          }
+          return this;
         }
 
         /**
@@ -1662,6 +1769,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("type", "code", "A type of resource exposed via the restful interface.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("profile", "Reference(Profile)", "A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("interaction", "", "Identifies a restful operation supported by the solution.", 0, java.lang.Integer.MAX_VALUE, interaction));
+          childrenList.add(new Property("versioning", "code", "Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.", 0, java.lang.Integer.MAX_VALUE, versioning));
           childrenList.add(new Property("readHistory", "boolean", "A flag for whether the server is able to return past versions as part of the vRead operation.", 0, java.lang.Integer.MAX_VALUE, readHistory));
           childrenList.add(new Property("updateCreate", "boolean", "A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.", 0, java.lang.Integer.MAX_VALUE, updateCreate));
           childrenList.add(new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude));
@@ -1675,6 +1783,7 @@ public class Conformance extends Resource {
         dst.interaction = new ArrayList<ResourceInteractionComponent>();
         for (ResourceInteractionComponent i : interaction)
           dst.interaction.add(i.copy());
+        dst.versioning = versioning == null ? null : versioning.copy();
         dst.readHistory = readHistory == null ? null : readHistory.copy();
         dst.updateCreate = updateCreate == null ? null : updateCreate.copy();
         dst.searchInclude = new ArrayList<StringType>();
