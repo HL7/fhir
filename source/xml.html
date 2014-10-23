@@ -21,8 +21,8 @@ The XML syntax is closely based on the <a href="formats.html">XML notation</a>:
 </p>
 <pre class="spec">
  &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt;   <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
-   &lt;<u><b title="Formal Definition (must be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
-   &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="deeppink" title="Condition">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
+   &lt;<u><b title="Formal Definition (must be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><span title="Inv-5: Some rule apples to this element" style="color: brown"><b><img alt="??" src="lock.png"/> 1..1</b></span> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
+   &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
    &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
      &lt;<b>nameD</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
    &lt;/nameC&gt;
@@ -36,16 +36,16 @@ Notes:
  <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
  <li>Note that the only properties that are represented as attributes are those defined in underlying specifications such as <a href="#atom">Atom (see below)</a>, which is used as the XML representation for bundles, and attributes are also used for primitive values</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
-   The only other namespaces that occur in FHIR resources are where some external content model is explicitly introduced into the resource content model. For example, <a href="narrative.html">XHTML is found in every resource</a></li>
+   The only other namespace that occurs in FHIR resources is the XHTML namespace, because <a href="narrative.html">XHTML is found in every resource</a></li>
  <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
+ <li>The elements for <a href="extensibility.html">extension</a> and <a href="extensibility.html#modifiers">modifierExtension</a> appear as the first set of children, prior to any other defined child elements</li>
  <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.html#idref">link target</a> of <a href="narrative.html#narrative">narrative</a>, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
-  <li>XML comments, processing instructions and formatting are not part of the contents of a resource.</li>
-  <li>The elements for <a href="extensibility.html">extension</a> and <a href="extensibility.html#modifiers">modifierExtension</a> appear as the first set of children, prior to any other defined child elements</li>
-  <li>Specifying the character encoding using a &lt;?xml encoding="" ?&gt; processing instruction is optional but recommended. Other processing Instructions 
-  SHOULD not be included, except and SHALL not be required in order to properly understand and/or present the data or narrative of the resource. 
-  Applications MAY preserve these when handling resources, but are not required to do so. 
-  Note that digital signatures may depend on them (depending on the canonicalization method used)</li>
+ <li>The lock icon (<img alt="??" src="lock.png"/>) denotes that an element defines or is affected by <a href="conformance.html#invariants">additional rules</a> that control its presence and/or content</li>
+ <li>XML comments, processing instructions and formatting are not part of the contents of a resource</li>
+ <li>XML resources SHALL be exchanged using UTF-8 encoding. Specifying the character encoding using a &lt;?xml encoding="UTF-8" ?&gt; processing instruction is optional but recommended</li>
+ <li>Other processing Instructions SHOULD not be included, except and SHALL not be required in order to properly understand and/or present the data or narrative of the resource. 
+  Applications MAY preserve these when handling resources, but are not required to do so</li>
 </ul>
 <p>
 When represented as XML, resources may be validated by schema and schematron (see below), but 
