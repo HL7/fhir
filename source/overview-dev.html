@@ -310,7 +310,7 @@ Notes:
 </p>
 <ul>
   <li><b>id</b> (line 10) - The id of the resource. This must match the id in the read request</li>
-  <li><b>versionId</b> (line 11) - The current version id of the resource. Best practice is that this value matches the ETag (see <a href="http.html#update">version aware update</a>), but clients must never assume this</li>
+  <li><b>versionId</b> (line 11) - The current version id of the resource. Best practice is that this value matches the ETag (see <a href="http.html#update">version aware update</a>), but clients must never assume this. Note that some servers do not track the version of the resource</li>
   <li>Note that servers are not required to support versioning, but are strongly encouraged to do so</li>
   <li><b>lastUpdated</b> (line 12) - This must match the value in the HTTP header</li>
 </ul>
@@ -494,8 +494,8 @@ Implementers notes:
 </p>
 <ul>
   <li><b>meta.id</b> (line 2) - defined when the resource is created, and never changed. Only missing when the resource is first created</li>
-  <li><b>meta.versionId</b> (line 3) - changes each time any resource contents change (except for the last 3 elements in meta)  </li>
-  <li><b>meta.lastUpdated</b> (line 4) - Changes when the versionId changes</li>
+  <li><b>meta.versionId</b> (line 3) - changes each time any resource contents change (except for the last 3 elements in meta)</li>
+  <li><b>meta.lastUpdated</b> (line 4) - Changes when the versionId changes. Systems that don't support versions usually don't track lastUpdated either</li>
   <li><b>meta.ruleSet</b> (line 5) - A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. See <a href="profiling.html#ruleset">Profile Rule Sets</a> for further discussion</li>
   <li><b>meta.profile</b> (line 6) - An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. Can be changed as profiles and value sets change or the system rechecks conformance</li>
   <li><b>meta.security</b> (lines 7 - 10) - <a href="securitylabels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-stystem chooses to</li>

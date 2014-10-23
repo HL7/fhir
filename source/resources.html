@@ -105,7 +105,7 @@ The metadata properties are key aspects of a resource and how it behaves. For im
   <tr><td>Version Id</td><td><a href="datatypes.html#id">id</a></td><td>Changes each time the content of the resource changes. 
     Can be referenced in a <a href="references.html#Resource">resource reference</a>. Can be used to ensure that updates are based on the latest version of the resource. 
   <br/>The version can be globally unique, or scoped by the Logical Id. Version identifiers are generally either a serially incrementing id 
-     scoped by the logical id, or a uuid, though neither of these approaches is required</td></tr>
+     scoped by the logical id, or a uuid, though neither of these approaches is required. Note that servers SHOULD support versions, but some are unable to</td></tr>
 	 
   <tr><td>Last Modified Date</td><td><a href="datatypes.html#instant">instant</a></td><td>Changes each time the content of the resource 
     changes. Can be used by a system or a human to judge the currency of the resource content.   </td></tr>
