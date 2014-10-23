@@ -159,7 +159,7 @@ public class ResourceValidator extends BaseValidator {
         if (p.getType() == SearchType.reference) {
           for (String path : p.getPaths()) {
             ElementDefn e;
-            e = parent.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path");
+            e = parent.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path", true);
             for (TypeRef t : e.getTypes()) {
               if (t.getName().equals("Reference")) {
                 for (String pn : t.getParams()) {

@@ -527,7 +527,7 @@ public class ElementDefn {
 	}
 
 	
-	public ElementDefn getElementForPath(String pathname, Definitions definitions, String purpose) throws Exception {
+	public ElementDefn getElementForPath(String pathname, Definitions definitions, String purpose, boolean throughChoice) throws Exception {
 		String[] path = pathname.split("\\.");
 
 		if (!path[0].equals(getName()))
@@ -545,13 +545,13 @@ public class ElementDefn {
 			ElementDefn t = null;
 
 			if (res.typeCode().startsWith("@")) {
-			  res = this.getElementForPath(res.typeCode().substring(1), definitions, purpose);
+			  res = this.getElementForPath(res.typeCode().substring(1), definitions, purpose, throughChoice);
 			} else if (definitions.dataTypeIsSharedInfo(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
 			} else if (definitions.hasType(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
 			}
-			t = res.getElementByName(en);
+			t = res.getElementByName(en, throughChoice);
 			if (t == null) {
 				throw new Exception("unable to resolve " + pathname);
 			}

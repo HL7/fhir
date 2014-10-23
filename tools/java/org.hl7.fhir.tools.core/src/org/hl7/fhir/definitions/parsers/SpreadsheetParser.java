@@ -442,7 +442,7 @@ public class SpreadsheetParser {
               String p = pi.trim();
               ElementDefn e = null;
               if (!Utilities.noString(p) && !p.startsWith("!")) {
-                e = root2.getRoot().getElementForPath(p, definitions, "search param"); 
+                e = root2.getRoot().getElementForPath(p, definitions, "search param", true); 
               }
               if (Utilities.noString(d) && e != null)
                 d = e.getShortDefn();

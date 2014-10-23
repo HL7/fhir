@@ -523,10 +523,37 @@ public class ProfileGenerator {
     result.setName(i.getCode());
     result.setType(getSearchParamType(i.getType()));
     result.setDocumentation(i.getDescription());
-    result.setXpath(i.getXPath());
+    String xpath = i.getXPath();
+    if (xpath != null) {
+      if (xpath.contains("[x]"))
+        xpath = convertToXpath(xpath);
+      result.setXpath(xpath);
+    }
     s.getSearchParam().add(result);
   }
 
+
+  private String convertToXpath(String xpath) {
+    String[] parts = xpath.split("\\/");
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (String p : parts) {
+      if (first)
+        first = false;
+      else
+        b.append("/");
+      if (p.startsWith("f:")) {
+        String v = p.substring(2);
+        if (v.endsWith("[x]"))
+          b.append("*[starts-with(local-name(.), '"+v.replace("[x]", "")+"')]");
+        else
+          b.append(p);
+      }        
+      else
+        b.append(p);
+    }
+    return b.toString();
+  }
 
   private ElementDefinitionBindingComponent generateBinding(String bn, Profile p) throws Exception {
     BindingSpecification src = definitions.getBindingByName(bn);
