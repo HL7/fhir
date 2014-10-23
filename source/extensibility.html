@@ -56,9 +56,7 @@ that must be met as part of their use and definition.
 <h2>Extension Element</h2>
 <p>
 Every element in a resource or data type includes an optional "extension" child element that may 
-be present any number of times. The extension elements appear as 
-the first set of children, prior to any other defined child elements. 
-This is the content model of the extension as it appears in each resource:
+be present any number of times. This is the content model of the extension as it appears in each resource:
 </p>
 <%dt Extension%>
 <p>
@@ -263,8 +261,7 @@ as "unlikely" or "probable". Applications are allowed to extend a resource with 
 </p>
 <pre class="xml">
 &lt;AllergyIntolerance&gt;
-  &lt;modifierExtension&gt;
-    &lt;url value=&quot;http://example.org/fhir/extensions#certainty&quot; /&gt;
+  &lt;modifierExtension url=&quot;http://example.org/fhir/extensions#certainty&quot;&gt;
     &lt;valueCoding&gt;
       &lt;system value="http://example.org/codes/certainty"/&gt;
       &lt;code value="2"/&gt;
