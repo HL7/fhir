@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Namespace xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/namespace.xsd">
+<NamingSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/namingsystem.xsd">
   <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -24,4 +24,4 @@ SNOMED CT concepts have a unique &quot;fully-specified name&quot;, a preferred t
     <type value="uri"/>
     <value value="http://snomed.info/sct"/>
   </uniqueId>  
-</Namespace>
+</NamingSystem>

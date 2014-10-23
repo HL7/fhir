@@ -299,11 +299,8 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Microarray</translation>
         <translation lang="fr">Microarray</translation>
     </item>
-    <item id="Namespace">
-        <translation lang="en">Namespace</translation>
-        <translation lang="zh">命名空间</translation>
-        <translation lang="es">Namespace</translation>
-        <translation lang="fr">EspaceDeNoms</translation>
+    <item id="NamingSystem">
+        <translation lang="en">NamingSystem</translation>
     </item>
     <item id="NutritionOrder">
         <translation lang="en">NutritionOrder</translation>

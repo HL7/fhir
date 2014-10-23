@@ -201,7 +201,7 @@ todo: compartments
     <page type="resource" resource="OperationDefinition"/>
     <page type="resource" resource="DataElement"/>
     <page type="resource" resource="ValueSet"/>
-    <page type="resource" resource="Namespace"/>
+    <page type="resource" resource="NamingSystem"/>
     <page type="resource" resource="ConceptMap"/>
   </page>
   <page title="Financial" filename="financial.html">
