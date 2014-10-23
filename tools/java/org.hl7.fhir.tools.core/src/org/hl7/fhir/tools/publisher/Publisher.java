@@ -3115,6 +3115,8 @@ public class Publisher implements URIResolver {
       json = t.getMessage();
     }
 
+    String json2 = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\""+page.getFolders().dstDir + n + ".json\">Raw JSON</a> (<a href=\""+page.getFolders().dstDir + n + ".canonical.json\">Canonical</a>)</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
+        + "\r\n</pre>\r\n</div>\r\n";
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
         + "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
@@ -3122,7 +3124,7 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
 
     page.getEpub().registerExternal(n + ".json.html");
-    e.setJson(json);
+    e.setJson(json2);
 
     // reload it now, xml to xhtml of xml
     builder = factory.newDocumentBuilder();

@@ -37,6 +37,7 @@ import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Factory;
+import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
 import org.hl7.fhir.instance.model.Reference;
@@ -62,6 +63,7 @@ public class ToolingExtensions {
   private static final String EXTENSION_FILTER_ONLY = "http://www.healthintersections.com.au/fhir/Profile/metadata#expandNeedsFilter";
   private static final String EXT_TYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
   private static final String EXT_REFERENCE = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
+  private static final String EXT_IDENTIFIER = "http://www.healthintersections.com.au/fhir/Profile/tools-extensions#identifier";
   
   public static Extension makeIssueSource(Source source) {
     Extension ex = new Extension();
@@ -201,6 +203,10 @@ public class ToolingExtensions {
 
   public static void addReference(QuestionComponent group, String value) throws Exception {
     group.getExtensions().add(Factory.newExtension(EXT_REFERENCE, Factory.newString_(value), true));       
+  }
+  
+  public static void addIdentifier(Element element, Identifier value) throws Exception {
+    element.getExtensions().add(Factory.newExtension(EXT_IDENTIFIER, value, true));       
   }
   
 }

@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Oct 22, 2014 17:27+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 /**
- * Manifest of a set of images produced in study. The set of images may include every image in the study, or it may be an incomplete sample, such as a list of key images.
+ * Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
  */
 public class ImagingStudy extends Resource {
 
@@ -1078,7 +1078,7 @@ public class ImagingStudy extends Resource {
 
     public static class ImagingStudySeriesComponent extends BackboneElement {
         /**
-         * The number of this series in the overall sequence.
+         * The Numeric identifier of this series in the study.
          */
         protected IntegerType number;
 
@@ -1141,14 +1141,14 @@ public class ImagingStudy extends Resource {
       }
 
         /**
-         * @return {@link #number} (The number of this series in the overall sequence.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
+         * @return {@link #number} (The Numeric identifier of this series in the study.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
         public IntegerType getNumberElement() { 
           return this.number;
         }
 
         /**
-         * @param value {@link #number} (The number of this series in the overall sequence.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
+         * @param value {@link #number} (The Numeric identifier of this series in the study.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
         public ImagingStudySeriesComponent setNumberElement(IntegerType value) { 
           this.number = value;
@@ -1156,14 +1156,14 @@ public class ImagingStudy extends Resource {
         }
 
         /**
-         * @return The number of this series in the overall sequence.
+         * @return The Numeric identifier of this series in the study.
          */
         public int getNumber() { 
           return this.number == null ? null : this.number.getValue();
         }
 
         /**
-         * @param value The number of this series in the overall sequence.
+         * @param value The Numeric identifier of this series in the study.
          */
         public ImagingStudySeriesComponent setNumber(int value) { 
           if (value == -1)
@@ -1450,7 +1450,7 @@ public class ImagingStudy extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("number", "integer", "The number of this series in the overall sequence.", 0, java.lang.Integer.MAX_VALUE, number));
+          childrenList.add(new Property("number", "integer", "The Numeric identifier of this series in the study.", 0, java.lang.Integer.MAX_VALUE, number));
           childrenList.add(new Property("modality", "code", "The modality of this series sequence.", 0, java.lang.Integer.MAX_VALUE, modality));
           childrenList.add(new Property("uid", "oid", "Formal identifier for this series.", 0, java.lang.Integer.MAX_VALUE, uid));
           childrenList.add(new Property("description", "string", "A description of the series.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -1798,9 +1798,9 @@ public class ImagingStudy extends Resource {
   }
 
     /**
-     * Date and Time the study took place.
+     * Date and Time the study started.
      */
-    protected DateTimeType dateTime;
+    protected DateTimeType started;
 
     /**
      * Who the images are of.
@@ -1820,7 +1820,7 @@ public class ImagingStudy extends Resource {
     /**
      * Accession Number.
      */
-    protected Identifier accessionNo;
+    protected Identifier accession;
 
     /**
      * Other identifiers for the study.
@@ -1840,7 +1840,7 @@ public class ImagingStudy extends Resource {
     /**
      * A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).
      */
-    protected List<Enumeration<ImagingModality>> modality = new ArrayList<Enumeration<ImagingModality>>();
+    protected List<Enumeration<ImagingModality>> modalityList = new ArrayList<Enumeration<ImagingModality>>();
 
     /**
      * The requesting/referring physician.
@@ -1902,7 +1902,7 @@ public class ImagingStudy extends Resource {
      */
     protected List<ImagingStudySeriesComponent> series = new ArrayList<ImagingStudySeriesComponent>();
 
-    private static final long serialVersionUID = -1804185583L;
+    private static final long serialVersionUID = -1673496678L;
 
     public ImagingStudy() {
       super();
@@ -1917,37 +1917,37 @@ public class ImagingStudy extends Resource {
     }
 
     /**
-     * @return {@link #dateTime} (Date and Time the study took place.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
+     * @return {@link #started} (Date and Time the study started.). This is the underlying object with id, value and extensions. The accessor "getStarted" gives direct access to the value
      */
-    public DateTimeType getDateTimeElement() { 
-      return this.dateTime;
+    public DateTimeType getStartedElement() { 
+      return this.started;
     }
 
     /**
-     * @param value {@link #dateTime} (Date and Time the study took place.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
+     * @param value {@link #started} (Date and Time the study started.). This is the underlying object with id, value and extensions. The accessor "getStarted" gives direct access to the value
      */
-    public ImagingStudy setDateTimeElement(DateTimeType value) { 
-      this.dateTime = value;
+    public ImagingStudy setStartedElement(DateTimeType value) { 
+      this.started = value;
       return this;
     }
 
     /**
-     * @return Date and Time the study took place.
+     * @return Date and Time the study started.
      */
-    public DateAndTime getDateTime() { 
-      return this.dateTime == null ? null : this.dateTime.getValue();
+    public DateAndTime getStarted() { 
+      return this.started == null ? null : this.started.getValue();
     }
 
     /**
-     * @param value Date and Time the study took place.
+     * @param value Date and Time the study started.
      */
-    public ImagingStudy setDateTime(DateAndTime value) { 
+    public ImagingStudy setStarted(DateAndTime value) { 
       if (value == null)
-        this.dateTime = null;
+        this.started = null;
       else {
-        if (this.dateTime == null)
-          this.dateTime = new DateTimeType();
-        this.dateTime.setValue(value);
+        if (this.started == null)
+          this.started = new DateTimeType();
+        this.started.setValue(value);
       }
       return this;
     }
@@ -2015,17 +2015,17 @@ public class ImagingStudy extends Resource {
     }
 
     /**
-     * @return {@link #accessionNo} (Accession Number.)
+     * @return {@link #accession} (Accession Number.)
      */
-    public Identifier getAccessionNo() { 
-      return this.accessionNo;
+    public Identifier getAccession() { 
+      return this.accession;
     }
 
     /**
-     * @param value {@link #accessionNo} (Accession Number.)
+     * @param value {@link #accession} (Accession Number.)
      */
-    public ImagingStudy setAccessionNo(Identifier value) { 
-      this.accessionNo = value;
+    public ImagingStudy setAccession(Identifier value) { 
+      this.accession = value;
       return this;
     }
 
@@ -2081,37 +2081,37 @@ public class ImagingStudy extends Resource {
     }
 
     /**
-     * @return {@link #modality} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
+     * @return {@link #modalityList} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
-    public List<Enumeration<ImagingModality>> getModality() { 
-      return this.modality;
+    public List<Enumeration<ImagingModality>> getModalityList() { 
+      return this.modalityList;
     }
 
     /**
-     * @return {@link #modality} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
+     * @return {@link #modalityList} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
     // syntactic sugar
-    public Enumeration<ImagingModality> addModalityElement() { 
+    public Enumeration<ImagingModality> addModalityListElement() { 
       Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
-      this.modality.add(t);
+      this.modalityList.add(t);
       return t;
     }
 
     /**
-     * @param value {@link #modality} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
+     * @param value {@link #modalityList} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
-    public Enumeration<ImagingModality> addModality(ImagingModality value) { 
+    public Enumeration<ImagingModality> addModalityList(ImagingModality value) { 
       Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
       t.setValue(value);
-      this.modality.add(t);
+      this.modalityList.add(t);
       return t;
     }
 
     /**
-     * @param value {@link #modality} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
+     * @param value {@link #modalityList} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
-    public boolean hasModality(ImagingModality value) { 
-      for (Enumeration<ImagingModality> v : this.modality)
+    public boolean hasModalityList(ImagingModality value) { 
+      for (Enumeration<ImagingModality> v : this.modalityList)
         if (v.equals(value)) // code
           return true;
       return false;
@@ -2421,13 +2421,13 @@ public class ImagingStudy extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("dateTime", "dateTime", "Date and Time the study took place.", 0, java.lang.Integer.MAX_VALUE, dateTime));
+        childrenList.add(new Property("started", "dateTime", "Date and Time the study started.", 0, java.lang.Integer.MAX_VALUE, started));
         childrenList.add(new Property("subject", "Reference(Patient)", "Who the images are of.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("uid", "oid", "Formal identifier for the study.", 0, java.lang.Integer.MAX_VALUE, uid));
-        childrenList.add(new Property("accessionNo", "Identifier", "Accession Number.", 0, java.lang.Integer.MAX_VALUE, accessionNo));
+        childrenList.add(new Property("accession", "Identifier", "Accession Number.", 0, java.lang.Integer.MAX_VALUE, accession));
         childrenList.add(new Property("identifier", "Identifier", "Other identifiers for the study.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("order", "Reference(DiagnosticOrder)", "A list of the diagnostic orders that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, order));
-        childrenList.add(new Property("modality", "code", "A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).", 0, java.lang.Integer.MAX_VALUE, modality));
+        childrenList.add(new Property("modalityList", "code", "A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).", 0, java.lang.Integer.MAX_VALUE, modalityList));
         childrenList.add(new Property("referrer", "Reference(Practitioner)", "The requesting/referring physician.", 0, java.lang.Integer.MAX_VALUE, referrer));
         childrenList.add(new Property("availability", "code", "Availability of study (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
         childrenList.add(new Property("url", "uri", "WADO-RS URI where Study is available.", 0, java.lang.Integer.MAX_VALUE, url));
@@ -2442,19 +2442,19 @@ public class ImagingStudy extends Resource {
 
       public ImagingStudy copy() {
         ImagingStudy dst = new ImagingStudy();
-        dst.dateTime = dateTime == null ? null : dateTime.copy();
+        dst.started = started == null ? null : started.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.uid = uid == null ? null : uid.copy();
-        dst.accessionNo = accessionNo == null ? null : accessionNo.copy();
+        dst.accession = accession == null ? null : accession.copy();
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
         dst.order = new ArrayList<Reference>();
         for (Reference i : order)
           dst.order.add(i.copy());
-        dst.modality = new ArrayList<Enumeration<ImagingModality>>();
-        for (Enumeration<ImagingModality> i : modality)
-          dst.modality.add(i.copy());
+        dst.modalityList = new ArrayList<Enumeration<ImagingModality>>();
+        for (Enumeration<ImagingModality> i : modalityList)
+          dst.modalityList.add(i.copy());
         dst.referrer = referrer == null ? null : referrer.copy();
         dst.availability = availability == null ? null : availability.copy();
         dst.url = url == null ? null : url.copy();

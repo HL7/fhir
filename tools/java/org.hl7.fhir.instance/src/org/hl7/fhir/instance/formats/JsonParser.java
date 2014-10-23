@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 22, 2014 17:27+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -3768,18 +3768,18 @@ public class JsonParser extends JsonParserBase {
   private ImagingStudy parseImagingStudy(JsonObject json) throws Exception {
     ImagingStudy res = new ImagingStudy();
     parseResourceProperties(json, res);
-    if (json.has("dateTime"))
-      res.setDateTimeElement(parseDateTime(json.get("dateTime").getAsString()));
-    if (json.has("_dateTime"))
-      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeElement());
+    if (json.has("started"))
+      res.setStartedElement(parseDateTime(json.get("started").getAsString()));
+    if (json.has("_started"))
+      parseElementProperties(json.getAsJsonObject("_started"), res.getStartedElement());
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("uid"))
       res.setUidElement(parseOid(json.get("uid").getAsString()));
     if (json.has("_uid"))
       parseElementProperties(json.getAsJsonObject("_uid"), res.getUidElement());
-    if (json.has("accessionNo"))
-      res.setAccessionNo(parseIdentifier(json.getAsJsonObject("accessionNo")));
+    if (json.has("accession"))
+      res.setAccession(parseIdentifier(json.getAsJsonObject("accession")));
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -3792,19 +3792,19 @@ public class JsonParser extends JsonParserBase {
         res.getOrder().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("modality")) {
-      JsonArray array = json.getAsJsonArray("modality");
+    if (json.has("modalityList")) {
+      JsonArray array = json.getAsJsonArray("modalityList");
       for (int i = 0; i < array.size(); i++) {
-        res.getModality().add(parseEnumeration(array.get(i).getAsString(), ImagingStudy.ImagingModality.NULL, new ImagingStudy.ImagingModalityEnumFactory()));
+        res.getModalityList().add(parseEnumeration(array.get(i).getAsString(), ImagingStudy.ImagingModality.NULL, new ImagingStudy.ImagingModalityEnumFactory()));
       }
     };
-    if (json.has("_modality")) {
-      JsonArray array = json.getAsJsonArray("_modality");
+    if (json.has("_modalityList")) {
+      JsonArray array = json.getAsJsonArray("_modalityList");
       for (int i = 0; i < array.size(); i++) {
-        if (i == res.getModality().size())
-          res.getModality().add(parseEnumeration(null, ImagingStudy.ImagingModality.NULL, new ImagingStudy.ImagingModalityEnumFactory()));
+        if (i == res.getModalityList().size())
+          res.getModalityList().add(parseEnumeration(null, ImagingStudy.ImagingModality.NULL, new ImagingStudy.ImagingModalityEnumFactory()));
         if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getModality().get(i));
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getModalityList().get(i));
       }
     };
     if (json.has("referrer"))

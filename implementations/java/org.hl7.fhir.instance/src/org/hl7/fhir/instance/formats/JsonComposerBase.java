@@ -59,7 +59,7 @@ public abstract class JsonComposerBase extends ComposerBase {
 
 	protected JsonCreator json;
 	private boolean htmlPretty;
-  private boolean canonical;
+  protected boolean canonical;
 
 	/**
 	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
@@ -353,5 +353,10 @@ public abstract class JsonComposerBase extends ComposerBase {
     this.canonical = canonical;
     
   }
+
+	protected boolean makeComments(Element element) {
+		return !canonical && !element.getXmlComments().isEmpty();
+	}
+	
 
 }

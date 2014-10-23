@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 22, 2014 17:27+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -41,6 +41,12 @@ public class JsonComposer extends JsonComposerBase {
   private void composeElement(Element element) throws Exception {
     if (element.getXmlId() != null)
       prop("id", element.getXmlId());
+      if (!element.getXmlComments().isEmpty() || !canonical) {
+        openArray("_comment");
+        for (String s : element.getXmlComments())
+          prop(null,  s);
+         closeArray();
+      }
     if (element.getExtensions().size() > 0) {
       openArray("extension");
       for (Extension ex : element.getExtensions())
@@ -67,7 +73,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private <E extends Enum<E>> void composeEnumerationExtras(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -84,7 +90,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeIntegerExtras(String name, IntegerType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -102,7 +108,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeDateTimeExtras(String name, DateTimeType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -120,7 +126,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeCodeExtras(String name, CodeType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -138,7 +144,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeDateExtras(String name, DateType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -156,7 +162,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeDecimalExtras(String name, DecimalType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -174,7 +180,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeUriExtras(String name, UriType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -192,7 +198,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeIdExtras(String name, IdType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -210,7 +216,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeBase64BinaryExtras(String name, Base64BinaryType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -228,7 +234,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeTimeExtras(String name, TimeType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -246,7 +252,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeOidExtras(String name, OidType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -264,7 +270,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeStringExtras(String name, StringType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -282,7 +288,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeBooleanExtras(String name, BooleanType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -300,7 +306,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeUuidExtras(String name, UuidType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -318,7 +324,7 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeInstantExtras(String name, InstantType value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
       close();
@@ -3805,12 +3811,12 @@ public class JsonComposer extends JsonComposerBase {
 
   private void composeImagingStudyInner(ImagingStudy element) throws Exception {
       composeResourceElements(element);
-      composeDateTimeCore("dateTime", element.getDateTimeElement(), false);
-      composeDateTimeExtras("dateTime", element.getDateTimeElement(), false);
+      composeDateTimeCore("started", element.getStartedElement(), false);
+      composeDateTimeExtras("started", element.getStartedElement(), false);
       composeReference("subject", element.getSubject());
       composeOidCore("uid", element.getUidElement(), false);
       composeOidExtras("uid", element.getUidElement(), false);
-      composeIdentifier("accessionNo", element.getAccessionNo());
+      composeIdentifier("accession", element.getAccession());
       if (element.getIdentifier().size() > 0) {
         openArray("identifier");
         for (Identifier e : element.getIdentifier()) 
@@ -3823,14 +3829,14 @@ public class JsonComposer extends JsonComposerBase {
           composeReference(null, e);
         closeArray();
       };
-      if (element.getModality().size() > 0) {
-        openArray("modality");
-        for (Enumeration<ImagingStudy.ImagingModality> e : element.getModality()) 
+      if (element.getModalityList().size() > 0) {
+        openArray("modalityList");
+        for (Enumeration<ImagingStudy.ImagingModality> e : element.getModalityList()) 
           composeEnumerationCore(null, e, new ImagingStudy.ImagingModalityEnumFactory(), true);
         closeArray();
-        if (anyHasExtras(element.getModality())) {
-          openArray("_modality");
-          for (Enumeration<ImagingStudy.ImagingModality> e : element.getModality()) 
+        if (anyHasExtras(element.getModalityList())) {
+          openArray("_modalityList");
+          for (Enumeration<ImagingStudy.ImagingModality> e : element.getModalityList()) 
             composeEnumerationExtras(null, e, new ImagingStudy.ImagingModalityEnumFactory(), true);
           closeArray();
         }

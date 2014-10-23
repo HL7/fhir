@@ -104,7 +104,7 @@ public class XhtmlGenerator {
     out.write("<p>&nbsp;</p>\r\n"); 
     out.write("<div class=\"example\">\r\n");
     out.write("<p>"+Utilities.escapeXml(desc)+"</p>\r\n"); 
-    out.write("<p><a href=\""+xhtml.getName().substring(0, xhtml.getName().length()-5)+"\">Raw XML</a></p>\r\n");
+    out.write("<p><a href=\""+xhtml.getName().substring(0, xhtml.getName().length()-5)+"\">Raw XML</a> (<a href=\""+canonicalName(xhtml.getName().substring(0, xhtml.getName().length()-5))+"\">Canonical</a>)</p>\r\n");
     if (adorn) {
       out.write("<pre class=\"xml\">\r\n");
 
@@ -124,6 +124,13 @@ public class XhtmlGenerator {
     out.write("</html>\r\n");
     out.flush();
     outs.close();
+  }
+
+  private String canonicalName(String name) {
+    int i = name.lastIndexOf(".");
+    if (i == -1)
+      throw new Error("unable to get canonical name for "+name);
+    return name.substring(0, i)+".canonical"+name.substring(i);
   }
 
   public void generate(Document doc, OutputStream xhtml, String name, String desc, int level, boolean adorn, String filename) throws Exception {

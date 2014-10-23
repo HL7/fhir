@@ -135,6 +135,12 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("  private void composeElement(Element element) throws Exception {\r\n");
     write("    if (element.getXmlId() != null)\r\n");
     write("      prop(\"id\", element.getXmlId());\r\n");
+    write("      if (!element.getXmlComments().isEmpty() || !canonical) {\r\n");
+    write("        openArray(\"_comment\");\r\n");
+    write("        for (String s : element.getXmlComments())\r\n");
+    write("          prop(null,  s);\r\n");
+    write("         closeArray();\r\n");
+    write("      }\r\n");
     write("    if (element.getExtensions().size() > 0) {\r\n");
     write("      openArray(\"extension\");\r\n");
     write("      for (Extension ex : element.getExtensions())\r\n");
@@ -214,7 +220,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("  }    \r\n");
     write("\r\n");
     write("  private <E extends Enum<E>> void composeEnumerationExtras(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {\r\n");
-    write("    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {\r\n");
+    write("    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {\r\n");
     write("      open(inArray ? null : \"_\"+name);\r\n");
     write("      composeElement(value);\r\n");
     write("      close();\r\n");
@@ -258,7 +264,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("\r\n");
     
     write("  private void compose"+upFirst(dc.getCode())+"Extras(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
-    write("    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {\r\n");
+    write("    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || makeComments(value))) {\r\n");
     write("      open(inArray ? null : \"_\"+name);\r\n");
     write("      composeElement(value);\r\n");
     write("      close();\r\n");

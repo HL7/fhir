@@ -105,6 +105,12 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
       e.setXmlId(json.get("id").getAsString());
     if (!Utilities.noString(e.getXmlId()))
       idMap.put(e.getXmlId(), e);
+    if (json.has("_comment")) {
+      JsonArray array = json.getAsJsonArray("_comment");
+      for (int i = 0; i < array.size(); i++) {
+        e.getXmlComments().add(array.get(i).getAsString());
+      }
+    }
   }
 
   protected abstract void parseResourceProperties(JsonObject json, Resource r) throws Exception;

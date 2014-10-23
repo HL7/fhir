@@ -56,12 +56,24 @@ public abstract class XmlComposerBase extends ComposerBase  {
 
 	protected IXMLWriter xml;
 	protected boolean htmlPretty;
+  protected boolean canonical;
+   
+  
+	public boolean isCanonical() {
+    return canonical;
+  }
+
+  public void setCanonical(boolean canonical) {
+    this.canonical = canonical;
+  }
 
 	/**
 	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
 	@Override
   public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
+    if (canonical && pretty)
+      throw new Exception("Do not use pretty = true if canonical = true");
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
 		writer.start();
@@ -73,6 +85,8 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	 * Compose a resource to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
 	 */
 	public void compose(OutputStream stream, Resource resource, boolean pretty, boolean htmlPretty) throws Exception {
+    if (canonical && pretty)
+      throw new Exception("Do not use pretty = true if canonical = true");
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
 		writer.start();
@@ -85,6 +99,8 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	 */
 	@Override
   public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception {
+    if (canonical && pretty)
+      throw new Exception("Do not use pretty = true if canonical = true");
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
 		writer.start();
@@ -96,6 +112,8 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
 	 */
 	public void compose(OutputStream stream, AtomFeed feed, boolean pretty, boolean htmlPretty) throws Exception {
+    if (canonical && (pretty || htmlPretty))
+      throw new Exception("Do not use pretty = true if canonical = true");
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
 		writer.start();
@@ -108,6 +126,8 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	 */
 	@Override
   public void compose(OutputStream stream, List<AtomCategory> tags, boolean pretty) throws Exception {
+    if (canonical && pretty)
+      throw new Exception("Do not use pretty = true if canonical = true");
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
 		writer.start();
@@ -119,6 +139,8 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	 * Compose a tag list to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
 	 */
 	public void compose(OutputStream stream, List<AtomCategory> tags, boolean pretty, boolean htmlPretty) throws Exception {
+    if (canonical && (pretty || htmlPretty))
+      throw new Exception("Do not use pretty = true if canonical = true");
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
 		writer.start();
@@ -128,6 +150,8 @@ public abstract class XmlComposerBase extends ComposerBase  {
 
 
 	public void compose(IXMLWriter writer, AtomFeed feed, boolean htmlPretty) throws Exception {
+    if (canonical && (htmlPretty))
+      throw new Exception("Do not use pretty = true if canonical = true");
 		this.htmlPretty = htmlPretty;
 		xml = writer;
 		xml.setDefaultNamespace(ATOM_NS);
@@ -177,7 +201,7 @@ public abstract class XmlComposerBase extends ComposerBase  {
    */
   public void compose(OutputStream stream, Type type) throws Exception {
     xml = new XMLWriter(stream, "UTF-8");
-    xml.setPretty(true);
+    xml.setPretty(!canonical);
     xml.start();
     xml.setDefaultNamespace(FHIR_NS);
     composeType("value", type);
@@ -297,6 +321,7 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	protected abstract void composeResource(Resource resource) throws Exception;
 
 	protected void composeElementAttributes(Element element) throws Exception {
+	  if (!canonical)
     for (String comment : element.getXmlComments())
       xml.comment(comment, false);
 		if (element.getXmlId() != null) 

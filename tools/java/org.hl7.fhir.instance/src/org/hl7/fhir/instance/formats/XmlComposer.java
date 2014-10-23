@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Oct 22, 2014 17:27+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 23, 2014 11:33+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -2245,16 +2245,16 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeResourceElements(element);
-      composeDateTime("dateTime", element.getDateTimeElement());
+      composeDateTime("started", element.getStartedElement());
       composeReference("subject", element.getSubject());
       composeOid("uid", element.getUidElement());
-      composeIdentifier("accessionNo", element.getAccessionNo());
+      composeIdentifier("accession", element.getAccession());
       for (Identifier e : element.getIdentifier()) 
         composeIdentifier("identifier", e);
       for (Reference e : element.getOrder()) 
         composeReference("order", e);
-        for (Enumeration<ImagingStudy.ImagingModality> e : element.getModality()) 
-          composeEnumeration("modality", e, new ImagingStudy.ImagingModalityEnumFactory());
+        for (Enumeration<ImagingStudy.ImagingModality> e : element.getModalityList()) 
+          composeEnumeration("modalityList", e, new ImagingStudy.ImagingModalityEnumFactory());
       composeReference("referrer", element.getReferrer());
       if (element.getAvailabilityElement() != null)
         composeEnumeration("availability", element.getAvailabilityElement(), new ImagingStudy.InstanceAvailabilityEnumFactory());
