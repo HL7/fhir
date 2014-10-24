@@ -63,8 +63,8 @@ This is an example of how a <a href="patient.html">patient</a> is represented as
 <pre class="json linecounter">
 <code>{</code>
 <code>  "resourceType": "Patient",</code>
+<code>  "id" : "23434",</code>
 <code>  "meta" : {</code>
-<code>    "id" : "23434",</code>
 <code>    "versionId" : "12",</code>
 <code>    "lastUpdated" : "2014-08-18T01:43:30Z"</code>
 <code>  }</code>
@@ -113,13 +113,14 @@ Each resource consists of:
 </p>
 <ul>
   <li><b>resourceType</b> (line 2) - Required: FHIR defines many different types of resources. See <a href="resourcelist.html">the full index</a></li>
-  <li><b>meta</b> (lines 3 - 7) - Usually Required: <a href="resources.html#meta">Common data to all resources</a> and managed by the infrasturcture</li>
+  <li><b>id</b> (line 3) - The id of the resource. Always present when a resource is exchanged, except during the create operation (below)</li>
+  <li><b>meta</b> (lines 4 - 7) - Usually Present: <a href="resources.html#meta">Common use/context data to all resources</a> and managed by the infrasturcture. Missing if there is no metadata</li>
   <li><b>text</b> (lines 12 - 17) - Recommended: XHTML that provides a <a href="narrative.html">human readable representation</a> for the resource</li>
   <li><b>extension</b> (lines 12 - 17) - Optional: <a href="extensbility.html">Extensions</a> defined by the extensbility framework</li>
   <li><b>data</b> (lines 18 - 43) - Optional: data elements defined for each type of resource</li>
 </ul>
 <p>
-Note that though this specification always shows the JSON properties in the order they are defined, many JSON libraries order properties by other criteria
+Note that though this specification always shows the JSON properties in the order they are defined, many JSON libraries order properties by other criteria.
 </p>
 
 <h3>Interactions</h3>
@@ -160,7 +161,7 @@ point. In the example below we see the creation of a Patient.
 
 <div class="example">
 <pre class="http linecounter">
-<code>POST {some base URL}/Patient HTTP/1.1</code>
+<code>POST {some base path}/Patient HTTP/1.1</code>
 <code>Authorization: Bearer 37CC0B0E-C15B-4578-9AC1-D83DCED2B2F9</code>
 <code>Accept: application/json+fhir</code>
 <code>Content-Type: application/json+fhir</code>
@@ -180,7 +181,8 @@ Submit a new patient to the server, and ask it to store the patient with an id o
   <li><b>/Patient</b> (line 1) - the manager for all patients - use the name of the type of resource</li>
   <li><b>Authorization</b> (line 2) - see <a href="security.html">Security for FHIR</a></li>
   <li><b>Accept, Content-Type</b> (lines 3-4) - the content type for all FHIR resources as represented in JSON (or application/xml+fhir for the XML version). FHIR resources are always represented in UTF-8</li>
-  <li>Resource Content, lines 8+ - There's no meta property at this point (this is the only place where that's true). The rest of the resource is the same content as above</li>
+  <li><b>id</b> (line 9) - No id for a resource that is being created - the server will assign one</li>
+  <li>Resource Content, lines 8+ - There's no meta property at this point. The rest of the resource is the same content as above</li>
 </ul>
 
 
@@ -219,6 +221,7 @@ Notes:
   <li><b>HTTP/1.1 201</b> (line 1) - the operation was successful. Note that HTTP/1.1 is strongly recommended but not required</li>
   <li><b>ETag</b> (line 5) - used in the <a href="http.html#update">version aware update</a> pattern</li>
   <li><b>Location</b> (line 6) - the id the server assigned to the resource. The id in the url must match the id in the resource when it is subsequently returned</li>
+  <li><b>operationOutcome</b> (line 9) - OperationOutcome resources in this context have no id or meta element (they have no managed identity)</li>
 </ul>
 
 <h4>Error response</h4>
@@ -275,8 +278,8 @@ Notes:
 </p>
 <ul>
   <li><b>347</b> (line 1) - The id of the resource that is being fetched</li>
-  <li><b>_format=xml</b> (line 1) - this is another method for clients to indicate the desired response format, in addition to using the accept header, and is useful for clients that don't have access to the HTTP Headers (e.g. XSLT transforms)</li>
-  <li><b>cache control</b> (line 4) - Concurrency control is important - see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</a> or <a href="https://www.mnot.net/cache_docs/">https://www.mnot.net/cache_docs/</a></li>
+  <li><b>_format=xml</b> (line 1) - this is another method for clients to indicate the desired response format, in addition to using the accept header, and is useful for clients that don't have access to the HTTP Headers (e.g. XSLT transforms) (se <a href="http.html#mimetypes">Mime Types</a></li>
+  <li><b>cache control</b> (line 4) - Concurrency control is important, though FHIR itself says nothing about it - see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</a> or <a href="https://www.mnot.net/cache_docs/">https://www.mnot.net/cache_docs/</a></li>
 </ul>
 
 
@@ -295,8 +298,8 @@ The response to a GET contains the Resource.
 <code> </code>
 <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code>
 <code>&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;</code>
+<code>  &lt;id value=&quot;347&quot;/&gt;</code>
 <code>  &lt;meta&gt;</code>
-<code>    &lt;id value=&quot;347&quot;/&gt;</code>
 <code>    &lt;versionId value=&quot;1&quot;/&gt;</code>
 <code>    &lt;lastUpdated value=&quot;2014-08-18T01:43:30Z&quot;/&gt;</code>
 <code>  &lt;/meta&gt;</code>
@@ -309,10 +312,10 @@ The response to a GET contains the Resource.
 Notes:
 </p>
 <ul>
-  <li><b>id</b> (line 10) - The id of the resource. This must match the id in the read request</li>
+  <li><b>id</b> (line 8) - The id of the resource. This must match the id in the read request</li>
   <li><b>versionId</b> (line 11) - The current version id of the resource. Best practice is that this value matches the ETag (see <a href="http.html#update">version aware update</a>), but clients must never assume this. Note that some servers do not track the version of the resource</li>
   <li>Note that servers are not required to support versioning, but are strongly encouraged to do so</li>
-  <li><b>lastUpdated</b> (line 12) - This must match the value in the HTTP header</li>
+  <li><b>lastUpdated</b> (line 12) - if present, this must match the value in the HTTP header</li>
 </ul>
 
 <h3>Search Request</h3>
@@ -350,8 +353,8 @@ The response to a search request is a <a href="extras.html#bundle">bundle</a>: l
 <pre class="json linecounter">
 <code>{</code>
 <code>  "resourceType": "Bundle",</code>
+<code>  "id" : "eceb4882-5c7e-4ca4-af62-995dfb8cef01"</code>
 <code>  "meta" : {</code>
-<code>    "id" : "eceb4882-5c7e-4ca4-af62-995dfb8cef01"</code>
 <code>    "lastUpdated" : "2014-08-19T15:43:30Z"</code>
 <code>  },</code>
 <code>  "base": "http://example.com/base",</code>
@@ -368,8 +371,8 @@ The response to a search request is a <a href="extras.html#bundle">bundle</a>: l
 <code>  "item": [</code>
 <code>    {</code>
 <code>      "resourceType": "MedicationPrescription",</code>
+<code>      "id" : "3123",</code>
 <code>      "meta" : {</code>
-<code>        "id" : "3123",</code>
 <code>        "versionId" : "1",</code>
 <code>        "lastUpdated" : "2014-08-16T05:31:17Z"</code>
 <code>      }, </code>
@@ -386,7 +389,7 @@ Notes:
 </p>
 <ul>
   <li><b>resourceType</b> (line 7) - "SearchResults" is the name for a bundle returned from a search</li>
-  <li><b>meta.id</b> (line 9) - An identifier assigned to this particular bundle. The server should assign a unique id to this bundle that it will not be re-used. Note that in some bundles - though not search reuslts - this must be <a href="extras.html#bundle-unique">globally unique</a></li>
+  <li><b>id</b> (line 3) - An identifier assigned to this particular bundle. The server should assign a unique id to this bundle that it will not be re-used. Note that in some bundles - though not search results - this must be <a href="extras.html#bundle-unique">globally unique</a></li>
   <li><b>meta.lastUpdated</b> (line 10) - This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The lastUpdated data SHALL be the same or more recent than the most recent resource in the results</li>
   <li><b>base</b> (line 12) - The base URL for any relative <a href="references.html">references</a> in the resources. The server SHOULD provide this value</li>
   <li><b>total</b> (line 13) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
@@ -411,8 +414,8 @@ The client sends the server a new version of the resource to replace the exist v
 <code> </code>
 <code>{</code>
 <code>  "resourceType": "Patient",</code>
+<code>  "id" : "347",</code>
 <code>  "meta" : {</code>
-<code>    "id" : "347",</code>
 <code>    "versionId" : "1",</code>
 <code>    "lastUpdated" : "2014-08-18T01:43:30Z"    </code>
 <code>  },</code>
@@ -426,7 +429,7 @@ Notes:
 </p>
 <ul>
   <li><b>resourceType</b> (line 1) - "Patient" in the url must match the resource type in the resource (line 9)</li>
-  <li><b>resource id</b> (line 1, "347") - This must match meta.id (line 11)</li>
+  <li><b>resource id</b> (line 1, "347") - This must match the id in the resource (line 9)</li>
   <li><b>If-Match</b> (line 6) - if this is provided, it must match the value in meta.versionId (line 12), and the server must check the version integrity, or return 412 if it doesn't support versions</li>
   <li><b>meta.lastUpdated</b> (line 10) - This value is ignored, and will be updated by the server</li>
   <li><b>resource content</b> (line 14) - Not shown here, the same as Patient above</li>
@@ -463,18 +466,19 @@ Notes:
   <li><b>ETag</b> (line 5) - This is the versionId of the new version</li>
 </ul>
 
-<h3>Other metadata</h3>
+<h3>Base Resource Content</h3>
 <p>
-Here is a full metadata header:
+Here is an exmple that shows all the information found in all resources, fully populated:
 </p>
 
 <div class="example">
 <pre class="json linecounter">
+<code>{</code>
+<code>  "resourceType" : "X",</code>
+<code>  "id" : "12",</code>
 <code>  "meta" : {</code>
-<code>    "id" : "23434",</code>
 <code>    "versionId" : "12",</code>
 <code>    "lastUpdated" : "2014-08-18T01:43:30Z",</code>
-<code>    "ruleSet" : "http://example-consortium.org/fhir/specification",</code>
 <code>    "profile" : ["http://example-consortium.org/fhir/profile/patient"],</code>
 <code>    "security" : [{</code>
 <code>      "system" : "http://hl7.org/fhir/v3/ActCode",</code>
@@ -484,7 +488,9 @@ Here is a full metadata header:
 <code>      "system" : "http://example.com/codes/workflow",</code>
 <code>      "code" : "needs-review"</code>
 <code>    }]</code>
-<code>  }</code>
+<code>  },</code>
+<code>  "implicitRules" : "http://example-consortium.org/fhir/ehr-plugins",</code>
+<code>  "language" : "X"</code>
 <code>}</code>
 </pre>
 </div>
@@ -493,13 +499,15 @@ Here is a full metadata header:
 Implementers notes:  
 </p>
 <ul>
-  <li><b>meta.id</b> (line 2) - defined when the resource is created, and never changed. Only missing when the resource is first created</li>
-  <li><b>meta.versionId</b> (line 3) - changes each time any resource contents change (except for the last 3 elements in meta)</li>
-  <li><b>meta.lastUpdated</b> (line 4) - Changes when the versionId changes. Systems that don't support versions usually don't track lastUpdated either</li>
-  <li><b>meta.ruleSet</b> (line 5) - A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. See <a href="profiling.html#ruleset">Profile Rule Sets</a> for further discussion</li>
-  <li><b>meta.profile</b> (line 6) - An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. Can be changed as profiles and value sets change or the system rechecks conformance</li>
-  <li><b>meta.security</b> (lines 7 - 10) - <a href="securitylabels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-stystem chooses to</li>
-  <li><b>meta.tag</b> (lines 11 - 14) - <a href="extras.html">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider the tags when interpreting the meaning of a resource. Tags can be <a href="http.html#tags">updated</a> without changing the resource version</li>
+  <li><b>resourceType</b> (line 2) - always found in every resource. In XML, this is the name of the root element for the resource</li>
+  <li><b>id</b> (line 3) - defined when the resource is created, and never changed. Only missing when the resource is first created</li>
+  <li><b>meta.versionId</b> (line 5) - changes each time any resource contents change (except for the last 3 elements in meta)</li>
+  <li><b>meta.lastUpdated</b> (line 6) - Changes when the versionId changes. Systems that don't support versions usually don't track lastUpdated either</li>
+  <li><b>meta.profile</b> (line 7) - An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. Can be changed as profiles and value sets change or the system rechecks conformance</li>
+  <li><b>meta.security</b> (lines 8 - 11) - <a href="securitylabels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-stystem chooses to</li>
+  <li><b>meta.tag</b> (lines 12 - 15) - <a href="extras.html">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider the tags when interpreting the meaning of a resource. Tags can be <a href="http.html#tags">updated</a> without changing the resource version</li>
+  <li><b>implicitRules</b> (lines 16) - indicates that there is a <a href="profiling.html#agreement">custom agreement</a> about how the resources are used that must be understood in orer to safely process the resource. Use of this is discouraged because it restricts sharing, but sometimes necessary</li>
+  <li><b>language</b> (lines 17) - The <a href="narrative.html#language">base language of the resource</a>. The resource is allowed to have content from other languages; this is just the base, but should be the main language of the resource</li>
 </ul>
 
 </div>
