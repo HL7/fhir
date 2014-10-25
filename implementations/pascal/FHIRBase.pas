@@ -41,7 +41,6 @@ Interface
 
 Uses
   Classes,
-  EncdDecd,
   DateAndTime,
   SysUtils,
   AdvExceptions,
@@ -52,7 +51,7 @@ Uses
   AdvStringLists,
   DateSupport,
   EncodeSupport,
-  {$IFDEF UNICDE} EncdDecd, {$ENDIF}
+  {$IFDEF UNICODE} EncdDecd, {$ENDIF}
   DecimalSupport;
 
 Type

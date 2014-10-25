@@ -93,6 +93,7 @@ import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
+import org.hl7.fhir.instance.model.Profile.ProfileStructureSearchParamComponent;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.UriType;
@@ -3265,6 +3266,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
  
 
+  
   private String getSearch(ResourceDefn resource) {
     if (resource.getSearchParams().size() == 0)
       return "";
@@ -3283,6 +3285,31 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (String name : names)  {
         SearchParameter p = resource.getSearchParams().get(name);
         b.append("<tr><td>"+p.getCode()+"</td><td><a href=\"search.html#"+p.getType()+"\">"+p.getType()+"</a></td><td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+presentPaths(p.getPaths())+(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "")+"</td></tr>\r\n");
+      }
+      b.append("</table>\r\n");
+      return b.toString();
+    }
+  }
+
+  private String getSearch(ProfileStructureComponent structure) {
+    if (structure.getSearchParam().size() == 0)
+      return "";
+    else {
+      StringBuilder b = new StringBuilder();
+      b.append("<h2>Search Parameters</h2>\r\n");       
+      b.append("<p>Search parameters defined by this structure. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
+      b.append("<table class=\"list\">\r\n");
+      b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
+      List<String> names = new ArrayList<String>();
+      for (ProfileStructureSearchParamComponent t : structure.getSearchParam())
+        names.add(t.getName());
+      Collections.sort(names);
+      for (String name : names)  {
+        ProfileStructureSearchParamComponent p = null;
+        for (ProfileStructureSearchParamComponent t : structure.getSearchParam())
+          if (t.getName().equals(name))
+            p = t;
+        b.append("<tr><td>"+p.getName()+"</td><td><a href=\"search.html#"+p.getType().toCode()+"\">"+p.getType().toCode()+"</a></td><td>"+Utilities.escapeXml(p.getDocumentation())+"</td><td>"+(p.getXpath() == null ? "" : p.getXpath())+"</td></tr>\r\n");
       }
       b.append("</table>\r\n");
       return b.toString();
@@ -3649,6 +3676,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+profileExampleList(profile, examples, example)+s3;
       else if (com[0].equals("profile.review"))
         src = s1+profileReviewLink(profile)+s3;
+      else if (com[0].equals("profile.search"))
+        src = s1+getSearch(structure)+s3;
       else if (com[0].equals("resurl")) {
          if (Utilities.noString(profile.metadata("id")))
            src = s1+s3;
