@@ -89,7 +89,10 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
+import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
+import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
@@ -3678,6 +3681,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+profileReviewLink(profile)+s3;
       else if (com[0].equals("profile.search"))
         src = s1+getSearch(structure)+s3;
+      else if (com[0].equals("profile.tx"))
+        src = s1+getTerminologyNotes(structure)+s3;
+      else if (com[0].equals("profile.inv"))
+        src = s1+getInvariantList(structure)+s3;
       else if (com[0].equals("resurl")) {
          if (Utilities.noString(profile.metadata("id")))
            src = s1+s3;
@@ -3687,6 +3694,76 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String getTerminologyNotes(ProfileStructureComponent structure) {
+    List<String> txlist = new ArrayList<String>();
+    Map<String, ElementDefinitionBindingComponent> txmap = new HashMap<String, Profile.ElementDefinitionBindingComponent>();
+    for (ElementComponent e : structure.getSnapshot().getElement()) {
+      ElementDefinitionComponent d = e.getDefinition();
+      if (d != null && d.getBinding() != null) {
+        txlist.add(e.getPath());
+        txmap.put(e.getPath(), d.getBinding());
+      }
+    }
+    if (txlist.isEmpty())
+      return "";
+    else {
+      StringBuilder b = new StringBuilder();
+      b.append("<h2>Terminology Bindings</h2>\r\n");       
+      b.append("<table class=\"list\">\r\n");
+      b.append("<tr><td><b>Path</b></td><td><b>Name</b></td><td><b>Conformance</b></td><td><b>ValueSet</b></td></tr>\r\n");
+      for (String path : txlist)  {
+        ElementDefinitionBindingComponent tx = txmap.get(path);
+        String vss = "";
+        if (tx.getReference() != null) {
+          if (tx.getReference() instanceof UriType)
+            vss = "<a href=\""+((UriType)tx.getReference()).asStringValue()+"\">"+Utilities.escapeXml(((UriType)tx.getReference()).asStringValue())+"</a>";
+          else {
+            String uri = ((Reference)tx.getReference()).getReference();
+            AtomEntry<ValueSet> vs = valueSets.get(uri);
+            if (vs == null)
+              vss = "<a href=\""+uri+"\">"+Utilities.escapeXml(uri)+"</a>";
+            else 
+              vss = "<a href=\""+vs.getLinks().get("path")+"\">"+Utilities.escapeXml(vs.getResource().getName())+"</a>";
+          }
+        }
+        b.append("<tr><td>"+path+"</td><td>"+tx.getName()+"</td><td>"+(tx.getConformance() == null ? "" : tx.getConformance().toCode())+(tx.getIsExtensible() ? " (extensible)" : "")+"</td><td>"+
+          vss+"</td></tr>\r\n");
+      }
+      b.append("</table>\r\n");
+      return b.toString();
+      
+    }
+  }
+
+  private String getInvariantList(ProfileStructureComponent structure) {
+    List<String> txlist = new ArrayList<String>();
+    Map<String, List<ElementDefinitionConstraintComponent>> txmap = new HashMap<String, List<Profile.ElementDefinitionConstraintComponent>>();
+    for (ElementComponent e : structure.getSnapshot().getElement()) {
+      ElementDefinitionComponent d = e.getDefinition();
+      if (d != null) {
+        txlist.add(e.getPath());
+        txmap.put(e.getPath(), d.getConstraint());
+      }
+    }
+    if (txlist.isEmpty())
+      return "";
+    else {
+      StringBuilder b = new StringBuilder();
+      b.append("<h2>Constraints</h2>\r\n");       
+      b.append("<table class=\"list\">\r\n");
+      b.append("<tr><td width=\"60\"><b>Id</b></td><td><b>Path</b></td><td><b>Name</b></td><td><b>Details</b></td></tr>\r\n");
+      for (String path : txlist)  {
+        List<ElementDefinitionConstraintComponent> invs = txmap.get(path);
+        for (ElementDefinitionConstraintComponent inv : invs) {
+          b.append("<tr><td>Inv-"+inv.getKey()+"</td><td>"+path+"</td><td>"+inv.getName()+"</td><td>"+inv.getHuman()+"<br/>XPath: "+inv.getXpath()+"</td></tr>\r\n");
+        }
+      }
+      b.append("</table>\r\n");
+      return b.toString();
+      
+    }
   }
 
   private String profileReviewLink(ProfileDefn profile) {
