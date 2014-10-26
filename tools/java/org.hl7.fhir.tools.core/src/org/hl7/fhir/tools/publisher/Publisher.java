@@ -3007,10 +3007,10 @@ public class Publisher implements URIResolver {
           .getLocalName());
     }
 
-    //!!
     // check the narrative. We generate auto-narrative. If the resource didn't
     // have it's own original narrative, then we save it anyway
     // todo: this uses the version of the resource in the generator, not the current one. This needs to be moved to the compiled code when it's stable
+    String rt = null;
     org.hl7.fhir.instance.model.Resource r;
     try {
       XmlParser xml = new XmlParser();
@@ -3018,6 +3018,7 @@ public class Publisher implements URIResolver {
       ResourceOrFeed rf = xml.parseGeneral(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
       boolean wantSave = false;
       if (rf.getFeed() != null) {
+        rt = rf.getFeed().getEntryList().get(0).getResource().getResourceType().toString();
         for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> ae : rf.getFeed().getEntryList()) {
           r = ae.getResource();
           wantSave = wantSave || (r.getText() == null || r.getText().getDiv() == null);
@@ -3042,6 +3043,7 @@ public class Publisher implements URIResolver {
         r = null;
       } else {
         r = rf.getResource();
+        rt = r.getResourceType().toString();
         wantSave = r.getText() == null || r.getText().getDiv() == null;
         if (wantSave/* || !web */) {
           NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext().clone(new SpecificationInternalClient(page, null)));
@@ -3121,7 +3123,7 @@ public class Publisher implements URIResolver {
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
         + "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-    html = page.processPageIncludes(n + ".json.html", html, "resource-instance:" + resource.getName(), null, null);
+    html = page.processPageIncludes(n + ".json.html", html, resource == null ? "profile-instance:resource:" + rt : "resource-instance:" + resource.getName(), null, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
 
     page.getEpub().registerExternal(n + ".json.html");
@@ -3135,7 +3137,7 @@ public class Publisher implements URIResolver {
     xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()
         + " (id = \"" + e.getId() + "\")", 0, true, n + ".xml.html");
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
-    html = page.processPageIncludes(n + ".xml.html", html, "resource-instance:" + resource.getName(), null, null);
+    html = page.processPageIncludes(n + ".xml.html", html, resource == null ? "profile-instance:resource:" + rt : "resource-instance:" + resource.getName(), null, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
     if (e.isInBook()) {
       XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml.html"), "html");
@@ -3150,7 +3152,7 @@ public class Publisher implements URIResolver {
 
     // now, we create an html page from the narrative
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative);
-    html = page.processPageIncludes(n + ".html", html, "resource-instance:" + resource.getName(), null, null);
+    html = page.processPageIncludes(n + ".html", html, resource == null ? "profile-instance:resource:" + rt : "resource-instance:" + resource.getName(), null, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".html");
     // head =
     // "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
@@ -3352,42 +3354,43 @@ public class Publisher implements URIResolver {
     String exXml = "<p><i>No Example Provided</i></p>";
     if (examples != null) {
       for (String en : examples.keySet()) {
-        String ep = examples.get(en).getPath().getAbsolutePath();
-        String n = Utilities.changeFileExt(en, "");
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document xdoc = builder.parse(new CSFileInputStream(ep));
-        // strip namespace - see below
-        XmlGenerator xmlgen = new XmlGenerator();
-        File dst = new File(page.getFolders().dstDir + en);
-        xmlgen.generate(xdoc.getDocumentElement(), dst, xdoc.getDocumentElement().getLocalName().equals("feed") ? "http://www.w3.org/2005/Atom"
-            : "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
-        builder = factory.newDocumentBuilder();
-        xdoc = builder.parse(new CSFileInputStream(dst.getAbsolutePath()));
-        XhtmlGenerator xhtml = new XhtmlGenerator(null);
-        exXml = xhtml.generateInsert(xdoc, "Example for Profile " + profile.metadata("name"), null);
-        cloneToXhtml(n, "Example for Profile " + profile.metadata("name"), true, "profile-instance:example");
-
-        String json;
-        // generate the json version (use the java reference platform)
-        try {
-          json = javaReferencePlatform.convertToJson(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".json");
-        } catch (Throwable t) {
-          System.out.println("Error processing " + page.getFolders().dstDir + n + ".xml");
-          t.printStackTrace(System.err);
-          TextFile.stringToFile(t.getMessage(), page.getFolders().dstDir + n + ".json");
-          json = t.getMessage();
-        }
-
-        String head = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"
-            + Utilities.escapeXml("Example for Profile " + profile.metadata("name"))
-            + "</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"
-            + "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>" + Utilities.escapeXml("Example for Profile " + profile.metadata("name"))
-            + "</p>\r\n<p><a href=\"" + n + ".json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n";
-        String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
-        TextFile.stringToFile(head + Utilities.escapeXml(json) + tail, page.getFolders().dstDir + n + ".json.html");
-        page.getEpub().registerFile(n + ".json.html", "Example for Profile " + profile.metadata("name"), EPubManager.XHTML_TYPE);
+        processExample(examples.get(en), null, profile.getSource());
+//        String ep = examples.get(en).getPath().getAbsolutePath();
+//        String n = Utilities.changeFileExt(en, "");
+//        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//        factory.setNamespaceAware(true);
+//        DocumentBuilder builder = factory.newDocumentBuilder();
+//        Document xdoc = builder.parse(new CSFileInputStream(ep));
+//        // strip namespace - see below
+//        XmlGenerator xmlgen = new XmlGenerator();
+//        File dst = new File(page.getFolders().dstDir + en);
+//        xmlgen.generate(xdoc.getDocumentElement(), dst, xdoc.getDocumentElement().getLocalName().equals("feed") ? "http://www.w3.org/2005/Atom"
+//            : "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
+//        builder = factory.newDocumentBuilder();
+//        xdoc = builder.parse(new CSFileInputStream(dst.getAbsolutePath()));
+//        XhtmlGenerator xhtml = new XhtmlGenerator(null);
+//        exXml = xhtml.generateInsert(xdoc, "Example for Profile " + profile.metadata("name"), null);
+//        cloneToXhtml(n, "Example for Profile " + profile.metadata("name"), true, "profile-instance:example");
+//!!
+//        String json;
+//        // generate the json version (use the java reference platform)
+//        try {
+//          json = javaReferencePlatform.convertToJson(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".json");
+//        } catch (Throwable t) {
+//          System.out.println("Error processing " + page.getFolders().dstDir + n + ".xml");
+//          t.printStackTrace(System.err);
+//          TextFile.stringToFile(t.getMessage(), page.getFolders().dstDir + n + ".json");
+//          json = t.getMessage();
+//        }
+//
+//        String head = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"
+//            + Utilities.escapeXml("Example for Profile " + profile.metadata("name"))
+//            + "</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"
+//            + "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>" + Utilities.escapeXml("Example for Profile " + profile.metadata("name"))
+//            + "</p>\r\n<p><a href=\"" + n + ".json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n";
+//        String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
+//        TextFile.stringToFile(head + Utilities.escapeXml(json) + tail, page.getFolders().dstDir + n + ".json.html");
+//        page.getEpub().registerFile(n + ".json.html", "Example for Profile " + profile.metadata("name"), EPubManager.XHTML_TYPE);
       }
     }
     //

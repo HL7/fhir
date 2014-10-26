@@ -3775,10 +3775,34 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "<p>No Examples Provided.</p>";
     else if (examples.size() == 1)
       return example;
-    else
-      return "<p>Example List.. todo</p>";
-  }
+    else{
+      StringBuilder s = new StringBuilder();
 
+      boolean started = false;
+      List<String> names = new ArrayList<String>();
+      names.addAll(examples.keySet());
+      Collections.sort(names);
+      for (String n : names) {
+        Example e = examples.get(n);
+        if (!started)
+          s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
+        started = true;
+        if (e.getFileTitle().equals("conformance-base") || e.getFileTitle().equals("conformance-base2") || e.getFileTitle().equals("profiles-resources"))
+          s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
+        else
+          s.append("<tr><td><a href=\""+e.getFileTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
+        s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
+        s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
+        s.append("</tr>");
+      }
+
+      //  }
+      if (started)
+        s.append("</table>\r\n");
+      return s.toString();
+    }
+  }
+  
   private String mappingsProfile(Profile source) {
     MappingsGenerator m = new MappingsGenerator(definitions);
     m.generate(source);
