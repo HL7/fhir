@@ -22,8 +22,7 @@ public class SchematronGenerator  extends TextStreamWriter {
     this.logger = logger;
   }
 
-	public void generate(Definitions definitions) throws Exception
-	{
+	public void generate(Definitions definitions) throws Exception {
     ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\" queryBinding=\"xslt2\">");
 //    ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\">");
@@ -35,6 +34,7 @@ public class SchematronGenerator  extends TextStreamWriter {
       ln("<sch:title>"+root.getName()+"</sch:title>");
 
       ArrayList<String> l = new ArrayList<String>();
+      generateResourceInvariants("/a:feed/a:entry/a:content", definitions);
       generateInvariants("/a:feed/a:entry/a:content", root.getRoot(), definitions, l);
       ln_o("  </sch:pattern>");
     }
@@ -54,6 +54,7 @@ public class SchematronGenerator  extends TextStreamWriter {
 		ln("<sch:title>"+root.getName()+"</sch:title>");
 
 		ArrayList<String> parents = new ArrayList<String>();
+    generateResourceInvariants("", definitions);
     generateInvariants("", root, definitions, parents);
 		ln_o("</sch:pattern>");
 		ln_o("</sch:schema>");
@@ -88,6 +89,32 @@ public class SchematronGenerator  extends TextStreamWriter {
 	  }
 	}
 	
+  private void generateResourceInvariants(String path, Definitions definitions) throws Exception {
+    ElementDefn ed = definitions.getBaseReference().getRoot();
+    //logger.log("generate: "+path+" ("+parents.toString()+")");
+    String name = ed.getName();
+    if (name.contains("("))
+      name = name.substring(0, name.indexOf("("));
+    if (ed.getElements().size() > 0) {
+      path = path + "/f:"+name;
+      genInvs(path, ed);
+      genChildren(path, null, ed, definitions, new ArrayList<String>());
+    } else {
+      for (TypeRef tr : ed.typeCode().equals("*") ? allTypes() : ed.getTypes()) {
+        String en = name.replace("[x]", Utilities.capitalize(tr.summary()));
+        if (en.contains("("))
+          en = en.substring(0, en.indexOf("("));
+        String sPath = path + "/f:"+en;
+        genInvs(sPath, ed);
+        ElementDefn td = getType(tr, definitions);
+        if (td != null) {
+          genInvs(sPath, td);
+          genChildren(sPath, tr.summary(), td, definitions, new ArrayList<String>());
+        }
+      }
+    }
+  }
+
 	private void generateInvariants(String path, ElementDefn ed, Definitions definitions, List<String> parents) throws Exception {
 	  //logger.log("generate: "+path+" ("+parents.toString()+")");
 	  String name = ed.getName();
