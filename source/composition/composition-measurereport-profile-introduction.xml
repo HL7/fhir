@@ -1,0 +1,16 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- content goes here -->
+<p>This project is to create a Measure Report FHIR Profile to represent aggregate measure scores and allows for drill down into the data that is used to determine the measure scores.  This specification aims to focus on the needs of international implementer community and not focus on solely on US quality reporting needs. The Measure Report FHIR Profile should be compatible with the new harmonized Health Quality Improvement specifications.</p>
+<p>The project aims to target implementers who may not use QRDA for exchanging data on measure reports.</p>
+<p>This profile also aims to accomplish the following:</p>
+
+<ul>Explore representing measure reports using FHIR</ul>
+<ul>Represent aggregate measure scores with break downs</ul>
+<ul>Explore different levels of drill down</ul>
+<ul>Provide examples of components in this profile and QRDA</ul>
+<ul>Document improvements with QRDA</ul>
+<ul>Benefits of being able to RESTfully query measure reports using FHIR</ul>
+
+
+</div>
