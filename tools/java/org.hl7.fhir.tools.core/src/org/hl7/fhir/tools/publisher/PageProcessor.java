@@ -4203,26 +4203,39 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   @Override
-  public ExtensionDefinition getExtensionDefinition(Profile profile, String profileReference) {
-    String fn;
+  public ExtensionDefinition getExtensionDefinition(List<Profile> profiles, String profileReference) {
     String code;
+    Profile profile = null;
+    if (!profiles.isEmpty())
+      profile = profiles.get(0);
     if (profileReference.startsWith("#")) {
       code = profileReference.substring(1);
+      for (int i = profiles.size()-1; i >= 0; i--) {
+        profile = profiles.get(i); // have to iterate backwards so the context is correct
+        ExtensionDefinition result = getExtensionDefinitionByCode(profiles, profile, code);
+        if (result != null)
+          return result;
+      }
     } else {
       String[] path = profileReference.split("#");
       code = path[1];
       profile = definitions.getProfileByURL(path[0]);
+      profiles.add(profile);
+      return getExtensionDefinitionByCode(profiles, profile, code);
     }
-    if (profile != null) {
-      fn = profile.getName();
-      for (ProfileExtensionDefnComponent t : profile.getExtensionDefn()) {
-        if (t.getName().equals(code))
-          return new ExtensionDefinition(fn+".html", profile, t, t.getElement().get(0));
-        else if (code.startsWith(t.getName()+".")) 
-          for (ElementComponent e : t.getElement())
-            if (e.getPath().equals(code))
-              return new ExtensionDefinition(fn+".html", profile, t, e);
-      }
+    return null;
+  }
+
+  private ExtensionDefinition getExtensionDefinitionByCode(List<Profile> profiles, Profile profile, String code) {
+    String fn;
+    fn = profile.getName();
+    for (ProfileExtensionDefnComponent t : profile.getExtensionDefn()) {
+      if (t.getName().equals(code))
+        return new ExtensionDefinition(fn+".html", profiles, profile, t, t.getElement().get(0));
+      else if (code.startsWith(t.getName()+".")) 
+        for (ElementComponent e : t.getElement())
+          if (e.getPath().equals(code))
+            return new ExtensionDefinition(fn+".html", profiles, profile, t, e);
     }
     return null;
   }
