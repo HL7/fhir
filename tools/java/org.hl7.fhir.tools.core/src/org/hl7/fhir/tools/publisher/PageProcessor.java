@@ -1425,19 +1425,35 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       }
     }
     if (b.length() == 0)
-      return "<p>\r\nThese codes are not currently used\r\n</p>\r\n";
+      return "<p>\r\nThis value set is not currently used\r\n</p>\r\n";
     else
-      return "<p>\r\nThese codes are used in the following places:\r\n</p>\r\n<ul>\r\n"+b.toString()+"</ul>\r\n";
+      return "<p>\r\nThis value set is used in the following places:\r\n</p>\r\n<ul>\r\n"+b.toString()+"</ul>\r\n";
   }
 
   private void scanForProfileUsage(StringBuilder b, BindingSpecification cd, ResourceDefn r) {
     for (RegisteredProfile p : r.getProfiles()) {
+      for (ProfileStructureComponent s : p.getProfile().getSource().getStructure()) {
+        for (ElementComponent e : s.getSnapshot().getElement()) {
+          ElementDefinitionComponent ed = e.getDefinition();
+          if (ed != null && ed.getBinding() != null) {
+            if (ed.getBinding().getName().equals(cd.getName()))
+              b.append(" <li><a href=\""+p.getDestFilenameNoExt()+"."+s.getName()+".html\">Profile "+p.getName()+" Structure "+s.getName()+": "+e.getPath()+"</a> "+getBindingTypeDesc(ed.getBinding())+"</li>\r\n");
+          }
+        }
+      }
       for (ExtensionDefn ex : p.getProfile().getExtensions()) {
         if (ex.getDefinition().hasBinding() && ex.getDefinition().getBindingName() != null && ex.getDefinition().getBindingName().equals(cd.getName())) {
           b.append(" <li><a href=\""+p.getDestFilenameNoExt()+".html#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a> "+getBSTypeDesc(cd)+"</li>\r\n");
         }
       }
     }
+  }
+
+  private String getBindingTypeDesc(ElementDefinitionBindingComponent binding) {
+    if (binding.getConformance() == null)
+      return "";
+    else
+      return binding.getConformance().toCode() +(binding.getIsExtensible() ? "(extensible)" : "");
   }
 
   private void scanForUsage(StringBuilder b, BindingSpecification cd, ElementDefn e, String ref) {
