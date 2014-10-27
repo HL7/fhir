@@ -4217,7 +4217,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       fn = profile.getName();
       for (ProfileExtensionDefnComponent t : profile.getExtensionDefn()) {
         if (t.getName().equals(code))
-          return new ExtensionDefinition(fn+".html", t);
+          return new ExtensionDefinition(fn+".html", profile, t, t.getElement().get(0));
+        else if (code.startsWith(t.getName()+".")) 
+          for (ElementComponent e : t.getElement())
+            if (e.getPath().equals(code))
+              return new ExtensionDefinition(fn+".html", profile, t, e);
       }
     }
     return null;

@@ -106,17 +106,28 @@ public class ProfileUtilities {
 
   public static class ExtensionDefinition {
     private String url;
+    private Profile profile;
     private ProfileExtensionDefnComponent defn;
-    public ExtensionDefinition(String url, ProfileExtensionDefnComponent defn) {
+    private ElementComponent element;
+    
+    public ExtensionDefinition(String url, Profile profile, ProfileExtensionDefnComponent defn, ElementComponent element) {
       super();
       this.url = url;
+      this.profile = profile;
       this.defn = defn;
+      this.element = element;
     }
     public String getUrl() {
       return url;
     }
+    public Profile getProfile() {
+      return profile;
+    }
     public ProfileExtensionDefnComponent getDefn() {
       return defn;
+    }
+    public ElementComponent getElement() {
+      return element;
     }
     
   }
@@ -822,19 +833,21 @@ public class ProfileUtilities {
     if (element.getDefinition() != null && (!element.getDefinition().getConstraint().isEmpty() || !element.getDefinition().getCondition().isEmpty())) 
       gc.addImage("lock.png", "This element has or is affected by some invariants", "I");
   
+    ExtensionDefinition extDefn = null;
     if (ext) {
       if (element.getDefinition() != null && element.getDefinition().getType().size() == 1 && element.getDefinition().getType().get(0).getProfile() != null) {
-        ExtensionDefinition extDefn = pkp.getExtensionDefinition(profile, element.getDefinition().getType().get(0).getProfile());
+        extDefn = pkp.getExtensionDefinition(profile, element.getDefinition().getType().get(0).getProfile());
         if (extDefn == null) {
             row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getDefinition().getType().get(0).getProfile(), null, null));
             generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getDefinition().getType().get(0).getProfile(), pkp, profile);
           } else {
-            left.getPieces().get(0).setText(extDefn.getDefn().getName());
-            left.getPieces().get(0).setHint("Extension URL = "+profile.getUrl());
-            row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), extDefn.getDefn().getElement().get(0).getDefinition(), used), null, null));
-            genTypes(gen, pkp, row, extDefn.getDefn().getElement().get(0), profileBaseFileName, profile);
-            generateDescription(gen, row, element, extDefn.getDefn().getElement().get(0), used.used, null, null, pkp, profile);
+            String name = tail(extDefn.getElement().getPath());
+            left.getPieces().get(0).setText(name);
+            left.getPieces().get(0).setHint("Extension URL = "+profile.getUrl()+"#"+extDefn.getElement().getPath());
+            row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), extDefn.getElement().getDefinition(), used), null, null));
+            genTypes(gen, pkp, row, extDefn.getElement(), profileBaseFileName, profile);
+            generateDescription(gen, row, element, extDefn.getElement(), used.used, null, null, pkp, profile);
         }
       } else if (element.getDefinition() != null) {
           row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element.getDefinition(), null, used), null, null));
@@ -854,13 +867,17 @@ public class ProfileUtilities {
         generateDescription(gen, row, element, null, used.used, null, null, pkp, profile);
       }
       if (element.getSlicing() != null) {
-        row.setIcon("icon_slice.png", HeirarchicalTableGenerator.TEXT_ICON_SLICE);
-        row.getCells().get(2).getPieces().clear();
-        for (Cell cell : row.getCells())
-          for (Piece p : cell.getPieces()) {
-            p.addStyle("font-style: italic");
-          }
-        
+        if (standardExtensionSlicing(element)) {
+          used.used = false;
+          showMissing = false;
+        } else {
+          row.setIcon("icon_slice.png", HeirarchicalTableGenerator.TEXT_ICON_SLICE);
+          row.getCells().get(2).getPieces().clear();
+          for (Cell cell : row.getCells())
+            for (Piece p : cell.getPieces()) {
+              p.addStyle("font-style: italic");
+            }
+        }
       }
       if (used.used || showMissing)
         rows.add(row);
@@ -873,12 +890,19 @@ public class ProfileUtilities {
       } else{
         List<ElementComponent> children = getChildren(all, element);
         for (ElementComponent child : children)
-          genElement(defPath, gen, row.getSubRows(), child, all, profile, pkp, showMissing, profileBaseFileName, false, snapshot);
+          genElement(defPath, gen, row.getSubRows(), child, all, extDefn != null ? extDefn.profile : profile, pkp, showMissing, profileBaseFileName, false, snapshot);
         if (!snapshot) 
           for (ElementComponent child : children)
-            genElement(defPath, gen, row.getSubRows(), child, all, profile, pkp, showMissing, profileBaseFileName, true, false);
+            genElement(defPath, gen, row.getSubRows(), child, all, extDefn != null ? extDefn.profile : profile, pkp, showMissing, profileBaseFileName, true, false);
       }
     }
+  }
+
+
+  private boolean standardExtensionSlicing(ElementComponent element) {
+    String t = tail(element.getPath());
+    return (t.equals("extension") || t.equals("modifierExtension"))
+          && element.getSlicing().getRules() != ResourceSlicingRules.CLOSED && element.getSlicing().getDiscriminator().size() == 1 && element.getSlicing().getDiscriminator().get(0).getValue().equals("url");
   }
 
 
