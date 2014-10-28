@@ -3,26 +3,16 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-<b>Basic</b> is a special type of resource.  Unlike all other resources, it doesn't correspond to a 
-specific singleidentifiable real-world concept.  Instead, it's a placeholder for any resource-like concept 
-that isn't already defined in the HL7 specification.
+<b>Basic</b> is a special type of resource. Unlike all other resources, it doesn't correspond to a specific pre-defined HL7 concept. Instead, it's a placeholder for any resource-like concept that isn't already defined in the HL7 specification.
 </p>
 
 <p>
 The Basic resource is intended for use in three circumstances:
 </p>
 <ol>
-  <li>When an implementer needs a resource concept that is likely to be defined by HL7 in the future but
-   they have not yet done so (due to bandwidth issues, lack of sufficient requirements, lower 
-   prioritization, etc.)</li>
-  <li>When the resource concept falls "outside the 99%" - i.e. less than 1% of the systems that use FHIR 
-  are likely to ever make use of the resource.  To keep the specification manageable, it cannot incorporate
-  every esoteric requirement that might be needed in some implementation somewhere.  This set of resources
-  likely won't ever be officially defined in HL7.</li>
-  <li>When there's a need to convey a narrative-only construct that doesn't neatly correspond to one of the
-  other resources, either because it combines aspects of several resources (e.g. Assessment + Plan) or
-  because the allowed content has inprecise boundaries such that the system can't be totally sure what
-  sort of content might have been included in the narrative text.</li>
+<li>When an implementer needs a resource concept that is likely to be defined by HL7 in the future but they have not yet done so (due to bandwidth issues, lack of sufficient requirements, lower prioritization, etc.)</li>
+<li>When there's a need to convey a narrative-only construct that doesn't neatly correspond to one of the other resources, either because it combines aspects of several resources (e.g. Assessment + Plan) or because the allowed content is flexible such that the system can't be totally sure what sort of content might have been included in the narrative text.</li>
+<li>Other than the circumstances above, this resource will see minimal use. Less than 5% of the systems that use FHIR are likely to ever make use of the resource. To keep the FHIR specification manageable, it cannot incorporate every site-specific requirement that might be needed in some implementation somewhere. This set of resources likely won't ever be officially defined in HL7.</li>
 </ol>
 
 <p>
@@ -35,8 +25,7 @@ queried and analyzed by other conformant systems.
 </p>
 
 <p>
-Implementers don't really need to be concerned with one of the three categories their desired resource fits
-within.  If they need a resource and it clearly doesn't fit one of the ones currently defined, they should use Basic.
+Implementers don't need to be concerned with which of the three categories their desired resource fits within. If they need a resource and it clearly doesn't fit one of the ones currently defined, they should use Basic.
 </p>
 </div>
 
