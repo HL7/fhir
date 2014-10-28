@@ -1313,6 +1313,7 @@ begin
   FName := sName;
   FType := sType;
   FList := TFHIRObjectList.Create;
+  if (oObject <> nil) then
   FList.Add(oObject);
 end;
 

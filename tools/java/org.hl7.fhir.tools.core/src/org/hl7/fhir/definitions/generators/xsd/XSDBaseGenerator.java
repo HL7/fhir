@@ -107,7 +107,7 @@ public class XSDBaseGenerator {
     for (ElementDefn e : definitions.getStructures().values())
       genStructure(e);
     for (BindingSpecification b : definitions.getBindings().values())
-      if (b.getUseContexts().size() > 1 && b.getBinding() == Binding.CodeList)
+      if ((b.getUseContexts().size() > 1 && b.getBinding() == Binding.CodeList) || definitions.getCommonBindings().contains(b))
         generateEnum(b.getName());
     if (outer) { 
       write("</xs:schema>\r\n");
@@ -152,7 +152,6 @@ public class XSDBaseGenerator {
   private void genReference() throws Exception {
     write("  <xs:complexType name=\"Resource.Inline\">\r\n");
     write("    <xs:choice minOccurs=\"1\" maxOccurs=\"1\">\r\n");
-    write("      <xs:element ref=\"Binary\"/>\r\n");
     for (String r : definitions.getResources().keySet()) 
       write("      <xs:element ref=\""+r+"\"/>\r\n");
     write("    </xs:choice>\r\n");
@@ -209,19 +208,19 @@ public class XSDBaseGenerator {
   //  }
 
   private void genResourceReference() throws Exception {
-    write("  <xs:simpleType name=\"ResourceType\">\r\n");
-    write("    <xs:restriction base=\"xs:string\">\r\n");
-    for (DefinedCode c : definitions.getKnownResources().values()) {
-      write("      <xs:enumeration value=\"" + c.getCode() + "\">\r\n");
-      write("        <xs:annotation>\r\n");
-      write("          <xs:documentation>"
-          + Utilities.escapeXml(c.getDefinition())
-          + "</xs:documentation>\r\n");
-      write("        </xs:annotation>\r\n");
-      write("      </xs:enumeration>\r\n");
-    }
-    write("    </xs:restriction>\r\n");
-    write("  </xs:simpleType>\r\n");
+//    write("  <xs:simpleType name=\"ResourceType\">\r\n");
+//    write("    <xs:restriction base=\"xs:string\">\r\n");
+//    for (DefinedCode c : definitions.getKnownResources().values()) {
+//      write("      <xs:enumeration value=\"" + c.getCode() + "\">\r\n");
+//      write("        <xs:annotation>\r\n");
+//      write("          <xs:documentation>"
+//          + Utilities.escapeXml(c.getDefinition())
+//          + "</xs:documentation>\r\n");
+//      write("        </xs:annotation>\r\n");
+//      write("      </xs:enumeration>\r\n");
+//    }
+//    write("    </xs:restriction>\r\n");
+//    write("  </xs:simpleType>\r\n");
   }
 
   private void genConstraint(ProfiledType cd) throws Exception {

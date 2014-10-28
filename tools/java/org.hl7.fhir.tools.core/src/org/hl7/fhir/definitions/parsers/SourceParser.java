@@ -296,7 +296,7 @@ public class SourceParser {
 
 
   private void loadStatusCodes() throws FileNotFoundException, Exception {
-    XLSXmlParser xml = new XLSXmlParser(new CSFileInputStream(srcDir+"status-codes.xml"), "compartments.xml");
+    XLSXmlParser xml = new XLSXmlParser(new CSFileInputStream(srcDir+"status-codes.xml"), "Status Codes");
     Sheet sheet = xml.getSheets().get("Status Codes");
     for (int row = 0; row < sheet.rows.size(); row++) {
       String path = sheet.getColumn(row, "Path");

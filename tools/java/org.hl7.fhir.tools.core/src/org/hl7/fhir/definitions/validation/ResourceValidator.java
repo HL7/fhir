@@ -173,8 +173,17 @@ public class ResourceValidator extends BaseValidator {
         rule(errors, "structure", parent.getName(), false, e1.getMessage());
       }
     }
-    for (Compartment c : definitions.getCompartments()) 
-      rule(errors, "structure", parent.getName(), c.getResources().containsKey(parent), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)");
+    for (Compartment c : definitions.getCompartments()) {
+      if (rule(errors, "structure", parent.getName(), c.getResources().containsKey(parent), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)")) {
+        String param = c.getResources().get(parent);
+        for (String p : param.split("\\|")) {
+          String pn = p.trim();
+          if (pn.contains("."))
+            pn = pn.substring(0, pn.indexOf("."));
+          rule(errors, "structure", parent.getName(), Utilities.noString(pn) || pn.equals("{def}") || parent.getSearchParams().containsKey(pn), "Resource "+parent.getName()+" in compartment " +c.getName()+": parameter "+param+" was not found ("+pn+")");
+        }
+      }
+    }
 	}
 
   private boolean resourceIsTechnical(String name) {

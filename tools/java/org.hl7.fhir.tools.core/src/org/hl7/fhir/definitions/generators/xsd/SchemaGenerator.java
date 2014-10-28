@@ -91,25 +91,25 @@ public class SchemaGenerator {
     xsdb.setDefinitions(definitions);
     xsdb.generate(version, genDate, false);
 
-    single.write("  <xs:simpleType name=\"ResourceNamesPlusBinary\">\r\n");
-    single.write("    <xs:union memberTypes=\"ResourceType\">\r\n");
-    single.write("      <xs:simpleType>\r\n");
-    single.write("      <xs:restriction base=\"xs:NMTOKEN\">\r\n");
-    single.write("        <xs:enumeration value=\"Binary\"/>\r\n");
-    single.write("      </xs:restriction>\r\n");
-    single.write("    </xs:simpleType>\r\n");
-    single.write("  </xs:union>\r\n");
-    single.write("  </xs:simpleType>\r\n");
-    single.write("  <xs:complexType name=\"Binary\">\r\n");
-    single.write("    <xs:simpleContent>\r\n");
-    single.write("      <xs:extension base=\"xs:base64Binary\">\r\n");
-    single.write("        <xs:attribute name=\"contentType\" type=\"xs:string\" use=\"required\"/>\r\n");
-    single.write("        <xs:attribute name=\"id\" type=\"id-primitive\"/>\r\n");
-    single.write("      </xs:extension>\r\n");
-    single.write("    </xs:simpleContent>\r\n");
-    single.write("  </xs:complexType>\r\n");
-    single.write("  <xs:element name=\"Binary\" type=\"Binary\"/>\r\n");
-  
+//    single.write("  <xs:simpleType name=\"ResourceNamesPlusBinary\">\r\n");
+//    single.write("    <xs:union memberTypes=\"ResourceType\">\r\n");
+//    single.write("      <xs:simpleType>\r\n");
+//    single.write("      <xs:restriction base=\"xs:NMTOKEN\">\r\n");
+//    single.write("        <xs:enumeration value=\"Binary\"/>\r\n");
+//    single.write("      </xs:restriction>\r\n");
+//    single.write("    </xs:simpleType>\r\n");
+//    single.write("  </xs:union>\r\n");
+//    single.write("  </xs:simpleType>\r\n");
+//    single.write("  <xs:complexType name=\"Binary\">\r\n");
+//    single.write("    <xs:simpleContent>\r\n");
+//    single.write("      <xs:extension base=\"xs:base64Binary\">\r\n");
+//    single.write("        <xs:attribute name=\"contentType\" type=\"xs:string\" use=\"required\"/>\r\n");
+//    single.write("        <xs:attribute name=\"id\" type=\"id-primitive\"/>\r\n");
+//    single.write("      </xs:extension>\r\n");
+//    single.write("    </xs:simpleContent>\r\n");
+//    single.write("  </xs:complexType>\r\n");
+//    single.write("  <xs:element name=\"Binary\" type=\"Binary\"/>\r\n");
+//  
     for (String name : names) {
       ResourceDefn root = definitions.getResources().get(name);
       XSDGenerator sgen = new XSDGenerator(single, definitions);
