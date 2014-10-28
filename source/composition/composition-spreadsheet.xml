@@ -3883,7 +3883,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Composition.section</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A section must have either subsections or content</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">(exists(f:content) and not(exists(f:section)) ) or  (exists(f:section) and not(exists(f:content))</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">(exists(f:content) and not(exists(f:section))) or  (exists(f:section) and not(exists(f:content)))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"/>
@@ -4333,8 +4333,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
