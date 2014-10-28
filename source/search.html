@@ -27,10 +27,10 @@ In the simplest case, a search is executed by performing a GET operation
 in the RESTful framework:
 </p>
 <pre>
- GET [base]/[resourcetype](?parameters)
+ GET [base]/[resourcetype]?name=value&amp;...
 </pre>
-<p>
-For this RESTful search, the parameters are a series 
+<p> 
+For this RESTful search (see <a href="http.html#search">definition in RESTful API</a>), the parameters are a series 
 of name=[value] pairs encoded in the URL or as an 
 application/x-www-form-urlencoded submission for a POST.  
 The server returns the results in the HTTP response as a bundle (in XML, an atom feed) 
@@ -41,12 +41,12 @@ A HTTP status code of 403 signifies that the server refused to perform the query
 while some other 4xx or 5xx code signifies that some error occurred. 
 </p>
 <p>
-Search operations are executed in one of 3 defined contexts that control which set of resources are being searched:
+<a href="http.html#search">Search operations</a> are executed in one of 3 defined contexts that control which set of resources are being searched:
 </p>
 <ul>
- <li>A specified resource type</li>
- <li>A specified <a href="extras.html#compartments">compartment</a>, perhaps with a specified resource type in that compartment</li>
- <li>All resources</li>
+ <li>A specified resource type: GET [base]/[resourcetype]?parameter(s)</li>
+ <li>A specified <a href="extras.html#compartments">compartment</a>, perhaps with a specified resource type in that compartment: GET [base]/patient/[id]/[resourcetype]?parameter(s)</li>
+ <li>All resources: GET [base]/_search?parameter(s)</li>
 </ul>
 <p>
 Search/Query operations can also be initiated by other more complex and flexible
