@@ -12,7 +12,7 @@
     <system value="http://hl7.org/fhir/supply-item-type"/>
     <concept>
       <code value="medication"/>
-      <display value="Central Supply"/>
+      <display value="Medication"/>
       <definition value="Supply is a kind of medication."/>
     </concept>
     <concept>
