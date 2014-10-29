@@ -166,7 +166,7 @@ public class SchematronGenerator  extends TextStreamWriter {
   }
 
   private boolean isSpecialType(String tn) {
-    return tn.equals("idref") || tn.equals("xhtml");
+    return tn.equals("xhtml");
   }
 
 //	private void generateElement(String name, ElementDefn e) throws IOException {

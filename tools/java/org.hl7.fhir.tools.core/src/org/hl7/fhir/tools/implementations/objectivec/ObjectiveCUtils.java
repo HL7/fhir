@@ -89,8 +89,6 @@ public class ObjectiveCUtils {
       return "NSString";
     else if (name.equals("dateTime"))
       return "NSString";
-    else if (name.equals("idref"))
-      return "NSString";
     else
       throw new Exception("Unrecognized primitive " + name);
   }

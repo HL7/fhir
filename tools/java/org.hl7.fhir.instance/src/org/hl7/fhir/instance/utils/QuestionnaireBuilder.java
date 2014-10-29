@@ -722,8 +722,6 @@ public class QuestionnaireBuilder {
       addMoneyQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Reference"))
       addReferenceQuestions(group, element, path, t.getProfile(), answerGroups);
-    else if (t.getCode().equals("idref"))
-      addIdRefQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Duration"))
       addDurationQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("base64Binary"))
@@ -980,10 +978,6 @@ public class QuestionnaireBuilder {
         ag.setText(null);
     }
 
-
-    private void addIdRefQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
-      //    raise Exception.Create("not Done Yet");
-    }
 
     private void addExtensionQuestions(Profile profile, GroupComponent group, ElementComponent element, String path, String profileURL, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception { 
       // if this a  profiled extension, then we add it

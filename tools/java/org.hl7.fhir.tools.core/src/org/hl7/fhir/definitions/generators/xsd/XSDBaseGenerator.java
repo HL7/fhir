@@ -90,7 +90,6 @@ public class XSDBaseGenerator {
     if (outer)
       write("  <xs:include schemaLocation=\"fhir-all.xsd\"/>\r\n");
 
-    genXmlIdRef();
     genElementRoot();
     write("\r\n");
     genPrimitives();
@@ -183,16 +182,6 @@ public class XSDBaseGenerator {
     write("    </xs:complexContent>\r\n");
     write("  </xs:complexType>\r\n");
     write("\r\n");
-  }
-
-  private void genXmlIdRef() throws Exception {
-    write("  <!-- change this to xs:IDREF and all id attributes to type xs:ID to enforce internal references by schema,\r\n");
-    write("       but note that this can't work in bundles (see comments in Resource Format section) -->\r\n");
-    write("  <xs:simpleType name=\"xmlIdRef\">\r\n");
-    write("    <xs:restriction base=\"id-primitive\">\r\n");
-    write("      <xs:pattern value=\"[a-z0-9\\-\\.]{1,36}\"/>\r\n"); 
-    write("    </xs:restriction>\r\n");
-    write("  </xs:simpleType>\r\n");
   }
 
   //  private void genExtensionsElement() throws Exception {
@@ -632,9 +621,7 @@ public class XSDBaseGenerator {
       } else if (types.size() == 1) {
         if (types.get(0).isUnboundGenericParam() && paramType != null)
           write("<xs:element name=\"" + e.getName() + "\" type=\"" + paramType + "\" ");
-        else if (types.get(0).getName().equals("idref")) {
-          write("<xs:element name=\"" + e.getName() + "\" type=\"xmlIdRef\" ");        
-        } else if (!Utilities.noString(e.getRegex())) {
+        else if (!Utilities.noString(e.getRegex())) {
           String tn = root.getName()+Utilities.capitalize(e.getName())+"Type";
           regexQueue.put(tn, e.getRegex());
           write("<xs:element name=\"" + e.getName() + "\" type=\"" + tn + "\" ");
@@ -669,8 +656,6 @@ public class XSDBaseGenerator {
       throws Exception {
     if (type.isResourceReference())
       return "Reference";
-    else if (type.isIdRef())
-      return "id-primitive";
     //    else if (params
     //        && definitions.getPrimitives().containsKey(type.getName())
     //        && definitions.getPrimitives().get(type.getName()) instanceof PrimitiveType)

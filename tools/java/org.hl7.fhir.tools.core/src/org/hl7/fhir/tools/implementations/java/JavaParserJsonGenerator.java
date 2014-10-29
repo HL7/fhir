@@ -437,7 +437,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   }
 
   private boolean isPrimitive(ElementDefn e) {
-    return definitions.hasPrimitiveType(e.typeCode()) || "idref".equals(e.typeCode());
+    return definitions.hasPrimitiveType(e.typeCode());
   }
 
   private String PrepGenericName(String tn) {
@@ -531,8 +531,6 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
         TypeRef tr = e.getTypes().get(0);
         if (tr.isUnboundGenericParam())
           tn = genparam;
-        else if (tr.isIdRef())
-          tn ="String";
         else if (tr.isXhtml()) 
           tn = "char[]";
         else if (tr.isWildcardType())

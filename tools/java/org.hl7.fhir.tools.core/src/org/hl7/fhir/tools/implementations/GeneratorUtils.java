@@ -314,8 +314,6 @@ public class GeneratorUtils {
       return "string";
     else if (name.equals("time"))
       return "string";
-		else if (name.equals("idref"))
-			return "string";
 		else
 			throw new Exception( "Unrecognized primitive " + name );
 	}
@@ -356,8 +354,6 @@ public class GeneratorUtils {
       return "Time";
 		else if (name.equals("dateTime"))
 			return "FhirDateTime";
-		else if (name.equals("idref"))
-			return "IdRef";
 		else
 			throw new Exception( "Unrecognized primitive " + name );
 	}

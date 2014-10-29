@@ -14,84 +14,29 @@
 
 <%refheader base%>
 
-<h2>Resource References</h2>
-
-<p>
-Resources contain two types of references:
-</p>
-<ul>
- <li><b>Internal references</b> - references between the elements in a resource</li>
- <li><b>External references</b> - references from one resource to another</li>
-</ul>
-
-<a name="idref"></a>
-<a name="id"></a>
-<h3>Internal References</h3>
-<p>
-There are 3 cases where elements inside a resource reference each other:
-</p>
-<p><b>Between a Reference and a contained resource</b><br />
-The Reference's reference element refers to the id of the contained resource using
-a fragment identifier, relative to the resource.
-<em>See below under 'Contained Resources' for an example.</em></p>
-
-<p><b>Between elements in the narrative and structured data elements</b><br />
-This is done using an id/idref based approach, where a source element indicates that it 
-has the same content as the target element. All references between the xhtml elements and the data elements must 
-be understood to establish a "derived from" relationship, where the derived content (whether text or data) refers 
-to the source content.  Note that this means some references may be forward references (references to 
-elements defined later in the instance):</p>
-<pre class="xml">
-&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;text&gt;
-    &lt;status value=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-      &lt;p&gt;... &lt;span idref=&quot;dob&quot;/&gt;30-11-1972&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/text&gt;
-  &lt;birthDate id=&quot;dob&quot; value=&quot;1972-11-30&quot; /&gt;
-</pre>
-
-<p><b>An &lt;img src=""/&gt; reference in the narrative</b><br />
-The image source may be referring to an image found in the resource 
-(as a contained <a href="media.html">Media</a> or <a href="extras.html#binary">Binary</a> resource):</p>
-<pre class="xml">
-&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;text&gt;
-    &lt;status value=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-      &lt;p&gt;... &lt;img src=&quot;#pic1&quot;/&gt;. ....&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/text&gt;
-  &lt;contained&gt;
-    &lt;Binary id=&quot;pic1&quot; contentType=&quot;image/gif&quot;&gt;MEKH....SD/Z&lt;/Binary&gt;
-  &lt;/contained&gt;
-</pre>
-
-<p>
-In all three cases, the target element has an attribute "id" which SHALL 
-have a unique value <em>within the resource</em> with regard to any other id attributes: the 
-uniqueness and resolution scope of these id references is within the resource that contains them. If multiple
-resources are combined into a single piece of XML, such as an <a href="xml.html#atom">atom feed</a>, duplicate 
-values may occur between resources. This SHALL be managed by applications reading the resources.
-The "id" attribute is not in any namespace. The source element reference SHALL refer to an attribute in the same resource. 
-</p>
-<p>
-Note that internal references work exactly the same in way in JSON, based on the JSON property id which is equivalent 
-to the XML attribute "id".
-</p>
-
 <a name="Reference"> </a>
 <a name="reference"> </a>
 <a name="Resource"> </a>
 <a name="references"> </a>
 <a name="Identification"> </a>
-<h3>References between resources</h3>
+<h2>Resource References</h2>
+
 <p>
 Many of the defined elements in a resource are references to other resources. Using these
 references, the resources combine to build a web of information about healthcare. 
 </p>
 <p>
+Resources contain two types of references:
+</p>
+<ul>
+ <li><b>Internal "contained" references</b> - references to other resources packaged inside the source resource</li>
+ <li><b>External references</b> - references from resources found elsewhere</li>
+</ul>
+<a name="id"></a>
+<p>
+There are also references between the elements in a resource, involving <a href="narrative.html#id">the narrative</a>.
+</p>
+  <p>
 References are always defined and represented in one particular direction - from one resource (source) to another (target).
 References are provided as a URL, which may either be absolute or relative. Resolving the references is discussed below.
 </p>

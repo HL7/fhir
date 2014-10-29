@@ -55,10 +55,9 @@ public class PrimitiveConverter
 			result.add(buildPrimitiveTypeFromFhirModel( primitive ) );
 		}
 		
-		// Add "xhtml" and "idref" as a primitive. Could do this by changing fhir.ini,
+		// Add "xhtml" as a primitive. Could do this by changing fhir.ini,
 		// but don't know consequences for old code, so for now, do it like this.
 		result.add( buildXhtmlPrimitiveType() );
-		result.add( buildIdRefPrimitiveType() );
 				
 		return result;
 	}
@@ -106,19 +105,6 @@ public class PrimitiveConverter
 		return xhtml;
 	}
 	
-	private static PrimitiveDefn buildIdRefPrimitiveType()
-	{
-		PrimitiveDefn idref = FhirFactory.eINSTANCE.createPrimitiveDefn();
-		idref.setName("idref");
-		idref.setXsdtype("string");
-		
-		idref.setAnnotations(FhirFactory.eINSTANCE.createAnnotations());
-		idref.getAnnotations().setDefinition( "A reference to another element" );
-		idref.getAnnotations().setComment( "References an element that has been marked with an 'id' attribute with the corresponding value." );
-		
-		return idref;
-	}
-
 	
 	public static Collection<CompositeTypeDefn> buildCompositeTypesForPrimitives(
 			Collection<PrimitiveDefn> primitives) {

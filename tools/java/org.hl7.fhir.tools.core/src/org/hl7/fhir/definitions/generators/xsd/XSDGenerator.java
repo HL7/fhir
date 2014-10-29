@@ -229,14 +229,10 @@ public class XSDGenerator  {
 			} else if (e.getTypes().size() == 0 && e.getElements().size() > 0){
 				write("<xs:element name=\""+e.getName()+"\" type=\""+types.get(e)+"\" ");
 			}	else if (e.getTypes().size() == 1) {
-        if (e.getTypes().get(0).getName().equals("idref")) 
-          write("<xs:element name=\"" + e.getName() + "\" type=\"xmlIdRef\" ");        
-        else {
-          write("<xs:element name=\""+e.getName()+"\" ");
-          tn = encodeType(e, e.getTypes().get(0), true);
-          if (tn.equals("Narrative") && e.getName().equals("text") && root.getElements().contains(e)) 
-            write("type=\""+tn+"\" ");
-        }
+			  write("<xs:element name=\""+e.getName()+"\" ");
+			  tn = encodeType(e, e.getTypes().get(0), true);
+			  if (tn.equals("Narrative") && e.getName().equals("text") && root.getElements().contains(e)) 
+			    write("type=\""+tn+"\" ");
 			} else
 				throw new Exception("how do we get here? "+e.getName()+" in "+root.getName()+" "+Integer.toString(e.getTypes().size()));
 

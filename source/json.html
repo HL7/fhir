@@ -43,7 +43,7 @@ The JSON representation is described relative to the XML representation:
  <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
  <li>JSON does not have a notion of attributes versus elements, so attributes (xml:id, value) are handled differently</li>
  <li>JSON has a notation for arrays, which are used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
- <li>The XHTML &lt;div&gt; element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML S still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
+ <li>The XHTML &lt;div&gt; element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
  <li>There is no inherent support in JSON for a comment syntax. As a convention, content that would be comments in an XML representation is represented in a property with the name "fhir_comments", which is an array of strings, which can appear on any JSON object. 
   This is heavily used in example instances, e.g. in this specification, but not usually used in production systems (and production systems may choose to reject resources with comments in them)</li>
 </ul>

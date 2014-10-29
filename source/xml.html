@@ -37,7 +37,7 @@ Notes:
  <li>Note that the only properties that are represented as attributes are those defined in underlying specifications such as <a href="#atom">Atom (see below)</a>, which is used as the XML representation for bundles, and attributes are also used for primitive values</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
    The only other namespace that occurs in FHIR resources is the XHTML namespace, because <a href="narrative.html">XHTML is found in every resource</a></li>
- <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
+ <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#id">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <li>The elements for <a href="extensibility.html">extension</a> and <a href="extensibility.html#modifiers">modifierExtension</a> appear as the first set of children, prior to any other defined child elements</li>
  <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.html#idref">link target</a> of <a href="narrative.html#narrative">narrative</a>, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
@@ -157,7 +157,7 @@ This might be a desired feature, but it may also cripple interoperability betwee
 are signed and then only when all the related resources are found in the bundle.</li>
 <li>
 <a name="Ids"></a>
-FHIR resources make use of id attributes as targets for <a href="references.html#idref">internal references with resources</a>. 
+FHIR resources make use of id attributes as targets for <a href="references.html#id">internal references with resources</a>. 
 These id attributes are unique and resolved within the context of a single resource. When resources are 
 combined into a bundle, different resources may contain duplicate id attributes. Thus it is important to limit
 the scope of resolution of an id attribute to the resource in which the <i>id</i> attribute is declared.

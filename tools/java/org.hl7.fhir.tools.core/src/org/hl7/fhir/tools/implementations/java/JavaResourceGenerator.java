@@ -480,7 +480,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 //					else if (tn.equals("code")) tn = "Code";
 //					else if (tn.equals("oid")) tn = "Oid";
 //          else if (tn.equals("uuid")) tn = "Uuid";
-//          else if (tn.equals("idref")) tn = "String";
 //					else if (tn.equals("sid")) tn = "Sid";
 //					else if (tn.equals("id")) tn = "Id";
 //					else if (tn.equals("date")) tn = "Date";
@@ -493,8 +492,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				  tn = "CodeType";
 				if (e.getTypes().get(0).isUnboundGenericParam())
 					tn = "T";
-				else if (e.getTypes().get(0).isIdRef())
-					tn ="StringType";
 				else if (e.isXhtmlElement()) 
 					tn = "XhtmlNode";
 				else if (e.getTypes().get(0).isWildcardType())
@@ -672,7 +669,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			write(indent+"}\r\n");
       write("\r\n");
       jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
-      if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.getTypes().get(0).isIdRef() || e.typeCode().equals("xml:lang"))) {
+      if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.typeCode().equals("xml:lang"))) {
         write("    // syntactic sugar\r\n");
         write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"Element() { \r\n");
         write(indent+"  "+tn+" t = new "+tn+"();\r\n");

@@ -517,8 +517,6 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         TypeRef tr = e.getTypes().get(0);
         if (tr.isUnboundGenericParam())
           tn = genparam;
-        else if (tr.isIdRef())
-          tn ="String";
         else if (tr.isXhtml()) 
           tn = "char[]";
         else if (tr.isWildcardType())

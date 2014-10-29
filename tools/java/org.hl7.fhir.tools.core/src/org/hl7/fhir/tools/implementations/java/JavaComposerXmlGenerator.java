@@ -448,7 +448,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
   }
 
   private boolean isPrimitive(ElementDefn e) {
-    return definitions.hasPrimitiveType(e.typeCode()) || e.typeCode().equals("idref");
+    return definitions.hasPrimitiveType(e.typeCode());
   }
 
 
@@ -492,11 +492,9 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
 //        return "Uri";
 //      else 
 //        return "String";
-      if (t.equals("idref"))
-        return "StringType";
 //      else if (t.equals("string"))
 //        return "StringType";
-      else
+//      else
         return upFirst(t);
     } else if (elem.usesCompositeType()) { 
       if (typeNames.containsKey(elem) && typeNames.get(elem) != null)
@@ -579,8 +577,6 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
         
         if (tr.isUnboundGenericParam())
           tn = genparam;
-        else if (tr.isIdRef())
-          tn ="String";
         else if (tr.isXhtml()) 
           tn = "char[]";
         else if (tr.isWildcardType())

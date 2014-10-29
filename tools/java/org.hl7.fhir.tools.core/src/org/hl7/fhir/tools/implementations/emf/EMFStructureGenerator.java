@@ -162,9 +162,7 @@ public class EMFStructureGenerator extends EMFBase {
 				tn = getTypeName(e);
 				if (e.typeCode().equals("xml:lang"))
 				  tn = "code";
-				if (e.getTypes().get(0).isIdRef())
-					tn ="string";
-				else if (e.isXhtmlElement()) 
+				if (e.isXhtmlElement()) 
 					tn = "xhtml?";
 				else if (e.getTypes().get(0).isWildcardType())
 					tn ="Type";

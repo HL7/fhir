@@ -110,10 +110,6 @@ public class TypeRef {
 		return name.equals("[param]");
 	}
 
-	public boolean isIdRef() {
-		return name.equalsIgnoreCase("idref");
-	}
-
 	public boolean isXhtml() {
 		return name.equalsIgnoreCase("xhtml");
 	}
@@ -167,7 +163,7 @@ public class TypeRef {
 	public final static String ANY_RESOURCE_GENERIC_ARG = "Any";
 	
 	public boolean isSpecialType() {
-		return isIdRef() || isXhtml() || isUnboundGenericParam() || isXmlLang() 
+		return isXhtml() || isUnboundGenericParam() || isXmlLang() 
 				|| isWildcardType() || name.equals("Type") || name.equals("Narrative") || name.equals("Resource") || name.equals("ResourceBase")
 				|| name.equals("SharedDefinition") || isResourceReference() || name.equals("Structure") ||
 				isContainedReference() || isExtension();

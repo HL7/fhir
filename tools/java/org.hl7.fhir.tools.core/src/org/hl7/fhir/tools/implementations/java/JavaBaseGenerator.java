@@ -46,7 +46,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 	}
 
   protected boolean isJavaPrimitive(ElementDefn e) {
-    return e.getTypes().size() == 1 && (isPrimitive(e.typeCode()) || e.getTypes().get(0).isIdRef() || e.typeCode().equals("xml:lang"));
+    return e.getTypes().size() == 1 && (isPrimitive(e.typeCode()) || e.typeCode().equals("xml:lang"));
   }
 
   protected boolean isPrimitive(String name) {

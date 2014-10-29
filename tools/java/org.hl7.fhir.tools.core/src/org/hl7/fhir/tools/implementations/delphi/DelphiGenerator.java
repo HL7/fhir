@@ -1781,7 +1781,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   private boolean typeIsPrimitive(String tn) {
     return tn.equalsIgnoreCase("uri") || tn.equalsIgnoreCase("datetime") || tn.equalsIgnoreCase("code") || tn.equalsIgnoreCase("boolean")
-        || tn.equalsIgnoreCase("integer") || tn.equalsIgnoreCase("idref") || tn.equalsIgnoreCase("instant") || tn.equalsIgnoreCase("time")
+        || tn.equalsIgnoreCase("integer") || tn.equalsIgnoreCase("instant") || tn.equalsIgnoreCase("time")
         || tn.equalsIgnoreCase("datetime") || tn.equalsIgnoreCase("date") || tn.equalsIgnoreCase("id") || tn.equalsIgnoreCase("oid")
         || tn.equalsIgnoreCase("decimal") || tn.equalsIgnoreCase("string") || tn.equalsIgnoreCase("base64Binary");
   }
@@ -2053,7 +2053,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   private boolean typeIsSimple(String tn) {
     if (tn == null)
       return false;
-    return tn.equals("String") || tn.equals("Integer") || tn.equals("Boolean") || tn.equals("TDateAndTime") || tn.equals("TFhirXHtmlNode")  || tn.equals("TXmlIdReference") || enumNames.contains(tn);
+    return tn.equals("String") || tn.equals("Integer") || tn.equals("Boolean") || tn.equals("TDateAndTime") || tn.equals("TFhirXHtmlNode")  || enumNames.contains(tn);
   }
 
   private String getTitle(String name) {
@@ -2108,8 +2108,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       return "TFhirString";
     } else if (tn.equals("xhtml")) {
       return "TFhirXHtmlNode"; 
-    } else if (tn.equals("idref")) {
-      return "TFhirString";
     } else if (tn.equals("*")) {
       return "TFhirType";
     } else if (tn.equals("Any")) {

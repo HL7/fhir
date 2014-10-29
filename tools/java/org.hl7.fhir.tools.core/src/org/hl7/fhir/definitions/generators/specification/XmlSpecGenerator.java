@@ -369,15 +369,10 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				write("</b></span></a>");
 			else
 				write("</b></a>");
-			// if (elem.isXmlIDRef())
-			// write(" idref=\"<span style=\"color: navy\" title=\""+Utilities.escapeXml(elem.getDefinition())+"\">["+elem.getShortDefn()+"]</span>\"/");
-			if (elem.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(elem.typeCode()) || elem.typeCode().equals("idref"))) {
+			if (elem.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(elem.typeCode()))) {
 			  doneType = true;
 			  TypeRef t = elem.getTypes().get(0);
-			  if (elem.typeCode().equals("idref"))
-          write(" value=\"[<span style=\"color: darkgreen\"><a href=\"references.html#idref\">" + t.getName()+ "</a></span>]\"/");
-			  else
-  			  write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName(), false)+ ".html#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
+  			write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName(), false)+ ".html#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
 			}
 			write("&gt;");
 
@@ -434,7 +429,6 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 							+ Utilities.escapeXml(elem.getShortDefn())
 							+ "</span></a> ");
 				} else {
-					// if (!elem.isXmlIDRef())
 				  if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
 				    write("<span style=\"text-decoration: line-through\">");
 				  BindingSpecification bs = definitions.getBindingByName(elem.getBindingName());

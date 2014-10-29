@@ -77,8 +77,6 @@ public class TypeRefConverter
 		
 		if( ref.isElementReference() )
 			convertedType.setName( ref.getResolvedTypeName() );
-		else if( ref.isIdRef() )
-			convertedType.setName( TypeRef.IDREF_PSEUDOTYPE_NAME );
 		else if( ref.isXmlLang() )
 		{
 			// The special type "xml:lang" is not a FHIR basetype, but indicates

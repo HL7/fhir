@@ -611,10 +611,6 @@ public class ElementDefn {
 		   return acceptableGenericTypes;
 	   }
 
-    public boolean isXmlIDRef() {
-      return typeCode().equals("idref");
-    }
-
     public boolean hasComments() {
       return comments != null && !"".equals(comments);
     }

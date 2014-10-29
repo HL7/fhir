@@ -412,7 +412,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
           if (definitions.hasPrimitiveType(tn))
             tn = upFirst(tn)+"Type";
 
-          if (isPrimitive(e) || "idref".equals(e.typeCode())) {
+          if (isPrimitive(e)) {
             write("        openArray(\""+name+"\");\r\n");
             write("        for ("+(tn.contains("(") ? PrepGenericTypeName(tn) : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
             write("          "+comp+"Core(null, e, true);\r\n");
@@ -466,7 +466,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     }
 
   private boolean isPrimitive(ElementDefn e) {
-    return definitions.hasPrimitiveType(e.typeCode()) || e.typeCode().equals("idref");
+    return definitions.hasPrimitiveType(e.typeCode());
   }
 
 
@@ -518,11 +518,6 @@ private String leaf(String tn) {
 //        return "Date";
 //      else 
 //        return "String";
-////      if (t.equals("idref"))
-////        return "String";
-////      else if (t.equals("string"))
-////        return "StringType";
-////      else
 ////        return upFirst(t);
 //    }  else if (t.equals("xml:lang"))
 //        return formal ? "string" : "Code";
@@ -622,8 +617,6 @@ private String leaf(String tn) {
         
         if (tr.isUnboundGenericParam())
           tn = genparam;
-        else if (tr.isIdRef())
-          tn ="String";
         else if (tr.isXhtml()) 
           tn = "char[]";
         else if (tr.isWildcardType())

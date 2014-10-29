@@ -63,8 +63,6 @@ public class GeneratorUtils {
   		return "datatypes";
   	if (name.equals("id"))
   		return "datatypes";
-  	if (name.equals("idref"))
-  		return "references";
   	if (name.equals("Duration"))
   		return "datatypes";
   	if (name.equals("date"))

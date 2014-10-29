@@ -131,7 +131,7 @@ For instance, a primitive element might have no value, and include a <a href="ge
 </p>
 <p>
 In XML, these types are represented as XML Elements with the value of the type in the value attribute. 
-The name of the element is defined where the type is used. The XML elements may have an <a href="references.html#idref">id attribute</a>, and child elements named "extension". 
+The name of the element is defined where the type is used. The XML elements may have an <a href="references.html#id">id attribute</a>, and child elements named "extension". 
 According to XML schema, leading and trailing whitespace in the value attribute is ignored for the types 
 boolean, integer, decimal, base64Binary, instant, uri, date, dateTime, oid, and uri. Note that this means that the 
 schema aware XML libraries give different attribute values to non schema aware libraries when reading the 
@@ -151,7 +151,7 @@ is always significant in JSON. Primitive types other than string SHALL NOT have 
 
 <p>
 These types are represented as XML Elements with child elements with the name of the defined elements of the type. The name of the element is defined where the type is used. 
-Any of the XML elements may have an <a href="references.html#idref">id attribute</a>. In JSON, the data type is represented by an object with properties named the same as the
+Any of the XML elements may have an <a href="references.html#id">id attribute</a>. In JSON, the data type is represented by an object with properties named the same as the
 XML elements. The JSON representation is almost exactly the same, so only the first <a href="datatypes-examples.html#Attachment">example</a> has an additional JSON representation.
 </p>
 <p>
