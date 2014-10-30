@@ -606,6 +606,8 @@ public class ElementDefn {
 	   
 	   private List<String> acceptableGenericTypes = new ArrayList<String>();
 
+    private String sliceDescription;
+
 	   public List<String> getAcceptableGenericTypes()
 	   {
 		   return acceptableGenericTypes;
@@ -768,6 +770,14 @@ public class ElementDefn {
 
   public void setPattern(Type pattern) {
     this.pattern = pattern;
+  }
+
+  public String getSliceDescription() {
+    return sliceDescription;
+  }
+
+  public void setSliceDescription(String sliceDescription) {
+    this.sliceDescription = sliceDescription;
   }	
 	
   

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Oct 24, 2014 07:14+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1270,14 +1270,14 @@ public class JsonParser extends JsonParserBase {
     if (json.has("goal")) {
       JsonArray array = json.getAsJsonArray("goal");
       for (int i = 0; i < array.size(); i++) {
-        res.getGoal().add(parseString(array.get(i).getAsString()));
+        res.getGoal().add(parseUri(array.get(i).getAsString()));
       }
     };
     if (json.has("_goal")) {
       JsonArray array = json.getAsJsonArray("_goal");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getGoal().size())
-          res.getGoal().add(parseString(null));
+          res.getGoal().add(parseUri(null));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getGoal().get(i));
       }
@@ -4849,11 +4849,11 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Namespace parseNamespace(JsonObject json) throws Exception {
-    Namespace res = new Namespace();
+  private NamingSystem parseNamingSystem(JsonObject json) throws Exception {
+    NamingSystem res = new NamingSystem();
     parseResourceProperties(json, res);
     if (json.has("type"))
-      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), Namespace.NamespaceType.NULL, new Namespace.NamespaceTypeEnumFactory()));
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), NamingSystem.NamingsystemType.NULL, new NamingSystem.NamingsystemTypeEnumFactory()));
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("name"))
@@ -4861,7 +4861,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
     if (json.has("status"))
-      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Namespace.NamespaceStatus.NULL, new Namespace.NamespaceStatusEnumFactory()));
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), NamingSystem.NamingsystemStatus.NULL, new NamingSystem.NamingsystemStatusEnumFactory()));
     if (json.has("_status"))
       parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("country"))
@@ -4885,21 +4885,21 @@ public class JsonParser extends JsonParserBase {
     if (json.has("uniqueId")) {
       JsonArray array = json.getAsJsonArray("uniqueId");
       for (int i = 0; i < array.size(); i++) {
-        res.getUniqueId().add(parseNamespaceNamespaceUniqueIdComponent(array.get(i).getAsJsonObject(), res));
+        res.getUniqueId().add(parseNamingSystemNamingSystemUniqueIdComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     if (json.has("contact"))
-      res.setContact(parseNamespaceNamespaceContactComponent(json.getAsJsonObject("contact"), res));
+      res.setContact(parseNamingSystemNamingSystemContactComponent(json.getAsJsonObject("contact"), res));
     if (json.has("replacedBy"))
       res.setReplacedBy(parseReference(json.getAsJsonObject("replacedBy")));
     return res;
   }
 
-  private Namespace.NamespaceUniqueIdComponent parseNamespaceNamespaceUniqueIdComponent(JsonObject json, Namespace owner) throws Exception {
-    Namespace.NamespaceUniqueIdComponent res = new Namespace.NamespaceUniqueIdComponent();
+  private NamingSystem.NamingSystemUniqueIdComponent parseNamingSystemNamingSystemUniqueIdComponent(JsonObject json, NamingSystem owner) throws Exception {
+    NamingSystem.NamingSystemUniqueIdComponent res = new NamingSystem.NamingSystemUniqueIdComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
-      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), Namespace.NamespaceIdentifierType.NULL, new Namespace.NamespaceIdentifierTypeEnumFactory()));
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), NamingSystem.NamingsystemIdentifierType.NULL, new NamingSystem.NamingsystemIdentifierTypeEnumFactory()));
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("value"))
@@ -4915,8 +4915,8 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Namespace.NamespaceContactComponent parseNamespaceNamespaceContactComponent(JsonObject json, Namespace owner) throws Exception {
-    Namespace.NamespaceContactComponent res = new Namespace.NamespaceContactComponent();
+  private NamingSystem.NamingSystemContactComponent parseNamingSystemNamingSystemContactComponent(JsonObject json, NamingSystem owner) throws Exception {
+    NamingSystem.NamingSystemContactComponent res = new NamingSystem.NamingSystemContactComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
       res.setName(parseHumanName(json.getAsJsonObject("name")));
@@ -5147,6 +5147,10 @@ public class JsonParser extends JsonParserBase {
     Type value = parseType("value", json);
     if (value != null)
       res.setValue(value);
+    if (json.has("dataAbsentReason"))
+      res.setDataAbsentReasonElement(parseEnumeration(json.get("dataAbsentReason").getAsString(), Observation.DataAbsentReason.NULL, new Observation.DataAbsentReasonEnumFactory()));
+    if (json.has("_dataAbsentReason"))
+      parseElementProperties(json.getAsJsonObject("_dataAbsentReason"), res.getDataAbsentReasonElement());
     if (json.has("interpretation"))
       res.setInterpretation(parseCodeableConcept(json.getAsJsonObject("interpretation")));
     if (json.has("comments"))
@@ -6413,6 +6417,10 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getDiscriminator().get(i));
       }
     };
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
     if (json.has("ordered"))
       res.setOrderedElement(parseBoolean(json.get("ordered").getAsBoolean()));
     if (json.has("_ordered"))
@@ -8135,8 +8143,8 @@ public class JsonParser extends JsonParserBase {
       return parseMedicationStatement(json);
     else if (t.equals("MessageHeader"))
       return parseMessageHeader(json);
-    else if (t.equals("Namespace"))
-      return parseNamespace(json);
+    else if (t.equals("NamingSystem"))
+      return parseNamingSystem(json);
     else if (t.equals("NewBundle"))
       return parseNewBundle(json);
     else if (t.equals("NutritionOrder"))
@@ -8487,7 +8495,7 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"MessageHeader"))
       return true;
-    if (json.has(prefix+"Namespace"))
+    if (json.has(prefix+"NamingSystem"))
       return true;
     if (json.has(prefix+"NewBundle"))
       return true;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Oct 24, 2014 07:14+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -864,8 +864,8 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
-      for (StringType e : element.getGoal()) 
-        composeString("goal", e);
+      for (UriType e : element.getGoal()) 
+        composeUri("goal", e);
       if (element.getStatusElement() != null)
         composeEnumeration("status", element.getStatusElement(), new CarePlan.CarePlanActivityStatusEnumFactory());
       composeBoolean("prohibited", element.getProhibitedElement());
@@ -2884,36 +2884,36 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
-  private void composeNamespace(String name, Namespace element) throws Exception {
+  private void composeNamingSystem(String name, NamingSystem element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeResourceElements(element);
       if (element.getTypeElement() != null)
-        composeEnumeration("type", element.getTypeElement(), new Namespace.NamespaceTypeEnumFactory());
+        composeEnumeration("type", element.getTypeElement(), new NamingSystem.NamingsystemTypeEnumFactory());
       composeString("name", element.getNameElement());
       if (element.getStatusElement() != null)
-        composeEnumeration("status", element.getStatusElement(), new Namespace.NamespaceStatusEnumFactory());
+        composeEnumeration("status", element.getStatusElement(), new NamingSystem.NamingsystemStatusEnumFactory());
       composeCode("country", element.getCountryElement());
       composeCodeableConcept("category", element.getCategory());
       composeString("responsible", element.getResponsibleElement());
       composeString("description", element.getDescriptionElement());
       composeString("usage", element.getUsageElement());
-      for (Namespace.NamespaceUniqueIdComponent e : element.getUniqueId()) 
-        composeNamespaceNamespaceUniqueIdComponent("uniqueId", e);
-      composeNamespaceNamespaceContactComponent("contact", element.getContact());
+      for (NamingSystem.NamingSystemUniqueIdComponent e : element.getUniqueId()) 
+        composeNamingSystemNamingSystemUniqueIdComponent("uniqueId", e);
+      composeNamingSystemNamingSystemContactComponent("contact", element.getContact());
       composeReference("replacedBy", element.getReplacedBy());
       xml.close(FHIR_NS, name);
     }
   }
 
-  private void composeNamespaceNamespaceUniqueIdComponent(String name, Namespace.NamespaceUniqueIdComponent element) throws Exception {
+  private void composeNamingSystemNamingSystemUniqueIdComponent(String name, NamingSystem.NamingSystemUniqueIdComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
       if (element.getTypeElement() != null)
-        composeEnumeration("type", element.getTypeElement(), new Namespace.NamespaceIdentifierTypeEnumFactory());
+        composeEnumeration("type", element.getTypeElement(), new NamingSystem.NamingsystemIdentifierTypeEnumFactory());
       composeString("value", element.getValueElement());
       composeBoolean("preferred", element.getPreferredElement());
       composePeriod("period", element.getPeriod());
@@ -2921,7 +2921,7 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
-  private void composeNamespaceNamespaceContactComponent(String name, Namespace.NamespaceContactComponent element) throws Exception {
+  private void composeNamingSystemNamingSystemContactComponent(String name, NamingSystem.NamingSystemContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -3063,6 +3063,8 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceElements(element);
       composeCodeableConcept("name", element.getName());
       composeType("value", element.getValue());
+      if (element.getDataAbsentReasonElement() != null)
+        composeEnumeration("dataAbsentReason", element.getDataAbsentReasonElement(), new Observation.DataAbsentReasonEnumFactory());
       composeCodeableConcept("interpretation", element.getInterpretation());
       composeString("comments", element.getCommentsElement());
       composeType("applies", element.getApplies());
@@ -3754,6 +3756,7 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       for (IdType e : element.getDiscriminator()) 
         composeId("discriminator", e);
+      composeString("description", element.getDescriptionElement());
       composeBoolean("ordered", element.getOrderedElement());
       if (element.getRulesElement() != null)
         composeEnumeration("rules", element.getRulesElement(), new Profile.ResourceSlicingRulesEnumFactory());
@@ -4743,8 +4746,8 @@ public class XmlComposer extends XmlComposerBase {
       composeMedicationStatement("MedicationStatement", (MedicationStatement)resource);
     else if (resource instanceof MessageHeader)
       composeMessageHeader("MessageHeader", (MessageHeader)resource);
-    else if (resource instanceof Namespace)
-      composeNamespace("Namespace", (Namespace)resource);
+    else if (resource instanceof NamingSystem)
+      composeNamingSystem("NamingSystem", (NamingSystem)resource);
     else if (resource instanceof NewBundle)
       composeNewBundle("NewBundle", (NewBundle)resource);
     else if (resource instanceof NutritionOrder)

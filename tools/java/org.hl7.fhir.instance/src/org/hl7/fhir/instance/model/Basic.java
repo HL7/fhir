@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 24, 2014 07:14+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 /**
- * Basic is a conformant for handling resource concepts not yet defined for FHIR or outside HL7's scope of interest.
+ * Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
  */
 public class Basic extends Resource {
 

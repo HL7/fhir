@@ -90,6 +90,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       boolean l = true; // hasList(root);
       boolean h = hasXhtml(root);
       boolean d = hasDecimal(root);
+      boolean s = hasString(root);
       if (l || h || d) {
         if (l)
           write("import java.util.*;\r\n");
@@ -98,6 +99,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write("\r\n");
         if (d)
           write("import java.math.*;\r\n");
+        if (s)
+          write("import org.hl7.fhir.utilities.Utilities;\r\n");
       }
     }
 		jdoc("", root.getDefinition());
@@ -223,6 +226,14 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   private boolean hasDecimal(ElementDefn root) {
     for (ElementDefn e : root.getElements()) {
       if (e.typeCode().equals("decimal") || hasDecimalInner(e))
+        return true;
+    }
+    return false;
+  }
+
+  private boolean hasString(ElementDefn root) {
+    for (ElementDefn e : root.getElements()) {
+      if (e.typeCode().equals("string") || e.typeCode().equals("id") || e.typeCode().equals("code") || e.typeCode().equals("uri") || e.typeCode().equals("oid") || e.typeCode().equals("uuid") || hasString(e))
         return true;
     }
     return false;
@@ -756,6 +767,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	          write(indent+"  if (value == -1)\r\n");
 	        else if (tn.equals("BooleanType"))
 	          write(indent+"  if (value == false)\r\n");
+          else if (isString(tn))
+            write(indent+"  if (Utilities.noString(value))\r\n");
 	        else
 	          write(indent+"  if (value == null)\r\n");
 	        write(indent+"    this."+getElementName(e.getName(), true)+" = null;\r\n");
@@ -804,6 +817,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		}
 
 	}
+
+  private boolean isString(String tn) {
+    return tn.equals("StringType") || tn.equals("CodeType") || tn.equals("IdType") || tn.equals("UriType") || tn.equals("OidType") || tn.equals("UuidType");
+  }
 
   public long getHashSum() {
     return hashSum;

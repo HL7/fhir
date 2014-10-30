@@ -917,6 +917,7 @@ public class SpreadsheetParser {
 			e.setMaxCardinality("*".equals(card[1]) ? null : Integer.parseInt(card[1]));
 		}
 		e.setProfileName(profileName);
+		e.setSliceDescription(isProfile ? sheet.getColumn(row, "Slice Description") : ""); 
 		for (String d : discriminator.split("\\,"))
 		  if (!Utilities.noString(d))
 		    e.getDiscriminator().add(d);

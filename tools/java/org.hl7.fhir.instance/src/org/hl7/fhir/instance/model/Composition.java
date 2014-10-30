@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 24, 2014 07:14+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -483,11 +483,6 @@ public class Composition extends Resource {
 
       public SectionComponent() {
         super();
-      }
-
-      public SectionComponent(Reference content) {
-        super();
-        this.content = content;
       }
 
         /**

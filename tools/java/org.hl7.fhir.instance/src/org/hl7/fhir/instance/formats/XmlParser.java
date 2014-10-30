@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Oct 24, 2014 07:14+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1274,7 +1274,7 @@ public class XmlParser extends XmlParserBase {
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("goal")) {
-        res.getGoal().add(parseString(xpp));
+        res.getGoal().add(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, CarePlan.CarePlanActivityStatus.NULL, new CarePlan.CarePlanActivityStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("prohibited")) {
@@ -4419,18 +4419,18 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Namespace parseNamespace(XmlPullParser xpp) throws Exception {
-    Namespace res = new Namespace();
+  private NamingSystem parseNamingSystem(XmlPullParser xpp) throws Exception {
+    NamingSystem res = new NamingSystem();
     parseResourceAttributes(xpp, res);
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
-        res.setTypeElement(parseEnumeration(xpp, Namespace.NamespaceType.NULL, new Namespace.NamespaceTypeEnumFactory()));
+        res.setTypeElement(parseEnumeration(xpp, NamingSystem.NamingsystemType.NULL, new NamingSystem.NamingsystemTypeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.setNameElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
-        res.setStatusElement(parseEnumeration(xpp, Namespace.NamespaceStatus.NULL, new Namespace.NamespaceStatusEnumFactory()));
+        res.setStatusElement(parseEnumeration(xpp, NamingSystem.NamingsystemStatus.NULL, new NamingSystem.NamingsystemStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("country")) {
         res.setCountryElement(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
@@ -4442,9 +4442,9 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("usage")) {
         res.setUsageElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("uniqueId")) {
-        res.getUniqueId().add(parseNamespaceNamespaceUniqueIdComponent(xpp, res));
+        res.getUniqueId().add(parseNamingSystemNamingSystemUniqueIdComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contact")) {
-        res.setContact(parseNamespaceNamespaceContactComponent(xpp, res));
+        res.setContact(parseNamingSystemNamingSystemContactComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("replacedBy")) {
         res.setReplacedBy(parseReference(xpp));
       } else if (!parseResourceContent(eventType, xpp, res))
@@ -4455,14 +4455,14 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Namespace.NamespaceUniqueIdComponent parseNamespaceNamespaceUniqueIdComponent(XmlPullParser xpp, Namespace owner) throws Exception {
-    Namespace.NamespaceUniqueIdComponent res = new Namespace.NamespaceUniqueIdComponent();
+  private NamingSystem.NamingSystemUniqueIdComponent parseNamingSystemNamingSystemUniqueIdComponent(XmlPullParser xpp, NamingSystem owner) throws Exception {
+    NamingSystem.NamingSystemUniqueIdComponent res = new NamingSystem.NamingSystemUniqueIdComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
-        res.setTypeElement(parseEnumeration(xpp, Namespace.NamespaceIdentifierType.NULL, new Namespace.NamespaceIdentifierTypeEnumFactory()));
+        res.setTypeElement(parseEnumeration(xpp, NamingSystem.NamingsystemIdentifierType.NULL, new NamingSystem.NamingsystemIdentifierTypeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("value")) {
         res.setValueElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("preferred")) {
@@ -4477,8 +4477,8 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Namespace.NamespaceContactComponent parseNamespaceNamespaceContactComponent(XmlPullParser xpp, Namespace owner) throws Exception {
-    Namespace.NamespaceContactComponent res = new Namespace.NamespaceContactComponent();
+  private NamingSystem.NamingSystemContactComponent parseNamingSystemNamingSystemContactComponent(XmlPullParser xpp, NamingSystem owner) throws Exception {
+    NamingSystem.NamingSystemContactComponent res = new NamingSystem.NamingSystemContactComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
@@ -4679,6 +4679,8 @@ public class XmlParser extends XmlParserBase {
         res.setName(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "value")) {
         res.setValue(parseType("value", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dataAbsentReason")) {
+        res.setDataAbsentReasonElement(parseEnumeration(xpp, Observation.DataAbsentReason.NULL, new Observation.DataAbsentReasonEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("interpretation")) {
         res.setInterpretation(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comments")) {
@@ -5739,6 +5741,8 @@ public class XmlParser extends XmlParserBase {
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("discriminator")) {
         res.getDiscriminator().add(parseId(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
+        res.setDescriptionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ordered")) {
         res.setOrderedElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("rules")) {
@@ -7223,8 +7227,8 @@ public class XmlParser extends XmlParserBase {
       return parseMedicationStatement(xpp);
     else if (xpp.getName().equals("MessageHeader"))
       return parseMessageHeader(xpp);
-    else if (xpp.getName().equals("Namespace"))
-      return parseNamespace(xpp);
+    else if (xpp.getName().equals("NamingSystem"))
+      return parseNamingSystem(xpp);
     else if (xpp.getName().equals("NewBundle"))
       return parseNewBundle(xpp);
     else if (xpp.getName().equals("NutritionOrder"))
@@ -7523,8 +7527,8 @@ public class XmlParser extends XmlParserBase {
       return parseMedicationStatement(xpp);
     else if (type.equals("MessageHeader"))
       return parseMessageHeader(xpp);
-    else if (type.equals("Namespace"))
-      return parseNamespace(xpp);
+    else if (type.equals("NamingSystem"))
+      return parseNamingSystem(xpp);
     else if (type.equals("NewBundle"))
       return parseNewBundle(xpp);
     else if (type.equals("NutritionOrder"))
@@ -7733,7 +7737,7 @@ public class XmlParser extends XmlParserBase {
       return true;
     if (xpp.getName().equals(prefix+"MessageHeader"))
       return true;
-    if (xpp.getName().equals(prefix+"Namespace"))
+    if (xpp.getName().equals(prefix+"NamingSystem"))
       return true;
     if (xpp.getName().equals(prefix+"NewBundle"))
       return true;

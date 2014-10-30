@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 24, 2014 07:14+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -669,7 +669,7 @@ public class CarePlan extends Resource {
         /**
          * Internal reference that identifies the goals that this activity is intended to contribute towards meeting.
          */
-        protected List<StringType> goal = new ArrayList<StringType>();
+        protected List<UriType> goal = new ArrayList<UriType>();
 
         /**
          * Identifies what progress is being made for the specific activity.
@@ -711,7 +711,7 @@ public class CarePlan extends Resource {
          */
         protected CarePlanActivitySimpleComponent simple;
 
-        private static final long serialVersionUID = 284445521L;
+        private static final long serialVersionUID = -912713941L;
 
       public CarePlanActivityComponent() {
         super();
@@ -725,7 +725,7 @@ public class CarePlan extends Resource {
         /**
          * @return {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
          */
-        public List<StringType> getGoal() { 
+        public List<UriType> getGoal() { 
           return this.goal;
         }
 
@@ -733,8 +733,8 @@ public class CarePlan extends Resource {
          * @return {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
          */
     // syntactic sugar
-        public StringType addGoalElement() { 
-          StringType t = new StringType();
+        public UriType addGoalElement() { 
+          UriType t = new UriType();
           this.goal.add(t);
           return t;
         }
@@ -742,8 +742,8 @@ public class CarePlan extends Resource {
         /**
          * @param value {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
          */
-        public StringType addGoal(String value) { 
-          StringType t = new StringType();
+        public UriType addGoal(String value) { 
+          UriType t = new UriType();
           t.setValue(value);
           this.goal.add(t);
           return t;
@@ -753,8 +753,8 @@ public class CarePlan extends Resource {
          * @param value {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
          */
         public boolean hasGoal(String value) { 
-          for (StringType v : this.goal)
-            if (v.equals(value)) // idref
+          for (UriType v : this.goal)
+            if (v.equals(value)) // uri
               return true;
           return false;
         }
@@ -934,7 +934,7 @@ public class CarePlan extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("goal", "idref", "Internal reference that identifies the goals that this activity is intended to contribute towards meeting.", 0, java.lang.Integer.MAX_VALUE, goal));
+          childrenList.add(new Property("goal", "uri", "Internal reference that identifies the goals that this activity is intended to contribute towards meeting.", 0, java.lang.Integer.MAX_VALUE, goal));
           childrenList.add(new Property("status", "code", "Identifies what progress is being made for the specific activity.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("prohibited", "boolean", "If true, indicates that the described activity is one that must NOT be engaged in when following the plan.", 0, java.lang.Integer.MAX_VALUE, prohibited));
           childrenList.add(new Property("actionResulting", "Reference(Any)", "Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.", 0, java.lang.Integer.MAX_VALUE, actionResulting));
@@ -945,8 +945,8 @@ public class CarePlan extends Resource {
 
       public CarePlanActivityComponent copy() {
         CarePlanActivityComponent dst = new CarePlanActivityComponent();
-        dst.goal = new ArrayList<StringType>();
-        for (StringType i : goal)
+        dst.goal = new ArrayList<UriType>();
+        for (UriType i : goal)
           dst.goal.add(i.copy());
         dst.status = status == null ? null : status.copy();
         dst.prohibited = prohibited == null ? null : prohibited.copy();

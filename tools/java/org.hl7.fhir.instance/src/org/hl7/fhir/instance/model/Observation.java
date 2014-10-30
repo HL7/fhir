@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 24, 2014 07:14+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,6 +37,122 @@ import java.util.*;
  * Measurements and simple assertions made about a patient, device or other subject.
  */
 public class Observation extends Resource {
+
+    public enum DataAbsentReason {
+        UNKNOWN, // The value is not known
+        ASKED, // The source human does not know the value
+        TEMP, // There is reason to expect (from the workflow) that the value may become known
+        NOTASKED, // The workflow didn't lead to this value being known
+        MASKED, // The information is not available due to security, privacy or related reasons
+        UNSUPPORTED, // The source system wasn't capable of supporting this element
+        ASTEXT, // The content of the data is represented in the resource narrative
+        ERROR, // Some system or workflow process error means that the information is not available
+        NULL; // added to help the parsers
+        public static DataAbsentReason fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
+        if ("asked".equals(codeString))
+          return ASKED;
+        if ("temp".equals(codeString))
+          return TEMP;
+        if ("notasked".equals(codeString))
+          return NOTASKED;
+        if ("masked".equals(codeString))
+          return MASKED;
+        if ("unsupported".equals(codeString))
+          return UNSUPPORTED;
+        if ("astext".equals(codeString))
+          return ASTEXT;
+        if ("error".equals(codeString))
+          return ERROR;
+        throw new Exception("Unknown DataAbsentReason code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case UNKNOWN: return "unknown";
+            case ASKED: return "asked";
+            case TEMP: return "temp";
+            case NOTASKED: return "notasked";
+            case MASKED: return "masked";
+            case UNSUPPORTED: return "unsupported";
+            case ASTEXT: return "astext";
+            case ERROR: return "error";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case UNKNOWN: return "The value is not known";
+            case ASKED: return "The source human does not know the value";
+            case TEMP: return "There is reason to expect (from the workflow) that the value may become known";
+            case NOTASKED: return "The workflow didn't lead to this value being known";
+            case MASKED: return "The information is not available due to security, privacy or related reasons";
+            case UNSUPPORTED: return "The source system wasn't capable of supporting this element";
+            case ASTEXT: return "The content of the data is represented in the resource narrative";
+            case ERROR: return "Some system or workflow process error means that the information is not available";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case UNKNOWN: return "unknown";
+            case ASKED: return "asked";
+            case TEMP: return "temp";
+            case NOTASKED: return "notasked";
+            case MASKED: return "masked";
+            case UNSUPPORTED: return "unsupported";
+            case ASTEXT: return "astext";
+            case ERROR: return "error";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class DataAbsentReasonEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("unknown".equals(codeString))
+          return DataAbsentReason.UNKNOWN;
+        if ("asked".equals(codeString))
+          return DataAbsentReason.ASKED;
+        if ("temp".equals(codeString))
+          return DataAbsentReason.TEMP;
+        if ("notasked".equals(codeString))
+          return DataAbsentReason.NOTASKED;
+        if ("masked".equals(codeString))
+          return DataAbsentReason.MASKED;
+        if ("unsupported".equals(codeString))
+          return DataAbsentReason.UNSUPPORTED;
+        if ("astext".equals(codeString))
+          return DataAbsentReason.ASTEXT;
+        if ("error".equals(codeString))
+          return DataAbsentReason.ERROR;
+        throw new Exception("Unknown DataAbsentReason code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == DataAbsentReason.UNKNOWN)
+        return "unknown";
+      if (code == DataAbsentReason.ASKED)
+        return "asked";
+      if (code == DataAbsentReason.TEMP)
+        return "temp";
+      if (code == DataAbsentReason.NOTASKED)
+        return "notasked";
+      if (code == DataAbsentReason.MASKED)
+        return "masked";
+      if (code == DataAbsentReason.UNSUPPORTED)
+        return "unsupported";
+      if (code == DataAbsentReason.ASTEXT)
+        return "astext";
+      if (code == DataAbsentReason.ERROR)
+        return "error";
+      return "?";
+      }
+    }
 
     public enum ObservationStatus {
         REGISTERED, // The existence of the observation is registered, but there is no result yet available.
@@ -141,7 +257,7 @@ public class Observation extends Resource {
         QUESTIONABLE, // The observation value should be treated with care.
         CALIBRATING, // The result has been generated while calibration is occurring.
         ERROR, // The observation could not be completed because of an error.
-        UNKNOWN, // No observation value was available.
+        UNKNOWN, // No observation  reliability value was available.
         NULL; // added to help the parsers
         public static ObservationReliability fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -182,7 +298,7 @@ public class Observation extends Resource {
             case QUESTIONABLE: return "The observation value should be treated with care.";
             case CALIBRATING: return "The result has been generated while calibration is occurring.";
             case ERROR: return "The observation could not be completed because of an error.";
-            case UNKNOWN: return "No observation value was available.";
+            case UNKNOWN: return "No observation  reliability value was available.";
             default: return "?";
           }
         }
@@ -614,6 +730,11 @@ public class Observation extends Resource {
     protected Type value;
 
     /**
+     * Provides a reason why the expected value in the element Observation.value[x] is missing.
+     */
+    protected Enumeration<DataAbsentReason> dataAbsentReason;
+
+    /**
      * The assessment made based on the result of the observation.
      */
     protected CodeableConcept interpretation;
@@ -629,7 +750,7 @@ public class Observation extends Resource {
     protected Type applies;
 
     /**
-     * Date/Time this was made available.
+     * The date and time this observation was made available.
      */
     protected InstantType issued;
 
@@ -708,17 +829,16 @@ public class Observation extends Resource {
      */
     protected List<ObservationRelatedComponent> related = new ArrayList<ObservationRelatedComponent>();
 
-    private static final long serialVersionUID = 1423439902L;
+    private static final long serialVersionUID = -1244154751L;
 
     public Observation() {
       super();
     }
 
-    public Observation(CodeableConcept name, Enumeration<ObservationStatus> status, Enumeration<ObservationReliability> reliability) {
+    public Observation(CodeableConcept name, Enumeration<ObservationStatus> status) {
       super();
       this.name = name;
       this.status = status;
-      this.reliability = reliability;
     }
 
     /**
@@ -748,6 +868,42 @@ public class Observation extends Resource {
      */
     public Observation setValue(Type value) { 
       this.value = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #dataAbsentReason} (Provides a reason why the expected value in the element Observation.value[x] is missing.). This is the underlying object with id, value and extensions. The accessor "getDataAbsentReason" gives direct access to the value
+     */
+    public Enumeration<DataAbsentReason> getDataAbsentReasonElement() { 
+      return this.dataAbsentReason;
+    }
+
+    /**
+     * @param value {@link #dataAbsentReason} (Provides a reason why the expected value in the element Observation.value[x] is missing.). This is the underlying object with id, value and extensions. The accessor "getDataAbsentReason" gives direct access to the value
+     */
+    public Observation setDataAbsentReasonElement(Enumeration<DataAbsentReason> value) { 
+      this.dataAbsentReason = value;
+      return this;
+    }
+
+    /**
+     * @return Provides a reason why the expected value in the element Observation.value[x] is missing.
+     */
+    public DataAbsentReason getDataAbsentReason() { 
+      return this.dataAbsentReason == null ? null : this.dataAbsentReason.getValue();
+    }
+
+    /**
+     * @param value Provides a reason why the expected value in the element Observation.value[x] is missing.
+     */
+    public Observation setDataAbsentReason(DataAbsentReason value) { 
+      if (value == null)
+        this.dataAbsentReason = null;
+      else {
+        if (this.dataAbsentReason == null)
+          this.dataAbsentReason = new Enumeration<DataAbsentReason>();
+        this.dataAbsentReason.setValue(value);
+      }
       return this;
     }
 
@@ -818,14 +974,14 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #issued} (Date/Time this was made available.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
+     * @return {@link #issued} (The date and time this observation was made available.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
     public InstantType getIssuedElement() { 
       return this.issued;
     }
 
     /**
-     * @param value {@link #issued} (Date/Time this was made available.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
+     * @param value {@link #issued} (The date and time this observation was made available.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
     public Observation setIssuedElement(InstantType value) { 
       this.issued = value;
@@ -833,14 +989,14 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return Date/Time this was made available.
+     * @return The date and time this observation was made available.
      */
     public DateAndTime getIssued() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
-     * @param value Date/Time this was made available.
+     * @param value The date and time this observation was made available.
      */
     public Observation setIssued(DateAndTime value) { 
       if (value == null)
@@ -911,9 +1067,13 @@ public class Observation extends Resource {
      * @param value An estimate of the degree to which quality issues have impacted on the value reported.
      */
     public Observation setReliability(ObservationReliability value) { 
+      if (value == null)
+        this.reliability = null;
+      else {
         if (this.reliability == null)
           this.reliability = new Enumeration<ObservationReliability>();
         this.reliability.setValue(value);
+      }
       return this;
     }
 
@@ -1114,10 +1274,11 @@ public class Observation extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("name", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|dateTime|Period|SampledData|string|time", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
+        childrenList.add(new Property("dataAbsentReason", "code", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, java.lang.Integer.MAX_VALUE, dataAbsentReason));
         childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));
         childrenList.add(new Property("applies[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the 'physiologically relevant time'. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, applies));
-        childrenList.add(new Property("issued", "instant", "Date/Time this was made available.", 0, java.lang.Integer.MAX_VALUE, issued));
+        childrenList.add(new Property("issued", "instant", "The date and time this observation was made available.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("status", "code", "The status of the result value.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("reliability", "code", "An estimate of the degree to which quality issues have impacted on the value reported.", 0, java.lang.Integer.MAX_VALUE, reliability));
         childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates where on the subject's body the observation was made.", 0, java.lang.Integer.MAX_VALUE, bodySite));
@@ -1135,6 +1296,7 @@ public class Observation extends Resource {
         Observation dst = new Observation();
         dst.name = name == null ? null : name.copy();
         dst.value = value == null ? null : value.copy();
+        dst.dataAbsentReason = dataAbsentReason == null ? null : dataAbsentReason.copy();
         dst.interpretation = interpretation == null ? null : interpretation.copy();
         dst.comments = comments == null ? null : comments.copy();
         dst.applies = applies == null ? null : applies.copy();

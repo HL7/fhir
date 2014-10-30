@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Fri, Oct 24, 2014 07:14+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
 
 public enum ResourceType {
     Condition,
@@ -23,6 +23,7 @@ public enum ResourceType {
     Questionnaire,
     OperationOutcome,
     Conformance,
+    NamingSystem,
     Media,
     Binary,
     Other,
@@ -69,7 +70,6 @@ public enum ResourceType {
     Basic,
     Specimen,
     Alert,
-    Namespace,
     Patient,
     AdverseReaction,
     DiagnosticOrder;
@@ -117,6 +117,8 @@ public enum ResourceType {
       return "operationoutcome";
     case Conformance:
       return "conformance";
+    case NamingSystem:
+      return "namingsystem";
     case Media:
       return "media";
     case Binary:
@@ -209,8 +211,6 @@ public enum ResourceType {
       return "specimen";
     case Alert:
       return "alert";
-    case Namespace:
-      return "namespace";
     case Patient:
       return "patient";
     case AdverseReaction:

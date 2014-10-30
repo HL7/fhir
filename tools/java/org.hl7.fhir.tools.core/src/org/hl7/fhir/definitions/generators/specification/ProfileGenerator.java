@@ -733,6 +733,7 @@ public class ProfileGenerator {
     if (!Utilities.noString(e.getProfileName())) {
       if (e.getDiscriminator().size() > 0 && !slices.contains(path)) {
         ce.setSlicing(new Profile.ElementSlicingComponent());
+        ce.getSlicing().setDescription(e.getSliceDescription());
         String[] d = e.getDiscriminator().get(0).split("\\|");
         if (d.length >= 1)
           ce.getSlicing().addDiscriminator(d[0].trim());

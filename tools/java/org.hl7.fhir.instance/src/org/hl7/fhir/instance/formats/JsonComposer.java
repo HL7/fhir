@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Oct 24, 2014 07:14+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -1401,13 +1401,13 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       if (element.getGoal().size() > 0) {
         openArray("goal");
-        for (StringType e : element.getGoal()) 
-          composeStringCore(null, e, true);
+        for (UriType e : element.getGoal()) 
+          composeUriCore(null, e, true);
         closeArray();
         if (anyHasExtras(element.getGoal())) {
           openArray("_goal");
-          for (StringType e : element.getGoal()) 
-            composeStringExtras(null, e, true);
+          for (UriType e : element.getGoal()) 
+            composeUriExtras(null, e, true);
           closeArray();
         }
       };
@@ -4816,24 +4816,24 @@ public class JsonComposer extends JsonComposerBase {
       composeUriExtras("endpoint", element.getEndpointElement(), false);
   }
 
-  private void composeNamespace(String name, Namespace element) throws Exception {
+  private void composeNamingSystem(String name, NamingSystem element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
-      composeNamespaceInner(element);
+      composeNamingSystemInner(element);
     }
   }
 
-  private void composeNamespaceInner(Namespace element) throws Exception {
+  private void composeNamingSystemInner(NamingSystem element) throws Exception {
       composeResourceElements(element);
       if (element.getTypeElement() != null) {
-        composeEnumerationCore("type", element.getTypeElement(), new Namespace.NamespaceTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new Namespace.NamespaceTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getTypeElement(), new NamingSystem.NamingsystemTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new NamingSystem.NamingsystemTypeEnumFactory(), false);
       }
       composeStringCore("name", element.getNameElement(), false);
       composeStringExtras("name", element.getNameElement(), false);
       if (element.getStatusElement() != null) {
-        composeEnumerationCore("status", element.getStatusElement(), new Namespace.NamespaceStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatusElement(), new Namespace.NamespaceStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatusElement(), new NamingSystem.NamingsystemStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new NamingSystem.NamingsystemStatusEnumFactory(), false);
       }
       composeCodeCore("country", element.getCountryElement(), false);
       composeCodeExtras("country", element.getCountryElement(), false);
@@ -4846,27 +4846,27 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("usage", element.getUsageElement(), false);
       if (element.getUniqueId().size() > 0) {
         openArray("uniqueId");
-        for (Namespace.NamespaceUniqueIdComponent e : element.getUniqueId()) 
-          composeNamespaceNamespaceUniqueIdComponent(null, e);
+        for (NamingSystem.NamingSystemUniqueIdComponent e : element.getUniqueId()) 
+          composeNamingSystemNamingSystemUniqueIdComponent(null, e);
         closeArray();
       };
-      composeNamespaceNamespaceContactComponent("contact", element.getContact());
+      composeNamingSystemNamingSystemContactComponent("contact", element.getContact());
       composeReference("replacedBy", element.getReplacedBy());
   }
 
-  private void composeNamespaceNamespaceUniqueIdComponent(String name, Namespace.NamespaceUniqueIdComponent element) throws Exception {
+  private void composeNamingSystemNamingSystemUniqueIdComponent(String name, NamingSystem.NamingSystemUniqueIdComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeNamespaceNamespaceUniqueIdComponentInner(element);
+      composeNamingSystemNamingSystemUniqueIdComponentInner(element);
       close();
     }
   }
 
-  private void composeNamespaceNamespaceUniqueIdComponentInner(Namespace.NamespaceUniqueIdComponent element) throws Exception {
+  private void composeNamingSystemNamingSystemUniqueIdComponentInner(NamingSystem.NamingSystemUniqueIdComponent element) throws Exception {
       composeBackbone(element);
       if (element.getTypeElement() != null) {
-        composeEnumerationCore("type", element.getTypeElement(), new Namespace.NamespaceIdentifierTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new Namespace.NamespaceIdentifierTypeEnumFactory(), false);
+        composeEnumerationCore("type", element.getTypeElement(), new NamingSystem.NamingsystemIdentifierTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new NamingSystem.NamingsystemIdentifierTypeEnumFactory(), false);
       }
       composeStringCore("value", element.getValueElement(), false);
       composeStringExtras("value", element.getValueElement(), false);
@@ -4875,15 +4875,15 @@ public class JsonComposer extends JsonComposerBase {
       composePeriod("period", element.getPeriod());
   }
 
-  private void composeNamespaceNamespaceContactComponent(String name, Namespace.NamespaceContactComponent element) throws Exception {
+  private void composeNamingSystemNamingSystemContactComponent(String name, NamingSystem.NamingSystemContactComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeNamespaceNamespaceContactComponentInner(element);
+      composeNamingSystemNamingSystemContactComponentInner(element);
       close();
     }
   }
 
-  private void composeNamespaceNamespaceContactComponentInner(Namespace.NamespaceContactComponent element) throws Exception {
+  private void composeNamingSystemNamingSystemContactComponentInner(NamingSystem.NamingSystemContactComponent element) throws Exception {
       composeBackbone(element);
       composeHumanName("name", element.getName());
       if (element.getTelecom().size() > 0) {
@@ -5126,6 +5126,10 @@ public class JsonComposer extends JsonComposerBase {
       composeResourceElements(element);
       composeCodeableConcept("name", element.getName());
       composeType("value", element.getValue());
+      if (element.getDataAbsentReasonElement() != null) {
+        composeEnumerationCore("dataAbsentReason", element.getDataAbsentReasonElement(), new Observation.DataAbsentReasonEnumFactory(), false);
+        composeEnumerationExtras("dataAbsentReason", element.getDataAbsentReasonElement(), new Observation.DataAbsentReasonEnumFactory(), false);
+      }
       composeCodeableConcept("interpretation", element.getInterpretation());
       composeStringCore("comments", element.getCommentsElement(), false);
       composeStringExtras("comments", element.getCommentsElement(), false);
@@ -6331,6 +6335,8 @@ public class JsonComposer extends JsonComposerBase {
           closeArray();
         }
       };
+      composeStringCore("description", element.getDescriptionElement(), false);
+      composeStringExtras("description", element.getDescriptionElement(), false);
       composeBooleanCore("ordered", element.getOrderedElement(), false);
       composeBooleanExtras("ordered", element.getOrderedElement(), false);
       if (element.getRulesElement() != null) {
@@ -7978,8 +7984,8 @@ public class JsonComposer extends JsonComposerBase {
       composeMedicationStatement("MedicationStatement", (MedicationStatement)resource);
     else if (resource instanceof MessageHeader)
       composeMessageHeader("MessageHeader", (MessageHeader)resource);
-    else if (resource instanceof Namespace)
-      composeNamespace("Namespace", (Namespace)resource);
+    else if (resource instanceof NamingSystem)
+      composeNamingSystem("NamingSystem", (NamingSystem)resource);
     else if (resource instanceof NewBundle)
       composeNewBundle("NewBundle", (NewBundle)resource);
     else if (resource instanceof NutritionOrder)
@@ -8125,8 +8131,8 @@ public class JsonComposer extends JsonComposerBase {
       composeMedicationStatement(name, (MedicationStatement)resource);
     else if (resource instanceof MessageHeader)
       composeMessageHeader(name, (MessageHeader)resource);
-    else if (resource instanceof Namespace)
-      composeNamespace(name, (Namespace)resource);
+    else if (resource instanceof NamingSystem)
+      composeNamingSystem(name, (NamingSystem)resource);
     else if (resource instanceof NewBundle)
       composeNewBundle(name, (NewBundle)resource);
     else if (resource instanceof NutritionOrder)

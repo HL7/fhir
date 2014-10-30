@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Oct 24, 2014 07:14+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1324,6 +1324,11 @@ public class Profile extends Resource {
         protected List<IdType> discriminator = new ArrayList<IdType>();
 
         /**
+         * A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.
+         */
+        protected StringType description;
+
+        /**
          * If the matching elements have to occur in the same order as defined in the profile.
          */
         protected BooleanType ordered;
@@ -1333,7 +1338,7 @@ public class Profile extends Resource {
          */
         protected Enumeration<ResourceSlicingRules> rules;
 
-        private static final long serialVersionUID = -1403817480L;
+        private static final long serialVersionUID = 1272162109L;
 
       public ElementSlicingComponent() {
         super();
@@ -1379,6 +1384,42 @@ public class Profile extends Resource {
             if (v.equals(value)) // id
               return true;
           return false;
+        }
+
+        /**
+         * @return {@link #description} (A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public StringType getDescriptionElement() { 
+          return this.description;
+        }
+
+        /**
+         * @param value {@link #description} (A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public ElementSlicingComponent setDescriptionElement(StringType value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.
+         */
+        public String getDescription() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        /**
+         * @param value A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.
+         */
+        public ElementSlicingComponent setDescription(String value) { 
+          if (value == null)
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new StringType();
+            this.description.setValue(value);
+          }
+          return this;
         }
 
         /**
@@ -1452,6 +1493,7 @@ public class Profile extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("discriminator", "id", "Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.", 0, java.lang.Integer.MAX_VALUE, discriminator));
+          childrenList.add(new Property("description", "string", "A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("ordered", "boolean", "If the matching elements have to occur in the same order as defined in the profile.", 0, java.lang.Integer.MAX_VALUE, ordered));
           childrenList.add(new Property("rules", "code", "Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.", 0, java.lang.Integer.MAX_VALUE, rules));
         }
@@ -1461,6 +1503,7 @@ public class Profile extends Resource {
         dst.discriminator = new ArrayList<IdType>();
         for (IdType i : discriminator)
           dst.discriminator.add(i.copy());
+        dst.description = description == null ? null : description.copy();
         dst.ordered = ordered == null ? null : ordered.copy();
         dst.rules = rules == null ? null : rules.copy();
         return dst;
