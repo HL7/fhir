@@ -176,11 +176,14 @@ public class ResourceValidator extends BaseValidator {
     for (Compartment c : definitions.getCompartments()) {
       if (rule(errors, "structure", parent.getName(), c.getResources().containsKey(parent), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)")) {
         String param = c.getResources().get(parent);
-        for (String p : param.split("\\|")) {
-          String pn = p.trim();
-          if (pn.contains("."))
-            pn = pn.substring(0, pn.indexOf("."));
-          rule(errors, "structure", parent.getName(), Utilities.noString(pn) || pn.equals("{def}") || parent.getSearchParams().containsKey(pn), "Resource "+parent.getName()+" in compartment " +c.getName()+": parameter "+param+" was not found ("+pn+")");
+        if (!Utilities.noString(param)) {
+          rule(errors, "structure", parent.getName(), param.equals("{def}") || parent.getSearchParams().containsKey(c.getName()), "Resource "+parent.getName()+" in compartment " +c.getName()+" must have a search parameter named "+c.getName()+")");
+          for (String p : param.split("\\|")) {
+            String pn = p.trim();
+            if (pn.contains("."))
+              pn = pn.substring(0, pn.indexOf("."));
+            rule(errors, "structure", parent.getName(), Utilities.noString(pn) || pn.equals("{def}") || parent.getSearchParams().containsKey(pn), "Resource "+parent.getName()+" in compartment " +c.getName()+": parameter "+param+" was not found ("+pn+")");
+          }
         }
       }
     }

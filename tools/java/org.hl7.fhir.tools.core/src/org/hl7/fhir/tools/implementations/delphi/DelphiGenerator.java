@@ -802,7 +802,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         String n = p.getCode().replace("$", "_");
         String d = Utilities.normaliseEolns(p.getDescription());
         String nf = n.replace("-", "_").replace("[x]", "x");
-        String t = getTarget(p.getTargets());
+        String t = getTarget(p.getWorkingTargets());
         if (i == l) {
           def.append("    "+prefix+getTitle(nf)+"); {@enum.value "+prefix+getTitle(nf)+" "+d+" }\r\n");
           con2.append(" "+prefix+getTitle(nf)+");");
