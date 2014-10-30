@@ -4357,9 +4357,9 @@ public class Publisher implements URIResolver {
           if (n[0].charAt(0) == '~')
             map.setEquivalence(ConceptEquivalence.EQUIVALENT);
           if (n[0].charAt(0) == '>')
-            map.setEquivalence(ConceptEquivalence.NARROWER);
-          if (n[0].charAt(0) == '<')
             map.setEquivalence(ConceptEquivalence.WIDER);
+          if (n[0].charAt(0) == '<')
+            map.setEquivalence(ConceptEquivalence.NARROWER);
         }
       }
     }
