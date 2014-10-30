@@ -52,60 +52,87 @@
       <name value="Gender Code"/>
       <description value="All codes representing the gender of a person."/>
       <status value="active"/>
+      <compose>
+        <include>
+          <system value="http://ncit.nci.nih.gov"/>
+          <concept>
+            <code value="C17998"/>
+            <display value="Unknown"/>
+<!--            <definition value="Not known, not observed, not recorded, or refused. "/>-->
+          </concept>
+          <concept>
+            <code value="C20197"/>
+            <display value="Male"/>
+<!--            <definition value="A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both."/>-->
+          </concept>
+          <concept>
+            <code value="C16576"/>
+            <display value="Female"/>
+<!--            <definition value="A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both."/>-->
+          </concept>
+          <concept>
+            <code value="C38046"/>
+            <display value="Not specified"/>
+<!--            <definition value="Not specified"/>-->
+          </concept>
+        </include>
+      </compose>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="2179414-permitted">
+      <status value="active"/>
       <define>
         <system value="http://example.org/fhir/2179414"/>
         <concept>
           <code value="0"/>
-          <display value="Unknown"/>
-          <definition value="Not known, not observed, not recorded, or refused. "/>
         </concept>
         <concept>
           <code value="1"/>
-          <display value="Male"/>
-          <definition value="A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both."/>
         </concept>
         <concept>
           <code value="2"/>
-          <display value="Female"/>
-          <definition value="A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both."/>
         </concept>
         <concept>
           <code value="3"/>
-          <display value="Not specified"/>
-          <definition value="Not specified"/>
         </concept>
       </define>
     </ValueSet>
   </contained>
   <contained>
     <ConceptMap id="2179414-cm">
-      <name value="TODO - remove"/>
       <status value="active"/>
       <sourceReference>
         <reference value="#2179414"/>
       </sourceReference>
-      <targetUri value="http://ncit.nci.nih.gov"/>
+      <targetReference>
+        <reference value="#2179414-permitted"/>
+      </targetReference>
       <element>
-        <codeSystem value="http://example.org/fhir/2179414"/>
-        <code value="0"/>
+        <code value="C17998"/>
         <map>
-          <code value="C17998"/>
+          <code value="0"/>
           <equivalence value="equal"/>
         </map>
       </element>
       <element>
-        <codeSystem value="http://example.org/fhir/2179414"/>
-        <code value="1"/>
+        <code value="C20197"/>
         <map>
-          <code value="C20197"/>
+          <code value="1"/>
           <equivalence value="equal"/>
         </map>
       </element>
       <element>
-        <codeSystem value="http://example.org/fhir/2179414"/>
-        <code value="2"/>
+        <code value="C16576"/>
         <map>
-          <code value="C16576"/>
+          <code value="2"/>
+          <equivalence value="equal"/>
+        </map>
+      </element>
+      <element>
+        <code value="C38046"/>
+        <map>
+          <code value="3"/>
           <equivalence value="equal"/>
         </map>
       </element>
@@ -191,6 +218,16 @@
     <isExtensible value="false"/>
     <conformance value="required"/>
     <valueSet>
+      <extension url="http://hl7.org/fhir/Profile/iso-11179#permitted-value-valueset">
+        <valueReference>
+          <reference value="#2179414-permitted"/>
+        </valueReference>
+      </extension>
+      <extension url="http://hl7.org/fhir/Profile/iso-11179#permitted-value-conceptmap">
+        <valueReference>
+          <reference value="#2179414-cm"/>
+        </valueReference>
+      </extension>
       <reference value="#2179414"/>
     </valueSet>
   </binding>
