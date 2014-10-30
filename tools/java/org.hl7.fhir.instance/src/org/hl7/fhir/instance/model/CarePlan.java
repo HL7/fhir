@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Describes the intention of how one or more practitioners intend to deliver care for a particular patient for a period of time, possibly limited to care for a specific condition or set of conditions.
  */
@@ -600,7 +601,7 @@ public class CarePlan extends Resource {
          * @param value Any comments related to the goal.
          */
         public CarePlanGoalComponent setNotes(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.notes = null;
           else {
             if (this.notes == null)
@@ -877,7 +878,7 @@ public class CarePlan extends Resource {
          * @param value Notes about the execution of the activity.
          */
         public CarePlanActivityComponent setNotes(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.notes = null;
           else {
             if (this.notes == null)
@@ -1235,7 +1236,7 @@ public class CarePlan extends Resource {
          * @param value This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
          */
         public CarePlanActivitySimpleComponent setDetails(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.details = null;
           else {
             if (this.details == null)
@@ -1588,7 +1589,7 @@ public class CarePlan extends Resource {
      * @param value General notes about the care plan not covered elsewhere.
      */
     public CarePlan setNotes(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.notes = null;
       else {
         if (this.notes == null)

@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import java.math.*;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
  */

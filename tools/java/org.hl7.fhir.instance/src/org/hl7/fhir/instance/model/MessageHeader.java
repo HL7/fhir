@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * The header for a message exchange that is either requesting or responding to an action.  The Reference(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
  */
@@ -311,7 +312,7 @@ public class MessageHeader extends Resource {
          * @param value Human-readable name for the target system.
          */
         public MessageSourceComponent setName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.name = null;
           else {
             if (this.name == null)
@@ -347,7 +348,7 @@ public class MessageHeader extends Resource {
          * @param value May include configuration or other information useful in debugging.
          */
         public MessageSourceComponent setSoftware(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.software = null;
           else {
             if (this.software == null)
@@ -383,7 +384,7 @@ public class MessageHeader extends Resource {
          * @param value Can convey versions of multiple systems in situations where a message passes through multiple hands.
          */
         public MessageSourceComponent setVersion(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.version = null;
           else {
             if (this.version == null)
@@ -519,7 +520,7 @@ public class MessageHeader extends Resource {
          * @param value Human-readable name for the source system.
          */
         public MessageDestinationComponent setName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.name = null;
           else {
             if (this.name == null)

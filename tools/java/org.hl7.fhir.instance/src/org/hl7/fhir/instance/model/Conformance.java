@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A conformance statement is a set of requirements for a desired implementation or a description of how a target application fulfills those requirements in a particular implementation.
  */
@@ -787,7 +788,7 @@ public class Conformance extends Resource {
          * @param value The version identifier for the software covered by this statement.
          */
         public ConformanceSoftwareComponent setVersion(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.version = null;
           else {
             if (this.version == null)
@@ -930,7 +931,7 @@ public class Conformance extends Resource {
          * @param value A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
          */
         public ConformanceImplementationComponent setUrl(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.url = null;
           else {
             if (this.url == null)
@@ -1060,7 +1061,7 @@ public class Conformance extends Resource {
          * @param value Information about the system's restful capabilities that apply across all applications, such as security.
          */
         public ConformanceRestComponent setDocumentation(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.documentation = null;
           else {
             if (this.documentation == null)
@@ -1312,7 +1313,7 @@ public class Conformance extends Resource {
          * @param value General description of how security works.
          */
         public ConformanceRestSecurityComponent setDescription(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.description = null;
           else {
             if (this.description == null)
@@ -1405,7 +1406,7 @@ public class Conformance extends Resource {
          * @param value Mime type for certificate.
          */
         public ConformanceRestSecurityCertificateComponent setType(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.type = null;
           else {
             if (this.type == null)
@@ -1877,7 +1878,7 @@ public class Conformance extends Resource {
          * @param value Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
         public ResourceInteractionComponent setDocumentation(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.documentation = null;
           else {
             if (this.documentation == null)
@@ -2003,7 +2004,7 @@ public class Conformance extends Resource {
          * @param value A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
          */
         public ConformanceRestResourceSearchParamComponent setDefinition(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.definition = null;
           else {
             if (this.definition == null)
@@ -2071,7 +2072,7 @@ public class Conformance extends Resource {
          * @param value This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
          */
         public ConformanceRestResourceSearchParamComponent setDocumentation(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.documentation = null;
           else {
             if (this.documentation == null)
@@ -2262,7 +2263,7 @@ public class Conformance extends Resource {
          * @param value Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
          */
         public SystemInteractionComponent setDocumentation(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.documentation = null;
           else {
             if (this.documentation == null)
@@ -2445,7 +2446,7 @@ public class Conformance extends Resource {
          * @param value An address to which messages and/or replies are to be sent.
          */
         public ConformanceMessagingComponent setEndpoint(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.endpoint = null;
           else {
             if (this.endpoint == null)
@@ -2517,7 +2518,7 @@ public class Conformance extends Resource {
          * @param value Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
          */
         public ConformanceMessagingComponent setDocumentation(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.documentation = null;
           else {
             if (this.documentation == null)
@@ -2849,7 +2850,7 @@ public class Conformance extends Resource {
          * @param value Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
          */
         public ConformanceMessagingEventComponent setDocumentation(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.documentation = null;
           else {
             if (this.documentation == null)
@@ -2979,7 +2980,7 @@ public class Conformance extends Resource {
          * @param value A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
          */
         public ConformanceDocumentComponent setDocumentation(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.documentation = null;
           else {
             if (this.documentation == null)
@@ -3171,7 +3172,7 @@ public class Conformance extends Resource {
      * @param value The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
     public Conformance setIdentifier(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.identifier = null;
       else {
         if (this.identifier == null)
@@ -3207,7 +3208,7 @@ public class Conformance extends Resource {
      * @param value The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
     public Conformance setVersion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.version = null;
       else {
         if (this.version == null)
@@ -3243,7 +3244,7 @@ public class Conformance extends Resource {
      * @param value A free text natural language name identifying the conformance statement.
      */
     public Conformance setName(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.name = null;
       else {
         if (this.name == null)
@@ -3328,7 +3329,7 @@ public class Conformance extends Resource {
      * @param value A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
     public Conformance setDescription(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.description = null;
       else {
         if (this.description == null)

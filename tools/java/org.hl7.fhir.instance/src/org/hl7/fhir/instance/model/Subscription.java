@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Todo.
  */
@@ -291,7 +292,7 @@ public class Subscription extends Resource {
          * @param value Todo.
          */
         public SubscriptionChannelComponent setUrl(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.url = null;
           else {
             if (this.url == null)
@@ -359,7 +360,7 @@ public class Subscription extends Resource {
          * @param value Usage depends on the channel type.
          */
         public SubscriptionChannelComponent setHeader(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.header = null;
           else {
             if (this.header == null)
@@ -506,7 +507,7 @@ public class Subscription extends Resource {
          * @param value Todo.
          */
         public SubscriptionTagComponent setDescription(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.description = null;
           else {
             if (this.description == null)
@@ -726,7 +727,7 @@ public class Subscription extends Resource {
      * @param value Todo.
      */
     public Subscription setError(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.error = null;
       else {
         if (this.error == null)

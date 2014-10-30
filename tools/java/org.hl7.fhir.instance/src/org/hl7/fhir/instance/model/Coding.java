@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A reference to a code defined by a terminology system.
  */
@@ -105,7 +106,7 @@ public class Coding extends Type {
      * @param value The identification of the code system that defines the meaning of the symbol in the code.
      */
     public Coding setSystem(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.system = null;
       else {
         if (this.system == null)
@@ -141,7 +142,7 @@ public class Coding extends Type {
      * @param value The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.
      */
     public Coding setVersion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.version = null;
       else {
         if (this.version == null)
@@ -177,7 +178,7 @@ public class Coding extends Type {
      * @param value A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).
      */
     public Coding setCode(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.code = null;
       else {
         if (this.code == null)
@@ -213,7 +214,7 @@ public class Coding extends Type {
      * @param value A representation of the meaning of the code in the system, following the rules of the system.
      */
     public Coding setDisplay(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.display = null;
       else {
         if (this.display == null)

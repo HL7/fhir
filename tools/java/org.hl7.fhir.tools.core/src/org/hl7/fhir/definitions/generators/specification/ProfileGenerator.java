@@ -830,7 +830,7 @@ public class ProfileGenerator {
     for (Invariant id : e.getStatedInvariants()) 
       ce.getDefinition().addCondition(id.getId());
     
-    ce.getDefinition().setValue(e.getValue());
+    ce.getDefinition().setFixed(e.getFixed());
     ce.getDefinition().setPattern(e.getPattern());
     ce.getDefinition().setExample(e.getExample());
     

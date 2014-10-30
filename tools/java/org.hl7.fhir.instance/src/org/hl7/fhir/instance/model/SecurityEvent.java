@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
  */
@@ -1029,7 +1030,7 @@ public class SecurityEvent extends Resource {
          * @param value A free text description of the outcome of the event.
          */
         public SecurityEventEventComponent setOutcomeDesc(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.outcomeDesc = null;
           else {
             if (this.outcomeDesc == null)
@@ -1194,7 +1195,7 @@ public class SecurityEvent extends Resource {
          * @param value Unique identifier for the user actively participating in the event.
          */
         public SecurityEventParticipantComponent setUserId(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.userId = null;
           else {
             if (this.userId == null)
@@ -1230,7 +1231,7 @@ public class SecurityEvent extends Resource {
          * @param value Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.
          */
         public SecurityEventParticipantComponent setAltId(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.altId = null;
           else {
             if (this.altId == null)
@@ -1266,7 +1267,7 @@ public class SecurityEvent extends Resource {
          * @param value Human-meaningful name for the user.
          */
         public SecurityEventParticipantComponent setName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.name = null;
           else {
             if (this.name == null)
@@ -1410,7 +1411,7 @@ public class SecurityEvent extends Resource {
          * @param value An identifier for the network access point of the user device for the audit event.
          */
         public SecurityEventParticipantNetworkComponent setIdentifier(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.identifier = null;
           else {
             if (this.identifier == null)
@@ -1524,7 +1525,7 @@ public class SecurityEvent extends Resource {
          * @param value Logical source location within the healthcare enterprise network.
          */
         public SecurityEventSourceComponent setSite(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.site = null;
           else {
             if (this.site == null)
@@ -1858,7 +1859,7 @@ public class SecurityEvent extends Resource {
          * @param value An instance-specific descriptor of the Participant Object ID audited, such as a person's name.
          */
         public SecurityEventObjectComponent setName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.name = null;
           else {
             if (this.name == null)
@@ -1894,7 +1895,7 @@ public class SecurityEvent extends Resource {
          * @param value Text that describes the object in more detail.
          */
         public SecurityEventObjectComponent setDescription(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.description = null;
           else {
             if (this.description == null)

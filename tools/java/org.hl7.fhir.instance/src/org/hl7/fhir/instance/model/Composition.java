@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement.
  */
@@ -511,7 +512,7 @@ public class Composition extends Resource {
          * @param value The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.
          */
         public SectionComponent setTitle(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.title = null;
           else {
             if (this.title == null)
@@ -812,7 +813,7 @@ public class Composition extends Resource {
      * @param value Official human-readable label for the composition.
      */
     public Composition setTitle(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.title = null;
       else {
         if (this.title == null)

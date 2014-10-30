@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.
  */
@@ -187,7 +188,7 @@ public class Device extends Resource {
      * @param value A name of the manufacturer.
      */
     public Device setManufacturer(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.manufacturer = null;
       else {
         if (this.manufacturer == null)
@@ -223,7 +224,7 @@ public class Device extends Resource {
      * @param value The "model" - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
      */
     public Device setModel(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.model = null;
       else {
         if (this.model == null)
@@ -259,7 +260,7 @@ public class Device extends Resource {
      * @param value The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.
      */
     public Device setVersion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.version = null;
       else {
         if (this.version == null)
@@ -331,7 +332,7 @@ public class Device extends Resource {
      * @param value FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
      */
     public Device setUdi(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.udi = null;
       else {
         if (this.udi == null)
@@ -367,7 +368,7 @@ public class Device extends Resource {
      * @param value Lot number assigned by the manufacturer.
      */
     public Device setLotNumber(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.lotNumber = null;
       else {
         if (this.lotNumber == null)
@@ -510,7 +511,7 @@ public class Device extends Resource {
      * @param value A network address on which the device may be contacted directly.
      */
     public Device setUrl(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.url = null;
       else {
         if (this.url == null)

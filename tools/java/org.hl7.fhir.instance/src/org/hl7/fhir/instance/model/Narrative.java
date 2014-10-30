@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A human-readable formatted text, including images.
  */

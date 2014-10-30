@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A value set specifies a set of codes drawn from one or more code systems.
  */
@@ -290,7 +291,7 @@ public class ValueSet extends Resource {
          * @param value The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.
          */
         public ValueSetDefineComponent setVersion(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.version = null;
           else {
             if (this.version == null)
@@ -510,7 +511,7 @@ public class ValueSet extends Resource {
          * @param value Text to Display to the user.
          */
         public ConceptDefinitionComponent setDisplay(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.display = null;
           else {
             if (this.display == null)
@@ -546,7 +547,7 @@ public class ValueSet extends Resource {
          * @param value The formal definition of the concept. Formal definitions are not required, because of the prevalence of legacy systems without them, but they are highly recommended, as without them there is no formal meaning associated with the concept.
          */
         public ConceptDefinitionComponent setDefinition(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.definition = null;
           else {
             if (this.definition == null)
@@ -670,7 +671,7 @@ public class ValueSet extends Resource {
          * @param value The language this designation is defined for.
          */
         public ConceptDefinitionDesignationComponent setLanguage(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.language = null;
           else {
             if (this.language == null)
@@ -950,7 +951,7 @@ public class ValueSet extends Resource {
          * @param value The version of the code system that the codes are selected from.
          */
         public ConceptSetComponent setVersion(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.version = null;
           else {
             if (this.version == null)
@@ -1102,7 +1103,7 @@ public class ValueSet extends Resource {
          * @param value The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.
          */
         public ConceptReferenceComponent setDisplay(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.display = null;
           else {
             if (this.display == null)
@@ -1463,7 +1464,7 @@ public class ValueSet extends Resource {
          * @param value The system in which the code for this item in the expansion is defined.
          */
         public ValueSetExpansionContainsComponent setSystem(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.system = null;
           else {
             if (this.system == null)
@@ -1535,7 +1536,7 @@ public class ValueSet extends Resource {
          * @param value The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.
          */
         public ValueSetExpansionContainsComponent setVersion(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.version = null;
           else {
             if (this.version == null)
@@ -1571,7 +1572,7 @@ public class ValueSet extends Resource {
          * @param value Code - if blank, this is not a choosable code.
          */
         public ValueSetExpansionContainsComponent setCode(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.code = null;
           else {
             if (this.code == null)
@@ -1607,7 +1608,7 @@ public class ValueSet extends Resource {
          * @param value User display for the concept.
          */
         public ValueSetExpansionContainsComponent setDisplay(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.display = null;
           else {
             if (this.display == null)
@@ -1781,7 +1782,7 @@ public class ValueSet extends Resource {
      * @param value The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
     public ValueSet setIdentifier(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.identifier = null;
       else {
         if (this.identifier == null)
@@ -1817,7 +1818,7 @@ public class ValueSet extends Resource {
      * @param value The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
     public ValueSet setVersion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.version = null;
       else {
         if (this.version == null)
@@ -1853,7 +1854,7 @@ public class ValueSet extends Resource {
      * @param value A free text natural language name describing the value set.
      */
     public ValueSet setName(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.name = null;
       else {
         if (this.name == null)
@@ -1889,7 +1890,7 @@ public class ValueSet extends Resource {
      * @param value This should describe "the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
      */
     public ValueSet setPurpose(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.purpose = null;
       else {
         if (this.purpose == null)
@@ -1961,7 +1962,7 @@ public class ValueSet extends Resource {
      * @param value The name of the individual or organization that published the value set.
      */
     public ValueSet setPublisher(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.publisher = null;
       else {
         if (this.publisher == null)
@@ -2014,7 +2015,7 @@ public class ValueSet extends Resource {
      * @param value A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of expected usages for the value set.
      */
     public ValueSet setDescription(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.description = null;
       else {
         if (this.description == null)
@@ -2050,7 +2051,7 @@ public class ValueSet extends Resource {
      * @param value A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.
      */
     public ValueSet setCopyright(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.copyright = null;
       else {
         if (this.copyright == null)

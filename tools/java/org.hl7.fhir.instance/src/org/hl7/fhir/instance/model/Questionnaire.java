@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
  */
@@ -353,7 +354,7 @@ public class Questionnaire extends Resource {
          * @param value A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
         public GroupComponent setLinkId(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.linkId = null;
           else {
             if (this.linkId == null)
@@ -389,7 +390,7 @@ public class Questionnaire extends Resource {
          * @param value The human-readable name for this section of the questionnaire.
          */
         public GroupComponent setTitle(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.title = null;
           else {
             if (this.title == null)
@@ -442,7 +443,7 @@ public class Questionnaire extends Resource {
          * @param value Additional text for the group, used for display purposes.
          */
         public GroupComponent setText(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.text = null;
           else {
             if (this.text == null)
@@ -669,7 +670,7 @@ public class Questionnaire extends Resource {
          * @param value An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.
          */
         public QuestionComponent setLinkId(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.linkId = null;
           else {
             if (this.linkId == null)
@@ -722,7 +723,7 @@ public class Questionnaire extends Resource {
          * @param value Text of the question as it is shown to the user.
          */
         public QuestionComponent setText(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.text = null;
           else {
             if (this.text == null)
@@ -1003,7 +1004,7 @@ public class Questionnaire extends Resource {
      * @param value The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.
      */
     public Questionnaire setVersion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.version = null;
       else {
         if (this.version == null)
@@ -1107,7 +1108,7 @@ public class Questionnaire extends Resource {
      * @param value Organization responsible for developing and maintaining the questionnaire.
      */
     public Questionnaire setPublisher(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.publisher = null;
       else {
         if (this.publisher == null)

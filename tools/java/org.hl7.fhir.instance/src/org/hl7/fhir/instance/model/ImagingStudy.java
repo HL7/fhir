@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
  */
@@ -1266,7 +1267,7 @@ public class ImagingStudy extends Resource {
          * @param value A description of the series.
          */
         public ImagingStudySeriesComponent setDescription(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.description = null;
           else {
             if (this.description == null)
@@ -1370,7 +1371,7 @@ public class ImagingStudy extends Resource {
          * @param value WADO-RS URI where Series is available.
          */
         public ImagingStudySeriesComponent setUrl(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.url = null;
           else {
             if (this.url == null)
@@ -1660,7 +1661,7 @@ public class ImagingStudy extends Resource {
          * @param value Type of instance (image etc) (0004,1430).
          */
         public ImagingStudySeriesInstanceComponent setType(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.type = null;
           else {
             if (this.type == null)
@@ -1696,7 +1697,7 @@ public class ImagingStudy extends Resource {
          * @param value Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).
          */
         public ImagingStudySeriesInstanceComponent setTitle(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.title = null;
           else {
             if (this.title == null)
@@ -1732,7 +1733,7 @@ public class ImagingStudy extends Resource {
          * @param value WADO-RS url where image is available.
          */
         public ImagingStudySeriesInstanceComponent setUrl(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.url = null;
           else {
             if (this.url == null)
@@ -2209,7 +2210,7 @@ public class ImagingStudy extends Resource {
      * @param value WADO-RS URI where Study is available.
      */
     public ImagingStudy setUrl(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.url = null;
       else {
         if (this.url == null)
@@ -2309,7 +2310,7 @@ public class ImagingStudy extends Resource {
      * @param value Diagnoses etc provided with request.
      */
     public ImagingStudy setClinicalInformation(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.clinicalInformation = null;
       else {
         if (this.clinicalInformation == null)
@@ -2392,7 +2393,7 @@ public class ImagingStudy extends Resource {
      * @param value Institution-generated description or classification of the Study (component) performed.
      */
     public ImagingStudy setDescription(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.description = null;
       else {
         if (this.description == null)

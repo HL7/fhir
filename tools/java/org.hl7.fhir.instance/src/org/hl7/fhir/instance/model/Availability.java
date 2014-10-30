@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * (informative) A container for slot(s) of time that may be available for booking appointments.
  */
@@ -189,7 +190,7 @@ public class Availability extends Resource {
      * @param value Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.
      */
     public Availability setComment(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.comment = null;
       else {
         if (this.comment == null)

@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * An order for both supply of the medication and the instructions for administration of the medicine to a patient.
  */
@@ -219,7 +220,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          * @param value Free text dosage instructions for cases where the instructions are too complex to code.
          */
         public MedicationPrescriptionDosageInstructionComponent setText(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.text = null;
           else {
             if (this.text == null)

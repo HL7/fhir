@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
  */
@@ -172,7 +173,7 @@ public class QuestionnaireAnswers extends Resource {
          * @param value Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.
          */
         public GroupComponent setLinkId(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.linkId = null;
           else {
             if (this.linkId == null)
@@ -208,7 +209,7 @@ public class QuestionnaireAnswers extends Resource {
          * @param value Text that is displayed above the contents of the group.
          */
         public GroupComponent setTitle(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.title = null;
           else {
             if (this.title == null)
@@ -244,7 +245,7 @@ public class QuestionnaireAnswers extends Resource {
          * @param value Additional text for the group, used for display purposes.
          */
         public GroupComponent setText(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.text = null;
           else {
             if (this.text == null)
@@ -398,7 +399,7 @@ public class QuestionnaireAnswers extends Resource {
          * @param value Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.
          */
         public QuestionComponent setLinkId(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.linkId = null;
           else {
             if (this.linkId == null)
@@ -434,7 +435,7 @@ public class QuestionnaireAnswers extends Resource {
          * @param value Text of the question as it is shown to the user.
          */
         public QuestionComponent setText(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.text = null;
           else {
             if (this.text == null)

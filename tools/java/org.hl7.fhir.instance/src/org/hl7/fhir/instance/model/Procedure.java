@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * An action that is performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy.
  */
@@ -560,7 +561,7 @@ public class Procedure extends Resource {
      * @param value What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.
      */
     public Procedure setOutcome(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.outcome = null;
       else {
         if (this.outcome == null)
@@ -647,7 +648,7 @@ public class Procedure extends Resource {
      * @param value If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used.
      */
     public Procedure setFollowUp(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.followUp = null;
       else {
         if (this.followUp == null)
@@ -700,7 +701,7 @@ public class Procedure extends Resource {
      * @param value Any other notes about the procedure - e.g. the operative notes.
      */
     public Procedure setNotes(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.notes = null;
       else {
         if (this.notes == null)

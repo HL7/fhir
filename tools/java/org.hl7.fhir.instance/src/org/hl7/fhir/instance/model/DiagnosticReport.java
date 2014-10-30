@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.
  */
@@ -207,7 +208,7 @@ public class DiagnosticReport extends Resource {
          * @param value A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
         public DiagnosticReportImageComponent setComment(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.comment = null;
           else {
             if (this.comment == null)
@@ -751,7 +752,7 @@ public class DiagnosticReport extends Resource {
      * @param value Concise and clinically contextualized narrative interpretation of the diagnostic report.
      */
     public DiagnosticReport setConclusion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.conclusion = null;
       else {
         if (this.conclusion == null)

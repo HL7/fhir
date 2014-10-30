@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
  */
@@ -570,7 +571,7 @@ public class AdverseReactionRisk extends Resource {
          * @param value Text description about the Reaction as a whole, including details of the manifestation if required.
          */
         public AdverseReactionRiskEventComponent setDescription(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.description = null;
           else {
             if (this.description == null)
@@ -708,7 +709,7 @@ public class AdverseReactionRisk extends Resource {
          * @param value Additional text about the Adverse Reaction event not captured in other fields.
          */
         public AdverseReactionRiskEventComponent setComment(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.comment = null;
           else {
             if (this.comment == null)
@@ -1165,7 +1166,7 @@ public class AdverseReactionRisk extends Resource {
      * @param value Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
      */
     public AdverseReactionRisk setComment(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.comment = null;
       else {
         if (this.comment == null)

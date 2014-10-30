@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn't an Organization.
  */
@@ -419,7 +420,7 @@ public class Group extends Resource {
      * @param value A label assigned to the group for human identification and communication.
      */
     public Group setName(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.name = null;
       else {
         if (this.name == null)

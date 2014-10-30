@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * The formal description of a single piece of information that can be gathered and reported.
  */
@@ -301,7 +302,7 @@ public class DataElement extends Resource {
          * @param value Describes the intended use of this particular set of codes.
          */
         public DataElementBindingComponent setDescription(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.description = null;
           else {
             if (this.description == null)
@@ -418,7 +419,7 @@ public class DataElement extends Resource {
          * @param value A URI that identifies the specification that this mapping is expressed to.
          */
         public DataElementMappingComponent setUri(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.uri = null;
           else {
             if (this.uri == null)
@@ -454,7 +455,7 @@ public class DataElement extends Resource {
          * @param value A name for the specification that is being mapped to.
          */
         public DataElementMappingComponent setName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.name = null;
           else {
             if (this.name == null)
@@ -490,7 +491,7 @@ public class DataElement extends Resource {
          * @param value Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
         public DataElementMappingComponent setComments(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.comments = null;
           else {
             if (this.comments == null)
@@ -703,7 +704,7 @@ public class DataElement extends Resource {
      * @param value The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
      */
     public DataElement setVersion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.version = null;
       else {
         if (this.version == null)
@@ -739,7 +740,7 @@ public class DataElement extends Resource {
      * @param value Details of the individual or organization who accepts responsibility for publishing the data element.
      */
     public DataElement setPublisher(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.publisher = null;
       else {
         if (this.publisher == null)
@@ -860,7 +861,7 @@ public class DataElement extends Resource {
      * @param value The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
      */
     public DataElement setName(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.name = null;
       else {
         if (this.name == null)
@@ -930,7 +931,7 @@ public class DataElement extends Resource {
      * @param value The default/suggested phrasing to use when prompting a human to capture the data element.
      */
     public DataElement setQuestion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.question = null;
       else {
         if (this.question == null)
@@ -966,7 +967,7 @@ public class DataElement extends Resource {
      * @param value Provides a complete explanation of the meaning of the data element for human readability.
      */
     public DataElement setDefinition(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.definition = null;
       else {
         if (this.definition == null)
@@ -1002,7 +1003,7 @@ public class DataElement extends Resource {
      * @param value Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
     public DataElement setComments(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.comments = null;
       else {
         if (this.comments == null)
@@ -1038,7 +1039,7 @@ public class DataElement extends Resource {
      * @param value Explains why this element is needed and why it's been constrained as it has.
      */
     public DataElement setRequirements(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.requirements = null;
       else {
         if (this.requirements == null)
@@ -1111,7 +1112,7 @@ public class DataElement extends Resource {
      * @param value The FHIR data type that is the type for this element.
      */
     public DataElement setType(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.type = null;
       else {
         if (this.type == null)

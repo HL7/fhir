@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A technical identifier - identifies some entity uniquely and unambiguously.
  */
@@ -217,7 +218,7 @@ public class Identifier extends Type {
      * @param value A text string for the identifier that can be displayed to a human so they can recognize the identifier.
      */
     public Identifier setLabel(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.label = null;
       else {
         if (this.label == null)
@@ -253,7 +254,7 @@ public class Identifier extends Type {
      * @param value Establishes the namespace in which set of possible id values is unique.
      */
     public Identifier setSystem(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.system = null;
       else {
         if (this.system == null)
@@ -289,7 +290,7 @@ public class Identifier extends Type {
      * @param value The portion of the identifier typically displayed to the user and which is unique within the context of the system.
      */
     public Identifier setValue(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.value = null;
       else {
         if (this.value == null)

@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
  */
@@ -371,7 +372,7 @@ public class Organization extends Resource {
      * @param value A name associated with the organization.
      */
     public Organization setName(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.name = null;
       else {
         if (this.name == null)

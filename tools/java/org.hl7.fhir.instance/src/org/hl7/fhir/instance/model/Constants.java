@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 
 public class Constants {
 
   public final static String VERSION = "0.3.0";
-  public final static String REVISION = "3285";
-  public final static String DATE = "Thu Oct 30 11:09:45 EST 2014";
+  public final static String REVISION = "3286";
+  public final static String DATE = "Thu Oct 30 11:37:01 EST 2014";
 }

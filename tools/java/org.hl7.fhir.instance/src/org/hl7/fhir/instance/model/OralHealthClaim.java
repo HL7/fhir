@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
  */
@@ -540,7 +541,7 @@ public class OralHealthClaim extends Resource {
          * @param value The contract number of a business agrement which describes the terms and conditions.
          */
         public CoverageComponent setBusinessArrangement(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.businessArrangement = null;
           else {
             if (this.businessArrangement == null)
@@ -2543,7 +2544,7 @@ public class OralHealthClaim extends Resource {
      * @param value Name of school.
      */
     public OralHealthClaim setSchool(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.school = null;
       else {
         if (this.school == null)

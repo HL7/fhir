@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Significant health events and conditions for people related to the subject relevant in the context of care for the subject.
  */
@@ -111,7 +112,7 @@ public class FamilyHistory extends Resource {
          * @param value This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".
          */
         public FamilyHistoryRelationComponent setName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.name = null;
           else {
             if (this.name == null)
@@ -207,7 +208,7 @@ public class FamilyHistory extends Resource {
          * @param value This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
          */
         public FamilyHistoryRelationComponent setNote(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.note = null;
           else {
             if (this.note == null)
@@ -364,7 +365,7 @@ public class FamilyHistory extends Resource {
          * @param value An area where general notes can be placed about this specific condition.
          */
         public FamilyHistoryRelationConditionComponent setNote(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.note = null;
           else {
             if (this.note == null)
@@ -543,7 +544,7 @@ public class FamilyHistory extends Resource {
      * @param value Conveys information about family history not specific to individual relations.
      */
     public FamilyHistory setNote(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.note = null;
       else {
         if (this.note == null)

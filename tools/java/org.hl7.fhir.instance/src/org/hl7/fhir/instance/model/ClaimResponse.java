@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import java.math.*;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * This resource provides the adjudication details from the processing of a Claim resource.
  */
@@ -1584,7 +1585,7 @@ public class ClaimResponse extends Resource {
          * @param value The note text.
          */
         public NotesComponent setText(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.text = null;
           else {
             if (this.text == null)
@@ -1893,7 +1894,7 @@ public class ClaimResponse extends Resource {
      * @param value A description of the status of the adjudication.
      */
     public ClaimResponse setDisposition(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.disposition = null;
       else {
         if (this.disposition == null)

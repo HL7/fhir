@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import java.math.*;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
  */
@@ -183,7 +184,7 @@ public class RiskAssessment extends Resource {
          * @param value Additional information explaining the basis for the prediction.
          */
         public RiskAssessmentPredictionComponent setRationale(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.rationale = null;
           else {
             if (this.rationale == null)
@@ -508,7 +509,7 @@ public class RiskAssessment extends Resource {
      * @param value A description of the steps that might be taken to reduce the identified risk(s).
      */
     public RiskAssessment setMitigation(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.mitigation = null;
       else {
         if (this.mitigation == null)

@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
  */
@@ -426,7 +427,7 @@ public class OperationDefinition extends Resource {
          * @param value Describes the meaning or use of this parameter.
          */
         public OperationDefinitionParameterComponent setDocumentation(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.documentation = null;
           else {
             if (this.documentation == null)
@@ -643,7 +644,7 @@ public class OperationDefinition extends Resource {
      * @param value The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
     public OperationDefinition setIdentifier(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.identifier = null;
       else {
         if (this.identifier == null)
@@ -679,7 +680,7 @@ public class OperationDefinition extends Resource {
      * @param value The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
     public OperationDefinition setVersion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.version = null;
       else {
         if (this.version == null)
@@ -747,7 +748,7 @@ public class OperationDefinition extends Resource {
      * @param value Details of the individual or organization who accepts responsibility for publishing the profile.
      */
     public OperationDefinition setPublisher(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.publisher = null;
       else {
         if (this.publisher == null)
@@ -800,7 +801,7 @@ public class OperationDefinition extends Resource {
      * @param value A free text natural language description of the profile and its use.
      */
     public OperationDefinition setDescription(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.description = null;
       else {
         if (this.description == null)
@@ -1021,7 +1022,7 @@ public class OperationDefinition extends Resource {
      * @param value Additional information about how to use this operation or named query.
      */
     public OperationDefinition setNotes(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.notes = null;
       else {
         if (this.notes == null)

@@ -995,7 +995,7 @@ public class SpreadsheetParser {
 		e.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
 		e.setDisplayHint(sheet.getColumn(row, "Display Hint"));
 		if (isProfile) {
-      e.setValue(processValue(sheet, row, "Value", e));
+      e.setFixed(processValue(sheet, row, "Value", e));
       e.setPattern(processValue(sheet, row, "Pattern", e));
 		}
 		return e;
@@ -1148,10 +1148,10 @@ public class SpreadsheetParser {
 
 
 	    e.getTypes().clear();
-	    e.getElementByName("definition").setValue(new UriType(uri));
+	    e.getElementByName("definition").setFixed(new UriType(uri));
 	    e.getElementByName("ref").ban();
 	    if (e.isModifier())
-	      e.getElementByName("mustUnderstand").setValue(new BooleanType(true));
+	      e.getElementByName("mustUnderstand").setFixed(new BooleanType(true));
 	    else
 	      e.getElementByName("mustUnderstand").ban();
 	    ElementDefn v = e.getElementByName("value[x]");
@@ -1292,7 +1292,7 @@ public class SpreadsheetParser {
 						"Extensions"));
 				t.setName("extension");
 				t.setProfileName(en);
-				t.getElementByName("code").setValue(new CodeType(en));
+				t.getElementByName("code").setFixed(new CodeType(en));
 				res.getElements().add(t);
 			}
 			res = t;

@@ -76,7 +76,7 @@ public class ElementDefn {
 	private String profileName; // only in a profile, for slicing
 	private List<String> discriminator = new ArrayList<String>(); // when slicing
   private Type example;
-  private Type value; // only in a profile
+  private Type fixed; // only in a profile
   private Type pattern; // only in a profile
 	private ElementComponent derivation;
 	private boolean inherited; // in a profile, was this element add from the
@@ -117,7 +117,7 @@ public class ElementDefn {
 		condition = pattern.condition;
 		example = pattern.example;
 		profileName = pattern.profileName;
-		value = pattern.value;
+		fixed = pattern.fixed;
 		inherited = pattern.inherited;
 
 	}
@@ -459,16 +459,16 @@ public class ElementDefn {
 		this.profileName = profileName;
 	}
 
-	public Type getValue() {
-		return value;
+	public Type getFixed() {
+		return fixed;
 	}
 
-	public void setValue(Type value) {
-		this.value = value;
+	public void setFixed(Type value) {
+		this.fixed = value;
 	}
 
-	public boolean hasValue() {
-		return value != null && !value.equals("");
+	public boolean hasFixed() {
+		return fixed != null && !fixed.equals("");
 	}
 
 	public void ban() {

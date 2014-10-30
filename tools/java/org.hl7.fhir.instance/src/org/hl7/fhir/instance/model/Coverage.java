@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Financial instrument which may be used to pay for or reimburse for health care products and services.
  */
@@ -220,7 +221,7 @@ public class Coverage extends Resource {
      * @param value Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
      */
     public Coverage setGroup(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.group = null;
       else {
         if (this.group == null)
@@ -256,7 +257,7 @@ public class Coverage extends Resource {
      * @param value Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
      */
     public Coverage setPlan(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.plan = null;
       else {
         if (this.plan == null)
@@ -292,7 +293,7 @@ public class Coverage extends Resource {
      * @param value Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.
      */
     public Coverage setSubplan(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.subplan = null;
       else {
         if (this.subplan == null)

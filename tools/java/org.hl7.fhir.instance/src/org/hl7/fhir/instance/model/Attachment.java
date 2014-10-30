@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * For referring to data content defined in other formats.
  */
@@ -105,7 +106,7 @@ public class Attachment extends Type {
      * @param value Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
      */
     public Attachment setContentType(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.contentType = null;
       else {
         if (this.contentType == null)
@@ -141,7 +142,7 @@ public class Attachment extends Type {
      * @param value The human language of the content. The value can be any valid value according to BCP 47.
      */
     public Attachment setLanguage(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.language = null;
       else {
         if (this.language == null)
@@ -213,7 +214,7 @@ public class Attachment extends Type {
      * @param value An alternative location where the data can be accessed.
      */
     public Attachment setUrl(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.url = null;
       else {
         if (this.url == null)
@@ -321,7 +322,7 @@ public class Attachment extends Type {
      * @param value A label or set of text to display in place of the data.
      */
     public Attachment setTitle(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.title = null;
       else {
         if (this.title == null)

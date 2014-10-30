@@ -629,8 +629,8 @@ public class ProfileUtilities {
         dst.setMinElement(src.getMinElement().copy());
       if (src.getMaxElement() != null)
         dst.setMaxElement(src.getMaxElement().copy());
-      if (src.getValue() != null)
-        dst.setValue(src.getValue().copy());
+      if (src.getFixed() != null)
+        dst.setFixed(src.getFixed().copy());
       if (src.getPattern() != null)
         dst.setPattern(src.getPattern().copy());
       if (src.getExample() != null)
@@ -969,10 +969,10 @@ public class ProfileUtilities {
           c.getPieces().add(gen.new Piece(null, "Inv-"+inv.getKey()+": ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(null, inv.getHuman(), null));
         }
-        if (definition.getDefinition().getValue() != null) {        
+        if (definition.getDefinition().getFixed() != null) {        
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
           c.getPieces().add(gen.new Piece(null, "Fixed Value: ", null).addStyle("font-weight:bold"));
-          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getValue()), null).addStyle("color: darkgreen"));
+          c.getPieces().add(gen.new Piece(null, buildJson(definition.getDefinition().getFixed()), null).addStyle("color: darkgreen"));
         } else if (definition.getDefinition().getPattern() != null) {        
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
           c.getPieces().add(gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold"));
@@ -1027,7 +1027,7 @@ public class ProfileUtilities {
     return d.getShort() == null && d.getFormal() == null && 
         d.getRequirements() == null && d.getSynonym().isEmpty() && d.getMinElement() == null &&
         d.getMax() == null && d.getType().isEmpty() && d.getNameReference() == null && 
-        d.getExample() == null && d.getValue() == null && d.getMaxLengthElement() == null &&
+        d.getExample() == null && d.getFixed() == null && d.getMaxLengthElement() == null &&
         d.getCondition().isEmpty() && d.getConstraint().isEmpty() && d.getMustSupportElement() == null &&
         d.getBinding() == null;
   }

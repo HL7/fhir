@@ -1871,27 +1871,29 @@ public class NarrativeGenerator {
 	}
 	
 	private void addMarkdown(XhtmlNode x, String text) throws Exception {
-    // 1. custom FHIR extensions
-    while (text.contains("[[[")) {
-      String left = text.substring(0, text.indexOf("[[["));
-      String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
-      String right = text.substring(text.indexOf("]]]")+3);
-      String actual = url;
-//      String[] parts = url.split("\\#");
-//      Profile p = parts[0]; // todo: definitions.getProfileByURL(parts[0]);
-//      if (p != null)
-//        actual = p.getTag("filename")+".html";
-//      else {
-//        throw new Exception("Unresolved logical URL "+url);
-//      }
-      text = left+"["+url+"]("+actual+")"+right;
-    }
-    
-    // 2. markdown
-    String s = Processor.process(Utilities.escapeXml(text));
-    XhtmlParser p = new XhtmlParser();
-    XhtmlNode m = p.parse("<div>"+s+"</div>", "div");
-    x.getChildNodes().addAll(m.getChildNodes());   
+	  if (text != null) {	    
+	    // 1. custom FHIR extensions
+	    while (text.contains("[[[")) {
+	      String left = text.substring(0, text.indexOf("[[["));
+	      String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
+	      String right = text.substring(text.indexOf("]]]")+3);
+	      String actual = url;
+	      //      String[] parts = url.split("\\#");
+	      //      Profile p = parts[0]; // todo: definitions.getProfileByURL(parts[0]);
+	      //      if (p != null)
+	      //        actual = p.getTag("filename")+".html";
+	      //      else {
+	      //        throw new Exception("Unresolved logical URL "+url);
+	      //      }
+	      text = left+"["+url+"]("+actual+")"+right;
+	    }
+
+	    // 2. markdown
+	    String s = Processor.process(Utilities.escapeXml(text));
+	    XhtmlParser p = new XhtmlParser();
+	    XhtmlNode m = p.parse("<div>"+s+"</div>", "div");
+	    x.getChildNodes().addAll(m.getChildNodes());
+	  }
   }
 
   public void generate(Conformance conf) {

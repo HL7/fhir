@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
  */
@@ -392,7 +393,7 @@ public class Media extends Resource {
      * @param value The name of the device / manufacturer of the device  that was used to make the recording.
      */
     public Media setDeviceName(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.deviceName = null;
       else {
         if (this.deviceName == null)

@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.
  */
@@ -223,7 +224,7 @@ P.O. Box number, delivery hints, and similar address information.
      * @param value A full text representation of the address.
      */
     public Address setText(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.text = null;
       else {
         if (this.text == null)
@@ -300,7 +301,7 @@ P.O. Box number, delivery hints, and similar address information.)
      * @param value The name of the city, town, village or other community or delivery center.
      */
     public Address setCity(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.city = null;
       else {
         if (this.city == null)
@@ -336,7 +337,7 @@ P.O. Box number, delivery hints, and similar address information.)
      * @param value Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).
      */
     public Address setState(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.state = null;
       else {
         if (this.state == null)
@@ -372,7 +373,7 @@ P.O. Box number, delivery hints, and similar address information.)
      * @param value A postal code designating a region defined by the postal service.
      */
     public Address setPostalCode(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.postalCode = null;
       else {
         if (this.postalCode == null)
@@ -408,7 +409,7 @@ P.O. Box number, delivery hints, and similar address information.)
      * @param value Country - a nation as commonly understood or generally accepted.
      */
     public Address setCountry(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.country = null;
       else {
         if (this.country == null)

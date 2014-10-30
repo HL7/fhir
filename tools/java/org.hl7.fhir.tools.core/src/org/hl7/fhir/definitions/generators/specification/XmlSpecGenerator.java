@@ -346,7 +346,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 					+ "</span><span style=\"color: Gray\">&lt; --&gt;</span> &lt;/div&gt;\r\n");
 		}
 		// element has a constraint which fixes its value
-		else if (elem.hasValue()) {
+		else if (elem.hasFixed()) {
 			if (defPage == null) {
 				write(en+"</span>&gt;");
 			} else if (elem.isModifier() || elem.isMustSupport())
@@ -360,7 +360,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 //				write(renderQuantity(indent, elem.getValue()) + "&lt;" + en + "/&gt;\r\n");
 //			else
 //				write(elem.getValue() + "&lt;" + en + "/&gt;\r\n");
-       write(renderType(indent, elem.getValue()) + "&lt;" + en + "/&gt;\r\n");
+       write(renderType(indent, elem.getFixed()) + "&lt;" + en + "/&gt;\r\n");
 		} else {
 			write("<b>" + en);
 			if (defPage == null) {

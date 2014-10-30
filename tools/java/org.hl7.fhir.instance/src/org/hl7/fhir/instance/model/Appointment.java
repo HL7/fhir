@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A scheduled healthcare event for a patient and/or practitioner(s) where a service may take place at a specific date/time.
  */
@@ -559,7 +560,7 @@ public class Appointment extends Resource {
      * @param value Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
      */
     public Appointment setStatus(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.status = null;
       else {
         if (this.status == null)
@@ -625,7 +626,7 @@ public class Appointment extends Resource {
      * @param value The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.
      */
     public Appointment setDescription(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.description = null;
       else {
         if (this.description == null)
@@ -789,7 +790,7 @@ public class Appointment extends Resource {
      * @param value Additional comments about the appointment.
      */
     public Appointment setComment(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.comment = null;
       else {
         if (this.comment == null)

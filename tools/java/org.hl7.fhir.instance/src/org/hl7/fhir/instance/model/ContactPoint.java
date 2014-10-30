@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
  */
@@ -288,7 +289,7 @@ public class ContactPoint extends Type {
      * @param value The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
      */
     public ContactPoint setValue(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.value = null;
       else {
         if (this.value == null)

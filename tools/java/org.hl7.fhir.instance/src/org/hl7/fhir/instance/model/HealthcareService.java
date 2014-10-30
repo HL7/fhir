@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * (informative) The details of a Healthcare Service available at a location.
  */
@@ -676,7 +677,7 @@ public class HealthcareService extends Resource {
      * @param value Further description of the service as it would be presented to a consumer while searching.
      */
     public HealthcareService setServiceName(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.serviceName = null;
       else {
         if (this.serviceName == null)
@@ -712,7 +713,7 @@ public class HealthcareService extends Resource {
      * @param value Additional description of the  or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
      */
     public HealthcareService setComment(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.comment = null;
       else {
         if (this.comment == null)
@@ -748,7 +749,7 @@ public class HealthcareService extends Resource {
      * @param value Extra details about the service that can't be placed in the other fields.
      */
     public HealthcareService setExtraDetails(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.extraDetails = null;
       else {
         if (this.extraDetails == null)
@@ -814,7 +815,7 @@ public class HealthcareService extends Resource {
      * @param value The description of service eligibility should, in general, not exceed one or two paragraphs. It should be sufficient for a prospective consumer to determine if they are likely to be eligible or not. Where eligibility requirements and conditions are complex, it may simply be noted that an eligibility assessment is required. Where eligibility is determined by an outside source, such as an Act of Parliament, this should be noted, preferably with a reference to a commonly available copy of the source document such as a web page.
      */
     public HealthcareService setEligibilityNote(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.eligibilityNote = null;
       else {
         if (this.eligibilityNote == null)
@@ -865,7 +866,7 @@ public class HealthcareService extends Resource {
      * @param value If there is an image associated with this Service Site, its URI can be included here.
      */
     public HealthcareService setImageURI(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.imageURI = null;
       else {
         if (this.imageURI == null)
@@ -935,7 +936,7 @@ public class HealthcareService extends Resource {
      * @param value A description of Site availability exceptions, e.g., public holiday availability. Succinctly describing all possible exceptions to normal Site availability as details in the Available Times and Not Available Times.
      */
     public HealthcareService setAvailabilityExceptions(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.availabilityExceptions = null;
       else {
         if (this.availabilityExceptions == null)
@@ -971,7 +972,7 @@ public class HealthcareService extends Resource {
      * @param value The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.
      */
     public HealthcareService setPublicKey(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.publicKey = null;
       else {
         if (this.publicKey == null)

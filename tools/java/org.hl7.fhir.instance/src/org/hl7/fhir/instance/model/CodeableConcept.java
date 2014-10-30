@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.
  */
@@ -97,7 +98,7 @@ public class CodeableConcept extends Type {
      * @param value A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.
      */
     public CodeableConcept setText(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.text = null;
       else {
         if (this.text == null)

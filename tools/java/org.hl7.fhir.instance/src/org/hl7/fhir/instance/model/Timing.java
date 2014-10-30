@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import java.math.*;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Specifies an event that may occur multiple times. Timing schedules are used for to record when things are expected or requested to occur.
  */

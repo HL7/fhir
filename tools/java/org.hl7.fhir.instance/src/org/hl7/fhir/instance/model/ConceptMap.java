@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
  */
@@ -320,7 +321,7 @@ public class ConceptMap extends Resource {
          * @param value Identifies element being mapped.
          */
         public ConceptMapElementComponent setCode(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.code = null;
           else {
             if (this.code == null)
@@ -592,7 +593,7 @@ public class ConceptMap extends Resource {
          * @param value System of the target (if necessary).
          */
         public ConceptMapElementMapComponent setCodeSystem(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.codeSystem = null;
           else {
             if (this.codeSystem == null)
@@ -628,7 +629,7 @@ public class ConceptMap extends Resource {
          * @param value Code that identifies the target element.
          */
         public ConceptMapElementMapComponent setCode(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.code = null;
           else {
             if (this.code == null)
@@ -696,7 +697,7 @@ public class ConceptMap extends Resource {
          * @param value Description of status/issues in mapping.
          */
         public ConceptMapElementMapComponent setComments(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.comments = null;
           else {
             if (this.comments == null)
@@ -851,7 +852,7 @@ public class ConceptMap extends Resource {
      * @param value The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
     public ConceptMap setIdentifier(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.identifier = null;
       else {
         if (this.identifier == null)
@@ -887,7 +888,7 @@ public class ConceptMap extends Resource {
      * @param value The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
     public ConceptMap setVersion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.version = null;
       else {
         if (this.version == null)
@@ -955,7 +956,7 @@ public class ConceptMap extends Resource {
      * @param value The name of the individual or organization that published the concept map.
      */
     public ConceptMap setPublisher(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.publisher = null;
       else {
         if (this.publisher == null)
@@ -1008,7 +1009,7 @@ public class ConceptMap extends Resource {
      * @param value A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.
      */
     public ConceptMap setDescription(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.description = null;
       else {
         if (this.description == null)
@@ -1044,7 +1045,7 @@ public class ConceptMap extends Resource {
      * @param value A copyright statement relating to the concept map and/or its contents.
      */
     public ConceptMap setCopyright(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.copyright = null;
       else {
         if (this.copyright == null)

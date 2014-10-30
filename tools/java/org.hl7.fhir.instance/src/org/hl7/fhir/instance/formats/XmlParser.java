@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -5779,8 +5779,8 @@ public class XmlParser extends XmlParserBase {
         res.getType().add(parseProfileTypeRefComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("nameReference")) {
         res.setNameReferenceElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "value")) {
-        res.setValue(parseType("value", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "fixed")) {
+        res.setFixed(parseType("fixed", xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "pattern")) {
         res.setPattern(parseType("pattern", xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "example")) {

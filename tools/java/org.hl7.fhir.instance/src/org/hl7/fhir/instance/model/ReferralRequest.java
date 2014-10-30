@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organisation.
  */
@@ -530,7 +531,7 @@ public class ReferralRequest extends Resource {
      * @param value The reason gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.
      */
     public ReferralRequest setDescription(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.description = null;
       else {
         if (this.description == null)

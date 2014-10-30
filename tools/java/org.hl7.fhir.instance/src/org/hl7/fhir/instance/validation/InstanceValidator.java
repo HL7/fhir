@@ -1067,8 +1067,8 @@ public class InstanceValidator extends BaseValidator {
   	if (type != null && typeIsPrimitive(type)) {
   		checkPrimitiveByProfile(errors, path, focus, elementDefn);
   	} else {
-  		if (elementDefn.getDefinition().getValue() != null)
-  			checkFixedValue(errors, path, focus, elementDefn.getDefinition().getValue(), "");
+  		if (elementDefn.getDefinition().getFixed() != null)
+  			checkFixedValue(errors, path, focus, elementDefn.getDefinition().getFixed(), "");
   			 
   		ProfileStructureIterator walker = new ProfileStructureIterator(profile, sc, elementDefn);
   		while (walker.more()) {
@@ -1188,8 +1188,8 @@ public class InstanceValidator extends BaseValidator {
 		if (elementDefn.getDefinition().getMaxLengthElement() != null) {
 			rule(errors, "too long", path, value.length() <= elementDefn.getDefinition().getMaxLength(), "The value '"+value+"' exceeds the allow length limit of "+Integer.toString(elementDefn.getDefinition().getMaxLength()));
 		}
-		if (elementDefn.getDefinition().getValue() != null) {
-			checkFixedValue(errors, path, focus, elementDefn.getDefinition().getValue(), "");
+		if (elementDefn.getDefinition().getFixed() != null) {
+			checkFixedValue(errors, path, focus, elementDefn.getDefinition().getFixed(), "");
 		}
   }
 

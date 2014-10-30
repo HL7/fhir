@@ -157,7 +157,7 @@
 					<formal value="CDA: all documents are final"/>
 					<min value="1"/>
 					<max value="1"/>
-					<valueCode value="final"/>
+					<fixedCode value="final"/>
 					<mapping>
 						<identity value="cda"/>
 						<map value="n/a"/>
@@ -988,12 +988,12 @@ unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[
 					<short value="in CDA, only Guardian is allowed"/>
 					<min value="1"/>
 					<max value="1"/>
-					<valueCodeableConcept>
+					<fixedCodeableConcept>
 						<coding>
 							<system value="http://hl7.org/fhir/patient-contact-relationship"/>
 							<code value="guardian"/>
 						</coding>
-					</valueCodeableConcept>
+					</fixedCodeableConcept>
 				</definition>
 			</element>
 			<element>

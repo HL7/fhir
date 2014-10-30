@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A Resource Profile - a statement of use of one or more FHIR Resources.  It may include constraints on Resources and Data Types, Terminology Binding Statements and Extension Definitions.
  */
@@ -676,7 +677,7 @@ public class Profile extends Resource {
          * @param value A URI that identifies the specification that this mapping is expressed to.
          */
         public ProfileMappingComponent setUri(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.uri = null;
           else {
             if (this.uri == null)
@@ -712,7 +713,7 @@ public class Profile extends Resource {
          * @param value A name for the specification that is being mapped to.
          */
         public ProfileMappingComponent setName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.name = null;
           else {
             if (this.name == null)
@@ -748,7 +749,7 @@ public class Profile extends Resource {
          * @param value Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
         public ProfileMappingComponent setComments(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.comments = null;
           else {
             if (this.comments == null)
@@ -888,7 +889,7 @@ public class Profile extends Resource {
          * @param value The structure that is the base on which this set of constraints is derived from.
          */
         public ProfileStructureComponent setBase(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.base = null;
           else {
             if (this.base == null)
@@ -992,7 +993,7 @@ public class Profile extends Resource {
          * @param value Human summary: why describe this resource?.
          */
         public ProfileStructureComponent setPurpose(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.purpose = null;
           else {
             if (this.purpose == null)
@@ -1254,7 +1255,7 @@ public class Profile extends Resource {
          * @param value The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
          */
         public ElementComponent setName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.name = null;
           else {
             if (this.name == null)
@@ -1412,7 +1413,7 @@ public class Profile extends Resource {
          * @param value A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.
          */
         public ElementSlicingComponent setDescription(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.description = null;
           else {
             if (this.description == null)
@@ -1560,7 +1561,7 @@ public class Profile extends Resource {
         /**
          * Specifies a value that SHALL be exactly the value  for this element in the instance.
          */
-        protected org.hl7.fhir.instance.model.Type value;
+        protected org.hl7.fhir.instance.model.Type fixed;
 
         /**
          * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too.
@@ -1612,7 +1613,7 @@ public class Profile extends Resource {
          */
         protected List<ElementDefinitionMappingComponent> mapping = new ArrayList<ElementDefinitionMappingComponent>();
 
-        private static final long serialVersionUID = -1222745348L;
+        private static final long serialVersionUID = -610849089L;
 
       public ElementDefinitionComponent() {
         super();
@@ -1644,7 +1645,7 @@ public class Profile extends Resource {
          * @param value A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).
          */
         public ElementDefinitionComponent setShort(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.short_ = null;
           else {
             if (this.short_ == null)
@@ -1680,7 +1681,7 @@ public class Profile extends Resource {
          * @param value The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
          */
         public ElementDefinitionComponent setFormal(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.formal = null;
           else {
             if (this.formal == null)
@@ -1716,7 +1717,7 @@ public class Profile extends Resource {
          * @param value Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
          */
         public ElementDefinitionComponent setComments(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.comments = null;
           else {
             if (this.comments == null)
@@ -1752,7 +1753,7 @@ public class Profile extends Resource {
          * @param value Explains why this element is needed and why it's been constrained as it has.
          */
         public ElementDefinitionComponent setRequirements(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.requirements = null;
           else {
             if (this.requirements == null)
@@ -1861,7 +1862,7 @@ public class Profile extends Resource {
          * @param value The maximum number of times this element is permitted to appear in the instance.
          */
         public ElementDefinitionComponent setMax(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.max = null;
           else {
             if (this.max == null)
@@ -1914,7 +1915,7 @@ public class Profile extends Resource {
          * @param value Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.
          */
         public ElementDefinitionComponent setNameReference(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.nameReference = null;
           else {
             if (this.nameReference == null)
@@ -1925,17 +1926,17 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #value} (Specifies a value that SHALL be exactly the value  for this element in the instance.)
+         * @return {@link #fixed} (Specifies a value that SHALL be exactly the value  for this element in the instance.)
          */
-        public org.hl7.fhir.instance.model.Type getValue() { 
-          return this.value;
+        public org.hl7.fhir.instance.model.Type getFixed() { 
+          return this.fixed;
         }
 
         /**
-         * @param value {@link #value} (Specifies a value that SHALL be exactly the value  for this element in the instance.)
+         * @param value {@link #fixed} (Specifies a value that SHALL be exactly the value  for this element in the instance.)
          */
-        public ElementDefinitionComponent setValue(org.hl7.fhir.instance.model.Type value) { 
-          this.value = value;
+        public ElementDefinitionComponent setFixed(org.hl7.fhir.instance.model.Type value) { 
+          this.fixed = value;
           return this;
         }
 
@@ -2210,7 +2211,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the instance.", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("type", "", "The data type or resource that the value of this element is permitted to be.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("nameReference", "string", "Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.", 0, java.lang.Integer.MAX_VALUE, nameReference));
-          childrenList.add(new Property("value[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance.", 0, java.lang.Integer.MAX_VALUE, fixed));
           childrenList.add(new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too.", 0, java.lang.Integer.MAX_VALUE, pattern));
           childrenList.add(new Property("example[x]", "*", "An example value for this element.", 0, java.lang.Integer.MAX_VALUE, example));
           childrenList.add(new Property("maxLength", "integer", "Indicates the shortest length that SHALL be supported by conformant instances without truncation.", 0, java.lang.Integer.MAX_VALUE, maxLength));
@@ -2238,7 +2239,7 @@ public class Profile extends Resource {
         for (TypeRefComponent i : type)
           dst.type.add(i.copy());
         dst.nameReference = nameReference == null ? null : nameReference.copy();
-        dst.value = value == null ? null : value.copy();
+        dst.fixed = fixed == null ? null : fixed.copy();
         dst.pattern = pattern == null ? null : pattern.copy();
         dst.example = example == null ? null : example.copy();
         dst.maxLength = maxLength == null ? null : maxLength.copy();
@@ -2345,7 +2346,7 @@ public class Profile extends Resource {
          * @param value Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
          */
         public TypeRefComponent setProfile(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.profile = null;
           else {
             if (this.profile == null)
@@ -2509,7 +2510,7 @@ public class Profile extends Resource {
          * @param value Used to label the constraint in OCL or in short displays incapable of displaying the full human description.
          */
         public ElementDefinitionConstraintComponent setName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.name = null;
           else {
             if (this.name == null)
@@ -2800,7 +2801,7 @@ public class Profile extends Resource {
          * @param value Describes the intended use of this particular set of codes.
          */
         public ElementDefinitionBindingComponent setDescription(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.description = null;
           else {
             if (this.description == null)
@@ -3109,7 +3110,7 @@ public class Profile extends Resource {
          * @param value An XPath expression that returns a set of elements for the search parameter.
          */
         public ProfileStructureSearchParamComponent setXpath(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.xpath = null;
           else {
             if (this.xpath == null)
@@ -3275,7 +3276,7 @@ public class Profile extends Resource {
          * @param value Defined so that applications can use this name when displaying the value of the extension to the user.
          */
         public ProfileExtensionDefnComponent setDisplay(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.display = null;
           else {
             if (this.display == null)
@@ -3564,7 +3565,7 @@ public class Profile extends Resource {
      * @param value The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.
      */
     public Profile setVersion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.version = null;
       else {
         if (this.version == null)
@@ -3632,7 +3633,7 @@ public class Profile extends Resource {
      * @param value Details of the individual or organization who accepts responsibility for publishing the profile.
      */
     public Profile setPublisher(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.publisher = null;
       else {
         if (this.publisher == null)
@@ -3685,7 +3686,7 @@ public class Profile extends Resource {
      * @param value A free text natural language description of the profile and its use.
      */
     public Profile setDescription(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.description = null;
       else {
         if (this.description == null)
@@ -3842,7 +3843,7 @@ public class Profile extends Resource {
      * @param value The Scope and Usage that this profile was created to meet.
      */
     public Profile setRequirements(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.requirements = null;
       else {
         if (this.requirements == null)
@@ -3878,7 +3879,7 @@ public class Profile extends Resource {
      * @param value The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version.
      */
     public Profile setFhirVersion(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.fhirVersion = null;
       else {
         if (this.fhirVersion == null)

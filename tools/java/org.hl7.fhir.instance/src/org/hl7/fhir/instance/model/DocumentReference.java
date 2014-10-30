@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A reference to a document.
  */
@@ -353,7 +354,7 @@ public class DocumentReference extends Resource {
          * @param value Where the service end-point is located.
          */
         public DocumentReferenceServiceComponent setAddress(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.address = null;
           else {
             if (this.address == null)
@@ -479,7 +480,7 @@ public class DocumentReference extends Resource {
          * @param value The value of the named parameter.
          */
         public DocumentReferenceServiceParameterComponent setValue(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.value = null;
           else {
             if (this.value == null)
@@ -920,7 +921,7 @@ public class DocumentReference extends Resource {
      * @param value A reference to a domain or server that manages policies under which the document is accessed and/or made available.
      */
     public DocumentReference setPolicyManager(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.policyManager = null;
       else {
         if (this.policyManager == null)
@@ -1118,7 +1119,7 @@ public class DocumentReference extends Resource {
      * @param value Human-readable description of the source document. This is sometimes known as the "title".
      */
     public DocumentReference setDescription(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.description = null;
       else {
         if (this.description == null)
@@ -1171,7 +1172,7 @@ public class DocumentReference extends Resource {
      * @param value The primary language in which the source document is written.
      */
     public DocumentReference setPrimaryLanguage(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.primaryLanguage = null;
       else {
         if (this.primaryLanguage == null)
@@ -1348,7 +1349,7 @@ public class DocumentReference extends Resource {
      * @param value A url at which the document can be accessed.
      */
     public DocumentReference setLocation(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.location = null;
       else {
         if (this.location == null)

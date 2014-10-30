@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient.  E.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
  */
@@ -310,7 +311,7 @@ public class Contraindication extends Resource {
      * @param value Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
      */
     public Contraindication setSeverity(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.severity = null;
       else {
         if (this.severity == null)
@@ -370,7 +371,7 @@ public class Contraindication extends Resource {
      * @param value A textual explanation of the contraindication.
      */
     public Contraindication setDetail(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.detail = null;
       else {
         if (this.detail == null)
@@ -487,7 +488,7 @@ public class Contraindication extends Resource {
      * @param value The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.
      */
     public Contraindication setReference(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.reference = null;
       else {
         if (this.reference == null)

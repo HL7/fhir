@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Provenance information that describes the activity that led to the creation of a set of resources. This information can be used to help determine their reliability or trace where the information in them came from. The focus of the provenance resource is record keeping, audit and traceability, and not explicit statements of clinical significance.
  */
@@ -236,7 +237,7 @@ public class Provenance extends Resource {
          * @param value Human-readable description of the participant.
          */
         public ProvenanceAgentComponent setDisplay(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.display = null;
           else {
             if (this.display == null)
@@ -409,7 +410,7 @@ public class Provenance extends Resource {
          * @param value Human-readable description of the entity.
          */
         public ProvenanceEntityComponent setDisplay(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.display = null;
           else {
             if (this.display == null)
@@ -734,7 +735,7 @@ public class Provenance extends Resource {
      * @param value A digital signature on the target Reference(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.
      */
     public Provenance setIntegritySignature(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.integritySignature = null;
       else {
         if (this.integritySignature == null)

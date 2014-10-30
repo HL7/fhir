@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A manifest that defines a set of documents.
  */
@@ -387,7 +388,7 @@ public class DocumentManifest extends Resource {
      * @param value Identifies the source system, application, or software that produced the document manifest.
      */
     public DocumentManifest setSource(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.source = null;
       else {
         if (this.source == null)
@@ -485,7 +486,7 @@ public class DocumentManifest extends Resource {
      * @param value Human-readable description of the source document. This is sometimes known as the "title".
      */
     public DocumentManifest setDescription(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.description = null;
       else {
         if (this.description == null)

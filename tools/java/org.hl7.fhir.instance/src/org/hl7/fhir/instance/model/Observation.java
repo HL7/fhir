@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Measurements and simple assertions made about a patient, device or other subject.
  */
@@ -580,7 +581,7 @@ public class Observation extends Resource {
          * @param value Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.
          */
         public ObservationReferenceRangeComponent setText(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.text = null;
           else {
             if (this.text == null)
@@ -948,7 +949,7 @@ public class Observation extends Resource {
      * @param value May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
      */
     public Observation setComments(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.comments = null;
       else {
         if (this.comments == null)

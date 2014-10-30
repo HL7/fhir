@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.
  */
@@ -384,7 +385,7 @@ public class Condition extends Resource {
          * @param value Detailed anatomical location information.
          */
         public ConditionLocationComponent setDetail(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.detail = null;
           else {
             if (this.detail == null)
@@ -1005,7 +1006,7 @@ public class Condition extends Resource {
      * @param value Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
     public Condition setNotes(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.notes = null;
       else {
         if (this.notes == null)

@@ -29,11 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import java.math.*;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
  */
@@ -244,7 +245,7 @@ public class Quantity extends Type {
      * @param value A human-readable form of the units.
      */
     public Quantity setUnits(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.units = null;
       else {
         if (this.units == null)
@@ -280,7 +281,7 @@ public class Quantity extends Type {
      * @param value The identification of the system that provides the coded form of the unit.
      */
     public Quantity setSystem(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.system = null;
       else {
         if (this.system == null)
@@ -316,7 +317,7 @@ public class Quantity extends Type {
      * @param value A computer processable form of the units in some unit representation system.
      */
     public Quantity setCode(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.code = null;
       else {
         if (this.code == null)

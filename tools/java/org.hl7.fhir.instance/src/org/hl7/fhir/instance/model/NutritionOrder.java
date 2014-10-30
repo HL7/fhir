@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
  */
@@ -442,7 +443,7 @@ public class NutritionOrder extends Resource {
          * @param value A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).
          */
         public NutritionOrderItemOralDietComponent setDescription(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.description = null;
           else {
             if (this.description == null)
@@ -567,7 +568,7 @@ public class NutritionOrder extends Resource {
          * @param value The name of the nutritional supplement product to be provided to the patient.
          */
         public NutritionOrderItemSupplementComponent setName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.name = null;
           else {
             if (this.name == null)
@@ -742,7 +743,7 @@ public class NutritionOrder extends Resource {
          * @param value TODO.
          */
         public NutritionOrderItemEnteralFormulaComponent setBaseFormulaName(String value) { 
-          if (value == null)
+          if (Utilities.noString(value))
             this.baseFormulaName = null;
           else {
             if (this.baseFormulaName == null)

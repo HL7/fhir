@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:09+1100 for FHIR v0.3.0
+// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Teest Bundle.
  */
@@ -197,7 +198,7 @@ public class NewBundle extends Resource {
      * @param value The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).
      */
     public NewBundle setBase(String value) { 
-      if (value == null)
+      if (Utilities.noString(value))
         this.base = null;
       else {
         if (this.base == null)
