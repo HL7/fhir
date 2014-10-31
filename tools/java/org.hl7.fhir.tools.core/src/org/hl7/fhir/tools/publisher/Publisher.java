@@ -1254,7 +1254,7 @@ public class Publisher implements URIResolver {
     if (r != null) {
       for (Example e : r.getExamples()) {
         if (!Utilities.noString(e.getId()))
-          b.append(e.getId() + ", ");
+          b.append(e.getId()).append(", ");
         if (e.getXml() != null) {
           if (e.getXml().getDocumentElement().getLocalName().equals("feed")) {
             List<Element> entries = new ArrayList<Element>();
@@ -1262,9 +1262,9 @@ public class Publisher implements URIResolver {
             for (Element c : entries) {
               String id = XMLUtil.getNamedChild(c, "id").getTextContent();
               if (id.startsWith("http://hl7.org/fhir/") && id.contains("@"))
-                b.append(id.substring(id.indexOf("@") + 1) + ", ");
+                b.append(id.substring(id.indexOf("@") + 1)).append(", ");
               else
-                b.append(id + ", ");
+                b.append(id).append(", ");
             }
           }
         }
@@ -1849,10 +1849,11 @@ public class Publisher implements URIResolver {
         // ToolingExtensions.addParentCode(handled.get(code),
         // owner.getCode());
         ToolingExtensions.addSubsumes(owner, code);
-        s.append(" <tr><td>" + Integer.toString(lvl) + "</td><td>");
+        s.append(" <tr><td>").append(Integer.toString(lvl)).append("</td><td>");
         for (int i = 1; i < lvl; i++)
           s.append("&nbsp;&nbsp;");
-        s.append("<a href=\"#" + Utilities.escapeXml(Utilities.nmtokenize(code)) + "\">" + Utilities.escapeXml(code) + "</a></td><td></td><td></td></tr>\r\n");
+        s.append("<a href=\"#").append(Utilities.escapeXml(Utilities.nmtokenize(code))).append("\">")
+				.append(Utilities.escapeXml(code)).append("</a></td><td></td><td></td></tr>\r\n");
       } else {
         ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
         handled.put(code, concept);
@@ -1914,7 +1915,7 @@ public class Publisher implements URIResolver {
       r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "definition"), "text");
     if (r != null) {
       s.append("<h2>Description</h2>\r\n");
-      s.append("<p>" + nodeToString(r) + "</p>\r\n");
+      s.append("<p>").append(nodeToString(r)).append("</p>\r\n");
       s.append("<hr/>\r\n");
       vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(r));
     } else
@@ -2296,7 +2297,7 @@ public class Publisher implements URIResolver {
       }
       c = XMLUtil.getNextSibling(c);
     }
-    s.append("<p>" + Utilities.escapeXml(desc) + "</p>\r\n");
+    s.append("<p>").append(Utilities.escapeXml(desc)).append("</p>\r\n");
     s.append("<table class=\"grid\">\r\n");
     s.append(" <tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>\r\n");
     List<String> cs = new ArrayList<String>();
@@ -2380,7 +2381,7 @@ public class Publisher implements URIResolver {
       c = XMLUtil.getNextSibling(c);
     }
 
-    s.append("<p>" + Utilities.escapeXml(desc) + "</p>\r\n");
+    s.append("<p>").append(Utilities.escapeXml(desc)).append("</p>\r\n");
     s.append("<table class=\"grid\">\r\n");
     s.append(" <tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>\r\n");
     List<String> cs = new ArrayList<String>();
@@ -2627,7 +2628,8 @@ public class Publisher implements URIResolver {
     s.append("<tests>\r\n");
     int i = 0;
     for (Fragment f : fragments) {
-      s.append("<test id=\"" + Integer.toString(i) + "\" page=\"" + f.getPage() + "\" type=\"" + f.getType() + "\">\r\n");
+      s.append("<test id=\"").append(Integer.toString(i)).append("\" page=\"")
+			  .append(f.getPage()).append("\" type=\"").append(f.getType()).append("\">\r\n");
       s.append(f.getXml());
       s.append("</test>\r\n");
       i++;
@@ -4242,7 +4244,6 @@ public class Publisher implements URIResolver {
     }
   }
 
-
   private void generateCodeSystemsPart2() throws Exception {
     page.log(" ...code lists (2)", LogMessageType.Process);
     for (BindingSpecification bs : page.getDefinitions().getBindings().values())
@@ -4368,7 +4369,7 @@ public class Publisher implements URIResolver {
     for (String s : tbls) {
       if (first)
         b.append(", ");
-      first = false;
+      first = true;
       b.append(s);
     }
     cm.setDescription("v2 Map (" + b.toString() + ")");
@@ -4454,7 +4455,7 @@ public class Publisher implements URIResolver {
     for (String s : tbls) {
       if (first)
         b.append(", ");
-      first = false;
+      first = true;
       b.append(s);
     }
     cm.setDescription("v3 Map (" + b.toString() + ")");
@@ -4553,6 +4554,7 @@ public class Publisher implements URIResolver {
     }
     return query_pairs;
   }
+
   @Override
   public javax.xml.transform.Source resolve(String href, String base) throws TransformerException {
     if (!href.startsWith("http://fhir.healthintersections.com.au/open/ValueSet/$expand"))
