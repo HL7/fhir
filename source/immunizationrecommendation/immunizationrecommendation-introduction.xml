@@ -16,7 +16,7 @@ Additionally, the ImmunizationRecommendation resource is expected to cover key c
 This resource references the following resources:
 </p>
 <ul>
-    <li>AdverseReaction</li>
+    <li>Allergy/Intolerance</li>
     <li>Patient</li>
     <li>Organization</li>
     <li>Immunization</li>

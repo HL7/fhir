@@ -490,14 +490,18 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private void loadIG() throws FileNotFoundException, Exception {
+  private void loadIG() throws Exception  {
     for (String folder : page.getIg().getInputFolders()) {
       File[] files = new File(folder).listFiles();
       if (files != null) {
         for (File f : files) {
           if (f.getName().endsWith(".xml")) {
-            System.out.println(f.getName());
-            ResourceOrFeed rf = new XmlParser().parseGeneral(new FileInputStream(f));
+            ResourceOrFeed rf;
+            try {
+              rf = new XmlParser().parseGeneral(new FileInputStream(f));
+            } catch (Exception e) {
+              throw new Exception("unable to parse file "+f.getName(), e);
+            }
             if (rf.getFeed() != null) {
               //              new XmlComposer().compose(new FileOutputStream(f), rf.getFeed(), true);
               for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> ae : rf.getFeed().getEntryList()) {

@@ -16,7 +16,6 @@ Additionally, the immunization resource is expected to cover key concepts relate
 This resource references the following resources:
 </p>
 <ul>
-    <li>AdverseReaction</li>
     <li>Patient</li>
     <li>Practitioner</li>
     <li>Organization</li>

@@ -13,8 +13,8 @@ appearance of a rash or an instance of a fever are signs and symptoms that
 would typically be captured using the Observation resource.  However, a 
 pattern of ongoing fevers or a persistent or severe rash requiring treatment 
 might be captured as a condition.  The Condition resource specifically 
-excludes AdverseReactions and AllergyIntolerances as those are handled 
-with their own resources.
+excludes case of Allergy or Intolerance as those are handled 
+with <a href="allergyintolerance.html">AllergyIntolerance</a>.
 </p>
 <p>
 The Condition resource may be used to record positive aspects of the health state

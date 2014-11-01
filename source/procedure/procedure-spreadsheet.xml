@@ -1493,7 +1493,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(AdverseReaction | AllergyIntolerance | CarePlan | Condition | DeviceObservationReport | DiagnosticReport | FamilyHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationPrescription | MedicationStatement | Observation | Procedure)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(AllergyIntolerance | CarePlan | Condition | DeviceObservationReport | DiagnosticReport | FamilyHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationPrescription | MedicationStatement | Observation | Procedure)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>

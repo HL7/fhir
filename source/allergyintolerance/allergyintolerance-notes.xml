@@ -1,25 +1,56 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-    <h2>Notes:</h2>
-    <ul>
-        <li>Criticality vs Severity</li>
-        <p>Criticality is defined as "The potential seriousness of a future reaction."
-            This represents a clinical judgment about the worst case scenario for a future reaction. 
-            It would be based on the severity of past reactions, the dose and route of exposure that produced past reactions, 
-            and the life-threatening or organ system threatening potential of the reaction type.   
-            Criticality is an attribute of the allergic condition, not the reaction(s).
-        </p>
-        <p>
-            High criticality does not equate to a future severe reaction, 
-            but rather the potential for a severe and life-threatening reaction. 
-            Most reaction types are dose dependent, including anaphylaxis. 
-            Therefore, although they have a sensitivity of high criticality, 
-            exposure to a small dose of the substance to which they are sensitive might result in only a mild reaction.  
-            Severity of the reaction is also dependent on the route of exposure, 
-            but criticality since it applies to the condition, is not.
-        </p>
-    </ul>
+<h3>References</h3>
+
+<ul>
+<li>
+Adverse Reaction, draft archetype, National eHealth Transition Authority [Internet]. NEHTA Clinical Knowledge Manager. Authored: 08 Nov 2010. Available at: <a href="http://dcm.nehta.org.au/ckm/OKM.html#showarchetype_1013.1.868_7">http://dcm.nehta.org.au/ckm/OKM.html#showarchetype_1013.1.868_7</a> (accessed Jan 16, 2012).
+</li>
+<li>
+Allergy and Intolerance Domain Analysis Model, Release 1, HL7 [Internet]. Publication pending, expected August 2014; Available at <a href="http://wiki.hl7.org/images/1/1b/Allergy_and_Intolerance_INFORM_2013_MAY.pdf">http://wiki.hl7.org/images/1/1b/Allergy_and_Intolerance_INFORM_2013_MAY.pdf</a> (accessed 06 July 2014). 
+</li>
+<li>
+Allergy, clinical element model, GE/Intermountain Healthcare. Clinical Element Model Search. Available at: <a href="http://intermountainhealthcare.org/cem/Pages/Detail.aspx?NCID=520861661&amp;k=allergy">http://intermountainhealthcare.org/cem/Pages/Detail.aspx?NCID=520861661&amp;k=allergy</a> (accessed Jan 16, 2012).
+</li>
+<li>
+Edwards IR, Aronson JK. Adverse drug reactions: definitions, diagnosis, and management. Lancet. 2000 Oct 7;356(9237):1255-9. PubMed PMID: 11072960. 
+</li>
+<li>
+Horsfield P, Sibeko S. Representation in Electronic Patient Records of Allergic Reactions, Adverse Reactions, and Intolerance of Pharmaceutical Products [Internet]. London, UK: National Health Service; 2006 Sep 07 [cited 2011 Jun 21]; Available at <a href="https://svn.connectingforhealth.nhs.uk/svn/public/nhscontentmodels/TRUNK/ref/NPfIT/Allergy_ADR_Intolerance%20v%201.2Final.doc">https://svn.connectingforhealth.nhs.uk/svn/public/nhscontentmodels/TRUNK/ref/NPfIT/Allergy_ADR_Intolerance%20v%201.2Final.doc</a>.
+</li>
+<li>
+Long R, Bentley S. SCG Guidance on the Representation of Allergies and Adverse Reaction Information Using NHS Message Templates [Internet]. London, UK: National Health Service; 2008 Apr 30 [cited 2011 Jun 21]; Available at <a href="http://www.connectingforhealth.nhs.uk/systemsandservices/data/scg/scg0001.pdf">http://www.connectingforhealth.nhs.uk/systemsandservices/data/scg/scg0001.pdf</a>.
+</li>
+<li>
+Microsoft. Design Guidance: Displaying Adverse Drug Reaction Risks [Internet]. 2009 January 28 [cited 2011 Jun 21]; Available at <a href="http://www.mscui.net/DesignGuide/DisplayingAllergies.aspx">www.mscui.net/DesignGuide/DisplayingAllergies.aspx</a>.
+</li>
+<li>
+Microsoft. Design Guidance: Recording Adverse Drug Reaction Risks [Internet]. 2009 March 27 [cited 2011 Jun 21]; Available at <a href="http://www.mscui.net/DesignGuide/RecordingAllergies.aspx">www.mscui.net/DesignGuide/RecordingAllergies.aspx</a>.
+</li>
+<li>
+Mosby. Mosby's Pocket Dictionary of Medicine, Nursing and Health Professions. 6th Edition. USA: Mosby Elsevier; 2010
+</li>
+<li>
+National E-Health Transition Authority. Adverse Reactions (Data Specifications) Version 1.1 [Internet]. Sydney, Australia: NEHTA; 2008 Feb 29 [cited 2011 Jun 21]; Available at <a href="http://www.nehta.gov.au/component/docman/doc_download/453-adverse-reaction-data-specification-v11">http://www.nehta.gov.au/component/docman/doc_download/453-adverse-reaction-data-specification-v11</a>
+</li>
+<li>
+Riedl MA, Casillas AM. Adverse drug reactions: types and treatment options. Am Fam Physician. 2003 Nov 1;68(9):1781-90. Review. PubMed PMID: 14620598.
+</li>
+<li>
+Royal Australian College of General Practitioners. Fact Sheet: Allergies &amp; Adverse Reactions (Draft). 2010.
+</li>
+<li>
+Thien FC. Drug hypersensitivity. Med J Aust. 2006 Sep 18;185(6):333-8. Review. PubMed PMID: 16999678.
+</li>
+<li>
+Uppsala Monitoring Centre (WHO): <a href="http://www.who-umc.org/">http://www.who-umc.org/</a>
+</li>
+<li>
+European Medicines Agency: <a href="http://www.ema.europa.eu/ema/">http://www.ema.europa.eu/ema/</a>
+</li>
+<li>
+DIRECTIVE 2010/84/EU OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL, of 15 December 2010, amending, as regards pharmacovigilance, Directive 2001/83/EC on the Community code relating to medicinal products for human use: <a href="http://ec.europa.eu/health/files/eudralex/vol-1/dir_2010_84/dir_2010_84_en.pdf">http://ec.europa.eu/health/files/eudralex/vol-1/dir_2010_84/dir_2010_84_en.pdf</a>
+</li>
+</ul>
+
 </div>
-
-
-

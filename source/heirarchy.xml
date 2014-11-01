@@ -119,9 +119,7 @@ todo: compartments
       mappings
       -->
   <page title="Clinical" filename="clinical.html">
-    <page type="resource" resource="AdverseReaction"/>
     <page type="resource" resource="AllergyIntolerance"/>
-    <page type="resource" resource="AdverseReactionRisk"/>
     <page type="resource" resource="Condition"/>
     <page type="resource" resource="CarePlan"/>
     <page type="resource" resource="ReferralRequest"/>

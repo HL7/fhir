@@ -113,13 +113,13 @@ it is a modifier.
 A typical example of a modifier element is one that negates the element that contains it. For 
 instance, in the following element definition:
 </p>
-<pre class="spec">&lt;<a ok="true" title="Specific reactions to a substance." class="dict" ><b>AdverseReaction</b></a> xmlns="http://hl7.org/fhir"&gt;
+<pre class="spec">&lt;<a ok="true" title="Specific reactions to a substance." class="dict" ><b>AdverseEvent</b></a> xmlns="http://hl7.org/fhir"&gt;
  &lt;!-- Other information --&gt;
  &lt;<a ok="true" title="When the exposure occurred." class="dict" ><b>exposureDate</b></a> value="[<span style="color: darkgreen"><a ok="true" >dateTime</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy">When the exposure occurred</span><span style="color: Gray"> --&gt;</span>
  &lt;<a ok="true" title="Substance(s) that is presumed to have caused the adverse reaction." class="dict" ><b>substance</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a ok="true" >Resource</a>(<a ok="true" >Substance</a>)</span> <span style="color: navy">Presumed to have caused the reaction</span><span style="color: Gray"> --&gt;</span>&lt;/substance&gt;
  &lt;<a ok="true" title="To say that a reaction to substance did not occur (this element modifies the meaning of other elements)" class="dict" ><span style="text-decoration: underline"><b>didNotOccurFlag</b></span></a> value="[<span style="color: darkgreen"><a ok="true" >boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: navy">To say that a reaction to substance did not occur</span><span style="color: Gray"> --&gt;</span>
  &lt;!-- Other information --&gt;
-&lt;/AdverseReaction&gt;
+&lt;/AdverseEvent&gt;
 </pre>
 <p>
 The element "didNotOccurFlag" affects the entire meaning of the resource - if it is set to true, the whole resource must be understood differently, and so it is not safe for implementations to ignore it. 

@@ -428,75 +428,28 @@
           <div xmlns="http://www.w3.org/1999/xhtml">Sensitivity to Doxycycline :
                         Hives</div>
         </text>
-        <criticality value="fatal"/>
-        <sensitivityType value="allergy"/>
         <recordedDate value="2012-09-17"/>
-        <status value="confirmed"/>
         <subject>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>
         </subject>
         <substance>
-          <reference value="urn:guid:4c2d16c0-b102-486c-aa7c-b266ce98709f"/>
-          <display value="Doxycycline"/>
+          <text value="Doxycycline"/>
         </substance>
-        <reaction>
-          <reference value="urn:guid:25be7cdf-7055-40fa-80ac-defd531180dd"/>
-          <display value="Hives"/>
-        </reaction>
-      </AllergyIntolerance>
-    </content>
-  </entry>
-  <!--  The adverse reaction  -->
-  <entry>
-    <title>Adverse Reaction</title>
-    <id>urn:guid:25be7cdf-7055-40fa-80ac-defd531180dd</id>
-    <updated>2013-05-05T16:13:03Z</updated>
-    <author>
-      <name>Dr Dave</name>
-    </author>
-    <content type="text/xml">
-      <AdverseReaction xmlns="http://hl7.org/fhir">
-        <subject>
-          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
-          <display value="Eve Everywoman"/>
-        </subject>
-        <didNotOccurFlag value="false"/>
-        <symptom>
-          <code>
+        <status value="confirmed"/>
+        <criticality value="high"/>
+        <type value="immune"/>
+        <event>
+          <manifestation>
             <coding>
               <system value="sys"/>
               <code value="xxx"/>
               <display value="Hives"/>
             </coding>
             <text value="Hives"/>
-          </code>
-        </symptom>
-      </AdverseReaction>
-    </content>
-  </entry>
-  <!-- Substance -->
-  <entry>
-    <title>Substance</title>
-    <id>urn:guid:4c2d16c0-b102-486c-aa7c-b266ce98709f</id>
-    <updated>2013-05-05T16:13:03Z</updated>
-    <author>
-      <name>Dr Dave</name>
-    </author>
-    <content type="text/xml">
-      <Substance xmlns="http://hl7.org/fhir">
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">Doxycycline</div>
-        </text>
-        <type>
-          <coding>
-            <system value="codesys"/>
-            <code value="123445"/>
-            <display value="Doxycycline"/>
-          </coding>
-        </type>
-      </Substance>
+          </manifestation>
+        </event>
+      </AllergyIntolerance>
     </content>
   </entry>
 </feed>

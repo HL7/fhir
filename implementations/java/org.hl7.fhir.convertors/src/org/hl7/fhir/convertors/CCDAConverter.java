@@ -37,13 +37,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.hl7.fhir.instance.model.AdverseReaction;
-import org.hl7.fhir.instance.model.AdverseReaction.AdverseReactionSymptomComponent;
-import org.hl7.fhir.instance.model.AdverseReaction.ReactionSeverity;
 import org.hl7.fhir.instance.model.AllergyIntolerance;
-import org.hl7.fhir.instance.model.AllergyIntolerance.Criticality;
-import org.hl7.fhir.instance.model.AllergyIntolerance.Sensitivitystatus;
-import org.hl7.fhir.instance.model.AllergyIntolerance.Sensitivitytype;
+import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceEventComponent;
+import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceCriticality;
+import org.hl7.fhir.instance.model.AllergyIntolerance.ReactionEventSeverity;
+import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceStatus;
+import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceType;
 import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
@@ -778,21 +777,14 @@ public class CCDAConverter {
 			// This value SHALL contain @code, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.3221.6.2 Allergy/Adverse Event Type
 			String ss = type.getCoding().get(0).getCode();
 			if (ss.equals("416098002") || ss.equals("414285001"))
-				ai.setSensitivityType(Sensitivitytype.ALLERGY);
+				ai.setType(AllergyIntoleranceType.IMMUNE);
 			else if (ss.equals("59037007") || ss.equals("235719002"))
-				ai.setSensitivityType(Sensitivitytype.INTOLERANCE);
-			else
-				ai.setSensitivityType(Sensitivitytype.UNKNOWN);
+				ai.setType(AllergyIntoleranceType.NONIMMUNE);
 			ai.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/allergy-category", type, false));
 			
 			// SHOULD contain zero or one [0..1] participant (CONF:7402) such that it
-			Substance subst = new Substance();
-			String n = nextRef();
-			subst.setXmlId(n);
-		  ai.getContained().add(subst);
-			ai.setSubstance(Factory.makeReference("#"+n));
 			// ......This playingEntity SHALL contain exactly one [1..1] code			
-			subst.setType(convert.makeCodeableConceptFromCD(cda.getDescendent(obs, "participant/participantRole/playingEntity/code"))); 
+			ai.setSubstance(convert.makeCodeableConceptFromCD(cda.getDescendent(obs, "participant/participantRole/playingEntity/code"))); 
 
 			//  MAY contain zero or one [0..1] entryRelationship (CONF:7440) such that it SHALL contain exactly one [1..1]  Alert Status Observation
 			//  SHOULD contain zero or more [0..*] entryRelationship (CONF:7447) such that it SHALL contain exactly one [1..1] Reaction Observation (templateId:2.16.840.1.113883.10.20.22.4.9) (CONF:7450).
@@ -805,15 +797,11 @@ public class CCDAConverter {
 		  		// 413322009  SNOMED CT  Resolved
 		  		String sc = cda.getChild(child, "value").getAttribute("code");
 		  		if (sc.equals("55561003"))
-		  			ai.setStatus(Sensitivitystatus.CONFIRMED);
+		  			ai.setStatus(AllergyIntoleranceStatus.CONFIRMED);
 		  		else
-		  			ai.setStatus(Sensitivitystatus.RESOLVED);
+		  			ai.setStatus(AllergyIntoleranceStatus.RESOLVED);
 		  	} else if (cda.hasTemplateId(child, "2.16.840.1.113883.10.20.22.4.9")) {
-		  		AdverseReaction reaction = processAdverseReactionObservation(child);
-		  		n = nextRef();
-					reaction.setXmlId(n);
-				  ai.getContained().add(subst);
-					ai.setSubstance(Factory.makeReference("#"+n));
+		  		ai.getEvent().add(processAdverseReactionObservation(child));
 		  	}
 		  }
 			
@@ -824,16 +812,16 @@ public class CCDAConverter {
 
 
 	// this is going to be a contained resource, so we aren't going to generate any narrative
-	private AdverseReaction processAdverseReactionObservation(Element reaction) throws Exception {
+	private AllergyIntoleranceEventComponent processAdverseReactionObservation(Element reaction) throws Exception {
 		checkNoNegationOrNullFlavor(reaction, "Adverse Reaction Observation");
 		checkNoSubject(reaction, "Adverse Reaction Observation");
 		
 		// This clinical statement represents an undesired symptom, finding, etc., due to an administered or exposed substance. A reaction can be defined with respect to its	severity, and can have been treated by one or more interventions.
-		AdverseReaction ar = new AdverseReaction();
+		AllergyIntoleranceEventComponent ar = new AllergyIntoleranceEventComponent();
 		
 		// SHALL contain exactly one [1..1] id (CONF:7329).
-		for (Element e : cda.getChildren(reaction, "id")) 
-			ar.getIdentifier().add(convert.makeIdentifierFromII(e));
+		for (Element e : cda.getChildren(reaction, "id"))
+			ToolingExtensions.addIdentifier(ar, convert.makeIdentifierFromII(e));
 
 		// SHALL contain exactly one [1..1] code (CONF:7327). The value set for this code element has not been specified.
 		// todo: what the heck is this? 
@@ -845,15 +833,13 @@ public class CCDAConverter {
 		//  	a.  This effectiveTime SHOULD contain zero or one [0..1] low (CONF:7333). 
 		//  	b.  This effectiveTime SHOULD contain zero or one [0..1] high (CONF:7334).
 		// !this is a problem because FHIR just has a date, not a period.
-		ar.setDateElement(convert.makeDateTimeFromIVL(cda.getChild(reaction, "effectiveTime")));
+		ar.setOnsetElement(convert.makeDateTimeFromIVL(cda.getChild(reaction, "effectiveTime")));
 
 		// SHALL contain exactly one [1..1] value with @xsi:type="CD", where the @code SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.3221.7.4 Problem	DYNAMIC (CONF:7335).
-		AdverseReactionSymptomComponent symptom = new AdverseReactionSymptomComponent();
-		ar.getSymptom().add(symptom);
-		symptom.setCode(convert.makeCodeableConceptFromCD(cda.getChild(reaction, "value")));
+		ar.getManifestation().add(convert.makeCodeableConceptFromCD(cda.getChild(reaction, "value")));
 		
 	  // SHOULD contain zero or one [0..1] entryRelationship (CONF:7580) such that it SHALL contain exactly one [1..1] Severity Observation  (templateId:2.16.840.1.113883.10.20.22.4.8) (CONF:7582).
-		symptom.setSeverity(readSeverity(cda.getSeverity(reaction)));
+		ar.setSeverity(readSeverity(cda.getSeverity(reaction)));
 
 		// MAY contain zero or more [0..*] entryRelationship (CONF:7337) such that it SHALL contain exactly one [1..1] Procedure Activity Procedure (templateId:2.16.840.1.113883.10.20.22.4.14) (CONF:7339). 
 		// i.  This procedure activity is intended to contain information about procedures that were performed in response to an allergy reaction
@@ -1020,36 +1006,36 @@ public class CCDAConverter {
 	  return n;
   }
 
-	private Criticality readCriticality(String severity) {
+	private AllergyIntoleranceCriticality readCriticality(String severity) {
 		if ("255604002".equals(severity)) // Mild 
-			return Criticality.LOW; 
+			return AllergyIntoleranceCriticality.LOW; 
 		if ("371923003".equals(severity)) //  Mild to moderate 
-			return Criticality.LOW; 
+			return AllergyIntoleranceCriticality.LOW; 
 		if ("6736007".equals(severity)) // Moderate
-			return Criticality.MEDIUM; 
+			return AllergyIntoleranceCriticality.LOW; 
 		if ("371924009".equals(severity)) // Moderate to severe
-			return Criticality.MEDIUM; 
+			return AllergyIntoleranceCriticality.HIGH; 
 		if ("24484000".equals(severity)) // Severe
-			return Criticality.HIGH; 
+			return AllergyIntoleranceCriticality.HIGH; 
 		if ("399166001".equals(severity)) // Fatal
-			return Criticality.FATAL; 
+			return AllergyIntoleranceCriticality.HIGH; 
 	  return null;
   }
 
 
-	private ReactionSeverity readSeverity(String severity) {
+	private ReactionEventSeverity readSeverity(String severity) {
 		if ("255604002".equals(severity)) // Mild 
-			return ReactionSeverity.MINOR; 
+			return ReactionEventSeverity.MILD; 
 		if ("371923003".equals(severity)) //  Mild to moderate 
-			return ReactionSeverity.MODERATE; 
+			return ReactionEventSeverity.MODERATE; 
 		if ("6736007".equals(severity)) // Moderate
-			return ReactionSeverity.MODERATE; 
+			return ReactionEventSeverity.MODERATE; 
 		if ("371924009".equals(severity)) // Moderate to severe
-			return ReactionSeverity.SERIOUS; 
+			return ReactionEventSeverity.SEVERE; 
 		if ("24484000".equals(severity)) // Severe
-			return ReactionSeverity.SEVERE; 
+			return ReactionEventSeverity.SEVERE; 
 		if ("399166001".equals(severity)) // Fatal
-			return ReactionSeverity.SEVERE; 
+			return ReactionEventSeverity.SEVERE; 
 	  return null;
   }
 

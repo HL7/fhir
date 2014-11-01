@@ -108,7 +108,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="84" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="83" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -119,7 +119,7 @@
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AdverseReaction</Data></Cell>
+    <Cell><Data ss:Type="String">!AdverseReaction</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">recorder</Data></Cell>
    </Row>
@@ -374,11 +374,6 @@
     <Cell><Data ss:Type="String">performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AdverseReactionRisk</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">recorder</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SecurityEvent</Data></Cell>
     <Cell><Data ss:Type="String">reference.subject | reference.patient</Data></Cell>
    </Row>
@@ -469,7 +464,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -477,7 +472,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>46</ActiveRow>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -12,7 +12,9 @@ This resource applies to any circumstance where there is a concern about an exis
 </ul>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 <p>
-This resource is <b>not</b> intended to be used in defining general prohibitions on actions such as "No NSAIDs", "No solid oral dose forms" or "No MRIs - metalic tatoos".  These guidelines can be captured using the <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="adversereaction.html">AdverseReaction</a> and/or <a href="alert.html">Alert</a> resources.  Similarly this resource is not to be used to capture clinical facts that may imply contraindications such as pregnancy, breast feeding, patient preferences, past procedures, etc.  These would be represented using <a href="condition.html">Condition</a>, <a href="procedure.html">Procedure</a> or other resources.
+This resource is <b>not</b> intended to be used in defining general prohibitions on actions such as "No NSAIDs", "No solid oral dose forms" or "No MRIs - metalic tatoos".  
+These guidelines can be captured using the <a href="allergyintolerance.html">AllergyIntolerance</a>, and/or <a href="alert.html">Alert</a> resources.  
+Similarly this resource is not to be used to capture clinical facts that may imply contraindications such as pregnancy, breast feeding, patient preferences, past procedures, etc.  These would be represented using <a href="condition.html">Condition</a>, <a href="procedure.html">Procedure</a> or other resources.
 </p>
 </div>
 
