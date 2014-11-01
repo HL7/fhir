@@ -81,7 +81,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="42" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:Width="314.25"/>
@@ -335,6 +335,12 @@
     <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ExtensionDefinition.status</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Questionnaire.status</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:Index="26"><Data ss:Type="String">published</Data></Cell>
@@ -440,8 +446,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>28</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

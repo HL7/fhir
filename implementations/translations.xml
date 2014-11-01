@@ -177,6 +177,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Encuentro</translation>
         <translation lang="fr">Venue</translation>
     </item>
+    <item id="ExtensionDefinition">
+        <translation lang="en">ExtensionDefinition</translation>
+    </item>
     <item id="FamilyHistory">
         <translation lang="en">FamilyHistory</translation>
         <translation lang="zh">家族病史</translation>

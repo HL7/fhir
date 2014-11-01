@@ -1,0 +1,81 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The Profile resource describes a set of rules about how a resource is used to 
+meet a general use case, so that the rules can be shared and published through 
+repositories of profile definitions, compared with each other, and used as the basis
+for code, report and UI generation. 
+</p>
+<p>
+Profile resources have four main parts:
+</p>
+<ol>
+ <li>A metadata section the describes the profile, and supports registry searching</li>
+ <li><i>Structures</i> that define and describe how a Resource or Data Type is used</li>
+ <li><i>Extension Definitions</i> that define extensions that can be used in structures</li>
+ <li><i>Search Criteria Definitions</i> that define additional mechanisms for searching resources</li>
+</ol>
+<p>
+Note that  as part of the specification itself, a <a href="downloads.html#profiles">full 
+set of profiles</a> for all resources and data types is published.
+A FHIR RESTful server serving the profile resource is also a profile repository. 
+HL7 hosts one for public registration of FHIR profiles at (yet to be done).
+</p>
+</div> 
+
+<div> 
+<h2>Boundaries and Relationships</h2> 
+<ul>
+ <li>Profiles are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are used</li>
+ <li>Profiles use <a href="valueset.html">Value Sets</a> to specify the content of coded elements</li>
+</ul>
+
+</div> 
+
+<div>
+<h2>Background and Context</h2>
+<p>
+Implementers should be familiar with with the 
+background and concepts described in <a href="profling.html">Profiling FHIR</a> 
+before working with this resource.
+</p>
+
+<h3>Metadata</h3>
+<p>
+The profile resource has a set of metadata that is mostly shared with the <a href="valueset.html">Value Set</a>,
+<a href="conformance.html">Conformance</a> and other infrastructure resources. The metadata describes the profile, and helps 
+find the profile when registered in profile repositories. 
+</p>
+
+<table class="grid">
+ <tr><td>url</td><td>The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance. This URL is where the profile can be accessed</td></tr>
+ <tr><td>identifier</td><td>Other identifiers that are used to identify this profile</td></tr>
+ <tr><td>version</td><td>
+   <p>The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.</p>
+   <p>Note that there may be multiple resource versions of the profile that have this same identifier. The resource will have updates that create new versions for technical reasons, whereas the stated version number needs to be under the author's control</p>
+   </td></tr>
+ <tr><td>name</td><td>A free text natural language name identifying the Profile	</td></tr>
+ <tr><td>publisher</td><td>Details of the individual or organization who accepts responsibility for publishing the profile. This helps establish the "authority/credibility" of the profile.</td></tr>
+ <tr><td>telecom</td><td>Contact details to assist a user in finding and communicating with the publisher</td></tr>	
+ <tr><td>description</td><td>A free text natural language description of the profile and its use</td></tr>	
+ <tr><td>requirements</td><td>The Scope and Usage that this profile was created to meet</td></tr>	
+ <tr><td>code</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of profiles</td></tr>
+ <tr><td>status</td><td>The status of the profile	allows filtering of profiles that are appropriate for use vs. not. See the <a href="resource-profile-status.html">Status Codes</a></td></tr>
+ <tr><td>experimental</td><td>This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</td></tr>
+ <tr><td>date</td><td>The date that this version of the profile was published	</td></tr>
+ <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this profile is based. It is not necessary to specify the version, as most profiles are valid across multiple versions, and the validity of a profile against a particular version of FHIR can easily be checked by tooling.	</td></tr>
+</table>
+
+<p>Notes:</p>
+<ul>
+<li>The name of the profile is not required to be globally unique, but the name should have some scoping information (i.e. Acme Inc. (USA), Allergy List)</li>
+<li>Multiple codes may be assigned to the profile. These may either describe the profile, the focus of the profile or both. They are solely to help find the profile by searching for structured concepts</li>
+<li>The 3 status codes (draft, active, and retired) are the codes that are relevant to profile consumers. Authors may wish to use the <a href="#author-status">authoring-status</a> extension to track the life cycle of a profile as it is prepared</li>
+</ul>  
+
+</div>
+
+
+</div>

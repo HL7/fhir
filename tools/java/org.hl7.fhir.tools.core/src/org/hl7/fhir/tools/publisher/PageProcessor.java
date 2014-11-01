@@ -362,6 +362,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+dictForDt(com[1])+s3;
       else if (com[0].equals("dtheader"))
         src = s1+dtHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("edheader"))
+        src = s1+edHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("extheader"))
         src = s1+extHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("narrheader"))
@@ -1691,6 +1693,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
+  private String edHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Element Definition", "elementdefinition.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "elementdefinition-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Formal Definitions", "elementdefinition-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "elementdefinition-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
   private String extHeader(String mode) {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
@@ -2387,7 +2400,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("extheader") || com[0].equals("narrheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || 
+      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("edheader") || com[0].equals("extheader") || com[0].equals("narrheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || 
           com[0].equals("txheader") || com[0].equals("refheader") || com[0].equals("extrasheader") || com[0].equals("profilesheader") ||
           com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
         src = s1+s3;
@@ -2710,7 +2723,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("extheader") || com[0].equals("resourcesheader") || 
+      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("edheader") || com[0].equals("extheader") || com[0].equals("resourcesheader") || 
           com[0].equals("formatsheader") || com[0].equals("narrheader") || com[0].equals("refheader") ||  com[0].equals("extrasheader") || com[0].equals("profilesheader") ||
           com[0].equals("txheader") || com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader")) 
         src = s1+s3;

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+      
+[%settitle Element Definition%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<!--
+ no repeating primitives in datatypes? No id's on primitives in datatypes...No dar on primitives in datatypes. It would be worthwhile to document that and the reason for it.
+-->
+
+<%edheader base%>
+<h1>Element Definition</h1>
+
+<p>
+Introduction
+</p>
+
+<a name="definition"></a>
+<h2 style="margin-bottom: 1px">
+Content
+</h2>
+
+[%dt ElementDefinition%]
+
+<p>
+Commentary
+</p>
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints ElementDefinition%]
+<p>
+Further Commentary
+</p>
+</div>
+
+<p>
+ElementDefinition is used in the following places: [%dtusage ElementDefinition%]
+</p>
+
+</div>
+
+[%file newfooter%]
+  
+</body>
+</html>
