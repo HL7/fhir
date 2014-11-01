@@ -1,95 +1,66 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-
-<h2>Interpretation Notes:</h2>
-
-<ul>
-
-<li>The name of a resource constraint (Profile.structure.name) is used as a logical target for both internal and external references to the profile.
- <ul>
-   <li>A internal reference is made from Profile.structure.element.definition.type.profile to re-use the constraints declared in another structure, either in the same profile or another. If the reference is 
-     within the same resource, the uri is a relative reference with the form #[name]. If the reference is to another resource, it should be either an absolute URI that termintes with a #[name] </li>
-   <li>An external reference is one made to the profile from a <a href="conformance.html">Conformance Statement</a> or a <a href="extras.html#tags">Profile Tag</a>. 
-   For these references, the [#name] portion is optional. If there is no #name portion, the reference doesn't identify a particular structural definition in the instance, 
-   and it is an error if there is more than one matching structure for the resource type in context that might apply when the Profile reference is used</li>
- </ul> 
-</li>
-  
-<li>The constraint statement has a flat list of elements. The path element provides the overall structure and it SHALL match the structure and names in the resource structure exactly.</li>
-
-<li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
-
-<li>The type is used to specify which types apply when the underlying resource allows a choice of types. 
-When the type of the element is fixed in the underlying resource definitions, it should still be stated in the profile. The type is optional because repeating groups of elements do not have a type.</li>
-
-<li>The definition (short, formal, comments and the mappings) for an element is provided so that the resource profile can provide a more specific definition for the field in a specific context. 
-  For instance, the underlying resource definition might be "Result value" and the more specific resource definition could be "Plasma Cholesterol Test Value".
-  The meaning needs to be consistent with the underlying definition, but narrower - a constraint on it.</li>
-  
-<li>For an element with a maximum cardinality of 1, there can only be one entry in the value list, which is either a literal fixed type (with an element name matching the type of the fixed value) or a name,
-  which is a reference to a named constraint pattern. If the element has a maximum cardinality of &gt;1, then there can be multiple values - again, either fixed values with a type or a named constraint. 
-  Each of these appears in the list with the order and cardinality specified. By this means, a list may be "sliced" into a series of different components.</li>
-
-<li>There can be more than one entry for each element path. The constraint specification can define multiple different constraints for any element and 
-  then use them in different places. In practice, this is useful when slicing a list and the differently named constraint profiles are differentiated using the 
-  <i>value[x]</i> element. The name of the element constraint SHALL be unique within the constraint specification for that resource. If a constraint does not 
-  have a name, it applies to the base resource and SHALL be found in the correct place in the structure.</li>
-<li>Closed is only relevant if the underlying element has a max cardinality > 1. </li> 
-<li>For an extension definition, the cardinality constraints are limits on the constraints of any reference to the extension in a profile. 
-For example, if the minimum cardinality of an extension is 1 when it is defined, then any profile that includes that extension in the instance
-SHALL include it with a minimum cardinality of 1 and therefore any instance that conforms to the profile SHALL include the extension. Note, however,
-that if the extension is  directly referenced in an instance rather than applied through a profile, the minimum cardinality doesn't apply, 
-though the maximum one still does.
-</li>  
-<li>For xpath constraints, the prefix "f" should be used for "http://hl7.org/fhir", and "h" for "http://www.w3.org/1999/xhtml". XPath constraints are written against the XML representation, but SHALL be true in any other representation as well</li>
-<li>When using xpath to make constraints about the relationship between the contents of the narrative and the contents of the data elements, 
-  the element against which the rule is expressed is the one against which the error or warning will be reported.</li>
-</ul>
-
-<h3>Common Mapping Targets</h3>
-<!-- This needs some sort of description - not sure why this is here -->
-<table class="lines">
-  <tr><td>http://loinc.org</td><td>LOINC code for the element</td></tr>
-  <tr><td>http://snomed.info</td><td>SNOMED CT code for the element</td></tr>
-  <tr><td>http://hl7.org/v3</td><td>RIM mapping</td></tr>
-  <tr><td>http://hl7.org/v2</td><td>v2 mapping</td></tr>
-  <tr><td>http://nema.org/dicom</td><td>DICOM tag mapping</td></tr>
-  <tr><td>http://w3.org/vcard</td><td>vCard equivalent field</td></tr>
-  <tr><td>http://ihe.net/xds</td><td>XDS metadata equivalent</td></tr>
+<a name="registration"> </a>
+<h3>Publishing Extension Definitions</h3>
+<p>
+As well as defining the base element structure for resources, HL7 also publishes extensions. HL7 publishes such data definitions
+as extensions rather than as part of the base resource structure in order to keep the base
+resource structure simple and concise, and to allow implementers not to engage with an entire world's
+worth of functionality up front. Note that HL7 does not define "modifier" extensions - if
+HL7 publishes an element that modifies the meaning of other elements, it will be part of the resource
+content itself, since everyone has to understand the extension anyway.
+</p>
+<p>
+Before extensions can be used in instances, their definition SHALL be published. 
+HL7 maintains two extension registries:
+</p>
+<ol>
+ <li>HL7 approved extensions, approved by an appropriate part of the HL7 community following a review process, and with have formal standing</li> 
+ <li>Provided as a service to the community, where anyone can register an extension</li>
+</ol>
+<p>
+Users are encouraged to register their extensions in the second registry, though this is not required. 
+All that is required is that the extension is published in a context that is available for users 
+of the extension. So, for example, if a particular
+extension is used within a single institution, the definition of the extension
+can be placed on the institution's intranet. However since, by their nature, resources
+tend to travel well, it's always better to use the HL7 or other publicly accessible extension registries.
+</p>
+<p>
+HL7 extension definition registries. 
+</p>
+<table class="codes">
+ <tr><th>Registry</th><th>Search</th><th>Submit</th></tr>
+ <tr><td>HL7 Approved</td><td>[TBD]</td><td>[TBD]</td></tr>
+ <tr><td>Community</td><td>[TBD]</td><td>[TBD]</td></tr>
+ <tr><td>Interim</td><td><a href="http://fhir-dev.healthintersections.com.au/open/ExtensionDefinition/search">http://fhir-dev.healthintersections.com.au/open/ExtensionDefinition/search</a></td>
+ <td><a href="http://fhir.healthintersections.com.au/open/ExtensionDefinition/upload">http://fhir.healthintersections.com.au/open/ExtensionDefinition/upload</a></td></tr>
 </table>
+<p>
+HL7 extension definitions may be balloted alongside resource content as part of the FHIR specification or may
+be published as part of separate specifications.
+When HL7 publishes extension definitions as part of the FHIR specification, these extensions SHALL
+be used for this data whenever the data is represented in instances. Applications SHOULD use other
+HL7-defined extensions published to represent equivalent data in the interest of maximum interoperability.
+</p>
+<p>
+To minimize complexity for implementers, HL7 will not elevate content defined in an HL7-approved extension to
+be content defined in a core resource in future versions of the resource once that resource is normative.
+</p>
+<p>
+In some cases, an HL7 work group or other body may publish a profile whose sole
+purpose is to define extensions expected to be needed by implementers in a particular context.  E.g. extensions needed
+to map a particular set of v2 segments or a v3 model.
+</p>
+<p>
+Implementations are encouraged to share their extensions with HL7 and register them with the HL7 extension registry. The domain committees will work
+to elevate the extensions into HL7 published extensions or, if adopted by a broad enough portion of the implementer community, the into the base resource structure itself.
+</p>
+<!-- Todo: point to actual registry once it's up and running -->
+<p>To avoid interoperability issues, extensions SHALL NOT change their definition once published.  (Small clarifications to descriptions
+that do not affect interoperability are permitted.)  Rather than modifying an existing extension, a new extension should be introduced.
+Revisions to an extension may extend the set of contexts in which the extension apply but may not remove or constrain any context previously listed</p>
+<!-- Todo: Figure out how to manage "deprecating" extensions and pointing at their new versions -->
 
-<h2>Profiled FHIR</h2>
-<p>
-If a profile is unambiguous, then the FHIR profile tooling (ref to be provided when the tooling exists) 
-is able to generate reference implementation based object models that express 
-the profiled model natively, where the object interface does not include 
-prohibited elements, treats declared extensions as primary properties and 
-slices lists according to the profile. This eases the burden on an implementer, 
-though this object model can only be used with a sub-set of the possible resources. <!--only if it enforces maxOccurs.  Extra elements can be mapped into extensions -->
-</p>
-<p>
-The tooling is also able to generate bi-directional transforms between the 
-<a href="formats.html">normal XML format</a> and an XML representation of this 
-profiled object model and schema for this profiled XML representation. 
-This XML form has extensions promoted into the primary XML form by using the 
-extension code as the XML name and sliced lists are renamed to use the 
-Profile.resource.element.name as the XML element name. Profiles are only suitable
-for this use if they ensure that there are no clashing extension names when
-the extension definition spaces are ignored and that the sliced list names are 
-appropriate.<!-- Any reason we limit this to only XML? -->
-</p>
-
-<p>
-Implementations are allowed to exchange this profiled XML format. Implementations
-that do so are not fully conformant to FHIR; instead they can claim to be conformant
-to "Profiled FHIR". Implementations should consider carefully before adopting this 
-approach; while it will reduce the amount of work required to initially implement 
-particular profiles, it will increase the amount of work required to exchange this
-data with other communities or to re-use tooling and applications that are also 
-used in other contexts. This cost should particularly be considered in light of the
-fact that the previously discussed tooling allows applications to be written as 
-though they are dealing with "Profiled FHIR" instances when they are in fact sending
-and receiving fully conformant FHIR instances.
-</p>
 
 </div>

@@ -18,9 +18,6 @@
 <a name="root"> </a>
 <h1>Extensibility</h1>
 <p>
-See also Extensibility <a href="extensibility-examples.html">Examples</a> as well.
-</p>
-<p>
 This exchange specification is based on generally agreed common
 requirements across healthcare - covering many jurisdictions, domains, and
 different functional approaches. As such, it is common for
@@ -63,92 +60,148 @@ be present any number of times. This is the content model of the extension as it
 Notes:
 </p>
 <ul>
- <li>The <i>url</i> is a mandatory attribute / property and identifies an extension definition in a <a href="profile.html">resource profile</a> that defines the content and meaning of the extension.</li>
- <li>The actual content of the extension consists of either a single value in the <i>value[x]</i> element, or it can contain additional extensions, each with their own defining url and content</li>
- <li>An extension SHALL have either a value (i.e. a value[x] element) or child extensions. The value[x] element SHALL have content and/or an id attribute that is the target of a reference from the Narrative</li>
- <li>When an extension is the target of an internal reference, the reference is always to the value of the extension. An extension is only allowed to be the target of a reference when it has no value[x]</li>
- <li>For most extensions, it must be safe for an application processing the content of the resource to ignore an extension. Specifically, this should be understood to mean that the content of the extension does not alter the meaning 
- of the element that contains it. See below for further discussion</li>
+ <li>The <i>url</i> is a mandatory attribute / property and identifies an retrievable <a href="extensiondefinition.html">extension definition</a> that defines the content and meaning of the extension.</li>
+ <li>An extension SHALL have either a value (i.e. a [x] element) or sub-extensions. If present, the [x] element SHALL have content (value attribute or other elements)</li>
+ <li>If it is not safe for an application processing the content of the resource to ignore the extension it must be represented diffferent (see <a href="#modifier">below</a>)</li>
+ <li>The <i>[x]</i> element has the name of one of the defined types and the contents as defined for that type. The name may be one of the following:
+  <ul class="dense">
+   <li><a href="datatypes.html#integer">integer</a></li>
+   <li><a href="datatypes.html#decimal">decimal</a></li>
+   <li><a href="datatypes.html#dateTime">dateTime</a></li>
+   <li><a href="datatypes.html#date">date</a></li>
+   <li><a href="datatypes.html#instant">instant</a></li>
+   <li><a href="datatypes.html#string">string</a></li>
+   <li><a href="datatypes.html#uri">uri</a></li>
+   <li><a href="datatypes.html#boolean">boolean</a></li>
+   <li><a href="datatypes.html#code">code</a> (only if the extension definition provides a <a href="terminologies.html#code">fixed</a> binding to a suitable set of codes)</li>
+   <li><a href="datatypes.html#base64Binary">base64Binary</a></li>
+   <li><a href="datatypes.html#Coding">Coding</a></li>
+   <li><a href="datatypes.html#CodeableConcept">CodeableConcept</a></li>
+   <li><a href="datatypes.html#Attachment">Attachment</a></li>
+   <li><a href="datatypes.html#Identifier">Identifier</a></li>
+   <li><a href="datatypes.html#Quantity">Quantity</a></li>
+   <li><a href="datatypes.html#Range">Range</a></li>
+   <li><a href="datatypes.html#Period">Period</a></li>
+   <li><a href="datatypes.html#Ratio">Ratio</a></li>
+   <li><a href="datatypes.html#HumanName">HumanName</a></li>
+   <li><a href="datatypes.html#Address">Address</a></li>
+   <li><a href="datatypes.html#Contact">Contact</a></li>
+   <li><a href="datatypes.html#Schedule">Schedule</a></li>
+   <li><a href="references.html#Reference">Reference</a> - a reference to another resource</li>
+  </ul>
+ </li> 
 </ul>
-<p>
-The <i>value[x]</i> element has the [x] replaced with the title-cased name of one of the defined types and the contents as defined for that type. The value type may be one of the following:
-</p>
-<ul class="dense">
- <li><a href="datatypes.html#integer">integer</a></li>
- <li><a href="datatypes.html#decimal">decimal</a></li>
- <li><a href="datatypes.html#dateTime">dateTime</a></li>
- <li><a href="datatypes.html#date">date</a></li>
- <li><a href="datatypes.html#instant">instant</a></li>
- <li><a href="datatypes.html#string">string</a></li>
- <li><a href="datatypes.html#uri">uri</a></li>
- <li><a href="datatypes.html#boolean">boolean</a></li>
- <li><a href="datatypes.html#code">code</a> (only if the extension definition provides a <a href="terminologies.html#code">fixed</a> binding to a suitable set of codes)</li>
- <li><a href="datatypes.html#base64Binary">base64Binary</a></li>
- <li><a href="datatypes.html#Coding">Coding</a></li>
- <li><a href="datatypes.html#CodeableConcept">CodeableConcept</a></li>
- <li><a href="datatypes.html#Attachment">Attachment</a></li>
- <li><a href="datatypes.html#Identifier">Identifier</a></li>
- <li><a href="datatypes.html#Quantity">Quantity</a></li>
- <li><a href="datatypes.html#Range">Range</a></li>
- <li><a href="datatypes.html#Period">Period</a></li>
- <li><a href="datatypes.html#Ratio">Ratio</a></li>
- <li><a href="datatypes.html#HumanName">HumanName</a></li>
- <li><a href="datatypes.html#Address">Address</a></li>
- <li><a href="datatypes.html#Contact">Contact</a></li>
- <li><a href="datatypes.html#Schedule">Schedule</a></li>
- <li><a href="references.html#Reference">Reference</a> - a reference to another resource</li>
-</ul>
-
-<p>
-An extension would contain other extensions instead of a value where the original definition of the extension defines 
-complex content (i.e. the extension has multiple parts rather than a simple data type). If the value of the extension itself 
-needs extending, those extensions go in the content of the value[x] element.
-</p>
 <div class="example">
 <p>
-Here is an example of a name with a simple extension for a tribal name:
+Here is an example of an extension in XML:
 </p>
-<pre class="xml" fragment="HumanName">
+<pre class="xml" xfragment="HumanName">
 &lt;name&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/Profileiso-21090#name-use&quot; &gt;
-    &lt;valueCode value=&quot;I&quot; /&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/ExtensionDefinition/iso-21090-name-use&quot; &gt;
+    &lt;code value=&quot;I&quot; /&gt;
   &lt;/extension&gt;
   &lt;text value=&quot;Chief Red Cloud&quot;/&gt;
 &lt;/name&gt;
 </pre>
 <p>
-or in JSON:
+In JSON, extensions are represented differently:
 </p>
-<pre class="json">
-"name" : {
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/Profileiso-21090#name-use",
-      "valueCode" : "I"
-     }]
-  "text": "Chief Red Cloud"
-}
+<pre class="json" xfragment="HumanName">
+  "name" : {
+     "http://hl7.org/fhir/ExtensionDefinition/iso-21090-name-use" : [{ 
+        "code" : "I"
+     }],
+     "text" : "Chief Red Cloud"
+  }
+</pre>
+</div>
+<p>
+Making the types explicit in the representation means that all systems can read and write 
+(and therefore store and/or exchange) extensions correctly without needing to access the
+definition of the extension.
+</p>
+<p>
+Note: in JSON, extensions are always arrays, since they can have multiple values, 
+though whether a particular extension is allowed to have multiple values
+depends on it's definition.
+</p>
+<p>
+Extensions can also contain extensions, either because the extension 
+definition itself defines complex content, or because the extension 
+is extended with an additional extension defined separately. 
+</p>
+<p>
+In the first case, the identity of the parts of the extension are local/relative to the reference
+to the extension definition.
+</p>
+<div class="example">
+<p>
+As an example, consider extending a patient with an 
+opt-in status for a clinical trial, with 3 fields: status, date of recording, and 
+the person who enrolled them (see <a href="??">definition</a>). In XML:
+</p>
+<pre class="xml" xfragment="Patient">
+&lt;Patient&gt;
+  &lt;extension url=&quot;http://acme.org/fhir/ExtensionDefinition/trial-status&quot; &gt;
+    &lt;extension url=&quot;code&quot; &gt;	  
+      &lt;code value=&quot;unsure&quot; /&gt;	  
+    &lt;/extension&gt;
+    &lt;extension url=&quot;date&quot; &gt;	  
+      &lt;date value=&quot;2009-03-14&quot; /&gt;	  
+    &lt;/extension&gt;
+    &lt;extension url=&quot;registrar&quot; &gt;	  
+      &lt;Reference&gt;	  
+        &lt;reference value=&quot;Practitioner/example&quot; /&gt;	  	    
+      &lt;/Reference&gt;	  
+    &lt;/extension&gt;
+  &lt;/extension&gt;
+  &lt;!-- other data for patient --&gt;
+&lt;/Patient&gt;
 </pre>
 <p>
-The proper use of the URL value is discussed below.
+Or in JSON:
+</p>
+<pre class="json" xfragment="Patient">
+{
+  "resourceType" : "Patient",
+  "http://acme.org/fhir/ExtensionDefinition/trial-status" : [{
+    "code" : { "code" : "unsure" },
+    "date" : { "date" : "2009-03-14" }, 
+    "registrar" { "Reference" : {
+      "reference" : "Practitioner/example"
+      }
+    }
+  }
+  ... other data for patient ...
+}
+</pre>
+</div>
+<p>
+The JSON representation is more concise, since it is not constrained by 
+the limitations of schema, though the type of the value must still be 
+explicit.
 </p>
 <p>
-Extending a patient with an opt-in status for a clinical trial, with 
-3 fields: status, date of recording, and person who recorded:
+In the second case, the contained extension is defined separately.
 </p>
-<pre class="xml" fragment="Patient">
+<div class="example">
+<p>
+The registrar was defined as a separate extension (e.g. to 
+allow wider use). The url of the extension is different:
+</p>
+<pre class="xml" xfragment="Patient">
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://acme.org/fhir/Profile/main#trial-status&quot; &gt;
-    &lt;extension url=&quot;http://acme.org/fhir/Profile/main#trial-status-code&quot; &gt;	  
-      &lt;valueCode value=&quot;unsure&quot; /&gt;	  
+  &lt;extension url=&quot;http://acme.org/fhir/ExtensionDefinition/trial-status&quot; &gt;
+    &lt;extension url=&quot;code&quot; &gt;	  
+      &lt;code value=&quot;unsure&quot; /&gt;	  
     &lt;/extension&gt;
-    &lt;extension url=&quot;http://acme.org/fhir/Profile/main#trial-status-date&quot; &gt;	  
-      &lt;valueDate value=&quot;2009-03-14&quot; /&gt;	  
+    &lt;extension url=&quot;date&quot; &gt;	  
+      &lt;date value=&quot;2009-03-14&quot; /&gt;	  
     &lt;/extension&gt;
-    &lt;extension url=&quot;http://acme.org/fhir/Profile/main#trial-status-who&quot; &gt;	  
-      &lt;valueReference&gt;	  
+    &lt;extension url=&quot;http://acme.org/fhir/ExtensionDefinition/registrar&quot; &gt;	  
+      &lt;Reference&gt;	  
         &lt;reference value=&quot;Practitioner/example&quot; /&gt;	  	    
-      &lt;/valueReference&gt;	  
+      &lt;/Reference&gt;	  
     &lt;/extension&gt;
   &lt;/extension&gt;
   &lt;!-- other data for patient --&gt;
@@ -157,34 +210,20 @@ Extending a patient with an opt-in status for a clinical trial, with
 <p>
 or in JSON:
 </p>
-<pre class="json">
+<pre class="json" xfragment="Patient">
 {
-  "resource-type" : "Patient",
-  "extension" : [
-    {
-      "url" : "http://acme.org/fhir/Profile/main#trial-status",
-      "extension" : [
-        {
-          "url" : "http://acme.org/fhir/Profile/main#trial-status-code",
-          "valueCode" : "unsure"
-        }, 
-        {
-          "url" : "http://acme.org/fhir/Profile/main#trial-status-date",
-          "valueDate" : "2009-03-14"
-        }, 
-        {
-          "url" : "http://acme.org/fhir/Profile/main#trial-status-who",
-          "valueResource" : {
-            "reference" : "Practitioner/example"
-          }
-        }
-     ]
-   }
-  ], 
-  ... other data for patient... 
+  "resourceType" : "Patient",
+  "http://acme.org/fhir/ExtensionDefinition/trial-status" : [{
+    "code" : { "code" : "unsure" },
+    "date" : { "date" : "2009-03-14" }, 
+    "http://acme.org/fhir/ExtensionDefinition/registrar" { "Reference" : {
+      "reference" : "Practitioner/example"
+      }
+    }
+  }
+  ... other data for patient ...
 }
 </pre>
-
 </div>
 
 <a name="mustUnderstand"> </a>
@@ -208,84 +247,96 @@ negates the primary meaning of the element that contains it. Some examples:
 Implementers should avoid the use of modifier extensions where possible.  Any use should be 
 carefully considered against its possible downstream consequences. However, implementers
 are often forced into these situations by the business arrangements around
-the use of resources, so this specification creates a framework for handling these.
+the use of resources, so this specification creates a framework for handling these cases.
 </p>
 <p>
 If modifier extensions are present, an application cannot safely process the resource unless it knows
 what the extension means for its own use of the data. This specification allows for 
 such modifier elements to be included at the base of a resource or in any elements
 that do not have a data type (e.g. the elements that correspond to classes in the resource UML
-diagrams), using an element named "modifierExtension", which has same content as the 
-<i>extension</i> element documented above. 
+diagrams).
 </p>
 <p>
-Implementations processing the data in resources SHALL understand the impact 
-of the extension when using the data. If an application processing the content 
-of a resource does not recognize a modifierExtension and the data from the 
-element it extends is processed by the application, the application SHALL 
-either refuse to process the data or carry a warning concerning the data 
-along with any action or output that results from processing the data to 
-inform users that it has not fully understood the source information.
+In XML, these modifier elements are represented using an element named "modifierExtension", which has same content as the 
+<i>extension</i> element documented above: 
 </p>
+<div class="example">
 <p>
-Implementations are not required to "support" the extension in any meaningful way - they 
-may achieve this understanding by rejecting instances that contain this extension. Alternatively,
-implementations may be able to be sure, due to their implementation environment, that such extensions
-will never occur. However applications SHOULD always check for extensions irrespective of this.
+Example: There's no element on <a href="procedure.html">Procedure</a> 
+so it can be used to say "this procedure did not occur", and a source system does 
+have this flag on it's procedure records. It could choose not to share those
+procedures (e.g. consider them as logically deleted). However, it may be that
+it is required to share procedures marked as do not occur with it's trading
+partners. Hence, applications are allowed to extend a resource with data like this: 
 </p>
+<pre class="xml">
+&lt;Procedure&gt;
+  &lt;modifierExtension url=&quot;http://example.org/fhir/ExtensionDefinition/negation&quot;&gt;
+    &lt;boolean value="true"/&gt;
+  &lt;/modifierExtension&gt;
+  &lt;!-- ... other content ... --&gt;
+&lt;/Procedure&gt;
+</pre>
 <p>
-Note that processing the data of a resource typically means
+On in JSON:
+</p>
+<pre class="xml">
+{
+  "resourceType" : "Procedure",
+  "modifier" : [{ 
+    "http://example.org/fhir/ExtensionDefinition/negation" : [{
+      "boolean" : "true"
+      }],
+    }
+  .. other content ... 
+}
+</pre>
+</div>
+<p>
+Implementations processing the data in resources SHALL 
+check for modifiers anywhere they may appear, and if 
+a modifier extension is present, SHALL do one of these
+things:
+</p>
+<ol>
+ <li>understand the impact of the extension when using the data</li>
+ <li>refuse to process the data</li>
+ <li>carry a warning concerning the data along with any action or output that results from processing the data to inform users that it has not fully understood the source information</li>
+</ol>
+<p>
+Processing the data of a resource typically means
 copying or filtering data out of a resource for use in another 
 context (display to a human, decision support, exchange in another 
 format where not all information is included, or storing it for this kind of use).
 Servers and background processes that simply move whole resources around unchanged 
 are not "processing the data of the resource", and therefore these applications 
-are not required to check for unknown extensions. 
+are not required to check for unknown modifier extensions. 
 </p>
-
-<h3>Summary: Conformance Rules for Modifier Extensions</h3>
-<ul>
- <li>A modifierExtension SHALL only modify the element which contains it and/or that element's children</li>
- <li>It SHALL always be safe to show the narrative to humans; any modifier extension SHALL be represented in the narrative.</li>
- <li>Applications SHALL always check for modifierExtensions when processing the data from any element that may carry one. 
- If a modifierExtension they do not understand is found, the application SHALL either refuse to process the resource or affected element, or provide an appropriate warning to its users</li>
-</ul>
-
-<h3>Example</h3>
- 
-<div class="example">
 <p>
-Example: Because of a lack of clinical consensus, there's no element on <a href="procedure.html">Procedure</a> 
-for any expression of certainty around the expression of the Allergy/Intolerance. Some systems mark their entries 
-as "unlikely" or "probable". Applications are allowed to extend a resource with data like this: 
-</p>
-<pre class="xml">
-&lt;AllergyIntolerance&gt;
-  &lt;modifierExtension url=&quot;http://example.org/fhir/extensions#certainty&quot;&gt;
-    &lt;valueCoding&gt;
-      &lt;system value="http://example.org/codes/certainty"/&gt;
-      &lt;code value="2"/&gt;
-      &lt;display value="Unlikely"/&gt;
-    &lt;/valueCoding&gt;
-  &lt;/modifierExtension&gt;
-  &lt;!-- .. text etc... --&gt;
-&lt;/AllergyIntolerance&gt;
-</pre>
-</div>
-<p>
-When an application understands this extension, it means that some developer
+<b>#1</b>: When an application understands this extension, it means that some developer
 has provided appropriate instructions for what to do with the data contained 
-in it. Note that there is no obligation that the application do anything at
-all with the data - it can ignore it if that is safe in its own context,
-though this would not usually be the case.
+in it becaue of the existence of the modifier extension. 
 </p>
-<p>
-When an application that doesn't understand this extension tries
-to process this resource, it is required to either refuse to process 
-the resource (or containing element), or provide an appropriate warning to its users. Either
-of these courses of action is potentially difficult. One option is to 
-download the profile that defines the extension (from the given URL), 
-find the name of the extension, and then use the name to display
+<p><b>#2</b>: 
+This means that implementations are not inherently required to "support" 
+a modifier extension in any meaningful way - they may achieve this 
+understanding by rejecting instances that contain this extension.
+Applications may also be able to ignore it if that is safe in its 
+own context, though this would not usually be the case.
+</p>
+<p> 
+Note that implementations may be able to be sure, due to their 
+implementation environment (e.g. specific trading partner agreement), 
+that modifier extensions will never occur, and can therefore meet
+the requirement to check for modifiers at the design stage. 
+However, since integration and deployment options often change
+subsequently, applications SHOULD always check for extensions when 
+processing resources anyway.
+</p>
+
+<p><b>#3</b>: 
+One way to warn the user is to download the extension definition
+from the given URL, and then use the defined display name to present
 the extension to the user. An error message could look something like
 this:
 </p>
@@ -298,8 +349,7 @@ offer the user the choice to see the original narrative.
 </p>
 <div class="example">
 <p>
-Here is an example showing a statement that a particular surgeon did
-not perform an operation:
+Here is the procedure example from above with narrative:
 </p>
 <pre class="xml">
 &lt;Procedure xmlns=&quot;http://hl7.org/fhir&quot;&gt;
@@ -309,8 +359,8 @@ not perform an operation:
   &lt;/text&gt;
   &lt;!-- ...data... --&gt;
   &lt;performer&gt;
-    &lt;modifierExtension url=&quot;http://example.org/fhir/extensions#didNotPerform&quot;&gt;
-      &lt;valueBoolean value=&quot;true&quot;/&gt;
+    &lt;modifierExtension url=&quot;http://example.org/fhir/ExtensionDefinition/negation&quot;&gt;
+      &lt;boolean value="true"/&gt;
     &lt;/modifierExtension&gt;
     &lt;person&gt;
       &lt;reference value=&quot;Practitioner/example&quot;/&gt;
@@ -324,8 +374,18 @@ not perform an operation:
 <p>
 In this case, if an application is not reading the performers of the operation at all,
 the fact that one of the performers has a modifierExtension is irrelevant and the 
-application is free to ignore it. 
+application is free to ignore it. If it does process the performers, and it sees the
+modifier extension, it can warn the user that there is data it does not understand,
+and present the narrative to the user.
 </p>
+
+<h3>Summary: Conformance Rules for Modifier Extensions</h3>
+<ul>
+ <li>Modifier Extensions SHALL only modify the element which contains it and/or that element's children</li>
+ <li>It SHALL always be safe to show the narrative to humans; any modifier extension SHALL be represented in the narrative</li>
+ <li>Applications SHALL always check for modifier extensions when processing the data from any element that may carry one</li>
+ <li>If a modifier Extension they do not understand is present, the application SHALL either refuse to process the resource or affected element, or provide an appropriate warning to its users</li>
+</ul>
 
 <h3>Special Case: Missing data</h3>
 <p>
@@ -337,8 +397,8 @@ primitive value is not present:
 </p>
 <pre class="xml">
 &lt;uri&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/Profile/general-extensions#data-absent-reason&quot;&gt;
-    &lt;valueCode=&quot;unknown&quot;/&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/ExtensionDefinition/data-absent-reason&quot;&gt;
+    &lt;code=&quot;unknown&quot;/&gt;
   &lt;/extension&gt;
 &lt;/uri&gt;
 </pre>
@@ -354,7 +414,6 @@ and then to add an extension indicating that the data has been constructed
 to meet the data rules. This would be both a bad idea, and also a modifier
 extension, which is not allowed on data types. 
 </p>
-
 
 <a name="exchange"> </a>
 <h2>Exchanging Extensions</h2>
@@ -416,121 +475,7 @@ Use the following rules as a guideline for handling resources:
  <li>Retain extensions whenever you can</li>
 </ul> 
  
-<a name="define"></a>
-<h2>Defining Extensions</h2>
-
-<p>
-Extensions may be defined by any project or jurisdiction, up to and including international standards organizations such as HL7 itself.  Extensions are defined and published
-as part of a <a href="profile.html">Resource Profile</a>. Extensions are always defined against some particular context - the type of element 
-that they may be used to extend. The following are possible contexts for an extension:
-</p>
-<table class="codes">
- <tr><th>Context type</th><th>Context format</th><th>Examples</th></tr>
- <tr><td>A particular element (including the root) in a single resource</td><td>The element path for that element<br/>Note: If the context is an element that can have multiple types, then use (e.g.) value[x] if the extension works on all choice types, or otherwise an enumeration of explicitly named elements if not</td><td>Profile.resource.element; Person</td></tr>
- <tr><td>A particular element (including the root) in a particular data type</td><td>The data type name for primitive types or the element path for complex data types</td><td>Address.part.value; string</td></tr>
- <tr><td>A particular context in one of the mapped reference models</td><td>The name of the reference model followed by the mapping path</td><td>RIM: Act[moodCode="EVN"]</td></tr>
- <tr><td>Another extension</td><td>The profile uri of the extension followed by the extension code</td><td>http://myextensions.org#someExtension</td></tr>
- <tr><td>A set of some combination of the above</td><td>As above, separated by ';'</td><td>Address; Contact</td></tr>
-</table>
-<p>
-In addition, an extension definition might apply additional constraints with
-regards to particular element values of the target that make its use appropriate.
-Extensions SHALL only be used on a target for which they are defined.
-</p>
-<p>
-Each extension is defined using the following fields:
-</p>
-<table class="codes">
- <tr><td>Field</td><td>Required?</td><td>Path in Profile (from Profile.extensionDefn)</td><td>Description</td></tr>
- <tr><td>Code</td><td>Required</td><td>.code</td><td>The name that is used as a code in a resource to identify this extension - unique in the context of the defining profile</td></tr>
- <tr><td>Context</td><td>Required</td><td>.contextType and .context</td><td>The context of this extension. See above. The context has two parts: a type, and a path which supplies the details</td></tr>
- <tr><td>Short Definition</td><td>Required</td><td>.definition.short</td><td>A brief description of the extension used in the XML descriptions when the extension is referenced in a profile</td></tr>
- <tr><td>Definition</td><td>Required</td><td>.definition.formal</td><td>A formal statement of the meaning of the content of the field</td></tr>
- <tr><td>Requirements</td><td>Optional</td><td>.definition.requirements</td><td>Identifies the reason the extension is needed</td></tr>
- <tr><td>Comments</td><td>Optional</td><td>.definition.comments</td><td>Additional other information about the extension, including information such as use notes</td></tr>
- <tr><td>Cardinality</td><td>Required</td><td>.definition.min / .definition.max</td><td>The cardinality of this extension.<br/> Specifying a minimum cardinality of 1 means that if the source system declares that it conforms to an extension that declares a type including this extension, this extension must be included in the resource.  Cardinality can be constrained but not loosened in profiles that reference this extension</td></tr>
- <tr><td>Type</td><td>Required</td><td>.definition.type</td><td>The type(s) of the extension. This SHALL be a valid FHIR data type as described above, or empty, if the extension will contain other extensions</td></tr>
- <tr><td>XPaths</td><td>Optional</td><td>.definition.constraint</td><td>One or more XPath statements that SHALL evaluate to true when the extension is used</td></tr>
- <tr><td>Is Modifier</td><td>Required</td><td>.definition.isModifier</td><td>Whether the extension changes the meaning or interpretation of the element containing the extension (or any descendant of that element). Extensions defined as IsModifier=true are always represented in <i>modifierExtension</i> elements, and extensions defined as IsModifier=false are always represented in <i>Extension</i> elements</td></tr>
- <tr><td>RIM Mapping</td><td>Conditional</td><td>.definition.mapping...</td><td>The formal mapping from this extension to the RIM. Required for HL7-defined extensions that apply to resources with RIM mappings, but optional in other contexts</td></tr>
- <tr><td>v2 Mapping</td><td>Optional</td><td>.definition.mapping...</td><td>Mapping to a v2 segment/field/etc., if desired and appropriate. </td></tr>
- <tr><td>Binding</td><td>Conditional</td><td>.definition.binding</td><td>For the types CodeableConcept and Coding. See <a href="terminologies.html">Terminologies</a></td></tr>
-</table>
-<p>
-Notes:
-</p>
-<ul>
- <li>Mappings are not required to be computable (i.e. executable logic). Mappings to other specifications can also be provided.</li>
-</ul>
-<p>
-Whenever resources containing extensions are exchanged, the definitions of the extensions SHALL be available to all the parties that share the resources.
-Each extension contains a URI that references the source of the definitions as a Resource Profile. The source SHOULD be a literal reference, such as an
-http: url that refers to an end-point that responds with the contents of the definitions - preferably a <a href="http.html">FHIR RESTful server</a>
-supporting the Resources Profile, or a logical reference (e.g. using a urn:) - for instance, to a national published
-standard.
-</p>
-<a name="definition"> </a>
-<h2>Control of extensions</h2>
-<p>
-As well as defining the base element structure for resources, HL7 also publishes extensions. HL7 publishes data definitions
-as extensions rather than as part of the base resource structure in order to keep the base
-resource structure simple and concise, and to allow implementers not to engage with an entire world's
-worth of functionality up front. Note that HL7 does not define "modifier" extensions - if
-HL7 publishes an element that modifies the meaning of other elements, it will be part of the resource
-content itself, since everyone has to understand the extension anyway.
-</p>
-<p>
-Before extensions can be used in instances, they SHALL be published. HL7 maintains two
-extension registries and users are encouraged to register their extensions there. But
-this is not required. All that is required is that the extension is published in a
-context that is available for users of the extension. So, for example, if a particular
-extension is used within a single institution, the definition of the extension
-can be placed on the institution's intranet. However since, by their nature, resources
-tend to travel well, it's always better to use the HL7 or other publicly accessible extension registries.
-</p>
-<p>
-HL7 provides two extension registries. The first is for HL7 approved extensions. These
-have been approved by an appropriate part of the HL7 community following a review process,
-and have formal standing. The other registry is provided as a service to the community,
-and anyone can register an extension on it.
-</p>
-<table class="codes">
- <tr><th>Registry</th><th>Search</th><th>Submit</th></tr>
- <tr><td>HL7 Approved</td><td>[TBD]</td><td>[TBD]</td></tr>
- <tr><td>Community</td><td>[TBD]</td><td>[TBD]</td></tr>
- <tr><td>Interim</td><td><a href="http://fhir.healthintersections.com.au/open/profile/search">http://fhir.healthintersections.com.au/open/profile/search</a></td>
- <td><a href="http://fhir.healthintersections.com.au/open/profile/upload">http://fhir.healthintersections.com.au/open/profile/upload</a></td></tr>
-</table>
-<p>
-HL7 profiles defining extensions may be balloted alongside resource content as part of the FHIR specification or may
-be published as part of separate specifications.
-When HL7  publishes extensions as part of the FHIR specification, these extensions SHALL
-be used for this data whenever the data is represented in instances. Applications SHOULD use other
-HL7-defined extensions published to represent equivalent data in the interest of maximum interoperability.
-If referencing a profile that defines extensions, implementations declaring conformance with the profile SHALL
-use the profile-defined and imported extensions when conveying equivalent data elements.
-</p>
-<p>
-To minimize complexity for implementers, HL7 will not elevate content defined in an HL7-approved extension to
-be content defined in a core resource in future versions of the resource once that resource is normative.
-</p>
-<p>
-In some cases, an HL7 work group or other body may publish a profile whose sole
-purpose is to define extensions expected to be needed by implementers in a particular context.  E.g. extensions needed
-to map a particular set of v2 segments or a v3 model.
-</p>
-<p>
-Implementations are encouraged to share their extensions with HL7 and register them with the HL7 extension registry. The domain committees will work
-to elevate the extensions into HL7 published extensions or, if adopted by a broad enough portion of the implementer community, the into the base resource structure itself.
-</p>
-<!-- Todo: point to actual registry once it's up and running -->
-<p>To avoid interoperability issues, extensions SHALL NOT change their definition once published.  (Small clarifications to descriptions
-that do not affect interoperability are permitted.)  Rather than modifying an existing extension, a new extension should be introduced.
-Revisions to an extension may extend the set of contexts in which the extension apply but may not remove or constrain any context previously listed</p>
-<!-- Todo: Figure out how to manage "deprecating" extensions and pointing at their new versions -->
-
 </div>
-[%onthispage Extensibility#root|Modifier Extensions#isModifier|Defining Extensions#definition%]
 
 [%file newfooter%]
 </body>

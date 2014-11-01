@@ -26,8 +26,8 @@ todo: compartments
     <page title="EHR FM map" filename="ehr-fm.html"/>
     <page title="Resource Definitions" filename="resources.html">
       <page title="Examples" filename="resource-examples.html"/>
-      <page title="Definitions" filename="resource-definitions.html">
-        <page title="Element Definition" filename="elementdefinition.html"/>
+      <page title="Definitions" filename="resources-definitions.html"/>
+      <page title="Element Definition" filename="elementdefinition.html">
         <page title="Element Definition Examples" filename="elementdefinition-examples.html"/>
         <page title="Element Definition Formal Definitions" filename="elementdefinition-definitions.html"/>
         <page title="Element Definition Mappings" filename="elementdefinition-mappings.html"/>

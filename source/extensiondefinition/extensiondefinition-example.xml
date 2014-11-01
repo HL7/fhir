@@ -15,7 +15,7 @@
   <contextType value="resource"/>
   <context value="Observation.name"/>
   <element>
-    <path value="extensiondefinition-example"/>
+    <path value="extension"/>
     <short value="LDL is Calculated"/>
     <formal value="True if the LDL value is calculated from Chol, Trig, and HDLC."/>
     <comments value="It&#39;s definitely better that whether the LDL was calculated or not comes from the LOINC code. But this is defined to exercise the extension machinery in the publication tooling, and to make this comment. Actually, the location is odd too - it would probably be on the root observation, but this is for testing purposes."/>

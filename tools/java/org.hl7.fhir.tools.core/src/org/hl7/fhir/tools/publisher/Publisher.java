@@ -3664,20 +3664,22 @@ public class Publisher implements URIResolver {
   private void scanForFragments(String filename, XhtmlNode node) throws Exception {
     if (node != null && (node.getNodeType() == NodeType.Element || node.getNodeType() == NodeType.Document)) {
       if (node.getNodeType() == NodeType.Element && node.getName().equals("pre") && node.getAttribute("fragment") != null) {
-        processFragment(filename, node, node.getAttribute("fragment"));
+        processFragment(filename, node, node.getAttribute("fragment"), node.getAttribute("class"));
       }
       for (XhtmlNode child : node.getChildNodes())
         scanForFragments(filename, child);
     }
   }
 
-  private void processFragment(String filename, XhtmlNode node, String type) throws Exception {
-    String xml = new XhtmlComposer().setXmlOnly(true).compose(node);
-    Fragment f = new Fragment();
-    f.setType(type);
-    f.setXml(Utilities.unescapeXml(xml));
-    f.setPage(filename);
-    fragments.add(f);
+  private void processFragment(String filename, XhtmlNode node, String type, String clss) throws Exception {
+    if (clss.equals("xml")) {
+      String xml = new XhtmlComposer().setXmlOnly(true).compose(node);
+      Fragment f = new Fragment();
+      f.setType(type);
+      f.setXml(Utilities.unescapeXml(xml));
+      f.setPage(filename);
+      fragments.add(f);
+    }
   }
 
   public class MyErrorHandler implements ErrorHandler {
