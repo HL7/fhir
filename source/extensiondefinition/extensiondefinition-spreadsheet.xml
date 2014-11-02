@@ -24,7 +24,7 @@
   <WindowWidth>24090</WindowWidth>
   <WindowTopX>345</WindowTopX>
   <WindowTopY>375</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1673,7 +1673,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1959,7 +1958,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">ExtensionDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">All element names must start with the extension name</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">count(f:element)=count(f:element[(not(preceding-sibling::f:element) and f:path/@value=../f:name/@value) or (preceding-sibling::f:element and starts-with(f:path/@value, concat(../f:name/@value, '.')))])</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">count(f:element)=count(f:element[(not(preceding-sibling::f:element) and f:path/@value='Extension') or (preceding-sibling::f:element and starts-with(f:path/@value, concat('Extension', '.')))])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"/>
@@ -2182,6 +2181,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2201,7 +2201,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
