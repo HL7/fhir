@@ -173,8 +173,9 @@ it is represented as base64 encoded content along with a content-type, which is 
 as it would be specified in HTTP:
 </p>
 <pre class="spec">
- &lt;Binary xmlns="http://hl7.org/fhir" contentType="<span style="color:navy;">[mime type]</span>"&gt;  <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
-   <span style="color:navy;">[Base64 Content]</span>
+ &lt;Binary xmlns="http://hl7.org/fhir"&gt;
+   &lt;contentType value="<span style="color:navy;">[mime type]</span>" /&gt; <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
+   &lt;content value="<span style="color:navy;">[Base64 Content]</span>" /&gt;
  &lt;/Binary&gt;
 </pre>
 <p>
