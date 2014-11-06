@@ -78,42 +78,53 @@ not to the value set.
 <p>Users wishing for more information about the underlying principles may wish to consult the Core Principles (link)
 </p>
 
+<h3>ValueSet Resource</h3>
+<p>
+The basic administrative unit that underlies the terminology service is the <a href="valueset.html">ValueSet</a> and <a href="conceptmap.html">ConceptMap</a> resources.
+A terminology service is a simply a set of functions built on the definitions provided by a set of value set and concept map resources.
+</p>
+
+<h3>External Code Systems</h3>
+<p>
+In order to be used with a value set, a code must be defined somewhere. They can be defined as part of 
+an <a href="valueset.html#define">inline code system definition</a>, or they can be defined elsewhere, 
+and then used in a value set by quoting the correct namespace. The FHIR specification defines a <a href="terminology-systems.html">set of 
+namespaces</a> for commonly encountered code systems, and defines how some work with FHIR (e.g. 
+<a href="snomed.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorml.html">RxNorm</a>). 
+These code systems are often large, and have many internally defined properties that are part of their 
+formal definitions. Inline code systems are not appropriate for these code systems; FHIR does not provide 
+an formal representation at all. Instead, it is assumed that these are externally known to the 
+terminology server.
+</p>
+<p>
+Most useful terminology servers will make one or more of these external code systems available for use 
+within the value sets that they manage. The list of additional terminologies that a terminology supports 
+beyond those defined in it's value sets is published to clients by (still to figure out how this works). 
+</p>
+
+<h4>Implementation Note</h4>
+<p>When a terminology server exposes an external code system, it makes a set of services available 
+internally that serve the operational interfaces below. The internal server depends on the following 
+logical information for a terminology:
+</p>
+<ul>
+  <li> it's URL (namespace, and how versioning works)</li>
+  <li> what codes are valid  </li>
+  <li> what properties can be used to select codes </li>
+  <li> what implicit value sets exist </li>
+</ul>
+<p>
+The FHIR specification itself defines these things for common terminologies (including 
+<a href="snomed.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorml.html">RxNorm</a>). 
+</p>
+<p>
+Note: A terminology service may choose to expose additional external code system specific 
+related functionality such as exploration, or structured search, but these services are 
+outside the scope of the FHIR terminology service.
+</p>
+
 ======================
 
-<h1><span class="mw-headline" id="ValueSet_Resource">ValueSet Resource</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=5" title="Edit section: ValueSet Resource">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
-<p>FHIR defines a single resource named "ValueSet" which defines a set of Code Pairs. A value set resource can include code pairs defined elsewhere by:
-</p>
-<ul>
-<li> importing set of code pairs from other value sets
-</li>
-<li> including codes from code systems by listing (enumerating) the codes (this is known as an extensional definition)
-</li>
-<li> including sets of codes from code systems based on their properties (this is known as an intensional definition)
-</li>
-</ul>
-<p>In addition, a Value Set resource can define it's own code system. Codes defined in this inline code system are also included in the value set using the URL explicitly assigned to the code system in the valueset. 
-</p><p>The Value Set resource is the fundamental building block for a terminology server - it manages a repository of value sets, allows selected users to edit them, and provides services based on the definitions in the value sets.
-</p>
-<h1><span class="mw-headline" id="External_Code_Systems">External Code Systems</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=6" title="Edit section: External Code Systems">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
-<p>In order to be used with a value set, code must be defined somewhere. They can be defined as part of an inline code system definition, or they can be defined elsewhere, and then used in a value set by quoting the correct namespace. The FHIR specification defines a set of namespaces (link) for commonly encountered code systems, and defines how some work with FHIR (links, SNomed, LOINC, RxNorm). These code systems are often large, and have many internally defined properties that are part of their formal definitions. Inline code systems are not appropriate for these code systems; FHIR does not provide an formal representation at all. Instead, it is assumed that these are externally known. 
-</p><p>Most useful terminology servers will make one or more of these external code systems available for use within the value sets that they manage. The list of additional terminologies that a terminology supports beyond those defined in it's value sets is published to clients by (still to figure out how this works). 
-</p>
-<h2><span class="mw-headline" id="Implementation_Note">Implementation Note</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=7" title="Edit section: Implementation Note">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
-<p>When a terminology server exposes an external code system, it makes a set of services available internally that serve the operational interfaces below. The internal server depends on the following logical statements for a terminology:
-</p>
-<ul>
-<li> it's URL (namespace, and how versioning works)
-</li>
-<li> what codes are valid 
-</li>
-<li> what properties can be used to select codes
-</li>
-<li> what implicit value sets exist
-</li>
-</ul>
-<p>The FHIR specification itself defines these things for (links, Snomed CT, LOINC, RxNorm). 
-</p><p>Note: A terminology service may choose to expose additional external code system specific related functionality such as exploration, or structured search, but these services are outside the scope of the FHIR terminology service.
-</p>
 <h1><span class="mw-headline" id="Concept_Maps">Concept Maps</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=8" title="Edit section: Concept Maps">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
 <p>In addition to value sets, the other resource that contributes to the terminology service is a concept map. A concept map can translate between two structures, or two values sets; only the second aspect is relevant for a terminology server. A concept map maps from one value set to another. Note that the mappings are one way - from the source code system to the destination code system, and they are only defined in the context of the source and destination valuesets. The mappings may be useful in other contexts, but this must be determined based on the context of use and meaning; it cannot be taken for granted automatically. Each mapping from source to destination also includes an [<a rel="nofollow" class="external text" href="http://hl7.org/implement/standards/fhir/concept-equivalence.html">equivalence</a>] property that specifies how similar the mapping is (or, in some cases, that there is no valid mapping). 
 </p><p>The server can use the concept maps to augment the information provided through the value sets and the inherently known terminologies. 
