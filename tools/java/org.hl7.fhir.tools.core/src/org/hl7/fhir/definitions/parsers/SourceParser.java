@@ -270,8 +270,13 @@ public class SourceParser {
 		      p.setProfile(sparser.parseProfile(definitions));
 		    } else if (p.getType() == ProfileInputType.Profile) {
 		      XmlParser prsr = new XmlParser();
-		      Profile profile = (Profile) prsr.parse(new CSFileInputStream(p.getFilepath()));
-		      p.setProfile(ProfileGenerator.wrapProfile(profile));
+		      try {
+		        Profile profile = (Profile) prsr.parse(new CSFileInputStream(p.getFilepath()));
+		        p.setProfile(ProfileGenerator.wrapProfile(profile));
+		      } catch(Exception e) {
+		        logger.log("Failed in profile: " + p.getFilepath(), LogMessageType.Error);
+		        throw e;
+		      }
 		    } else
 		      throw new Exception("Unimplemented profile parser type "+p.getType());
 		    p.getProfile().forceMetadata("id", p.getDestFilenameNoExt());
@@ -298,7 +303,6 @@ public class SourceParser {
     } catch (Exception e) {
       throw new Exception("Error processing mappingSpaces.xml: "+e.getMessage(), e);
     }
-    
   }
 
 
@@ -397,7 +401,6 @@ public class SourceParser {
         throw new Exception("Error Parsing Profile: '"+n+"': "+e.getMessage(), e);
       }
 	  }
-	    
 	}
 
 	private void loadGlobalConceptDomains() throws Exception {
