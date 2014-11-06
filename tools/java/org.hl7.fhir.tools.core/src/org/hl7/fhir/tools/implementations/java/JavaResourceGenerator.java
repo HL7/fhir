@@ -689,11 +689,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"}\r\n");
         write("\r\n");
         jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
-        write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"("+getSimpleType(tn)+" value) { \r\n");
+        write(indent+"public "+className+" add"+getTitle(getElementName(e.getName(), false))+"("+getSimpleType(tn)+" value) { \r\n");
         write(indent+"  "+tn+" t = new "+tn+"();\r\n");
         write(indent+"  t.setValue(value);\r\n");
         write(indent+"  this."+getElementName(e.getName(), true)+".add(t);\r\n");
-        write(indent+"  return t;\r\n");
+        write(indent+"  return this;\r\n");
         write(indent+"}\r\n");
         write("\r\n");
         jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");

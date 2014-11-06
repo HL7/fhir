@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.instance.model.Profile.ElementComponent;
+import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -78,7 +78,7 @@ public class ElementDefn {
   private Type example;
   private Type fixed; // only in a profile
   private Type pattern; // only in a profile
-	private ElementComponent derivation;
+	private ElementDefinition derivation;
 	private boolean inherited; // in a profile, was this element add from the
 								// base definition (true) or was it specifically
 								// constrained in the profile (false)
@@ -476,7 +476,7 @@ public class ElementDefn {
 		maxCardinality = 0;
 	}
 
-	public void setDerivation(ElementComponent derivation) {
+	public void setDerivation(ElementDefinition derivation) {
 		this.derivation = derivation;
 	}
 
@@ -488,7 +488,7 @@ public class ElementDefn {
 		this.inherited = inherited;
 	}
 
-	public ElementComponent getDerivation() {
+	public ElementDefinition getDerivation() {
 		return derivation;
 	}
 

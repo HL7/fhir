@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -586,11 +586,11 @@ public class OralHealthClaim extends Resource {
         /**
          * @param value {@link #preauthref} (A list of references from the Insurer to which these services pertain.)
          */
-        public StringType addPreauthref(String value) { 
+        public CoverageComponent addPreauthref(String value) { 
           StringType t = new StringType();
           t.setValue(value);
           this.preauthref.add(t);
-          return t;
+          return this;
         }
 
         /**

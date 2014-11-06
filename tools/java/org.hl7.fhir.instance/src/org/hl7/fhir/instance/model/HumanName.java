@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -278,11 +278,11 @@ public class HumanName extends Type {
     /**
      * @param value {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
-    public StringType addFamily(String value) { 
+    public HumanName addFamily(String value) { 
       StringType t = new StringType();
       t.setValue(value);
       this.family.add(t);
-      return t;
+      return this;
     }
 
     /**
@@ -315,11 +315,11 @@ public class HumanName extends Type {
     /**
      * @param value {@link #given} (Given name.)
      */
-    public StringType addGiven(String value) { 
+    public HumanName addGiven(String value) { 
       StringType t = new StringType();
       t.setValue(value);
       this.given.add(t);
-      return t;
+      return this;
     }
 
     /**
@@ -352,11 +352,11 @@ public class HumanName extends Type {
     /**
      * @param value {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
-    public StringType addPrefix(String value) { 
+    public HumanName addPrefix(String value) { 
       StringType t = new StringType();
       t.setValue(value);
       this.prefix.add(t);
-      return t;
+      return this;
     }
 
     /**
@@ -389,11 +389,11 @@ public class HumanName extends Type {
     /**
      * @param value {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
-    public StringType addSuffix(String value) { 
+    public HumanName addSuffix(String value) { 
       StringType t = new StringType();
       t.setValue(value);
       this.suffix.add(t);
-      return t;
+      return this;
     }
 
     /**

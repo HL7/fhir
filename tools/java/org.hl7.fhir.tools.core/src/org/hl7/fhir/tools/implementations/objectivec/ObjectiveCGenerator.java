@@ -254,7 +254,7 @@ public class ObjectiveCGenerator extends BaseGenerator implements PlatformGenera
   }
 
   @Override
-  public String checkFragments(String rootDir, String fragments, boolean inProcess) throws Exception {
+  public String checkFragments(String rootDir, String fragments) throws Exception {
     return "Not supported by Objective-C implementation";
   }
 

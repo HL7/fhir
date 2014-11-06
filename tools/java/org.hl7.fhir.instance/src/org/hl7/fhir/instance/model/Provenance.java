@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -658,11 +658,11 @@ public class Provenance extends Resource {
     /**
      * @param value {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
      */
-    public UriType addPolicy(String value) { 
+    public Provenance addPolicy(String value) { 
       UriType t = new UriType();
       t.setValue(value);
       this.policy.add(t);
-      return t;
+      return this;
     }
 
     /**

@@ -275,7 +275,7 @@
           </tr>
           <tr>
             <th>
-              <a href="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">deReference</a>
+              <a href="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">deReference</a>
             </th>
             <td>SHALL</td>
             <td>token</td>
@@ -283,7 +283,7 @@
           </tr>
           <tr>
             <th>
-              <a href="http://hl7.org/fhir/Profile/questionnaire-extensions#category">objectClass</a>
+              <a href="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">objectClass</a>
             </th>
             <td>SHALL</td>
             <td>token</td>
@@ -482,7 +482,7 @@
           </tr>
           <tr>
             <th>
-              <a href="http://hl7.org/fhir/Profile/valueset-extensions#category">objectClass</a>
+              <a href="http://hl7.org/fhir/ExtensionDefinition/valueset-category">objectClass</a>
             </th>
             <td>SHALL</td>
             <td>token</td>
@@ -514,7 +514,7 @@
     <resource>
       <type value="Questionnaire"/>
       <profile>
-        <reference value="http://hl7.org/fhir/Profile/questionnaire-sdc"/>
+        <reference value="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
@@ -634,7 +634,7 @@
           <valueCode value="SHALL"/>
         </extension>
         <name value="deReference"/>
-        <definition value="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference"/>
+        <definition value="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
@@ -642,7 +642,7 @@
           <valueCode value="SHALL"/>
         </extension>
         <name value="objectClass"/>
-        <definition value="http://hl7.org/fhir/Profile/questionnaire-extensions#category"/>
+        <definition value="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category"/>
         <type value="token"/>
       </searchParam>
     </resource>
@@ -794,7 +794,7 @@
           <valueCode value="SHALL"/>
         </extension>
         <name value="objectClass"/>
-        <definition value="http://hl7.org/fhir/Profile/valueset-extensions#category"/>
+        <definition value="http://hl7.org/fhir/ExtensionDefinition/valueset-category"/>
         <type value="token"/>
       </searchParam>
     </resource>

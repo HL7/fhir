@@ -5,9 +5,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ElementComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.utilities.Utilities;
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -59,14 +58,14 @@ public class ReviewSpreadsheetGenerator {
     font.setFontName("Calibri");
     style = workbook.createCellStyle();
     
-    ElementComponent ed = sc.getSnapshot().getElement().get(0);
+    ElementDefinition ed = sc.getSnapshot().getElement().get(0);
     String path = ed.getPath();
-    addRow(sheet, style, path+" : "+sc.getType(), sc.getName(), "", ed.getDefinition().getFormal(), "");
+    addRow(sheet, style, path+" : "+sc.getType(), sc.getName(), "", ed.getFormal(), "");
     processRows(workbook, path, sc.getSnapshot().getElement(), 1, sheet, "  ");
   }
 
-  private int processRows(HSSFWorkbook workbook, String path, List<ElementComponent> list, int i, HSSFSheet sheet, String indent) {
-    ElementComponent ed = list.get(i);
+  private int processRows(HSSFWorkbook workbook, String path, List<ElementDefinition> list, int i, HSSFSheet sheet, String indent) {
+    ElementDefinition ed = list.get(i);
     HSSFFont font = workbook.createFont();
     font.setFontName("Calibri");
     HSSFCellStyle style = workbook.createCellStyle();
@@ -76,16 +75,16 @@ public class ReviewSpreadsheetGenerator {
       HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
       int c = 0;
       HSSFRichTextString richString;
-      if (ed.getDefinition().getType().size() == 0) {
-        richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" ["+describeCardinality(ed.getDefinition())+"]");
-      } else if (ed.getDefinition().getType().size() == 1) {
-        richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" : "+ed.getDefinition().getType().get(0).getCode()+" ["+describeCardinality(ed.getDefinition())+"]");
+      if (ed.getType().size() == 0) {
+        richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" ["+describeCardinality(ed)+"]");
+      } else if (ed.getType().size() == 1) {
+        richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" : "+ed.getType().get(0).getCode()+" ["+describeCardinality(ed)+"]");
         HSSFFont fontBlue = workbook.createFont();
         fontBlue.setFontName("Calibri");
         fontBlue.setColor(new HSSFColor.DARK_BLUE().getIndex());
-        richString.applyFont(indent.length()+ed.getPath().length() - (path.length()+1), richString.length()- describeCardinality(ed.getDefinition()).length()-3, fontBlue);
+        richString.applyFont(indent.length()+ed.getPath().length() - (path.length()+1), richString.length()- describeCardinality(ed).length()-3, fontBlue);
       } else { 
-        richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" : * ["+describeCardinality(ed.getDefinition())+"]");
+        richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" : * ["+describeCardinality(ed)+"]");
       }
 
       HSSFCell cell = row.createCell(c++);
@@ -93,7 +92,7 @@ public class ReviewSpreadsheetGenerator {
       cell.setCellValue(richString);
       
       
-      if (ed.getDefinition().getType().size() == 0) {
+      if (ed.getType().size() == 0) {
         cell = row.createCell(c++);
         cell.setCellStyle(style);
         cell.setCellValue(ed.getName());
@@ -104,13 +103,13 @@ public class ReviewSpreadsheetGenerator {
         i++;
         if (i < list.size())
           i = processRows(workbook, ed.getPath(), list, i, sheet, indent+"  ");
-      } else if (ed.getDefinition().getType().size() == 1) {
+      } else if (ed.getType().size() == 1) {
         cell = row.createCell(c++);
         cell.setCellStyle(style);
-        cell.setCellValue(ed.getDefinition().getType().get(0).getProfile());
+        cell.setCellValue(ed.getType().get(0).getProfile());
         cell = row.createCell(c++);
         cell.setCellStyle(style);
-        cell.setCellValue(describeBinding(ed.getDefinition()));
+        cell.setCellValue(describeBinding(ed));
         i++;
       } else {
         cell = row.createCell(c++);
@@ -118,12 +117,12 @@ public class ReviewSpreadsheetGenerator {
         cell.setCellValue(ed.getName());
         cell = row.createCell(c++);
         cell.setCellStyle(style);
-        cell.setCellValue(describeBinding(ed.getDefinition()));
+        cell.setCellValue(describeBinding(ed));
         i++;
       }
       cell = row.createCell(c++);
       cell.setCellStyle(style);
-      cell.setCellValue(ed.getDefinition().getFormal());
+      cell.setCellValue(ed.getFormal());
       cell = row.createCell(c++);
       cell.setCellStyle(style);
       cell.setCellValue("");
@@ -134,13 +133,13 @@ public class ReviewSpreadsheetGenerator {
     
   }
 
-  private String describeBinding(ElementDefinitionComponent def) {
+  private String describeBinding(ElementDefinition def) {
     if (def.getBinding() == null)
       return "";
     return def.getBinding().getName();
   }
 
-  private String describeCardinality(ElementDefinitionComponent d) {
+  private String describeCardinality(ElementDefinition d) {
     if (d.getMax() == null && d.getMinElement() == null)
       return "";
     else if (d.getMax() == null)

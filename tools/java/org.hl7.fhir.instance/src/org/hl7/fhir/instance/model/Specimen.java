@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -297,11 +297,11 @@ public class Specimen extends Resource {
         /**
          * @param value {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public StringType addComment(String value) { 
+        public SpecimenCollectionComponent addComment(String value) { 
           StringType t = new StringType();
           t.setValue(value);
           this.comment.add(t);
-          return t;
+          return this;
         }
 
         /**

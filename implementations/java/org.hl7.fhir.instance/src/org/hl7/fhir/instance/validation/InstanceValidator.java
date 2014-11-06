@@ -11,20 +11,20 @@ import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ContactPoint;
+import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
+import org.hl7.fhir.instance.model.ExtensionDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.BindingConformance;
-import org.hl7.fhir.instance.model.Profile.ElementComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.instance.model.Profile.ExtensionContext;
-import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
-import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Range;
 import org.hl7.fhir.instance.model.Ratio;
@@ -418,27 +418,27 @@ public class InstanceValidator extends BaseValidator {
     return false;
   }
 
-  private void validateElement(List<ValidationMessage> errors, Profile profile, ProfileStructureComponent structure, String path, ElementComponent definition, Profile cprofile, ElementComponent context, WrapperElement element, String actualType, ExtensionLocatorService.ExtensionLocationResponse extensionContext) throws Exception {
+  private void validateElement(List<ValidationMessage> errors, Profile profile, ProfileStructureComponent structure, String path, ElementDefinition definition, Profile cprofile, ElementDefinition context, WrapperElement element, String actualType, ExtensionLocatorService.ExtensionLocationResponse extensionContext) throws Exception {
     // irrespective of what element it is, it cannot be empty
     if (NS_FHIR.equals(element.getNamespace())) {
       rule(errors, "invalid", path, !empty(element), "Elements must have some content (@value, @id, extensions, or children elements)");
     }
-    Map<String, ElementComponent> children = ProfileUtilities.getChildMap(structure, definition.getPath());
-    for (ElementComponent child : children.values()) {
+    Map<String, ElementDefinition> children = ProfileUtilities.getChildMap(structure, definition.getPath());
+    for (ElementDefinition child : children.values()) {
     	if (child.getRepresentation().isEmpty()) {
     		List<WrapperElement> list = new ArrayList<WrapperElement>();  
     		element.getNamedChildrenWithWildcard(tail(child.getPath()), list);
-    		if (child.getDefinition().getMin() > 0) {
+    		if (child.getMin() > 0) {
     			rule(errors, "structure", child.getPath(), list.size() > 0, "Element "+child.getPath()+" is required");
     		}
-    		if (child.getDefinition().getMax() != null && !child.getDefinition().getMax().equals("*")) {
-    			rule(errors, "structure", child.getPath(), list.size() <= Integer.parseInt(child.getDefinition().getMax()), "Element "+child.getPath()+" can only occur "+child.getDefinition().getMax()+" time"+(child.getDefinition().getMax().equals("1") ? "" : "s"));
+    		if (child.getMax() != null && !child.getMax().equals("*")) {
+    			rule(errors, "structure", child.getPath(), list.size() <= Integer.parseInt(child.getMax()), "Element "+child.getPath()+" can only occur "+child.getMax()+" time"+(child.getMax().equals("1") ? "" : "s"));
     		}
     	}
     }
     ChildIterator ci = new ChildIterator(path, element);
     while (ci.next()) {
-      ElementComponent child = children.get(ci.name());
+      ElementDefinition child = children.get(ci.name());
       String type = null;
       if (ci.name().equals("extension")) 
       {
@@ -455,16 +455,16 @@ public class InstanceValidator extends BaseValidator {
       } 
       else 
       {
-        if (child.getDefinition().getType().size() == 1)
-          type = child.getDefinition().getType().get(0).getCode();
-          else if (child.getDefinition().getType().size() > 1 )
+        if (child.getType().size() == 1)
+          type = child.getType().get(0).getCode();
+          else if (child.getType().size() > 1 )
           {
-        	  TypeRefComponent trc = child.getDefinition().getType().get(0);
+        	  TypeRefComponent trc = child.getType().get(0);
         	  
         	  if(trc.getCode().equals("Reference"))
         		  type = "Reference";
         	  else
-        		  throw new Exception("multiple types ("+describeTypes(child.getDefinition().getType())+") @ "+path+"/f:"+ci.name());
+        		  throw new Exception("multiple types ("+describeTypes(child.getType())+") @ "+path+"/f:"+ci.name());
           }
           
         if (type != null) {
@@ -515,7 +515,7 @@ public class InstanceValidator extends BaseValidator {
     return b.toString();
   }
 
-  private ExtensionLocatorService.ExtensionLocationResponse checkExtension(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementComponent container, String parentType, ExtensionLocatorService.ExtensionLocationResponse extensionContext) throws Exception {
+  private ExtensionLocatorService.ExtensionLocationResponse checkExtension(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementDefinition container, String parentType, ExtensionLocatorService.ExtensionLocationResponse extensionContext) throws Exception {
     String url = element.getAttribute("url");
     ExtensionLocatorService.ExtensionLocationResponse ext;
     if (url.startsWith("#") && extensionContext != null)
@@ -526,7 +526,7 @@ public class InstanceValidator extends BaseValidator {
     if (ext.getStatus() == Status.NotAllowed) {
     	rule(errors, "structure", path+"[url='"+url+"']", false, "This extension cannot be used here ("+ext.getMessage()+")");
     } else if (ext.getStatus() == Status.Located) {
-      ElementComponent elementComp = null;
+      ElementDefinition elementComp = null;
     	// two questions 
       // 1. can this extension be used here?
       boolean ok = false;
@@ -538,10 +538,10 @@ public class InstanceValidator extends BaseValidator {
         ok = checkExtensionContext(errors, path+"[url='"+url+"']", ext.getDefinition(), container, parentType, ext.getUrl());
       }
       // 2. is the content of the extension valid?
-      if (ok && elementComp.getDefinition().getType().size() > 0) { // if 0, then this just contains extensions
-        if (elementComp.getDefinition().getType().size() > 1) 
+      if (ok && elementComp.getType().size() > 0) { // if 0, then this just contains extensions
+        if (elementComp.getType().size() > 1) 
           throw new Error("exceptions with multiple types are not yet handled");
-        String cs = elementComp.getDefinition().getType().get(0).getCode();
+        String cs = elementComp.getType().get(0).getCode();
         if (cs.contains("("))
           cs = cs.substring(0, cs.indexOf("("));
         WrapperElement child = element.getFirstChild();
@@ -556,17 +556,16 @@ public class InstanceValidator extends BaseValidator {
         }
         if (cok) {
           Profile type = context.getProfiles().get(cs).getResource();
-          ElementComponent ec = new ElementComponent(); // gimmy up a fake element component for the next call
+          ElementDefinition ec = new ElementDefinition(); // gimmy up a fake element component for the next call
           ec.setPath(path+"[url='"+url+"']");
           ec.setName(child.getName());
-          ec.setDefinition(elementComp.getDefinition());
           if (type != null) 
             validateElement(errors, profile, null, path+"[url='"+url+"']."+child.getName(), ec, null, null, child, "Extension", extensionContext);
           else {
             checkPrimitive(errors, path+"[url='"+url+"']."+child.getName(), cs, ec, child);
             // special: check vocabulary. Mostly, this isn't needed on a code, but it is with extension
             if (cs.equals("code"))  {
-              ElementDefinitionBindingComponent binding = elementComp.getDefinition().getBinding();
+              ElementDefinitionBindingComponent binding = elementComp.getBinding();
               if (binding != null) {
                 if (warning(errors, "code-unknown", path, binding.getReference() != null && binding.getReference() instanceof Reference, "Binding for "+path+" missing or cannot be processed")) {
                   if (binding.getReference() != null && binding.getReference() instanceof Reference) {
@@ -596,15 +595,15 @@ public class InstanceValidator extends BaseValidator {
     return context.getProfiles().get(code.toLowerCase()) != null; 
   }
 
-  private ElementComponent getElementByPath(ProfileExtensionDefnComponent definition, String path) {
-    for (ElementComponent e : definition.getElement()) {
+  private ElementDefinition getElementByPath(ExtensionDefinition definition, String path) {
+    for (ElementDefinition e : definition.getElement()) {
       if (e.getPath().equals(path))
         return e;
     }
     return null;
   }
 
-  private boolean checkExtensionContext(List<ValidationMessage> errors, String path, ProfileExtensionDefnComponent definition, ElementComponent container, String parentType, String extensionParent) {
+  private boolean checkExtensionContext(List<ValidationMessage> errors, String path, ExtensionDefinition definition, ElementDefinition container, String parentType, String extensionParent) {
 	  if (definition.getContextType() == ExtensionContext.DATATYPE) {
 	  	boolean ok = false;
 	  	for (StringType ct : definition.getContext()) 
@@ -679,8 +678,8 @@ public class InstanceValidator extends BaseValidator {
     return true;
   }
 
-  private ElementComponent findElement(ProfileStructureComponent structure, String name) {
-    for (ElementComponent c : structure.getSnapshot().getElement()) {
+  private ElementDefinition findElement(ProfileStructureComponent structure, String name) {
+    for (ElementDefinition c : structure.getSnapshot().getElement()) {
       if (c.getPath().equals(name)) {
         return c;
       }
@@ -688,7 +687,7 @@ public class InstanceValidator extends BaseValidator {
     return null;
   }
 
-  private ElementComponent getDefinitionByTailNameChoice(Map<String, ElementComponent> children, String name) {
+  private ElementDefinition getDefinitionByTailNameChoice(Map<String, ElementDefinition> children, String name) {
     for (String n : children.keySet()) {
       if (n.endsWith("[x]") && name.startsWith(n.substring(0, n.length()-3))) {
         return children.get(n);
@@ -701,7 +700,7 @@ public class InstanceValidator extends BaseValidator {
     return path.substring(path.lastIndexOf(".")+1);
   }
 
-  private void validateContains(List<ValidationMessage> errors, String path, ElementComponent child, ElementComponent context, WrapperElement element) throws Exception {
+  private void validateContains(List<ValidationMessage> errors, String path, ElementDefinition child, ElementDefinition context, WrapperElement element) throws Exception {
     WrapperElement e = element.getFirstChild();
     validateResource(errors, path, e, null, null);    
   }
@@ -725,7 +724,7 @@ public class InstanceValidator extends BaseValidator {
     return false;
   }
 
-  private void checkPrimitive(List<ValidationMessage> errors, String path, String type, ElementComponent context, WrapperElement e) {
+  private void checkPrimitive(List<ValidationMessage> errors, String path, String type, ElementDefinition context, WrapperElement e) {
     if (type.equals("uri")) {
       rule(errors, "invalid", path, !e.getAttribute("value").startsWith("oid:"), "URI values cannot start with oid:");
       rule(errors, "invalid", path, !e.getAttribute("value").startsWith("uuid:"), "URI values cannot start with uuid:");
@@ -739,20 +738,20 @@ public class InstanceValidator extends BaseValidator {
     // for nothing to check    
   }
 
-  private void checkIdentifier(String path, WrapperElement element, ElementComponent context) {
+  private void checkIdentifier(String path, WrapperElement element, ElementDefinition context) {
 
   }
 
-  private void checkReference(String path, Element element, ElementComponent context, boolean b) {
+  private void checkReference(String path, Element element, ElementDefinition context, boolean b) {
     // nothing to do yet
 
   }
 
-  private void checkIdentifier(String path, Element element, ElementComponent context) {
+  private void checkIdentifier(String path, Element element, ElementDefinition context) {
 
   }
 
-  private void checkQuantity(List<ValidationMessage> errors, String path, Element element, ElementComponent context, boolean b) {
+  private void checkQuantity(List<ValidationMessage> errors, String path, Element element, ElementDefinition context, boolean b) {
     String code = XMLUtil.getNamedChildValue(element,  "code");
     String system = XMLUtil.getNamedChildValue(element,  "system");
     String units = XMLUtil.getNamedChildValue(element,  "units");
@@ -764,15 +763,15 @@ public class InstanceValidator extends BaseValidator {
   }
 
 
-  private void checkCoding(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementComponent context) {
+  private void checkCoding(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementDefinition context) {
     String code = element.getNamedChildValue("code");
     String system = element.getNamedChildValue("system");
     String display = element.getNamedChildValue("display");
 
     if (system != null && code != null) {
       if (checkCode(errors, path, code, system, display)) 
-        if (context != null && context.getDefinition().getBinding() != null) {
-          ElementDefinitionBindingComponent binding = context.getDefinition().getBinding();
+        if (context != null && context.getBinding() != null) {
+          ElementDefinitionBindingComponent binding = context.getBinding();
           if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing")) {
             if (binding.getReference() != null && binding.getReference() instanceof Reference) {
               ValueSet vs = resolveBindingReference(binding.getReference());
@@ -832,9 +831,9 @@ public class InstanceValidator extends BaseValidator {
     return false;
   }
 
-  private void checkCodeableConcept(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementComponent context) {
-    if (context != null && context.getDefinition().getBinding() != null) {
-      ElementDefinitionBindingComponent binding = context.getDefinition().getBinding();
+  private void checkCodeableConcept(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementDefinition context) {
+    if (context != null && context.getBinding() != null) {
+      ElementDefinitionBindingComponent binding = context.getBinding();
       if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing (cc)")) {
         if (binding.getReference() != null && binding.getReference() instanceof Reference) {
           ValueSet vs = resolveBindingReference(binding.getReference());
@@ -993,12 +992,12 @@ public class InstanceValidator extends BaseValidator {
   public class ProfileStructureIterator {
 
     private ProfileStructureComponent structure;
-    private ElementComponent elementDefn;
+    private ElementDefinition elementDefn;
     private List<String> names = new ArrayList<String>();
-    private Map<String, List<ElementComponent>> children = new HashMap<String, List<ElementComponent>>();
+    private Map<String, List<ElementDefinition>> children = new HashMap<String, List<ElementDefinition>>();
     private int cursor;
 
-    public ProfileStructureIterator(Profile profile, ProfileStructureComponent sc, ElementComponent elementDefn) {
+    public ProfileStructureIterator(Profile profile, ProfileStructureComponent sc, ElementDefinition elementDefn) {
       this.structure = sc;        
       this.elementDefn = elementDefn;
       loadMap();
@@ -1014,9 +1013,9 @@ public class InstanceValidator extends BaseValidator {
           return; // cause we've got to the end of the possible matches
         String tail = name.substring(lead.length()+1);
         if (Utilities.isToken(tail) && name.substring(0, lead.length()).equals(lead)) {
-          List<ElementComponent> list = children.get(tail);
+          List<ElementDefinition> list = children.get(tail);
           if (list == null) {
-            list = new ArrayList<Profile.ElementComponent>();
+            list = new ArrayList<ElementDefinition>();
             names.add(tail);
             children.put(tail, list);
           }
@@ -1031,7 +1030,7 @@ public class InstanceValidator extends BaseValidator {
       return cursor < names.size();
     }
 
-    public List<ElementComponent> current() {
+    public List<ElementDefinition> current() {
       return children.get(name());
     }
 
@@ -1041,7 +1040,7 @@ public class InstanceValidator extends BaseValidator {
 
   }
 
-  private void checkByProfile(List<ValidationMessage> errors, String path, WrapperElement focus, Profile profile, ProfileStructureComponent sc, ElementComponent elementDefn) throws Exception {
+  private void checkByProfile(List<ValidationMessage> errors, String path, WrapperElement focus, Profile profile, ProfileStructureComponent sc, ElementDefinition elementDefn) throws Exception {
     // we have an element, and the structure that describes it. 
     // we know that's it's valid against the underlying spec - is it valid against this one?
     // in the instance validator above, we assume that schema or schmeatron has taken care of cardinalities, but here, we have no such reliance. 
@@ -1050,43 +1049,43 @@ public class InstanceValidator extends BaseValidator {
   	if (elementDefn.getPath().endsWith("[x]")) {
   		String tail = elementDefn.getPath().substring(elementDefn.getPath().lastIndexOf(".")+1, elementDefn.getPath().length()-3);
   		type = focus.getName().substring(tail.length());
-  		rule(errors, "structure", path, typeAllowed(type, elementDefn.getDefinition().getType()), "The type '"+type+"' is not allowed at this point (must be one of '"+typeSummary(elementDefn)+")");
+  		rule(errors, "structure", path, typeAllowed(type, elementDefn.getType()), "The type '"+type+"' is not allowed at this point (must be one of '"+typeSummary(elementDefn)+")");
   	} else {
-  		if (elementDefn.getDefinition().getType().size() == 1) {
-  			type = elementDefn.getDefinition().getType().size() == 0 ? null : elementDefn.getDefinition().getType().get(0).getCode();
+  		if (elementDefn.getType().size() == 1) {
+  			type = elementDefn.getType().size() == 0 ? null : elementDefn.getType().get(0).getCode();
   		} else
   			type = null;
   	}
   	// constraints:
-  	for (ElementDefinitionConstraintComponent c : elementDefn.getDefinition().getConstraint()) 
+  	for (ElementDefinitionConstraintComponent c : elementDefn.getConstraint()) 
   		checkConstraint(errors, path, focus, c);
-  	if (elementDefn.getDefinition().getBinding() != null && type != null)
+  	if (elementDefn.getBinding() != null && type != null)
   		checkBinding(errors, path, focus, profile, elementDefn, type);
   	
   	// type specific checking:
   	if (type != null && typeIsPrimitive(type)) {
   		checkPrimitiveByProfile(errors, path, focus, elementDefn);
   	} else {
-  		if (elementDefn.getDefinition().getFixed() != null)
-  			checkFixedValue(errors, path, focus, elementDefn.getDefinition().getFixed(), "");
+  		if (elementDefn.getFixed() != null)
+  			checkFixedValue(errors, path, focus, elementDefn.getFixed(), "");
   			 
   		ProfileStructureIterator walker = new ProfileStructureIterator(profile, sc, elementDefn);
   		while (walker.more()) {
   			// collect all the slices for the path
-  			List<ElementComponent> childset = walker.current();
+  			List<ElementDefinition> childset = walker.current();
   			// collect all the elements that match it by name
   			List<WrapperElement> children = new ArrayList<WrapperElement>(); 
   			focus.getNamedChildrenWithWildcard(walker.name(), children);
 
   			if (children.size() == 0) {
   				// well, there's no children - should there be? 
-  				for (ElementComponent defn : childset) {
-  					if (!rule(errors,"required", path, defn.getDefinition() == null || defn.getDefinition().getMin() == 0, "Required Element '"+walker.name()+"' missing"))
+  				for (ElementDefinition defn : childset) {
+  					if (!rule(errors,"required", path, defn.getMin() == 0, "Required Element '"+walker.name()+"' missing"))
   						break; // no point complaining about missing ones after the first one
   				} 
   			} else if (childset.size() == 1) {
   				// simple case: one possible definition, and one or more children. 
-  				rule(errors, "cardinality", path, childset.get(0).getDefinition().getMax().equals("*") || Integer.parseInt(childset.get(0).getDefinition().getMax()) >= children.size(),
+  				rule(errors, "cardinality", path, childset.get(0).getMax().equals("*") || Integer.parseInt(childset.get(0).getMax()) >= children.size(),
   						"Too many elements for '"+walker.name()+"'"); // todo: sort out structure
   				for (WrapperElement child : children) {
   					checkByProfile(errors, childset.get(0).getPath(), child, profile, sc, childset.get(0));
@@ -1099,8 +1098,8 @@ public class InstanceValidator extends BaseValidator {
   	}
   }
 
-	private void checkBinding(List<ValidationMessage> errors, String path, WrapperElement focus, Profile profile, ElementComponent elementDefn, String type) {
-	  ElementDefinitionBindingComponent bc = elementDefn.getDefinition().getBinding();
+	private void checkBinding(List<ValidationMessage> errors, String path, WrapperElement focus, Profile profile, ElementDefinition elementDefn, String type) {
+	  ElementDefinitionBindingComponent bc = elementDefn.getBinding();
 
 	  if (bc != null && bc.getReference() != null && bc.getReference() instanceof Reference) {
       String url = ((Reference) bc.getReference()).getReference();
@@ -1142,9 +1141,9 @@ public class InstanceValidator extends BaseValidator {
 	  // rule(errors, "exception", path, false, "checkBindingCodeableConcept not done yet");	  
   }
 
-	private String typeSummary(ElementComponent elementDefn) {
+	private String typeSummary(ElementDefinition elementDefn) {
 	  StringBuilder b = new StringBuilder();
-	  for (TypeRefComponent t : elementDefn.getDefinition().getType()) {
+	  for (TypeRefComponent t : elementDefn.getType()) {
 	  	b.append("|"+t.getCode());
 	  }
 	  return b.toString().substring(1);
@@ -1182,14 +1181,14 @@ public class InstanceValidator extends BaseValidator {
 //		}
   }
 
-	private void checkPrimitiveByProfile(List<ValidationMessage> errors, String path, WrapperElement focus, ElementComponent elementDefn) {
+	private void checkPrimitiveByProfile(List<ValidationMessage> errors, String path, WrapperElement focus, ElementDefinition elementDefn) {
 		// two things to check - length, and fixed value
 		String value = focus.getAttribute("value");
-		if (elementDefn.getDefinition().getMaxLengthElement() != null) {
-			rule(errors, "too long", path, value.length() <= elementDefn.getDefinition().getMaxLength(), "The value '"+value+"' exceeds the allow length limit of "+Integer.toString(elementDefn.getDefinition().getMaxLength()));
+		if (elementDefn.getMaxLengthElement() != null) {
+			rule(errors, "too long", path, value.length() <= elementDefn.getMaxLength(), "The value '"+value+"' exceeds the allow length limit of "+Integer.toString(elementDefn.getMaxLength()));
 		}
-		if (elementDefn.getDefinition().getFixed() != null) {
-			checkFixedValue(errors, path, focus, elementDefn.getDefinition().getFixed(), "");
+		if (elementDefn.getFixed() != null) {
+			checkFixedValue(errors, path, focus, elementDefn.getFixed(), "");
 		}
   }
 

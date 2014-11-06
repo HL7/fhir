@@ -43,21 +43,22 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.XmlComposer;
+import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.ResourceSlicingRules;
+import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
+import org.hl7.fhir.instance.model.ExtensionDefinition.ExtensionDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ElementComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionMappingComponent;
-import org.hl7.fhir.instance.model.Profile.ElementSlicingComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
-import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
-import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.utils.WorkerContext.ExtensionDefinitionResult;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -76,33 +77,26 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	}
 
   public void generate(Profile profile) throws Exception {
-    if (!profile.getExtensionDefn().isEmpty()) {
-      write("<p><a name=\"i0\"><b>Extensions</b></a></p>\r\n");
-      write("<table class=\"dict\">\r\n");
-      
-      for (ProfileExtensionDefnComponent e : profile.getExtensionDefn()) {
-         generateExtension(profile, e);
-      }
-      write("</table>\r\n");
-      
-    }
     int i = 1;
     for (ProfileStructureComponent s : profile.getStructure()) {
       write("<p><a name=\"i"+Integer.toString(i)+"\"><b>"+s.getName()+"</b></a></p>\r\n");
       write("<table class=\"dict\">\r\n");
       
-      for (ElementComponent ec : s.getSnapshot().getElement()) {
+      for (ElementDefinition ec : s.getSnapshot().getElement()) {
         if (isProfiledExtension(ec)) {
           String name = s.getName()+"."+ makePathLink(ec);
-          String title = ec.getPath() + " ("+(ec.getDefinition().getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getDefinition().getType().get(0).getProfile()+")";
+          String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+")";
           write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-          ElementDefinitionComponent extDefn = getExtensionDefinition(profile, ec.getDefinition().getType().get(0).getProfile(), ec.getDefinition());
-          generateElementInner(profile, extDefn);
+          ExtensionDefinitionResult extDefn = page.getWorkerContext().getExtensionDefinition(null, ec.getType().get(0).getProfile());
+          if (extDefn == null)
+            generateElementInner(profile,  null, ec);
+          else
+            generateElementInner(null, extDefn.getExtensionDefinition(), extDefn.getElementDefinition());
         } else {
           String name = s.getName()+"."+ makePathLink(ec);
           String title = ec.getPath() + (ec.getName() == null ? "" : "(" +ec.getName() +")");
           write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-          generateElementInner(profile, ec.getDefinition());
+          generateElementInner(profile, null, ec);
           if (ec.getSlicing() != null)
             generateSlicing(profile, ec.getSlicing());
         }
@@ -114,7 +108,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     close();
   }
 
-  private void generateSlicing(Profile profile, ElementSlicingComponent slicing) throws IOException {
+  private void generateSlicing(Profile profile, ElementDefinitionSlicingComponent slicing) throws IOException {
     StringBuilder b = new StringBuilder();
     if (slicing.getOrdered())
       b.append("<li>ordered</li>");
@@ -137,7 +131,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("Slicing", "profiling.html#slicing", "This element introduces a set of slices. The slicing rules are: <ul> "+b.toString()+"</ul>");
   }
 
-  private String makePathLink(ElementComponent element) {
+  private String makePathLink(ElementDefinition element) {
     if (element.getName() == null)
       return element.getPath();
     if (!element.getPath().contains("."))
@@ -145,41 +139,25 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     return element.getPath().substring(0, element.getPath().lastIndexOf("."))+"."+element.getName();
   }
   
-  private ElementDefinitionComponent getExtensionDefinition(Profile context, String url, ElementDefinitionComponent defaultDefn) {
-    String code;
-    if (url.startsWith("#")) {
-      code = url.substring(1);
-    } else {
-      String[] parts = url.split("\\#");
-      code = parts[1];
-      context = definitions.getProfileByURL(parts[0]);
-    }
-    
-    for (ProfileExtensionDefnComponent ext : context.getExtensionDefn()) {
-      if (ext.getName().equals(code))
-        return ext.getElement().get(0).getDefinition();
-    }
-
-    return defaultDefn;
+  private boolean isProfiledExtension(ElementDefinition ec) {
+    return ec.getType().size() == 1 && ec.getType().get(0).getCode().equals("Extension") && ec.getType().get(0).getProfile() != null;
   }
 
-  private boolean isProfiledExtension(ElementComponent ec) {
-    return ec.getDefinition().getType().size() == 1 && ec.getDefinition().getType().get(0).getCode().equals("Extension") && ec.getDefinition().getType().get(0).getProfile() != null;
-  }
-
-  private void generateExtension(Profile profile, ProfileExtensionDefnComponent e) throws Exception {
-    write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\"extension."+e.getName()+"\"> </a><b>Extension "+e.getName()+"</b></td></tr>\r\n");
-    generateElementInner(profile, e.getElement().get(0).getDefinition());
-    if (e.getElement().size() > 1) {
-      for (int i = 1; i < e.getElement().size(); i++) {
-        ElementComponent ec = e.getElement().get(i);
+  private void generateExtension(ExtensionDefinition ed) throws Exception {
+    write("<p><a name=\"i0\"><b>Extension</b></a></p>\r\n");
+    write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\"extension."+ed.getUrl()+"\"> </a><b>Extension "+ed.getName()+"</b></td></tr>\r\n");
+    generateElementInner(null, ed, ed.getElement().get(0));
+    if (ed.getElement().size() > 1) {
+      for (int i = 1; i < ed.getElement().size(); i++) {
+        ElementDefinition ec = ed.getElement().get(i);
         write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\"extension."+ec.getPath()+"\"> </a><b>&nbsp;"+ec.getPath()+"</b></td></tr>\r\n");
-        generateElementInner(profile, ec.getDefinition());
+        generateElementInner(null, ed, ec);
       }
     }
+    write("</table>\r\n");
   }
     
-  private void generateElementInner(Profile profile, ElementDefinitionComponent d) throws Exception {
+  private void generateElementInner(Profile profile, ExtensionDefinition ed, ElementDefinition d) throws Exception {
     tableRowMarkdown("Definition", d.getFormal());
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
     tableRowNE("Binding", "terminologies.html", describeBinding(d));
@@ -197,8 +175,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRowNE("Pattern Value", null, encodeValue(d.getPattern()));
     tableRow("Example", null, encodeValue(d.getExample()));
     tableRowNE("Invariants", null, invariants(d.getConstraint()));
-    tableRow("LOINC Code", null, getMapping(profile, d, Definitions.LOINC_MAPPING));
-    tableRow("SNOMED-CT Code", null, getMapping(profile, d, Definitions.SNOMED_MAPPING));
+    tableRow("LOINC Code", null, getMapping(profile, ed, d, Definitions.LOINC_MAPPING));
+    tableRow("SNOMED-CT Code", null, getMapping(profile, ed, d, Definitions.SNOMED_MAPPING));
    }
 
   private String encodeValue(Type value) throws Exception {
@@ -298,12 +276,18 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     return b.toString();
   }
 
-  private String getMapping(Profile profile, ElementDefinitionComponent d, String uri) {
+  private String getMapping(Profile profile, ExtensionDefinition ed, ElementDefinition d, String uri) {
     String id = null;
-    for (ProfileMappingComponent m : profile.getMapping()) {
-      if (m.getUri().equals(uri))
-        id = m.getIdentity();
-    }
+    if (profile != null)
+      for (ProfileMappingComponent m : profile.getMapping()) {
+        if (m.getUri().equals(uri))
+          id = m.getIdentity();
+      }
+    else
+      for (ExtensionDefinitionMappingComponent m : ed.getMapping()) {
+        if (m.getUri().equals(uri))
+          id = m.getIdentity();
+      }
     if (id == null)
       return null;
     for (ElementDefinitionMappingComponent m : d.getMapping()) {
@@ -320,7 +304,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       return " ?";
   }
 
-  private String describeCardinality(ElementDefinitionComponent d) {
+  private String describeCardinality(ElementDefinition d) {
     if (d.getMax() == null && d.getMinElement() == null)
       return "";
     else if (d.getMax() == null)
@@ -407,7 +391,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     return b.toString();
   }
 
-  private String describeBinding(ElementDefinitionComponent d) throws Exception {
+  private String describeBinding(ElementDefinition d) throws Exception {
 
     if (d.getBinding() == null)
       return null;

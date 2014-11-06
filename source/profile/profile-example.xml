@@ -232,7 +232,6 @@
     <element>
       <path value="DiagnosticReport"/>
       <name value="LipidProfile"/>
-      <definition>
         <short value="Lipid Lab Report"/>
         <formal value="The findings and interpretation of a general lipd lab profile."/>
         <comments value="In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems."/>
@@ -242,7 +241,6 @@
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.extension"/>
@@ -255,7 +253,6 @@
     </element>
     <element>
       <path value="DiagnosticReport.extension"/>
-      <definition>
         <short value="Additional Content defined by implementations"/>
         <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
         <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
@@ -265,11 +262,9 @@
           <code value="Extension"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.text"/>
-      <definition>
         <short value="Text summary of the resource, for human interpretation"/>
         <formal value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
         <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
@@ -283,11 +278,9 @@
           <code value="Narrative"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.contained"/>
-      <definition>
         <short value="Contained, inline Resources"/>
         <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
         <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
@@ -300,11 +293,9 @@
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.status"/>
-      <definition>
         <short value="registered|interim|final|amended|cancelled|withdrawn"/>
         <formal value="The status of the diagnostic report as a whole."/>
         <comments value="This is labeled as &quot;Is Modifier&quot; because applications need to take appropriate action if a report is withdrawn."/>
@@ -322,11 +313,9 @@
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.issued"/>
-      <definition>
         <short value="Date this version was released"/>
         <formal value="The date and/or time that this version of the report was released from the source diagnostic service."/>
         <comments value="May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report."/>
@@ -336,11 +325,9 @@
           <code value="dateTime"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.subject"/>
-      <definition>
         <short value="The subject of the report"/>
         <formal value="The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources."/>
         <min value="1"/>
@@ -349,11 +336,9 @@
           <code value="Reference(Patient|Group|Device)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.performer"/>
-      <definition>
         <short value="Responsible Diagnostic Service"/>
         <formal value="The diagnostic service that is responsible for issuing the report."/>
         <comments value="This is not necessarily the source of the atomic data items - it&#39;s the entity that takes responsibility for the clinical report."/>
@@ -363,11 +348,9 @@
           <code value="Reference(Organization)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.reportId"/>
-      <definition>
         <short value="Id for external references to this report"/>
         <formal value="The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider."/>
         <min value="0"/>
@@ -376,22 +359,18 @@
           <code value="Identifier"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.requestDetail"/>
-      <definition>
         <short value="What was requested"/>
         <formal value="Details concerning a single pathology test requested."/>
         <comments value="Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single Pathology test result resource. Note that there are also cases where one request leads to multiple reports."/>
         <min value="0"/>
         <max value="*"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.requestDetail.encounter"/>
-      <definition>
         <short value="Context where request was made"/>
         <formal value="The encounter that this diagnostic investigation is associated with."/>
         <min value="0"/>
@@ -400,11 +379,9 @@
           <code value="Reference(Encounter)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.requestDetail.requestOrderId"/>
-      <definition>
         <short value="Id assigned by requester"/>
         <formal value="The local ID assigned to the order by the order requester."/>
         <comments value="Equivalent to the Placer Order Identifier."/>
@@ -414,11 +391,9 @@
           <code value="Identifier"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.requestDetail.receiverOrderId"/>
-      <definition>
         <short value="Receiver&#39;s Id for the request"/>
         <formal value="The local ID assigned to the test order by the diagnostic service provider."/>
         <comments value="Usually equivalent to the DICOM Accession Number and the Filler Order Identifier."/>
@@ -428,11 +403,9 @@
           <code value="Identifier"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.requestDetail.requestTest"/>
-      <definition>
         <short value="Test Requested"/>
         <formal value="Identification of pathology test requested,."/>
         <comments value="Useful where the test requested differs from the test actually performed."/>
@@ -450,11 +423,9 @@
             <reference value="http://hl7.org/fhir/vs/diagnostic-requests"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.requestDetail.bodySite"/>
-      <definition>
         <short value="Location of requested test (if applicable)"/>
         <formal value="Anatomical location where the request test should be performed."/>
         <comments value="This is often implicit or explicit in the requested test, and doesn&#39;t need to be specified if so."/>
@@ -472,11 +443,9 @@
             <reference value="http://hl7.org/fhir/vs/body-site"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.requestDetail.requester"/>
-      <definition>
         <short value="Responsible for request"/>
         <formal value="Details of the clinician or organization requesting the diagnostic service."/>
         <min value="0"/>
@@ -485,11 +454,9 @@
           <code value="Reference(Organization|Practitioner)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.requestDetail.clinicalInfo"/>
-      <definition>
         <short value="Clinical information provided"/>
         <formal value="Details of the clinical information provided to the diagnostic service along with the original request."/>
         <min value="0"/>
@@ -498,11 +465,9 @@
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.serviceCategory"/>
-      <definition>
         <short value="Biochemistry, Haematology etc."/>
         <formal value="The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI."/>
         <min value="0"/>
@@ -519,11 +484,9 @@
             <reference value="http://hl7.org/fhir/vs/diagnostic-service-sections"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.diagnostic[x]"/>
-      <definition>
         <short value="Diagnostically relevant time of diagnostic report"/>
         <formal value="The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient."/>
         <comments value="If the diagnostic procedure was performed on the patient, this is the time it was performed. If there is specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic."/>
@@ -536,21 +499,17 @@
           <code value="Period"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.results"/>
-      <definition>
         <short value="Lipid Lab Results"/>
         <formal value="Lipid Lab Results."/>
         <min value="1"/>
         <max value="1"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.results.name"/>
-      <definition>
         <short value="LOINC Code for Lipid Panel with LDL"/>
         <formal value="LOINC Code for Lipid Panel with LDL."/>
         <comments value="LOINC code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL."/>
@@ -568,11 +527,9 @@
             <reference value="http://hl7.org/fhir/vs/report-names"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.results.specimen"/>
-      <definition>
         <short value="Specimen details for this group"/>
         <formal value="Details about the individual specimen to which these &#39;Result group&#39; test results refer."/>
         <min value="0"/>
@@ -581,18 +538,15 @@
           <code value="Reference(Specimen)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.results.group"/>
-      <definition>
         <short value="No subgroups allowed"/>
         <formal value="No subgroups allowed."/>
         <comments value="Nested report groups beyond the first level are not used often, but arise in structured pathology reports, and where there is more than one sensitivity assessment per discovered organism."/>
         <min value="0"/>
         <max value="0"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.results.result"/>
@@ -605,7 +559,6 @@
     <element>
       <path value="DiagnosticReport.results.result"/>
       <name value="Cholesterol"/>
-      <definition>
         <short value="Cholesterol Result"/>
         <formal value="Reference to Cholesterol Result."/>
         <min value="1"/>
@@ -615,12 +568,10 @@
           <profile value="#Cholesterol"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.results.result"/>
       <name value="Triglyceride"/>
-      <definition>
         <short value="Triglyceride Result"/>
         <formal value="Group of elements for Triglyceride result."/>
         <min value="1"/>
@@ -630,12 +581,10 @@
           <profile value="#Triglyceride"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.results.result"/>
       <name value="HDL Cholesterol"/>
-      <definition>
         <short value="HDL Cholesterol Result"/>
         <formal value="Group of elements for HDL Cholesterol result."/>
         <min value="1"/>
@@ -645,12 +594,10 @@
           <profile value="#HDLCholesterol"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.results.result"/>
       <name value="LDL Cholesterol"/>
-      <definition>
         <short value="LDL Cholesterol result, if reported"/>
         <formal value="LDL Cholesterol result, if reported."/>
         <min value="0"/>
@@ -660,11 +607,9 @@
           <profile value="#LDLCholesterol"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.image"/>
-      <definition>
         <short value="Key images associated with this report"/>
         <formal value="A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest)."/>
         <comments value="An imaging study is a list of images following a DICOM specification - only list one of these, or multiple images."/>
@@ -674,11 +619,9 @@
           <code value="Reference(Media|ImagingStudy)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.conclusion"/>
-      <definition>
         <short value="Clinical Interpretation of Lipid Panel"/>
         <formal value="May include diagnosis or suggestions for follow up testing."/>
         <comments value="It&#39;s not unusual for the lab to make some kind of interpretative comment on the set of results."/>
@@ -688,11 +631,9 @@
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.codedDiagnosis"/>
-      <definition>
         <short value="No codes for a lipid panel"/>
         <formal value="No codes for a lipid panel."/>
         <comments value="Not used in this context."/>
@@ -710,11 +651,9 @@
             <reference value="http://hl7.org/fhir/vs/clinical-findings"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.representation"/>
-      <definition>
         <short value="Entire Report as issued"/>
         <formal value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent."/>
         <comments value="Possible formats: text/html, text/plain, text/rtf, application/msword, application/pdf, application/rtf, application/vnd.oasis.opendocument.text, application/vnd.openxmlformats-officedocument.wordprocessingml.document. Application/pdf is recommended as the most reliable and interoperable in this context."/>
@@ -724,7 +663,6 @@
           <code value="Attachment"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
   </structure>
   <structure>
@@ -734,7 +672,6 @@
     <element>
       <path value="Observation"/>
       <name value="Cholesterol"/>
-      <definition>
         <short value="Simple observations"/>
         <formal value="Simple observations."/>
         <comments value="Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to describe aggregate collections of observations such as Lab reports, etc."/>
@@ -744,7 +681,6 @@
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.extension"/>
@@ -757,7 +693,6 @@
     </element>
     <element>
       <path value="Observation.extension"/>
-      <definition>
         <short value="Additional Content defined by implementations"/>
         <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
         <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
@@ -767,11 +702,9 @@
           <code value="Extension"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.text"/>
-      <definition>
         <short value="Text summary of the resource, for human interpretation"/>
         <formal value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
         <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
@@ -785,11 +718,9 @@
           <code value="Narrative"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.contained"/>
-      <definition>
         <short value="Contained, inline Resources"/>
         <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
         <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
@@ -802,11 +733,9 @@
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.text"/>
-      <definition>
         <short value="Text summary of the resource, for human interpretation"/>
         <formal value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
         <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
@@ -816,11 +745,9 @@
           <code value="Narrative"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.contained"/>
-      <definition>
         <short value="Contained, inline Resources"/>
         <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
         <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
@@ -830,11 +757,9 @@
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.name"/>
-      <definition>
         <short value="Cholesterol"/>
         <formal value="Cholesterol."/>
         <min value="1"/>
@@ -851,11 +776,9 @@
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.valueQuantity"/>
-      <definition>
         <short value="Cholesterol value"/>
         <formal value="Cholesterol value. If a result is not available, use the comments field."/>
         <comments value="The datatype for this element should be determined by Observation.name."/>
@@ -865,11 +788,9 @@
           <code value="Quantity"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.valueQuantity.value"/>
-      <definition>
         <short value="Actual numerical value"/>
         <formal value="Actual numerical value."/>
         <comments value="The implicit precision should always be honored. Currency has its own rules for handling precision."/>
@@ -879,11 +800,9 @@
           <code value="decimal"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.valueQuantity.comparator"/>
-      <definition>
         <short value="&lt; | &lt;;= | &gt;= | &gt; - how to understand the value"/>
         <formal value="&lt; | &lt;;= | &gt;= | &gt; - how to understand the value."/>
         <comments value="No need for this on cholesterol."/>
@@ -901,11 +820,9 @@
             <reference value="http://hl7.org/fhir/vs/quantity-comparator"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.valueQuantity.units"/>
-      <definition>
         <short value="Unit representation"/>
         <formal value="Unit representation."/>
         <min value="1"/>
@@ -914,11 +831,9 @@
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.valueQuantity.system"/>
-      <definition>
         <short value="System that defines coded unit form"/>
         <formal value="System that defines coded unit form."/>
         <min value="1"/>
@@ -927,11 +842,9 @@
           <code value="uri"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.valueQuantity.code"/>
-      <definition>
         <short value="Coded form of the unit"/>
         <formal value="Coded form of the unit."/>
         <comments value="The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.
@@ -943,11 +856,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.interpretation"/>
-      <definition>
         <short value="+ | ++ | +++ | - | -- | ---"/>
         <formal value="+ | ++ | +++ | - | -- | ---."/>
         <min value="0"/>
@@ -964,11 +875,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.comments"/>
-      <definition>
         <short value="Comments about result"/>
         <formal value="May include statements about significant, unexpected or unreliable. values, or information about the source of the value where this may be relevant to the interpretation of the result."/>
         <min value="0"/>
@@ -977,11 +886,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.applies[x]"/>
-      <definition>
         <short value="Relevant time/time-period"/>
         <formal value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;."/>
         <comments value="At least a date should be present unless this observation is a historical report."/>
@@ -994,11 +901,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="dateTime"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.issued"/>
-      <definition>
         <short value="Date/Time this was made available"/>
         <formal value="Date/Time this was made available."/>
         <comments value="Updated when the result is updated."/>
@@ -1008,11 +913,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="instant"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.status"/>
-      <definition>
         <short value="Registered|Interim|Final|Amended|Cancelled|Withdrawn"/>
         <formal value="The status of the result value."/>
         <min value="1"/>
@@ -1029,11 +932,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.reliability"/>
-      <definition>
         <short value="If quality issues exist (mostly devices)"/>
         <formal value="Cholesterol values can only be reported when there is no question about their status."/>
         <comments value="Note that in most contexts, unreliable results are not recorded, deleted, or otherwise excluded, but it&#39;s not always possible to exclude them from the record. Interpreters of a result, whether human or machine, SHALL always either be aware of the status, or prevented from using the observation without being unaware that the reliability is not &quot;ok&quot;."/>
@@ -1051,11 +952,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
           </referenceReference>
         </binding>      
-      </definition>
     </element>
     <element>
       <path value="Observation.bodySite"/>
-      <definition>
         <short value="Observed body part"/>
         <formal value="Indicates where on the subject&#39;s body the observation was made."/>
         <comments value="Only used if not implicit in code found in Observation.name."/>
@@ -1073,11 +972,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/body-site"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.method"/>
-      <definition>
         <short value="How it was done"/>
         <formal value="Indicates the mechanism used to perform the observation."/>
         <comments value="Only used if not implicit in code for SimpleObservation.result.type."/>
@@ -1095,11 +992,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-methods"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.identifier"/>
-      <definition>
         <short value="Unique Id for this particular observation"/>
         <formal value="A unique identifier for the simple observation."/>
         <min value="0"/>
@@ -1108,11 +1003,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Identifier"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.subject"/>
-      <definition>
         <short value="Who and/or what this is about"/>
         <formal value="The thing the observation is being made about."/>
         <comments value="The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated."/>
@@ -1122,11 +1015,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Reference(Patient|Group|Device)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.performer"/>
-      <definition>
         <short value="Who did the observation"/>
         <formal value="Who was responsible for asserting the observed value as &quot;true&quot;."/>
         <comments value="This would only be &quot;Device&quot; if the device is responsible for the measurement, not to capture the device used by a human to make the measurement.  (The latter could be captured as an extension.)."/>
@@ -1136,22 +1027,18 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Reference(Practitioner|Device|Organization)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange"/>
-      <definition>
         <short value="Provides guide for interpretation"/>
         <formal value="Provides guide for interpretation."/>
         <comments value="Most results only have one reference range, might be generic or be specific to the patient&#39;s age, gender, weight and other factors. When these things are not known, multiple reference ranges may be provided."/>
         <min value="1"/>
         <max value="1"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange.meaning"/>
-      <definition>
         <short value="Range is a recommended range"/>
         <formal value="Range is a recommended range."/>
         <comments value="This is only usually populated if there is more than one range."/>
@@ -1169,11 +1056,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange.range[x]"/>
-      <definition>
         <short value="Reference"/>
         <formal value="&lt;4.5 mmol/L."/>
         <comments value="Per Australian NHF Recommendations."/>
@@ -1183,22 +1068,18 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Quantity"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.component"/>
-      <definition>
         <short value="Component observation"/>
         <formal value="Component observation."/>
         <comments value="It would be usual to either have a value or components with values, but both may be used, such as for APGAR scores."/>
         <min value="0"/>
         <max value="0"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.component.name"/>
-      <definition>
         <short value="Kind of component observation"/>
         <formal value="Identifies what type of sub-observation was performed."/>
         <min value="1"/>
@@ -1215,11 +1096,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.component.value[x]"/>
-      <definition>
         <short value="Actual component result"/>
         <formal value="The information determined as a result of making the sub-observation."/>
         <comments value="The datatype for this element should be determined by Observation.component.name."/>
@@ -1247,7 +1126,6 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
   </structure>
   <structure>
@@ -1257,7 +1135,6 @@ The context of use may additionally require a code from a particular system (Unl
     <element>
       <path value="Observation"/>
       <name value="Triglyceride"/>
-      <definition>
         <short value="Triglyceride Result"/>
         <formal value="Group of elements for Triglyceride result."/>
         <comments value="Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to describe aggregate collections of observations such as Lab reports, etc."/>
@@ -1267,7 +1144,6 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.extension"/>
@@ -1280,7 +1156,6 @@ The context of use may additionally require a code from a particular system (Unl
     </element>
     <element>
       <path value="Observation.extension"/>
-      <definition>
         <short value="Additional Content defined by implementations"/>
         <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
         <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
@@ -1290,11 +1165,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Extension"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.text"/>
-      <definition>
         <short value="Text summary of the resource, for human interpretation"/>
         <formal value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
         <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
@@ -1308,11 +1181,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Narrative"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.contained"/>
-      <definition>
         <short value="Contained, inline Resources"/>
         <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
         <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
@@ -1325,11 +1196,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.text"/>
-      <definition>
         <short value="Text summary of the resource, for human interpretation"/>
         <formal value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
         <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
@@ -1339,11 +1208,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Narrative"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.contained"/>
-      <definition>
         <short value="Contained, inline Resources"/>
         <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
         <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
@@ -1353,11 +1220,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.name"/>
-      <definition>
         <short value="Triglyceride"/>
         <formal value="Triglyceride."/>
         <min value="1"/>
@@ -1374,11 +1239,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.value[x]"/>
-      <definition>
         <short value="Triglyceride value"/>
         <formal value="Triglyceride value. If a result is not available, use the comments field."/>
         <comments value="The datatype for this element should be determined by Observation.name."/>
@@ -1388,11 +1251,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Quantity"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.interpretation"/>
-      <definition>
         <short value="+ | ++ | +++ | - | -- | ---"/>
         <formal value="+ | ++ | +++ | - | -- | ---."/>
         <min value="0"/>
@@ -1409,11 +1270,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.comments"/>
-      <definition>
         <short value="Comments about result"/>
         <formal value="Comments about result."/>
         <min value="0"/>
@@ -1422,11 +1281,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.applies[x]"/>
-      <definition>
         <short value="Relevant time/time-period"/>
         <formal value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;."/>
         <comments value="At least a date should be present unless this observation is a historical report."/>
@@ -1439,11 +1296,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="dateTime"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.issued"/>
-      <definition>
         <short value="Date/Time this was made available"/>
         <formal value="Date/Time this was made available."/>
         <comments value="Updated when the result is updated."/>
@@ -1453,11 +1308,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="instant"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.status"/>
-      <definition>
         <short value="Registered|Interim|Final|Amended|Cancelled|Withdrawn"/>
         <formal value="The status of the result value."/>
         <min value="1"/>
@@ -1474,11 +1327,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.reliability"/>
-      <definition>
         <short value="If quality issues exist (mostly devices)"/>
         <formal value="If quality issues exist (mostly devices)."/>
         <comments value="Note that in most contexts, unreliable results are not recorded, deleted, or otherwise excluded, but it&#39;s not always possible to exclude them from the record. Interpreters of a result, whether human or machine, SHALL always either be aware of the status, or prevented from using the observation without being unaware that the reliability is not &quot;ok&quot;."/>
@@ -1496,11 +1347,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
           </referenceReference>
         </binding>      
-      </definition>
     </element>
     <element>
       <path value="Observation.bodySite"/>
-      <definition>
         <short value="Observed body part"/>
         <formal value="Indicates where on the subject&#39;s body the observation was made."/>
         <comments value="Only used if not implicit in code found in Observation.name."/>
@@ -1518,11 +1367,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/body-site"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.method"/>
-      <definition>
         <short value="How it was done"/>
         <formal value="Indicates the mechanism used to perform the observation."/>
         <comments value="Only used if not implicit in code for SimpleObservation.result.type."/>
@@ -1540,11 +1387,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-methods"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.identifier"/>
-      <definition>
         <short value="Unique Id for this particular observation"/>
         <formal value="A unique identifier for the simple observation."/>
         <min value="0"/>
@@ -1553,11 +1398,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Identifier"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.subject"/>
-      <definition>
         <short value="Who and/or what this is about"/>
         <formal value="The thing the observation is being made about."/>
         <comments value="The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated."/>
@@ -1567,11 +1410,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Reference(Patient|Group|Device)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.performer"/>
-      <definition>
         <short value="Who did the observation"/>
         <formal value="Who was responsible for asserting the observed value as &quot;true&quot;."/>
         <comments value="This would only be &quot;Device&quot; if the device is responsible for the measurement, not to capture the device used by a human to make the measurement.  (The latter could be captured as an extension.)."/>
@@ -1581,22 +1422,18 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Reference(Practitioner|Device|Organization)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange"/>
-      <definition>
         <short value="Provides guide for interpretation"/>
         <formal value="Provides guide for interpretation."/>
         <comments value="Most results only have one reference range, might be generic or be specific to the patient&#39;s age, gender, weight and other factors. When these things are not known, multiple reference ranges may be provided."/>
         <min value="1"/>
         <max value="1"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange.meaning"/>
-      <definition>
         <short value="Range is a recommended range"/>
         <formal value="Range is a recommended range."/>
         <comments value="This is only usually populated if there is more than one range."/>
@@ -1614,11 +1451,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange.range[x]"/>
-      <definition>
         <short value="Reference"/>
         <formal value="&lt;2.0 mmol/L."/>
         <comments value="Per Australian NHF Recommendations."/>
@@ -1628,22 +1463,18 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Quantity"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.component"/>
-      <definition>
         <short value="Component observation"/>
         <formal value="Component observation."/>
         <comments value="It would be usual to either have a value or components with values, but both may be used, such as for APGAR scores."/>
         <min value="0"/>
         <max value="0"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.component.name"/>
-      <definition>
         <short value="Kind of component observation"/>
         <formal value="Identifies what type of sub-observation was performed."/>
         <min value="1"/>
@@ -1660,11 +1491,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.component.value[x]"/>
-      <definition>
         <short value="Actual component result"/>
         <formal value="The information determined as a result of making the sub-observation."/>
         <comments value="The datatype for this element should be determined by Observation.component.name."/>
@@ -1692,7 +1521,6 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
   </structure>
   <structure>
@@ -1702,7 +1530,6 @@ The context of use may additionally require a code from a particular system (Unl
     <element>
       <path value="Observation"/>
       <name value="HDLCholesterol"/>
-      <definition>
         <short value="HDL Cholesterol Result"/>
         <formal value="Group of elements for HDL Cholesterol result."/>
         <comments value="Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to describe aggregate collections of observations such as Lab reports, etc."/>
@@ -1712,7 +1539,6 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.extension"/>
@@ -1725,7 +1551,6 @@ The context of use may additionally require a code from a particular system (Unl
     </element>
     <element>
       <path value="Observation.extension"/>
-      <definition>
         <short value="Additional Content defined by implementations"/>
         <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
         <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
@@ -1735,11 +1560,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Extension"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.text"/>
-      <definition>
         <short value="Text summary of the resource, for human interpretation"/>
         <formal value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
         <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
@@ -1753,11 +1576,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Narrative"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.contained"/>
-      <definition>
         <short value="Contained, inline Resources"/>
         <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
         <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
@@ -1770,11 +1591,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.text"/>
-      <definition>
         <short value="Text summary of the resource, for human interpretation"/>
         <formal value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
         <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
@@ -1784,11 +1603,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Narrative"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.contained"/>
-      <definition>
         <short value="Contained, inline Resources"/>
         <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
         <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
@@ -1798,11 +1615,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.name"/>
-      <definition>
         <short value="HDL Cholesterol"/>
         <formal value="HDL Cholesterol."/>
         <min value="1"/>
@@ -1819,11 +1634,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.value[x]"/>
-      <definition>
         <short value="HDL Cholesterol value"/>
         <formal value="HDL Cholesterol value. If a result is not available, use the comments field."/>
         <comments value="The datatype for this element should be determined by Observation.name."/>
@@ -1833,11 +1646,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Quantity"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.interpretation"/>
-      <definition>
         <short value="+ | ++ | +++ | - | -- | ---"/>
         <formal value="+ | ++ | +++ | - | -- | ---."/>
         <min value="0"/>
@@ -1854,11 +1665,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.comments"/>
-      <definition>
         <short value="Comments about result"/>
         <formal value="Comments about result."/>
         <min value="0"/>
@@ -1867,11 +1676,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.applies[x]"/>
-      <definition>
         <short value="Relevant time/time-period"/>
         <formal value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;."/>
         <comments value="At least a date should be present unless this observation is a historical report."/>
@@ -1884,11 +1691,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="dateTime"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.issued"/>
-      <definition>
         <short value="Date/Time this was made available"/>
         <formal value="Date/Time this was made available."/>
         <comments value="Updated when the result is updated."/>
@@ -1898,11 +1703,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="instant"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.status"/>
-      <definition>
         <short value="Registered|Interim|Final|Amended|Cancelled|Withdrawn"/>
         <formal value="The status of the result value."/>
         <min value="1"/>
@@ -1919,11 +1722,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.reliability"/>
-      <definition>
         <short value="If quality issues exist (mostly devices)"/>
         <formal value="If quality issues exist (mostly devices)."/>
         <comments value="Note that in most contexts, unreliable results are not recorded, deleted, or otherwise excluded, but it&#39;s not always possible to exclude them from the record. Interpreters of a result, whether human or machine, SHALL always either be aware of the status, or prevented from using the observation without being unaware that the reliability is not &quot;ok&quot;."/>
@@ -1941,11 +1742,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
           </referenceReference>
         </binding>      
-      </definition>
     </element>
     <element>
       <path value="Observation.bodySite"/>
-      <definition>
         <short value="Observed body part"/>
         <formal value="Indicates where on the subject&#39;s body the observation was made."/>
         <comments value="Only used if not implicit in code found in Observation.name."/>
@@ -1963,11 +1762,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/body-site"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.method"/>
-      <definition>
         <short value="How it was done"/>
         <formal value="Indicates the mechanism used to perform the observation."/>
         <comments value="Only used if not implicit in code for SimpleObservation.result.type."/>
@@ -1985,11 +1782,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-methods"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.identifier"/>
-      <definition>
         <short value="Unique Id for this particular observation"/>
         <formal value="A unique identifier for the simple observation."/>
         <min value="0"/>
@@ -1998,11 +1793,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Identifier"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.subject"/>
-      <definition>
         <short value="Who and/or what this is about"/>
         <formal value="The thing the observation is being made about."/>
         <comments value="The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated."/>
@@ -2012,11 +1805,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Reference(Patient|Group|Device)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.performer"/>
-      <definition>
         <short value="Who did the observation"/>
         <formal value="Who was responsible for asserting the observed value as &quot;true&quot;."/>
         <comments value="This would only be &quot;Device&quot; if the device is responsible for the measurement, not to capture the device used by a human to make the measurement.  (The latter could be captured as an extension.)."/>
@@ -2026,22 +1817,18 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Reference(Practitioner|Device|Organization)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange"/>
-      <definition>
         <short value="Provides guide for interpretation"/>
         <formal value="Provides guide for interpretation."/>
         <comments value="Most results only have one reference range, might be generic or be specific to the patient&#39;s age, gender, weight and other factors. When these things are not known, multiple reference ranges may be provided."/>
         <min value="1"/>
         <max value="1"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange.meaning"/>
-      <definition>
         <short value="Range is a recommended range"/>
         <formal value="Range is a recommended range."/>
         <comments value="This is only usually populated if there is more than one range."/>
@@ -2059,11 +1846,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange.range[x]"/>
-      <definition>
         <short value="Reference"/>
         <formal value="&gt;1.5 mmol/L."/>
         <comments value="Per Australian NHF Recommendations."/>
@@ -2073,22 +1858,18 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Quantity"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.component"/>
-      <definition>
         <short value="Component observation"/>
         <formal value="Component observation."/>
         <comments value="It would be usual to either have a value or components with values, but both may be used, such as for APGAR scores."/>
         <min value="0"/>
         <max value="0"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.component.name"/>
-      <definition>
         <short value="Kind of component observation"/>
         <formal value="Identifies what type of sub-observation was performed."/>
         <min value="1"/>
@@ -2105,11 +1886,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.component.value[x]"/>
-      <definition>
         <short value="Actual component result"/>
         <formal value="The information determined as a result of making the sub-observation."/>
         <comments value="The datatype for this element should be determined by Observation.component.name."/>
@@ -2137,7 +1916,6 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
   </structure>
   <structure>
@@ -2147,7 +1925,6 @@ The context of use may additionally require a code from a particular system (Unl
     <element>
       <path value="Observation"/>
       <name value="LDLCholesterol"/>
-      <definition>
         <short value="LDL Cholesterol Result"/>
         <formal value="Group of elements for LDL Cholesterol result."/>
         <comments value="Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to describe aggregate collections of observations such as Lab reports, etc."/>
@@ -2157,7 +1934,6 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.extension"/>
@@ -2171,7 +1947,6 @@ The context of use may additionally require a code from a particular system (Unl
     <element>
       <path value="Observation.extension"/>
       <name value="LDLCalculated"/>
-      <definition>
         <short value="Whether LDL value is calculated"/>
         <formal value="Whether LDL value is calculated."/>
         <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
@@ -2179,14 +1954,12 @@ The context of use may additionally require a code from a particular system (Unl
         <max value="1"/>
         <type>
           <code value="Extension"/>
-          <profile value="#calculated"/>
+          <profile value="http://hl7.org/fhir/ExtensionDefinition/ldl-calculated"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.text"/>
-      <definition>
         <short value="Text summary of the resource, for human interpretation"/>
         <formal value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
         <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
@@ -2200,11 +1973,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Narrative"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.contained"/>
-      <definition>
         <short value="Contained, inline Resources"/>
         <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
         <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
@@ -2217,11 +1988,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.text"/>
-      <definition>
         <short value="Text summary of the resource, for human interpretation"/>
         <formal value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
         <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
@@ -2231,11 +2000,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Narrative"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.contained"/>
-      <definition>
         <short value="Contained, inline Resources"/>
         <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
         <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
@@ -2245,11 +2012,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Resource"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.name"/>
-      <definition>
         <short value="LDL Cholesterol -measured or calculated per code"/>
         <formal value="LDL Cholesterol -measured or calculated per code."/>
         <min value="1"/>
@@ -2266,11 +2031,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.value[x]"/>
-      <definition>
         <short value="LDL Cholesterol value"/>
         <formal value="LDL Cholesterol value. If a result is not available, use the comments field."/>
         <comments value="The datatype for this element should be determined by Observation.name."/>
@@ -2280,11 +2043,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Quantity"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.interpretation"/>
-      <definition>
         <short value="+ | ++ | +++ | - | -- | ---"/>
         <formal value="+ | ++ | +++ | - | -- | ---."/>
         <min value="0"/>
@@ -2301,11 +2062,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.comments"/>
-      <definition>
         <short value="Comments about result"/>
         <formal value="Comments about result."/>
         <min value="0"/>
@@ -2314,11 +2073,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.applies[x]"/>
-      <definition>
         <short value="Relevant time/time-period"/>
         <formal value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;."/>
         <comments value="At least a date should be present unless this observation is a historical report."/>
@@ -2331,11 +2088,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="dateTime"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.issued"/>
-      <definition>
         <short value="Date/Time this was made available"/>
         <formal value="Date/Time this was made available."/>
         <comments value="Updated when the result is updated."/>
@@ -2345,11 +2100,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="instant"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.status"/>
-      <definition>
         <short value="Registered|Interim|Final|Amended|Cancelled|Withdrawn"/>
         <formal value="The status of the result value."/>
         <min value="1"/>
@@ -2366,11 +2119,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.reliability"/>
-      <definition>
         <short value="If quality issues exist (mostly devices)"/>
         <formal value="If quality issues exist (mostly devices)."/>
         <comments value="Note that in most contexts, unreliable results are not recorded, deleted, or otherwise excluded, but it&#39;s not always possible to exclude them from the record. Interpreters of a result, whether human or machine, SHALL always either be aware of the status, or prevented from using the observation without being unaware that the reliability is not &quot;ok&quot;."/>
@@ -2388,11 +2139,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
           </referenceReference>
         </binding>      
-      </definition>
     </element>
     <element>
       <path value="Observation.bodySite"/>
-      <definition>
         <short value="Observed body part"/>
         <formal value="Indicates where on the subject&#39;s body the observation was made."/>
         <comments value="Only used if not implicit in code found in Observation.name."/>
@@ -2410,11 +2159,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/body-site"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.method"/>
-      <definition>
         <short value="How it was done"/>
         <formal value="Indicates the mechanism used to perform the observation."/>
         <comments value="Only used if not implicit in code for SimpleObservation.result.type."/>
@@ -2432,11 +2179,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-methods"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.identifier"/>
-      <definition>
         <short value="Unique Id for this particular observation"/>
         <formal value="A unique identifier for the simple observation."/>
         <min value="0"/>
@@ -2445,11 +2190,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Identifier"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.subject"/>
-      <definition>
         <short value="Who and/or what this is about"/>
         <formal value="The thing the observation is being made about."/>
         <comments value="The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated."/>
@@ -2459,11 +2202,9 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Reference(Patient|Group|Device)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.performer"/>
-      <definition>
         <short value="Who did the observation"/>
         <formal value="Who was responsible for asserting the observed value as &quot;true&quot;."/>
         <comments value="This would only be &quot;Device&quot; if the device is responsible for the measurement, not to capture the device used by a human to make the measurement.  (The latter could be captured as an extension.)."/>
@@ -2473,22 +2214,18 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Reference(Practitioner|Device|Organization)"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange"/>
-      <definition>
         <short value="Provides guide for interpretation"/>
         <formal value="Provides guide for interpretation."/>
         <comments value="Most results only have one reference range, might be generic or be specific to the patient&#39;s age, gender, weight and other factors. When these things are not known, multiple reference ranges may be provided."/>
         <min value="1"/>
         <max value="1"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange.meaning"/>
-      <definition>
         <short value="Range is a recommended range"/>
         <formal value="Range is a recommended range."/>
         <comments value="This is only usually populated if there is more than one range."/>
@@ -2506,11 +2243,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.referenceRange.range[x]"/>
-      <definition>
         <short value="Reference"/>
         <formal value="&gt;3.0 mmol/L."/>
         <comments value="Per Australian NHF Recommendations."/>
@@ -2520,22 +2255,18 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="Quantity"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.component"/>
-      <definition>
         <short value="Component observation"/>
         <formal value="Component observation."/>
         <comments value="It would be usual to either have a value or components with values, but both may be used, such as for APGAR scores."/>
         <min value="0"/>
         <max value="0"/>
         <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.component.name"/>
-      <definition>
         <short value="Kind of component observation"/>
         <formal value="Identifies what type of sub-observation was performed."/>
         <min value="1"/>
@@ -2552,11 +2283,9 @@ The context of use may additionally require a code from a particular system (Unl
             <reference value="http://hl7.org/fhir/vs/observation-codes"/>
           </referenceReference>
         </binding>
-      </definition>
     </element>
     <element>
       <path value="Observation.component.value[x]"/>
-      <definition>
         <short value="Actual component result"/>
         <formal value="The information determined as a result of making the sub-observation."/>
         <comments value="The datatype for this element should be determined by Observation.component.name."/>
@@ -2584,25 +2313,6 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="string"/>
         </type>
         <isModifier value="false"/>
-      </definition>
     </element>
   </structure>
-  <extensionDefn>
-    <name value="calculated"/>
-    <display value="LDL is Calculated"/>
-    <contextType value="resource"/>
-    <context value="Observation.name"/>
-    <definition>
-      <short value="LDL is Calculated"/>
-      <formal value="True if the LDL value is calculated from Chol, Trig, and HDLC."/>
-      <comments value="It&#39;s definitely better that whether the LDL was calculated or not comes from the LOINC code. But this is defined to exercise the extension machinery in the publication tooling, and to make this comment. Actually, the location is odd too - it would probably be on the root observation, but this is for testing purposes."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <mustSupport value="false"/>
-      <isModifier value="false"/>
-    </definition>
-  </extensionDefn>
 </Profile>

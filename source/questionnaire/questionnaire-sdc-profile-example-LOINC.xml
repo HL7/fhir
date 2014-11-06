@@ -1,5 +1,5 @@
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
-  <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
     <valueCodeableConcept>
       <coding>
         <code value="Acute Care Hospitals"/>
@@ -494,15 +494,15 @@
     <linkId value="root"/>
     <title value="Medication or Other Substance"/>
     <group>
-      <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#specialGroup">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-specialGroup">
         <valueCode value="header"/>
       </extension>
       <linkId value="Medication/header"/>
       <question>
-        <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
           <valueInteger value="3"/>
         </extension>
-        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
           <valueInteger value="9"/>
         </extension>
         <linkId value="74080-3/74081-1"/>
@@ -532,13 +532,13 @@
         <linkId value="Medication/SEC01/74080-3"/>
         <required value="true"/>
         <question>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
             <valueInteger value="1"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
             <valueInteger value="30"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
             <valueReference>
               <reference value="http://loinc.org/74076-1"/>
             </valueReference>
@@ -555,13 +555,13 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="7"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="65"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://loinc.org/vs/74075-3"/>
                 </valueReference>
@@ -578,13 +578,13 @@
                 <required value="false"/>
                 <repeats value="false"/>
                 <question>
-                  <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                  <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                     <valueInteger value="0"/>
                   </extension>
-                  <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                  <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                     <valueInteger value="500"/>
                   </extension>
-                  <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+                  <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                     <valueReference>
                       <reference value="http://loinc.org/74077-9"/>
                     </valueReference>
@@ -602,10 +602,10 @@
             <required value="false"/>
             <repeats value="false"/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="8"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="65"/>
               </extension>
               <linkId value="74080-3/74074-6"/>
@@ -767,7 +767,7 @@
         </question>
       </group>
       <group>
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-maxOccurs">
           <valueInteger value="5"/>
         </extension>
         <linkId value="74080-3/74078-7"/>
@@ -775,10 +775,10 @@
                directly involved in the event."/>
         <repeats value="true"/>
         <question>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
             <valueInteger value="65"/>
           </extension>
           <linkId value="74080-3/74078-7/74062-1"/>
@@ -786,10 +786,10 @@
           <type value="string"/>
         </question>
         <question>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
             <valueInteger value="65"/>
           </extension>
           <linkId value="74080-3/74078-7/74061-3"/>
@@ -797,10 +797,10 @@
           <type value="string"/>
         </question>
         <question>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
             <valueInteger value="65"/>
           </extension>
           <linkId value="74080-3/74078-7/74060-5"/>
@@ -808,10 +808,10 @@
           <type value="string"/>
         </question>
         <question>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
             <valueInteger value="65"/>
           </extension>
           <linkId value="74080-3/74078-7/74059-7"/>
@@ -819,10 +819,10 @@
           <type value="string"/>
         </question>
         <question>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
             <valueInteger value="65"/>
           </extension>
           <linkId value="74080-3/74078-7/74058-9"/>
@@ -830,10 +830,10 @@
           <type value="string"/>
         </question>
         <question>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
             <valueInteger value="65"/>
           </extension>
           <linkId value="74080-3/74078-7/74057-1"/>
@@ -841,10 +841,10 @@
           <type value="string"/>
         </question>
         <question>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
             <valueInteger value="65"/>
           </extension>
           <linkId value="74080-3/74078-7/74056-3"/>
@@ -852,10 +852,10 @@
           <type value="string"/>
         </question>
         <question>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
             <valueInteger value="65"/>
           </extension>
           <linkId value="74080-3/74078-7/74055-5"/>
@@ -863,10 +863,10 @@
           <type value="string"/>
         </question>
         <question>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
             <valueInteger value="0"/>
           </extension>
-          <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
             <valueInteger value="65"/>
           </extension>
           <linkId value="74080-3/74078-7/74054-8"/>
@@ -931,7 +931,7 @@
       </group>
     </group>
     <group>
-      <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#specialGroup">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-specialGroup">
         <valueCode value="footer"/>
       </extension>
       <linkId value="Medication/footer"/>

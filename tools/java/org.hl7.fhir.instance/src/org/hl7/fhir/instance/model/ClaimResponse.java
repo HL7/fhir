@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -180,11 +180,11 @@ public class ClaimResponse extends Resource {
         /**
          * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
          */
-        public IntegerType addNoteNumber(int value) { 
+        public ItemsComponent addNoteNumber(int value) { 
           IntegerType t = new IntegerType();
           t.setValue(value);
           this.noteNumber.add(t);
-          return t;
+          return this;
         }
 
         /**
@@ -850,11 +850,11 @@ public class ClaimResponse extends Resource {
         /**
          * @param value {@link #ssequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
-        public IntegerType addSsequenceLinkId(int value) { 
+        public AddedItemComponent addSsequenceLinkId(int value) { 
           IntegerType t = new IntegerType();
           t.setValue(value);
           this.ssequenceLinkId.add(t);
-          return t;
+          return this;
         }
 
         /**
@@ -917,11 +917,11 @@ public class ClaimResponse extends Resource {
         /**
          * @param value {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
          */
-        public IntegerType addNoteNumberLinkId(int value) { 
+        public AddedItemComponent addNoteNumberLinkId(int value) { 
           IntegerType t = new IntegerType();
           t.setValue(value);
           this.noteNumberLinkId.add(t);
-          return t;
+          return this;
         }
 
         /**

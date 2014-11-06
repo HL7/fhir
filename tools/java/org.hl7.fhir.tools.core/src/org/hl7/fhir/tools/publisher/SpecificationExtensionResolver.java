@@ -6,19 +6,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
+import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.utils.WorkerContext.ExtensionDefinitionResult;
 import org.hl7.fhir.instance.validation.ExtensionLocatorService;
 import org.hl7.fhir.utilities.Utilities;
 
 public class SpecificationExtensionResolver implements ExtensionLocatorService {
 
 	private String specPath;
-	private Map<String, Profile> profiles = new HashMap<String, Profile>();
+	private WorkerContext context;
 	
-	public SpecificationExtensionResolver(String specPath) {
+	public SpecificationExtensionResolver(String specPath, WorkerContext context) {
 	  super();
 	  this.specPath = specPath;
+	  this.context = context;
   }
 
 	@Override
@@ -36,26 +39,21 @@ public class SpecificationExtensionResolver implements ExtensionLocatorService {
     if (uri.startsWith("http://hl7.org/fhir/query#"))
       return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.Unknown, null, null);
     
-		if (!uri.startsWith("http://hl7.org/fhir/Profile/"))
+		if (!uri.startsWith("http://hl7.org/fhir/ExtensionDefinition/"))
 			return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.NotAllowed, null, "Extensions must either reference example.org, or acme.com, or be an internal valid reference to an extension defined in FHIR");
-		String[] path = uri.substring(28).split("\\#");
-		if (path.length != 2)
-			return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.NotAllowed, null, "Internal extension references must start with http://hl7.org/fhir/Porfile/ and then have the profile name and a fragment reference");
-		String filename = Utilities.path(specPath, path[0]+".profile.xml");
+		String path = uri.substring(40);
+		String filename = Utilities.path(specPath, path+".xml");
 		if (!new File(filename).exists()) 
-			return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.NotAllowed, null, "Profile "+path[0]+".profile.xml not found");
+			return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.NotAllowed, null, "Profile "+path+".xml not found");
 		
 		try {
-	    Profile profile = profiles.get(filename); 
-	    if (profile == null) {
-	       profile = (Profile) new XmlParser().parse(new FileInputStream(filename));
-	       profiles.put(filename, profile);
-	    }
-	    for (ProfileExtensionDefnComponent ext : profile.getExtensionDefn()) {
-	    	if (ext.getName().equals(path[1]))
-	  			return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.Located, ext, null);
-	    }
-			return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.NotAllowed, null, "Extension code '"+path[1]+"' not found");
+		  ExtensionDefinitionResult ed = context.getExtensionDefinition(null, uri); 
+		  if (ed == null) {
+		    ExtensionDefinition ex = (ExtensionDefinition) new XmlParser().parse(new FileInputStream(filename));
+		    ed = new ExtensionDefinitionResult(ex, ex.getElement().get(0));
+		    // context.seeExtensionDefinition(ed);
+		  } 
+	  	return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.Located, ed.getExtensionDefinition(), null);
 	    
     } catch (Exception e) {
 			return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.NotAllowed, null, "Error access extension definition: " +e.getMessage());

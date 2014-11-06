@@ -4591,7 +4591,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">OperationOutcome</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">If the translation is successful, the translation is represented as an extension (uri = [[[http://hl7.org/fhir/Profile/general-extensions#translation]]]) of type Coding on the operation outcome, or else an error must be returned. Hints and warnings may be returned in either case</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">If the translation is successful, the translation is represented as an extension (uri = [[[http://hl7.org/fhir/ExtensionDefinition/translation]]]) of type Coding on the operation outcome, or else an error must be returned. Hints and warnings may be returned in either case</Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5240,7 +5240,7 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">conceptmap-translate</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">currency</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Translate a code from one value set to another, based on the existing value set and concept maps resources, and/or other additional knowledge available to the server. The coded value is carried as an extension in the message header.  The outcome is an operationOutcome with hints, warnings, or errors, or the translated code in an extension</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">The coded value to validate is carried using the extension [[[http://hl7.org/fhir/Profile/general-extensions#codedSource]]], and the translated coding is returned in the extension [[[http://hl7.org/fhir/Profile/general-extensions#translation]]]</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">The coded value to validate is carried using the extension [[[http://hl7.org/fhir/ExtensionDefinition/codedSource]]], and the translated coding is returned in the extension [[[http://hl7.org/fhir/ExtensionDefinition/translation]]]</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>

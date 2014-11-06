@@ -65,6 +65,7 @@ import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.HumanName;
@@ -82,7 +83,6 @@ import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueCompone
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Property;
 import org.hl7.fhir.instance.model.Quantity;
@@ -176,16 +176,16 @@ public class NarrativeGenerator {
     inject(r, x,  NarrativeStatus.GENERATED);
   }
 
-  private void generateByProfile(Resource res, Element e, List<ElementComponent> allElements, ElementComponent defn, List<ElementComponent> children,  XhtmlNode x, String path, boolean showCodeDetails) throws Exception {
+  private void generateByProfile(Resource res, Element e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws Exception {
     if (children.isEmpty()) {
       renderLeaf(res, e, defn, x, false, showCodeDetails, readDisplayHints(defn));
     } else {
       for (Property p : e.children()) {
         if (p.hasValues()) {
-          ElementComponent child = getElementDefinition(children, path+"."+p.getName());
+          ElementDefinition child = getElementDefinition(children, path+"."+p.getName());
           Map<String, String> displayHints = readDisplayHints(child);
           if (!exemptFromRendering(child)) {
-            List<ElementComponent> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
+            List<ElementDefinition> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
             if (p.getValues().size() > 0 && child != null) {
               if (isPrimitive(child)) {
                 XhtmlNode para = x.addTag("p");
@@ -251,7 +251,7 @@ public class NarrativeGenerator {
     return false;
   }
 
-  private boolean exemptFromRendering(ElementComponent child) {
+  private boolean exemptFromRendering(ElementDefinition child) {
     if (child == null)
       return false;
     if ("Composition.subject".equals(child.getPath()))
@@ -261,22 +261,22 @@ public class NarrativeGenerator {
     return false;
   }
 
-  private boolean renderAsList(ElementComponent child) {
-    if (child.getDefinition().getType().size() == 1) {
-      String t = child.getDefinition().getType().get(0).getCode();
+  private boolean renderAsList(ElementDefinition child) {
+    if (child.getType().size() == 1) {
+      String t = child.getType().get(0).getCode();
       if (t.equals("Address") || t.equals("Reference"))
         return true;
     }
     return false;
   }
 
-  private void addColumnHeadings(XhtmlNode tr, List<ElementComponent> grandChildren) {
-    for (ElementComponent e : grandChildren) 
+  private void addColumnHeadings(XhtmlNode tr, List<ElementDefinition> grandChildren) {
+    for (ElementDefinition e : grandChildren) 
       tr.addTag("td").addTag("b").addText(Utilities.capitalize(tail(e.getPath())));
   }
 
-  private void addColumnValues(Resource res, XhtmlNode tr, List<ElementComponent> grandChildren, Element v, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
-    for (ElementComponent e : grandChildren) {
+  private void addColumnValues(Resource res, XhtmlNode tr, List<ElementDefinition> grandChildren, Element v, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
+    for (ElementDefinition e : grandChildren) {
       Property p = v.getChildByName(e.getPath().substring(e.getPath().lastIndexOf(".")+1));
       if (p == null || p.getValues().size() == 0 || p.getValues().get(0) == null)
         tr.addTag("td").addText(" ");
@@ -289,8 +289,8 @@ public class NarrativeGenerator {
     return path.substring(path.lastIndexOf(".")+1);
   }
 
-  private boolean canDoTable(String path, Property p, List<ElementComponent> grandChildren) {
-    for (ElementComponent e : grandChildren) {
+  private boolean canDoTable(String path, Property p, List<ElementDefinition> grandChildren) {
+    for (ElementDefinition e : grandChildren) {
       List<Property> values = getValues(path, p, e);
       if (values.size() > 1 || !isPrimitive(e) || !canCollapse(e))
         return false;
@@ -298,7 +298,7 @@ public class NarrativeGenerator {
     return true;
   }
 
-  private List<Property> getValues(String path, Property p, ElementComponent e) {
+  private List<Property> getValues(String path, Property p, ElementDefinition e) {
     List<Property> res = new ArrayList<Property>();
     for (Element v : p.values) {
       for (Property g : v.children()) {
@@ -309,24 +309,24 @@ public class NarrativeGenerator {
     return res;
   }
 
-  private boolean canCollapse(ElementComponent e) {
+  private boolean canCollapse(ElementDefinition e) {
     // we can collapse any data type
-    return !e.getDefinition().getType().isEmpty();
+    return !e.getType().isEmpty();
   }
 
-  private boolean isPrimitive(ElementComponent e) {
+  private boolean isPrimitive(ElementDefinition e) {
     //we can tell if e is a primitive because it has types
-    return !e.getDefinition().getType().isEmpty();
+    return !e.getType().isEmpty();
   }
   
-  private ElementComponent getElementDefinition(List<ElementComponent> elements, String path) {
-    for (ElementComponent element : elements)
+  private ElementDefinition getElementDefinition(List<ElementDefinition> elements, String path) {
+    for (ElementDefinition element : elements)
       if (element.getPath().equals(path))
         return element;      
     return null;
   }
 
-  private void renderLeaf(Resource res, Element e, ElementComponent defn, XhtmlNode x, boolean title, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
+  private void renderLeaf(Resource res, Element e, ElementDefinition defn, XhtmlNode x, boolean title, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
     if (e == null)
       return;
    
@@ -410,7 +410,7 @@ public class NarrativeGenerator {
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
   }
 
-  private boolean displayLeaf(Resource res, Element e, ElementComponent defn, XhtmlNode x, String name, boolean showCodeDetails) throws Exception {
+  private boolean displayLeaf(Resource res, Element e, ElementDefinition defn, XhtmlNode x, String name, boolean showCodeDetails) throws Exception {
     if (e == null)
       return false;
     Map<String, String> displayHints = readDisplayHints(defn);
@@ -508,10 +508,10 @@ public class NarrativeGenerator {
   }
 
 
-  private Map<String, String> readDisplayHints(ElementComponent defn) throws Exception {
+  private Map<String, String> readDisplayHints(ElementDefinition defn) throws Exception {
     Map<String, String> hints = new HashMap<String, String>();
     if (defn != null) {
-      String displayHint = ToolingExtensions.getDisplayHint(defn.getDefinition());
+      String displayHint = ToolingExtensions.getDisplayHint(defn);
       if (!Utilities.noString(displayHint)) {
         String[] list = displayHint.split(";");
         for (String item : list) {
@@ -552,7 +552,7 @@ public class NarrativeGenerator {
       boolean firstElement = true;
       boolean last = false;
       for (Property p : res.children()) {
-        ElementComponent child = getElementDefinition(struc.getSnapshot().getElement(), path+"."+p.getName());
+        ElementDefinition child = getElementDefinition(struc.getSnapshot().getElement(), path+"."+p.getName());
         if (p.getValues().size() > 0 && p.getValues().get(0) != null && child != null && isPrimitive(child) && includeInSummary(child)) {
           if (firstElement)
             firstElement = false;
@@ -573,13 +573,13 @@ public class NarrativeGenerator {
   }
 
 
-  private boolean includeInSummary(ElementComponent child) {
-    if (child.getDefinition().getIsModifier())
+  private boolean includeInSummary(ElementDefinition child) {
+    if (child.getIsModifier())
       return true;
-    if (child.getDefinition().getMustSupport())
+    if (child.getMustSupport())
       return true;
-    if (child.getDefinition().getType().size() == 1) {
-      String t = child.getDefinition().getType().get(0).getCode();
+    if (child.getType().size() == 1) {
+      String t = child.getType().get(0).getCode();
       if (t.equals("Address") || t.equals("Contact") || t.equals("Reference") || t.equals("Uri"))
         return false;
     }
@@ -932,14 +932,14 @@ public class NarrativeGenerator {
     return s;
   }
 
-  private List<ElementComponent> getChildrenForPath(List<ElementComponent> elements, String path) throws Exception {
+  private List<ElementDefinition> getChildrenForPath(List<ElementDefinition> elements, String path) throws Exception {
     // do we need to do a name reference substitution?
-    for (ElementComponent e : elements) {
-      if (e.getPath().equals(path) && e.getDefinition().getNameReference() != null) {
-      	String name = e.getDefinition().getNameReference();
-      	ElementComponent t = null;
+    for (ElementDefinition e : elements) {
+      if (e.getPath().equals(path) && e.getNameReference() != null) {
+      	String name = e.getNameReference();
+      	ElementDefinition t = null;
       	// now, resolve the name
-        for (ElementComponent e1 : elements) {
+        for (ElementDefinition e1 : elements) {
         	if (name.equals(e1.getName()))
         		t = e1;
         }
@@ -950,8 +950,8 @@ public class NarrativeGenerator {
       }
     }
     
-    List<ElementComponent> results = new ArrayList<Profile.ElementComponent>();
-    for (ElementComponent e : elements) {
+    List<ElementDefinition> results = new ArrayList<ElementDefinition>();
+    for (ElementDefinition e : elements) {
       if (e.getPath().startsWith(path+".") && !e.getPath().substring(path.length()+1).contains(".") && !(e.getPath().endsWith(".extension") || e.getPath().endsWith(".modifierExtension")))
         results.add(e);
     }
@@ -1485,7 +1485,7 @@ public class NarrativeGenerator {
     if (c.getDisplay() != null)
       td.addText(c.getDisplay());
     td = tr.addTag("td");
-    if (c.getDefinition() != null)
+    if (c != null)
       smartAddText(td, c.getDefinition());
     if (deprecated) {
       td = tr.addTag("td");

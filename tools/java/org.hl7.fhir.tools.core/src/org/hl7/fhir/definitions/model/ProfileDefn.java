@@ -32,6 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
 
 public class ProfileDefn {
@@ -42,7 +43,6 @@ public class ProfileDefn {
   // transient loading details, if loaded from a spreadsheet
   private List<ResourceDefn> resources = new ArrayList<ResourceDefn>();
   private Map<String, ArrayList<String>> metadata = new HashMap<String, ArrayList<String>>();
-  private List<ExtensionDefn> extensions = new ArrayList<ExtensionDefn>();
   private List<BindingSpecification> bindings = new ArrayList<BindingSpecification>();
   
  
@@ -66,7 +66,7 @@ public class ProfileDefn {
       if ("date".equals(name))
         return source.getDate().toString();
       if ("status".equals(name))
-        return source.getStatus().toCode();
+        return source.getStatus() == null ? "NULL" : source.getStatus().toCode();
       if ("author.name".equals(name))
         return source.getPublisher();
       if ("url".equals(name))
@@ -104,10 +104,6 @@ public class ProfileDefn {
     ArrayList<String> a = new ArrayList<String>();
     metadata.put(name, a);
     a.add(value);
-  }
-
-  public List<ExtensionDefn> getExtensions() {
-    return extensions;
   }
 
   public List<BindingSpecification> getBindings() {

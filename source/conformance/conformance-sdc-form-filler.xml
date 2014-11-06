@@ -413,7 +413,7 @@
     <resource>
       <type value="Questionnaire"/>
       <profile>
-        <reference value="http://hl7.org/fhir/Profile/questionnaire-sdc"/>
+        <reference value="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">

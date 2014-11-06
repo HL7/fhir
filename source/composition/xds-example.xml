@@ -16,7 +16,7 @@
         <updated>2013-07-01T13:11:33Z</updated>
         <content type="text/xml">
             <DocumentReference xmlns="http://hl7.org/fhir">
-                <extension url="http://hl7.org/fhir/xds#practiceSettingCode">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/xdspracticeSettingCode">
                     <valueCodeableConcept>
                         <coding>
                             <system value="http://ihe.net/connectathon/practiceSettingCodes"/>

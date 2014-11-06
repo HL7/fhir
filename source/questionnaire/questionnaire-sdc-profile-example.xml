@@ -12,7 +12,7 @@
     <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
           <valueCodeableConcept>
             <coding>
               <code value="Acute Care Hospitals"/>
@@ -634,15 +634,15 @@
           <linkId value="root"/>
           <title value="Medication or Other Substance"/>
           <group>
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#specialGroup">
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-specialGroup">
               <valueCode value="header"/>
             </extension>
             <linkId value="Medication/header"/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="9"/>
               </extension>
               <linkId value="Medication/DE2"/>
@@ -665,13 +665,13 @@
               <linkId value="Medication/SEC01/74080-3"/>
               <required value="true"/>
               <question>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                   <valueInteger value="1"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                   <valueInteger value="30"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="http://AHRQ.gov/data_element_identifier#Type%20of%20substance%20involved"/>
                   </valueReference>
@@ -688,13 +688,13 @@
                   <required value="false"/>
                   <repeats value="false"/>
                   <question>
-                    <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                    <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                       <valueInteger value="7"/>
                     </extension>
-                    <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                    <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                       <valueInteger value="65"/>
                     </extension>
-                    <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+                    <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                       <valueReference>
                         <reference value="http://AHRQ.gov/data_element_identifier#Type%20of%20medication%20involved"/>
                       </valueReference>
@@ -711,13 +711,13 @@
                       <required value="false"/>
                       <repeats value="false"/>
                       <question>
-                        <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                        <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                           <valueInteger value="0"/>
                         </extension>
-                        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                           <valueInteger value="500"/>
                         </extension>
-                        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+                        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                           <valueReference>
                             <reference value="http://AHRQ.gov/data_element_identifier#Compounded%20preparation%20ingredients"/>
                           </valueReference>
@@ -735,10 +735,10 @@
                   <required value="false"/>
                   <repeats value="false"/>
                   <question>
-                    <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                    <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                       <valueInteger value="8"/>
                     </extension>
-                    <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                    <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                       <valueInteger value="65"/>
                     </extension>
                     <linkId value="Medication/DE279"/>
@@ -752,10 +752,10 @@
                       <required value="false"/>
                       <repeats value="false"/>
                       <question>
-<!--                        <extension url="http://hl7.org/fhir/Profile/element-extensions#minValue">
+<!--                        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
                           <valueInteger value="??"/>
                         </extension>
-                        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxValue">
+                        <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
                           <valueInteger value="??"/>
                         </extension>-->
                         <linkId value="Medication/DE282"/>
@@ -904,17 +904,17 @@
               </question>
             </group>
             <group>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-maxOccurs">
                 <valueInteger value="5"/>
               </extension>
               <linkId value="Medication/SEC02/74078-7"/>
               <text value="Please provide the following medication details for any medications or other substances directly involved in the event."/>
               <repeats value="true"/>
               <question>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE318"/>
@@ -922,10 +922,10 @@
                 <type value="string"/>
               </question>
               <question>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE319"/>
@@ -933,10 +933,10 @@
                 <type value="string"/>
               </question>
               <question>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE321"/>
@@ -944,10 +944,10 @@
                 <type value="string"/>
               </question>
               <question>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE322"/>
@@ -955,10 +955,10 @@
                 <type value="string"/>
               </question>
               <question>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE324"/>
@@ -966,10 +966,10 @@
                 <type value="string"/>
               </question>
               <question>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE327"/>
@@ -977,10 +977,10 @@
                 <type value="string"/>
               </question>
               <question>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE328"/>
@@ -988,10 +988,10 @@
                 <type value="string"/>
               </question>
               <question>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE330"/>
@@ -999,10 +999,10 @@
                 <type value="string"/>
               </question>
               <question>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                   <valueInteger value="0"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                   <valueInteger value="65"/>
                 </extension>
                 <linkId value="Medication/DE331"/>
@@ -1061,7 +1061,7 @@
             </group>
           </group>
           <group>
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#specialGroup">
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-specialGroup">
               <valueCode value="footer"/>
             </extension>
             <linkId value="Medication/footer"/>
@@ -1245,15 +1245,15 @@
           <linkId value="root"/>
           <title value="Healthcare Event Reporting Form (HERF) Hospital Version 1.2"/>
           <group>
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#specialGroup">
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-specialGroup">
               <valueCode value="header"/>
             </extension>
             <linkId value="HERF/header"/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="9"/>
               </extension>
               <linkId value="HERF/DE2"/>
@@ -1286,7 +1286,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-maxOccurs">
                 <valueInteger value="0"/>
               </extension>
               <linkId value="HERF/DE15"/>
@@ -1296,7 +1296,7 @@
               <repeats value="true"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-maxOccurs">
                 <valueInteger value="0"/>
               </extension>
               <linkId value="HERF/DE18"/>
@@ -1306,7 +1306,7 @@
               <repeats value="true"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-maxOccurs">
                 <valueInteger value="10"/>
               </extension>
               <linkId value="HERF/DE21"/>
@@ -1320,7 +1320,7 @@
             </question>
           </group>
           <group>
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#enableWhen">
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-enableWhen">
               <extension url="#enableWhen.question">
                 <valueString value="HERF/DE3"/>
               </extension>
@@ -1335,7 +1335,7 @@
             <title value="PATIENT INFORMATION (COMPLETE ONLY IF INCIDENT)"/>
             <text value="Please complete the patient identifiers below. Additional patient information is captured on the Patient Information Form (PIF). (When reporting a perinatal incident that affected a mother and a neonate, please complete the patient identifiers below for the mother (Q8 – Q11) and the neonate (Q12 – Q15). Please also complete a separate PIF for the neonate involved.)"/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#entryFormat">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/entryFormat">
                 <valueString value="MM/DD/YYYY"/>
               </extension>
               <linkId value="HERF/DE9a"/>
@@ -1344,14 +1344,14 @@
               <required value="true"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#defaultValue">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-defaultValue">
                 <valueCoding>
                   <system value="HERF/DE9b-cs"/>
                   <code value="UNK"/>
                   <display value="Unknown"/>
                 </valueCoding>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#entryFormat">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/entryFormat">
                 <valueString value="HHMM"/>
               </extension>
               <linkId value="HERF/DE9b"/>
@@ -1361,7 +1361,7 @@
             </question>
           </group>
           <group>
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#enableWhen">
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-enableWhen">
               <extension url="#enableWhen.question">
                 <valueString value="HERF/DE3"/>
               </extension>
@@ -1490,7 +1490,7 @@
             <text value="OMB No. 0935-0143 Exp. Date 10/31/2014 Public reporting burden for the collection of information is estimated to average 10 minutes per response. An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: AHRQ Reports Clearance Officer, Attention: PRA, Paperwork Reduction Project (0935-0143), AHRQ, 540 Gaither Road, Room #5036, Rockville, MD 20850."/>
           </group>
           <group>
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#specialGroup">
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-specialGroup">
               <valueCode value="footer"/>
             </extension>
             <linkId value="HERF/footer"/>
@@ -1506,7 +1506,7 @@
     <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
           <valueCodeableConcept>
             <coding>
               <code value="CRF"/>
@@ -1862,7 +1862,7 @@
             <text value="These items must be included when this data is collected for reporting."/>
             <required value="true"/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#62667v3.0"/>
                 </valueReference>
@@ -1872,10 +1872,10 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="40"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914869v1.0"/>
                 </valueReference>
@@ -1888,10 +1888,10 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="100"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914972v1.0"/>
                 </valueReference>
@@ -1906,10 +1906,10 @@
             <title value="Conditional Diagnosis Questions"/>
             <text value="There are business rules to indicate situations under which these elements should be used on a case report form."/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="25"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2816923v1.0"/>
                 </valueReference>
@@ -1927,13 +1927,13 @@
             <title value="Optional Diagnosis Questions"/>
             <text value="There is no requirement for inclusion of these elements on the case report form. If the design and scientific questions posed in the study dictate the need to collect this type of data, these elements should be included."/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="100"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#64320v3.0"/>
                 </valueReference>
@@ -1943,7 +1943,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004425v4.0"/>
                 </valueReference>
@@ -1953,10 +1953,10 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="40"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914983v1.0"/>
                 </valueReference>
@@ -1969,10 +1969,10 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="10"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2785839v2.0"/>
                 </valueReference>
@@ -1995,14 +1995,14 @@
     <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
           <valueCodeableConcept>
             <coding>
               <code value="CRF"/>
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
           <valueCodeableConcept>
             <coding>
               <code value="Demographic"/>
@@ -3094,13 +3094,13 @@
             <text value="These items must be included when this data is collected for reporting"/>
             <required value="true"/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="4"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="13"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200604v3.0"/>
                 </valueReference>
@@ -3113,13 +3113,13 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="5"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="41"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2192199v1.0"/>
                 </valueReference>
@@ -3132,7 +3132,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#793v5.1"/>
                 </valueReference>
@@ -3142,13 +3142,13 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="7"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="22"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2192217v2.0"/>
                 </valueReference>
@@ -3166,10 +3166,10 @@
             <title value="Conditional Demography Questions"/>
             <text value="There are business rules to indicate situations under which these elements should be used on a case report form."/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="15"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179606v2.0"/>
                 </valueReference>
@@ -3179,10 +3179,10 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="50"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2865130v1.0"/>
                 </valueReference>
@@ -3195,10 +3195,10 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="75"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#315v4.0"/>
                 </valueReference>
@@ -3208,7 +3208,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2003745v5.0"/>
                 </valueReference>
@@ -3218,10 +3218,10 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="6"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200286v1.0"/>
                 </valueReference>
@@ -3231,10 +3231,10 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="6"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200284v2.0"/>
                 </valueReference>
@@ -3249,10 +3249,10 @@
             <title value="Optional Demography Questions"/>
             <text value="There is no requirement for inclusion of these elements on the case report form. If the design and scientific questions posed in the study dictate the need to collect this type of data, these elements should be included."/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="44"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2681552v1.0"/>
                 </valueReference>
@@ -3265,10 +3265,10 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="55"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2001708v5.0"/>
                 </valueReference>
@@ -3281,10 +3281,10 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="50"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2674076v2.0"/>
                 </valueReference>
@@ -3297,13 +3297,13 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="6"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#entryFormat">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/entryFormat">
                 <valueString value="9999.99"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2943243v1.0"/>
                 </valueReference>
@@ -3313,10 +3313,10 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="25"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2188083v2.0"/>
                 </valueReference>
@@ -3339,7 +3339,7 @@
     <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
           <valueCodeableConcept>
             <coding>
               <code value="CRF"/>
@@ -23697,10 +23697,10 @@
             <text value="Must be included when this data is collected for reporting."/>
             <required value="true"/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="84"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3125302v1.1"/>
                 </valueReference>
@@ -23713,10 +23713,10 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="200"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2188132v1.0"/>
                 </valueReference>
@@ -23726,13 +23726,13 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2944515v1.0"/>
                 </valueReference>
@@ -23750,16 +23750,16 @@
             <title value="Conditional Adverse Event Questions"/>
             <text value="There are business rules to indicate situations under which this data element should be used in a CRF."/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="4"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="8"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#entryFormat">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/entryFormat">
                 <valueString value="MM/DD/YYYY"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744993v1.0"/>
                 </valueReference>
@@ -23769,13 +23769,13 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2552398v1.0"/>
                 </valueReference>
@@ -23788,7 +23788,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744948v1.0"/>
                 </valueReference>
@@ -23803,10 +23803,10 @@
             <title value="Optional Adverse Event Questions"/>
             <text value="No requirement for inclusion of this element on the CRF; if the design and scientific questions posed in the study dictate the need to collect this type of data, this is the element to include on the CRF."/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="22"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179892v2.0"/>
                 </valueReference>
@@ -23819,10 +23819,10 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="60"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2201348v1.0"/>
                 </valueReference>
@@ -23832,13 +23832,13 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="8"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#entryFormat">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/entryFormat">
                 <valueString value="DD/MON/YYYY"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2189843v1.0"/>
                 </valueReference>
@@ -23848,10 +23848,10 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="80"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2943864v1.0"/>
                 </valueReference>
@@ -23864,13 +23864,13 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="8"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="8"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3133353v1.0"/>
                 </valueReference>
@@ -23883,13 +23883,13 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="10"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#1285v3.0"/>
                 </valueReference>
@@ -23902,7 +23902,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2006851v4.0"/>
                 </valueReference>
@@ -23912,13 +23912,13 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="7"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179971v1.0"/>
                 </valueReference>
@@ -23931,13 +23931,13 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2183619v1.0"/>
                 </valueReference>
@@ -23950,13 +23950,13 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2199908v1.0"/>
                 </valueReference>
@@ -23969,7 +23969,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2585234v1.0"/>
                 </valueReference>
@@ -23979,7 +23979,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2732184v1.0"/>
                 </valueReference>
@@ -23989,7 +23989,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744943v1.0"/>
                 </valueReference>
@@ -23999,13 +23999,13 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746280v1.0"/>
                 </valueReference>
@@ -24018,7 +24018,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746301v1.0"/>
                 </valueReference>
@@ -24028,13 +24028,13 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746311v1.0"/>
                 </valueReference>
@@ -24047,10 +24047,10 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="33"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746517v1.0"/>
                 </valueReference>
@@ -24063,10 +24063,10 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2008418v1.0"/>
                 </valueReference>
@@ -24079,13 +24079,13 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="2"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179615v1.0"/>
                 </valueReference>
@@ -24098,13 +24098,13 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="200"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#797v5.0"/>
                 </valueReference>
@@ -24119,13 +24119,13 @@
             <title value="Optional Serious Adverse Event Questions"/>
             <text value="The following additional elements are optional on a SAE form."/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179679v3.0"/>
                 </valueReference>
@@ -24138,13 +24138,13 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004106v3.0"/>
                 </valueReference>

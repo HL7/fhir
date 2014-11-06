@@ -121,7 +121,7 @@ public class EMFGenerator extends EMFBase implements PlatformGenerator {
   }
 
   @Override
-  public String checkFragments(String rootDir, String fragments, boolean inProcess) throws Exception {
+  public String checkFragments(String rootDir, String fragments) throws Exception {
     throw new UnsupportedOperationException("not implemented in EMF Generator");  
   }
 

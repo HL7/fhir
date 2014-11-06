@@ -67,7 +67,6 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
-import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
@@ -88,12 +87,11 @@ import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ElementComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureSearchParamComponent;
@@ -104,7 +102,6 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
-import org.hl7.fhir.instance.utils.ProfileUtilities.ExtensionDefinition;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
@@ -184,7 +181,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  DictHTMLGenerator gen = new DictHTMLGenerator(new FileOutputStream(tmp), this);
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt, false).get(0);
+	  TypeRef t = tp.parse(dt, false, null).get(0);
 	  
 	  ElementDefn e;
 	  if (t.getName().equals("Resource"))
@@ -208,7 +205,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  TerminologyNotesGenerator gen = new TerminologyNotesGenerator(new FileOutputStream(tmp), this);
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt, false).get(0);
+	  TypeRef t = tp.parse(dt, false, null).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
 		  gen.close();
@@ -235,7 +232,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	    pn = "base.html";
 	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this);
 	  TypeParser tp = new TypeParser();
-	  TypeRef t = tp.parse(dt, false).get(0);
+	  TypeRef t = tp.parse(dt, false, null).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
 		  gen.close();
@@ -772,11 +769,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String describeProfileType(Profile source) {
-    if (source.getStructure().isEmpty())
-      return source.getExtensionDefn().size() == 1 ?  "Extension" : "Extensions";
-    if (source.getExtensionDefn().isEmpty())
-      return source.getStructure().size() == 1 ?  "Constraint" : "Constraints";
-    return "Mixed";
+    return source.getStructure().size() == 1 ?  "Constraint" : "Constraints";
   }
 
   private String profileRef(String name) {
@@ -1435,17 +1428,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private void scanForProfileUsage(StringBuilder b, BindingSpecification cd, ResourceDefn r) {
     for (RegisteredProfile p : r.getProfiles()) {
       for (ProfileStructureComponent s : p.getProfile().getSource().getStructure()) {
-        for (ElementComponent e : s.getSnapshot().getElement()) {
-          ElementDefinitionComponent ed = e.getDefinition();
+        for (ElementDefinition ed : s.getSnapshot().getElement()) {
           if (ed != null && ed.getBinding() != null) {
             if (ed.getBinding().getName().equals(cd.getName()))
-              b.append(" <li><a href=\""+p.getDestFilenameNoExt()+"."+s.getName()+".html\">Profile "+p.getName()+" Structure "+s.getName()+": "+e.getPath()+"</a> "+getBindingTypeDesc(ed.getBinding())+"</li>\r\n");
+              b.append(" <li><a href=\""+p.getDestFilenameNoExt()+"."+s.getName()+".html\">Profile "+p.getName()+" Structure "+s.getName()+": "+ed.getPath()+"</a> "+getBindingTypeDesc(ed.getBinding())+"</li>\r\n");
           }
-        }
-      }
-      for (ExtensionDefn ex : p.getProfile().getExtensions()) {
-        if (ex.getDefinition().hasBinding() && ex.getDefinition().getBindingName() != null && ex.getDefinition().getBindingName().equals(cd.getName())) {
-          b.append(" <li><a href=\""+p.getDestFilenameNoExt()+".html#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a> "+getBSTypeDesc(cd)+"</li>\r\n");
         }
       }
     }
@@ -3678,8 +3665,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + publicationType + s3;      
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;
-      else if (com[0].equals("profile-extensions-table"))
-        src = s1 + generateProfileExtensionsTable(profile, filename) + s3;
       else if (com[0].equals("profile-constraints-links"))
         src = s1 + generateProfileConstraintLinks(profile, filename) + s3;      
       else if (com[0].equals("pagepath"))
@@ -3714,6 +3699,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+getTerminologyNotes(structure)+s3;
       else if (com[0].equals("profile.inv"))
         src = s1+getInvariantList(structure)+s3;
+      else if (com[0].equals("profile-extensions-table"))
+        src = s1+"<p><i>Todo</i></p>"+s3;
       else if (com[0].equals("resurl")) {
          if (Utilities.noString(profile.metadata("id")))
            src = s1+s3;
@@ -3727,12 +3714,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String getTerminologyNotes(ProfileStructureComponent structure) {
     List<String> txlist = new ArrayList<String>();
-    Map<String, ElementDefinitionBindingComponent> txmap = new HashMap<String, Profile.ElementDefinitionBindingComponent>();
-    for (ElementComponent e : structure.getSnapshot().getElement()) {
-      ElementDefinitionComponent d = e.getDefinition();
-      if (d != null && d.getBinding() != null) {
-        txlist.add(e.getPath());
-        txmap.put(e.getPath(), d.getBinding());
+    Map<String, ElementDefinitionBindingComponent> txmap = new HashMap<String, ElementDefinitionBindingComponent>();
+    for (ElementDefinition ed : structure.getSnapshot().getElement()) {
+      if (ed.getBinding() != null) {
+        txlist.add(ed.getPath());
+        txmap.put(ed.getPath(), ed.getBinding());
       }
     }
     if (txlist.isEmpty())
@@ -3768,13 +3754,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String getInvariantList(ProfileStructureComponent structure) {
     List<String> txlist = new ArrayList<String>();
-    Map<String, List<ElementDefinitionConstraintComponent>> txmap = new HashMap<String, List<Profile.ElementDefinitionConstraintComponent>>();
-    for (ElementComponent e : structure.getSnapshot().getElement()) {
-      ElementDefinitionComponent d = e.getDefinition();
-      if (d != null) {
-        txlist.add(e.getPath());
-        txmap.put(e.getPath(), d.getConstraint());
-      }
+    Map<String, List<ElementDefinitionConstraintComponent>> txmap = new HashMap<String, List<ElementDefinitionConstraintComponent>>();
+    for (ElementDefinition ed : structure.getSnapshot().getElement()) {
+      txlist.add(ed.getPath());
+      txmap.put(ed.getPath(), ed.getConstraint());
     }
     if (txlist.isEmpty())
       return "";
@@ -3860,8 +3843,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String definitionsOnPageProfile(Profile source) {
     StringBuilder b = new StringBuilder();
     b.append("<div class=\"itoc\">\r\n<p>Mappings:</p>\r\n");
-    if (!source.getExtensionDefn().isEmpty())
-      b.append("<p class=\"link\"><a href=\"#i0\">Extensions</a></p>");
     int i = 1;
     for (ProfileStructureComponent struc : source.getStructure()) {
       b.append("<p class=\"link\"><a href=\"#i"+Integer.toString(i)+"\">"+struc.getName()+"</a></p>");
@@ -3937,13 +3918,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
     b.append("</table>\r\n");
     return b.toString();
-  }
-
-  private String generateProfileExtensionsTable(ProfileDefn profile, String filename) throws Exception {
-    if (profile.getSource().getExtensionDefn().isEmpty())
-      return "";
-    return "<p><b>Extensions:</b></p>\r\n"+new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateExtensionsTable(Utilities.changeFileExt(filename, "-definitions.html"), 
-        profile.getSource(), folders.dstDir, false, this, Utilities.fileTitle(filename), true));
   }
 
   private boolean isAggregationEndpoint(String name) {
@@ -4231,44 +4205,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return GeneratorUtils.getSrcFile(type, false)+".html#"+type;
   }
 
-  @Override
-  public ExtensionDefinition getExtensionDefinition(List<Profile> profiles, String profileReference) {
-    String code;
-    Profile profile = null;
-    if (!profiles.isEmpty())
-      profile = profiles.get(0);
-    if (profileReference.startsWith("#")) {
-      code = profileReference.substring(1);
-      for (int i = profiles.size()-1; i >= 0; i--) {
-        profile = profiles.get(i); // have to iterate backwards so the context is correct
-        ExtensionDefinition result = getExtensionDefinitionByCode(profiles, profile, code);
-        if (result != null)
-          return result;
-      }
-    } else {
-      String[] path = profileReference.split("#");
-      code = path[1];
-      profile = definitions.getProfileByURL(path[0]);
-      profiles.add(profile);
-      return getExtensionDefinitionByCode(profiles, profile, code);
-    }
-    return null;
-  }
-
-  private ExtensionDefinition getExtensionDefinitionByCode(List<Profile> profiles, Profile profile, String code) {
-    String fn;
-    fn = profile.getName();
-    for (ProfileExtensionDefnComponent t : profile.getExtensionDefn()) {
-      if (t.getName().equals(code))
-        return new ExtensionDefinition(fn+".html", profiles, profile, t, t.getElement().get(0));
-      else if (code.startsWith(t.getName()+".")) 
-        for (ElementComponent e : t.getElement())
-          if (e.getPath().equals(code))
-            return new ExtensionDefinition(fn+".html", profiles, profile, t, e);
-    }
-    return null;
-  }
-
   public Translations getTranslations() {
     return translations;
   }
@@ -4325,24 +4261,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public Map<String, AtomEntry<? extends Resource>> getIgResources() {
     return igResources;
-  }
-
-  @Override
-  public String getLinkForExtension(Profile profile, String url) {
-    String fn;
-    String code;
-    if (url.startsWith("#")) {
-      code = url.substring(1);
-    } else {
-      String[] path = url.split("#");
-      code = path[1];
-      profile = definitions.getProfileByURL(path[0]);
-    }
-    if (profile != null) {
-      fn = (String) profile.getTag("filename");
-      return Utilities.changeFileExt(fn, ".html");
-    }
-    return null;
   }
 
   @Override

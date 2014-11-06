@@ -20,6 +20,8 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Resource;
@@ -48,13 +50,34 @@ import org.hl7.fhir.utilities.CSFileInputStream;
  */
 public class WorkerContext {
 
-	private TerminologyServices terminologyServices = new NullTerminologyServices();
+	public static class ExtensionDefinitionResult {
+	  private ExtensionDefinition ex;
+    private ElementDefinition ed;
+
+    public ExtensionDefinitionResult(ExtensionDefinition ex, ElementDefinition ed) {
+	    super();
+	    this.ex = ex;
+	    this.ed = ed;
+	  }
+
+    public ExtensionDefinition getExtensionDefinition() {
+      return ex;
+    }
+
+    public ElementDefinition getElementDefinition() {
+      return ed;
+    }
+
+  }
+
+  private TerminologyServices terminologyServices = new NullTerminologyServices();
   private ExtensionLocatorService extensionLocator = new NullExtensionResolver();
   private FHIRClient client = new NullClient();
   private Map<String, AtomEntry<ValueSet>> codeSystems = new HashMap<String, AtomEntry<ValueSet>>();
   private Map<String, AtomEntry<ValueSet>> valueSets = new HashMap<String, AtomEntry<ValueSet>>();
   private Map<String, AtomEntry<ConceptMap>> maps = new HashMap<String, AtomEntry<ConceptMap>>();
   private Map<String, AtomEntry<Profile>> profiles = new HashMap<String, AtomEntry<Profile>>();
+  private Map<String, AtomEntry<ExtensionDefinition>> extensionDefinitions = new HashMap<String, AtomEntry<ExtensionDefinition>>();
 
 
   public WorkerContext() {
@@ -111,10 +134,13 @@ public class WorkerContext {
     return profiles;
   }
 
+  public Map<String, AtomEntry<ExtensionDefinition>> getExtensionDefinitions() {
+    return extensionDefinitions;
+  }
+
   public void setTerminologyServices(TerminologyServices terminologyServices) {
     this.terminologyServices = terminologyServices;    
   }
-
 
   public WorkerContext clone(FHIRClient altClient) {
     WorkerContext res = new WorkerContext(terminologyServices, extensionLocator, null, codeSystems, valueSets, maps, profiles);
@@ -173,16 +199,25 @@ public class WorkerContext {
         seeProfile((AtomEntry<Profile>) e);
       else if (r instanceof ValueSet)
         seeValueSet((AtomEntry<ValueSet>) e);
+      else if (r instanceof ExtensionDefinition)
+        seeExtensionDefinition((AtomEntry<ExtensionDefinition>) e);
       else if (r instanceof ConceptMap)
         maps.put(((ConceptMap) r).getIdentifier(), (AtomEntry<ConceptMap>) e);
     }
       }
 
+  public void seeExtensionDefinition(AtomEntry<ExtensionDefinition> e) throws Exception {
+    ExtensionDefinition ed = (ExtensionDefinition) e.getResource();
+    if (extensionDefinitions.get(ed.getUrl()) != null)
+      throw new Exception("duplicate extension definition: "+ed.getUrl());
+    extensionDefinitions.put(ed.getUrl(), e);
+  }
+
   public void seeValueSet(AtomEntry<ValueSet> e) {
-	  ValueSet vs = (ValueSet) e.getResource();
-	  valueSets.put(vs.getIdentifier(), e);
+    ValueSet vs = (ValueSet) e.getResource();
+    valueSets.put(vs.getIdentifier(), e);
         if (vs.getDefine() != null) {
-	    codeSystems.put(vs.getDefine().getSystem().toString(), e);
+      codeSystems.put(vs.getDefine().getSystem().toString(), e);
         }
       }
 
@@ -439,7 +474,27 @@ public class WorkerContext {
     public ValueSet expandValueset(ValueSet source) throws Exception {
       throw new Error("call to NullClient");
     }
+  }
 
+	public ExtensionDefinitionResult getExtensionDefinition(ExtensionDefinitionResult context, String url) throws Exception {
+	  if (context != null && (!url.startsWith("http:") || !url.startsWith("https:"))) {
+	    throw new Exception("not supported yet");
+	  } else if (url.contains("#")) {
+      String[] parts = url.split("\\#");	      
+      AtomEntry<ExtensionDefinition> res = extensionDefinitions.get(parts[0]);
+      return res == null ? null : new ExtensionDefinitionResult(res.getResource(), getElement(url, res.getResource().getElement(), parts[1]));      
+	  } else {
+	    AtomEntry<ExtensionDefinition> res = extensionDefinitions.get(url);
+	    return res == null ? null : new ExtensionDefinitionResult(res.getResource(), res.getResource().getElement().get(0));
+	  }
+  }
+
+  private ElementDefinition getElement(String context, List<ElementDefinition> elements, String path) throws Exception {
+    for (ElementDefinition element : elements) {
+      if (element.getPath().equals("Extension."+path))
+        return element;
+    }
+    throw new Exception("Unable to find extension path "+context);
   }
 
 }

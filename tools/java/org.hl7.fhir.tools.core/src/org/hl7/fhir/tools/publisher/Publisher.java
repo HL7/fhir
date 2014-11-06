@@ -630,7 +630,7 @@ public class Publisher implements URIResolver {
 
   private void validateProfile(AtomEntry<Profile> rd) throws Exception {
     ProfileValidator pv = new ProfileValidator();
-    pv.setProfiles(page.getProfiles());
+    pv.setContext(page.getWorkerContext());
     List<String> errors = pv.validate(rd.getResource());
     if (errors.size() > 0) {
       for (String e : errors)
@@ -641,7 +641,7 @@ public class Publisher implements URIResolver {
 
   private void validateProfile(ProfileDefn p) throws Exception {
     ProfileValidator pv = new ProfileValidator();
-    pv.setProfiles(page.getProfiles());
+    pv.setContext(page.getWorkerContext());
     List<String> errors = pv.validate(p.getSource());
     if (errors.size() > 0) {
       for (String e : errors)
@@ -1128,7 +1128,7 @@ public class Publisher implements URIResolver {
       page.setIni(new IniFile(page.getFolders().rootDir + "publish.ini"));
       page.setVersion(page.getIni().getStringProperty("FHIR", "version"));
 
-      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion());
+      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext());
       prsr.checkConditions(errors, dates);
       page.setRegistry(prsr.getRegistry());
 
@@ -2639,7 +2639,7 @@ public class Publisher implements URIResolver {
       i++;
     }
     s.append("</tests>\r\n");
-    String err = javaReferencePlatform.checkFragments(page.getFolders().dstDir, s.toString(), false);
+    String err = javaReferencePlatform.checkFragments(page.getFolders().dstDir, s.toString());
     if (err == null)
       throw new Exception("Unable to process outcome of checking fragments");
     if (!err.startsWith("<results"))

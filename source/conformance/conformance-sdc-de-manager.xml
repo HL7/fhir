@@ -305,7 +305,7 @@
                </tr>
                <tr>
                   <th>
-                     <a href="http://hl7.org/fhir/Profile/dataelement-11179#meaning">meaning</a>
+                     <a href="http://hl7.org/fhir/ExtensionDefinition/11179-meaning">meaning</a>
                   </th>
                   <td>SHALL</td>
                   <td>token</td>
@@ -313,7 +313,7 @@
                </tr>
                <tr>
                   <th>
-                     <a href="http://hl7.org/fhir/Profile/dataelement-11179#objectClass">objectClass</a>
+                     <a href="http://hl7.org/fhir/ExtensionDefinition/11179-objectClass">objectClass</a>
                   </th>
                   <td>SHALL</td>
                   <td>token</td>
@@ -321,7 +321,7 @@
                </tr>
                <tr>
                   <th>
-                     <a href="http://hl7.org/fhir/Profile/dataelement-11179#property">property</a>
+                     <a href="http://hl7.org/fhir/ExtensionDefinition/11179-property">property</a>
                   </th>
                   <td>SHALL</td>
                   <td>token</td>
@@ -520,7 +520,7 @@
                </tr>
                <tr>
                   <th>
-                     <a href="http://hl7.org/fhir/Profile/valueset-extensions#category">objectClass</a>
+                     <a href="http://hl7.org/fhir/ExtensionDefinition/valueset-category">objectClass</a>
                   </th>
                   <td>SHALL</td>
                   <td>token</td>
@@ -689,7 +689,7 @@
                <valueCode value="SHALL"/>
             </extension>
             <name value="meaning"/>
-            <definition value="http://hl7.org/fhir/Profile/dataelement-11179#meaning"/>
+            <definition value="http://hl7.org/fhir/ExtensionDefinition/11179-meaning"/>
             <type value="token"/>
          </searchParam>
          <searchParam>
@@ -697,7 +697,7 @@
                <valueCode value="SHALL"/>
             </extension>
             <name value="objectClass"/>
-            <definition value="http://hl7.org/fhir/Profile/dataelement-11179#objectClass"/>
+            <definition value="http://hl7.org/fhir/ExtensionDefinition/11179-objectClass"/>
             <type value="token"/>
          </searchParam>
          <searchParam>
@@ -705,7 +705,7 @@
                <valueCode value="SHALL"/>
             </extension>
             <name value="property"/>
-            <definition value="http://hl7.org/fhir/Profile/dataelement-11179#property"/>
+            <definition value="http://hl7.org/fhir/ExtensionDefinition/11179-property"/>
             <type value="token"/>
          </searchParam>
       </resource>
@@ -857,7 +857,7 @@
                <valueCode value="SHALL"/>
             </extension>
             <name value="objectClass"/>
-            <definition value="http://hl7.org/fhir/Profile/valueset-extensions#category"/>
+            <definition value="http://hl7.org/fhir/ExtensionDefinition/valueset-category"/>
             <type value="token"/>
          </searchParam>
       </resource>

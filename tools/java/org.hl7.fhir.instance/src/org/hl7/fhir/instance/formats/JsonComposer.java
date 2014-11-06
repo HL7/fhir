@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -687,6 +687,226 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeExtras("code", element.getCodeElement(), false);
   }
 
+  private void composeElementDefinition(String name, ElementDefinition element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElementDefinitionInner(element);
+      close();
+    }
+  }
+
+  private void composeElementDefinitionInner(ElementDefinition element) throws Exception {
+      composeElement(element);
+      composeStringCore("path", element.getPathElement(), false);
+      composeStringExtras("path", element.getPathElement(), false);
+      if (element.getRepresentation().size() > 0) {
+        openArray("representation");
+        for (Enumeration<ElementDefinition.PropertyRepresentation> e : element.getRepresentation()) 
+          composeEnumerationCore(null, e, new ElementDefinition.PropertyRepresentationEnumFactory(), true);
+        closeArray();
+        if (anyHasExtras(element.getRepresentation())) {
+          openArray("_representation");
+          for (Enumeration<ElementDefinition.PropertyRepresentation> e : element.getRepresentation()) 
+            composeEnumerationExtras(null, e, new ElementDefinition.PropertyRepresentationEnumFactory(), true);
+          closeArray();
+        }
+      };
+      composeStringCore("name", element.getNameElement(), false);
+      composeStringExtras("name", element.getNameElement(), false);
+      composeElementDefinitionElementDefinitionSlicingComponent("slicing", element.getSlicing());
+      composeStringCore("short", element.getShortElement(), false);
+      composeStringExtras("short", element.getShortElement(), false);
+      composeStringCore("formal", element.getFormalElement(), false);
+      composeStringExtras("formal", element.getFormalElement(), false);
+      composeStringCore("comments", element.getCommentsElement(), false);
+      composeStringExtras("comments", element.getCommentsElement(), false);
+      composeStringCore("requirements", element.getRequirementsElement(), false);
+      composeStringExtras("requirements", element.getRequirementsElement(), false);
+      if (element.getSynonym().size() > 0) {
+        openArray("synonym");
+        for (StringType e : element.getSynonym()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getSynonym())) {
+          openArray("_synonym");
+          for (StringType e : element.getSynonym()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      composeIntegerCore("min", element.getMinElement(), false);
+      composeIntegerExtras("min", element.getMinElement(), false);
+      composeStringCore("max", element.getMaxElement(), false);
+      composeStringExtras("max", element.getMaxElement(), false);
+      if (element.getType().size() > 0) {
+        openArray("type");
+        for (ElementDefinition.TypeRefComponent e : element.getType()) 
+          composeElementDefinitionTypeRefComponent(null, e);
+        closeArray();
+      };
+      composeStringCore("nameReference", element.getNameReferenceElement(), false);
+      composeStringExtras("nameReference", element.getNameReferenceElement(), false);
+      composeType("fixed", element.getFixed());
+      composeType("pattern", element.getPattern());
+      composeType("example", element.getExample());
+      composeIntegerCore("maxLength", element.getMaxLengthElement(), false);
+      composeIntegerExtras("maxLength", element.getMaxLengthElement(), false);
+      if (element.getCondition().size() > 0) {
+        openArray("condition");
+        for (IdType e : element.getCondition()) 
+          composeIdCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getCondition())) {
+          openArray("_condition");
+          for (IdType e : element.getCondition()) 
+            composeIdExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.getConstraint().size() > 0) {
+        openArray("constraint");
+        for (ElementDefinition.ElementDefinitionConstraintComponent e : element.getConstraint()) 
+          composeElementDefinitionElementDefinitionConstraintComponent(null, e);
+        closeArray();
+      };
+      composeBooleanCore("mustSupport", element.getMustSupportElement(), false);
+      composeBooleanExtras("mustSupport", element.getMustSupportElement(), false);
+      composeBooleanCore("isModifier", element.getIsModifierElement(), false);
+      composeBooleanExtras("isModifier", element.getIsModifierElement(), false);
+      composeBooleanCore("isSummary", element.getIsSummaryElement(), false);
+      composeBooleanExtras("isSummary", element.getIsSummaryElement(), false);
+      composeElementDefinitionElementDefinitionBindingComponent("binding", element.getBinding());
+      if (element.getMapping().size() > 0) {
+        openArray("mapping");
+        for (ElementDefinition.ElementDefinitionMappingComponent e : element.getMapping()) 
+          composeElementDefinitionElementDefinitionMappingComponent(null, e);
+        closeArray();
+      };
+  }
+
+  private void composeElementDefinitionElementDefinitionSlicingComponent(String name, ElementDefinition.ElementDefinitionSlicingComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElementDefinitionElementDefinitionSlicingComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeElementDefinitionElementDefinitionSlicingComponentInner(ElementDefinition.ElementDefinitionSlicingComponent element) throws Exception {
+      composeElement(element);
+      if (element.getDiscriminator().size() > 0) {
+        openArray("discriminator");
+        for (IdType e : element.getDiscriminator()) 
+          composeIdCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getDiscriminator())) {
+          openArray("_discriminator");
+          for (IdType e : element.getDiscriminator()) 
+            composeIdExtras(null, e, true);
+          closeArray();
+        }
+      };
+      composeStringCore("description", element.getDescriptionElement(), false);
+      composeStringExtras("description", element.getDescriptionElement(), false);
+      composeBooleanCore("ordered", element.getOrderedElement(), false);
+      composeBooleanExtras("ordered", element.getOrderedElement(), false);
+      if (element.getRulesElement() != null) {
+        composeEnumerationCore("rules", element.getRulesElement(), new ElementDefinition.ResourceSlicingRulesEnumFactory(), false);
+        composeEnumerationExtras("rules", element.getRulesElement(), new ElementDefinition.ResourceSlicingRulesEnumFactory(), false);
+      }
+  }
+
+  private void composeElementDefinitionTypeRefComponent(String name, ElementDefinition.TypeRefComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElementDefinitionTypeRefComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeElementDefinitionTypeRefComponentInner(ElementDefinition.TypeRefComponent element) throws Exception {
+      composeElement(element);
+      composeCodeCore("code", element.getCodeElement(), false);
+      composeCodeExtras("code", element.getCodeElement(), false);
+      composeUriCore("profile", element.getProfileElement(), false);
+      composeUriExtras("profile", element.getProfileElement(), false);
+      if (element.getAggregation().size() > 0) {
+        openArray("aggregation");
+        for (Enumeration<ElementDefinition.ResourceAggregationMode> e : element.getAggregation()) 
+          composeEnumerationCore(null, e, new ElementDefinition.ResourceAggregationModeEnumFactory(), true);
+        closeArray();
+        if (anyHasExtras(element.getAggregation())) {
+          openArray("_aggregation");
+          for (Enumeration<ElementDefinition.ResourceAggregationMode> e : element.getAggregation()) 
+            composeEnumerationExtras(null, e, new ElementDefinition.ResourceAggregationModeEnumFactory(), true);
+          closeArray();
+        }
+      };
+  }
+
+  private void composeElementDefinitionElementDefinitionConstraintComponent(String name, ElementDefinition.ElementDefinitionConstraintComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElementDefinitionElementDefinitionConstraintComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeElementDefinitionElementDefinitionConstraintComponentInner(ElementDefinition.ElementDefinitionConstraintComponent element) throws Exception {
+      composeElement(element);
+      composeIdCore("key", element.getKeyElement(), false);
+      composeIdExtras("key", element.getKeyElement(), false);
+      composeStringCore("name", element.getNameElement(), false);
+      composeStringExtras("name", element.getNameElement(), false);
+      if (element.getSeverityElement() != null) {
+        composeEnumerationCore("severity", element.getSeverityElement(), new ElementDefinition.ConstraintSeverityEnumFactory(), false);
+        composeEnumerationExtras("severity", element.getSeverityElement(), new ElementDefinition.ConstraintSeverityEnumFactory(), false);
+      }
+      composeStringCore("human", element.getHumanElement(), false);
+      composeStringExtras("human", element.getHumanElement(), false);
+      composeStringCore("xpath", element.getXpathElement(), false);
+      composeStringExtras("xpath", element.getXpathElement(), false);
+  }
+
+  private void composeElementDefinitionElementDefinitionBindingComponent(String name, ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElementDefinitionElementDefinitionBindingComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeElementDefinitionElementDefinitionBindingComponentInner(ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
+      composeElement(element);
+      composeStringCore("name", element.getNameElement(), false);
+      composeStringExtras("name", element.getNameElement(), false);
+      composeBooleanCore("isExtensible", element.getIsExtensibleElement(), false);
+      composeBooleanExtras("isExtensible", element.getIsExtensibleElement(), false);
+      if (element.getConformanceElement() != null) {
+        composeEnumerationCore("conformance", element.getConformanceElement(), new ElementDefinition.BindingConformanceEnumFactory(), false);
+        composeEnumerationExtras("conformance", element.getConformanceElement(), new ElementDefinition.BindingConformanceEnumFactory(), false);
+      }
+      composeStringCore("description", element.getDescriptionElement(), false);
+      composeStringExtras("description", element.getDescriptionElement(), false);
+      composeType("reference", element.getReference());
+  }
+
+  private void composeElementDefinitionElementDefinitionMappingComponent(String name, ElementDefinition.ElementDefinitionMappingComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeElementDefinitionElementDefinitionMappingComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeElementDefinitionElementDefinitionMappingComponentInner(ElementDefinition.ElementDefinitionMappingComponent element) throws Exception {
+      composeElement(element);
+      composeIdCore("identity", element.getIdentityElement(), false);
+      composeIdExtras("identity", element.getIdentityElement(), false);
+      composeStringCore("map", element.getMapElement(), false);
+      composeStringExtras("map", element.getMapElement(), false);
+  }
+
   private void composeTiming(String name, Timing element) throws Exception {
     if (element != null) {
       open(name);
@@ -884,164 +1104,6 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
-  private void composeAdverseReaction(String name, AdverseReaction element) throws Exception {
-    if (element != null) {
-      prop("resourceType", name);
-      composeAdverseReactionInner(element);
-    }
-  }
-
-  private void composeAdverseReactionInner(AdverseReaction element) throws Exception {
-      composeResourceElements(element);
-      if (element.getIdentifier().size() > 0) {
-        openArray("identifier");
-        for (Identifier e : element.getIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
-      composeDateTimeCore("date", element.getDateElement(), false);
-      composeDateTimeExtras("date", element.getDateElement(), false);
-      composeReference("subject", element.getSubject());
-      composeBooleanCore("didNotOccurFlag", element.getDidNotOccurFlagElement(), false);
-      composeBooleanExtras("didNotOccurFlag", element.getDidNotOccurFlagElement(), false);
-      composeReference("recorder", element.getRecorder());
-      if (element.getSymptom().size() > 0) {
-        openArray("symptom");
-        for (AdverseReaction.AdverseReactionSymptomComponent e : element.getSymptom()) 
-          composeAdverseReactionAdverseReactionSymptomComponent(null, e);
-        closeArray();
-      };
-      if (element.getExposure().size() > 0) {
-        openArray("exposure");
-        for (AdverseReaction.AdverseReactionExposureComponent e : element.getExposure()) 
-          composeAdverseReactionAdverseReactionExposureComponent(null, e);
-        closeArray();
-      };
-  }
-
-  private void composeAdverseReactionAdverseReactionSymptomComponent(String name, AdverseReaction.AdverseReactionSymptomComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeAdverseReactionAdverseReactionSymptomComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeAdverseReactionAdverseReactionSymptomComponentInner(AdverseReaction.AdverseReactionSymptomComponent element) throws Exception {
-      composeBackbone(element);
-      composeCodeableConcept("code", element.getCode());
-      if (element.getSeverityElement() != null) {
-        composeEnumerationCore("severity", element.getSeverityElement(), new AdverseReaction.ReactionSeverityEnumFactory(), false);
-        composeEnumerationExtras("severity", element.getSeverityElement(), new AdverseReaction.ReactionSeverityEnumFactory(), false);
-      }
-  }
-
-  private void composeAdverseReactionAdverseReactionExposureComponent(String name, AdverseReaction.AdverseReactionExposureComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeAdverseReactionAdverseReactionExposureComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeAdverseReactionAdverseReactionExposureComponentInner(AdverseReaction.AdverseReactionExposureComponent element) throws Exception {
-      composeBackbone(element);
-      composeDateTimeCore("date", element.getDateElement(), false);
-      composeDateTimeExtras("date", element.getDateElement(), false);
-      if (element.getTypeElement() != null) {
-        composeEnumerationCore("type", element.getTypeElement(), new AdverseReaction.ExposureTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new AdverseReaction.ExposureTypeEnumFactory(), false);
-      }
-      if (element.getCausalityExpectationElement() != null) {
-        composeEnumerationCore("causalityExpectation", element.getCausalityExpectationElement(), new AdverseReaction.CausalityExpectationEnumFactory(), false);
-        composeEnumerationExtras("causalityExpectation", element.getCausalityExpectationElement(), new AdverseReaction.CausalityExpectationEnumFactory(), false);
-      }
-      composeReference("substance", element.getSubstance());
-  }
-
-  private void composeAdverseReactionRisk(String name, AdverseReactionRisk element) throws Exception {
-    if (element != null) {
-      prop("resourceType", name);
-      composeAdverseReactionRiskInner(element);
-    }
-  }
-
-  private void composeAdverseReactionRiskInner(AdverseReactionRisk element) throws Exception {
-      composeResourceElements(element);
-      if (element.getIdentifier().size() > 0) {
-        openArray("identifier");
-        for (Identifier e : element.getIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
-      composeDateTimeCore("recordedDate", element.getRecordedDateElement(), false);
-      composeDateTimeExtras("recordedDate", element.getRecordedDateElement(), false);
-      composeReference("recorder", element.getRecorder());
-      composeReference("subject", element.getSubject());
-      composeCodeableConcept("substance", element.getSubstance());
-      if (element.getStatusElement() != null) {
-        composeEnumerationCore("status", element.getStatusElement(), new AdverseReactionRisk.ReactionRiskStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatusElement(), new AdverseReactionRisk.ReactionRiskStatusEnumFactory(), false);
-      }
-      if (element.getCriticalityElement() != null) {
-        composeEnumerationCore("criticality", element.getCriticalityElement(), new AdverseReactionRisk.ReactionRiskCriticalityEnumFactory(), false);
-        composeEnumerationExtras("criticality", element.getCriticalityElement(), new AdverseReactionRisk.ReactionRiskCriticalityEnumFactory(), false);
-      }
-      if (element.getTypeElement() != null) {
-        composeEnumerationCore("type", element.getTypeElement(), new AdverseReactionRisk.ReactionRiskTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new AdverseReactionRisk.ReactionRiskTypeEnumFactory(), false);
-      }
-      if (element.getCategoryElement() != null) {
-        composeEnumerationCore("category", element.getCategoryElement(), new AdverseReactionRisk.ReactionRiskCategoryEnumFactory(), false);
-        composeEnumerationExtras("category", element.getCategoryElement(), new AdverseReactionRisk.ReactionRiskCategoryEnumFactory(), false);
-      }
-      composeDateTimeCore("lastOccurence", element.getLastOccurenceElement(), false);
-      composeDateTimeExtras("lastOccurence", element.getLastOccurenceElement(), false);
-      composeStringCore("comment", element.getCommentElement(), false);
-      composeStringExtras("comment", element.getCommentElement(), false);
-      if (element.getEvent().size() > 0) {
-        openArray("event");
-        for (AdverseReactionRisk.AdverseReactionRiskEventComponent e : element.getEvent()) 
-          composeAdverseReactionRiskAdverseReactionRiskEventComponent(null, e);
-        closeArray();
-      };
-  }
-
-  private void composeAdverseReactionRiskAdverseReactionRiskEventComponent(String name, AdverseReactionRisk.AdverseReactionRiskEventComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeAdverseReactionRiskAdverseReactionRiskEventComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeAdverseReactionRiskAdverseReactionRiskEventComponentInner(AdverseReactionRisk.AdverseReactionRiskEventComponent element) throws Exception {
-      composeBackbone(element);
-      composeCodeableConcept("substance", element.getSubstance());
-      if (element.getCertaintyElement() != null) {
-        composeEnumerationCore("certainty", element.getCertaintyElement(), new AdverseReactionRisk.ReactionRiskCertaintyEnumFactory(), false);
-        composeEnumerationExtras("certainty", element.getCertaintyElement(), new AdverseReactionRisk.ReactionRiskCertaintyEnumFactory(), false);
-      }
-      if (element.getManifestation().size() > 0) {
-        openArray("manifestation");
-        for (CodeableConcept e : element.getManifestation()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      composeStringCore("description", element.getDescriptionElement(), false);
-      composeStringExtras("description", element.getDescriptionElement(), false);
-      composeDateTimeCore("onset", element.getOnsetElement(), false);
-      composeDateTimeExtras("onset", element.getOnsetElement(), false);
-      composeDuration("duration", element.getDuration());
-      if (element.getSeverityElement() != null) {
-        composeEnumerationCore("severity", element.getSeverityElement(), new AdverseReactionRisk.ReactionRiskSeverityEnumFactory(), false);
-        composeEnumerationExtras("severity", element.getSeverityElement(), new AdverseReactionRisk.ReactionRiskSeverityEnumFactory(), false);
-      }
-      composeCodeableConcept("exposureRoute", element.getExposureRoute());
-      composeStringCore("comment", element.getCommentElement(), false);
-      composeStringExtras("comment", element.getCommentElement(), false);
-  }
-
   private void composeAlert(String name, Alert element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -1083,35 +1145,72 @@ public class JsonComposer extends JsonComposerBase {
           composeIdentifier(null, e);
         closeArray();
       };
-      if (element.getCriticalityElement() != null) {
-        composeEnumerationCore("criticality", element.getCriticalityElement(), new AllergyIntolerance.CriticalityEnumFactory(), false);
-        composeEnumerationExtras("criticality", element.getCriticalityElement(), new AllergyIntolerance.CriticalityEnumFactory(), false);
-      }
-      if (element.getSensitivityTypeElement() != null) {
-        composeEnumerationCore("sensitivityType", element.getSensitivityTypeElement(), new AllergyIntolerance.SensitivitytypeEnumFactory(), false);
-        composeEnumerationExtras("sensitivityType", element.getSensitivityTypeElement(), new AllergyIntolerance.SensitivitytypeEnumFactory(), false);
-      }
       composeDateTimeCore("recordedDate", element.getRecordedDateElement(), false);
       composeDateTimeExtras("recordedDate", element.getRecordedDateElement(), false);
-      if (element.getStatusElement() != null) {
-        composeEnumerationCore("status", element.getStatusElement(), new AllergyIntolerance.SensitivitystatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatusElement(), new AllergyIntolerance.SensitivitystatusEnumFactory(), false);
-      }
-      composeReference("subject", element.getSubject());
       composeReference("recorder", element.getRecorder());
-      composeReference("substance", element.getSubstance());
-      if (element.getReaction().size() > 0) {
-        openArray("reaction");
-        for (Reference e : element.getReaction()) 
-          composeReference(null, e);
+      composeReference("subject", element.getSubject());
+      composeCodeableConcept("substance", element.getSubstance());
+      if (element.getStatusElement() != null) {
+        composeEnumerationCore("status", element.getStatusElement(), new AllergyIntolerance.AllergyIntoleranceStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new AllergyIntolerance.AllergyIntoleranceStatusEnumFactory(), false);
+      }
+      if (element.getCriticalityElement() != null) {
+        composeEnumerationCore("criticality", element.getCriticalityElement(), new AllergyIntolerance.AllergyIntoleranceCriticalityEnumFactory(), false);
+        composeEnumerationExtras("criticality", element.getCriticalityElement(), new AllergyIntolerance.AllergyIntoleranceCriticalityEnumFactory(), false);
+      }
+      if (element.getTypeElement() != null) {
+        composeEnumerationCore("type", element.getTypeElement(), new AllergyIntolerance.AllergyIntoleranceTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new AllergyIntolerance.AllergyIntoleranceTypeEnumFactory(), false);
+      }
+      if (element.getCategoryElement() != null) {
+        composeEnumerationCore("category", element.getCategoryElement(), new AllergyIntolerance.AllergyIntoleranceCategoryEnumFactory(), false);
+        composeEnumerationExtras("category", element.getCategoryElement(), new AllergyIntolerance.AllergyIntoleranceCategoryEnumFactory(), false);
+      }
+      composeDateTimeCore("lastOccurence", element.getLastOccurenceElement(), false);
+      composeDateTimeExtras("lastOccurence", element.getLastOccurenceElement(), false);
+      composeStringCore("comment", element.getCommentElement(), false);
+      composeStringExtras("comment", element.getCommentElement(), false);
+      if (element.getEvent().size() > 0) {
+        openArray("event");
+        for (AllergyIntolerance.AllergyIntoleranceEventComponent e : element.getEvent()) 
+          composeAllergyIntoleranceAllergyIntoleranceEventComponent(null, e);
         closeArray();
       };
-      if (element.getSensitivityTest().size() > 0) {
-        openArray("sensitivityTest");
-        for (Reference e : element.getSensitivityTest()) 
-          composeReference(null, e);
+  }
+
+  private void composeAllergyIntoleranceAllergyIntoleranceEventComponent(String name, AllergyIntolerance.AllergyIntoleranceEventComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeAllergyIntoleranceAllergyIntoleranceEventComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeAllergyIntoleranceAllergyIntoleranceEventComponentInner(AllergyIntolerance.AllergyIntoleranceEventComponent element) throws Exception {
+      composeBackbone(element);
+      composeCodeableConcept("substance", element.getSubstance());
+      if (element.getCertaintyElement() != null) {
+        composeEnumerationCore("certainty", element.getCertaintyElement(), new AllergyIntolerance.ReactionEventCertaintyEnumFactory(), false);
+        composeEnumerationExtras("certainty", element.getCertaintyElement(), new AllergyIntolerance.ReactionEventCertaintyEnumFactory(), false);
+      }
+      if (element.getManifestation().size() > 0) {
+        openArray("manifestation");
+        for (CodeableConcept e : element.getManifestation()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
+      composeStringCore("description", element.getDescriptionElement(), false);
+      composeStringExtras("description", element.getDescriptionElement(), false);
+      composeDateTimeCore("onset", element.getOnsetElement(), false);
+      composeDateTimeExtras("onset", element.getOnsetElement(), false);
+      composeDuration("duration", element.getDuration());
+      if (element.getSeverityElement() != null) {
+        composeEnumerationCore("severity", element.getSeverityElement(), new AllergyIntolerance.ReactionEventSeverityEnumFactory(), false);
+        composeEnumerationExtras("severity", element.getSeverityElement(), new AllergyIntolerance.ReactionEventSeverityEnumFactory(), false);
+      }
+      composeCodeableConcept("exposureRoute", element.getExposureRoute());
+      composeStringCore("comment", element.getCommentElement(), false);
+      composeStringExtras("comment", element.getCommentElement(), false);
   }
 
   private void composeAppointment(String name, Appointment element) throws Exception {
@@ -3507,6 +3606,103 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       composeReference("location", element.getLocation());
       composePeriod("period", element.getPeriod());
+  }
+
+  private void composeExtensionDefinition(String name, ExtensionDefinition element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeExtensionDefinitionInner(element);
+    }
+  }
+
+  private void composeExtensionDefinitionInner(ExtensionDefinition element) throws Exception {
+      composeResourceElements(element);
+      composeUriCore("url", element.getUrlElement(), false);
+      composeUriExtras("url", element.getUrlElement(), false);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeStringCore("name", element.getNameElement(), false);
+      composeStringExtras("name", element.getNameElement(), false);
+      composeStringCore("display", element.getDisplayElement(), false);
+      composeStringExtras("display", element.getDisplayElement(), false);
+      composeStringCore("publisher", element.getPublisherElement(), false);
+      composeStringExtras("publisher", element.getPublisherElement(), false);
+      if (element.getTelecom().size() > 0) {
+        openArray("telecom");
+        for (ContactPoint e : element.getTelecom()) 
+          composeContactPoint(null, e);
+        closeArray();
+      };
+      composeStringCore("description", element.getDescriptionElement(), false);
+      composeStringExtras("description", element.getDescriptionElement(), false);
+      if (element.getCode().size() > 0) {
+        openArray("code");
+        for (Coding e : element.getCode()) 
+          composeCoding(null, e);
+        closeArray();
+      };
+      if (element.getStatusElement() != null) {
+        composeEnumerationCore("status", element.getStatusElement(), new ExtensionDefinition.ResourceProfileStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new ExtensionDefinition.ResourceProfileStatusEnumFactory(), false);
+      }
+      composeBooleanCore("experimental", element.getExperimentalElement(), false);
+      composeBooleanExtras("experimental", element.getExperimentalElement(), false);
+      composeDateTimeCore("date", element.getDateElement(), false);
+      composeDateTimeExtras("date", element.getDateElement(), false);
+      composeStringCore("requirements", element.getRequirementsElement(), false);
+      composeStringExtras("requirements", element.getRequirementsElement(), false);
+      if (element.getMapping().size() > 0) {
+        openArray("mapping");
+        for (ExtensionDefinition.ExtensionDefinitionMappingComponent e : element.getMapping()) 
+          composeExtensionDefinitionExtensionDefinitionMappingComponent(null, e);
+        closeArray();
+      };
+      if (element.getContextTypeElement() != null) {
+        composeEnumerationCore("contextType", element.getContextTypeElement(), new ExtensionDefinition.ExtensionContextEnumFactory(), false);
+        composeEnumerationExtras("contextType", element.getContextTypeElement(), new ExtensionDefinition.ExtensionContextEnumFactory(), false);
+      }
+      if (element.getContext().size() > 0) {
+        openArray("context");
+        for (StringType e : element.getContext()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getContext())) {
+          openArray("_context");
+          for (StringType e : element.getContext()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.getElement().size() > 0) {
+        openArray("element");
+        for (ElementDefinition e : element.getElement()) 
+          composeElementDefinition(null, e);
+        closeArray();
+      };
+  }
+
+  private void composeExtensionDefinitionExtensionDefinitionMappingComponent(String name, ExtensionDefinition.ExtensionDefinitionMappingComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeExtensionDefinitionExtensionDefinitionMappingComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeExtensionDefinitionExtensionDefinitionMappingComponentInner(ExtensionDefinition.ExtensionDefinitionMappingComponent element) throws Exception {
+      composeBackbone(element);
+      composeIdCore("identity", element.getIdentityElement(), false);
+      composeIdExtras("identity", element.getIdentityElement(), false);
+      composeUriCore("uri", element.getUriElement(), false);
+      composeUriExtras("uri", element.getUriElement(), false);
+      composeStringCore("name", element.getNameElement(), false);
+      composeStringExtras("name", element.getNameElement(), false);
+      composeStringCore("comments", element.getCommentsElement(), false);
+      composeStringExtras("comments", element.getCommentsElement(), false);
   }
 
   private void composeFamilyHistory(String name, FamilyHistory element) throws Exception {
@@ -6207,12 +6403,6 @@ public class JsonComposer extends JsonComposerBase {
           composeProfileProfileStructureComponent(null, e);
         closeArray();
       };
-      if (element.getExtensionDefn().size() > 0) {
-        openArray("extensionDefn");
-        for (Profile.ProfileExtensionDefnComponent e : element.getExtensionDefn()) 
-          composeProfileProfileExtensionDefnComponent(null, e);
-        closeArray();
-      };
   }
 
   private void composeProfileProfileMappingComponent(String name, Profile.ProfileMappingComponent element) throws Exception {
@@ -6277,243 +6467,10 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       if (element.getElement().size() > 0) {
         openArray("element");
-        for (Profile.ElementComponent e : element.getElement()) 
-          composeProfileElementComponent(null, e);
+        for (ElementDefinition e : element.getElement()) 
+          composeElementDefinition(null, e);
         closeArray();
       };
-  }
-
-  private void composeProfileElementComponent(String name, Profile.ElementComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProfileElementComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeProfileElementComponentInner(Profile.ElementComponent element) throws Exception {
-      composeBackbone(element);
-      composeStringCore("path", element.getPathElement(), false);
-      composeStringExtras("path", element.getPathElement(), false);
-      if (element.getRepresentation().size() > 0) {
-        openArray("representation");
-        for (Enumeration<Profile.PropertyRepresentation> e : element.getRepresentation()) 
-          composeEnumerationCore(null, e, new Profile.PropertyRepresentationEnumFactory(), true);
-        closeArray();
-        if (anyHasExtras(element.getRepresentation())) {
-          openArray("_representation");
-          for (Enumeration<Profile.PropertyRepresentation> e : element.getRepresentation()) 
-            composeEnumerationExtras(null, e, new Profile.PropertyRepresentationEnumFactory(), true);
-          closeArray();
-        }
-      };
-      composeStringCore("name", element.getNameElement(), false);
-      composeStringExtras("name", element.getNameElement(), false);
-      composeProfileElementSlicingComponent("slicing", element.getSlicing());
-      composeProfileElementDefinitionComponent("definition", element.getDefinition());
-  }
-
-  private void composeProfileElementSlicingComponent(String name, Profile.ElementSlicingComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProfileElementSlicingComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeProfileElementSlicingComponentInner(Profile.ElementSlicingComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.getDiscriminator().size() > 0) {
-        openArray("discriminator");
-        for (IdType e : element.getDiscriminator()) 
-          composeIdCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getDiscriminator())) {
-          openArray("_discriminator");
-          for (IdType e : element.getDiscriminator()) 
-            composeIdExtras(null, e, true);
-          closeArray();
-        }
-      };
-      composeStringCore("description", element.getDescriptionElement(), false);
-      composeStringExtras("description", element.getDescriptionElement(), false);
-      composeBooleanCore("ordered", element.getOrderedElement(), false);
-      composeBooleanExtras("ordered", element.getOrderedElement(), false);
-      if (element.getRulesElement() != null) {
-        composeEnumerationCore("rules", element.getRulesElement(), new Profile.ResourceSlicingRulesEnumFactory(), false);
-        composeEnumerationExtras("rules", element.getRulesElement(), new Profile.ResourceSlicingRulesEnumFactory(), false);
-      }
-  }
-
-  private void composeProfileElementDefinitionComponent(String name, Profile.ElementDefinitionComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProfileElementDefinitionComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeProfileElementDefinitionComponentInner(Profile.ElementDefinitionComponent element) throws Exception {
-      composeBackbone(element);
-      composeStringCore("short", element.getShortElement(), false);
-      composeStringExtras("short", element.getShortElement(), false);
-      composeStringCore("formal", element.getFormalElement(), false);
-      composeStringExtras("formal", element.getFormalElement(), false);
-      composeStringCore("comments", element.getCommentsElement(), false);
-      composeStringExtras("comments", element.getCommentsElement(), false);
-      composeStringCore("requirements", element.getRequirementsElement(), false);
-      composeStringExtras("requirements", element.getRequirementsElement(), false);
-      if (element.getSynonym().size() > 0) {
-        openArray("synonym");
-        for (StringType e : element.getSynonym()) 
-          composeStringCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getSynonym())) {
-          openArray("_synonym");
-          for (StringType e : element.getSynonym()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
-      };
-      composeIntegerCore("min", element.getMinElement(), false);
-      composeIntegerExtras("min", element.getMinElement(), false);
-      composeStringCore("max", element.getMaxElement(), false);
-      composeStringExtras("max", element.getMaxElement(), false);
-      if (element.getType().size() > 0) {
-        openArray("type");
-        for (Profile.TypeRefComponent e : element.getType()) 
-          composeProfileTypeRefComponent(null, e);
-        closeArray();
-      };
-      composeStringCore("nameReference", element.getNameReferenceElement(), false);
-      composeStringExtras("nameReference", element.getNameReferenceElement(), false);
-      composeType("fixed", element.getFixed());
-      composeType("pattern", element.getPattern());
-      composeType("example", element.getExample());
-      composeIntegerCore("maxLength", element.getMaxLengthElement(), false);
-      composeIntegerExtras("maxLength", element.getMaxLengthElement(), false);
-      if (element.getCondition().size() > 0) {
-        openArray("condition");
-        for (IdType e : element.getCondition()) 
-          composeIdCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getCondition())) {
-          openArray("_condition");
-          for (IdType e : element.getCondition()) 
-            composeIdExtras(null, e, true);
-          closeArray();
-        }
-      };
-      if (element.getConstraint().size() > 0) {
-        openArray("constraint");
-        for (Profile.ElementDefinitionConstraintComponent e : element.getConstraint()) 
-          composeProfileElementDefinitionConstraintComponent(null, e);
-        closeArray();
-      };
-      composeBooleanCore("mustSupport", element.getMustSupportElement(), false);
-      composeBooleanExtras("mustSupport", element.getMustSupportElement(), false);
-      composeBooleanCore("isModifier", element.getIsModifierElement(), false);
-      composeBooleanExtras("isModifier", element.getIsModifierElement(), false);
-      composeBooleanCore("isSummary", element.getIsSummaryElement(), false);
-      composeBooleanExtras("isSummary", element.getIsSummaryElement(), false);
-      composeProfileElementDefinitionBindingComponent("binding", element.getBinding());
-      if (element.getMapping().size() > 0) {
-        openArray("mapping");
-        for (Profile.ElementDefinitionMappingComponent e : element.getMapping()) 
-          composeProfileElementDefinitionMappingComponent(null, e);
-        closeArray();
-      };
-  }
-
-  private void composeProfileTypeRefComponent(String name, Profile.TypeRefComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProfileTypeRefComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeProfileTypeRefComponentInner(Profile.TypeRefComponent element) throws Exception {
-      composeBackbone(element);
-      composeCodeCore("code", element.getCodeElement(), false);
-      composeCodeExtras("code", element.getCodeElement(), false);
-      composeUriCore("profile", element.getProfileElement(), false);
-      composeUriExtras("profile", element.getProfileElement(), false);
-      if (element.getAggregation().size() > 0) {
-        openArray("aggregation");
-        for (Enumeration<Profile.ResourceAggregationMode> e : element.getAggregation()) 
-          composeEnumerationCore(null, e, new Profile.ResourceAggregationModeEnumFactory(), true);
-        closeArray();
-        if (anyHasExtras(element.getAggregation())) {
-          openArray("_aggregation");
-          for (Enumeration<Profile.ResourceAggregationMode> e : element.getAggregation()) 
-            composeEnumerationExtras(null, e, new Profile.ResourceAggregationModeEnumFactory(), true);
-          closeArray();
-        }
-      };
-  }
-
-  private void composeProfileElementDefinitionConstraintComponent(String name, Profile.ElementDefinitionConstraintComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProfileElementDefinitionConstraintComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeProfileElementDefinitionConstraintComponentInner(Profile.ElementDefinitionConstraintComponent element) throws Exception {
-      composeBackbone(element);
-      composeIdCore("key", element.getKeyElement(), false);
-      composeIdExtras("key", element.getKeyElement(), false);
-      composeStringCore("name", element.getNameElement(), false);
-      composeStringExtras("name", element.getNameElement(), false);
-      if (element.getSeverityElement() != null) {
-        composeEnumerationCore("severity", element.getSeverityElement(), new Profile.ConstraintSeverityEnumFactory(), false);
-        composeEnumerationExtras("severity", element.getSeverityElement(), new Profile.ConstraintSeverityEnumFactory(), false);
-      }
-      composeStringCore("human", element.getHumanElement(), false);
-      composeStringExtras("human", element.getHumanElement(), false);
-      composeStringCore("xpath", element.getXpathElement(), false);
-      composeStringExtras("xpath", element.getXpathElement(), false);
-  }
-
-  private void composeProfileElementDefinitionBindingComponent(String name, Profile.ElementDefinitionBindingComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProfileElementDefinitionBindingComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeProfileElementDefinitionBindingComponentInner(Profile.ElementDefinitionBindingComponent element) throws Exception {
-      composeBackbone(element);
-      composeStringCore("name", element.getNameElement(), false);
-      composeStringExtras("name", element.getNameElement(), false);
-      composeBooleanCore("isExtensible", element.getIsExtensibleElement(), false);
-      composeBooleanExtras("isExtensible", element.getIsExtensibleElement(), false);
-      if (element.getConformanceElement() != null) {
-        composeEnumerationCore("conformance", element.getConformanceElement(), new Profile.BindingConformanceEnumFactory(), false);
-        composeEnumerationExtras("conformance", element.getConformanceElement(), new Profile.BindingConformanceEnumFactory(), false);
-      }
-      composeStringCore("description", element.getDescriptionElement(), false);
-      composeStringExtras("description", element.getDescriptionElement(), false);
-      composeType("reference", element.getReference());
-  }
-
-  private void composeProfileElementDefinitionMappingComponent(String name, Profile.ElementDefinitionMappingComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProfileElementDefinitionMappingComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeProfileElementDefinitionMappingComponentInner(Profile.ElementDefinitionMappingComponent element) throws Exception {
-      composeBackbone(element);
-      composeIdCore("identity", element.getIdentityElement(), false);
-      composeIdExtras("identity", element.getIdentityElement(), false);
-      composeStringCore("map", element.getMapElement(), false);
-      composeStringExtras("map", element.getMapElement(), false);
   }
 
   private void composeProfileProfileStructureSearchParamComponent(String name, Profile.ProfileStructureSearchParamComponent element) throws Exception {
@@ -6547,44 +6504,6 @@ public class JsonComposer extends JsonComposerBase {
             composeCodeExtras(null, e, true);
           closeArray();
         }
-      };
-  }
-
-  private void composeProfileProfileExtensionDefnComponent(String name, Profile.ProfileExtensionDefnComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProfileProfileExtensionDefnComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeProfileProfileExtensionDefnComponentInner(Profile.ProfileExtensionDefnComponent element) throws Exception {
-      composeBackbone(element);
-      composeCodeCore("name", element.getNameElement(), false);
-      composeCodeExtras("name", element.getNameElement(), false);
-      composeStringCore("display", element.getDisplayElement(), false);
-      composeStringExtras("display", element.getDisplayElement(), false);
-      if (element.getContextTypeElement() != null) {
-        composeEnumerationCore("contextType", element.getContextTypeElement(), new Profile.ExtensionContextEnumFactory(), false);
-        composeEnumerationExtras("contextType", element.getContextTypeElement(), new Profile.ExtensionContextEnumFactory(), false);
-      }
-      if (element.getContext().size() > 0) {
-        openArray("context");
-        for (StringType e : element.getContext()) 
-          composeStringCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getContext())) {
-          openArray("_context");
-          for (StringType e : element.getContext()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
-      };
-      if (element.getElement().size() > 0) {
-        openArray("element");
-        for (Profile.ElementComponent e : element.getElement()) 
-          composeProfileElementComponent(null, e);
-        closeArray();
       };
   }
 
@@ -7902,11 +7821,7 @@ public class JsonComposer extends JsonComposerBase {
 
   @Override
   protected void composeResource(Resource resource) throws Exception {
-    if (resource instanceof AdverseReaction)
-      composeAdverseReaction("AdverseReaction", (AdverseReaction)resource);
-    else if (resource instanceof AdverseReactionRisk)
-      composeAdverseReactionRisk("AdverseReactionRisk", (AdverseReactionRisk)resource);
-    else if (resource instanceof Alert)
+    if (resource instanceof Alert)
       composeAlert("Alert", (Alert)resource);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance("AllergyIntolerance", (AllergyIntolerance)resource);
@@ -7954,6 +7869,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDocumentReference("DocumentReference", (DocumentReference)resource);
     else if (resource instanceof Encounter)
       composeEncounter("Encounter", (Encounter)resource);
+    else if (resource instanceof ExtensionDefinition)
+      composeExtensionDefinition("ExtensionDefinition", (ExtensionDefinition)resource);
     else if (resource instanceof FamilyHistory)
       composeFamilyHistory("FamilyHistory", (FamilyHistory)resource);
     else if (resource instanceof Group)
@@ -8049,11 +7966,7 @@ public class JsonComposer extends JsonComposerBase {
   }
 
   protected void composeNamedReference(String name, Resource resource) throws Exception {
-    if (resource instanceof AdverseReaction)
-      composeAdverseReaction(name, (AdverseReaction)resource);
-    else if (resource instanceof AdverseReactionRisk)
-      composeAdverseReactionRisk(name, (AdverseReactionRisk)resource);
-    else if (resource instanceof Alert)
+    if (resource instanceof Alert)
       composeAlert(name, (Alert)resource);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance(name, (AllergyIntolerance)resource);
@@ -8101,6 +8014,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDocumentReference(name, (DocumentReference)resource);
     else if (resource instanceof Encounter)
       composeEncounter(name, (Encounter)resource);
+    else if (resource instanceof ExtensionDefinition)
+      composeExtensionDefinition(name, (ExtensionDefinition)resource);
     else if (resource instanceof FamilyHistory)
       composeFamilyHistory(name, (FamilyHistory)resource);
     else if (resource instanceof Group)
@@ -8228,6 +8143,8 @@ public class JsonComposer extends JsonComposerBase {
        composeCodeableConcept(prefix+"CodeableConcept", (CodeableConcept) type);
     else if (type instanceof Identifier)
        composeIdentifier(prefix+"Identifier", (Identifier) type);
+    else if (type instanceof ElementDefinition)
+       composeElementDefinition(prefix+"ElementDefinition", (ElementDefinition) type);
     else if (type instanceof Timing)
        composeTiming(prefix+"Timing", (Timing) type);
     else if (type instanceof Address)
@@ -8329,6 +8246,8 @@ public class JsonComposer extends JsonComposerBase {
        composeDistanceInner((Distance) type);
     else if (type instanceof Duration)
        composeDurationInner((Duration) type);
+    else if (type instanceof ElementDefinition)
+       composeElementDefinitionInner((ElementDefinition) type);
     else if (type instanceof Timing)
        composeTimingInner((Timing) type);
     else if (type instanceof Address)

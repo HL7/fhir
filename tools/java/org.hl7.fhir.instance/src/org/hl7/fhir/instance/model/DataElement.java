@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1069,11 +1069,11 @@ public class DataElement extends Resource {
     /**
      * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
-    public StringType addSynonym(String value) { 
+    public DataElement addSynonym(String value) { 
       StringType t = new StringType();
       t.setValue(value);
       this.synonym.add(t);
-      return t;
+      return this;
     }
 
     /**

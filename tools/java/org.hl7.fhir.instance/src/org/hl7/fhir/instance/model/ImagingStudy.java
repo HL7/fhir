@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -2101,11 +2101,11 @@ public class ImagingStudy extends Resource {
     /**
      * @param value {@link #modalityList} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
-    public Enumeration<ImagingModality> addModalityList(ImagingModality value) { 
+    public ImagingStudy addModalityList(ImagingModality value) { 
       Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
       t.setValue(value);
       this.modalityList.add(t);
-      return t;
+      return this;
     }
 
     /**

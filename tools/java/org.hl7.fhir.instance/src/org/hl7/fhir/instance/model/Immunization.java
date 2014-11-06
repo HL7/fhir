@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -123,14 +123,14 @@ public class Immunization extends Resource {
         /**
          * The actual object that is the target of the reference (Details of the reaction.)
          */
-        protected Resource detailTarget;
+        protected Observation detailTarget;
 
         /**
          * Self-reported indicator.
          */
         protected BooleanType reported;
 
-        private static final long serialVersionUID = -1876833936L;
+        private static final long serialVersionUID = -1297668556L;
 
       public ImmunizationReactionComponent() {
         super();
@@ -190,14 +190,14 @@ public class Immunization extends Resource {
         /**
          * @return {@link #detail} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Details of the reaction.)
          */
-        public Resource getDetailTarget() { 
+        public Observation getDetailTarget() { 
           return this.detailTarget;
         }
 
         /**
          * @param value {@link #detail} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Details of the reaction.)
          */
-        public ImmunizationReactionComponent setDetailTarget(Resource value) { 
+        public ImmunizationReactionComponent setDetailTarget(Observation value) { 
           this.detailTarget = value;
           return this;
         }
@@ -241,7 +241,7 @@ public class Immunization extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("date", "dateTime", "Date of reaction to the immunization.", 0, java.lang.Integer.MAX_VALUE, date));
-          childrenList.add(new Property("detail", "Reference(AdverseReaction|Observation)", "Details of the reaction.", 0, java.lang.Integer.MAX_VALUE, detail));
+          childrenList.add(new Property("detail", "Reference(Observation)", "Details of the reaction.", 0, java.lang.Integer.MAX_VALUE, detail));
           childrenList.add(new Property("reported", "boolean", "Self-reported indicator.", 0, java.lang.Integer.MAX_VALUE, reported));
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 public class ResourceFactory extends Factory {
 
@@ -48,8 +48,6 @@ public class ResourceFactory extends Factory {
             return new ValueSet();
         if ("Coverage".equals(name))
             return new Coverage();
-        if ("AdverseReactionRisk".equals(name))
-            return new AdverseReactionRisk();
         if ("ImmunizationRecommendation".equals(name))
             return new ImmunizationRecommendation();
         if ("Appointment".equals(name))
@@ -82,14 +80,16 @@ public class ResourceFactory extends Factory {
             return new Binary();
         if ("Other".equals(name))
             return new Other();
-        if ("HealthcareService".equals(name))
-            return new HealthcareService();
         if ("Profile".equals(name))
             return new Profile();
+        if ("HealthcareService".equals(name))
+            return new HealthcareService();
         if ("DocumentReference".equals(name))
             return new DocumentReference();
         if ("Immunization".equals(name))
             return new Immunization();
+        if ("ExtensionDefinition".equals(name))
+            return new ExtensionDefinition();
         if ("Subscription".equals(name))
             return new Subscription();
         if ("OrderResponse".equals(name))
@@ -170,8 +170,6 @@ public class ResourceFactory extends Factory {
             return new Alert();
         if ("Patient".equals(name))
             return new Patient();
-        if ("AdverseReaction".equals(name))
-            return new AdverseReaction();
         if ("DiagnosticOrder".equals(name))
             return new DiagnosticOrder();
         else
@@ -201,6 +199,8 @@ public class ResourceFactory extends Factory {
             return new Distance();
         if ("ContactPoint".equals(name))
             return new ContactPoint();
+        if ("ElementDefinition".equals(name))
+            return new ElementDefinition();
         if ("Extension".equals(name))
             return new Extension();
         if ("HumanName".equals(name))

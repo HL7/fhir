@@ -12,16 +12,17 @@ import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.DecimalType;
 import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumeration;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ElementComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Profile.ResourceProfileStatus;
-import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Questionnaire.AnswerFormat;
@@ -40,8 +41,8 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
-import org.hl7.fhir.instance.utils.ProfileUtilities.ExtensionResult;
 import org.hl7.fhir.instance.utils.ProfileUtilities.StrucResult;
+import org.hl7.fhir.instance.utils.WorkerContext.ExtensionDefinitionResult;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -214,7 +215,7 @@ public class QuestionnaireBuilder {
     processMetadata();
 
 
-    List<ElementComponent> list = new ArrayList<ElementComponent>();
+    List<ElementDefinition> list = new ArrayList<ElementDefinition>();
     List<QuestionnaireAnswers.GroupComponent> answerGroups = new ArrayList<QuestionnaireAnswers.GroupComponent>();
 
     if (resource != null)
@@ -272,14 +273,14 @@ public class QuestionnaireBuilder {
     return prefix+Integer.toString(lastid);
   }
 
-  private void buildGroup(GroupComponent group, Profile profile, ProfileStructureComponent structure, ElementComponent element,
-      List<ElementComponent> parents, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void buildGroup(GroupComponent group, Profile profile, ProfileStructureComponent structure, ElementDefinition element,
+      List<ElementDefinition> parents, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
 	  group.setLinkId(element.getPath()); // todo: this will be wrong when we start slicing
-	  group.setTitle(element.getDefinition().getShort()); // todo - may need to prepend the name tail... 
-	  group.setText(element.getDefinition().getComments());
-	  ToolingExtensions.addFlyOver(group, element.getDefinition().getFormal());
-    group.setRequired(element.getDefinition().getMin() > 0);
-    group.setRepeats(!element.getDefinition().getMax().equals("1"));
+	  group.setTitle(element.getShort()); // todo - may need to prepend the name tail... 
+	  group.setText(element.getComments());
+	  ToolingExtensions.addFlyOver(group, element.getFormal());
+    group.setRequired(element.getMin() > 0);
+    group.setRepeats(!element.getMax().equals("1"));
 
     for (org.hl7.fhir.instance.model.QuestionnaireAnswers.GroupComponent ag : answerGroups) {
       ag.setLinkId(group.getLinkId());
@@ -288,13 +289,11 @@ public class QuestionnaireBuilder {
     }
 
     // now, we iterate the children
-    List<ElementComponent> list = ProfileUtilities.getChildList(structure, element);
-    for (ElementComponent child : list) {
-      if (child.getDefinition() == null) 
-        throw new Exception("Found an element with no definition generating a Questionnaire");
+    List<ElementDefinition> list = ProfileUtilities.getChildList(structure, element);
+    for (ElementDefinition child : list) {
 
       if (!isExempt(element, child) && !parents.contains(child)) {
-        List<ElementComponent> nparents = new ArrayList<ElementComponent>();
+				List<ElementDefinition> nparents = new ArrayList<ElementDefinition>();
         nparents.addAll(parents);
         nparents.add(child);
         GroupComponent childGroup = group.addGroup();
@@ -303,7 +302,7 @@ public class QuestionnaireBuilder {
         processExisting(child.getPath(), answerGroups, nAnswers);
         // if the element has a type, we add a question. else we add a group on the basis that
         // it will have children of it's own
-        if (child.getDefinition().getType().isEmpty()) 
+        if (child.getType().isEmpty()) 
           buildGroup(childGroup, profile, structure, child, nparents, nAnswers);
         else
           buildQuestion(childGroup, profile, structure, child, child.getPath(), nAnswers);
@@ -311,18 +310,18 @@ public class QuestionnaireBuilder {
     }
   }
 
-  private boolean isExempt(ElementComponent element, ElementComponent child) {
+  private boolean isExempt(ElementDefinition element, ElementDefinition child) {
     String n = tail(child.getPath());
     String t = "";
-    if (!element.getDefinition().getType().isEmpty())
-      t =  element.getDefinition().getType().get(0).getCode();
+    if (!element.getType().isEmpty())
+      t =  element.getType().get(0).getCode();
 
     // we don't generate questions for the base stuff in every element
     if (t.equals("Resource")  && (n.equals("text") || n.equals("language") || n.equals("contained")))
       return true;
       // we don't generate questions for extensions
     else if (n.equals("extension") || n.equals("modifierExtension")) {
-      if (child.getDefinition().getType().size() > 0 && !Utilities.noString(child.getDefinition().getType().get(0).getProfile())) 
+      if (child.getType().size() > 0 && !Utilities.noString(child.getType().get(0).getProfile())) 
       return false;
       else
         return true;
@@ -348,13 +347,13 @@ public class QuestionnaireBuilder {
     }
   }
 
-  private void buildQuestion(GroupComponent group, Profile profile, ProfileStructureComponent structure, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void buildQuestion(GroupComponent group, Profile profile, ProfileStructureComponent structure, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       group.setLinkId(path);
 
       // in this context, we don't have any concepts to mark...
-      group.setText(element.getDefinition().getShort()); // prefix with name?
-      group.setRequired(element.getDefinition().getMin() > 0);
-      group.setRepeats(!element.getDefinition().getMax().equals('1'));
+      group.setText(element.getShort()); // prefix with name?
+      group.setRequired(element.getMin() > 0);
+      group.setRepeats(!element.getMax().equals('1'));
 
       for (QuestionnaireAnswers.GroupComponent ag : answerGroups) {
         ag.setLinkId(group.getLinkId());
@@ -362,13 +361,13 @@ public class QuestionnaireBuilder {
         ag.setText(group.getText());
       }
 
-      if (!Utilities.noString(element.getDefinition().getComments())) 
-        ToolingExtensions.addFlyOver(group, element.getDefinition().getFormal()+" "+element.getDefinition().getComments());
+      if (!Utilities.noString(element.getComments())) 
+        ToolingExtensions.addFlyOver(group, element.getFormal()+" "+element.getComments());
       else
-        ToolingExtensions.addFlyOver(group, element.getDefinition().getFormal());
+        ToolingExtensions.addFlyOver(group, element.getFormal());
 
-      if (element.getDefinition().getType().size() > 1 || element.getDefinition().getType().get(0).getCode().equals("*")) {
-        List<TypeRefComponent> types = expandTypeList(element.getDefinition().getType());
+      if (element.getType().size() > 1 || element.getType().get(0).getCode().equals("*")) {
+        List<TypeRefComponent> types = expandTypeList(element.getType());
         Questionnaire.QuestionComponent q = addQuestion(group, AnswerFormat.CHOICE, element.getPath(), "_type", "type", null, makeTypeList(profile, types, element.getPath()));
           for (TypeRefComponent t : types) {
             Questionnaire.GroupComponent sub = q.addGroup();
@@ -382,12 +381,12 @@ public class QuestionnaireBuilder {
           }
       } else
         // now we have to build the question panel for each different data type
-        processDataType(profile, group, element, element.getPath(), element.getDefinition().getType().get(0), answerGroups);
+        processDataType(profile, group, element, element.getPath(), element.getType().get(0), answerGroups);
 
   }
 
   private List<TypeRefComponent> expandTypeList(List<TypeRefComponent> types) {
-    List<TypeRefComponent> result = new ArrayList<Profile.TypeRefComponent>();
+	  List<TypeRefComponent> result = new ArrayList<TypeRefComponent>();
     for (TypeRefComponent t : types) {
 	    if (!Utilities.noString(t.getProfile()))
         result.add(t);
@@ -681,7 +680,7 @@ public class QuestionnaireBuilder {
               t.getCode().equals("instant") || t.getCode().equals("time") || t.getCode().equals("Reference"));
   }
 
-  private void processDataType(Profile profile, GroupComponent group, ElementComponent element, String path, TypeRefComponent t, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void processDataType(Profile profile, GroupComponent group, ElementDefinition element, String path, TypeRefComponent t, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     if (t.getCode().equals("code"))
       addCodeQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("string") || t.getCode().equals("id") || t.getCode().equals("oid"))
@@ -742,9 +741,9 @@ public class QuestionnaireBuilder {
       throw new Exception("Unhandled Data Type: "+t.getCode()+" on element "+element.getPath());
   }
 
-  private void addCodeQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addCodeQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "code");
-    ValueSet vs = resolveValueSet(null, element.getDefinition().getBinding());
+    ValueSet vs = resolveValueSet(null, element.getBinding());
     addQuestion(group, AnswerFormat.CHOICE, path, "value", unCamelCase(tail(element.getPath())), answerGroups, vs);
     group.setText(null);
     for (QuestionnaireAnswers.GroupComponent ag : answerGroups)
@@ -762,7 +761,7 @@ public class QuestionnaireBuilder {
       return result.toString().toLowerCase();
   }
 
-  private void addStringQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addStringQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "string");
     addQuestion(group, AnswerFormat.STRING, path, "value", group.getText(), answerGroups);
 	  group.setText(null);
@@ -770,7 +769,7 @@ public class QuestionnaireBuilder {
       ag.setText(null);
   }
 
-  private void addTimeQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addTimeQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "time");
     addQuestion(group, AnswerFormat.TIME, path, "value", group.getText(), answerGroups);
 	  group.setText(null);
@@ -778,7 +777,7 @@ public class QuestionnaireBuilder {
       ag.setText(null);
   }
 
-  private void addUriQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addUriQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "uri");
     addQuestion(group, AnswerFormat.STRING, path, "value", group.getText(), answerGroups);
 	  group.setText(null);
@@ -786,7 +785,7 @@ public class QuestionnaireBuilder {
       ag.setText(null);
   }
 
-  private void addBooleanQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addBooleanQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "boolean");
     addQuestion(group, AnswerFormat.BOOLEAN, path, "value", group.getText(), answerGroups);
 	  group.setText(null);
@@ -794,7 +793,7 @@ public class QuestionnaireBuilder {
       ag.setText(null);
   }
 
-  private void addDecimalQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addDecimalQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "decimal");
     addQuestion(group, AnswerFormat.DECIMAL, path, "value", group.getText(), answerGroups);
 	  group.setText(null);
@@ -802,7 +801,7 @@ public class QuestionnaireBuilder {
       ag.setText(null);
   }
 
-  private void addIntegerQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addIntegerQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "integer");
     addQuestion(group, AnswerFormat.INTEGER, path, "value", group.getText(), answerGroups);
 	  group.setText(null);
@@ -810,7 +809,7 @@ public class QuestionnaireBuilder {
       ag.setText(null);
   }
 
-  private void addDateTimeQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addDateTimeQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "datetime");
     addQuestion(group, AnswerFormat.DATETIME, path, "value", group.getText(), answerGroups);
 	  group.setText(null);
@@ -818,7 +817,7 @@ public class QuestionnaireBuilder {
       ag.setText(null);
   }
 
-  private void addInstantQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addInstantQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "instant");
     addQuestion(group, AnswerFormat.INSTANT, path, "value", group.getText(), answerGroups);
 	  group.setText(null);
@@ -826,7 +825,7 @@ public class QuestionnaireBuilder {
       ag.setText(null);
   }
 
-  private void addBinaryQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addBinaryQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "binary");
     // ? Lloyd: how to support binary content
   }
@@ -842,17 +841,17 @@ public class QuestionnaireBuilder {
       return AnswerFormat.CHOICE;
   }
 
-  private void addCodingQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addCodingQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "Coding");
-    addQuestion(group, answerTypeForBinding(element.getDefinition().getBinding()), path, "value", group.getText(), answerGroups, resolveValueSet(null, element.getDefinition().getBinding()));
+    addQuestion(group, answerTypeForBinding(element.getBinding()), path, "value", group.getText(), answerGroups, resolveValueSet(null, element.getBinding()));
     group.setText(null);
     for (QuestionnaireAnswers.GroupComponent ag : answerGroups)
       ag.setText(null);
   }
 
-  private void addCodeableConceptQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addCodeableConceptQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "CodeableConcept");
-    addQuestion(group, answerTypeForBinding(element.getDefinition().getBinding()), path, "coding", "code:", answerGroups, resolveValueSet(null, element.getDefinition().getBinding()));
+    addQuestion(group, answerTypeForBinding(element.getBinding()), path, "coding", "code:", answerGroups, resolveValueSet(null, element.getBinding()));
     addQuestion(group, AnswerFormat.STRING, path, "text", "text:", answerGroups);
   }
 
@@ -861,27 +860,27 @@ public class QuestionnaireBuilder {
     return null;
   }
 
-  private void addPeriodQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addPeriodQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "Period");
     addQuestion(group, AnswerFormat.DATETIME, path, "low", "start:", answerGroups);
     addQuestion(group, AnswerFormat.DATETIME, path, "end", "end:", answerGroups);
   }
 
-  private void addRatioQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addRatioQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "Ratio");
     addQuestion(group, AnswerFormat.DECIMAL, path, "numerator", "numerator:", answerGroups);
     addQuestion(group, AnswerFormat.DECIMAL, path, "denominator", "denominator:", answerGroups);
     addQuestion(group, AnswerFormat.STRING, path, "units", "units:", answerGroups);
   }
 
-  private void addHumanNameQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addHumanNameQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "Name");
     addQuestion(group, AnswerFormat.STRING, path, "text", "text:", answerGroups);
     addQuestion(group, AnswerFormat.STRING, path, "family", "family:", answerGroups).setRepeats(true);
     addQuestion(group, AnswerFormat.STRING, path, "given", "given:", answerGroups).setRepeats(true);
   }
 
-  private void addAddressQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void addAddressQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "Address");
     addQuestion(group, AnswerFormat.STRING, path, "text", "text:", answerGroups);
     addQuestion(group, AnswerFormat.STRING, path, "line", "line:", answerGroups).setRepeats(true);
@@ -892,21 +891,21 @@ public class QuestionnaireBuilder {
     addQuestion(group, AnswerFormat.CHOICE, path, "use", "use:", answerGroups, resolveValueSet("http://hl7.org/fhir/vs/address-use"));
   }
 
-    private void addContactPointQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addContactPointQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "ContactPoint");
     addQuestion(group, AnswerFormat.CHOICE, path, "system", "type:", answerGroups, resolveValueSet("http://hl7.org/fhir/vs/contact-point-system"));
     addQuestion(group, AnswerFormat.STRING, path, "value", "value:", answerGroups);
     addQuestion(group, AnswerFormat.CHOICE, path, "use", "use:", answerGroups, resolveValueSet("http://hl7.org/fhir/vs/contact-point-use"));
     }
     
-    private void addIdentifierQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addIdentifierQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Identifier");
       addQuestion(group, AnswerFormat.STRING, path, "label", "label:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "system", "system:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "value", "value:", answerGroups);
     }
 
-    private void addQuantityQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addQuantityQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Quantity");
       addQuestion(group, AnswerFormat.CHOICE, path, "comparator", "comp:", answerGroups, resolveValueSet("http://hl7.org/fhir/vs/quantity-comparator"));
       addQuestion(group, AnswerFormat.DECIMAL, path, "value", "value:", answerGroups);
@@ -915,48 +914,48 @@ public class QuestionnaireBuilder {
       addQuestion(group, AnswerFormat.STRING, path, "system", "units system:", answerGroups);
     }
 
-    private void addMoneyQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addMoneyQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Money");
       addQuestion(group, AnswerFormat.DECIMAL, path, "value", "value:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "currency", "currency:", answerGroups);
   }
 
-    private void addAgeQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addAgeQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Age");
       addQuestion(group, AnswerFormat.CHOICE, path, "comparator", "comp:", answerGroups, resolveValueSet("http://hl7.org/fhir/vs/quantity-comparator"));
       addQuestion(group, AnswerFormat.DECIMAL, path, "value", "value:", answerGroups);
       addQuestion(group, AnswerFormat.CHOICE, path, "units", "units:", answerGroups, resolveValueSet("http://hl7.org/fhir/vs/duration-units"));
     }
 
-    private void addDurationQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addDurationQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Duration");
       addQuestion(group, AnswerFormat.DECIMAL, path, "value", "value:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "units", "units:", answerGroups);
     }
 
-    private void addAttachmentQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addAttachmentQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Attachment");
       //    raise Exception.Create("addAttachmentQuestions not Done Yet");
     }
 
-    private void addRangeQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addRangeQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Range");
       addQuestion(group, AnswerFormat.DECIMAL, path, "low", "low:", answerGroups);
       addQuestion(group, AnswerFormat.DECIMAL, path, "high", "high:", answerGroups);
       addQuestion(group, AnswerFormat.STRING, path, "units", "units:", answerGroups);
     }
     
-    private void addSampledDataQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addSampledDataQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "SampledData");
     }
     
-    private void addTimingQuestions(GroupComponent group, ElementComponent element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addTimingQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       ToolingExtensions.addType(group, "Schedule");
     }
     
   // Special Types ---------------------------------------------------------------
 
-    private void addReferenceQuestions(GroupComponent group, ElementComponent element, String path, String profileURL, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+    private void addReferenceQuestions(GroupComponent group, ElementDefinition element, String path, String profileURL, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       //  var
       //    rn : String;
       //    i : integer;
@@ -979,17 +978,14 @@ public class QuestionnaireBuilder {
     }
 
 
-    private void addExtensionQuestions(Profile profile, GroupComponent group, ElementComponent element, String path, String profileURL, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception { 
+    private void addExtensionQuestions(Profile profile, GroupComponent group, ElementDefinition element, String path, String url, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception { 
       // if this a  profiled extension, then we add it
-      if (!Utilities.noString(profileURL)) {
-        ExtensionResult ex =  new ProfileUtilities(context).getExtensionDefn(profile, profileURL);
-        if (ex != null && ex.getExtension() != null) {
+    	if (!Utilities.noString(url)) {
+    		ExtensionDefinitionResult ed =  context.getExtensionDefinition(null, url);
+    		if (ed != null) {
           if (answerGroups.size() > 0)
             throw new Exception("Debug this");
-          if (ex.getExtension().getElement().size() == 1)
-            buildQuestion(group, profile, null, ex.getExtension().getElement().get(0), path+".extension["+profileURL+"]", answerGroups);
-          else
-            throw new Exception("Not done yet");
+    			buildQuestion(group, profile, null, ed.getElementDefinition(), path+".extension["+url+"]", answerGroups);
         }
       }
     }

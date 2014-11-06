@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -743,11 +743,11 @@ public class CarePlan extends Resource {
         /**
          * @param value {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
          */
-        public UriType addGoal(String value) { 
+        public CarePlanActivityComponent addGoal(String value) { 
           UriType t = new UriType();
           t.setValue(value);
           this.goal.add(t);
-          return t;
+          return this;
         }
 
         /**

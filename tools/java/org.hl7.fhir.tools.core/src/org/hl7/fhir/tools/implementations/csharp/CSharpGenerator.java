@@ -263,7 +263,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) {
   }
 
   @Override
-public String checkFragments(String rootDir, String fragments, boolean inProcess) throws Exception {
+public String checkFragments(String rootDir, String fragments) throws Exception {
     return "Not supported by C# implementation";
   }
 }

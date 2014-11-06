@@ -591,7 +591,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
 
   @Override
   // in process for debugging, but requires tool generated code to be current
-  public String checkFragments(String rootDir, String fragments, boolean inProcess) throws Exception {
+  public String checkFragments(String rootDir, String fragments) throws Exception {
     File file = Utilities.createTempFile("temp", ".xml");
     if (file.exists())
       file.delete();
@@ -601,7 +601,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
     if (filed.exists())
       filed.delete();
     
-    if (inProcess) {
+    if (IN_PROCESS) {
       new ToolsHelper().executeFragments(new String[] {"fragments", file.getAbsolutePath(), filed.getAbsolutePath()}); 
     } else {
       List<String> command = new ArrayList<String>();

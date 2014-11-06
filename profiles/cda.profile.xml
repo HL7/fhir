@@ -1,1903 +1,1888 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Profile xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/profile.xsd">
-	<!-- build tool to fill out narrative -->
-	<url value="http://hl7.org/fhir/Profile/cda.r2"/>
-	<name value="CDA R2 Profile"/>
-	<publisher value="HL7 FHIR Project"/>
-	<telecom>
-		<system value="url"/>
-		<value value="http://hl7.org/fhir"/>
-	</telecom>
-	<description value="Standard Profile for CDA R2 on FHIR"/>
-	<status value="draft"/>
-	<date value="2014-07-28"/>
-	<mapping>
-		<identity value="cda"/>
-		<uri value="http://hl7.org/v3/cda"/>
-		<name value="CDA (R2)"/>
-	</mapping>
-	<structure>
-		<!-- base ClinicalDocument -->
-		<type value="Composition"/>
-		<base value="http://hl7.org/fhir/Profile/Composition"/>
-		<name value="ClinicalDocument"/>
-		<publish value="true"/>
-		<purpose value="Base Profile for Clinical Document"/>
-		<!-- todo: this is a bundle with a document tag.... -->
-		<!-- todo: Clinical Document Id goes in feed.id -->
-		<differential>
-			<element>
-				<path value="Composition"/>
-				<definition>
-					<min value="1"/>
-					<max value="1"/>
-					<type>
-						<code value="Resource"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value="ClinicalDocument"/>
-					</mapping>
-				</definition>
-			</element>
-      <element><!-- inFulfillmentOf extension -->
-        <path value="Composition.extension"/>
-        <definition>
-          <short value="CDA inFulFillmentOf"/>
-          <min value="0"/>
-          <max value="*"/>
-          <type>
-            <code value="Extension"/>
-            <profile value="#inFulFillmentOf"/>
-          </type>
-          <isModifier value="false"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".inFulFillmentOf"/>
-          </mapping>
-        </definition>
-      </element>
-			<element>
-				<path value="Composition.language"/>
-				<definition>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="code"/>
-					</type>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".languageCode"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.identifier"/>
-				<definition>
-					<short value="Clinical Document setId"/>
-					<formal value="Logical Identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time."/>
-					<comments value="See discussion in resource definition for how these relate."/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Identifier"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".setId"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.date"/>
-				<definition>
-					<short value="CDA document date/time"/>
-					<min value="1"/>
-					<max value="1"/>
-					<type>
-						<code value="dateTime"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".effectiveTime"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.type"/>
-				<definition>
-					<short value="Document Type"/>
-					<min value="1"/>
-					<max value="1"/>
-					<type>
-						<code value="CodeableConcept"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".code"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<!-- not used in CDA -->
-				<path value="Composition.class"/>
-				<definition>
-					<min value="0"/>
-					<max value="0"/>
-					<type>
-						<code value="CodeableConcept"/>
-					</type>
-					<isModifier value="false"/>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.title"/>
-				<definition>
-					<short value="Clinical Document Title"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="string"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".title"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.status"/>
-				<definition>
-					<short value="final"/>
-					<formal value="CDA: all documents are final"/>
-					<min value="1"/>
-					<max value="1"/>
-					<fixedCode value="final"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value="n/a"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.confidentiality"/>
-				<definition>
-					<short value="Document Confidentiality"/>
-					<min value="1"/>
-					<max value="1"/>
-					<type>
-						<code value="Coding"/>
-					</type>
-					<isModifier value="true"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".confidentialityCode"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.subject"/>
-				<definition>
-					<short value="CDA RecordTarget"/>
-					<min value="1"/>
-					<max value="1"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="#PatientRole"/>
-					</type>
-					<!-- todo: should there be other choices here? -->
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".recordTarget"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.author"/>
-				<definition>
-					<short value="Who and/or what authored the composition"/>
-					<formal value="Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.)."/>
-					<min value="1"/>
-					<max value="*"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Practitioner"/>
-					</type>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Device"/>
-					</type>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Patient"/>
-					</type>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/RelatedPerson"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".author.assignedAuthor"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value=".participation[typeCode=&quot;AUT&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.attester"/>
-				<definition>
-					<short value="Attests to accuracy of composition"/>
-					<formal value="A participant who has attested to the accuracy of the composition/document."/>
-					<comments value="Only list each attester once."/>
-					<min value="0"/>
-					<max value="*"/>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".authenticator/.legalAuthenticator"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value=".participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.attester.extension"/>
-				<definition>
-					<short value="Additional Content defined by implementations"/>
-					<formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-					<comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-					<synonym value="extensions"/>
-					<synonym value="user content"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Extension"/>
-					</type>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.attester.modifierExtension"/>
-				<definition>
-					<short value="Extensions that cannot be ignored"/>
-					<formal value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
-					<comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-					<synonym value="extensions"/>
-					<synonym value="user content"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Extension"/>
-					</type>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.attester.mode"/>
-				<definition>
-					<short value="personal | professional | legal | official"/>
-					<formal value="The type of attestation the authenticator offers."/>
-					<comments value="Use more than one code where a single attester has more than one mode (professional and legal are often paired)."/>
-					<min value="1"/>
-					<max value="*"/>
-					<type>
-						<code value="code"/>
-					</type>
-					<isModifier value="false"/>
-					<binding>
-						<name value="CompositionAttestationMode"/>
-						<isExtensible value="false"/>
-						<description value="The way in which a person authenticated a composition"/>
-						<referenceReference>
-							<reference value="http://hl7.org/fhir/vs/composition-attestation-mode"/>
-						</referenceReference>
-					</binding>
-					<mapping>
-						<identity value="cda"/>
-						<map value="implied by .authenticator/.legalAuthenticator"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="unique(./modeCode)"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.attester.time"/>
-				<definition>
-					<short value="When composition attested"/>
-					<formal value="When composition was attested by the party."/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="dateTime"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".authenticator.time"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="./time[type=&quot;TS&quot; and isNormalDatatype()]"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.attester.party"/>
-				<definition>
-					<short value="Who attested the composition"/>
-					<formal value="Who attested the composition in the specified way."/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Patient"/>
-					</type>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Practitioner"/>
-					</type>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Organization"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".authenticator.assignedEnttty"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="./role[classCode=&quot;ASSIGNED&quot; and isNormalRole]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and isNormalEntity()]
-or
-./role[classCode=&quot;ASSIGNED&quot; and isNormalRole and not(player)]/scoper[determinerCode=&quot;INST&quot; and classCode=&quot;ORG&quot; and isNormalEntity()]"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.custodian"/>
-				<definition>
-					<short value="Org which maintains the composition"/>
-					<formal value="Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information."/>
-					<comments value="This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because knowing this is sometimes not known by the authoring system, and can be inferred by context. However it&#39;s important that this information be known when working with a derived document, so providing a custodian is encouraged."/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Organization"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".custodian.assignedCustodian"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value=".participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.event"/>
-				<definition>
-					<short value="The clinical event/act/item being documented"/>
-					<formal value="The main event/act/item, such as a colonoscopy or an appendectomy, being documented."/>
-					<comments value="The event needs to be consistent with the type element, though can provide further information if desired."/>
-					<min value="0"/>
-					<max value="1"/>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".documentationOf.serviceEvent"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="outboundRelationship[typeCode=&quot;SUBJ&quot;].target[classCode&lt;&#39;ACT&#39;]"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.event.extension"/>
-				<definition>
-					<short value="Additional Content defined by implementations"/>
-					<formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-					<comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-					<synonym value="extensions"/>
-					<synonym value="user content"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Extension"/>
-					</type>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.event.modifierExtension"/>
-				<definition>
-					<short value="Extensions that cannot be ignored"/>
-					<formal value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
-					<comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-					<synonym value="extensions"/>
-					<synonym value="user content"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Extension"/>
-					</type>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.event.code"/>
-				<definition>
-					<short value="Code(s) that apply to the event being documented"/>
-					<formal value="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act."/>
-					<comments value="An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as “key words” for certain types of queries."/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="CodeableConcept"/>
-					</type>
-					<isModifier value="false"/>
-					<binding>
-						<name value="DocumentEventType"/>
-						<isExtensible value="false"/>
-						<description value="This list of codes represents the main clinical acts being documented"/>
-						<referenceReference>
-							<reference value="http://hl7.org/fhir/v3/vs/ActCode"/>
-						</referenceReference>
-					</binding>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".code"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value=".code"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.event.period"/>
-				<definition>
-					<short value="The period covered by the documentation"/>
-					<formal value="The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time."/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Period"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".effectiveTime"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value=".effectiveTime"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.event.detail"/>
-				<definition>
-					<short value="Full details for the event(s) the composition consents"/>
-					<formal value="Full details for the event(s) the composition/documentation consents."/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Any"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value="n/a"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].target"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.encounter"/>
-				<definition>
-					<short value="Context of the conposition"/>
-					<formal value="Describes the clinical encounter or type of care this documentation is associated with."/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Encounter"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".componentOf.encompassingEncounter"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="unique(highest(./outboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()], priorityNumber)/target[moodCode=&quot;EVN&quot; and classCode=(&quot;ENC&quot;, &quot;PCPR&quot;) and isNormalAct])"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.section"/>
-				<name value="section"/>
-				<definition>
-					<short value="Composition is broken into sections"/>
-					<formal value="The root of the sections that make up the composition."/>
-					<min value="0"/>
-					<max value="*"/>
-					<constraint>
-						<key value="2"/>
-						<name value="Section Rule"/>
-						<severity value="error"/>
-						<human value="A section SHALL have content or one or more sections, but not both."/>
-						<xpath value="exists(f:content) != exists(f:section)"/>
-					</constraint>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".component.structuredBody.component.section"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.section.extension"/>
-				<definition>
-					<short value="Additional Content defined by implementations"/>
-					<formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-					<comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-					<synonym value="extensions"/>
-					<synonym value="user content"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Extension"/>
-					</type>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.section.modifierExtension"/>
-				<definition>
-					<short value="Extensions that cannot be ignored"/>
-					<formal value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
-					<comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-					<synonym value="extensions"/>
-					<synonym value="user content"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Extension"/>
-					</type>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.section.title"/>
-				<definition>
-					<short value="Label for section"/>
-					<formal value="The heading for this particular section.  This will be part of the rendered content for the document."/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="string"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".title"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="./title"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.section.code"/>
-				<definition>
-					<short value="Classification of section (recommended)"/>
-					<formal value="A code identifying the kind of content contained within the section."/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="CodeableConcept"/>
-					</type>
-					<isModifier value="false"/>
-					<binding>
-						<name value="CompositionSectionType"/>
-						<isExtensible value="false"/>
-						<description value="Classification of a composition / document"/>
-						<referenceReference>
-							<reference value="http://hl7.org/fhir/vs/doc-section-codes"/>
-						</referenceReference>
-					</binding>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".code"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="./code"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.section.subject"/>
-				<definition>
-					<short value="If section different to composition"/>
-					<formal value="Identifies the primary subject of the section."/>
-					<comments value="This is labeled as &quot;Is Modifier&quot; because applications SHALL be aware if the subject changes for a particular section."/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Patient"/>
-					</type>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Group"/>
-					</type>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Device"/>
-					</type>
-					<isModifier value="true"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".subject.relatedSubject"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[typeCode=&quot;PAT&quot;])
-or
-unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[typeCode=&quot;IDENT&quot;]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;ORG&quot;) and isNormalEntity()])"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.section.content"/>
-				<definition>
-					<short value="The actual data for the section"/>
-					<formal value="Identifies the discrete data that provides the content for the section."/>
-					<comments value="Because composition represent point-in-time snapshots, resource references should either be to a specific version, or made against resources on the same server with full version tracking, so that the correct versions can easily be assembled."/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="http://hl7.org/fhir/Profile/Any"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value="n/a"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="unique(./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode!=&quot;DOCSECT&quot; and isNormalAct])"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Composition.section.section"/>
-				<definition>
-					<short value="Nested Section"/>
-					<formal value="A nested sub-section within this section."/>
-					<min value="0"/>
-					<max value="*"/>
-					<nameReference value="section"/>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".component.section"/>
-					</mapping>
-					<mapping>
-						<identity value="rim"/>
-						<map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>
-					</mapping>
-				</definition>
-			</element>
-		</differential>
-	</structure>
-	<!-- record target structure - used from Composition -->
-	<structure>
-		<type value="Patient"/>
-		<base value="http://hl7.org/fhir/Profile/Patient"/>
-		<name value="PatientRole"/>
-		<publish value="false"/>
-		<purpose value="Profile on patient for CDA PatientRole"/>
-		<differential>
-			<element>
-				<path value="Patient"/>
-				<definition>
-					<short value="CDA PatientRole"/>
-					<min value="1"/>
-					<max value="1"/>
-					<type>
-						<code value="Resource"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value="PatientRole"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.extension"/>
-				<definition>
-					<short value="Patient's religious classification"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Extension"/>
-						<profile value="http://hl7.org/fhir/Profile/us-core#religion"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.religiousAffiliationCode"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.extension"/>
-				<definition>
-					<short value="Patient's racial classification"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Extension"/>
-						<profile value="http://hl7.org/fhir/Profile/us-core#race"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.raceCode"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.extension"/>
-				<definition>
-					<short value="Patient's ethnic classification"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Extension"/>
-						<profile value="http://hl7.org/fhir/Profile/us-core#ethnicity"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value="ethnicGroupCode"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.extension"/>
-				<definition>
-					<short value="Patient's birthplace"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="#Birthplace"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.birthPlace"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.identifier"/>
-				<definition>
-					<short value="Patient Identifier"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Identifier"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".id"/>
-					</mapping>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.id"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.name"/>
-				<definition>
-					<short value="Patient names"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="HumanName"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.name"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.telecom"/>
-				<definition>
-					<short value="Patient Contact Details"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Contact"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".telecom"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.gender"/>
-				<definition>
-					<short value="Patient administrative Gender"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="CodeableConcept"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.administrativeGender"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.birthDate"/>
-				<definition>
-					<short value="Patient Birthtime"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="dateTime"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.birthTime"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.deceased[x]"/>
-				<definition>
-					<min value="0"/>
-					<max value="0"/>
-					<isModifier value="true"/>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.address"/>
-				<definition>
-					<short value="Patient Address"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Address"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".addr"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.maritalStatus"/>
-				<definition>
-					<short value="CDA Patient Marital Status"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="CodeableConcept"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.maritalStatusCode"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.multipleBirth[x]"/>
-				<definition>
-					<min value="0"/>
-					<max value="0"/>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.photo"/>
-				<definition>
-					<min value="0"/>
-					<max value="0"/>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.contact"/>
-				<definition>
-					<short value="CDA Guardian"/>
-					<min value="0"/>
-					<max value="*"/>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.guardian"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.contact.extension"/>
-				<definition>
-					<short value="CDA Guardian Identifier"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Extension"/>
-						<profile value="#guardian-id"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.guardian.id"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.contact.relationship"/>
-				<slicing>
-				  <discriminator value="coding.code"/>
-				  <ordered value="true"/>
-          <rules value="openAtEnd"/>
-        </slicing>
-      </element>
-			<element>
-				<path value="Patient.contact.relationship"/>
-				<definition>
-					<short value="in CDA, only Guardian is allowed"/>
-					<min value="1"/>
-					<max value="1"/>
-					<fixedCodeableConcept>
-						<coding>
-							<system value="http://hl7.org/fhir/patient-contact-relationship"/>
-							<code value="guardian"/>
-						</coding>
-					</fixedCodeableConcept>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.contact.relationship"/>
-				<definition>
-					<min value="0"/>
-					<max value="1"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.guardian.code"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.contact.name"/>
-				<definition>
-					<short value="Guardian name (if a person)"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.guardian.name"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.contact.telecom"/>
-				<definition>
-					<short value="A contact detail for the guardian"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="Contact"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.guardian.telecom"/>
-					</mapping>
-				</definition>
-			</element>
-			<!-- todo: extension for 0..* -->
-			<element>
-				<path value="Patient.contact.address"/>
-				<definition>
-					<short value="Address for the guardian"/>
-					<formal value="Address for the contact person."/>
-					<min value="0"/>
-					<max value="1"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.guardian.addr"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.contact.gender"/>
-				<definition>
-					<min value="0"/>
-					<max value="0"/>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.contact.organization"/>
-				<definition>
-					<short value="Organization that acts as guardian for the contact"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="#Organization"/>
-					</type>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.guardian.guardianOrganization"/>
-					</mapping>
-				</definition>
-			</element>
-      <!-- CDA does not support non-human patients -->
-			<element>
-				<path value="Patient.animal"/>
-				<definition>
-					<min value="0"/>
-					<max value="0"/>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.communication"/>
-				<definition>
-					<short value="CDA patient language"/>
-					<min value="0"/>
-					<max value="*"/>
-					<type>
-						<code value="CodeableConcept"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.languageCommunication.languageCode"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.communication.extension"/>
-				<definition>
-					<short value="CDA patient language mode"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="CodeableConcept"/>
-						<profile value="#language-mode"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.languageCommunication.modeCode"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.communication.extension"/>
-				<definition>
-					<short value="CDA patient language proficiency"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="CodeableConcept"/>
-						<profile value="#language-proficiency"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.languageCommunication.proficiencyCode"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.communication.extension"/>
-				<definition>
-					<short value="CDA patient language preference"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="CodeableConcept"/>
-						<profile value="#language-preference"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".patient.languageCommunication.preferenceInd"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.careProvider"/>
-				<definition>
-					<min value="0"/>
-					<max value="0"/>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.managingOrganization"/>
-				<definition>
-					<short value="Organization that is the custodian of the patient record"/>
-					<min value="0"/>
-					<max value="1"/>
-					<type>
-						<code value="Reference"/>
-						<profile value="#Organization"/>
-					</type>
-					<isModifier value="false"/>
-					<mapping>
-						<identity value="cda"/>
-						<map value=".providerOrganization"/>
-					</mapping>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.link"/>
-				<definition>
-					<min value="0"/>
-					<max value="0"/>
-				</definition>
-			</element>
-			<element>
-				<path value="Patient.active"/>
-				<definition>
-					<min value="0"/>
-					<max value="0"/>
-				</definition>
-			</element>
-		</differential>
-	</structure>
-	
-  <structure>
-    <type value="Organization"/>
-		<base value="http://hl7.org/fhir/Profile/Organization"/>
-		<name value="Organization"/>
-    <publish value="false"/>
-    <purpose value="CDA Organization"/>
-    <differential>
-      <element>
-        <path value="Organization"/>
-        <definition>
-          <short value="CDA Organization"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value="Organization"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.extension"/>
-        <definition>
-          <short value="CDA Whole Organization"/>
-          <type>
-            <code value="Extension"/>
-            <profile value="#whole-organization"/>
-          </type>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".wholeOrganization"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.identifier"/>
-        <definition>
-          <short value="CDA Organization ID"/>
-          <min value="0"/>
-          <max value="*"/>
-          <type>
-            <code value="Identifier"/>
-          </type>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".id"/>
-          </mapping>
-        </definition>
-      </element>
-      <!-- todo: extension for repeats -->
-      <element>
-        <path value="Organization.name"/>
-        <definition>
-          <short value="CDA Organization Name"/>
-          <min value="0"/>
-          <max value="1"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".name"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.type"/>
-        <definition>
-          <short value="CDA Organization standardIndustryClassCode"/>
-          <min value="0"/>
-          <max value="1"/>
-          <binding>
-            <name value="OrganizationIndustryClass"/>
-            <isExtensible value="true"/>
-            <referenceUri value="http://hl7.org/fhir/v3/vs/OrganizationIndustryClass"/>
-          </binding>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".standardIndustryClassCode"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.telecom"/>
-        <definition>
-          <short value="CDA Orgnization.telecom"/>
-          <min value="0"/>
-          <max value="*"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".telecom"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.address"/>
-        <definition>
-          <short value="CDA Organization Address"/>
-          <min value="0"/>
-          <max value="*"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value="./addr"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.partOf"/>
-        <definition>
-          <short value="The organization of which this organization forms a part"/>
-          <formal value="The organization of which this organization forms a part."/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="Reference"/>
-            <profile value="#Organization"/>
-          </type>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".asOrganizationPartOf"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.partOf.extension"/>
-        <definition>
-          <short value="CDA OrganiationPartOf code"/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="Extension"/>
-            <profile value="#org-partof-code"/>
-          </type>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".asOrganizationPartOf.code"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.partOf.extension"/>
-        <definition>
-          <short value="CDA OrganiationPartOf statusCode"/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="Extension"/>
-            <profile value="#org-partof-statuscode"/>
-          </type>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".asOrganizationPartOf.statusCode"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.partOf.extension"/>
-        <definition>
-          <short value="CDA OrganiationPartOf effectiveTime"/>
-          <min value="0"/>
-          <max value="1"/>
-          <type>
-            <code value="Extension"/>
-            <profile value="#org-partof-effectivetime"/>
-          </type>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".asOrganizationPartOf.effectiveTime"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.contact"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.location"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Organization.active"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-    </differential>
-  </structure>	
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
+  <title>CDA Profile</title>
+  <id>urn:uuid:74901c33-f239-4390-a252-92383ea8f061</id>
+  <link rel="self" href="http://www.hl7.org/fhir/Profile/cda"/> <!-- todo: this will be a composition -->
+  <updated>2014-11-05T20:31:00Z</updated>
+  <author>
+    <name>FHIR Project Team</name>
+  </author>
+  <entry>
+    <title>CDA Profile</title>
+    <id>http://hl7.org/fhir/Profile/cda</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+    
+      <Profile xmlns="http://hl7.org/fhir">
+        <!-- build tool to fill out narrative -->
+        <url value="http://hl7.org/fhir/Profile/cda.r2"/>
+        <name value="CDA R2 Profile"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-07-28"/>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/v3/cda"/>
+          <name value="CDA (R2)"/>
+        </mapping>
+        <structure>
+          <!-- base ClinicalDocument -->
+          <type value="Composition"/>
+          <base value="http://hl7.org/fhir/Profile/Composition"/>
+          <name value="ClinicalDocument"/>
+          <publish value="true"/>
+          <purpose value="Base Profile for Clinical Document"/>
+          <!-- todo: this is a bundle with a document tag.... -->
+          <!-- todo: Clinical Document Id goes in feed.id -->
+          <differential>
+            <element>
+              <path value="Composition"/>
+                <min value="1"/>
+                <max value="1"/>
+                <type>
+                  <code value="Resource"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="ClinicalDocument"/>
+                </mapping>
+            </element>
+            <element><!-- inFulfillmentOf extension -->
+              <path value="Composition.extension"/>
+                <short value="CDA inFulFillmentOf"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Extension"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-inFulFillmentOf"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".inFulFillmentOf"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.language"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="code"/>
+                </type>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".languageCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.identifier"/>
+                <short value="Clinical Document setId"/>
+                <formal value="Logical Identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time."/>
+                <comments value="See discussion in resource definition for how these relate."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Identifier"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".setId"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.date"/>
+                <short value="CDA document date/time"/>
+                <min value="1"/>
+                <max value="1"/>
+                <type>
+                  <code value="dateTime"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".effectiveTime"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.type"/>
+                <short value="Document Type"/>
+                <min value="1"/>
+                <max value="1"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".code"/>
+                </mapping>
+            </element>
+            <element>
+              <!-- not used in CDA -->
+              <path value="Composition.class"/>
+                <min value="0"/>
+                <max value="0"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+            </element>
+            <element>
+              <path value="Composition.title"/>
+                <short value="Clinical Document Title"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="string"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".title"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.status"/>
+                <short value="final"/>
+                <formal value="CDA: all documents are final"/>
+                <min value="1"/>
+                <max value="1"/>
+                <fixedCode value="final"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="n/a"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.confidentiality"/>
+                <short value="Document Confidentiality"/>
+                <min value="1"/>
+                <max value="1"/>
+                <type>
+                  <code value="Coding"/>
+                </type>
+                <isModifier value="true"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".confidentialityCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.subject"/>
+                <short value="CDA RecordTarget"/>
+                <min value="1"/>
+                <max value="1"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="#PatientRole"/>
+                </type>
+                <!-- todo: should there be other choices here? -->
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".recordTarget"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.author"/>
+                <short value="Who and/or what authored the composition"/>
+                <formal value="Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.)."/>
+                <min value="1"/>
+                <max value="*"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Practitioner"/>
+                </type>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Device"/>
+                </type>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Patient"/>
+                </type>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/RelatedPerson"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".author.assignedAuthor"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value=".participation[typeCode=&quot;AUT&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.attester"/>
+                <short value="Attests to accuracy of composition"/>
+                <formal value="A participant who has attested to the accuracy of the composition/document."/>
+                <comments value="Only list each attester once."/>
+                <min value="0"/>
+                <max value="*"/>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".authenticator/.legalAuthenticator"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value=".participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.attester.extension"/>
+                <short value="Additional Content defined by implementations"/>
+                <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+                <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
+                <synonym value="extensions"/>
+                <synonym value="user content"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Extension"/>
+                </type>
+            </element>
+            <element>
+              <path value="Composition.attester.modifierExtension"/>
+                <short value="Extensions that cannot be ignored"/>
+                <formal value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+                <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
+                <synonym value="extensions"/>
+                <synonym value="user content"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Extension"/>
+                </type>
+            </element>
+            <element>
+              <path value="Composition.attester.mode"/>
+                <short value="personal | professional | legal | official"/>
+                <formal value="The type of attestation the authenticator offers."/>
+                <comments value="Use more than one code where a single attester has more than one mode (professional and legal are often paired)."/>
+                <min value="1"/>
+                <max value="*"/>
+                <type>
+                  <code value="code"/>
+                </type>
+                <isModifier value="false"/>
+                <binding>
+                  <name value="CompositionAttestationMode"/>
+                  <isExtensible value="false"/>
+                  <description value="The way in which a person authenticated a composition"/>
+                  <referenceReference>
+                    <reference value="http://hl7.org/fhir/vs/composition-attestation-mode"/>
+                  </referenceReference>
+                </binding>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="implied by .authenticator/.legalAuthenticator"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="unique(./modeCode)"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.attester.time"/>
+                <short value="When composition attested"/>
+                <formal value="When composition was attested by the party."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="dateTime"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".authenticator.time"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="./time[type=&quot;TS&quot; and isNormalDatatype()]"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.attester.party"/>
+                <short value="Who attested the composition"/>
+                <formal value="Who attested the composition in the specified way."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Patient"/>
+                </type>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Practitioner"/>
+                </type>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Organization"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".authenticator.assignedEnttty"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="./role[classCode=&quot;ASSIGNED&quot; and isNormalRole]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and isNormalEntity()]
+      or
+      ./role[classCode=&quot;ASSIGNED&quot; and isNormalRole and not(player)]/scoper[determinerCode=&quot;INST&quot; and classCode=&quot;ORG&quot; and isNormalEntity()]"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.custodian"/>
+                <short value="Org which maintains the composition"/>
+                <formal value="Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information."/>
+                <comments value="This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because knowing this is sometimes not known by the authoring system, and can be inferred by context. However it&#39;s important that this information be known when working with a derived document, so providing a custodian is encouraged."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Organization"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".custodian.assignedCustodian"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value=".participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.event"/>
+                <short value="The clinical event/act/item being documented"/>
+                <formal value="The main event/act/item, such as a colonoscopy or an appendectomy, being documented."/>
+                <comments value="The event needs to be consistent with the type element, though can provide further information if desired."/>
+                <min value="0"/>
+                <max value="1"/>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".documentationOf.serviceEvent"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="outboundRelationship[typeCode=&quot;SUBJ&quot;].target[classCode&lt;&#39;ACT&#39;]"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.event.extension"/>
+                <short value="Additional Content defined by implementations"/>
+                <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+                <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
+                <synonym value="extensions"/>
+                <synonym value="user content"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Extension"/>
+                </type>
+            </element>
+            <element>
+              <path value="Composition.event.modifierExtension"/>
+                <short value="Extensions that cannot be ignored"/>
+                <formal value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+                <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
+                <synonym value="extensions"/>
+                <synonym value="user content"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Extension"/>
+                </type>
+            </element>
+            <element>
+              <path value="Composition.event.code"/>
+                <short value="Code(s) that apply to the event being documented"/>
+                <formal value="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act."/>
+                <comments value="An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as “key words” for certain types of queries."/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <binding>
+                  <name value="DocumentEventType"/>
+                  <isExtensible value="false"/>
+                  <description value="This list of codes represents the main clinical acts being documented"/>
+                  <referenceReference>
+                    <reference value="http://hl7.org/fhir/v3/vs/ActCode"/>
+                  </referenceReference>
+                </binding>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".code"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value=".code"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.event.period"/>
+                <short value="The period covered by the documentation"/>
+                <formal value="The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Period"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".effectiveTime"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value=".effectiveTime"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.event.detail"/>
+                <short value="Full details for the event(s) the composition consents"/>
+                <formal value="Full details for the event(s) the composition/documentation consents."/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Any"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="n/a"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].target"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.encounter"/>
+                <short value="Context of the conposition"/>
+                <formal value="Describes the clinical encounter or type of care this documentation is associated with."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Encounter"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".componentOf.encompassingEncounter"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="unique(highest(./outboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()], priorityNumber)/target[moodCode=&quot;EVN&quot; and classCode=(&quot;ENC&quot;, &quot;PCPR&quot;) and isNormalAct])"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.section"/>
+              <name value="section"/>
+                <short value="Composition is broken into sections"/>
+                <formal value="The root of the sections that make up the composition."/>
+                <min value="0"/>
+                <max value="*"/>
+                <constraint>
+                  <key value="2"/>
+                  <name value="Section Rule"/>
+                  <severity value="error"/>
+                  <human value="A section SHALL have content or one or more sections, but not both."/>
+                  <xpath value="exists(f:content) != exists(f:section)"/>
+                </constraint>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".component.structuredBody.component.section"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.section.extension"/>
+                <short value="Additional Content defined by implementations"/>
+                <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+                <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
+                <synonym value="extensions"/>
+                <synonym value="user content"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Extension"/>
+                </type>
+            </element>
+            <element>
+              <path value="Composition.section.modifierExtension"/>
+                <short value="Extensions that cannot be ignored"/>
+                <formal value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+                <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
+                <synonym value="extensions"/>
+                <synonym value="user content"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Extension"/>
+                </type>
+            </element>
+            <element>
+              <path value="Composition.section.title"/>
+                <short value="Label for section"/>
+                <formal value="The heading for this particular section.  This will be part of the rendered content for the document."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="string"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".title"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="./title"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.section.code"/>
+                <short value="Classification of section (recommended)"/>
+                <formal value="A code identifying the kind of content contained within the section."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <binding>
+                  <name value="CompositionSectionType"/>
+                  <isExtensible value="false"/>
+                  <description value="Classification of a composition / document"/>
+                  <referenceReference>
+                    <reference value="http://hl7.org/fhir/vs/doc-section-codes"/>
+                  </referenceReference>
+                </binding>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".code"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="./code"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.section.subject"/>
+                <short value="If section different to composition"/>
+                <formal value="Identifies the primary subject of the section."/>
+                <comments value="This is labeled as &quot;Is Modifier&quot; because applications SHALL be aware if the subject changes for a particular section."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Patient"/>
+                </type>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Group"/>
+                </type>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Device"/>
+                </type>
+                <isModifier value="true"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".subject.relatedSubject"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[typeCode=&quot;PAT&quot;])
+      or
+      unique(./participation[typeCode=&quot;SBJ&quot; and isNormalParticipation]/role[typeCode=&quot;IDENT&quot;]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;ORG&quot;) and isNormalEntity()])"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.section.content"/>
+                <short value="The actual data for the section"/>
+                <formal value="Identifies the discrete data that provides the content for the section."/>
+                <comments value="Because composition represent point-in-time snapshots, resource references should either be to a specific version, or made against resources on the same server with full version tracking, so that the correct versions can easily be assembled."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/Profile/Any"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="n/a"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="unique(./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode!=&quot;DOCSECT&quot; and isNormalAct])"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Composition.section.section"/>
+                <short value="Nested Section"/>
+                <formal value="A nested sub-section within this section."/>
+                <min value="0"/>
+                <max value="*"/>
+                <nameReference value="section"/>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".component.section"/>
+                </mapping>
+                <mapping>
+                  <identity value="rim"/>
+                  <map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>
+                </mapping>
+            </element>
+          </differential>
+        </structure>
+        <!-- record target structure - used from Composition -->
+        <structure>
+          <type value="Patient"/>
+          <base value="http://hl7.org/fhir/Profile/Patient"/>
+          <name value="PatientRole"/>
+          <publish value="false"/>
+          <purpose value="Profile on patient for CDA PatientRole"/>
+          <differential>
+            <element>
+              <path value="Patient"/>
+                <short value="CDA PatientRole"/>
+                <min value="1"/>
+                <max value="1"/>
+                <type>
+                  <code value="Resource"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="PatientRole"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.extension"/>
+                <short value="Patient's religious classification"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Extension"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/us-core-religion"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.religiousAffiliationCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.extension"/>
+                <short value="Patient's racial classification"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Extension"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/us-core-race"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.raceCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.extension"/>
+                <short value="Patient's ethnic classification"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Extension"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/us-core-ethnicity"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="ethnicGroupCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.extension"/>
+                <short value="Patient's birthplace"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-Birthplace"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.birthPlace"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.identifier"/>
+                <short value="Patient Identifier"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Identifier"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".id"/>
+                </mapping>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.id"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.name"/>
+                <short value="Patient names"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="HumanName"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.name"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.telecom"/>
+                <short value="Patient Contact Details"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Contact"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".telecom"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.gender"/>
+                <short value="Patient administrative Gender"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.administrativeGender"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.birthDate"/>
+                <short value="Patient Birthtime"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="dateTime"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.birthTime"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.deceased[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element>
+            <element>
+              <path value="Patient.address"/>
+                <short value="Patient Address"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Address"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".addr"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.maritalStatus"/>
+                <short value="CDA Patient Marital Status"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.maritalStatusCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.multipleBirth[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Patient.photo"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Patient.contact"/>
+                <short value="CDA Guardian"/>
+                <min value="0"/>
+                <max value="*"/>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.guardian"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.contact.extension"/>
+                <short value="CDA Guardian Identifier"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Extension"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-guardian-id"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.guardian.id"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.contact.relationship"/>
+              <slicing>
+                <discriminator value="coding.code"/>
+                <ordered value="true"/>
+                <rules value="openAtEnd"/>
+              </slicing>
+            </element>
+            <element>
+              <path value="Patient.contact.relationship"/>
+                <short value="in CDA, only Guardian is allowed"/>
+                <min value="1"/>
+                <max value="1"/>
+                <fixedCodeableConcept>
+                  <coding>
+                    <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+                    <code value="guardian"/>
+                  </coding>
+                </fixedCodeableConcept>
+            </element>
+            <element>
+              <path value="Patient.contact.relationship"/>
+                <min value="0"/>
+                <max value="1"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.guardian.code"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.contact.name"/>
+                <short value="Guardian name (if a person)"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.guardian.name"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.contact.telecom"/>
+                <short value="A contact detail for the guardian"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Contact"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.guardian.telecom"/>
+                </mapping>
+            </element>
+            <!-- todo: extension for 0..* -->
+            <element>
+              <path value="Patient.contact.address"/>
+                <short value="Address for the guardian"/>
+                <formal value="Address for the contact person."/>
+                <min value="0"/>
+                <max value="1"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.guardian.addr"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.contact.gender"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Patient.contact.organization"/>
+                <short value="Organization that acts as guardian for the contact"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="#Organization"/>
+                </type>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.guardian.guardianOrganization"/>
+                </mapping>
+            </element>
+            <!-- CDA does not support non-human patients -->
+            <element>
+              <path value="Patient.animal"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Patient.communication"/>
+                <short value="CDA patient language"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.languageCommunication.languageCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.communication.extension"/>
+                <short value="CDA patient language mode"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-language-mode"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.languageCommunication.modeCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.communication.extension"/>
+                <short value="CDA patient language proficiency"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-language-proficiency"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.languageCommunication.proficiencyCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.communication.extension"/>
+                <short value="CDA patient language preference"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-language-preference"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".patient.languageCommunication.preferenceInd"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.careProvider"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Patient.managingOrganization"/>
+                <short value="Organization that is the custodian of the patient record"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="#Organization"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".providerOrganization"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Patient.link"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Patient.active"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+          </differential>
+        </structure>
+        
+        <structure>
+          <type value="Organization"/>
+          <base value="http://hl7.org/fhir/Profile/Organization"/>
+          <name value="Organization"/>
+          <publish value="false"/>
+          <purpose value="CDA Organization"/>
+          <differential>
+            <element>
+              <path value="Organization"/>
+                <short value="CDA Organization"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="Organization"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Organization.extension"/>
+                <short value="CDA Whole Organization"/>
+                <type>
+                  <code value="Extension"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-whole-organization"/>
+                </type>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".wholeOrganization"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Organization.identifier"/>
+                <short value="CDA Organization ID"/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Identifier"/>
+                </type>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".id"/>
+                </mapping>
+            </element>
+            <!-- todo: extension for repeats -->
+            <element>
+              <path value="Organization.name"/>
+                <short value="CDA Organization Name"/>
+                <min value="0"/>
+                <max value="1"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".name"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Organization.type"/>
+                <short value="CDA Organization standardIndustryClassCode"/>
+                <min value="0"/>
+                <max value="1"/>
+                <binding>
+                  <name value="OrganizationIndustryClass"/>
+                  <isExtensible value="true"/>
+                  <referenceUri value="http://hl7.org/fhir/v3/vs/OrganizationIndustryClass"/>
+                </binding>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".standardIndustryClassCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Organization.telecom"/>
+                <short value="CDA Orgnization.telecom"/>
+                <min value="0"/>
+                <max value="*"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".telecom"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Organization.address"/>
+                <short value="CDA Organization Address"/>
+                <min value="0"/>
+                <max value="*"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="./addr"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Organization.partOf"/>
+                <short value="The organization of which this organization forms a part"/>
+                <formal value="The organization of which this organization forms a part."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Reference"/>
+                  <profile value="#Organization"/>
+                </type>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".asOrganizationPartOf"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Organization.partOf.extension"/>
+                <short value="CDA OrganiationPartOf code"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Extension"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-code"/>
+                </type>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".asOrganizationPartOf.code"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Organization.partOf.extension"/>
+                <short value="CDA OrganiationPartOf statusCode"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Extension"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-statuscode"/>
+                </type>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".asOrganizationPartOf.statusCode"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Organization.partOf.extension"/>
+                <short value="CDA OrganiationPartOf effectiveTime"/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                  <code value="Extension"/>
+                  <profile value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-effectivetime"/>
+                </type>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".asOrganizationPartOf.effectiveTime"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Organization.contact"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Organization.location"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Organization.active"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+          </differential>
+        </structure>	
 
-	<structure>
-    <type value="Location"/>
-		<base value="http://hl7.org/fhir/Profile/Location"/>
-    <name value="Birthplace"/>
-    <publish value="false"/>
-    <purpose value="A patient's birthplace"/>
-    <differential>
-      <element>
-        <path value="Location"/>
-        <definition>
-          <min value="1"/>
-          <max value="1"/>
-          <type>
-            <code value="Resource"/>
-          </type>
-          <isModifier value="false"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value="Place"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.identifier"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.name"/>
-        <definition>
-          <min value="0"/>
-          <max value="1"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".name"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.description"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.type"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.telecom"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.address"/>
-        <definition>
-          <short value="Physical location address"/>
-          <min value="0"/>
-          <max value="1"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".addr"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.physicalType"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.position"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.managingOrganization"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.status"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.partOf"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-      <element>
-        <path value="Location.mode"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-        </definition>
-      </element>
-    </differential>
-  </structure>
-  
-  <structure> <!-- Diagnostic Order (inFulfillmentOf) -->
-    <type value="DiagnosticOrder"/>
-		<base value="http://hl7.org/fhir/Profile/DiagnosticOrder"/>
-    <name value="inFulFillmentOfDiagnosticOrder"/>
-    <publish value="false"/>
-    <purpose value="DiagnosticOrder resource as referred to in CDA"/>
-    <differential>
-      <element>
-        <path value="DiagnosticOrder"/>
-        <definition>
-          <short value="CDA inFulFillmentOf"/>
-          <min value="1"/>
-          <max value="1"/>
-          <type>
-            <code value="Resource"/>
-          </type>
-          <isModifier value="false"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value="inFulFillmentOf"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="DiagnosticOrder.subject"/>
-        <definition>
-          <short value="Populate from the Composition subject"/>
-          <isModifier value="false"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value="../recordTarget..."/> <!-- todo: how to do this well? -->
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="DiagnosticOrder.orderer[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element>   
-      <element>
-        <path value="DiagnosticOrder.identifier"/>
-        <definition>
-          <short value="Identifiers assigned to this order"/>
-          <formal value="Identifiers assigned to this order by the order or by the receiver."/>
-          <min value="0"/>
-          <max value="*"/>
-          <type>
-            <code value="Identifier"/>
-          </type>
-          <isModifier value="false"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".order.id"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="DiagnosticOrder.encounter[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element>  
-      <element>
-        <path value="DiagnosticOrder.clinicalNotes[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element>  
-      <element>
-        <path value="DiagnosticOrder.supportingInformation[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element> 
-      <element>
-        <path value="DiagnosticOrder.specimen[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element> 
-      <element>
-        <path value="DiagnosticOrder.status[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element> 
-      <element>
-        <!-- todo: updated this mapping after discussion with OO -->
-        <path value="DiagnosticOrder.priority"/>
-        <definition>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".inFulfillment/Order/priorityCode"/>
-          </mapping>
-        </definition>
-      </element>
-      <element> <!-- Other event children removed -->
-        <path value="DiagnosticOrder.event[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element> 
+        <structure>
+          <type value="Location"/>
+          <base value="http://hl7.org/fhir/Profile/Location"/>
+          <name value="Birthplace"/>
+          <publish value="false"/>
+          <purpose value="A patient's birthplace"/>
+          <differential>
+            <element>
+              <path value="Location"/>
+                <min value="1"/>
+                <max value="1"/>
+                <type>
+                  <code value="Resource"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="Place"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Location.identifier"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Location.name"/>
+                <min value="0"/>
+                <max value="1"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".name"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Location.description"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Location.type"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Location.telecom"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Location.address"/>
+                <short value="Physical location address"/>
+                <min value="0"/>
+                <max value="1"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".addr"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="Location.physicalType"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Location.position"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Location.managingOrganization"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Location.status"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Location.partOf"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+            <element>
+              <path value="Location.mode"/>
+                <min value="0"/>
+                <max value="0"/>
+            </element>
+          </differential>
+        </structure>
+        
+        <structure> <!-- Diagnostic Order (inFulfillmentOf) -->
+          <type value="DiagnosticOrder"/>
+          <base value="http://hl7.org/fhir/Profile/DiagnosticOrder"/>
+          <name value="inFulFillmentOfDiagnosticOrder"/>
+          <publish value="false"/>
+          <purpose value="DiagnosticOrder resource as referred to in CDA"/>
+          <differential>
+            <element>
+              <path value="DiagnosticOrder"/>
+                <short value="CDA inFulFillmentOf"/>
+                <min value="1"/>
+                <max value="1"/>
+                <type>
+                  <code value="Resource"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="inFulFillmentOf"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="DiagnosticOrder.subject"/>
+                <short value="Populate from the Composition subject"/>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value="../recordTarget..."/> <!-- todo: how to do this well? -->
+                </mapping>
+            </element>
+            <element>
+              <path value="DiagnosticOrder.orderer[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element>   
+            <element>
+              <path value="DiagnosticOrder.identifier"/>
+                <short value="Identifiers assigned to this order"/>
+                <formal value="Identifiers assigned to this order by the order or by the receiver."/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                  <code value="Identifier"/>
+                </type>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".order.id"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="DiagnosticOrder.encounter[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element>  
+            <element>
+              <path value="DiagnosticOrder.clinicalNotes[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element>  
+            <element>
+              <path value="DiagnosticOrder.supportingInformation[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element> 
+            <element>
+              <path value="DiagnosticOrder.specimen[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element> 
+            <element>
+              <path value="DiagnosticOrder.status[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element> 
+            <element>
+              <!-- todo: updated this mapping after discussion with OO -->
+              <path value="DiagnosticOrder.priority"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".inFulfillment/Order/priorityCode"/>
+                </mapping>
+            </element>
+            <element> <!-- Other event children removed -->
+              <path value="DiagnosticOrder.event[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element> 
 
-      <element>
-        <path value="DiagnosticOrder.item"/>
-        <definition>
-          <min value="0"/>
-          <max value="1"/>
-          <isModifier value="false"/>
-          <mapping>
-            <identity value="cda"/>
-            <map value=".order.code"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="DiagnosticOrder.item.code"/>
-        <definition>
-          <short value="CDA ORder Code"/>
-          <min value="1"/>
-          <max value="1"/>
-          <type>
-            <code value="CodeableConcept"/>
-          </type>
-          <isModifier value="false"/>
-          <!-- todo: update the binding -->
-          <mapping>
-            <identity value="cda"/>
-            <map value=".order.code"/>
-          </mapping>
-        </definition>
-      </element>
-      <element>
-        <path value="DiagnosticOrder.item.specimen[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element> 
-      <element>
-        <path value="DiagnosticOrder.item.bodySite[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element>
-      <element>
-        <path value="DiagnosticOrder.item.status[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element>
-      <element>
-        <path value="DiagnosticOrder.item.event[x]"/>
-        <definition>
-          <min value="0"/>
-          <max value="0"/>
-          <isModifier value="true"/>
-        </definition>
-      </element>
-    </differential>
-  </structure>
+            <element>
+              <path value="DiagnosticOrder.item"/>
+                <min value="0"/>
+                <max value="1"/>
+                <isModifier value="false"/>
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".order.code"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="DiagnosticOrder.item.code"/>
+                <short value="CDA ORder Code"/>
+                <min value="1"/>
+                <max value="1"/>
+                <type>
+                  <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <!-- todo: update the binding -->
+                <mapping>
+                  <identity value="cda"/>
+                  <map value=".order.code"/>
+                </mapping>
+            </element>
+            <element>
+              <path value="DiagnosticOrder.item.specimen[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element> 
+            <element>
+              <path value="DiagnosticOrder.item.bodySite[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element>
+            <element>
+              <path value="DiagnosticOrder.item.status[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element>
+            <element>
+              <path value="DiagnosticOrder.item.event[x]"/>
+                <min value="0"/>
+                <max value="0"/>
+                <isModifier value="true"/>
+            </element>
+          </differential>
+        </structure>
+      </Profile>
+    </content>
+  </entry>
   
-  <extensionDefn>
-    <name value="language-preference"/>
-    <contextType value="resource"/>
-    <context value="Patient.communication"/>
-    <element>
-      <path value="language-preference"/>
-      <definition>
-        <short value="The preference for this language"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="boolean"/>
-        </type>
+  <entry>
+    <title>CDA Extension</title>
+    <id>http://hl7.org/fhir/ExtensionDefinition/cda-language-preference</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+      <ExtensionDefinition xmlns="http://hl7.org/fhir">
+        <url value="http://hl7.org/fhir/ExtensionDefinition/cda-language-preference"/>
+        <name value="CDA Language Preference"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-11-05"/>
         <mapping>
           <identity value="rim"/>
-          <map value="LanguageCommunication.preferenceInd"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM"/>
         </mapping>
-      </definition>
-    </element>
-  </extensionDefn>
+        <contextType value="resource"/>
+        <context value="Patient.communication"/>
+        <element>
+          <path value="language-preference"/>
+            <short value="The preference for this language"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+              <code value="boolean"/>
+            </type>
+            <mapping>
+              <identity value="rim"/>
+              <map value="LanguageCommunication.preferenceInd"/>
+            </mapping>
+        </element>
+      </ExtensionDefinition>  
+    </content>
+  </entry>
   
-  <extensionDefn>
-    <name value="language-proficiency"/>
-    <contextType value="resource"/>
-    <context value="Patient.communication"/>
-    <element>
-      <path value="language-proficiency"/>
-      <definition>
-        <short value="The proficiency for this language"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <binding>
-          <name value="LanguageAbiliityProficiency"/>
-          <isExtensible value="true"/>
-          <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityProficiency"/>
-        </binding>
+  <entry>
+    <title>CDA Extension</title>
+    <id>http://hl7.org/fhir/ExtensionDefinition/cda-language-proficiency</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+      <ExtensionDefinition xmlns="http://hl7.org/fhir">
+        <url value="http://hl7.org/fhir/ExtensionDefinition/cda-language-proficiency"/>
+        <name value="CDA Language Proficiency"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-11-05"/>
         <mapping>
           <identity value="rim"/>
-          <map value="LanguageCommunication.proficiencyLevelCode"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM"/>
         </mapping>
-      </definition>
-    </element>
-  </extensionDefn>
+        <contextType value="resource"/>
+        <context value="Patient.communication"/>
+        <element>
+          <path value="language-proficiency"/>
+            <short value="The proficiency for this language"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+              <code value="CodeableConcept"/>
+            </type>
+            <binding>
+              <name value="LanguageAbiliityProficiency"/>
+              <isExtensible value="true"/>
+              <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityProficiency"/>
+            </binding>
+            <mapping>
+              <identity value="rim"/>
+              <map value="LanguageCommunication.proficiencyLevelCode"/>
+            </mapping>
+        </element>
+       </ExtensionDefinition>
+    </content>
+  </entry>
+  
+  <entry>
+    <title>CDA Extension</title>
+    <id>http://hl7.org/fhir/ExtensionDefinition/cda-language-mode</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+      <ExtensionDefinition xmlns="http://hl7.org/fhir">
+        <url value="http://hl7.org/fhir/ExtensionDefinition/cda-language-mode"/>
+        <name value="CDA Language Mode"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-11-05"/>
+        <mapping>
+          <identity value="rim"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM"/>
+        </mapping>
+        <contextType value="resource"/>
+        <context value="Patient.communication"/>
+        <element>
+          <path value="language-mode"/>
+            <short value="The mode for this language"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+              <code value="CodeableConcept"/>
+            </type>
+            <binding>
+              <name value="LanguageAbiliityMode"/>
+              <isExtensible value="true"/>
+              <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityMode"/>
+            </binding>
+            <mapping>
+              <identity value="rim"/>
+              <map value="LanguageCommunication.modeCode"/>
+            </mapping>
+        </element>
+      </ExtensionDefinition>
+    </content>
+  </entry>
+  
+  <entry>
+    <title>CDA Extension</title>
+    <id>http://hl7.org/fhir/ExtensionDefinition/cda-guardian-id</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+      <ExtensionDefinition xmlns="http://hl7.org/fhir">
+        <url value="http://hl7.org/fhir/ExtensionDefinition/cda-guardian-id"/>
+        <name value="CDA Guardian Identifier"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-11-05"/>
+        <mapping>
+          <identity value="rim"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM"/>
+        </mapping>
+        <contextType value="resource"/>
+        <context value="Patient.contact"/>
+        <element>
+          <path value="guardian-id"/>
+            <short value="The Guardian's id"/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+              <code value="Identifier"/>
+            </type>
+            <mapping>
+              <identity value="rim"/>
+              <map value="Role.id"/>
+            </mapping>
+        </element>
+      </ExtensionDefinition>
+    </content>
+  </entry>
 
-  <extensionDefn>
-    <name value="language-mode"/>
-    <contextType value="resource"/>
-    <context value="Patient.communication"/>
-    <element>
-      <path value="language-mode"/>
-      <definition>
-        <short value="The mode for this language"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <binding>
-          <name value="LanguageAbiliityMode"/>
-          <isExtensible value="true"/>
-          <referenceUri value="http://hl7.org/fhir/v3/vs/LanguageAbilityMode"/>
-        </binding>
+  <entry>
+    <title>CDA Extension</title>
+    <id>http://hl7.org/fhir/ExtensionDefinition/cda-birthplace</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+      <ExtensionDefinition xmlns="http://hl7.org/fhir">
+        <url value="http://hl7.org/fhir/ExtensionDefinition/cda-birthplace"/>
+        <name value="CDA Birthplace"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-11-05"/>
         <mapping>
           <identity value="rim"/>
-          <map value="LanguageCommunication.modeCode"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM"/>
         </mapping>
-      </definition>
-    </element>
-  </extensionDefn>
+        <contextType value="resource"/>
+        <context value="Patient"/>
+        <element>
+          <path value="birthplace"/>
+            <short value="The patient's birthplace"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+              <code value="Reference"/>
+              <profile value="#birthplace"/>
+            </type>
+            <mapping>
+              <identity value="rim"/>
+              <map value="Role.playingEntity"/>
+            </mapping>
+        </element>
+      </ExtensionDefinition>
+    </content>
+  </entry>
 
-  <extensionDefn>
-    <name value="guardian-id"/>
-    <contextType value="resource"/>
-    <context value="Patient.contact"/>
-    <element>
-      <path value="guardian-id"/>
-      <definition>
-        <short value="The Guardian's id"/>
-        <min value="0"/>
-        <max value="*"/>
-        <type>
-          <code value="Identifier"/>
-        </type>
+  <entry>
+    <title>CDA Extension</title>
+    <id>http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-effectivetime</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+      <ExtensionDefinition xmlns="http://hl7.org/fhir">
+        <url value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-effectivetime"/>
+        <name value="CDA Organization Relationship Effective time"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-11-05"/>
         <mapping>
           <identity value="rim"/>
-          <map value="Role.id"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM"/>
         </mapping>
-      </definition>
-    </element>
-  </extensionDefn>
+        <contextType value="resource"/>
+        <context value="Organization.partOf"/>
+        <element>
+          <path value="org-partof-effectivetime"/>
+            <short value="The period of the organizational relationship"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+              <code value="Period"/>
+            </type>
+            <mapping>
+              <identity value="rim"/>
+              <map value="Role.effectiveTime"/>
+            </mapping>
+        </element>
+      </ExtensionDefinition>
+    </content>
+  </entry>
   
-  <extensionDefn>
-    <name value="birthplace"/>
-    <contextType value="resource"/>
-    <context value="Patient"/>
-    <element>
-      <path value="birthplace"/>
-      <definition>
-        <short value="The patient's birthplace"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference"/>
-          <profile value="#birthplace"/>
-        </type>
+  <entry>
+    <title>CDA Extension</title>
+    <id>http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-statuscode</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+      <ExtensionDefinition xmlns="http://hl7.org/fhir">
+        <url value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-statuscode"/>
+        <name value="CDA Organization Relationship Status"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-11-05"/>
         <mapping>
           <identity value="rim"/>
-          <map value="Role.playingEntity"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM"/>
         </mapping>
-      </definition>
-    </element>
-  </extensionDefn>
-
-  <extensionDefn>
-    <name value="org-partof-effectivetime"/>
-    <contextType value="resource"/>
-    <context value="Organization.partOf"/>
-    <element>
-      <path value="org-partof-effectivetime"/>
-      <definition>
-        <short value="The period of the organizational relationship"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Period"/>
-        </type>
+        <contextType value="resource"/>
+        <context value="Organization.partOf"/>
+        <element>
+          <path value="org-partof-statuscode"/>
+            <short value="The status of the organizational relationship"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+              <code value="CodeableConcept"/>
+            </type>
+            <binding>
+              <name value="RoleStatus"/>
+              <isExtensible value="false"/>
+              <referenceUri value="http://hl7.org/fhir/v3/vs/RoleStatus"/>
+            </binding>
+            <mapping>
+              <identity value="rim"/>
+              <map value="Role.statusCode"/>
+            </mapping>
+        </element>
+      </ExtensionDefinition>
+    </content>
+  </entry>
+  
+  <entry>
+    <title>CDA Extension</title>
+    <id>http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-code</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+      <ExtensionDefinition xmlns="http://hl7.org/fhir">
+        <url value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-code"/>
+        <name value="CDA Organization Relationship Type"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-11-05"/>
         <mapping>
           <identity value="rim"/>
-          <map value="Role.effectiveTime"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM"/>
         </mapping>
-      </definition>
-    </element>
-  </extensionDefn>
+        <contextType value="resource"/>
+        <context value="Organization.partOf"/>
+        <element>
+          <path value="org-partof-code"/>
+            <short value="The type of the organizational relationship"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+              <code value="CodeableConcept"/>
+            </type>
+            <binding>
+              <name value="RoleCode"/>
+              <isExtensible value="true"/>
+              <referenceUri value="http://hl7.org/fhir/v3/vs/RoleCode"/>
+            </binding>
+            <mapping>
+              <identity value="rim"/>
+              <map value="Role.code"/>
+            </mapping>
+        </element>
+      </ExtensionDefinition>
+    </content>
+  </entry>
   
-  <extensionDefn>
-    <name value="org-partof-statuscode"/>
-    <contextType value="resource"/>
-    <context value="Organization.partOf"/>
-    <element>
-      <path value="org-partof-statuscode"/>
-      <definition>
-        <short value="The status of the organizational relationship"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <binding>
-          <name value="RoleStatus"/>
-          <isExtensible value="false"/>
-          <referenceUri value="http://hl7.org/fhir/v3/vs/RoleStatus"/>
-        </binding>
+  <entry>
+    <title>CDA Extension</title>
+    <id>http://hl7.org/fhir/ExtensionDefinition/cda-whole-organization</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+      <ExtensionDefinition xmlns="http://hl7.org/fhir">
+        <url value="http://hl7.org/fhir/ExtensionDefinition/cda-whole-organization"/>
+        <name value="CDA Organizational Parent"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-11-05"/>
         <mapping>
           <identity value="rim"/>
-          <map value="Role.statusCode"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM"/>
         </mapping>
-      </definition>
-    </element>
-  </extensionDefn>
+        <contextType value="resource"/>
+        <context value="Organization.partOf"/>
+        <element>
+          <path value="whole-organization"/>
+            <short value="The type of the organizational relationship"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+              <code value="Reference"/>
+              <profile value="#Organization"/>
+            </type>
+        </element>
+      </ExtensionDefinition>
+    </content>
+  </entry>
   
-  <extensionDefn>
-    <name value="org-partof-code"/>
-    <contextType value="resource"/>
-    <context value="Organization.partOf"/>
-    <element>
-      <path value="org-partof-code"/>
-      <definition>
-        <short value="The type of the organizational relationship"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="CodeableConcept"/>
-        </type>
-        <binding>
-          <name value="RoleCode"/>
-          <isExtensible value="true"/>
-          <referenceUri value="http://hl7.org/fhir/v3/vs/RoleCode"/>
-        </binding>
+  <entry>
+    <title>CDA Extension</title>
+    <id>http://hl7.org/fhir/ExtensionDefinition/cda-inFulFillmentOf</id>
+    <updated>2014-11-05T20:31:00Z</updated>
+    <content type="text/xml">
+      <ExtensionDefinition xmlns="http://hl7.org/fhir">
+        <url value="http://hl7.org/fhir/ExtensionDefinition/cda-inFulFillmentOf"/>
+        <name value="CDA In Fulfillment of"/>
+        <publisher value="HL7 FHIR Project"/>
+        <telecom>
+          <system value="url"/>
+          <value value="http://hl7.org/fhir"/>
+        </telecom>
+        <description value="Standard Profile for CDA R2 on FHIR"/>
+        <status value="draft"/>
+        <date value="2014-11-05"/>
         <mapping>
           <identity value="rim"/>
-          <map value="Role.code"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM"/>
         </mapping>
-      </definition>
-    </element>
-  </extensionDefn>
+        <contextType value="resource"/>
+        <context value="Composition"/>
+        <element>
+          <path value="inFulFillmentOf"/>
+            <short value="Indicates an order that this document is created to fulfill"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+              <code value="Reference"/>
+              <profile value="#inFulFillmentOfDiagnosticOrder"/>
+            </type>
+        </element>
+      </ExtensionDefinition>
+    </content>
+  </entry>
   
-  <extensionDefn>
-    <name value="whole-organization"/>
-    <contextType value="resource"/>
-    <context value="Organization.partOf"/>
-    <element>
-      <path value="whole-organization"/>
-      <definition>
-        <short value="The type of the organizational relationship"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference"/>
-          <profile value="#Organization"/>
-        </type>
-      </definition>
-    </element>
-  </extensionDefn>
-  
-  <extensionDefn>
-    <name value="inFulFillmentOf"/>
-    <contextType value="resource"/>
-    <context value="Composition"/>
-    <element>
-      <path value="inFulFillmentOf"/>
-      <definition>
-        <short value="Indicates an order that this document is created to fulfill"/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference"/>
-          <profile value="#inFulFillmentOfDiagnosticOrder"/>
-        </type>
-      </definition>
-    </element>
-  </extensionDefn>
-  
-</Profile>
+</feed>

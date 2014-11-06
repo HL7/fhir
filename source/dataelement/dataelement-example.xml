@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataElement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/dataelement.xsd">
-  <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
     <valueInteger value="1"/>
   </extension>
-  <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
     <valueInteger value="13"/>
   </extension>
   <text>

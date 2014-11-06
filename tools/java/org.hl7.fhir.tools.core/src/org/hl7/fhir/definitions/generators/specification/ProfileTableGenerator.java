@@ -3,7 +3,6 @@ package org.hl7.fhir.definitions.generators.specification;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.ElementDefn;
-import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.model.Profile;
@@ -59,19 +58,19 @@ public class ProfileTableGenerator extends TableGenerator {
       }
     }
     
-    if (!p.getExtensions().isEmpty() || extensionsOnly) {
-      Row re = gen.new Row();
-      rows.add(re);
-      re.setIcon("icon_profile.png", HeirarchicalTableGenerator.TEXT_ICON_PROFILE);
-      re.getCells().add(gen.new Cell(null, null, "Extensions", null, null));
-      re.getCells().add(gen.new Cell());
-      re.getCells().add(gen.new Cell());
-      re.getCells().add(gen.new Cell(null, null, "Extensions defined by the URL \""+profile.getUrl()+"\"", null, null));
-
-      for (ExtensionDefn ext : p.getExtensions()) {
-        genExtension(gen, re.getSubRows(), ext, true);
-      }
-    }
+//    if (!p.getExtensions().isEmpty() || extensionsOnly) {
+//      Row re = gen.new Row();
+//      rows.add(re);
+//      re.setIcon("icon_profile.png", HeirarchicalTableGenerator.TEXT_ICON_PROFILE);
+//      re.getCells().add(gen.new Cell(null, null, "Extensions", null, null));
+//      re.getCells().add(gen.new Cell());
+//      re.getCells().add(gen.new Cell());
+//      re.getCells().add(gen.new Cell(null, null, "Extensions defined by the URL \""+profile.getUrl()+"\"", null, null));
+//
+////      for (ExtensionDefn ext : p.getExtensions()) {
+////        genExtension(gen, re.getSubRows(), ext, true);
+////      }
+//    }
     
   }
 
@@ -88,7 +87,7 @@ public class ProfileTableGenerator extends TableGenerator {
     for (ElementDefn c : res.getRoot().getElements())
       r.getSubRows().add(genElement(c, gen, false, res.getRoot().getProfileName(), true));
   }
-
+/*
   private void genExtension(HeirarchicalTableGenerator gen, List<Row> rows, ExtensionDefn ext, boolean root) {
     Row r = gen.new Row();
     rows.add(r);
@@ -124,4 +123,5 @@ public class ProfileTableGenerator extends TableGenerator {
     }
     return null;
   }
+  */
 }

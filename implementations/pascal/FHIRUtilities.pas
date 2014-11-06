@@ -115,7 +115,7 @@ type
     procedure setExtensionString(url, value : String);
   end;
 
-  TFhirProfileStructureSnapshotElementDefinitionTypeListHelper = class helper for TFhirProfileStructureSnapshotElementDefinitionTypeList
+  TFhirProfileStructureSnapshotElementDefinitionTypeListHelper = class helper for TFhirElementDefinitionList
   public
     function summary : String;
   end;
@@ -1414,7 +1414,7 @@ var
 begin
   result := '';
   for i := 0 to Count - 1 do
-    result := result + ','+Item(i).code;
+    result := result + ','+Item(i).name;
   if result <> '' then
     result := result.Substring(1);
 end;

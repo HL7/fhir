@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1234,11 +1234,11 @@ public class DocumentReference extends Resource {
     /**
      * @param value {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
-    public UriType addFormat(String value) { 
+    public DocumentReference addFormat(String value) { 
       UriType t = new UriType();
       t.setValue(value);
       this.format.add(t);
-      return t;
+      return this;
     }
 
     /**

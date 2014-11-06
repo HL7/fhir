@@ -36,10 +36,9 @@ import java.util.List;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ElementComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionMappingComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.utilities.Utilities;
@@ -85,19 +84,13 @@ public class MappingsGenerator {
 
         s.append("<table class=\"grid\">\r\n");
         
-        for (ProfileExtensionDefnComponent ext : profile.getExtensionDefn()) {
-          s.append(" <tr><td colspan=\"3\"><b>Extension "+Utilities.escapeXml(ext.getName())+"</b></td></tr>\r\n");
-          for (ElementComponent e : ext.getElement()) {
-            genElement(s, e, map.getIdentity());
-          }          
-        }
         for (ProfileStructureComponent ps : profile.getStructure()) {
           s.append(" <tr><td colspan=\"3\"><b>"+Utilities.escapeXml(ps.getName())+"</b></td></tr>\r\n");
           String path = null;
-          for (ElementComponent e : ps.getSnapshot().getElement()) {
+          for (ElementDefinition e : ps.getSnapshot().getElement()) {
             if (path == null || !e.getPath().startsWith(path)) {
               path = null;
-              if (e.getDefinition() != null && e.getDefinition().getMax() != null && e.getDefinition().getMax().equals("0")) {
+              if (e.getMax() != null && e.getMax().equals("0")) {
                 path = e.getPath()+".";
               } else
                 genElement(s, e, map.getIdentity());
@@ -111,7 +104,7 @@ public class MappingsGenerator {
   }
   
   
-  private void genElement(StringBuilder s, ElementComponent e, String id) {
+  private void genElement(StringBuilder s, ElementDefinition e, String id) {
       s.append(" <tr><td>");
       boolean root = true;
       for (char c : e.getPath().toCharArray()) 
@@ -135,10 +128,8 @@ public class MappingsGenerator {
   }
 
 
-  private ElementDefinitionMappingComponent getMap(ElementComponent e, String id) {
-    if (e.getDefinition() == null)
-      return null;
-    for (ElementDefinitionMappingComponent m : e.getDefinition().getMapping()) {
+  private ElementDefinitionMappingComponent getMap(ElementDefinition e, String id) {
+    for (ElementDefinitionMappingComponent m : e.getMapping()) {
       if (m.getIdentity().equals(id))
         return m;
     }

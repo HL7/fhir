@@ -167,8 +167,8 @@ Or in JSON:
   "http://acme.org/fhir/ExtensionDefinition/trial-status" : [{
     "code" : [{ "valueCode" : "unsure" }],
     "date" : [{ "valueDate" : "2009-03-14" }], 
-    "registrar" : [{ "Reference" : {
-      "valueReference" : "Practitioner/example"
+    "registrar" : [{ "valueReference" : {
+      "reference" : "Practitioner/example"
       }
     }]
   }
@@ -199,7 +199,7 @@ allow wider use). The url of the extension is different:
       &lt;valueDate value=&quot;2009-03-14&quot; /&gt;	  
     &lt;/extension&gt;
     &lt;extension url=&quot;http://acme.org/fhir/ExtensionDefinition/registrar&quot; &gt;	  
-      &lt;valueReference&gt;	  
+      &lt;valueReference array="true"&gt;	  
         &lt;reference value=&quot;Practitioner/example&quot; /&gt;	  	    
       &lt;/valueReference&gt;	  
     &lt;/extension&gt;
@@ -214,10 +214,10 @@ or in JSON:
 {
   "resourceType" : "Patient",
   "http://acme.org/fhir/ExtensionDefinition/trial-status" : [{
-    "code" : [{ "valueCode" : "unsure" }],
-    "date" : [{ "valueDate" : "2009-03-14" }], 
-    "http://acme.org/fhir/ExtensionDefinition/registrar" " [{ "Reference" : {
-      "valueReference" : "Practitioner/example"
+    "code" : { "valueCode" : "unsure" },
+    "date" : { "valueDate" : "2009-03-14" }, 
+    "http://acme.org/fhir/ExtensionDefinition/registrar" " [{ "valueReference" : {
+      "reference" : "Practitioner/example"
       }
     }]
   }

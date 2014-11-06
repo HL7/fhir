@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1157,11 +1157,11 @@ public class Conformance extends Resource {
         /**
          * @param value {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
          */
-        public UriType addDocumentMailbox(String value) { 
+        public ConformanceRestComponent addDocumentMailbox(String value) { 
           UriType t = new UriType();
           t.setValue(value);
           this.documentMailbox.add(t);
-          return t;
+          return this;
         }
 
         /**
@@ -1731,11 +1731,11 @@ public class Conformance extends Resource {
         /**
          * @param value {@link #searchInclude} (A list of _include values supported by the server.)
          */
-        public StringType addSearchInclude(String value) { 
+        public ConformanceRestResourceComponent addSearchInclude(String value) { 
           StringType t = new StringType();
           t.setValue(value);
           this.searchInclude.add(t);
-          return t;
+          return this;
         }
 
         /**
@@ -2102,11 +2102,11 @@ public class Conformance extends Resource {
         /**
          * @param value {@link #target} (Types of resource (if a resource is referenced).)
          */
-        public CodeType addTarget(String value) { 
+        public ConformanceRestResourceSearchParamComponent addTarget(String value) { 
           CodeType t = new CodeType();
           t.setValue(value);
           this.target.add(t);
-          return t;
+          return this;
         }
 
         /**
@@ -2139,11 +2139,11 @@ public class Conformance extends Resource {
         /**
          * @param value {@link #chain} (Chained names supported.)
          */
-        public StringType addChain(String value) { 
+        public ConformanceRestResourceSearchParamComponent addChain(String value) { 
           StringType t = new StringType();
           t.setValue(value);
           this.chain.add(t);
-          return t;
+          return this;
         }
 
         /**
@@ -3557,11 +3557,11 @@ public class Conformance extends Resource {
     /**
      * @param value {@link #format} (A list of the formats supported by this implementation.)
      */
-    public CodeType addFormat(String value) { 
+    public Conformance addFormat(String value) { 
       CodeType t = new CodeType();
       t.setValue(value);
       this.format.add(t);
-      return t;
+      return this;
     }
 
     /**

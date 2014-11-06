@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Thu, Oct 30, 2014 11:37+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
 
 public enum ResourceType {
     Condition,
@@ -10,7 +10,6 @@ public enum ResourceType {
     OralHealthClaim,
     ValueSet,
     Coverage,
-    AdverseReactionRisk,
     ImmunizationRecommendation,
     Appointment,
     MedicationDispense,
@@ -31,6 +30,7 @@ public enum ResourceType {
     Profile,
     DocumentReference,
     Immunization,
+    ExtensionDefinition,
     Subscription,
     OrderResponse,
     ConceptMap,
@@ -71,7 +71,6 @@ public enum ResourceType {
     Specimen,
     Alert,
     Patient,
-    AdverseReaction,
     DiagnosticOrder;
 
 
@@ -91,8 +90,6 @@ public enum ResourceType {
       return "valueset";
     case Coverage:
       return "coverage";
-    case AdverseReactionRisk:
-      return "adversereactionrisk";
     case ImmunizationRecommendation:
       return "immunizationrecommendation";
     case Appointment:
@@ -133,6 +130,8 @@ public enum ResourceType {
       return "documentreference";
     case Immunization:
       return "immunization";
+    case ExtensionDefinition:
+      return "extensiondefinition";
     case Subscription:
       return "subscription";
     case OrderResponse:
@@ -213,8 +212,6 @@ public enum ResourceType {
       return "alert";
     case Patient:
       return "patient";
-    case AdverseReaction:
-      return "adversereaction";
     case DiagnosticOrder:
       return "diagnosticorder";
     }

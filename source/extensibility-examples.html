@@ -67,45 +67,35 @@ extension</a>:
  <tr><td>Binding</td><td>(No binding - not a coded value)</td></tr>
 </table>
 
-<h4>Write the Profile</h4>
+<h4>Write the ExtensionDefinition</h4>
 <p>
-From this table, we can build an actual profile. 
-</p>
-<p>
-This is all then represented formally in a profile. Such profiles do not need to include constraint statements of resources; instead, they include just extension declarations
-and their associated bindings. In this case, the profile looks like this:
+From this table, we can build a formal extension definition. In this case, it looks like this:
 </p>
 
-<pre class="xml" fragment="Profile">
-&lt;Profile xmlns="http://hl7.org/fhir">
+<pre class="xml" fragment="ExtensionDefinition">
+&lt;ExtensionDefinition xmlns="http://hl7.org/fhir">
+  &lt;url value="http://example.org/fhir/ExtensionDefinition/participation-agreement" /&gt;
   &lt;name value="Example Extension Definition" /&gt;
   &lt;!-- snip other metadata -->
-  &lt;extensionDefn>
-    &lt;name value="participation-agreement" /&gt;
-    &lt;contextType value="resource" /&gt;
-    &lt;context value="Patient" /&gt;
-    &lt;element>
-      &lt;path value="participation-agreement"/>
-      &lt;definition>
-        &lt;short value="Agreed agreement/policy" /&gt;
-        &lt;formal value="A URI that identifies a participation agreement/policy 
-          to which the patient has agreed" /&gt;
-        &lt;comments value="URI is a literal reference to agreement text (html). 
-          Systems SHALL conform to the policies as indicated. 
-          For further information, see the partnership agreement..." /&gt;
-        &lt;min value="1" /&gt;
-        &lt;max value="*" /&gt;
-        &lt;type>
-           &lt;code value="uri" /&gt;
-        &lt;/type>
-        &lt;mustSupport value="true" /&gt;
-        &lt;isModifier value="false" /&gt;
-      &lt;/definition>
-    &lt;/element>
-  &lt;/extensionDefn>
-
-  &lt;!-- snip narrative -->
-&lt;/Profile>
+  &lt;contextType value="resource" /&gt;
+  &lt;context value="Patient" /&gt;
+  &lt;element>
+    &lt;path value="participation-agreement"/>
+    &lt;short value="Agreed agreement/policy" /&gt;
+    &lt;formal value="A URI that identifies a participation agreement/policy 
+      to which the patient has agreed" /&gt;
+    &lt;comments value="URI is a literal reference to agreement text (html). 
+      Systems SHALL conform to the policies as indicated. 
+      For further information, see the partnership agreement..." /&gt;
+    &lt;min value="1" /&gt;
+    &lt;max value="*" /&gt;
+    &lt;type>
+       &lt;code value="uri" /&gt;
+    &lt;/type>
+    &lt;mustSupport value="true" /&gt;
+    &lt;isModifier value="false" /&gt;
+  &lt;/element>
+&lt;/ExtensionDefinition>
 
 </pre>
 <p>
@@ -184,24 +174,22 @@ will use this resource, a profile on the patient resource is used:
       &lt;!-- now, the slice that contains our extension --&gt;    
       &lt;element&gt;
         &lt;path value=&quot;Patient.extension&quot;/&gt;
-        &lt;definition&gt;
-          &lt;!-- clone information from the extension definition. 
-            duplicative, but this duplication makes it over all simpler --&gt;
-          &lt;short value=&quot;Agreed agreement/policy&quot;/&gt;
-          &lt;formal value=&quot;A URI that identifies a participation agreement/policy 
-          to which the patient has agreed&quot;/&gt;
-          &lt;!--  min has to be 1, since the extension itself has min = 1 --&gt;
-          &lt;min value=&quot;1&quot;/&gt;
-          &lt;max value=&quot;*&quot;/&gt;
-          &lt;type&gt;
-            &lt;!-- obviously it has to be an extension --&gt;
-            &lt;code value=&quot;Extension&quot;/&gt;
-            &lt;!-- and here is the link to the extension definition:
-              this extension has to conform to the rules laid down in its definition --&gt;
-            &lt;profile value=&quot;http://example.org/phr/documents/fhir/extensions#participation-agreement&quot;/&gt;
-          &lt;/type&gt;
-          &lt;isModifier value=&quot;false&quot;/&gt;
-        &lt;/definition&gt;
+        &lt;!-- clone information from the extension definition. 
+          duplicative, but this duplication makes it over all simpler --&gt;
+        &lt;short value=&quot;Agreed agreement/policy&quot;/&gt;
+        &lt;formal value=&quot;A URI that identifies a participation agreement/policy 
+        to which the patient has agreed&quot;/&gt;
+        &lt;!--  min has to be 1, since the extension itself has min = 1 --&gt;
+        &lt;min value=&quot;1&quot;/&gt;
+        &lt;max value=&quot;*&quot;/&gt;
+        &lt;type&gt;
+          &lt;!-- obviously it has to be an extension --&gt;
+          &lt;code value=&quot;Extension&quot;/&gt;
+          &lt;!-- and here is the link to the extension definition:
+            this extension has to conform to the rules laid down in its definition --&gt;
+          &lt;profile value=&quot;http://example.org/phr/documents/fhir/extensions#participation-agreement&quot;/&gt;
+        &lt;/type&gt;
+        &lt;isModifier value=&quot;false&quot;/&gt;
       &lt;/element&gt;
       
     &lt;!-- snip the rest of the profile -->
@@ -278,52 +266,46 @@ This is all then represented formally in a profile. Such profiles do not need to
 and their associated bindings. In this case, the profile looks like this:
 </p>
 
-<pre class="xml" fragment="Profile">
-&lt;Profile xmlns="http://hl7.org/fhir">
+<pre class="xml" fragment="ExtensionDefinition">
+&lt;ExtensionDefinition xmlns="http://hl7.org/fhir">
+  &lt;url value="http://hl7.org/fhir/ExtensionDefinition/iso21090-EN-qualifier" /&gt;
   &lt;name value="iso-21090" /&gt;
   &lt;!-- snip other metadata, including definition of RIM Mapping -->
-  &lt;extensionDefn>
-    &lt;name value="name-qualifier" /&gt;
-    &lt;contextType value="datatype" /&gt;
-    &lt;context value="HumanName.given" /&gt;
-    &lt;context value="HumanName.prefix" /&gt;
-    &lt;context value="HumanName.family" /&gt;
-    &lt;context value="HumanName.suffix" /&gt;
-    &lt;element>
-      &lt;path value="name-qualifier"/>
-      &lt;definition>
-        &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
-        &lt;formal value="A set of codes each of which specifies a certain subcategory
-            of the name part in addition to the main name part type" /&gt;
-        &lt;comments value="Used to indicate additional information about the
-               name part and how it should be used" /&gt;
-        &lt;min value="0" /&gt;
-        &lt;max value="*" /&gt;
-        &lt;type>
-           &lt;code value="code" /&gt;
-        &lt;/type>
-        &lt;mustSupport value="false" /&gt;
-        &lt;isModifier value="false" /&gt;
-        &lt;binding&gt;
-          &lt;name value="EntityNamePartQualifier" /&gt;
-          &lt;isExtensible value="codelist" /&gt;
-          &lt;conformance value="required" /&gt;
-          &lt;description value="A set of codes each of which specifies a certain subcategory
-              of the name part in addition to the main name part type" /&gt;
-          &lt;referenceReference&gt;
-            &lt;reference value="ValueSet/name-part-qualifier" /&gt;
-          &lt;/referenceReference&gt;
-        &lt;/binding&gt;
-        &lt;mapping>
-           &lt;identity value="RIM" /&gt;
-           &lt;map value="ENXP.qualifier" /&gt;
-        &lt;/mapping>
-      &lt;/definition>
-    &lt;/element>
-  &lt;/extensionDefn>
-
-  &lt;!-- snip narrative -->
-&lt;/Profile>
+  &lt;contextType value="datatype" /&gt;
+  &lt;context value="HumanName.given" /&gt;
+  &lt;context value="HumanName.prefix" /&gt;
+  &lt;context value="HumanName.family" /&gt;
+  &lt;context value="HumanName.suffix" /&gt;
+  &lt;element>
+    &lt;path value="name-qualifier"/>
+    &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
+    &lt;formal value="A set of codes each of which specifies a certain subcategory
+        of the name part in addition to the main name part type" /&gt;
+    &lt;comments value="Used to indicate additional information about the
+           name part and how it should be used" /&gt;
+    &lt;min value="0" /&gt;
+    &lt;max value="*" /&gt;
+    &lt;type>
+       &lt;code value="code" /&gt;
+    &lt;/type>
+    &lt;mustSupport value="false" /&gt;
+    &lt;isModifier value="false" /&gt;
+    &lt;binding&gt;
+      &lt;name value="EntityNamePartQualifier" /&gt;
+      &lt;isExtensible value="codelist" /&gt;
+      &lt;conformance value="required" /&gt;
+      &lt;description value="A set of codes each of which specifies a certain subcategory
+          of the name part in addition to the main name part type" /&gt;
+      &lt;referenceReference&gt;
+        &lt;reference value="ValueSet/name-part-qualifier" /&gt;
+      &lt;/referenceReference&gt;
+    &lt;/binding&gt;
+    &lt;mapping>
+       &lt;identity value="RIM" /&gt;
+       &lt;map value="ENXP.qualifier" /&gt;
+    &lt;/mapping>
+  &lt;/element>
+&lt;/ExtensionDefinition>
 
 </pre>
 <p>
@@ -331,7 +313,7 @@ Note that usually you would build the actual profile using some tool. This examp
 </p>
 <h4>Register the Extension</h4>
 <p>
-For this example, it is registered at <a href="http://hl7.org/fhir/Profile/iso-21090?_format=text/html">http://hl7.org/fhir/Profile/iso-21090</a>.
+For this example, it is registered at <a href="http://hl7.org/fhir/ExtensionDefinition/iso21090-?_format=text/html">http://hl7.org/fhir/Profile/iso-21090</a>.
 This is the url that will appear in the definition element when the extension is used.
 </p>
 <h4>Use it in the instance</h4>
@@ -339,7 +321,6 @@ This is the url that will appear in the definition element when the extension is
 To using the extension in an instance, the extension is nested within the attribute that is extended.
 Note that the url of the extension refers to the registered location, with the id of the extension as a 
 fragment identifier.
-
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;

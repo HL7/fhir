@@ -28,7 +28,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
+
+import org.hl7.fhir.instance.model.ExtensionDefinition;
 
 
 
@@ -49,11 +50,11 @@ public interface ExtensionLocatorService {
 
   public class ExtensionLocationResponse {
     private Status status;
-    private ProfileExtensionDefnComponent definition;
+    private ExtensionDefinition definition;
 		private String message;
 		private String url;
 
-    public ExtensionLocationResponse(String url, Status status, ProfileExtensionDefnComponent definition, String message) {
+    public ExtensionLocationResponse(String url, Status status, ExtensionDefinition definition, String message) {
       super();
       this.url = url;
       this.status = status;
@@ -65,7 +66,7 @@ public interface ExtensionLocatorService {
       return status;
     }
 
-    public ProfileExtensionDefnComponent getDefinition() {
+    public ExtensionDefinition getDefinition() {
       return definition;
     }
 

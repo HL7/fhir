@@ -36,7 +36,7 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class TypeParser {
 
-	public List<TypeRef> parse(String n, boolean inProfile) throws Exception {
+	public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase) throws Exception {
 		ArrayList<TypeRef> a = new ArrayList<TypeRef>();
 
 		if (n == null || n.equals(""))
@@ -83,7 +83,10 @@ public class TypeParser {
 				if (endPos < startPos) {
 					throw new Exception("Missing '}' in data type definition: " + typeList[i]);
 				}
-				t.setProfile(typeString.substring(startPos + 1, endPos).trim());
+				String pt = typeString.substring(startPos + 1, endPos).trim();
+				if (pt.startsWith("#"))
+				  pt = profileExtensionBase + pt.substring(1);
+				t.setProfile(pt);
 				typeString = typeString.substring(0, startPos);
 			}
 			

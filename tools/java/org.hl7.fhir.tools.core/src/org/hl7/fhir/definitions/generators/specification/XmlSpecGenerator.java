@@ -39,8 +39,6 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
-import org.hl7.fhir.definitions.model.ExtensionDefn;
-import org.hl7.fhir.definitions.model.ExtensionDefn.ContextType;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
@@ -159,20 +157,20 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			}
 		}
 
-		if (profile.getExtensions().size() > 0) {
-			write("<span style=\" color: Gray\">&lt;!-- <span style=\"color: Darkviolet\">Extensions</span> --&gt;</span>\r\n");
-			for (ExtensionDefn ex : profile.getExtensions()) {
-				generateExtension(ex, profile, definitions, root, 0);
-        write("\r\n");
-			}
-		}
+//		if (profile.getExtensions().size() > 0) {
+//			write("<span style=\" color: Gray\">&lt;!-- <span style=\"color: Darkviolet\">Extensions</span> --&gt;</span>\r\n");
+//			for (ExtensionDefn ex : profile.getExtensions()) {
+//				generateExtension(ex, profile, definitions, root, 0);
+//        write("\r\n");
+//			}
+//		}
 
 		write("</pre>\r\n");
 		flush();
 		close();
 	}
 
-	private void generateExtension(ExtensionDefn ex, ProfileDefn profile, Definitions definitions, String root, int indent) throws Exception {
+/*	private void generateExtension(ExtensionDefn ex, ProfileDefn profile, Definitions definitions, String root, int indent) throws Exception {
 	  String n = (indent == 0) ? "extension" : "extension"; // in case contained extensions have a different name
 	  String ind = Utilities.padLeft("", ' ', indent);  
     if (indent == 0) {
@@ -249,7 +247,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		  generateExtension(child, profile, definitions, root, indent+2);
 		write(ind+"&lt;/"+n+">\r\n");
 	}
-
+  
 	private String getExtensionTargetList(ExtensionDefn ex, ProfileDefn profile) {
 	  StringBuilder s = new StringBuilder();
     for (ExtensionDefn t : profile.getExtensions()) {
@@ -261,6 +259,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     else
       return "Other extensions as defined";
   }
+*/
 
   private String upFirst(String s) {
 		return s.substring(0, 1).toUpperCase() + s.substring(1);

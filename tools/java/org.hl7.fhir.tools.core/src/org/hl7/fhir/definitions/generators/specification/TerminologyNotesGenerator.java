@@ -43,11 +43,12 @@ import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.ElementDefn;
-import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.Profile.BindingConformance;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
+import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -104,24 +105,24 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     flush();
     close();
   }
-
 	
 	private void scan(ProfileDefn profile, Map<String, BindingSpecification> tx) throws Exception {
-
-
-    for (ExtensionDefn ex : profile.getExtensions()) {
-      if (ex.getDefinition().hasBinding()) {
-        BindingSpecification cd = getConceptDomainByName(tx, ex.getDefinition().getBindingName());
-        if (!txusages.containsKey(cd)) {
-          txusages.put(cd, new ArrayList<CDUsage>());
-          c++;
-          txusages.get(cd).add(new CDUsage(String.valueOf(c), null));           
+    for (AtomEntry<ExtensionDefinition> exd : page.getWorkerContext().getExtensionDefinitions().values()) {
+      for (ElementDefinition ed : exd.getResource().getElement()) {
+        if (ed.getBinding() != null) {
+          BindingSpecification cd = getConceptDomainByNameOrNull(tx, ed.getBinding().getName());
+          if (cd != null) {
+            if (!txusages.containsKey(cd)) {
+              txusages.put(cd, new ArrayList<CDUsage>());
+              c++;
+              txusages.get(cd).add(new CDUsage(String.valueOf(c), null));           
+            }
+            txusages.get(cd).add(new CDUsage(profile.getMetadata().get("id")+".extensions."+exd.getResource().getUrl(), null));
+          }
         }
-        txusages.get(cd).add(new CDUsage(profile.getMetadata().get("id")+".extensions."+ex.getCode(), ex.getDefinition()));     
       }
     }
-    
-  }
+	}
 
   private void gen(Map<BindingSpecification, List<CDUsage>> txusages2) throws Exception {
 		List<BindingSpecification> cds = new ArrayList<BindingSpecification>();
@@ -393,13 +394,22 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 		}		
 	}
 
-	private BindingSpecification getConceptDomainByName(Map<String, BindingSpecification> tx, String conceptDomain) throws Exception {		
-		for (BindingSpecification cd : tx.values()) {
-			if (cd.getName().equals(conceptDomain))
-				return cd; 
-		}
-		throw new Exception("Unable to find Concept Domain "+conceptDomain);
-	}
 	
+  private BindingSpecification getConceptDomainByName(Map<String, BindingSpecification> tx, String conceptDomain) throws Exception {    
+    for (BindingSpecification cd : tx.values()) {
+      if (cd.getName().equals(conceptDomain))
+        return cd; 
+    }
+    throw new Exception("Unable to find Concept Domain "+conceptDomain);
+  }
+  
+  private BindingSpecification getConceptDomainByNameOrNull(Map<String, BindingSpecification> tx, String conceptDomain) throws Exception {    
+    for (BindingSpecification cd : tx.values()) {
+      if (cd.getName().equals(conceptDomain))
+        return cd; 
+    }
+    return null;
+  }
+  
 	
 }

@@ -144,7 +144,7 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
   }
 
   @Override
-  public String checkFragments(String rootDir, String fragmentsXml, boolean inProcess) throws Exception {
+  public String checkFragments(String rootDir, String fragmentsXml) throws Exception {
     return null;
   }
 
