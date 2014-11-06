@@ -20,8 +20,8 @@
    <Path>\FHIR\source\encounter\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>7680</WindowHeight>
-  <WindowWidth>20430</WindowWidth>
+  <WindowHeight>7215</WindowHeight>
+  <WindowWidth>19995</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>6</ActiveSheet>
@@ -5693,15 +5693,15 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.75">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">cqf-condition-occurrence</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">cqf-condition-occurrence.xml</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">condition-cqf-condition-occurrence-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">cqf-condition</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">cqf-condition.xml</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">condition-cqf-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.75">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">cqf-condition-nonoccurrence</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">cqf-condition-nonoccurrence.xml</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">condition-cqf-condition-nonoccurrence-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">cqf-condition-refuted</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">cqf-condition-refuted.xml</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">condition-cqf-refuted-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5949,8 +5949,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
