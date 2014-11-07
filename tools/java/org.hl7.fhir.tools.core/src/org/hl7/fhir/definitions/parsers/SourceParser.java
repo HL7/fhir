@@ -239,7 +239,8 @@ public class SourceParser {
 		eCoreBaseResource.getElement().add(CompositeTypeConverter.buildInternalIdElement());		
 		eCoreParseResults.getType().add( eCoreBaseResource );
 		eCoreParseResults.getType().addAll(sortTypes(CompositeTypeConverter.buildResourcesFromFhirModel(definitions.getResources().values() )));
-		eCoreParseResults.getType().add(CompositeTypeConverter.buildBinaryResourceDefn());
+		
+	//	eCoreParseResults.getType().add(CompositeTypeConverter.buildBinaryResourceDefn());
 		
 		for (String n : ini.getPropertyNames("svg"))
 		  definitions.getDiagrams().put(n, ini.getStringProperty("svg", n));

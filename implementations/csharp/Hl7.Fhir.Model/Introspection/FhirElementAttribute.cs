@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011+, HL7, Inc.
+  Copyright (c) 2011-2013, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -103,7 +103,7 @@ namespace Hl7.Fhir.Introspection
 
         private static void validateElement(object value, ValidationContext validationContext, List<ValidationResult> result)
         {
-            FhirValidator.TryValidate(value, result, validationContext.ValidateRecursively());
+            DotNetAttributeValidation.TryValidate(value, result, validationContext.ValidateRecursively());
         }
     }
 }

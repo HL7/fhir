@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011+, HL7, Inc
+  Copyright (c) 2011-2012, HL7, Inc
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -44,5 +44,11 @@ namespace Hl7.Fhir.Model
         {
             return new Date(DateTime.Now.ToString("yyyy-MM-dd"));
         }
+
+        public static bool IsValidValue(string value)
+        {
+            return Regex.IsMatch(value, "^" + Date.PATTERN + "$", RegexOptions.Singleline);
+        }
+
     }
 }

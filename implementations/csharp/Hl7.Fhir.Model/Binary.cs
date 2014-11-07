@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 
 /*
-  Copyright (c) 2011+, HL7, Inc
+  Copyright (c) 2011-2012, HL7, Inc
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -48,10 +48,10 @@ namespace Hl7.Fhir.Model
             result.AddRange(base.Validate(validationContext));
 
             if (Content == null)
-                result.Add(FhirValidator.BuildResult(validationContext,"Entry must contain (possibly 0-length) data in Content element"));
+                result.Add(DotNetAttributeValidation.BuildResult(validationContext,"Entry must contain (possibly 0-length) data in Content element"));
 
             if (ContentType == null)
-                result.Add(FhirValidator.BuildResult(validationContext, "Entry must contain a ContentType"));
+                result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry must contain a ContentType"));
 
             return result;
         }

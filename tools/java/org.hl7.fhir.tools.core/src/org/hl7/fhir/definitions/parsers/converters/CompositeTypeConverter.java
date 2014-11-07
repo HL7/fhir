@@ -118,6 +118,18 @@ public class CompositeTypeConverter {
 					SearchParameterConverter
 							.buildSearchParametersFromFhirModel(resource
 									.getSearchParams().values()));
+			
+//			if(newResource.getName().equals("Binary"))
+//			{
+//			  for(ElementDefn elem : newResource.getElement())
+//			  {
+//			    if(elem.getName().equals("content"))
+//			    {
+//			      elem.setXmlFormatHint(XmlFormatHint.TEXT_NODE);
+//			      elem.setPrimitiveContents(true);
+//			    }
+//			  }
+//			}
 		}
 		
 		return newResource;

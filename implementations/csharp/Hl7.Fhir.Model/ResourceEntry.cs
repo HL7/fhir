@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011+, HL7, Inc.
+  Copyright (c) 2011-2013, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -153,7 +153,7 @@ namespace Hl7.Fhir.Model
             //if (Resource == null)
             //    result.Add(new ValidationResult("Entry must contain Resource data, Content may not be null"));
             if (Resource != null && validationContext.ValidateRecursively())
-                FhirValidator.TryValidate(this.Resource, result, validationContext.ValidateRecursively());
+                DotNetAttributeValidation.TryValidate(this.Resource, result, validationContext.ValidateRecursively());
 
             return result;
         }

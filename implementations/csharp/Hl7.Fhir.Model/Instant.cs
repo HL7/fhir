@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011+, HL7, Inc
+  Copyright (c) 2011-2012, HL7, Inc
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -59,5 +59,12 @@ namespace Hl7.Fhir.Model
         {
             return new Instant(DateTimeOffset.Now);
         }
+
+        public static bool IsValidValue(string value)
+        {
+            //TODO: Implement useful validation functionality
+            return true;
+        }
+
     }
 }

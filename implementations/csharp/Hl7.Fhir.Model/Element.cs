@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011+, HL7, Inc
+  Copyright (c) 2011-2012, HL7, Inc
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -35,7 +35,7 @@ using System.Collections.Generic;
 
 namespace Hl7.Fhir.Model
 {
-    public abstract partial class Element : IExtendable, IDeepCopyable
+    public abstract partial class Element : IExtendable, IDeepCopyable, IDeepComparable
     {
         public abstract IDeepCopyable DeepCopy();
     }

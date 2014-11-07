@@ -21,7 +21,6 @@ namespace Hl7.Fhir.Validation
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public class AllowedTypesAttribute : ValidationAttribute
     {
-        [CLSCompliant(false)]
         public AllowedTypesAttribute(params Type[] types)
         {
             Types = types;
@@ -61,7 +60,7 @@ namespace Hl7.Fhir.Validation
 #else
                 if (!Types.Any(type => type.IsAssignableFrom(item.GetType())))
 #endif
-                    return FhirValidator.BuildResult(context, "Value is of type {0}, which is not an allowed choice", item.GetType());
+                    return DotNetAttributeValidation.BuildResult(context, "Value is of type {0}, which is not an allowed choice", item.GetType());
             }
 
             return ValidationResult.Success;

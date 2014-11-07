@@ -183,7 +183,7 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		// Add cross-project files
     zip.addFiles(implDir, "", ".sln", null);
     zip.addFiles(implDir, "", "README.txt", null);
-    zip.addFiles(implDir + "packages" + sl, "packages" + sl, "repositories.config", null);
+   // zip.addFiles(implDir + "packages" + sl, "packages" + sl, "repositories.config", null);
 		
 		zip.close();		
 	}

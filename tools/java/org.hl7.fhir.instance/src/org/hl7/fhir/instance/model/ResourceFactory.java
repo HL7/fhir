@@ -42,12 +42,8 @@ public class ResourceFactory extends Factory {
             return new Organization();
         if ("Group".equals(name))
             return new Group();
-        if ("OralHealthClaim".equals(name))
-            return new OralHealthClaim();
         if ("ValueSet".equals(name))
             return new ValueSet();
-        if ("Coverage".equals(name))
-            return new Coverage();
         if ("ImmunizationRecommendation".equals(name))
             return new ImmunizationRecommendation();
         if ("Appointment".equals(name))

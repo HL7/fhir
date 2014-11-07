@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011+, HL7, Inc
+  Copyright (c) 2011-2012, HL7, Inc
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -37,36 +37,36 @@ using System.Text;
 
 namespace Hl7.Fhir.Model
 {
-    public partial class Reference
+    public partial class ResourceReference
     {
         [NotMapped]
         public Uri Url
         {
             get
             {
-                if (Reference_ != null)
-                    return new Uri(Reference_, UriKind.RelativeOrAbsolute);
+                if (Reference != null)
+                    return new Uri(Reference, UriKind.RelativeOrAbsolute);
                 else
                     return null;
             }
             set
             {
                 if (value != null)
-                    Reference_ = value.ToString();
+                    Reference = value.ToString();
                 else
-                    Reference_ = null;
+                    Reference = null;
             }
         }
 
         /// <summary>
-        /// Determines whether the Reference is a reference to a contained resource (i.e. the reference value starts with an Url anchor ('#'))
+        /// Determines whether the ResourceReference is a reference to a contained resource (i.e. the reference value starts with an Url anchor ('#'))
         /// </summary>
         [NotMapped]
         public bool IsContainedReference
         {
             get
             {
-                return Reference_ != null && Reference_.StartsWith("#");
+                return Reference != null && Reference.StartsWith("#");
             }
         }
     }

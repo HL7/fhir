@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011+, HL7, Inc
+  Copyright (c) 2011-2012, HL7, Inc
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -44,5 +44,33 @@ namespace Hl7.Fhir.Model
         {
             Value = uri.OriginalString;
         }
+
+
+        public static bool IsValidValue(string value)
+        {
+            Uri uri = null;
+
+            try
+            {
+                uri = new Uri((string)value, UriKind.RelativeOrAbsolute);
+            }
+            catch
+            {
+                return false;
+            }
+
+            if (uri.IsAbsoluteUri)
+            {
+                var uris = uri.ToString();
+
+                if (uris.StartsWith("urn:oid:") && !Oid.IsValidValue(uris))
+                    return false;
+                else if (uris.StartsWith("urn:uuid:") && !Uuid.IsValidValue(uris))
+                    return false;
+            }
+
+            return true;
+        }
+
     }
 }

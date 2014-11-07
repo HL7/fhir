@@ -1,11 +1,4 @@
-using System;
-using System.Collections.Generic;
-using Hl7.Fhir.Validation;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Runtime.Serialization;
-
-/*
+﻿/*
   Copyright (c) 2011-2012, HL7, Inc
   All rights reserved.
   
@@ -35,18 +28,21 @@ using System.Runtime.Serialization;
 
 */
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml;
+using Hl7.Fhir.Model;
+
+
 namespace Hl7.Fhir.Model
 {
-    public partial class Extension
+    public partial class FhirString
     {
-        public Extension()
+        public static bool IsValidValue(string value)
         {
+            return value.Length <= 1024 * 1024;    // Note that strings SHALL NOT exceed 1MB in size
         }
-
-        public Extension(string url, Element value)
-        {
-            this.Url = url;
-            this.Value = value;
-        }
-    }       
+    }
 }

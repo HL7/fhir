@@ -14,6 +14,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Validation
 {
@@ -33,21 +34,21 @@ namespace Hl7.Fhir.Validation
         {
             if (value == null)
                 return (Min == 0) ? ValidationResult.Success :
-                    FhirValidator.BuildResult(validationContext, "Element with min. cardinality {0} cannot be null", Min);
+                    DotNetAttributeValidation.BuildResult(validationContext, "Element with min. cardinality {0} cannot be null", Min);
 
             var count = 1;
 
-            if (value is IList)
+            if (value is IList && !ReflectionHelper.IsArray(value))
             {
                 var list = value as IList;
                 foreach(var elem in list)
-                   if(elem == null) return FhirValidator.BuildResult(validationContext,"Repeating element cannot have empty/null values");
+                   if(elem == null) return DotNetAttributeValidation.BuildResult(validationContext,"Repeating element cannot have empty/null values");
                 count = list.Count;
             }
 
-            if (count < Min) return FhirValidator.BuildResult(validationContext,"Element has {0} elements, but min. cardinality is {1}", count, Min);
+            if (count < Min) return DotNetAttributeValidation.BuildResult(validationContext,"Element has {0} elements, but min. cardinality is {1}", count, Min);
 
-            if (Max != -1 && count > Max) return FhirValidator.BuildResult(validationContext,"Element has {0} elements, but max. cardinality is {1}", count, Max);
+            if (Max != -1 && count > Max) return DotNetAttributeValidation.BuildResult(validationContext,"Element has {0} elements, but max. cardinality is {1}", count, Max);
 
             return ValidationResult.Success;
         }

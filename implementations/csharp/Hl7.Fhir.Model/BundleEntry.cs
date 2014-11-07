@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011+, HL7, Inc.
+  Copyright (c) 2011-2013, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -71,16 +71,16 @@ namespace Hl7.Fhir.Model
             var result = new List<ValidationResult>();
 
             if (Id != null && !Id.IsAbsoluteUri)
-                result.Add(FhirValidator.BuildResult(validationContext, "Entry id must be an absolute URI"));
+                result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry id must be an absolute URI"));
 
             if (Bundle.UriHasValue(SelfLink) && !SelfLink.IsAbsoluteUri)
-                result.Add(FhirValidator.BuildResult(validationContext, "Entry selflink must be an absolute URI"));
+                result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry selflink must be an absolute URI"));
 
             if (Links.FirstLink != null || Links.LastLink != null || Links.PreviousLink != null || Links.NextLink != null)
-                result.Add(FhirValidator.BuildResult(validationContext, "Paging links can only be used on feeds, not entries"));
+                result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Paging links can only be used on feeds, not entries"));
 
             if (Tags != null && validationContext.ValidateRecursively())
-                FhirValidator.TryValidate(Tags,result,true);
+                DotNetAttributeValidation.TryValidate(Tags,result,true);
 
             return result;
         }

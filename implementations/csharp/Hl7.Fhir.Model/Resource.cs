@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011+, HL7, Inc
+  Copyright (c) 2011-2012, HL7, Inc
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -41,7 +41,8 @@ namespace Hl7.Fhir.Model
     // Resource is not a subclass of Composite, since it
     // cannot be used in places where you can use composites.
     [InvokeIValidatableObject]
-    public abstract partial class Resource : IExtendable, Hl7.Fhir.Validation.IValidatableObject, IDeepCopyable
+    public abstract partial class Resource : IExtendable, Hl7.Fhir.Validation.IValidatableObject, 
+                IDeepCopyable, IDeepComparable
     {
         public abstract IDeepCopyable DeepCopy();
 
@@ -58,10 +59,10 @@ namespace Hl7.Fhir.Model
                 foreach (var contained in Contained)
                 {
                     if (contained.Contained != null && contained.Contained.Any())
-                        result.Add(FhirValidator.BuildResult(validationContext, "Contained resources cannot contain nested contained resources"));
+                        result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Contained resources cannot contain nested contained resources"));
 
                     if (contained.Text != null)
-                        result.Add(FhirValidator.BuildResult(validationContext, "Contained resources should not contain narrative"));
+                        result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Contained resources should not contain narrative"));
                 }
             }
 
@@ -75,9 +76,9 @@ namespace Hl7.Fhir.Model
         /// <param name="containedReference">A ResourceReference containing an anchored resource id.</param>
         /// <returns>The found resource, or null if no matching contained resource was found. Will throw an exception if there's more than
         /// one matching contained resource</returns>
-        public Resource FindContainedReference(Reference containedReference)
+        public Resource FindContainedResource(ResourceReference containedReference)
         {
-            return FindContainedReference(containedReference.Reference_);
+            return FindContainedResource(containedReference.Reference);
         }
 
         /// <summary>
@@ -86,9 +87,9 @@ namespace Hl7.Fhir.Model
         /// <param name="containedReference">A Uri containing an anchored resource id.</param>
         /// <returns>The found resource, or null if no matching contained resource was found. Will throw an exception if there's more than
         /// one matching contained resource</returns>
-        public Resource FindContainedReference(Uri containedReference)
+        public Resource FindContainedResource(Uri containedReference)
         {
-            return FindContainedReference(containedReference.ToString());
+            return FindContainedResource(containedReference.ToString());
         }
 
         /// <summary>
@@ -97,7 +98,7 @@ namespace Hl7.Fhir.Model
         /// <param name="containedReference">A string containing an anchored resource id.</param>
         /// <returns>The found resource, or null if no matching contained resource was found. Will throw an exception if there's more than
         /// one matching contained resource</returns>
-        public Resource FindContainedReference(string containedReference)
+        public Resource FindContainedResource(string containedReference)
         {
             if(containedReference == null) throw new ArgumentNullException("containedReference");
             if(!containedReference.StartsWith("#")) throw new ArgumentException("Reference is not a local anchored reference", "containedReference");
