@@ -28,12 +28,9 @@ and SHALL conform to this conformance statement: [link to be provided].
   <li> make rules about repeating codes more obvious (Michael didn't see them)</li>
   <li> make it more obvious when you'd use define. </li>
   <li> also make it more obvious how to publish the list of supported code systems</li>
-  <li> make the pages that describe code systems more obvious</li>
   <li> improve the definitions of mapping equivalence, and change "inexact" map to "overlap"</li>
   <li> explain date of expansion better</li>
-  <li> paging on expansion if too long?</li>
-  <li> date parameter on validation missing</li>
-  <li> check that literal URL parameter option is documented for expansion</li>
+  <li> Do we need paging on expansion if the value set is too long?</li>
   <li> make explanation of what are display names clear on snomed page</li>
   <li> clarifications on subsumption testing</li>
   <li> get better snomed CT value set uri from Michael </li>
@@ -305,71 +302,72 @@ The closure table can be resynchronized by passing an additional version paramet
 version in one of the delta responses. This is a request to replay all the mapping changes since that delta was sent.
 </p>
 
-<!--
-<h1><span class="mw-headline" id="Functional_Operations">Functional Operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=15" title="Edit section: Functional Operations">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
-<p>In order to support terminology operations in FHIR a minimal set of terminology operations would be necessary.  These operations are a sub set of the available terminology service operations defined in the <a rel="nofollow" class="external text" href="http://www.omg.org/spec/CTS2/1.0/">Common Terminology Services - Release 2 (CTS2) specification</a>.
+
+<h3> Functional Operations </h3>
+
+<p>
+In order to support terminology operations in FHIR a minimal set of terminology operations would be necessary.  These operations are a sub set of the available terminology service operations defined in the [http://www.omg.org/spec/CTS2/1.0/ Common Terminology Services - Release 2 (CTS2) specification] and can be categorized as:
 </p>
-<h2><span class="mw-headline" id="Administrative_Operations">Administrative Operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=16" title="Edit section: Administrative Operations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
 <ul>
-<li> Be able to load a standard or local code system
-</li>
+ <li> Administrative Operations</li>
+ <li> Search/Query Operations</li>
+ <li> Authoring/Maintenance Operations</li>
 </ul>
-<h2><span class="mw-headline" id="Search.2FQuery_Operations">Search/Query Operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=17" title="Edit section: Search/Query Operations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
-<h3><span class="mw-headline" id="Concepts">Concepts</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=18" title="Edit section: Concepts">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>
+Functional operations within these categories support the access and management of terminology objects such as Code Systems, Concepts, Value Sets and Concept Mappings. The functional operations necessary to support a FHIR terminology service are outlined here.  
+</p>
+
+<h4> Administrative Operations </h4>
 <ul>
-<li> Retrieve the concept details (display name, qualifiers, associations, etc.) for a given code/code system
-</li>
-<li> Return possible concept matches  based on search criteria 
-</li>
-<li> Validate whether a code is valid within a given code system (content)
-</li>
-<li> Retrieve a list of codes (for example, to populate a user interface)
-</li>
-<li> Return the decedents of a given concept
-</li>
-</ul>
-<h3><span class="mw-headline" id="Code_System">Code System</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=19" title="Edit section: Code System">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
-<ul>
-<li> Retrieve the metadata for a code system
-</li>
-</ul>
-<h3><span class="mw-headline" id="Value_Set">Value Set</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=20" title="Edit section: Value Set">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
-<ul>
-<li> Retrieve the metadata for a value set
-</li>
-<li> Return a value set based on search criteria
-</li>
-<li> Determine if a code is valid in a value set
-</li>
-</ul>
-<h3><span class="mw-headline" id="Mapping">Mapping</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=21" title="Edit section: Mapping">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
-<ul>
-<li> Retrieve the metadata for map set
-</li>
-<li> Retrieve a translation (mapping) of concept(s) from a given source code system to target concept(s) from a target code system
-</li>
-</ul>
-<h2><span class="mw-headline" id="Authoring.2FMaintenance_Operations">Authoring/Maintenance Operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=22" title="Edit section: Authoring/Maintenance Operations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
-<h3><span class="mw-headline" id="Concepts_2">Concepts</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=23" title="Edit section: Concepts">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
-<ul>
-<li> Maintain a closure table
-</li>
-</ul>
-<h3><span class="mw-headline" id="Value_Set_2">Value Set</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=24" title="Edit section: Value Set">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
-<ul>
-<li> Create/editing a value set
-</li>
-</ul>
-<h3><span class="mw-headline" id="Mapping_2">Mapping</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FHIR_Terminology_Service&amp;action=edit&amp;section=25" title="Edit section: Mapping">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
-<ul>
-<li> Translate (map) from a source code system to a target code system
-</li>
+ <li> Be able to load a standard or local code system</li>
 </ul>
 
--->
+<h4> Search/Query Operations </h4>
 
-<!-- Saved in parser cache with key wikidb_hl7:pcache:idhash:16642-0!*!*!!en!*!* and timestamp 20141106044425
- -->
+<p> Concepts </p>
+<ul>
+ <li> Retrieve the concept details (display name, qualifiers, associations, etc.) for a given code/code system</li>
+ <li> Return possible concept matches  based on search criteria </li>
+ <li> Validate whether a code is valid within a given code system (content)</li>
+ <li> Retrieve a list of codes (for example, to populate a user interface)</li>
+ <li> Return the decedents of a given concept</li>
+</ul>
+
+<p> Code System </p>
+<ul>
+ <li> Retrieve the metadata for a code system</li>
+</ul>
+
+<p> Value Set </p>
+<ul>
+ <li> Retrieve the metadata for a value set</li>
+ <li> Return a value set based on search criteria</li>
+ <li> Determine if a code is valid in a value set</li>
+ <li> Generate the Value set Expansion from the Value Set Definition.</li>
+</ul>
+
+<p> Mapping </p>
+<ul>
+ <li> Retrieve the metadata for map set</li>
+ <li> Retrieve a translation (mapping) of concept(s) from a given source code system to target concept(s) from a target code system</li>
+</ul>
+
+<h4> Authoring/Maintenance Operations </h4>
+<p>Concepts</p>
+<ul>
+ <li> Maintain a closure table</li>
+</ul>
+
+<p> Value Set </p>
+<ul>
+ <li> Create/editing a value set</li>
+</ul>
+
+<p> Mapping </p>
+<ul>
+ <li> Translate (map) from a source code system to a target code system</li>
+</ul>
+
 
 </div>
 
