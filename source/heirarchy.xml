@@ -77,6 +77,7 @@ todo: compartments
         <pages type="v3-vocab" filename="template-v3.html"/>
       </page>
       <page title="Concept Maps" filename="terminologies-conceptmaps.html"/>
+      <page title="Service" filename="terminology-service.html"/>
     </page>
     <page title="Ballot Intro" filename="ballot-intro.html"/>
   </page>

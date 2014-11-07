@@ -7,8 +7,22 @@ A concept map defines a mapping from a concept defined in <a href="terminologies
 Mappings are always framed within the concept of <a href="valueset.html">value sets</a> - they are specific to a context of use. 
 </p> 
 
+<p>
+Note that the mappings are one way - from the source to the destination. In many cases, the reverse mappings 
+are valid, but this cannot be assumed to be the case. 
+</p>
+<p>
+Mappings between code systems are only defined in the context of the specified source and destination valuesets. 
+The mappings may be useful in other contexts, but this must be determined based on the context of use and 
+meaning; it cannot be taken for granted automatically. All code systems have value sets that include the entire
+code system, and these value sets can be used for mappings that are valid in all contexts.
+</p>
+<p>
+Each mapping for a concept from source to destination also includes an [<a rel="nofollow" class="external text" 
+href="http://hl7.org/implement/standards/fhir/concept-equivalence.html">equivalence</a>] property that 
+specifies how similar the mapping is (or, in some cases, that there is no valid mapping). 
+</p>
 </div> 
-
 
 <div>
 <h2>Background and Context</h2>
@@ -23,3 +37,4 @@ and the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0
 
 
 </div>
+
