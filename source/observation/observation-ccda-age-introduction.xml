@@ -1,0 +1,36 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+	<div>
+		<h2>Scope and Usage</h2>
+		<p>
+			This is FHIR Profile is mapped from the Age Observation CCDA EntryTemplate : <i>HL7 Implementation Guide for CDA R2: IHE Health 	Story Consolidation, DSTU R1.1</i>, 5.3  Age Observation [observation: templateId 2.16.840.1.113883.10.20.22.4.31(open)] 
+		</p>
+		<p>
+		This Age Observation represents the subject's age at onset of an event or 
+observation. The age of a relative in a Family History Observation at the time of 
+that observation could also be inferred by comparing 
+birth date with the effective time of the observation. 
+However, a common scenario is that a patient will know the age of a relative 
+when the relative had a certain condition or when the relative died, but will not 
+know the actual year (e.g., "grandpa died of a heart attack at the age of 50"). 
+Often times, neither precise dates nor ages are known (e.g. "cousin died of 
+congenital heart disease as an infant"). 
+		</p>
+	</div>
+	<!-- (recommended): 
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+</p>
+</div>
+-->
+	<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+</div>

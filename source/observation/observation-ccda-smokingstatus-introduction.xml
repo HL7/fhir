@@ -1,0 +1,39 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<!--from HL7 Implementation Guide for CDA R2: IHE Health Story Consolidation, DSTU R1.1  5.75  Smoking Status Observation [observation: templateId 2.16.840.1.113883.10.22.4.78 (open)] -->
+	<div>
+		<h2>Scope and Usage</h2>
+		<p>
+			This is FHIR Profile is mapped from the Smoking Status CCDA Entry Template : <i>HL7 Implementation Guide for CDA R2: IHE Health 	Story Consolidation, DSTU R1.1</i>, Section 5.75  Smoking Status Observation [observation: templateId 2.16.840.1.113883.10.22.4.78 (open)] 
+		</p>
+		<p>
+		This clinical statement represents a patient’s current smoking status. The 
+		vocabulary selected for this clinical statement is the best approximation of the
+		statuses in Meaningful Use (MU) Stage 1.
+		</p>
+		<p>
+		If the patient is a smoker (77176002), the effectiveTime/low element must be 
+		present. If the patient is an ex-smoker (8517006), both the effectiveTime/low 
+		and effectiveTime/high element must be present.
+		</p>
+		<p>
+		The smoking status value set includes a special code to communicate if the 
+		smoking status is unknown which is different from how Consolidated CDA 
+		generally communicates unknown information.</p>
+	</div>
+	<!-- (recommended): 
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+</p>
+</div>
+-->
+	<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+</div>
