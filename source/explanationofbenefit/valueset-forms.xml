@@ -1,0 +1,27 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes a sample set of Forms codes.
+    </div>
+  </text>
+  <name value="Form Codes"/>
+  <publisher value="Financial Management"/>
+  <copyright value="This is an example set"/>
+  <status value="draft"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes a Form codes"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/adjudication-error"/>
+    <concept>
+      <code value="1"/> <!-- Form #1 -->
+    </concept>
+    <concept>
+      <code value="2"/> <!-- Form #2 -->
+    </concept>
+  </define>
+</ValueSet>
