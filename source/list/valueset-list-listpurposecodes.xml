@@ -1,0 +1,22 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="#ListPurposeCodes"/>
+	<publisher value="HL7 International - Orders and Observations WG"/>
+	<telecom>
+		<system value="url"/>
+		<value value="http://hl7.org/fhir"/>
+	</telecom>
+	<description value="ListPurposeCodes:  Should be selected from ICF (codeSystem 2.16.840.1.113883.6.254) or SNOMED CT (codeSystem 
+2.16.840.1.113883.6.96) "/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct/"/>
+		</include>
+		<include>
+			<system value="http://www.who.int/classifications/icf/en/"/>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/null-flavor"/>
+		</include>
+	</compose>
+</ValueSet>
