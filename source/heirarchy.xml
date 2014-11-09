@@ -212,6 +212,7 @@ todo: compartments
   <page title="Financial" filename="financial.html">
     <page type="resource" resource="ClaimResponse"/> 
     <page type="resource" resource="Coverage"/>
+    <page type="resource" resource="Eligibility"/>
     <page type="resource" resource="ExplanationOfBenefit"/>
     <page type="resource" resource="OralHealthClaim"/>
   </page>
