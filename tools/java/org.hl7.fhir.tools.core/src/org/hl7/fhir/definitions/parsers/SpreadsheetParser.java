@@ -35,6 +35,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,14 +71,17 @@ import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.DecimalType;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
+import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ExtensionDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.OidType;
 import org.hl7.fhir.instance.model.BooleanType;
+import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.TimeType;
 import org.hl7.fhir.instance.model.Type;
@@ -113,8 +117,9 @@ public class SpreadsheetParser {
   private String txFolder;
   private String version; 
   private WorkerContext context;
+  private Calendar genDate;
 
-	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context) throws Exception {
+	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate) throws Exception {
 		this.name = name;
 		xls = new XLSXmlParser(in, name);
 		this.definitions = definitions;
@@ -131,6 +136,7 @@ public class SpreadsheetParser {
 		this.registry = registry;
 		this.version = version;
 		this.context = context;
+		this.genDate = genDate;
 	}
 
 
@@ -683,7 +689,7 @@ public class SpreadsheetParser {
         if (sheet.getColumn(row, "Code").startsWith("!"))
           row++;
         else 
-          row = processExtension(null, sheet, row, definitions, p.metadata("extension.uri"));
+          row = processExtension(null, sheet, row, definitions, p.metadata("extension.uri"), p);
       }
     }
 
@@ -732,7 +738,7 @@ public class SpreadsheetParser {
         if (sheet.getColumn(row, "Code").startsWith("!"))
           row++;
         else
-          row = processExtension(resource.getRoot().getElementByName("extensions"), sheet, row, definitions, p.metadata("extension.uri"));
+          row = processExtension(resource.getRoot().getElementByName("extensions"), sheet, row, definitions, p.metadata("extension.uri"), p);
       }
     }
     sheet = loadSheet(n+"-Search");
@@ -1074,7 +1080,7 @@ public class SpreadsheetParser {
 		  }
 	}
 
-  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri) throws Exception {
+  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, ProfileDefn pd) throws Exception {
 	  // first, we build the extension definition
 	  ExtensionDefinition ex = new ExtensionDefinition();
 	  String name = sheet.getColumn(row, "Code");
@@ -1086,6 +1092,7 @@ public class SpreadsheetParser {
 	    throw new Exception("Extension Definition Error: Extension names cannot contain '.': "+name);
 	
 	  ex.setUrl(uri+name);
+	  pd.getExtensions().add(uri+name);
 	  if (context == null) {
       ex.setContextType(readContextType(sheet.getColumn(row, "Context Type"), row));
       ex.addContext(sheet.getColumn(row, "Context"));
@@ -1096,6 +1103,21 @@ public class SpreadsheetParser {
 	  exe.setName(sheet.getColumn(row, "Code"));
 	  
     parseExtensionElement(sheet, row, definitions, exe);
+    ex.setName(exe.getShortDefn());
+    ex.setDescription(exe.getDefinition());
+
+    ex.setPublisher(pd.metadata("author.name"));
+    if (pd.hasMetadata("author.reference"))
+      ex.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, pd.metadata("author.reference")));
+    //  <code> opt Zero+ Coding assist with indexing and finding</code>
+    if (pd.hasMetadata("date"))
+      ex.setDateElement(Factory.newDateTime(pd.metadata("date").substring(0, 10)));
+    else
+      ex.setDate(new DateAndTime(genDate));
+
+    if (pd.hasMetadata("status")) 
+      ex.setStatus(ExtensionDefinition.ResourceProfileStatus.fromCode(pd.metadata("status")));
+   
     row++;
     if (!ex.getUrl().startsWith("http://hl7.org/fhir/ExtensionDefinition/"))
       System.out.println("extension "+ex.getUrl());
@@ -1187,7 +1209,7 @@ public class SpreadsheetParser {
     exe.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
     exe.setExample(processValue(sheet, row, "Example", exe));
     exe.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
-    exe.setShortDefn(sheet.getColumn(row, "Short Name"));
+    exe.setShortDefn(sheet.getColumn(row, "Short Label"));
     String s = sheet.getColumn(row, "Must Understand").toLowerCase();
     if (s.equals("false") || s.equals("0") || s.equals("f")
         || s.equals("n") || s.equals("no"))

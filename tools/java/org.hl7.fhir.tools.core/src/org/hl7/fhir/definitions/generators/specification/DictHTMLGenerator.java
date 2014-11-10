@@ -108,6 +108,36 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     close();
   }
 
+  public void generate(ExtensionDefinition ed) throws Exception {
+    int i = 1;
+    write("<p><a name=\"i"+Integer.toString(i)+"\"><b>"+ed.getName()+"</b></a></p>\r\n");
+    write("<table class=\"dict\">\r\n");
+
+    for (ElementDefinition ec : ed.getElement()) {
+      if (isProfiledExtension(ec)) {
+        String name = makePathLink(ec);
+        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? ed.getUrl() : "")+ec.getType().get(0).getProfile()+")";
+        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
+        ExtensionDefinitionResult extDefn = page.getWorkerContext().getExtensionDefinition(null, ec.getType().get(0).getProfile());
+        if (extDefn == null)
+          generateElementInner(null, ed, ec);
+        else
+          generateElementInner(null, extDefn.getExtensionDefinition(), extDefn.getElementDefinition());
+      } else {
+        String name = makePathLink(ec);
+        String title = ec.getPath() + (ec.getName() == null ? "" : "(" +ec.getName() +")");
+        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
+        generateElementInner(null, ed, ec);
+        //          if (ec.getSlicing() != null)
+        //            generateSlicing(profile, ec.getSlicing());
+      }
+    }
+    write("</table>\r\n");
+    i++;      
+    flush();
+    close();
+  }
+
   private void generateSlicing(Profile profile, ElementDefinitionSlicingComponent slicing) throws IOException {
     StringBuilder b = new StringBuilder();
     if (slicing.getOrdered())

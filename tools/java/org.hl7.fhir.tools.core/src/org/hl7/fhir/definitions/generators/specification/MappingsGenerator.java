@@ -38,6 +38,8 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
+import org.hl7.fhir.instance.model.ExtensionDefinition.ExtensionDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
@@ -95,6 +97,38 @@ public class MappingsGenerator {
               } else
                 genElement(s, e, map.getIdentity());
             }
+          }
+        }
+        s.append("</table>\r\n");
+      }
+      mappings = s.toString();
+    }
+  }
+  
+  public void generate(ExtensionDefinition ed) {
+    if (ed.getMapping().isEmpty())
+      mappings = "<p>No Mappings</p>";
+    else {
+      StringBuilder s = new StringBuilder();
+      for (ExtensionDefinitionMappingComponent map : ed.getMapping()) {
+
+        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
+        if (map.getComments() != null)
+          s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
+        else if (definitions.getMapTypes().containsKey(map.getUri()))   
+          s.append(definitions.getMapTypes().get(map.getUri()).getPreamble());
+
+        s.append("<table class=\"grid\">\r\n");
+
+        s.append(" <tr><td colspan=\"3\"><b>"+Utilities.escapeXml(ed.getName())+"</b></td></tr>\r\n");
+        String path = null;
+        for (ElementDefinition e : ed.getElement()) {
+          if (path == null || !e.getPath().startsWith(path)) {
+            path = null;
+            if (e.getMax() != null && e.getMax().equals("0")) {
+              path = e.getPath()+".";
+            } else
+              genElement(s, e, map.getIdentity());
           }
         }
         s.append("</table>\r\n");

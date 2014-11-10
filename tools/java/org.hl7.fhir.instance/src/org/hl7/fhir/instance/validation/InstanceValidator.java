@@ -358,7 +358,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private Profile getProfileForType(String localName) throws Exception {
-    Profile r = (Profile) getReference(localName);
+    Profile r = (Profile) getReference("http://hl7.org/fhir/Profile/"+localName);
     if (r == null)
       return null;
     if (r.getStructure().size() != 1 || !(r.getStructure().get(0).getType().equals(localName) || r.getStructure().get(0).getName().equals(localName)))
@@ -374,7 +374,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private Resource getReference(String id) {
-    return context.getProfiles().get(id.toLowerCase()).getResource();
+    return context.getProfiles().get(id).getResource();
   }
 
   private void validateBinary(WrapperElement elem) {

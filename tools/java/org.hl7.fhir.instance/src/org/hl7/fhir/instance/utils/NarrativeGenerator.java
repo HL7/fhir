@@ -66,6 +66,7 @@ import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.HumanName;
@@ -381,6 +382,9 @@ public class NarrativeGenerator {
       x.addText(p.getStart() == null ? "??" : p.getStart().toHumanDisplay());
       x.addText(" --> ");
       x.addText(p.getEnd() == null ? "(ongoing)" : p.getEnd().toHumanDisplay());
+    } else if (e instanceof ElementDefinition) {
+      ElementDefinition ed = ((ElementDefinition) e);
+      x.addText(ed.getPath()+" : "+typeCode(ed.getType())+" ["+cardinality(ed)+"]   \""+ed.getShort()+"\"");
     } else if (e instanceof Reference) {
       Reference r = (Reference) e;
       XhtmlNode c = x;
@@ -408,6 +412,14 @@ public class NarrativeGenerator {
       }
     } else if (!(e instanceof Attachment))
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
+  }
+
+  private String typeCode(List<TypeRefComponent> types) {
+    return ProfileUtilities.typeCode(types);
+  }
+
+  private String cardinality(ElementDefinition ed) {
+    return (ed.getMinElement() != null ? Integer.toString(ed.getMin()) : "") + ".."+ ed.getMax();
   }
 
   private boolean displayLeaf(Resource res, Element e, ElementDefinition defn, XhtmlNode x, String name, boolean showCodeDetails) throws Exception {

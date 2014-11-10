@@ -118,6 +118,7 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptEquivalence;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
@@ -1128,7 +1129,7 @@ public class Publisher implements URIResolver {
       page.setIni(new IniFile(page.getFolders().rootDir + "publish.ini"));
       page.setVersion(page.getIni().getStringProperty("FHIR", "version"));
 
-      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext());
+      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate());
       prsr.checkConditions(errors, dates);
       page.setRegistry(prsr.getRegistry());
 
@@ -1526,6 +1527,10 @@ public class Publisher implements URIResolver {
 
     loadValueSets2();
 
+    for (AtomEntry<ExtensionDefinition> ae : page.getWorkerContext().getExtensionDefinitions().values()) 
+      produceExtensionDefinition(ae);
+    
+    
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       if (!rname.equals("ValueSet") && wantBuild(rname)) {
         ResourceDefn r = page.getDefinitions().getResources().get(rname);
@@ -1613,6 +1618,17 @@ public class Publisher implements URIResolver {
           "summary-instance");
       jsonToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)",
           resource2Json(typeFeed), "summary-instance");
+
+      AtomFeed extensionsFeed = new AtomFeed();
+      extensionsFeed.setId("http://hl7.org/fhir/profile/extensions");
+      extensionsFeed.setTitle("Extension Definitions");
+      extensionsFeed.setUpdated(profileFeed.getUpdated());
+      for (AtomEntry<ExtensionDefinition> ae : page.getWorkerContext().getExtensionDefinitions().values())
+        extensionsFeed.getEntryList().add(ae);
+      new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "extension-definitions.xml"), extensionsFeed, true, false);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "extension-definitions.json"), extensionsFeed, true);
+      cloneToXhtml("extension-definitions", "Core Extension Definitions", false, "summary-instance");
+      jsonToXhtml("extension-definitions", "Core Extension Definitions", resource2Json(extensionsFeed), "summary-instance");
 
       int ec = 0;
       for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> e : valueSetsFeed.getEntryList()) {
@@ -1716,6 +1732,42 @@ public class Publisher implements URIResolver {
       page.log("Partial Build - terminating now", LogMessageType.Error);
   }
 
+
+  private void produceExtensionDefinition(AtomEntry<ExtensionDefinition> ae) throws FileNotFoundException, Exception {
+    String filename = "extension-"+ae.getResource().getUrl().substring(40);
+    ae.getResource().setTag("filename", filename);
+    new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + filename+".xml"), ae.getResource(), true, false);
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + filename+".json"), ae.getResource(), true);
+    cloneToXhtml(filename, ae.getResource().getName(), false, "summary-instance");
+    jsonToXhtml(filename, ae.getResource().getName(), resource2Json(ae.getResource()), "extension"); 
+ 
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    XmlSpecGenerator gen = new XmlSpecGenerator(bytes, null, "http://hl7.org/fhir/", page);
+    gen.generate(ae.getResource());
+    gen.close();
+    String xml = bytes.toString();
+    
+    bytes = new ByteArrayOutputStream();
+    TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(bytes, page);
+    tgen.generate(ae.getResource(), page.getDefinitions().getBindings());
+    tgen.close();
+    String tx = bytes.toString();
+
+    String src = TextFile.fileToString(page.getFolders().srcDir + "template-extension-mappings.html");
+    src = page.processExtensionIncludes(filename, ae.getResource(), xml, tx, src, filename + ".html");
+    page.getEpub().registerFile(filename + "-mappings.html", "Mappings for Extension " + ae.getResource().getName(), EPubManager.XHTML_TYPE);
+    TextFile.stringToFile(src, page.getFolders().dstDir + filename + "-mappings.html");
+
+    src = TextFile.fileToString(page.getFolders().srcDir + "template-extension-definitions.html");
+    src = page.processExtensionIncludes(filename, ae.getResource(), xml, tx, src, filename + ".html");
+    page.getEpub().registerFile(filename + "-definitions.html", "Definitions for Extension " + ae.getResource().getName(), EPubManager.XHTML_TYPE);
+    TextFile.stringToFile(src, page.getFolders().dstDir + filename + "-definitions.html");
+
+    src = TextFile.fileToString(page.getFolders().srcDir + "template-extension.html");
+    src = page.processExtensionIncludes(filename, ae.getResource(), xml, tx, src, filename + ".html");
+    page.getEpub().registerFile(filename + ".html", "Extension " + ae.getResource().getName(), EPubManager.XHTML_TYPE);
+    TextFile.stringToFile(src, page.getFolders().dstDir + filename + ".html");
+  }
 
   private void copyStaticContent() throws IOException, Exception {
     if (page.getIni().getPropertyNames("support") != null)
@@ -2441,7 +2493,7 @@ public class Publisher implements URIResolver {
       String st = e.getAttribute("state");
       if ("include".equals(st)) {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
-        AtomEntry ae = new AtomEntry();
+        AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
         ae.getLinks().put("self", "v2" + File.separator + id + File.separator + "index.html");
         ae.getLinks().put("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
         ValueSet vs = buildV2Valueset(id, e);
@@ -2461,7 +2513,7 @@ public class Publisher implements URIResolver {
           c = XMLUtil.getNextSibling(c);
         }
         for (String ver : versions) {
-          AtomEntry ae = new AtomEntry();
+          AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
           ae.getLinks().put("self", "v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
           ae.getLinks().put("path", "v2" + HTTP_separator + id + HTTP_separator + ver + HTTP_separator + "index.html");
           ValueSet vs = buildV2ValuesetVersioned(id, ver, e);
@@ -3897,6 +3949,7 @@ public class Publisher implements URIResolver {
     MyErrorHandler err = new MyErrorHandler(true);
     builder.setErrorHandler(err);
     Document doc = builder.parse(new CSFileInputStream(new CSFile(page.getFolders().dstDir + n + ".xml")));
+    Element root = doc.getDocumentElement();
     errorCount = errorCount + err.getErrors().size();
 
     File tmpTransform = Utilities.createTempFile("tmp", ".xslt");
@@ -3931,7 +3984,7 @@ public class Publisher implements URIResolver {
     // now, finally, we validate the resource ourselves.
     // the build tool validation focuses on codes and identifiers
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-    // todo.... validator.validateInstance(issues, root);
+//    validator.validateInstance(issues, root);
     // if (profile != null)
     // validator.validateInstanceByProfile(issues, root, profile);
     for (ValidationMessage m : issues) {

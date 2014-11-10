@@ -85,13 +85,22 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 		this.page = page;
 	}
 
-	public void generate(ElementDefn root, Map<String, BindingSpecification> tx) throws Exception
+	public void generate(ExtensionDefinition ed, Map<String, BindingSpecification> tx) throws Exception
 	{
-		scan(root, root.getName(), tx);
+		scan(ed, ed.getUrl(), tx);
 		gen(txusages);
 		flush();
 		close();
 	}
+
+
+  public void generate(ElementDefn root, Map<String, BindingSpecification> tx) throws Exception
+  {
+    scan(root, root.getName(), tx);
+    gen(txusages);
+    flush();
+    close();
+  }
 
   public void generate(ProfileDefn profile, Map<String, BindingSpecification> tx) throws Exception
   {
@@ -106,22 +115,24 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     close();
   }
 	
-	private void scan(ProfileDefn profile, Map<String, BindingSpecification> tx) throws Exception {
-    for (AtomEntry<ExtensionDefinition> exd : page.getWorkerContext().getExtensionDefinitions().values()) {
-      for (ElementDefinition ed : exd.getResource().getElement()) {
-        if (ed.getBinding() != null) {
-          BindingSpecification cd = getConceptDomainByNameOrNull(tx, ed.getBinding().getName());
-          if (cd != null) {
-            if (!txusages.containsKey(cd)) {
-              txusages.put(cd, new ArrayList<CDUsage>());
-              c++;
-              txusages.get(cd).add(new CDUsage(String.valueOf(c), null));           
-            }
-            txusages.get(cd).add(new CDUsage(profile.getMetadata().get("id")+".extensions."+exd.getResource().getUrl(), null));
+  private void scan(ExtensionDefinition exd, String url, Map<String, BindingSpecification> tx) throws Exception {
+    for (ElementDefinition ed : exd.getElement()) {
+      if (ed.getBinding() != null) {
+        BindingSpecification cd = getConceptDomainByNameOrNull(tx, ed.getBinding().getName());
+        if (cd != null) {
+          if (!txusages.containsKey(cd)) {
+            txusages.put(cd, new ArrayList<CDUsage>());
+            c++;
+            txusages.get(cd).add(new CDUsage(String.valueOf(c), null));           
           }
+          txusages.get(cd).add(new CDUsage(url, null));
         }
       }
     }
+  }
+
+	private void scan(ProfileDefn profile, Map<String, BindingSpecification> tx) throws Exception {
+    // todo
 	}
 
   private void gen(Map<BindingSpecification, List<CDUsage>> txusages2) throws Exception {

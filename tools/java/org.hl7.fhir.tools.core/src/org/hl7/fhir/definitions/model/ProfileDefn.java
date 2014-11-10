@@ -29,8 +29,10 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
@@ -44,9 +46,7 @@ public class ProfileDefn {
   private List<ResourceDefn> resources = new ArrayList<ResourceDefn>();
   private Map<String, ArrayList<String>> metadata = new HashMap<String, ArrayList<String>>();
   private List<BindingSpecification> bindings = new ArrayList<BindingSpecification>();
-  
- 
-  
+  private Set<String> extensions = new HashSet<String>(); // extensions that are part of this specification pack
   
   public Map<String, ArrayList<String>> getMetadata() {
     return metadata;
@@ -56,7 +56,10 @@ public class ProfileDefn {
     return resources;
   }
 
-  
+  public Set<String> getExtensions() {
+    return extensions;
+  }
+
   public String metadata(String name) {
     if (source != null) {
       if ("description".equals(name))

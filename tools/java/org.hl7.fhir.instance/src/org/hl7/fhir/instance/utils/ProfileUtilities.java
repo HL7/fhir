@@ -280,10 +280,10 @@ public class ProfileUtilities {
           if (differential.getElement().size() > diffCursor && isDataType(outcome.getType())) { 
             if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) {
               if (outcome.getType().size() > 1)
-                throw new Exception(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+asString(outcome.getType())+") in profile "+profileName);
+                throw new Exception(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
               ProfileStructureComponent dt = getStructureForDataType(outcome.getType().get(0));
               if (dt == null)
-                throw new Exception(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+asString(outcome.getType())+" in profile "+profileName+", but can't find type");
+                throw new Exception(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
               int start = diffCursor;
               while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) 
                 diffCursor++;
@@ -450,7 +450,7 @@ public class ProfileUtilities {
   }
 
 
-  private String asString(List<TypeRefComponent> types) {
+  public static String typeCode(List<TypeRefComponent> types) {
     StringBuilder b = new StringBuilder();
     boolean first = true;
     for (TypeRefComponent type : types) {
@@ -647,53 +647,74 @@ public class ProfileUtilities {
     }
   }
   
-//  public XhtmlNode generateExtensionsTable(String defFile, Profile profile, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp, String profileBaseName, boolean snapshot) throws Exception {
-//    HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
-//    TableModel model = gen.initNormalTable();
-//    
-//    Row re = gen.new Row();
-//    model.getRows().add(re);
-//    re.setIcon("icon_profile.png", HeirarchicalTableGenerator.TEXT_ICON_PROFILE);
-//    re.getCells().add(gen.new Cell(null, null, "Extensions", null, null));
-//    re.getCells().add(gen.new Cell());
-//    re.getCells().add(gen.new Cell());
-//    re.getCells().add(gen.new Cell());
-//    re.getCells().add(gen.new Cell(null, null, "Extensions defined by the URL \""+profile.getUrl()+"\"", null, null));
-//
-//    for (ProfileExtensionDefnComponent ext : profile.getExtensionDefn()) {
-//      genExtension(defFile, gen, re.getSubRows(), ext, profile, pkp, profileBaseName, snapshot);
-//    }
-//    return gen.generate(model);
-//  }
-  
-  private void genExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, ExtensionDefinition ext, Profile profile, ProfileKnowledgeProvider pkp, String profileBaseFileName, boolean snapshot) throws Exception {
+  public XhtmlNode generateExtensionTable(String defFile, ExtensionDefinition ed, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp) throws Exception {
+    HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
+    TableModel model = gen.initNormalTable();
+    
     Row r = gen.new Row();
-    rows.add(r);
-    r.setAnchor(ext.getName());
-    ElementDefinition e = ext.getElement().get(0);
-    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension."+ext.getName(), ext.getName(), e.getFormal(), null));
+    model.getRows().add(r);
+    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension."+ed.getName(), ed.getElement().get(0).getIsModifier() ? "modifierExtension" : "extension", null, null));
     r.getCells().add(gen.new Cell());
-    r.getCells().add(gen.new Cell(null, null, describeCardinality(e, null, new UnusedTracker()), null, null));
-    if (ext.getElement().size() == 1) {
+    r.getCells().add(gen.new Cell(null, null, null, null, null));
+    r.getCells().add(gen.new Cell("", "", "Extension", null, null));
+
+    Cell c = gen.new Cell("", "", "URL = "+ed.getUrl(), null, null);
+    c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, ed.getName()+": "+ed.getDescription(), null));
+    c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ed), null));
+    r.getCells().add(c);
+    
+    if (ed.getElement().size() == 1) {
       r.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
-      genTypes(gen, pkp, r, e, profileBaseFileName, profile);
+      genSimpleExtension(defFile, gen, r.getSubRows(), ed, pkp);
     } else {
       r.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
-      r.getCells().add(gen.new Cell());
-    }
-
-    Cell c = generateDescription(gen, r, e, null, true, profile.getUrl(), null, pkp, profile);
-    c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null));
-    
-    List<Profile> profiles = new ArrayList<Profile>();
-    profiles.add(profile);    
-    List<ElementDefinition> children = getChildren(ext.getElement(), e);
-    for (ElementDefinition child : children)
-      genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profiles, pkp, true, profileBaseFileName, false, snapshot);
-    if (snapshot)
+      List<ElementDefinition> children = getChildren(ed.getElement(), ed.getElement().get(0));
       for (ElementDefinition child : children)
-        genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ext.getElement(), profiles, pkp, true, profileBaseFileName, true, false);
+        genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ed.getElement(), null, pkp, true, null, false, false);
+    }
+    return gen.generate(model);
   }
+  
+  private void genSimpleExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, ExtensionDefinition ext, ProfileKnowledgeProvider pkp) throws Exception {
+    Row r = gen.new Row();
+    rows.add(r);
+    r.setAnchor("value");
+    ElementDefinition e = ext.getElement().get(0);
+    String name;
+    if (e.getType().size() == 1)
+      name = "value"+Utilities.capitalize(e.getType().get(0).getCode());
+    else
+      name = "value[x]";
+    
+    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension.value[x]", name, e.getFormal(), null));
+    r.getCells().add(gen.new Cell());
+    r.getCells().add(gen.new Cell(null, null, describeCardinality(e, null, new UnusedTracker()), null, null));
+    genTypes(gen, pkp, r, e, null, null);
+
+    Cell c = generateDescription(gen, r, e, null, true, null, null, pkp, null);
+    c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null));
+   }
+
+//  private void genComplexExtension(String defFile, HeirarchicalTableGenerator gen, List<Row> rows, ExtensionDefinition ext, ProfileKnowledgeProvider pkp) throws Exception {
+//    Row r = gen.new Row();
+//    rows.add(r);
+//    r.setAnchor(ext.getName());
+//    ElementDefinition e = ext.getElement().get(0);
+//    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension."+ext.getName(), ext.getName(), e.getFormal(), null));
+//    r.getCells().add(gen.new Cell());
+//    r.getCells().add(gen.new Cell(null, null, describeCardinality(e, null, new UnusedTracker()), null, null));
+//    if (ext.getElement().size() == 1) {
+//      r.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
+//      genTypes(gen, pkp, r, e, null, null);
+//    } else {
+//      r.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
+//      r.getCells().add(gen.new Cell());
+//    }
+//
+//    Cell c = generateDescription(gen, r, e, null, true, ext.getUrl(), null, pkp, null);
+//    c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ext), null));
+//    
+//  }
 
   private void genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementDefinition e, String profileBaseFileName, Profile profile) throws Exception {
     Cell c = gen.new Cell();
@@ -768,7 +789,7 @@ public class ProfileUtilities {
   }
 
   private void genElement(String defPath, HeirarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<Profile> profiles, ProfileKnowledgeProvider pkp, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot) throws Exception {
-    Profile profile = profiles.get(profiles.size()-1);
+    Profile profile = profiles == null ? null : profiles.get(profiles.size()-1);
     String s = tail(element.getPath());
     if (!snapshot && extensions != null && extensions != (s.equals("extension") || s.equals("modifierExtension"))) 
       return;
