@@ -52,6 +52,14 @@
     <xsl:variable name="newQuestionnaire">
       <xsl:apply-templates mode="upgradeQuestionnaire" select="."/>
     </xsl:variable>
+<!--    <xsl:choose>
+      <xsl:when test="$useMicrosoft='true'">
+        <xsl:copy-of select="msxsl:node-set($newQuestionnaire)/f:Questionnaire"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:copy-of select="common:node-set($newQuestionnaire)/f:Questionnaire"/>
+      </xsl:otherwise>
+    </xsl:choose>-->
     <xsl:choose>
       <xsl:when test="$useMicrosoft='true'">
         <xsl:apply-templates select="msxsl:node-set($newQuestionnaire)/f:Questionnaire"/>
@@ -111,7 +119,7 @@
   </xsl:template>
   <xsl:template mode="upgradeQuestionnaire" match="f:group">
     <xsl:choose>
-      <xsl:when test="f:text!='' or f:group or count(f:question)&gt;1 or f:repeats/@value='true'">
+      <xsl:when test="f:text!='' or f:group or count(f:question)&gt;1 or count(f:extension[@url='http://www.healthintersections.com.au/fhir/Profile/metadata#type'])!=0 or f:repeats/@value='true'">
         <xsl:copy>
           <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
           <xsl:call-template name="upgradeCardinality"/>
@@ -172,6 +180,43 @@
     <xsl:copy>
       <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
       <xsl:call-template name="upgradeCardinality"/>
+      <xsl:if test="f:type[@value='choice' or @value='open-choice']">
+        <xsl:choose>
+          <xsl:when test="not(f:options/f:reference/@value)">
+            <xsl:if test="not($suppressWarnings='true')">
+              <xsl:message>
+                <xsl:value-of select="concat('WARNING: A question was defined as requiring a coded answer, but no set of allowed values was declared so unable to expose code choices for question: ', f:linkId/@value, ' &quot;', f:text/@value, '&quot;')"/>
+              </xsl:message>
+            </xsl:if>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:variable name="valueset">
+              <xsl:apply-templates mode="resolveReference" select="f:options/f:reference"/>
+            </xsl:variable>
+            <xsl:choose>
+              <xsl:when test="$useMicrosoft='true'">
+                <xsl:apply-templates mode="valueSetToCodings" select="msxsl:node-set($valueset)"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:apply-templates mode="valueSetToCodings" select="common:node-set($valueset)"/>
+              </xsl:otherwise>
+            </xsl:choose>
+            <xsl:variable name="operationOutcome">
+              <xsl:choose>
+                <xsl:when test="$useMicrosoft='true'">
+                  <xsl:value-of select="msxsl:node-set($valueset)/f:OperationOutcome/f:issue[1]/f:type/f:code/@value"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="common:node-set($valueset)/f:OperationOutcome/f:issue[1]/f:type/f:code/@value"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+            <xsl:if test="$operationOutcome!=''">
+              <operationOutcome value="{$operationOutcome}"/>
+            </xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
       <xsl:apply-templates mode="upgradeQuestionnaire" select="node()">
         <xsl:with-param name="additionalPrefix" select="$additionalPrefix"/>
       </xsl:apply-templates>
@@ -216,7 +261,14 @@
         <xsl:with-param name="replacement" select="''"/>
       </xsl:call-template>
     </xsl:variable>
-    <xsl:value-of select="$pass3"/>
+    <xsl:variable name="pass4">
+      <xsl:call-template name="replace">
+        <xsl:with-param name="input" select="$pass3"/>
+        <xsl:with-param name="pattern" select="'/'"/>
+        <xsl:with-param name="replacement" select="'_'"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:value-of select="$pass4"/>
   </xsl:template>
   <!-- ====================================
      - = Questionnaire to HTML
@@ -236,6 +288,7 @@
               <xsl:text>var questionnaireAnswersVersion = null;&#x0a;</xsl:text>
               <xsl:text>var questionnaireAnswersEndpoint = null;&#x0a;</xsl:text>
               <xsl:apply-templates mode="validateScript" select="//f:group|//f:question"/>
+<!--              <xsl:apply-templates mode="parseScript" select="//f:group|//f:question"/>-->
               <xsl:text>function validateQuestionnaire() {&#x0a;</xsl:text>
               <xsl:value-of select="concat('  return validate', f:group/f:linkId/@safeValue, '(document.getElementById(&quot;div-cnt&quot;));&#x0a;')"/>
               <xsl:text>}&#x0a;&#x0a;</xsl:text>
@@ -243,7 +296,12 @@
               <xsl:text>  return null;&#x0a;</xsl:text>
               <xsl:text>}&#x0a;&#x0a;</xsl:text>
               <xsl:text>function parseQuestionnaire() {&#x0a;</xsl:text>
-              <xsl:text>  return null;&#x0a;</xsl:text>
+<!--              <xsl:value-of select="concat('  var content = parse', f:group/f:linkId/@safeValue, '(document.getElementById(&quot;div-cnt&quot;));&#x0a;')"/>
+              <xsl:text>  if (content.length == 0)&#x0a;</xsl:text>
+              <xsl:text>    delete answers.group&#x0a;</xsl:text>
+              <xsl:text>  else&#x0a;</xsl:text>
+              <xsl:text>    answers.group = content;&#x0a;</xsl:text>
+              <xsl:text>  return answers;&#x0a;</xsl:text>-->
               <xsl:text>}&#x0a;&#x0a;</xsl:text>
             </xsl:comment>
           </script>
@@ -303,9 +361,9 @@
     <xsl:value-of select="concat('function parse', generate-id(), '(node) {&#x0a;')"/>
     <xsl:text>}&#x0a;&#x0a;</xsl:text>
   </xsl:template>
-  <xsl:template mode="validateScript" match="f:group">
-    <xsl:value-of select="concat('&#x0a;function validate', f:linkId/@safeValue, '(node) {&#x0a;')"/>
-    <xsl:value-of select="concat('  var groupNodes = findDiv(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
+  <xsl:template mode="parseScript" match="f:group">
+    <xsl:value-of select="concat('&#x0a;function parse', f:linkId/@safeValue, '(node) {&#x0a;')"/>
+<!--    <xsl:value-of select="concat('  var groupNodes = findDiv(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
     <xsl:text disable-output-escaping="yes">  if (groupNodes.length &lt; </xsl:text>
     <xsl:value-of select="concat(f:_minOccurs/@value, ')&#x0a;')"/>
     <xsl:text>    return false&#x0a;  else&#x0a;    return </xsl:text>
@@ -313,23 +371,140 @@
       <xsl:if test="position()!=1">
         <xsl:text disable-output-escaping="yes">&#x0a;         &amp;&amp; </xsl:text>
       </xsl:if>
-      <xsl:value-of select="concat('validate', f:linkId/@safeValue, '(findDiv(node, &quot;', f:linkId/@value, '&quot;))')"/>
-    </xsl:for-each>
+      <xsl:value-of select="concat('parse', f:linkId/@safeValue, '(findDiv(node, &quot;', f:linkId/@value, '&quot;))')"/>
+    </xsl:for-each>-->
     <xsl:text>;&#x0a;}&#x0a;&#x0a;</xsl:text>
   </xsl:template>
-  <xsl:template mode="validateScript" match="f:question">
-    <xsl:value-of select="concat('&#x0a;function validate', f:linkId/@safeValue, '(node) {&#x0a;')"/>
-    <xsl:value-of select="concat('  var answerNodes = findAnswers(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
-    <xsl:text disable-output-escaping="yes">  if (answerNodes.length &lt; </xsl:text>
-    <xsl:value-of select="concat(f:_minOccurs/@value, ')&#x0a;')"/>
-    <xsl:text>    return false&#x0a;  else&#x0a;    return </xsl:text>
+  <xsl:template mode="parseScript" match="f:question">
+    <xsl:value-of select="concat('&#x0a;function parse', f:linkId/@safeValue, '(node) {&#x0a;')"/>
+<!--    <xsl:value-of select="concat('  var answerNodes = findAnswers(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
+    <xsl:choose>
+      <xsl:when test="f:_minOccurs/@value!=0">
+        <xsl:text disable-output-escaping="yes">  if (answerNodes == null || answerNodes.length &lt; </xsl:text>
+        <xsl:value-of select="concat(f:_minOccurs/@value, ')&#x0a;')"/>
+        <xsl:text>    return false&#x0a;  else {&#x0a;    </xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>  if (answerNodes != null) {&#x0a;</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:for-each select="f:group">
       <xsl:if test="position()!=1">
         <xsl:text disable-output-escaping="yes">&#x0a;         &amp;&amp; </xsl:text>
       </xsl:if>
-      <xsl:value-of select="concat('validate', f:linkId/@safeValue, '(findDiv(node, &quot;', f:linkId/@value, '&quot;))')"/>
-    </xsl:for-each>
+      <xsl:value-of select="concat('parse', f:linkId/@safeValue, '(findDiv(node, &quot;', f:linkId/@value, '&quot;))')"/>
+    </xsl:for-each>-->
     <xsl:text>;&#x0a;}&#x0a;&#x0a;</xsl:text>
+  </xsl:template>
+  <xsl:template mode="validateScript" match="f:group">
+    <xsl:value-of select="concat('&#x0a;function validate', f:linkId/@safeValue, '(node) {&#x0a;')"/>
+    <xsl:value-of select="concat('  var groupNodes = findDiv(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
+    <xsl:choose>
+      <xsl:when test="f:_minOccurs/@value!=0">
+        <xsl:text disable-output-escaping="yes">  if (groupNodes.length &lt; </xsl:text>
+        <xsl:value-of select="concat(f:_minOccurs/@value, ') {&#x0a;')"/>
+<xsl:text>showError();&#x0a;</xsl:text>
+        <xsl:text>    node.focus()&#x0a;    alert('Must have at least </xsl:text>
+        <xsl:value-of select="concat(f:_minOccurs/@value, ' occurrences of: ')"/>
+        <xsl:choose>
+          <xsl:when test="f:title/@value">
+            <xsl:call-template name="escapeText">
+              <xsl:with-param name="text" select="f:title/@value"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:when test="f:text/@value">
+            <xsl:call-template name="escapeText">
+              <xsl:with-param name="text" select="f:text/@value"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>group</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
+        <xsl:text>');&#x0a;    return false&#x0a;  } else {&#x0a;</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>  if (groupNodes != null) {&#x0a;</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text>    var valid = true;&#x0a;</xsl:text>
+    <xsl:text disable-output-escaping="yes">    for (var i=0; i&lt;groupNodes.length &amp;&amp; valid; i++) {&#x0a;</xsl:text>
+    <xsl:text>      var divNode = groupNodes[i];&#x0a;      valid =</xsl:text>
+    <xsl:for-each select="f:group|f:question">
+      <xsl:if test="position()!=1">
+        <xsl:text disable-output-escaping="yes">&#x0a;         &amp;&amp;</xsl:text>
+      </xsl:if>
+      <xsl:value-of select="concat(' validate', f:linkId/@safeValue, '(divNode, &quot;', f:linkId/@value, '&quot;)')"/>
+    </xsl:for-each>
+    <xsl:text>;&#x0a;    }&#x0a;    return valid;&#x0a;  }&#x0a;}&#x0a;&#x0a;</xsl:text>
+  </xsl:template>
+  <xsl:template mode="validateScript" match="f:question">
+    <xsl:value-of select="concat('&#x0a;function validate', f:linkId/@safeValue, '(node) {&#x0a;')"/>
+    <xsl:choose>
+      <xsl:when test="f:coding">
+        <xsl:text>  var codings = [{</xsl:text>
+        <xsl:for-each select="f:coding">
+          <xsl:if test="position()!=1">
+            <xsl:text>,&#x0a;                 {</xsl:text>
+          </xsl:if>
+          <xsl:text>"system": "</xsl:text>
+          <xsl:value-of select="f:system/@value"/>
+          <xsl:text>", "code": "</xsl:text>
+          <xsl:value-of select="f:code/@value"/>
+          <xsl:text>", "display": "</xsl:text>
+          <xsl:value-of select="f:display/@value"/>
+          <xsl:text>"}</xsl:text>
+        </xsl:for-each>
+        <xsl:value-of select="concat('];&#x0a;  var answerNodes = findAnswers(node, &quot;', f:linkId/@value, '&quot;,codings);&#x0a;')"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="concat('  var answerNodes = findAnswers(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:choose>
+      <xsl:when test="f:_minOccurs/@value!=0">
+        <xsl:text disable-output-escaping="yes">  if (answerNodes == null || answerNodes.length &lt; </xsl:text>
+        <xsl:value-of select="concat(f:_minOccurs/@value, ') {&#x0a;')"/>
+<xsl:text>showError();&#x0a;</xsl:text>
+        <xsl:text>    node.focus()&#x0a;    alert('Must have at least </xsl:text>
+        <xsl:value-of select="concat(f:_minOccurs/@value, ' occurrences of ')"/>
+        <xsl:choose>
+          <xsl:when test="f:title/@value">
+            <xsl:call-template name="escapeText">
+              <xsl:with-param name="text" select="f:title/@value"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:when test="f:text/@value">
+            <xsl:call-template name="escapeText">
+              <xsl:with-param name="text" select="f:text/@value"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>group</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
+        <xsl:text>');&#x0a;    return false&#x0a;  } else {&#x0a;</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>  if (answerNodes != null) {&#x0a;</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:choose>
+      <xsl:when test="f:group">
+        <xsl:value-of select="concat('    var groupNodes = findDiv(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
+        <xsl:text>    return</xsl:text>
+        <xsl:for-each select="f:group|f:question">
+          <xsl:if test="position()!=1">
+            <xsl:text disable-output-escaping="yes">&#x0a;         &amp;&amp;</xsl:text>
+          </xsl:if>
+          <xsl:value-of select="concat(' validate', f:linkId/@safeValue, '(node, &quot;', f:linkId/@value, '&quot;)')"/>
+        </xsl:for-each>
+        <xsl:text>;&#x0a;  }&#x0a;}&#x0a;&#x0a;</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>    return true;&#x0a;  }&#x0a;}&#x0a;</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <xsl:template name="scripts">
     <xsl:if test="$jQueryPath!=''">
@@ -366,18 +541,185 @@
         </xsl:comment>
       </script>
       <script type="text/javascript">
+<xsl:comment>
+  <xsl:text>&#x0a;var removeButton = '</xsl:text>
+  <xsl:choose>
+    <xsl:when test="$iconPath=''">
+      <xsl:text disable-output-escaping="yes">&lt;button type="button" onclick="deleteRow(this)"&gt;X&lt;/button&gt;'&#x0a;</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text disable-output-escaping="yes">&lt;input type="image" onclick="deleteRow(this)" src="</xsl:text>
+      <xsl:value-of select="$iconPath"/>
+      <xsl:text disable-output-escaping="yes">/html-form-delete.png" alt="Remove" style="width:10px;height:10px;"/&gt;'&#x0a;</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
 function findDiv(node, linkId) {
   return $(node).children("div").filter(function() {
-    return $(this).children("span").text() == linkId;
+    return $(this).children("span:first-child").text() == linkId;
   });
 }
 
-function findAnswers(node, linkId) {
-  var answerCell = $(node).children("table").children("tr").filter(function() {return $(this).firstChild.firstChild.text() === linkId;}).cell(1);
-  if (answerCell.length == 0) {
-    alert("Unable to find question " + linkId);
+function answerCell(node, linkId) {
+  var answerRows = $(node).children("table").children("tbody").children("tr").filter(function() {
+    return $(this).children("td:first-child").children("span:first-child").text() === linkId;
+  });
+  if (answerRows.length == 0) {
+    alert("Unable to find question row: " + linkId);
     return null;
   }
+  if (answerRows.length != 1) {
+    alert("Multiple question rows for: " + linkId);
+    return null;
+  }
+  
+  return inputCell = answerRows[0].cells[1];
+}
+
+function answerType(inputCell) {
+  if ($(inputCell).children("input:radio").length > 0)
+    return "radio"
+    
+  else if ($(inputCell).children("input:checkbox").length > 0)
+    return "checkbox"
+    
+  else if ($(inputCell).children("select").length > 0) {
+    var options = $(inputCell).children("select").children("option");
+    if (options.count!=3
+     || $(options[0]).val() != ''
+     || $(options[1]).val() != 'true'
+     || $(options[2]).val() != 'false'
+     || $(options[0]).text() != ''
+     || $(options[1]).text() != 'Yes'
+     || $(options[2]).text() != 'No')
+      return "select"
+    else
+      return "boolean"
+  
+  } else if ($(inputCell).children("table").length > 0)
+    if ($(inputCell).children("table").children("colgroup").children("col:last-child",[span='2']).length > 0)
+      return "coding"
+ 
+    else if ($(inputCell).children("table").children("colgroup").children("col").length == 3)
+      return "reference"
+    
+    else if ($(inputCell).children("input:text").length > 0)
+      return "repeating-text"
+  
+    else if ($(inputCell).children("textarea").length > 0)
+      return "repeating-textarea"
+    
+    else alert("Unknown repeating type")
+  
+  else if ($(inputCell).children("input:text").length > 0)
+    return "text"
+
+  else if ($(inputCell).children("textarea").length > 0)
+    return "textarea"
+    
+  else if ($(inputCell).children("*:input").length == 0)
+    return "none"
+    
+  else alert("Unknown type");
+}
+
+function findAnswers(node, linkId, lookupArray, isNumber) {
+  var inputCell = answerCell(node, linkId);
+
+  if (inputCell == null) return null;
+  
+  var inputType = answerType(inputCell);
+  
+  var answerCount = 0;
+  var answers = [];
+  
+  switch (inputType) {
+    case "radio":
+    case "checkbox":
+      $(inputCell).children(":checked").each(function() {
+        var value = $(this).val();
+        if (lookupArray) {
+          var coding = $.grep(lookupArray, function(aCoding){ return aCoding.code == value; });
+          if (coding)
+            answers.push(coding);
+          
+        } else
+          answers.push(value);
+      });
+      break;
+      
+    case "boolean":
+      if ($(inputCell).children("input:checkbox", ":checked").length!=0)
+        answers.push('true')
+      else
+        answers.push('false');
+      break;
+    
+    case "select":
+      $(inputCell).children("select").children("option:selected").each(function() {
+        var value = $(this).val();
+        if (value != "") {
+          if (lookupArray) {
+            var coding = $.grep(lookupArray, function(aCoding){ return aCoding.display == value; });
+            if (coding)
+              answers.push(coding);
+            
+          } else
+            answers.push(value);
+        }
+      });
+      break;
+
+    case "coding":
+      $(inputCell).children("table").children("tbody").children("tr").each(function() {
+        var coding = {
+          "system": this.cells[2].textContent,
+          "code": this.cells[3].textContent,
+          "display": this.cells[1].textContent
+        }
+        answers.push(coding);
+      });
+      break;
+      
+    case "reference":
+      $(inputCell).children("table").children("tbody").children("tr").each(function() {
+        var reference = {
+          "reference": this.cells[2].textContent,
+          "display": this.cells[1].textContent
+        }
+        answers.push(reference);
+      });
+      break;
+      
+    case "repeating-text":
+    case "repeating-textarea":
+      $(inputCell).children("table").children("tbody").children("tr").each(function() {
+        var value = $(this).children("td:last-child").children("input:visible").val();
+        if (value != "") {
+          if (isNumber)
+            answers.push(value.toNumber())
+          else
+            answers.push(value);
+        }
+      });
+      break;
+      
+    case "text":
+    case "textarea":
+      $(inputCell).children("input:visible").each(function() {
+        var value = $(this).val();
+        if (value != "") {
+          if (isNumber)
+            answers.push(value.toNumber())
+          else
+            answers.push(value);
+        }
+      });
+      break;
+      
+    case "none":
+  }
+  
+  return answers;
 }
 
 function loadAnswers() {
@@ -389,34 +731,58 @@ function loadAnswers() {
         "status": "generated",
         "div": null
       },
-      "status": "draft"
-      // It would be nice to populate the reference to the Questionnaire, but we'd need to know the id      
+      // "questionnaire": TODO,
+      "status": "draft",
+      // "subject": TODO,
+      // "author": TODO,
+      "authored": "2001-01-01T00:00:00",
+      // "encounter": TODO,
+      "group": null
     }
   } else {
     populateQuestionnaire();
   }
 }
 
+function currentTime() {
+  var now = new Date();
+  return now.getYear + "-" + padTime(now.getMonth) + "-" + padTime(now.getDay) + "T" + padTime(now.getHours) + ':' + padTime(now.getMinutes) + ':' + padTime(now.getSeconds);
+}
+
+function padTime(num) {
+  if (num &lt; 10)
+    return "0" + num
+  else
+    return num;
+}
+
 function saveDraft() {
+  parseQuestionnaire();
   questionnaireAnswers.status = "draft"
-  saveQuestionnaire();
+  questionnaireAnswers.authored = currentTime();
+  saveQuestionnaire(questionnaireAnswers);
 }
 
 function saveFinal() {
   if (validateQuestionnaire()) {
+    parseQuestionnaire();
     if (questionnaireAnswers.status == "completed")
       questionnaireAnswers.status = "amended"
      else
       questionnaireAnswers.status = "completed";
+    questionnaireAnswers.authored = currentTime();
     saveQuestionnaire();
   }
 }
 
 function saveQuestionnaire() {
-  parseQuestionnaire();
-  
+  // Todo: save stuff
 }
 
+function showError() {
+  alert('Error');
+}
+</xsl:comment>
       </script>
       <script type="text/javascript">
         <xsl:comment>
@@ -465,7 +831,7 @@ function combo(id,h,l)
     self.list[i].onclick = function() {
       if (this.id != null) {
         self.inp.value = this.firstChild.data;  
-        for (var i = 0; i &lt; codes.length; i++) { 
+        for (var i = 0; i &lt; codes.length; i++) {
           if (codes[i].system+"||"+codes[i].code == this.id) {
             selectedSystem = codes[i].system;
             selectedCode = codes[i].code;
@@ -623,6 +989,12 @@ function processExpansion(data)
   new combo('fhir-code-input','#9c9','#fff'); 
 }
 
+function processNarrative(narr) {
+  var s = narr.indexOf("&gt;");
+  var e = narr.lastIndexOf("&lt;");
+  return narr.substring(s+1, e-1);
+}
+
 function getCodes(id, text)
 {
     try
@@ -638,9 +1010,9 @@ function getCodes(id, text)
         error: function(jqXHR, textStatus, errorThrown){
           try {
             var oo = jQuery.parseJSON(jqXHR.responseText);
-            document.getElementById("fhir-tag-ul").innerHTML = "&lt;li>"+processNarrative(oo.text.div)+"&lt;/li>";  
+            document.getElementById("fhir-code-ul").innerHTML = "&lt;li>"+processNarrative(oo.text.div)+"&lt;/li>";  
           } catch (err) {
-            alert("System Error: "+textStatus);
+            alert("System Error: "+textStatus+" (:"+err+")");
           }
         }
       });
@@ -660,7 +1032,7 @@ function deleteRow(control) {
 }
 
 function setRowId(row) {
-  row.id = getRowId(row.children[2].innerHTML, row.children[3].innerHTML, row.children[1].innerHTML);
+  row.id = getRowId(row.cells[2].textContent, row.cells[3].textContent, row.cells[1].textContent);
 }
 
 function getRowId(system, code, display) {
@@ -685,7 +1057,7 @@ function addRow() {
   }
 
   currentRow = selectionTable.insertRow(-1);
-  currentRow.insertCell(0).innerHTML = removeButton;
+  currentRow.insertCell(0).innerHTML = removeGroupButton;
   // Todo: make the URL a variable
   var aCell = currentRow.insertCell(1);
   aCell.innerHTML = addCode ? selectedDisplay : selectionText;
@@ -707,6 +1079,7 @@ function addRow() {
 
 function checkMaxCodeRows() {
   if ((fhirCodeMax == null || selectionTable.rows.length &lt; fhirCodeMax)
+  &amp;&amp; fhirCodeMax != 1
   &amp;&amp; codeSelection.value != "" 
   &amp;&amp; (codeSelection.value == selectedDisplay || fhirCodeExtensible))
     addButton.style.display = "inherit"
@@ -746,8 +1119,201 @@ function closeCodeSelect() {
 }
         </xsl:comment>
       </script>
+      <script type="text/javascript">
+        <xsl:comment>
+var fhirReferenceMax = null;
+var fhirReferenceSourceTable = null;
+var fhirReferenceCount = 0;
+
+var referenceTable;
+var doneButton1;
+var doneButton2;
+
+function referenceBuildForm()
+{
+  var d = document.getElementById("fhir-reference-form");
+  if (d == null)
+  {
+    d = document.createElement("div");
+    d.id = "fhir-reference-form";
+  }
+
+  d.innerHTML = "&lt;div id=\"fhir-reference-div\" style=\"overflow:hidden\">&lt;span id=\"fhir-reference-label\">Resources:&lt;/span>&lt;div style=\"overflow:auto\">" +
+    "&lt;table id=\"fhir-reference-table\" style=\"border-style:solid;border-width:thin;\">&lt;col span=\"2\"/>" +
+    "&lt;col style=\"width:0px;visibility:collapse;\"/>&lt;tbody> &lt;/tbody>&lt;/table>&lt;/div>&lt;table>&lt;tbody>" +
+    "&lt;tr>&lt;td>&lt;button onClick='cancelReference()'>Cancel&lt;/button>&lt;/td>&lt;td>" +
+    "&lt;button id=\"fhir-reference-commit\" onClick='commitReferences()'>Apply&lt;/button>&lt;/td>&lt;/tr>&lt;/tbody>&lt;/table>&lt;/div>";
+  d.className = "fhir-code-form";
+	document.getElementById("div-cnt").appendChild(d);
+  $('.fhir-code-form').css('left', fhirReferenceSourceTable.offsetLeft+fhirReferenceSourceTable.offsetWidth);
+  $('.fhir-code-form').css('top', fhirReferenceSourceTable.offsetTop+fhirReferenceSourceTable.offsetHeight);
+}
+
+function initReferenceLookup(query, label, sourceTable, max) {
+  fhirReferenceQuery = query;
+  fhirReferenceMax = max;
+  fhirReferenceSourceTable = sourceTable
+
+  referenceBuildForm();
+
+  var inputLabel = document.getElementById("fhir-reference-label");
+  referenceTable = document.getElementById("fhir-reference-table");
+  doneButton = document.getElementById("fhir-reference-commit");
+
+  if (max==1) {
+    inputLabel.innerHTML=label + " (select one):"
+    doneButton.style.display = "none";
+    referenceControl = "&lt;button title=\"Choose this resource\" onclick=\"chooseReference(this.parentNode.parentNode)\">Select&lt;/button>"
+  } else {
+    inputLabel.innerHTML=label + " (select one or more): "
+    doneButton.style.display = "inherit";
+    referenceControl = "&lt;input type=\"checkbox\" title=\"Include this resource\" onchange=\"toggleReference(this)\"/>";
+  }
+
+  getReferences(query, referenceControl);
+}
+
+function toggleReference(control) {
+  var row = control.parentNode.parentNode;
+  if (control.checked) {
+    if (fhirReferenceCount >= fhirReferenceMax) {
+      control.checked = false;
+      alert("Only " + fhirReferenceMax + " entries may be selected");
+    } else {
+      fhirReferenceCount++;
+    }
+  } else {
+    fhirReferenceCount = fhirReferenceCount - 1;
+  }
+}
+
+function displaySummaries(data, referenceControl)
+{
+  var source = "";
+  var entries = data.entry;
+
+  for (var i=referenceTable.rows.length - 1; i >= 0; i=i-1) {
+    referenceTable.deleteRow(i);
+  }
+
+  var div = document.createElement("t");
+  if (entries != null) {
+    for (var i = 0; i &lt; entries.length; i++) {
+      row = referenceTable.insertRow(-1)
+      var aCell = row.insertCell(0);
+      aCell.innerHTML = referenceControl
+      if (fhirReferenceMax != 1) {
+        $.grep(fhirReferenceSourceTable.rows, function(aRow){
+          if (aRow.cells[2].textContent == entries[i].id) {
+            $(aCell).children("input:checkbox")[0].checked = true;
+            fhirReferenceCount++;
+          }
+        });
+      }
+      aCell = row.insertCell(1);
+      div.innerHTML = entries[i].summary;
+      aCell.innerHTML = $(div).text();
+      aCell = row.insertCell(2);
+      aCell.innerHTML = entries[i].id;
+      aCell.style.fontSize="0px";
+    }
+  }
+  // Do I need to remove the created element somehow?
+}
+
+function getReferences(query, referenceControl)
+{
+    try
+    {
+      var uri = expansionUri+query;
+      $.ajax({
+        url: uri,
+        cache: false,
+        dataType: "json",
+        success: function(data){
+          displaySummaries(data, referenceControl);
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+          try {
+            var oo = jQuery.parseJSON(jqXHR.responseText);
+            referenceTable.insertRow(-1).insertCell(0).innerHTML = processNarrative(oo.text.div);  
+          } catch (err) {
+            alert("System Error: "+textStatus);
+          }
+        }
+      });
+    }
+    catch (err)
+    {
+      alert("System Error: "+err);
+    }
+}
+
+function clearSourceTable() {
+  for (var i=fhirReferenceSourceTable.rows.length - 1; i >= 0; i=i-1) {
+    fhirReferenceSourceTable.deleteRow(i);
+  }  
+}
+
+function cancelReference() {
+  closeReferenceSelect();
+}
+
+function chooseReference(row) {
+  clearSourceTable()
+  var sourceRow = fhirReferenceSourceTable.insertRow(0);
+  var aCell = sourceRow.insertCell(0);
+  aCell.innerHTML = removeInputButton;
+  var aCell = sourceRow.insertCell(1);
+  aCell.innerHTML = row.cells[1].innerHTML;
+  var aCell = sourceRow.insertCell(2);
+  aCell.innerHTML = row.cells[2].innerHTML;
+  aCell.style.fontSize="0px";
+
+  closeReferenceSelect();
+}
+
+function commitReferences() {
+  clearSourceTable()
+
+  var rowNum = 0;
+  for (var i = 0; i &lt; referenceTable.rows.length; i++) {
+    if ($(referenceTable.rows[i].cells[0]).children("input:checkbox")[0].checked) {
+      var sourceRow = fhirReferenceSourceTable.insertRow(rowNum);
+      var aCell = sourceRow.insertCell(0);
+      aCell.innerHTML = removeInputButton;
+      var aCell = sourceRow.insertCell(1);
+      aCell.innerHTML = referenceTable.rows[i].cells[1].innerHTML;
+      var aCell = sourceRow.insertCell(2);
+      aCell.innerHTML = referenceTable.rows[i].cells[2].innerHTML;
+      aCell.style.fontSize="0px";
+      rowNum++;
+    }
+  }
+
+  closeReferenceSelect();
+}
+
+function closeReferenceSelect() {
+	document.getElementById("div-cnt").removeChild(document.getElementById("fhir-reference-form"));
+}
+        </xsl:comment>
+      </script>
       <style type="">
       div.fhir-code-form {
+       background-color: Lemonchiffon; 
+       border-bottom: 1px solid #778899;
+       border-right: 1px solid #778899;
+       padding: 10px 10px 0px 10px;
+       margin: 0px 0px 0px 0px;
+       position: fixed;
+       width: 520px;
+       top: 0;
+       left: 0;
+       opacity: 1.0;
+       z-order: 50;
+      }
+      div.fhir-code-form,div.fhir-reference-form {
        background-color: Lemonchiffon; 
        border-bottom: 1px solid #778899;
        border-right: 1px solid #778899;
@@ -764,7 +1330,7 @@ function closeCodeSelect() {
       .combo * {padding:0;margin:0;}
       .combo label {display:block;float:left;width:92px;text-align:right;}
       .combo input {width:300px; height:1.5em;z-index:50;}
-      .combo ul {padding:1px;border:2px solid #ccc;width: 300px;background-color:#fff;position:absolute;right:3px;top:1.8em;display:none;z-index:51;}
+      .combo ul {padding:1px;border:2px solid #ccc;width: 600px;background-color:#fff;position:absolute;left:3px;top:1.8em;display:none;z-index:51;}
       .combo li {display:block; width: 100%;}
       </style>
     </xsl:if>
@@ -804,7 +1370,7 @@ function closeCodeSelect() {
         var newInput = baseInput.cloneNode();
         newInput.setAttribute('name', rootPath.innerHTML + "[" + occurrence.innerHTML + "]");
         newInput.style.display = "inline";
-        var row = table.insertRow(0);
+        var row = table.insertRow(table.rows.length);
         row.insertCell(0).innerHTML = removeInputButton;
         row.insertCell(1).appendChild(newInput);
       }
@@ -836,30 +1402,42 @@ function closeCodeSelect() {
         }
       }
       function checkDecimal(input) {
-        format = new RegExp("^([+-]?([1-9]\d*)|0)(\.\d+)?$")
-        if (!format.test(input.value)) {
-          input.focus()
-          alert("Invalid decimal value")
+        if (input.value != '') {
+          format = new RegExp("^([+-]?([1-9]\d*)|0)(\.\d+)?$")
+          if (!format.test(input.value)) {
+            input.focus()
+            alert("Invalid decimal value")
+          }
         }
       }
       function checkInteger(input) {
-        format = new RegExp("^[+-]?([1-9]\d*)|0$")
-        if (!format.test(input.value)) {
-          input.focus()
-          alert("Invalid integer value")
+        if (input.value != '') {
+          format = new RegExp("^[+-]?([1-9]\d*)|0$")
+          if (!format.test(input.value)) {
+            input.focus()
+            alert("Invalid integer value")
+          }
         }
       }
       function checkDate(input) {
-        checkDateValue(input, "^([1-9][0-9]{3}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?$", "Invalid date value - must be yyyy-mm-dd")
+        if (input.value != '') {
+          checkDateValue(input.value, "^([1-9][0-9]{3}|0[0-9]{3})(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?$", "Invalid date value - must be yyyy-mm-dd")
+        }
       }
       function checkDateTime(input) {
-        checkDateValue(input, "^([1-9][0-9]{3}|0[0-9]{3})([-/](0[1-9]|1[0-2])([-/](0[1-9]|[12][0-9]|3[01])(\s+(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)(\s+(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?$", "Invalid date-time value - must be yyyy-mm-dd hh:mm:ss.sss +/-zz:zz")
+        if (input.value != '') {
+          checkDateValue(input.value, "^([1-9][0-9]{3}|0[0-9]{3})([-/](0[1-9]|1[0-2])([-/](0[1-9]|[12][0-9]|3[01])(\s+(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)(\s+(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?$", "Invalid date-time value - must be yyyy-mm-dd hh:mm:ss.sss +/-zz:zz")
+        }
       }
       function checkTime(input) {
-        checkDateValue(input, "^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)$", "Invalid time value - must be hh:mm:ss.sss")
+        if (input.value != '') {
+          checkDateValue(input.value, "^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)$", "Invalid time value - must be hh:mm:ss.sss")
+        }
       }
       function checkInstant(input) {
-        checkDateValue(input, "^([1-9][0-9]{3}|0[0-9]{3})[/-](0[1-9]|1[0-2])[-/](0[1-9]|[12][0-9]|3[01])\s+(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)\s+(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)$", "Invalid date-time value - must be yyyy-mm-dd hh:mm:ss.sss +/-zz:zz")
+        if (input.value != '') {
+          checkDateValue(input.value, "^([1-9][0-9]{3}|0[0-9]{3})[/-](0[1-9]|1[0-2])[-/](0[1-9]|[12][0-9]|3[01])\s+(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)\s+(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)$", "Invalid date-time value - must be yyyy-mm-dd hh:mm:ss.sss +/-zz:zz")
+        }
       }
       function checkDateValue(input, formatStr, message) {
         format = new RegExp(formatStr)
@@ -959,7 +1537,7 @@ function closeCodeSelect() {
     <xsl:param name="totalRepetitions"/>
     <xsl:param name="currentRepetition" select="1"/>
     <xsl:variable name="style">
-      <xsl:text>display:block;margin:0.5em 2em;</xsl:text>
+      <xsl:text>display:block;margin:0.5em 2em;border-style:solid;border-width:1px;border-color:#A0A0A0;</xsl:text>
       <xsl:if test="$totalRepetitions!=1">
         <xsl:text>border-style:solid;border-width:1px;border-color:#A0A0A0;</xsl:text>
       </xsl:if>
@@ -978,27 +1556,36 @@ function closeCodeSelect() {
       <xsl:if test="$enableReset='true'">
         <button type="button" onclick="resetGroup(this)">Reset</button>
       </xsl:if>
-      <xsl:if test="$totalRepetitions &gt; 1">
+<!--      <xsl:if test="$totalRepetitions &gt; 1">-->
         <xsl:choose>
           <xsl:when test="$iconPath=''">
-            <button type="button" onclick="deleteGroup(this)">
-              <xsl:if test="not((f:_minOccurs/@value=0 and $currentRepetition=1) or (not(f:_minOccurs/@value) and $currentRepetition&gt;1) or $currentRepetition &gt; f:_minOccurs/@value)">
-                <xsl:attribute name="style">display:none</xsl:attribute>
-              </xsl:if>
-              <xsl:text>Remove</xsl:text>
-            </button>
+            <button type="button" onclick="deleteGroup(this)">X</button>
           </xsl:when>
           <xsl:otherwise>
             <input type="image" onclick="deleteGroup(this)" src="{$iconPath}/html-form-delete.png" alt="Remove" style="width:10px;height:10px;"/>
           </xsl:otherwise>
         </xsl:choose>
-      </xsl:if>
+<!--      </xsl:if>-->
       <xsl:apply-templates select="f:group|f:question">
         <xsl:with-param name="path" select="$newPath"/>
         <xsl:with-param name="level" select="$level + 1"/>
         <xsl:with-param name="hierarchy" select="concat($hierarchy, '.', $currentRepetition)"/>
       </xsl:apply-templates>
     </div>
+    <xsl:choose>
+      <xsl:when test="$iconPath=''">
+        <button type="button" onclick="addGroup('{generate-id()}{$hierarchy}', this)">Add</button>
+      </xsl:when>
+      <xsl:otherwise>
+        <input style="margin:0em 2em;width:10px;height:10px;" type="image" onclick="addGroup('{generate-id()}{$hierarchy}', this)" src="{$iconPath}/html-form-add.png" alt="Add section"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    <span style="display:none">
+      <xsl:value-of select="f:linkId/@value"/>
+    </span>
+    <span style="display:none">
+      <xsl:value-of select="$currentRepetition"/>
+    </span>
     <xsl:if test="$currentRepetition &lt; $totalRepetitions">
       <xsl:call-template name="groupDiv">
         <xsl:with-param name="path" select="$path"/>
@@ -1045,7 +1632,10 @@ function closeCodeSelect() {
           <input type="text" onblur="checkInteger(this)"/>
         </xsl:when>
         <xsl:when test="$answerType='boolean'">
-          <input type="checkbox"/>
+          <select name="{$path}">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
         </xsl:when>
         <xsl:when test="$answerType='date'">
           <input type="text" onblur="checkDate(this)" maxlength="10"/>
@@ -1075,36 +1665,18 @@ function closeCodeSelect() {
               <xsl:variable name="valueset">
                 <xsl:apply-templates mode="resolveReference" select="f:options/f:reference"/>
               </xsl:variable>
-              <xsl:variable name="valuesetCodings">
-                <xsl:choose>
-                  <xsl:when test="$useMicrosoft='true'">
-                    <xsl:apply-templates mode="valueSetToCodings" select="msxsl:node-set($valueset)"/>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <xsl:apply-templates mode="valueSetToCodings" select="common:node-set($valueset)"/>
-                  </xsl:otherwise>
-                </xsl:choose>
-              </xsl:variable>
+              <xsl:variable name="valuesetCodings" select="f:coding"/>
               <xsl:variable name="codingCount">
                 <xsl:choose>
                   <xsl:when test="$useMicrosoft='true'">
-                    <xsl:value-of select="count(msxsl:node-set($valuesetCodings)/f:coding)"/>
+                    <xsl:value-of select="count(msxsl:node-set($valuesetCodings))"/>
                   </xsl:when>
                   <xsl:otherwise>
-                    <xsl:value-of select="count(common:node-set($valuesetCodings)/f:coding)"/>
+                    <xsl:value-of select="count(common:node-set($valuesetCodings))"/>
                   </xsl:otherwise>
                 </xsl:choose>
               </xsl:variable>
-              <xsl:variable name="operationOutcome">
-                <xsl:choose>
-                  <xsl:when test="$useMicrosoft='true'">
-                    <xsl:value-of select="msxsl:node-set($valueset)/f:OperationOutcome/f:issue[1]/f:type/f:code/@value"/>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <xsl:value-of select="common:node-set($valueset)/f:OperationOutcome/f:issue[1]/f:type/f:code/@value"/>
-                  </xsl:otherwise>
-                </xsl:choose>
-              </xsl:variable>
+              <xsl:variable name="operationOutcome" select="f:operationOutcome/@value"/>
               <xsl:choose>
                 <xsl:when test="$codingCount=0 and $operationOutcome!='too-costly'">                
                   <xsl:if test="not($suppressWarnings='true')">
@@ -1156,12 +1728,12 @@ function closeCodeSelect() {
                     </xsl:if>
                     <xsl:choose>
                       <xsl:when test="$useMicrosoft='true'">
-                        <xsl:for-each select="msxsl:node-set($valuesetCodings)/f:coding">
+                        <xsl:for-each select="msxsl:node-set($valuesetCodings)">
                           <xsl:call-template name="doListBoxItem"/>
                         </xsl:for-each>
                       </xsl:when>
                       <xsl:otherwise>
-                        <xsl:for-each select="common:node-set($valuesetCodings)/f:coding">
+                        <xsl:for-each select="common:node-set($valuesetCodings)">
                           <xsl:call-template name="doListBoxItem"/>
                         </xsl:for-each>
                       </xsl:otherwise>
@@ -1172,14 +1744,14 @@ function closeCodeSelect() {
                   <!-- Radio buttons -->
                   <xsl:choose>
                     <xsl:when test="$useMicrosoft='true'">
-                      <xsl:for-each select="msxsl:node-set($valuesetCodings)/f:coding">
+                      <xsl:for-each select="msxsl:node-set($valuesetCodings)">
                         <xsl:call-template name="doRadioBoxItem">
                           <xsl:with-param name="path" select="$path"/>
                         </xsl:call-template>
                       </xsl:for-each>
                     </xsl:when>
                     <xsl:otherwise>
-                      <xsl:for-each select="common:node-set($valuesetCodings)/f:coding">
+                      <xsl:for-each select="common:node-set($valuesetCodings)">
                         <xsl:call-template name="doRadioBoxItem">
                           <xsl:with-param name="path" select="$path"/>
                         </xsl:call-template>
@@ -1195,14 +1767,14 @@ function closeCodeSelect() {
                   <!-- Check boxes -->
                   <xsl:choose>
                     <xsl:when test="$useMicrosoft='true'">
-                      <xsl:for-each select="msxsl:node-set($valuesetCodings)/f:coding">
+                      <xsl:for-each select="msxsl:node-set($valuesetCodings)">
                         <xsl:call-template name="doCheckBoxItem">
                           <xsl:with-param name="path" select="$path"/>
                         </xsl:call-template>
                       </xsl:for-each>
                     </xsl:when>
                     <xsl:otherwise>
-                      <xsl:for-each select="common:node-set($valuesetCodings)/f:coding">
+                      <xsl:for-each select="common:node-set($valuesetCodings)">
                         <xsl:call-template name="doCheckBoxItem">
                           <xsl:with-param name="path" select="$path"/>
                         </xsl:call-template>
@@ -1219,10 +1791,35 @@ function closeCodeSelect() {
           </xsl:choose>
         </xsl:when>
         <xsl:when test="$answerType='reference'">
-          <xsl:if test="not($suppressWarnings='true')">
-            <xsl:message>WARNING: Reference is not yet a supported type - treating as string</xsl:message>
-          </xsl:if>
-          <input tabindex="text"/>
+          <xsl:choose>
+            <xsl:when test="f:extension[@url='http://www.healthintersections.com.au/fhir/Profile/metadata#reference']/f:valueString/@value">
+              <table style="table-layout:fixed;width=100%">
+                <col style="width:20px"/>
+                <col style="width:auto"/>
+                <col style="width:0px;visibility:collapse;"/>
+                <tbody/>
+              </table>
+              <xsl:variable name="max">
+                <xsl:choose>
+                  <xsl:when test="f:_maxOccursInteger/@value">
+                    <xsl:value-of select="f:_maxOccursInteger/@value"/>
+                  </xsl:when>
+                  <xsl:when test="f:_maxOccursCode">
+                    <xsl:value-of select="$defaultAnswerRepetitions"/>
+                  </xsl:when>
+                  <xsl:otherwise>1</xsl:otherwise>
+                </xsl:choose>
+              </xsl:variable>
+              <button onclick="javascript:initReferenceLookup('{f:extension[@url='http://www.healthintersections.com.au/fhir/Profile/metadata#reference']/f:valueString/@value}', '{f:text/@value}', this.previousElementSibling, {$max})">Edit</button>
+              <input name="Path:{f:linkId/@value}" tabindex="text"/><!-- remove? -->
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:if test="not($suppressWarnings='true')">
+                <xsl:message>WARNING: No look-up extension provided for resource reference - treating as string</xsl:message>
+              </xsl:if>
+              <input tabindex="text"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
           <xsl:choose>
@@ -1377,7 +1974,8 @@ function closeCodeSelect() {
   </xsl:template>
   <xsl:template name="doRadioBoxItem">
     <xsl:param name="path"/>
-    <xsl:if test="f:system">
+    
+<!--    <xsl:if test="f:system">-->
       <input type="radio" name="{$path}" value="{f:code/@value}">
         <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/Profile/tools-extensions#definition']/f:valueString/@value">
           <xsl:attribute name="title">
@@ -1385,7 +1983,7 @@ function closeCodeSelect() {
           </xsl:attribute>
         </xsl:for-each>
       </input>
-    </xsl:if>
+<!--    </xsl:if>-->
     <xsl:choose>
       <xsl:when test="f:display/@value">
         <xsl:value-of select="concat(' ', f:display/@value)"/>
@@ -1573,6 +2171,14 @@ function closeCodeSelect() {
       </xsl:call-template>
     </xsl:variable>
     <xsl:value-of select="$pass2"/>
+  </xsl:template>
+  <xsl:template name="escapeText">
+    <xsl:param name="text"/>
+    <xsl:call-template name="replace">
+      <xsl:with-param name="input" select="$text"/>
+      <xsl:with-param name="pattern">'</xsl:with-param>
+      <xsl:with-param name="replacement">\'</xsl:with-param>
+    </xsl:call-template>
   </xsl:template>
   <xsl:template name="replace">
     <xsl:param name="input"/>
