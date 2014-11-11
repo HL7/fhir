@@ -10,7 +10,7 @@
   <LastAuthor>Kramer, Mark A.</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-11-10T18:21:32Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,8 +20,8 @@
    <Path>\FHIR\source\medicationprescription\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>7215</WindowHeight>
-  <WindowWidth>15330</WindowWidth>
+  <WindowHeight>13260</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>6</ActiveSheet>
@@ -3549,7 +3549,7 @@
    <Range>R2C20:R100C20</Range>
    <Type>List</Type>
    <CellRangeList/>
-   <Value>&quot;left,right,up,down,[xpixels];[ypixels]&quot;</Value>
+   <Value>&quot;left,right,up,down,[xpixels],[ypixels]&quot;</Value>
    <ErrorHide/>
    <ErrorStyle>Info</ErrorStyle>
   </DataValidation>
@@ -5650,7 +5650,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="47.25">
-    <Cell ss:StyleID="s113"><Data ss:Type="String">cqf-medicationadministration</Data><NamedCell
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!cqf-medicationadministration</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">cqf-medicationadministration.xml</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5916,7 +5916,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
