@@ -75,15 +75,15 @@ public class XSDGenerator  {
 		enumDefs.clear();
 
 		if (outer) {
-		write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-		write("<!-- \r\n");
-		write(Config.FULL_LICENSE_CODE);
-		write("\r\n");
-		write("  Generated on "+genDate+" for FHIR v"+version+" \r\n");
-		write("-->\r\n");
-		write("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://hl7.org/fhir\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\" "+
-				"targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
-		write("  <xs:include schemaLocation=\"fhir-base.xsd\"/>\r\n");
+		  write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
+		  write("<!-- \r\n");
+		  write(Config.FULL_LICENSE_CODE);
+		  write("\r\n");
+		  write("  Generated on "+genDate+" for FHIR v"+version+" \r\n");
+		  write("-->\r\n");
+		  write("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://hl7.org/fhir\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\" "+
+		      "targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
+		  write("  <xs:include schemaLocation=\"fhir-base.xsd\"/>\r\n");
 		}
 		write("  <xs:element name=\""+root.getName()+"\" type=\""+root.getName()+"\">\r\n");
 		write("    <xs:annotation>\r\n");
@@ -143,7 +143,7 @@ public class XSDGenerator  {
 		write("    </xs:annotation>\r\n");
 		write("    <xs:complexContent>\r\n");
 		if (isResource)
-			write("      <xs:extension base=\"Resource\">\r\n");
+			write("      <xs:extension base=\""+root.typeCode()+"\">\r\n");
 		else
 			write("      <xs:extension base=\"BackboneElement\">\r\n");
 		write("        <xs:sequence>\r\n");
@@ -294,11 +294,14 @@ public class XSDGenerator  {
 			}
 			return "code";
 
-		} else if (!type.hasParams() || !params)
-			return type.getName();
-		else if (type.getParams().size() > 1)
+		} else if (!type.hasParams() || !params) {
+			if (type.getName().equals("Resource"))
+			  return "ResourceContainer";
+			else
+			  return type.getName();
+		} else if (type.getParams().size() > 1)
 			throw new Exception("multiple type parameters are only supported on resource");
-		else
+		else  
 			return type.getName()+"_"+upFirst(type.getParams().get(0));
 	}
 

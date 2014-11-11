@@ -45,6 +45,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfiledType;
+import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -95,8 +96,8 @@ public class XSDBaseGenerator {
     genPrimitives();
     write("\r\n");
     genResourceReference();
-    genReference();
-
+    genResourceContainer();
+    
     for (ElementDefn e : definitions.getInfrastructure().values())
       genInfrastructure(e);
     for (ElementDefn e : definitions.getTypes().values())
@@ -105,6 +106,10 @@ public class XSDBaseGenerator {
       genConstraint(cd);
     for (ElementDefn e : definitions.getStructures().values())
       genStructure(e);
+    for (String n : definitions.getBaseResources().keySet()) {
+      ResourceDefn r = definitions.getBaseResources().get(n);
+      genResource(n, r);
+    }
     for (BindingSpecification b : definitions.getBindings().values())
       if ((b.getUseContexts().size() > 1 && b.getBinding() == Binding.CodeList) || definitions.getCommonBindings().contains(b))
         generateEnum(b.getName());
@@ -112,6 +117,16 @@ public class XSDBaseGenerator {
       write("</xs:schema>\r\n");
       writer.flush();
     }
+  }
+
+  private void genResourceContainer() throws IOException {
+        write("  <xs:complexType name=\"ResourceContainer\">\r\n");
+        write("    <xs:choice>\r\n");
+        for (String n : definitions.sortedResourceNames())
+          write("      <xs:element ref=\""+n+"\"/>\r\n");
+        write("    </xs:choice>\r\n");
+        write("  </xs:complexType>\r\n");
+    
   }
 
   private void genElementRoot() throws Exception  {
@@ -146,42 +161,6 @@ public class XSDBaseGenerator {
     write("    </xs:complexContent>\r\n");
     write("  </xs:complexType>\r\n");
     write("\r\n");    
-  }
-
-  private void genReference() throws Exception {
-    write("  <xs:complexType name=\"Resource.Inline\">\r\n");
-    write("    <xs:choice minOccurs=\"1\" maxOccurs=\"1\">\r\n");
-    for (String r : definitions.getResources().keySet()) 
-      write("      <xs:element ref=\""+r+"\"/>\r\n");
-    write("    </xs:choice>\r\n");
-    write("  </xs:complexType>\r\n");
-    write("  <xs:complexType name=\"Resource\">\r\n");
-    write("    <xs:annotation>\r\n");
-    write("      <xs:documentation>The base resource declaration used for all FHIR resource types - adds Narrative and xml:lang</xs:documentation>\r\n");
-    write("    </xs:annotation>\r\n");
-    write("    <xs:complexContent>\r\n");
-    write("      <xs:extension base=\"BackboneElement\">\r\n");
-    write("        <xs:sequence>\r\n");
-    write("          <xs:element name=\"language\" type=\"code\" minOccurs=\"0\" maxOccurs=\"1\">\r\n");
-    write("            <xs:annotation>\r\n");
-    write("              <xs:documentation>The human language of the content. The value can be any valid value according to BCP-47</xs:documentation>\r\n");
-    write("            </xs:annotation>\r\n");
-    write("          </xs:element>\r\n");
-    write("          <xs:element name=\"text\" type=\"Narrative\" minOccurs=\"0\" maxOccurs=\"1\">\r\n");
-    write("            <xs:annotation>\r\n");
-    write("              <xs:documentation>Text summary of resource content (for human interpretation)</xs:documentation>\r\n");
-    write("            </xs:annotation>\r\n");
-    write("          </xs:element>\r\n");
-    write("          <xs:element name=\"contained\" type=\"Resource.Inline\" minOccurs=\"0\" maxOccurs=\"unbounded\">\r\n");
-    write("            <xs:annotation>\r\n");
-    write("              <xs:documentation>Contained, inline Resources. These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope</xs:documentation>\r\n");
-    write("            </xs:annotation>\r\n");
-    write("          </xs:element>\r\n");
-    write("        </xs:sequence>\r\n");
-    write("      </xs:extension>\r\n");
-    write("    </xs:complexContent>\r\n");
-    write("  </xs:complexType>\r\n");
-    write("\r\n");
   }
 
   //  private void genExtensionsElement() throws Exception {
@@ -443,6 +422,45 @@ public class XSDBaseGenerator {
 
   }
 
+  private void genResource(String name, ResourceDefn res) throws Exception {
+    enums.clear();
+    enumDefs.clear();
+    boolean isBase = res.getRoot().typeCode().equals("Any");
+    write("  <xs:complexType name=\"" + name + "\">\r\n");
+    write("    <xs:annotation>\r\n");
+    write("      <xs:documentation>"+Utilities.escapeXml(res.getDefinition())+"</xs:documentation>\r\n");
+    write("    </xs:annotation>\r\n");
+    if (!isBase) {
+      write("    <xs:complexContent>\r\n");
+      write("      <xs:extension base=\""+res.getRoot().typeCode()+"\">\r\n");
+    }
+    write("        <xs:sequence>\r\n");
+
+    for (ElementDefn e : res.getRoot().getElements()) {
+        generateElement(res.getRoot(), e, null);
+    }
+    write("        </xs:sequence>\r\n");
+    if (!isBase) {
+      write("      </xs:extension>\r\n");
+      write("    </xs:complexContent>\r\n");
+    }
+    write("  </xs:complexType>\r\n");
+    genRegex();
+
+    while (!structures.isEmpty()) {
+      String s = structures.keySet().iterator().next();
+      generateType(res.getRoot(), s, structures.get(s));
+      structures.remove(s);
+    }
+
+    for (String en : enums) {
+      generateEnum(en);
+    }
+
+    genRegex();
+    
+  }
+  
   private void genStructure(ElementDefn elem) throws Exception {
     enums.clear();
     enumDefs.clear();
@@ -680,7 +698,10 @@ public class XSDBaseGenerator {
       //          && !e.unbounded())
       //        return type.getName() + "-primitive";
       //      else
-      return type.getName();
+      if (type.getName().equals("Resource"))
+        return "ResourceContainer";
+      else
+        return type.getName();
     } else if (type.getParams().size() > 1)
       throw new Exception(
           "multiple type parameters are only supported on resource ("
