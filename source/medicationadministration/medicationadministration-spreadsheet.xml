@@ -10,7 +10,7 @@
   <LastAuthor>Kramer, Mark A.</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-11-10T18:21:32Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -24,7 +24,7 @@
   <WindowWidth>15330</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -5660,7 +5660,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.5">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">cqf-medicationadministratin-notgiven</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">!cqf-medicationadministratin-notgiven</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">cqf-medicationadministration-notgiven.xml</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">medicationadministration-cqf-notgiven-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">spreadsheet</Data></Cell>
@@ -5896,6 +5896,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6979,7 +6980,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
